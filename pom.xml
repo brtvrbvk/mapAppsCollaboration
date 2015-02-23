@@ -27,7 +27,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- import dependencies management from mapapps -->
+                <!-- EXTRA import dependencies management from mapapps -->
                 <groupId>de.conterra.mapapps</groupId>
                 <artifactId>ct-mapapps</artifactId>
                 <version>${mapapps.version}</version>
