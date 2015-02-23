@@ -1,0 +1,245 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .ctSearchWrapper {
+        padding-right: 45px; //saves space for goSearchButton
+        position: relative;
+        .dijitTextBox {
+            .size(100%);
+            z-index: 1;
+            border: 3px solid @primary-color;
+            .border-radius(18px);
+            .dijitInputContainer{
+                .border-radius(15px);
+            }
+            &.dijitTextBoxHover{
+                background-color: @textbox-hovered-background-color;
+            }
+            &.dijitTextBoxFocused,
+            &.dijitTextBoxHover{
+                background-image: none;
+                .dijitInputContainer{
+                    //disabled shadow for hovered input field
+                    .box-shadow-none();
+                }
+            }
+        }
+        .dijitInputField{
+            padding: 7px 25px 5px;
+            width: 100%;
+            font-size: 12px;
+            .box-sizing(border-box);
+            .dijitInputInner{
+                color: @selected-text-color;
+                font-family: inherit;
+                font-size: inherit;
+            }
+        }
+        .dijitPlaceHolder{
+            margin: 0;
+            color: #BDBDBD;
+        }
+        .dijitInputInner::-ms-clear {
+            display: none;
+        }
+
+        .ctSearchLoadingIndicator{
+            position: absolute;
+            z-index: 5;
+            left: 10px;
+            top:10px;
+        }
+        .resetSearchButton,
+        .goSearchButton{
+            position: absolute;
+            z-index: 6;
+            margin: 0;
+            .dijitButtonNode{
+                border: none;
+            }
+            &.dijitHover .dijitButtonText{
+                color: @selected-text-color;
+            }
+        }
+        .resetSearchButton{
+            right: 44px;
+            top: 3px;
+            .dijitButtonNode{
+                background: transparent;
+                padding: 8px 9px;
+            }
+            .dijitButtonText{
+                line-height: 10px;
+            }
+        }
+        .goSearchButton{
+            .dijitButtonNode{
+                .resetBG();
+                background: #FFF;
+                .border-radius(100%);
+                padding: 2px 6px 6px;
+                font-size: 18px;
+                .transition(border 0.2s ease-out);
+                border: 3px solid @primary-color;
+            }
+            &.dijitHover {
+                .dijitButtonNode{
+                    background-color: @textbox-hovered-background-color;
+                    color: @text-color;
+                    border-color: @text-color;
+                }
+            }
+        }
+    }
+    .searchresultlist{
+        margin-right: 44px;
+        margin-left: 2px;
+    }
+    // below comes the styling for the suggest List
+    .ctSearchResultAttachPointWidget {
+        border-top: none;
+        .border-radius(0,0,@ct-dialog-border-radius,@ct-dialog-border-radius);
+        .dijitMenuItem.ctSearchCategory{
+            pointer-events: none;
+            text-align: right;
+            font-size: .8em;
+            border-top: 1px dotted @text-color;
+            &:first-child{
+                border-top: 0;
+            }
+            .dijitMenuItemLabel{
+                padding: 0;
+                padding-right: 12px;
+                display: block;
+            }
+        }
+        .ctSearchResultWidget{
+            background-color: @menu-background-color;
+            display: block;
+            .border-radius(15px);
+            overflow: hidden;
+            margin-right: 41px;
+            margin-left: 3px;
+            width: 100%;
+            border-color: @disabled-color;
+            .dijitMenuItem{
+                display: block;
+                width: 100%;
+                padding: 0 8px;
+                .box-sizing(border-box);
+                &.ctShowMenuItemIcon {
+                    position: relative;
+                    .dijitMenuItemIconCell,
+                    .dijitMenuItemLabel{
+                        display: table-cell;
+                    }
+                    .dijitMenuItemLabel{
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        .box-sizing(border-box);
+                        padding-left: 30px;
+                    }
+                }
+            }
+            .dijitMenuItemHover td{
+                border-color: @select-dropdownitem-hovered-background-color;
+            }
+            .dijitMenuItemLabel{
+                display: inline-block;
+                width: 100%!important; // otherwise dojo renders custom width on element-style
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .dijitMenuItem:last-child{
+                margin-bottom: 10px;
+            }
+            .dijitMenuArrowCell,
+            .dijitMenuItemAccelKey,
+            .dijitMenuItemIconCell{
+                display: none;
+            }
+            .dijitMenuItem td{
+                border-bottom: none;
+            }
+            .dijitMenuItemHover,
+            .dijitMenuItemSelected,
+            .dijitMenuItemFocused{
+                .standard-gradient(@agiv-light-grey);
+                color: @text-color;
+            }
+        }
+    }
+    .ctSearchResultAttachPointWidget.dijitVisible{
+        -webkit-animation: FadeIn 0.2s ease;
+        -moz-animation: FadeIn 0.2s ease;
+        -ms-animation: FadeIn 0.2s ease;
+    }
+    .dijitDialog.ctWindow.ctSearchResultHover {
+        border: none;
+        .box-shadow-none();
+        .dijitDialogPaneContent {
+            padding: 0;
+            border: none;
+            background: none;
+            overflow: visible;
+            .ctSearchResultHoverInfoWidget {
+                color: @ct-tooltip-text-color;
+                background-color: @ct-tooltip-background-color;
+                border: 2px solid @ct-tooltip-border-color;
+                .ctSearchResultHoverMainNode {
+                    margin: 4px;
+                    white-space: nowrap;
+                    &:before{
+                        font-size: 20px;
+                        color: @ct-tooltip-background-color;
+                        font-family: mapappsUiFont;
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -10px;
+                    }
+                }
+            }
+        }
+        .ctWindowTitelBarPadding {
+            display: none;
+        }
+         &.ctTooltipAnchorLeft .ctSearchResultHoverMainNode:before{
+            content: '\e00a';
+            right: -12px;
+        }
+        &.ctTooltipAnchorRight .ctSearchResultHoverMainNode:before{
+            content: '\e00c';
+            left: -12px;
+        }
+    }
+
+    .search{
+      padding-right: 40px;
+    }
+
+    //-- additional styles for minimalistic style used in miniMapTemplate
+    &.ctTpl_minimaps .search{
+        .ctSearchWrapper{
+            padding-right: 42px;
+        }
+        .dijitTextBox{
+            border-width: 2px;
+            .border-radius(5px);
+        }
+        .dijitInputContainer{
+            .border-radius(5px);
+        }
+        .resetSearchButton{
+            top:2px;
+        }
+        .goSearchButton{
+            top: 0; right:0;
+            .dijitButtonNode{
+                .border-radius(4px);
+                border-width: 2px;
+            }
+        }
+    }
+
+}

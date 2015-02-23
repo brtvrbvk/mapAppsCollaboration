@@ -1,0 +1,40 @@
+{
+    "Bundle-SymbolicName": "navteqrouting",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Components": [
+        {
+            "name": "NavteqRouter",
+            "provides": ["ct.api.Router"],
+            "propertiesConstructor": true,
+            "properties": {
+                "routingService": "http://route.st.nlp.nokia.com/routing/7.2/calculateroute.json",
+                "appid": "@@navteq.appid@@",
+                "token": "@@navteq.token@@"
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                }
+            ]
+        }
+    ]
+}

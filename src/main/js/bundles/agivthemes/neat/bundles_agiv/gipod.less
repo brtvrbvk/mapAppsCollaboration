@@ -1,0 +1,198 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .ctAppsDropDownToggler .dijitIcon.gipod_template{
+        background-size: auto 40px;
+        background-repeat: no-repeat;
+        background-position: 23px 0;
+    }
+    .gipodResetButton{
+        margin: 5px;
+        float:right;
+        .dijitButtonNode{
+            padding: 3px;
+            font-size: @ct-icon-small;
+            .border-radius(@button-border-radius);
+        }
+        .dijitButtonText{
+            display: none;
+        }
+    }
+
+    .gipodParameterControls{
+        .gipodParameterWidget .dataformwidgetnode{
+            overflow-x: hidden; 
+        }
+        .dijitDialogSingleChild{
+            overflow: auto; overflow-x: hidden;
+        }
+        .dijitContentPaneSingleChild{
+            padding: 0;
+            overflow: visible;
+        } 
+    }
+
+
+    //styling of different dijits and dataform elements appearing in GipodUI
+    .dijitCalendarHoveredDate .dijitCalendarDateLabel{
+        background-color: @text-color;
+        //color: @text-color;
+    }
+    .ctFormControl .dijitTextBox{
+        //    border-radius: 0;
+        //    .dijitInputContainer{
+        //        border-radius: 0;
+        //    }
+        .dijitButtonNode:hover,
+            .dijitButtonNode.dijitHasDropDownOpen:hover{ 
+            // dijit ArrowButton in ComboBoxes does not have dijitHover when hovered.
+            background-color: @primary-color;
+        }
+        .dijitButtonNode.dijitHasDropDownOpen{
+            background-color: transparent;
+        }
+    }
+
+    .dijitDialog.ctWindow.ctGipodHover {
+        border: none;
+        .box-shadow-none();
+        .dijitDialogPaneContent {
+            padding: 0;
+            border: none;
+            background: none;
+            overflow: visible;
+            .ctGipodHoverInfoWidget {
+                color: @ct-tooltip-text-color;
+                background-color: @ct-tooltip-background-color;
+                border: 2px solid @ct-tooltip-border-color;
+                .ctGipodHoverMainNode {
+                    margin: 4px;
+                    white-space: nowrap;
+                    &:before{
+                        font-size: 20px;
+                        color: @ct-tooltip-background-color;
+                        font-family: mapappsUiFont;
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -10px;
+                    }
+                }
+            }
+            .ctGipodHoverInfoWidget.ctGipodMultiple {
+                //border: @ct-dialog-border-radius solid @ct-primary-contrast-border-color;
+            }
+        }
+        .ctWindowTitelBarPadding {
+            display: none;
+        }
+        &.ctTooltipAnchorLeft .ctGipodHoverMainNode:before{
+            content: '\e00a';
+            right: -12px;
+        }
+        &.ctTooltipAnchorRight .ctGipodHoverMainNode:before{
+            content: '\e00c';
+            left: -12px;
+        }
+
+    }
+
+    .ctGipodInfoResult .ctGipodGridPanel {
+        padding:0;        
+        .ctDataView > .dijitLayoutContainer > .dijitAlignTop,
+        .ctDataView > .dijitLayoutContainer > .dijitAlignBottom{
+            padding:0;
+            height:0;
+        }
+        .ctDataView > .dijitLayoutContainer > .dijitAlignCenter {
+            padding:0;
+        }
+        .dgrid-header{
+            right:0;
+        }
+    }
+    //remove unnecessary paddings and spacings    
+    .ctGipodGridPanel,
+    .ctGipodResultCalendar,
+    .ctGipodResultIdentificatie{
+        .ctDataView > .dijitLayoutContainer > .dijitAlignTop,
+        .ctDataView > .dijitLayoutContainer > .dijitAlignBottom{
+            padding:0;
+            height:0;
+        }
+        .ctDataView > .dijitLayoutContainer > .dijitAlignCenter {
+            padding:0;
+        }
+        .moreInfo{
+            margin: 6px 0;
+            font-style: italic;
+        }
+    }
+    .gipodSimpleMapPanel .mapControls{
+        bottom: 34px;
+        position: absolute;
+        left: 20px;
+    }
+    .ctGipodInfoResult{
+        .label{
+            font-weight: bold;            
+        }
+    }
+    //.ctGipodResultIdentificatie, 
+    //.ctGipodInfoResult {font-size: 1.2em;}
+
+    //layout for contact detail icons
+    .ctGipodInfoPanel {
+        .contactRow{
+            padding-left: 25px;
+            position: relative;
+            margin: .5em 0;
+        }
+        .featureinfoIcon{
+            padding-right: 8px;
+            &.icon-marker{
+                padding-top: 2px;
+                font-size: @ct-icon-small + 5px;
+            }
+        }
+    }
+
+    .ctGipodInfoRecurrence{
+        font-weight: bold;
+    }
+
+    .notAllEventTypesChecked .manifestationCheckBox{
+        border-color: @text-color;
+        &:before{
+            content: '\e60d';
+            color: @disabled-color;
+        }
+    }
+    .ctEmptyLabel {
+        width: 30px;
+        display: inline-block;
+    }
+    .ctSpacer{
+        padding-top: 5px;
+        border-top: 1px dotted @ct-dialog-title-text-color;
+    }
+    .gipodMapControls {
+        .ctGipodScalebar {
+            position: absolute;
+            bottom: 40px;
+            left: 20px
+        }
+        .ctGipodScaleviewer {
+            position: absolute;
+            bottom: 40px;
+            right: 30px
+        }
+    }
+}
+@media (max-width: 500px) {
+    .@{themeName}{
+        .ctGipodInfoResult .ctGipodMapPanel {
+            display:none;
+        }
+    }
+}

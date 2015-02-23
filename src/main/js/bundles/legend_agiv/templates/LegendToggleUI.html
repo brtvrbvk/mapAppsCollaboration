@@ -1,0 +1,14 @@
+<div>
+    <div data-dojo-type="dijit/layout/ContentPane"
+         class="switcherPane"
+         data-dojo-attach-point="switcherPane">
+        <span data-dojo-attach-point="leftLabel"></span>
+
+        <div data-dojo-type="dojox/mobile/Switch"
+             data-dojo-attach-point="mapSwitch"
+             data-dojo-props="shape:'smallSwitch', leftLabel: '', rightLabel: ''"
+             data-dojo-attach-event="onStateChanged:_onMapSwitchStateChanged"></div>
+        <span data-dojo-attach-point="rightLabel"></span>
+    </div>
+    <div data-dojo-attach-point="controlsNode"></div>
+</div>

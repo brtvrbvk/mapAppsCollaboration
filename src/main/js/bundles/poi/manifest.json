@@ -1,0 +1,854 @@
+{
+    "Bundle-SymbolicName": "poi",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["poi"],
+    "Config-Bundle-Location": "/config",
+
+    //    "Config-Bundle-Location" : "/config",
+
+    "Bundle-StartLevel": 8,
+
+    "Components": [
+
+        /*
+         * INFO WIDGET
+         */
+
+        {
+            "name": "ContentRegistrationPOIInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "poiinfowidget": "poi.ContentWidgetFactoryPOI"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "POI"
+                            }
+                        },
+                        "type": "poiinfowidget",
+                        "hideEmptyLayerResults": true
+                    }
+                ]
+            }
+        },
+
+        /*
+         * POI Hover Widget
+         */
+
+        {
+            "name": "ContentRegistration",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "POIHoverInfoWidget": "poi.ContentWidgetFactoryPOI"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "type": "POIHoverInfoWidget"
+                            }
+                        },
+                        "type": "POIHoverInfoWidget",
+                        "windowTitle": "POI",
+                        "windowSize": {
+                        },
+                        "window": {
+                            "windowName": "agivPOIHover",
+                            "baseClass": "ctPOIHover"
+                        },
+                        "noInfoWindow": true
+                    }
+                ]
+            }
+        },
+
+        /*
+         * FEATURE INFO WIDGET
+         */
+
+        {
+            "name": "ContentRegistrationPOIFeatureinfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "poifeatureinfowidget": "poi.ContentWidgetFactoryPOI"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "POI_FEATURE_INFO",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "poifeatureinfowidget",
+                        "hideEmptyLayerResults": true,
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 110
+                        }
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "POI_FEATURE_INFO"
+                            }
+                        },
+                        "type": "poifeatureinfowidget",
+                        "hideEmptyLayerResults": true,
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 110
+                        }
+                    }
+                ]
+            }
+        },
+
+        {
+            "name": "ContentRegistrationMultiPOIFeatureinfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "multipoifeatureinfowidget": "poi.ContentWidgetFactoryPOI"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "MULTI_POI_FEATURE_INFO",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "multipoifeatureinfowidget",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": [],
+                            "windowClass": "multiPOI"
+
+                        },
+                        "windowTitle": "Maak een keuze",
+//                        "noInfoWindow": true,
+                        "windowSize": {
+                            "w": 525,
+                            "h": 235
+                        }
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "MULTI_POI_FEATURE_INFO"
+                            }
+                        },
+                        "type": "multipoifeatureinfowidget",
+                        "windowTitle": "Maak een keuze",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": [],
+                            "windowClass": "multiPOI"
+//                            "baseClass": "ctPOIHover"
+                        },
+//                        "noInfoWindow": true,
+                        "windowSize": {
+                            "w": 525,
+                            "h": 235
+                        }
+                    }
+                ]
+            }
+        },
+
+        /*
+         *
+         * CONTENT WIDGET FACTORY
+         *
+         */
+
+
+        {
+            "name": "ContentWidgetFactoryPOIFeatureinfo",
+            "provides": "poi.ContentWidgetFactoryPOI",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "poiinfowidget": {
+                        "info": "poi.featureinfointegration.InfoWidget"
+                    },
+                    "poifeatureinfowidget": {
+                        "info": "poi.featureinfointegration.POIFeatureInfoWidget"
+                    },
+                    "POIHoverInfoWidget": {
+                        "info": "poi.POIHoverInfoWidget"
+                    },
+                    "multipoifeatureinfowidget": {
+                        "info": "poi.featureinfointegration.MultiPOIFeatureInfoWidget"
+                    }
+                },
+                "POIFeatureInfoWidget": {
+                    "maxTextLength": 100,
+                    "i18n": {
+                        "moreInformationPOI": "${ui.featureinfointegration.moreInformationPOI}",
+                        "moreInformation": "${ui.featureinfointegration.moreInformationMunicipality}",
+                        "noteLabel": "${ui.featureinfointegration.noteLabel}",
+                        "descriptionLabel": "${ui.featureinfointegration.descriptionLabel}",
+                        "more": "${ui.featureinfointegration.more}",
+                        "less": "${ui.featureinfointegration.less}",
+                        "nodata": "${ui.featureinfointegration.nodata}",
+                        "loadingGeneralInfo": "${ui.loadingGeneralInfo}",
+                        "showRoute": "${ui.showRoute}",
+                        "showNearby": "${ui.showNearby}",
+                        "coordinates": "${ui.coordinates}"
+                    }
+                },
+                "POIHoverInfoWidget": {
+                    "i18n": {
+                        "clusterHover": "${ui.clusterHover}"
+                    }
+                },
+                "MultiPOIFeatureInfoWidget": {
+
+                }
+            },
+            "references": [
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "deleteTool",
+                    "providing": "search.SearchResultDeleteTool"
+                },
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                },
+                {
+                    "name": "locationInfoController",
+                    "providing": "themeinfo.LocationInfoController",
+                    "policy": "dynamic",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        /*
+         * SEARCH INTEGRATION
+         */
+        {
+            "name": "POISuggestHandler",
+            "impl": "./searchintegration/POISuggestHandler",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleValueChange"
+                    },
+                    {
+                        "topic": "agiv/search/result/REHANDLE",
+                        "method": "_rehandleResult"
+                    }
+                ],
+                "storeQueryOptions": {
+                    "maxcount": 5,
+                    "count": 5,
+                    "maxmodel": false
+                },
+                "storeParameters": {
+                    "minQueryLength": 2,
+                    "target": "http://ws.beta.agiv.be/poi/core"
+                }
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                }
+            ]
+        },
+
+        /*
+         * SELECTION HANDLER
+         */
+
+//        {
+//            "name": "POISelectionHandler",
+//            "impl": "./searchintegration/POISelectionHandler",
+//            "provides": ["ct.framework.api.EventHandler"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "Event-Topics": [
+//                    {
+//                        "topic": "agiv/search/result/SELECTED_RESULT",
+//                        "method": "_handleResultSelection"
+//                    },
+//                    {
+//                        "topic": "agiv/search/result/CLEAR",
+//                        "method": "_handleResultClear"
+//                    }
+//                ],
+//                "poiSearchLookupTable": {
+//                    "point": {
+//                        "url": "resource('images/mapMarker_sun.png')",
+//                        "width": 16,
+//                        "height": 26,
+//                        "xoffset": 0,
+//                        "yoffset": 10,
+//                        "type": "esriPMS"
+//                    }
+//                },
+//                "pointZoomScale": 2500
+//            },
+//            "references": [
+//                {
+//                    "name": "mrr",
+//                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+//                },
+//                {
+//                    "name": "mapModel",
+//                    "providing": "ct.mapping.map.MapModel"
+//                },
+//                {
+//                    "name": "mapState",
+//                    "providing": "ct.mapping.map.MapState"
+//                },
+//                {
+//                    "name": "symbolTableProvier",
+//                    "providing": "search.SearchResultSymbolLookupProvider"
+//                }
+//            ]
+//        },
+
+        {
+            "name": "POIServerStoreLayerRegistration",
+            "propertiesConstructor": true,
+            "properties": {
+                "maxcount": 200,
+                "showClusterLabels": true,
+                "clusterLookupTable": {
+                    "point-cluster": {
+                        "text": "TEXT",
+                        "type": "esriTS",
+                        "yoffset": -4,
+                        "font": {
+                            "size": "9pt",
+                            "align": "middle",
+                            "style": "normal",
+                            "variant": "normal",
+                            "weight": "bold",
+                            "family": "sans-serif"
+                        }
+                    }
+                },
+                "symbolFactoryOpts": {
+                    "doGeneralization": false,
+                    "generalizationThreshold": 500,
+                    "generalizationScale": 1000000,
+                    "colorArray": [
+                        [
+                            255,
+                            0,
+                            0,
+                            255
+                        ],
+                        [
+                            255,
+                            153,
+                            0,
+                            255
+                        ],
+                        [
+                            255,
+                            255,
+                            0,
+                            255
+                        ],
+                        [
+                            0,
+                            255,
+                            0,
+                            255
+                        ],
+                        [
+                            0,
+                            255,
+                            255,
+                            255
+                        ],
+                        [
+                            204,
+                            0,
+                            255,
+                            255
+                        ],
+                        [
+                            255,
+                            97,
+                            97,
+                            255
+                        ],
+                        [
+                            255,
+                            189,
+                            91,
+                            255
+                        ],
+                        [
+                            255,
+                            255,
+                            153,
+                            255
+                        ],
+                        [
+                            204,
+                            255,
+                            153,
+                            255
+                        ],
+                        [
+                            102,
+                            204,
+                            255,
+                            255
+                        ],
+                        [
+                            204,
+                            153,
+                            255,
+                            255
+                        ],
+                        [
+                            200,
+                            0,
+                            0,
+                            255
+                        ],
+                        [
+                            210,
+                            125,
+                            0,
+                            255
+                        ],
+                        [
+                            229,
+                            229,
+                            0,
+                            255
+                        ],
+                        [
+                            0,
+                            153,
+                            0,
+                            255
+                        ],
+                        [
+                            0,
+                            0,
+                            255,
+                            255
+                        ],
+                        [
+                            102,
+                            0,
+                            204,
+                            255
+                        ]
+                    ],
+                    "lookupTable": {
+                        "point": {
+                            "color": "colorPlaceholder",
+                            "size": 5,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    160
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-cluster": {
+                            "color": "colorPlaceholder",
+                            "size": 9,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    160
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-selected": {
+                            "color": "colorPlaceholder",
+                            "size": 15,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-selected-cluster": {
+                            "color": "colorPlaceholder",
+                            "size": 15,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+
+        {
+            "name": "POIFocusHandler",
+            "provides": "poi.POIFocusHandler",
+            "references": [
+                {
+                    "name": "mapstate",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "stores",
+                    //comes from POIServerStoreLayerRegistration
+                    "providing": "poi.POIDataModel",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "contentviewer",
+                    "providing": "ct.contentviewer.ContentViewer",
+                    "connect": {
+                        "closeContentInfo": "closeContentInfo"
+                    }
+                }
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "highlightHoveredPOI": false,
+                "queryAllLayers": true
+            }
+        },
+
+//        {
+//            "name": "POIOverlapController",
+//            "provides": ["ct.framework.api.EventHandler"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "Event-Topics": [
+//                    {
+//                        "topic": "ct/map/EXTENT_CHANGE",
+//                        "method": "_onStoreUpdateEnd"
+//                    }
+//                ]
+//            },
+//            "references": [
+//                {
+//                    "name": "stores",
+//                    //comes from POIServerStoreLayerRegistration
+//                    "providing": "poi.POIDataModel",
+//                    "cardinality": "0..n",
+//                    "policy": "dynamic"
+////                    "connect":{
+////                        "onUpdateEnd":"_onStoreUpdateEnd"
+////                    }
+//                }
+//            ]
+//        },
+
+        {
+            "name": "POIStoreEventBroadcaster",
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "stores",
+                    //comes from POIServerStoreLayerRegistration
+                    "providing": "poi.POIDataModel",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "mapstate",
+                    "providing": "ct.mapping.map.MapState",
+                    "connect": {
+                        "onExtentChange": "_onExtentChange"
+                    }
+                }
+            ]
+        },
+
+//        {
+//            "name": "POISelectionStore",
+//            "impl": "base/store/poi/POIServerStore",
+//            "provides": ["ct.api.Store"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "id": "poipointselectionstore",
+//                "useIn": ["selection"],
+//                "target": "http://ws.beta.agiv.be/poi/core",
+//                "metadata": {
+//                    "fields": [
+//                        {
+//                            "name": "geometry",
+//                            "type": "geometry"
+//                        },
+//                        {
+//                            "name": "id",
+//                            "type": "string"
+//                        },
+//                        {
+//                            "name": "poitype",
+//                            "type": "string"
+//                        },
+//                        {
+//                            "name": "distance",
+//                            "title": "distance in m",
+//                            "type": "number"
+//                        }
+//                    ]
+//                }
+//            }
+//        },
+//        {
+//            "name": "POISelectionStore",
+//            "impl": "base/store/poi/POIServerStore",
+//            "provides": ["ct.api.Store"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "id": "poiselectionstore",
+//                "useIn": ["selection"],
+//                "target": "http://ws.beta.agiv.be/poi/core"
+//            }
+//        },
+
+        {
+            "name": "POIEventReciever",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/contentmanager/ON_POI_HOVER",
+                        "method": "onPOIHover"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_POI_LEAVE",
+                        "method": "onPOILeave"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+
+        }
+
+//        {
+//            "name": "InfoPOIWidget",
+//            "impl": "poi/InfoPOIFactory",
+//            "provides": ["dijit.Widget", "poi.InfoPOIWidget"],
+//            "instanceFactory": true,
+//            "properties": {
+//                "widgetRole": "poiDataView"
+//            },
+//            "references": [
+//                {
+//                    "name": "_eventService",
+//                    "providing": "ct.framework.api.EventService"
+//                }
+//            ]
+//        },
+
+//        {
+//            "name": "InfoPOIController",
+//            "provides": ["poi.InfoPOIController", "ct.framework.api.EventHandler"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "Event-Topics": [
+//                    {
+//                        "topic": "ct/contentmanager/ON_POI_SHOW",
+//                        "method": "showPOIDataView"
+//                    },
+//                    {
+//                        "topic": "ct/contentmanager/ON_POI_HIDE",
+//                        "method": "hidePOIDataView"
+//                    },
+//                    {
+//                        "topic": "ct/contentmanager/ON_CONTENTMANAGER_HIDE",
+//                        "method": "hidePOIDataView"
+//                    }
+//                ],
+//                "POIListItem": {
+//                    "metadata": [
+//                    {
+//                        "name": "primaryLabel",
+//                        "type": "string"
+//                    },
+//                    {
+//                        "name": "viaLink",
+//                        "type": "link"
+//                    }],
+//                    "DataView": {
+//                        "_i18nPath": "combicontentmanager",
+//                        "showFilter": false,
+//                        "filterDuringKeyUp": false,
+//                        "showPager": true,
+//                        "showViewButtons": false,
+//                        "itemsPerPage": 10,
+//                        "DGRID": {
+//                            "checkboxSelection": false,
+//                            "selectionMode":"extended",
+//                            "columns": [{
+//                                    "matches": {
+//                                        "name": "id"
+//                                    },
+//                                    "title": "${combicontentmanager.ui.poiListItem.id}",
+//                                    "width": 80
+//                                },
+//                                {
+//                                    "matches": {
+//                                        "name": "poitype"
+//                                    },
+//                                    "title": "${combicontentmanager.ui.poiListItem.poitype}",
+//                                    "width": 250
+//                                },
+//                                {
+//                                    "matches": {
+//                                        "name": "note"
+//                                    },
+//                                    "title": "${combicontentmanager.ui.poiListItem.note}",
+//                                    "width": 200
+//                                },
+//                                {
+//                                    "matches": {
+//                                        "name": "primaryLabel"
+//                                    },
+//                                    "title": "${combicontentmanager.ui.poiListItem.primarylabel}",
+//                                    "width": 400
+//                                },
+//                                {
+//                                    "matches": {
+//                                        "name": "viaLink"
+//                                    },
+//                                    "title": "${combicontentmanager.ui.poiListItem.vialink}"
+//                                }]
+//                        }
+//                    }
+//                }
+//            },
+//            "references": [
+//                {
+//                    "name": "_infoPOIWidget",
+//                    "providing": "poi.InfoPOIWidget"
+//                },
+//                {
+//                    "name": "_windowManager",
+//                    "providing": "ct.framework.api.WindowManager"
+//                },
+//                {
+//                    "name": "_tool",
+//                    "providing": "ct.tools.Tool",
+//                    "filter": "(id=poidataviewtool)"
+//                }
+//            ]
+//        },
+//
+//        {
+//            "name": "poiDataViewTool",
+//            "impl": "ct/tools/Tool",
+//            "provides" : ["ct.tools.Tool"],
+//            "propertiesConstructor": true,
+//            "properties" : {
+//                "id": "poidataviewtool",
+//                "title": "${ui.poidataviewtool}",
+//                "tooltip": "${ui.poidataviewtool}",
+//                "togglable": true,
+//                "visibility": false,
+//                "rules": {
+//                    "groups": ["poidataview"]
+//                }
+//            }
+//        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "Bundle-SymbolicName": "patches_measurement",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "Patched-components",
+    "Bundle-Description": "Patched-components",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["patches"],
+
+    "Bundle-Layer": "module",
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Bundle-StartLevel": 1
+
+}

@@ -1,0 +1,6 @@
+define([
+    ".",
+    "./MapPrinter",
+    "./PrintingController",
+    "./PrintDialog"
+], {});

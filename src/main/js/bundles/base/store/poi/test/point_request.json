@@ -1,0 +1,1183 @@
+{"label": {
+    "term": "Count",
+    "value": "19"
+}, "pois": [
+    {
+        "id": "2280",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "20/11/2012 - 3/12/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, MECHELSESTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2280",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523054.93460567872,
+                            6600481.7266372126
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "56.051677051579425"
+        }
+    },
+    {
+        "id": "2616",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "17/01/2013 - 18/01/2013"
+            },
+            {
+                "term": "note",
+                "value": "3000 Leuven Aanp. Craenendonck (waterleiding) (vervangen loden aansluitingen)     180m D 1 ..."
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2616",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            522992.15701654053,
+                            6600419.9110144051
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "96.353436055503835"
+        }
+    },
+    {
+        "id": "2304",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "21/08/2012 - 21/11/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, PEREBOOMSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2304",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            522419.58725397417,
+                            6600880.6189742973
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "279.17190834355637"
+        }
+    },
+    {
+        "id": "2644",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "3/08/2012 - 8/08/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, RIJDENDE-ARTILLERIELAAN: aanleg van nutsleidingen voor gas,\n   elektriciteit en ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2644",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523692.972157238,
+                            6600806.1469311845
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "366.74383815864422"
+        }
+    },
+    {
+        "id": "2256",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "5/11/2012 - 12/11/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, EIKSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2256",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523477.33474413009,
+                            6599864.7518075993
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "381.5373567600908"
+        }
+    },
+    {
+        "id": "2462",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "28/01/2013 - 4/02/2013"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, J.P. MINCKLERSSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit\n   en ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2462",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523905.55494955607,
+                            6600443.9142893581
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "411.79118153541344"
+        }
+    },
+    {
+        "id": "2359",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "18/07/2012 - 20/08/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, TIENSESTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2359",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523833.52024497173,
+                            6599510.8522299491
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "448.99789278112831"
+        }
+    },
+    {
+        "id": "2539",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "6/07/2012 - 6/07/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, BALSEMBLOEMHOF: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2539",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            522512.64664976863,
+                            6600763.0177822188
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "512.83421020052833"
+        }
+    },
+    {
+        "id": "2303",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "In uitvoering"
+            },
+            {
+                "term": "note",
+                "value": "6/03/2013 - 6/08/2013"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, FONTEINSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2303",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            522826.94038986304,
+                            6601267.8252430931
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "514.31921644340878"
+        }
+    },
+    {
+        "id": "2440",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "25/06/2012 - 2/07/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, SLUISSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2440",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523154.42380522907,
+                            6601402.6713721519
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "596.73398112243183"
+        }
+    },
+    {
+        "id": "2294",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "3/12/2012 - 4/12/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, STAPELHUISSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2294",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523851.50676856958,
+                            6601212.918147618
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "623.78179284910607"
+        }
+    },
+    {
+        "id": "2602",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "1/01/2013 - 30/01/2013"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, BURCHTSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2602",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523040.50673511683,
+                            6601442.9027537312
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "653.751964643041"
+        }
+    },
+    {
+        "id": "2441",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "2/07/2012 - 18/07/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, TIENSESTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2441",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523835.60989167291,
+                            6599495.2550146962
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "661.04457707459937"
+        }
+    },
+    {
+        "id": "2377",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "28/08/2012 - 30/08/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, PARKSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2377",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523202.74912952387,
+                            6599038.7966617309
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "874.16412769389171"
+        }
+    },
+    {
+        "id": "2405",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "18/09/2012 - 18/09/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, TERVUURSESTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2405",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            521919.3508622006,
+                            6599945.44251579
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "882.25242360374546"
+        }
+    },
+    {
+        "id": "2298",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "15/10/2012 - 16/10/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, EDWARD VAN EVENSTRAAT: aanleg van nutsleidingen voor gas,\n   elektriciteit en ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2298",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            523565.92239163734,
+                            6599054.37962906
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "887.14418659981447"
+        }
+    },
+    {
+        "id": "2283",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "12/12/2012 - 12/12/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, WIJNPERSSTRAAT: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2283",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            521907.80514216522,
+                            6601068.6432018979
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "938.17323137232984"
+        }
+    },
+    {
+        "id": "2459",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "20/09/2012 - 25/09/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, MARTELARENPLEIN: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2459",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            524742.61568762187,
+                            6600363.3874964379
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "941.69813461194246"
+        }
+    },
+    {
+        "id": "2302",
+        "labels": [
+            {
+                "term": "primary",
+                "value": "Werken aan nutsleiding"
+            },
+            {
+                "term": "status",
+                "value": "Uitgevoerd"
+            },
+            {
+                "term": "note",
+                "value": "19/06/2012 - 8/11/2012"
+            },
+            {
+                "term": "note",
+                "value": "3000, LEUVEN, KAPUCIJNENVOER: aanleg van nutsleidingen voor gas, elektriciteit en\n   ov"
+            }
+        ],
+        "categories": [
+            {
+                "type": "Type",
+                "created": "2013-04-12T07:17:00",
+                "updated": "2013-04-12T07:17:00",
+                "term": "werkenaannutsleiding",
+                "symbol": "http://www.agiv.be/POI/Icons/poitypes/werkenaannutsleiding.png",
+                "value": "Werken aan nutsleiding"
+            }
+        ],
+        "links": [
+            {
+                "href": "http://ws.beta.agiv.be/POI/core?id=2302",
+                "term": "via"
+            }
+        ],
+        "location": {
+            "points": [
+                {
+                    "Point": {
+                        "coordinates": [
+                            522177.73751508223,
+                            6598808.1891018879
+                        ],
+                        "type": "Point",
+                        "crs": {
+                            "type": "link",
+                            "properties": {
+                                "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                            }
+                        }
+                    },
+                    "term": "center",
+                    "type": "Pinpoint"
+                }
+            ]
+        },
+        "distance": {
+            "term": "birds_eye_distance",
+            "value": "982.46784987412479"
+        }
+    }
+]}

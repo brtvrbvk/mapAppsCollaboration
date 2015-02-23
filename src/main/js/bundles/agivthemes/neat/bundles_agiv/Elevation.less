@@ -1,0 +1,34 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    &.ctActiveTool_elevationMaximizeTool .ctTool.ctTool_elevationMaximizeTool .dijitIcon:before{
+        content:"\e621";
+    }
+    .ctTool{
+        &[class*='elevationSample'].dijitChecked .dijitIcon:before,
+            &[class*='elevationPolyline'].dijitChecked .dijitIcon:before{
+            color:@ct-primary-contrast-text-color;
+        }
+    }
+    .elevation{
+        .dijitDialogTitle:before{
+            .setWebFont(agivUiFont);
+            content:'\e622';
+            margin-right: .5em;
+        }
+        .ctWindowToolbar{
+            .ctToolIcon_elevationSampleLowTool,
+            .ctToolIcon_elevationSampleMediumTool,
+            .ctToolIcon_elevationSampleHighTool {
+                .border-radius(100%);
+                background-color: #fff;
+            }
+            //adding some space to make visual grouping
+            .ctTool_elevationPolylineTool,
+            .ctTool_elevationSampleHighTool{
+                margin-right: 12px;
+            }
+        }
+    }
+
+}

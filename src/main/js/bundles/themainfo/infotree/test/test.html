@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+<head>
+    <title>InfoTree Test Page</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../agivthemes/neat/neat.css"/>
+    <script type="text/javascript">
+        var dojoConfig = {
+            parseOnLoad: false,
+            async: true,
+            isDebug: true,
+            baseUrl: "../../../../../../",
+            tlmSiblingOfDojo: false,
+            packages: [
+                { name: "dojo", location: "dojo" },
+                { name: "dijit", location: "dijit" },
+                { name: "dojox", location: "dojox" },
+                { name: "ct", location: "ct" },
+                { name: "esri", location: "esri" },
+                { name: "xstyle", location: "xstyle" },
+                { name: "agiv", location: "prj/agiv"}
+            ]
+        }
+    </script>
+    <script type="text/javascript"
+            src="../../../../../../dojo/dojo.js"></script>
+    <script type="text/javascript">
+        require([
+            "dojo/ready",
+            "agiv/bundles/themainfo/infotree/InfoTree",
+            "ct/mapping/map/MapModel",
+            "ct/mapping/map/RasterLayerNode",
+            "ct/mapping/map/ServiceNode",
+            "ct/mapping/map/MapModelInitializer",
+            "ct/mapping/mapcontent/MappingResourceRegistry",
+            "ct/mapping/mapcontent/MappingResourceFactory",
+            "ct/mapping/mapcontent/MappingResourceTypes",
+            "ct/mapping/mapcontent/ServiceTypes",
+            "ct/_when"
+        ], function (
+                ready,
+                InfoTree,
+                MapModel,
+                RasterLayerNode,
+                ServiceNode,
+                MapModelInitializer,
+                MappingResourceRegistry,
+                MappingResourceFactory,
+                MappingResourceTypes,
+                ServiceTypes,
+                ct_when
+                ) {
+            ready(function () {
+                var serviceDefinitions = {
+                    "operationalLayer": [
+
+                        {
+                            "id": "Refgew",
+                            "service": "worldTopo",
+                            "enabled": false,
+                            "layers": ["worldTopo"],
+                            "props": {
+                                "description": "description",
+                                "imgUrl": "js/prj/agiv/apps/generic/images/administratieve_grenzen_prev.jpg"
+                            }
+                        },
+                        {
+                            "id": "leaf",
+                            "title": "leaf",
+                            "service": "worldTopo",
+                            "enabled": false,
+                            "layers": ["worldTopo"],
+                            "props": {
+                                "description": "description",
+                                "imgUrl": "js/prj/agiv/apps/generic/images/administratieve_grenzen_prev.jpg"
+                            }
+                        },
+                        {
+                            "id": "app",
+                            "title": "app",
+                            "enabled": false,
+                            "props": {
+                                "link": "#",
+                                "description": "description",
+                                "imgUrl": "js/prj/agiv/apps/generic/images/administratieve_grenzen_prev.jpg"
+                            }
+                        }
+
+                    ]
+                };
+                var _initMRR = function () {
+                    var mrr = new MappingResourceRegistry();
+                    var factory = new MappingResourceFactory();
+                    var service1 = factory.createMappingResource(MappingResourceTypes.SERVICE, {
+                        localId: "worldTopo",
+                        thumbnailPostfix: "/tile/11/676/1067",
+                        serviceUrl: "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                        serviceType: ServiceTypes.AGS_TILED
+                    });
+
+                    var layer1 = factory.createMappingResource(MappingResourceTypes.RASTER_LAYER, {
+                        localId: "0",
+                        parentId: service1.getUniqueId()
+                    });
+
+                    mrr.addMappingResource(service1);
+                    mrr.addMappingResource(layer1);
+                    return mrr;
+                };
+
+                var _initMapModel = function () {
+                    var mm = new MapModel();
+                    var mrr = _initMRR();
+                    var mapModelInitializer = new MapModelInitializer({
+                        mapInitData: {
+                            maps: [serviceDefinitions]
+                        },
+                        mapResourceRegistry: mrr,
+                        mapModel: mm
+                    });
+                    return mapModelInitializer.initMapModel(mrr, mm);
+                };
+
+                var mapModel;
+                ct_when(_initMapModel(), function (res) {
+                    mapModel = res;
+                    mapModel.fireModelStructureChanged({
+                        source: this
+                    });
+                    var widget = new InfoTree({
+                        model: mapModel,
+                        rootId: mapModel.operationalLayerNodeId
+                    }, "drilldown");
+                }, function (err) {
+                    console.error(err);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body class="neat">
+<div style="width:350px;height:450px;background-color: white;">
+    <div id="drilldown"></div>
+</div>
+</body>
+</html>

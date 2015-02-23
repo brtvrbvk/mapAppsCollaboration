@@ -1,0 +1,3 @@
+define([
+    "./GeopuntParameterResolver"
+], 1);

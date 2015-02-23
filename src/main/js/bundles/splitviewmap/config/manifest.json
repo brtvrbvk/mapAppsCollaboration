@@ -1,0 +1,77 @@
+{
+    "Bundle-SymbolicName": "splitviewmap-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "windowmanager",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "MapContentBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderContentNode",
+                "children": [
+                    {
+                        "title": "${menu.content.title}",
+                        "iconUrl": "resource('styles/images/mapContent.png')",
+                        "widget": "splitviewmapBuilderWidget"
+                    }
+                ]
+            }
+        },
+        // ======= MapModel Builder ========
+        {
+            "name": "MapModelBuilderController",
+            "instanceFactory": true,
+            "provides": ["dijit.wizard.Widget"],
+            "properties": {
+                "bid": "splitviewmap",
+                "pid": "splitviewmap-MapModelFactory",
+                "id": "splitviewmapBuilderWidget",
+                "defaultImageUrl": "resource('styles/images/defaultCover.png')"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_logger",
+                    "providing": "ct.framework.api.LogService",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_dataFormService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+    ]
+}

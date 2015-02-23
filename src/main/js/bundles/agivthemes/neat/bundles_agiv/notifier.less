@@ -1,0 +1,24 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    
+    .ctNotifierContainer.dijitToasterWarning .ctNotifierContent,
+    .night .ctNotifierContainer.dijitToasterMessage .ctNotifierContent {
+        background-color:rgba(150, 150, 150, 0.9);
+    }
+
+    .ctNotifierContainer.dijitToasterWarning .ctNotifierStickyContent,
+    .ctNotifierContainer.dijitToasterMessage .ctNotifierStickyContent {
+        background-color:rgba(150, 150, 150, 1);
+    }
+
+    &.ctEnv_IE_7 .ctNotifierContainer.dijitToasterWarning .ctNotifierContent,
+    &.ctEnv_IE_7 .ctNotifierContainer.dijitToasterMessage .ctNotifierContent {
+        background-color:lightgray;
+    }
+
+    &.ctEnv_IE_7 .ctNotifierContainer.dijitToasterWarning .ctNotifierStickyContent,
+    &.ctEnv_IE_7 .ctNotifierContainer.dijitToasterMessage .ctNotifierStickyContent {
+        background-color:grey;
+    }
+}

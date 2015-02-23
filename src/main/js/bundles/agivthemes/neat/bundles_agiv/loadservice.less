@@ -1,0 +1,228 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+  .loadServiceTopNode {
+    height: 40px;
+  }
+  .loadServiceTopNode > .dijitContentPane{
+    padding: 0;
+  }
+  .ctLoadServiceTextBox {
+    box-sizing: border-box;
+    margin-top: .2em;
+    display: inline-block;
+    width: 96%;
+  }
+
+  .ctLoadServiceTitle{
+    width: ~"calc(100% - 100px)";
+
+  }
+  .loadServiceButtonContainer,
+  .loadServiceBottomContainer,
+  .loadServiceKML{
+    //min-width: 150px;
+    .dijitButton .dijitButtonNode {
+      padding: 5px 14px 6px;
+    }
+  }
+  .loadServiceButtonContainer {
+    min-width: 70px;
+    text-align: right;
+  }
+  .loadServiceResetButton {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    margin: 0;
+    .dijitButtonNode {
+      background: transparent none;
+      padding: 5px 2px;
+    }
+    &.dijitHover .dijitButtonNode {
+      color: #000
+    }
+  }
+
+  .loadServiceKML{
+    .loadServiceResetButton{
+      top:10px;
+    }
+  }
+
+ /* .linkPane.noPadding.dijitContentPane{
+    padding-left: 10px;
+  }*/
+
+  .loadServiceResultPane {
+    padding-bottom: 8px;
+    // TODO: shouldn't these styles for dataview be applied to all datviews in agiv?
+    // Especially the ones for the dataview Toolbar'
+    .ctPager {
+      float: none;
+      display: block;
+      margin-left: 40px;
+      margin-top: 6px;
+      font-size: 13px;
+
+      a {
+        border: none;
+        padding: 0 8px;
+        text-decoration: none !important;
+      }
+      .ctPagerStartBtn,
+      .ctPagerLastBtn {
+        display: none;
+      }
+    }
+    .ctPagerSizeSelector {
+      display: none;
+    }
+    .ctPagerSizeLabel,
+    .ctPagerPageSelector {
+      font-weight: bold;
+    }
+    .ctPagerPageSelector {
+      float: right;
+      .dijitButtonHover .dijitButtonNode {
+        background-color: transparent;
+        .dijitIcon:before {
+          color: #000
+        }
+      }
+      .dijitButtonDisabled .dijitButtonNode .dijitIcon:before {
+        color: @disabled-text-color;
+      }
+    }
+    .ctDataView > .dijitLayoutContainer > div {
+      //removing vertical paddings as they are provided by the surrounding container
+      padding: 0;
+    }
+    .dgrid {
+      .dgrid-header {
+        //right: 0;
+        overflow: visible;
+        .border-radius(6px 0 0 0);
+        &:before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 20px;
+          top: 0;
+          right: -17px;
+          .border-radius(0 6px 0 0);
+          background: @ct-dGrid-header-background-color;
+        }
+
+        .dgrid-cell {
+          //hide border cell
+          border-color: @ct-dGrid-border-color;
+        }
+      }
+      .dgrid-header-row .dgrid-cell {
+        &.field-selected {
+          display: inline-block;
+          border-width: 0 1px;
+        }
+        &.field-TITLE {
+          display: none;
+        }
+      }
+      .dgrid-cell-padding {
+        padding: 6px;
+        vertical-align: baseline;
+      }
+      .dgrid-content {
+        width: 100% !important;
+        .dgrid-cell {
+          border-left-color: @dialog-underlay-color;
+          border-right-color: @dialog-underlay-color;
+          border-bottom-color: @dialog-underlay-color;
+          border-top-color: @dialog-underlay-color;
+        }
+      }
+      .dgrid-scroller {
+        overflow: hidden;
+      }
+
+      // WMS Layer list
+      .dgrid-row:hover,
+      .dgrid-row-highlight,
+      .dgrid-row.dgrid-selected,
+      .dgrid-header .dgrid-cell:hover,
+      .dgrid-header-row .dgrid-cell:hover,
+      .dgrid-footer .dgrid-cell:hover {
+        background: transparent;
+        color: @text-color;
+      }
+
+      .dgrid-row{
+        border-left: 1px solid  @ct-dGrid-border-color;
+        border-right: 1px solid  @ct-dGrid-border-color;
+        &:last-child{
+          border-bottom: 1px solid @ct-dGrid-border-color;
+        }
+      }
+
+      .dgrid-row:nth-last-of-type(2){
+        border-bottom: 1px solid @ct-dGrid-border-color;
+        .border-radius(0 0 6px 6px);
+      }
+
+
+
+    }
+
+  }
+  .loadServiceBottomContainer {
+    padding: 8px 0 0
+  }
+  .ctHint {
+    color: @disabled-color;
+    padding-left: 10px;
+  }
+  //hacks to move the dataViewToolbar inside the dgrid Table Header
+  .loadServiceResultPane .ctDataViewToolBar {
+    padding: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 10;
+  }
+
+  .loadservice {
+    .tableContainer-labelCell {
+      width: 74px !important;
+      label {
+        margin-left: 18px;
+      }
+    }
+    .tableContainer-valueCell {
+      width: 10px;
+      .dijitRadio {
+        position: relative;
+        left: -154px;
+      }
+    }
+
+    .ctMessagePane{
+      .ctMessageItem.error {
+        background-color: transparent;
+        color: @error-color;
+      }
+      .icon{
+        &.ctErrorIcon{
+          color: @error-color;
+        }
+      }
+    }
+
+    .dijitContentPane{
+      .dijitTextBox{
+        .dijitInputContainer{
+            padding-right: 20px;
+        }
+      }
+    }
+
+  }
+}

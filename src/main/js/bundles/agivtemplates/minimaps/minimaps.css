@@ -1,0 +1,92 @@
+@import url("../common/common.css");
+
+/*
+    Created on : 07.01.2014, 11:22:38
+    Author     : juku
+*/
+
+/*-------------------------
+    Map Classes
+-------------------------*/
+.ctTpl_minimaps .mainMap .dijitContentPane {
+    padding: 0;
+}
+
+.ctTpl_minimaps .esriControlsBR {
+    display: none;
+}
+
+/*-------------------------
+    Zoom Slider Classes
+-------------------------*/
+.ctTpl_minimaps .esriLargeSliderTL {
+    top: 75px;
+    left: 25px;
+}
+
+/*
+    Fix for IE who presents the ZoomSlider with a to big vertical extend
+*/
+.ctEnv_IE_8.ctTpl_minimaps .esriLargeSliderVertical,
+.ctEnv_IE_9.ctTpl_minimaps .esriLargeSliderVertical,
+.ctEnv_IE_10.ctTpl_minimaps .esriLargeSliderVertical {
+    height: 125px;
+}
+
+/*-------------------------
+    MapLoadingInfo  Classes
+-------------------------*/
+
+.ctTpl_minimaps .mapLoadingInfo {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -48px;
+}
+
+/* ------  */
+
+.ctTpl_minimaps .search {
+    width: 300px;
+    position: absolute;
+    left: 60px;
+    top: 23px;
+}
+
+.ctTpl_minimaps .searchresultlist {
+    margin: 0 auto;
+    padding-right: 45px;
+}
+
+.ctTpl_minimaps .miniToolDock {
+    position: absolute;
+    height: auto;
+    top: 21px;
+    left: 5px;
+}
+
+.ctTpl_minimaps .overlayFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.ctTpl_minimaps .minimapLogo {
+    width: 60px;
+    height: 31px;
+    display: inline-block;
+    border-bottom: none !important;
+    background: url('images/GEOPUNT_def_url_klein_2.jpg');
+}
+
+.ctTpl_minimaps .esriScalebar {
+    position: relative;
+    top: 0;
+    left: 0 !important;
+    width: auto;
+}
+
+.ctTpl_minimaps .overlayFooter a {
+    margin-right: 5px;
+}

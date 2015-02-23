@@ -1,0 +1,20 @@
+/* IE limits imports to 32, so use one of the bundles_x.css files if this limit is broken */
+@import url("AppSwitcher.css");
+@import url("BaseMaps.css");
+@import url("BasemapSwitcher.css");
+@import url("Routing.css");
+@import url("ToolIcons.css");
+@import url("genericidentify.css");
+@import url("search.css");
+@import url("gipod.css");
+@import url("loadservice.css");
+@import url("parametermgr.css");
+@import url("splitviewmap.css");
+@import url("Timeslider.css");
+@import url("ShareTools.css");
+@import url("Elevation.css");
+@import url("ScaleViewer.css");
+@import url("MultiCoordinateViewer.css");
+@import url("Measurement.css");
+@import url("capakeysearch.css");
+

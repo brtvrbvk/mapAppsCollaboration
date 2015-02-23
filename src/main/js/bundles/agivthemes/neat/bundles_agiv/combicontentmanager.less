@@ -1,0 +1,906 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+
+    .ctNodeInfo {
+        .dijitContentPane {
+            padding: 0;
+        }
+        .ctTooltipLayerTitle {
+            font-weight: bold;
+        }
+        .ctMoreInfoLink {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .ctLayerInfoTooltip {
+        max-width: 400px;
+    }
+
+    .ctContentManagerMapTooltip {
+        width: 200px;
+        .ctContentManagerMapTooltipImg {
+            height: auto;
+            width: 200px;
+        }
+    }
+
+    .ctWindow.combiContentManager .dijitDialogPaneContent {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .combiContentManager,
+    .themainfo{
+        .ctWindowContentPadding > .dijitDialogPaneContent {
+            padding: 0;
+            border-top: none;
+        }
+        //removing borders from Combicontentmanager Window as desired in #AGMV-301
+        .dijitTitlePaneTitle,
+        .dijitTitlePaneContentOuter {
+            border: none;
+        }
+    }
+
+
+
+    .combiContentManager{
+      .ctToolContainer{
+        text-align: right;
+        height: 25px;
+      }
+      .ctTool_addDynamicServiceTool,
+      .ctTool_addDynamicCompareServiceTool{
+        &.dijitHover,
+        &.dijitToggleButtonChecked,
+        &.dijitChecked{
+          .dijitIcon{
+            color: @ct-button-hovered-text-color;
+          }
+        }
+          .dijitButtonNode{
+            .border-radius(4px);
+            padding: 8px;
+          }
+          .dijitIcon{
+            &:before{
+              content: "\e0bd";
+            }
+        }
+        .dijitButtonText{
+          display: inline;
+        }
+
+      }
+    }
+
+    //switcherPane
+    .switcherPane {
+        text-align: center;
+        background-color: @text-color;
+        color: #B3B3B3;
+        .mapThemeActive {
+            color: #fff;
+        }
+        .smallSwitch {
+            -webkit-mask: none !important; //prevent dojox mobile from doing stupid stuff
+        }
+        .smallSwitch,
+        .mblSwitchBg {
+            width: 28px;
+        }
+        .smallSwitch,
+        .mblSwitchBg,
+        .mblSwitchText {
+            height: 14px;
+        }
+        .mblSwitchBg {
+            background: @container-background-color;
+        }
+        .mblSwitchKnob {
+            .size(8px);
+            left: 23px;
+            background: @text-color none;
+            .box-shadow-none();
+        }
+        .mblSwitchOn .mblSwitchKnob {
+            left: 17px;
+        }
+        .switcherLabel {
+            cursor: pointer;
+        }
+    }
+    .ctAgivNearbyNode {
+      padding: 8px 8px 0px 8px;
+
+        .ctNearbyResultContainer > span{
+            vertical-align: middle;
+        }
+        .ctNearbyResultContainer span.iconNode{
+            margin: 0;
+        }
+        .ctNearbyPlaces{
+            position: relative;
+            height: 58px;
+        }
+
+      .description{
+        font-style: italic;
+        color: @agiv-dark-grey;
+        width: 223px;
+        padding-left: 47px;
+        font-size: 12px;
+        padding-top: 15px;
+      }
+    }
+
+    //accordions
+    .ctAgivLayermanager  .dijitTitlePaneTitle {
+        background-color: @agiv-light-grey;
+        color: @text-color;
+        font-weight: bold;
+        padding-top: 3px;
+    }
+    .ctAgivLayermanager  .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+        color: @text-color;
+    }
+
+    //Breadcrumb/Tree-List
+    .ctAgivLayermanager  .dijitTitlePaneContentInner {
+        padding: 5px; // reducing padding vom pane as the containing childs already have padding applied
+    }
+    .ctAgivLayermanager  .allLayersLabel {
+        font-weight: bold;
+    }
+    .ctBreadcrumbList {
+        ul {
+            border-bottom: 1px solid @minor-border-color;
+            padding-left: 0;
+            padding-bottom: 5px;
+            margin: 2px 0 5px;
+        }
+        li {
+            display: inline-block;
+            //remove underline if Breadcrumb is the last one
+            &.isLeaf {
+                .dijitButton {
+                    .dijitButtonNode * {
+                        cursor: default;
+                    }
+                    .dijitButtonText {
+                        border-bottom-color: transparent;
+                        color: @text-color;
+                    }
+                    .dijitIcon {
+                        color: @text-color;
+                    }
+                }
+            }
+        }
+        // make the buttons like like simple text
+        .dijitButtonNode {
+            border: none;
+            .resetBG();
+            padding: 0;
+            text-transform: capitalize;
+            .dijitButtonText {
+                //color: @disabled-color;
+               /* padding: 0;
+                padding-bottom: 2px;
+                border-bottom: 1px solid @text-color;*/
+                text-transform: none;
+                color: @agiv-link-color;
+                font-weight: normal;
+            }
+            .dijitIcon {
+                //color: @disabled-color;                
+            }
+        }
+        .dijitButtonHover .dijitButtonNode {
+            .dijitButtonText,
+            .dijitIcon {
+              color: darken(@agiv-link-color, 100%);
+            }
+            /*.dijitButtonText {
+                border-bottom-color: darken(@text-color, 100%);
+            }*/
+        }
+        .ctDrillDownBreadcrumbNode {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        // hiding '>' for first, the home, button
+        li:first-child .ctDrillDownBreadcrumbNode .breadcrumbIcon {
+            display: none;
+        }
+    }
+    .ctContentManagerList {
+        ul {
+            padding-left: 0;
+            margin: 2px 0;
+            list-style: none;
+        }
+        li {
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            position: relative;
+        }
+        //making buttons fullwidth
+
+        .ctTreeNodeCategory,
+        .dijitButton:first-child,
+            .dijitToggleButton {
+            width: 100%;
+            margin: 2px 0;
+        }
+        .dijitToggleButtonChecked .dijitButtonNode {
+            color: @ct-primary-contrast-text-color;
+        }
+        .convertButtonToLink  .dijitButtonNode {
+            color: @agiv-link-color;
+        }
+        .dijitButtonNode {
+            width: 100%;
+            padding: 3px 0;
+            border: none;
+            background: transparent;
+        }
+        .dijitButtonText {
+            padding-left: 10px;
+            float: left;
+            text-align: left;
+            text-transform: none;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .dijitButtonText,
+        .ctTreeNodeCategory .dijitButtonText,
+        .ctTreeNodeLeaf .dijitButtonText {
+            font-weight: normal;
+            //font-size: 12px;
+        }
+        .ctTreeNodeCategory .dijitButtonText,
+        .ctTreeNodeLeaf .dijitButtonText {
+            text-overflow: initial;
+            white-space: normal;
+        }
+        .ctTreeNodeLeaf .dijitButtonText {
+            // remaining space reserved for ctLayerInfoButton
+            max-width: 77%;
+            padding-top: 1px;
+        }
+        .ctTreeNodeLeaf.ctAppLink {
+            .dijitButtonText {
+                color: #a28b0e;
+            }
+            .dijitCheckBoxIcon:before {
+                content: '\e62a';
+                font-family: agivUiFont;
+                top: -1px;
+            }
+        }
+        .ctTreeNodeCategory .dijitButtonText:after {
+            .setWebFont();
+            content: '\e00f';
+            display: inline-block;
+            position: absolute;
+            bottom: .5em;
+        }
+        li.ctTreeNodeLeaf:hover,
+            li.ctTreeNodeCategory:hover {
+            background-color: @primary-color;
+            color: @hovered-text-color;
+            .dijitButtonNode .dijitButtonText {
+                color: @hovered-text-color;
+            }
+            .dijitCheckBoxIcon{
+                border-color: @hovered-text-color;
+              &:before{
+                color: @hovered-text-color;
+              }
+
+            }
+        }
+
+        //if node is a leaf, we would need checkboxes here..
+        .ctTreeNodeLeaf {
+            .dijitButtonText {
+                padding-left: 3px;
+            }
+            .dijitCheckBoxIcon {
+                margin-left: 20px;
+                float: left;
+            }
+        }
+        .ctLayerInfoButton {
+            position: absolute;
+            right: 15px;
+            top: 0;
+            margin: 0;
+            font-size: 14px;
+            .dijitButtonText {
+                display: none;
+            }
+        }
+        .ctThemaHeader {
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 0;
+            padding-left: 23px;
+            margin: 0;
+            &:hover{
+                background: transparent;
+                color: @text-color;
+            }
+
+            .ctThemaInfoResult{
+                //headers have no result, so we can hide it
+                display: none;
+            }
+
+          &.dijitToggleButton{
+            .dijitIcon{
+              &:before{
+                content: "\e017";
+              }
+                &.dijitNoIcon{
+                  display: inline-block;
+                  float: left;
+                  color: @text-color !important;
+                }
+            }
+            &.dijitChecked{
+              .dijitIcon{
+                &:before{
+                  content: "\e018";
+                }
+              }
+
+            }
+          }
+
+        }
+
+        // for layer group toggler ==> Thema App
+        li.ctTreeNodeCategory{
+          left:8px;
+          &:hover{
+              background-color: transparent;
+              .dijitButtonNode{
+                .dijitButtonText{
+                  color: @text-color;
+                  }
+                }
+              }
+
+          .ctThemaHeader{
+            padding-left: 0px;
+            .dijitButtonText{
+              font-weight: bold;
+              &:after{
+                display: none;
+              }
+            }
+          }
+        }
+
+        .ctThemaInfoResult{
+            padding: 0 0 8px 62px ;
+            .dijitButtonText{
+                padding-left: 0;
+            }
+        }
+
+    }
+
+    //tool for hiding / unhiding LayerContextMenu
+    //hiding the tool when layercontextmenu is opened.
+    &.ctActiveTool_layercontexttool .layermanagertool {
+        display: none !important;
+    }
+
+    .ctAgivLayermanager,
+    .ctAgivTreeNode {
+        overflow-x:hidden;
+        .noPadding {
+            padding: 0;
+        }
+        .poiLayersNode,
+        .nonpoiLayersNode {
+            padding-left: 5px;
+        }
+    }
+    .ctAgivLayermanager  {
+        .buttonContainer {
+            position: absolute;
+            right: 5px; top: 5px;
+            .dijitButton,
+            .dijitToggleButton{
+                margin: 0;
+            }
+            .dijitButtonNode {
+                padding: 1px;
+            }
+            .dijitButtonText {
+                display: none;
+            }
+            .layermanagerToolbar {
+                display: inline-block;
+            }
+        }
+        .upperButtonContainer {
+            .dijitButtonNode {
+                border: none;
+                padding: 3px;
+                background: transparent none;
+                .border-radius(0);
+            }
+            .dijitButtonHover .dijitButtonNode,
+            .dijitToggleButtonHover .dijitButtonNode,
+            .dijitToggleButtonChecked .dijitButtonNode {
+                background-color: @button-hovered-background-color;
+            }
+            .dijitIcon {
+                font-size: 20px;
+            }
+            .ctTool{
+                &.dijitHover, 
+                &.dijitChecked{
+                    .dijitButtonNode{
+                        color: @ct-button-hovered-text-color;
+                    }
+                    .dijitIcon{
+                        color: inherit;
+                    }
+                }
+            }
+            .icon-layer-add:before {
+                content: '\e0bd';
+            }
+            .ctIconVisibility:before {
+                font-family: agivUiFont;
+                content: "\e603";
+            }
+        }
+    }
+
+    .ctTool_layercontexttool {
+        .dijitButtonNode {
+            width: 20px;
+            padding: 2px;
+            padding-left: 0;
+            background-color: @primary-color;
+        }
+        .dijitButtonContents {
+            top: 65%;
+            position: relative;
+            .transform(-90deg);
+        }
+        .dijitButtonText {
+            display: inline;
+            color: @ct-primary-contrast-text-color;
+            &:before,
+                &:after {
+                content: ' ';
+                color: transparent;
+                padding: 3px;
+                padding-left: 25px;
+            }
+            &:before {
+                padding: 3px;
+                padding-right: 33px;
+            }
+        }
+    }
+
+    .allLayersSliderContainer,
+    .layerItemNode .sliderNode {
+        margin-right: 10px;
+    }
+    .layerItemNode .clickNode {
+        position: absolute;
+        width: 220px;
+        height: 100%;
+        margin: -5px 0 0 0;
+        padding: 0;
+        cursor: move;
+    }
+    .layerItemNode .sliderNode {
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+    .dojoDndItemOver .layerItemNode {
+        color: @text-color;
+    }
+    .sliderNode{
+        .dijitSliderDecrementIconH:before,
+            .dijitSliderIncrementIconH:before{
+            position: relative;
+            top: -2px;
+        }
+    }
+    .ctAgivAllLayersSliderNode {
+        position: relative;
+        height: 25px;
+        border-bottom: 1px solid @minor-border-color;
+        overflow: hidden;
+        &.noPadding {
+            padding-top: 7px;
+        }
+        &.ctSelected {
+            .ctIconVisibility:before {
+                content: "\e603";
+            }
+        }
+        //text rotation of slider labels and custom sliderbarColor
+        .allLayersSliderContainer {
+            .dijitSliderProgressBar, .dijitSliderLeftBumper {
+                background-color: @text-color;
+            }
+            .dijitSliderH {
+                margin-top: 5px;
+            }
+            .backgroundLabel {
+                .transform(-90deg);
+                position: absolute;
+                top: 80px;
+                left: -25px;
+            }
+            .overlayLabel {
+                .transform(90deg);
+                position: absolute;
+                top: 79px;
+                right: -31px;
+            }
+        }
+    }
+    //adjusting left/right as IE rotation of text produces different positioning than good browsers ;)
+    &.ctEnv_IE_9 .ctAgivAllLayersSliderNode {
+        overflow: hidden;
+        .allLayersSliderContainer {
+            .overlayLabel {
+                right: -25px;
+            }
+            .backgroundLabel {
+                left: -22px;
+            }
+        }
+    }
+    //and in IE8 of course, text rotation is achieved with another way...
+    &.ctEnv_IE_8 {
+        .ctAgivAllLayersSliderNode {
+            overflow: hidden;
+            .allLayersSliderContainer {
+                .overlayLabel {
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+                    top: 38px;
+                    right: -63px;
+                }
+                .backgroundLabel {
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+                    top: 45px;
+                    left: 6px;
+                }
+            }
+        }
+        .ctTool_layercontexttool .dijitButtonContents {
+            top: 39%;
+            position: absolute;
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+        .dojoDndItem.ctNotVisibleInMap {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+        }
+    }
+    .ctAgivAllLayersSliderNode,
+    .ctAgivLayerSliderNode {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden; //otherwise, when transparencySlider is show, scrollbars willappear because widget does not resize properly
+        .ctSelected .ctIconVisibility:before {
+            content: "\e603";
+        }
+    }
+    .ctAgivLayerSliderNode {
+        //font-size: 12px;
+    }
+
+    .dojoDndItem {
+        border: 1px solid @minor-border-color;
+        padding: 1px;
+        margin: 3px 0;
+    }
+
+    .layerItemNode {
+        padding: 5px 0;
+        min-height: 18px;
+        position: relative;
+        cursor: pointer;
+        .titleLabelNode {
+            max-width: 200px;
+            min-width: 170px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 5px;
+        }
+        .countNode {
+            margin-left: 52px;
+            color: @disabled-color;
+        }
+        .upperButtonContainer {
+            top: 5px;
+            right: 6px;
+            .dijitIcon {
+                font-size: 15px;
+                &.icon-transparency {
+                    font-size: 20px;
+                    .size(15px);
+                    &:before {
+                        top: -3px;
+                        left: -3px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+        .titleLabelNode,
+        .visibleScaleNode {
+            margin-left: 32px;
+        }
+    }
+    .ctNotVisibleInMap{
+        .opacity(0.6)
+    }
+    .transparencySlider .dojoDndItem {
+        margin: 0;
+        border-top-width: 0;
+        &:first-child {
+            border-top-width: 1px;
+        }
+    }
+    .transparencySlider .dojoDndItem.ctNotVisibleInMap {
+        .opacity(0.6);
+        .ctIconVisibility:before {
+            content: "\e604";
+        }
+    }
+
+    .ctAgivTreeNode {
+
+        .description{
+          font-style: italic;
+          color: @agiv-dark-grey;
+          width: 223px;
+          padding-left: 47px;
+          font-size: 12px;
+          padding-top: 15px;
+        }
+
+        .dijitTreeRowHover,
+        .dijitTreeRowActive {
+            //set padding when node is hovered to the same value as if not hovered to remove the dijit default "whobbling efftect"
+            padding: 4px 0 2px 0;
+        }
+        //add border arround categories
+        .dijitTreeIsRoot > .dijitTreeRow {
+            margin: 2px 0;
+            border: 1px solid @border-color;
+        }
+        .ctContentItemMainCategoryLabel {
+            float: left;
+        }
+        .dijitTreeExpando {
+            clear: left;
+            cursor: pointer;
+            background-image: url('../images/contentTreeExpandImages.png');
+        }
+        .ctContentLeaf * {
+            cursor: pointer;
+        }
+        .ctContentItemStateIcon {
+            .size(16px);
+            float: left;
+            margin-right: 5px;
+        }
+        .infoNode {
+            position: absolute;
+            right: 15px;
+            top: 2px;
+        }
+        .descNode {
+            padding: 0 60px;
+            margin: 0.2em;
+        }
+        .ctContentItemInfoIcon {
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .dijitTreeRowHover .ctContentItemInfoIcon {
+            border-color: @ct-primary-contrast-border-color;
+        }
+
+        .dijitToggleButton{
+          .dijitButtonNode{
+            .border-radius(3px)
+          }
+        }
+
+        .dijitToggleButtonChecked{
+          .dijitButtonNode{
+            background-color: @button-background-color;
+            color: @text-color;
+          }
+        }
+
+    }
+    //Special Styles that are only valid if the tree is a ctInfoTree in order to satisfy customer's wishes
+    .ctInfoTree{
+        .ctTreeNodeLeaf .dijitCheckBoxIcon{
+            margin-right: 20px;
+        }
+        .ctPOILegendIcon{
+            display: inline-block;
+            position: absolute;
+            top: 6px;
+            left: 45px;
+        }
+        li > .dijitToggleButton{
+            margin: 1px 0;
+            .dijitButtonNode{
+                padding-bottom: 0;
+            }
+          &.dijitToggleButtonChecked{
+            .dijitButtonNode{
+              background-color: transparent;
+             }
+          }
+        }
+      .convertButtonToLink.dijitToggleButtonChecked{
+        .dijitButtonNode{
+          background-color: transparent;
+          color: @agiv-link-color;
+        }
+      }
+
+    }
+    .ctNodeInfoWidget {
+        .size(300px, 200px);
+        overflow: auto;
+        .ctTooltipCloseButton {
+            float: right;
+        }
+    }
+
+    //styling of dndAvatar of layerItemNode
+    .dojoDndAvatar .buttonContainer,
+    .dojoDndAvatar .sliderNode {
+        display: none;
+    }
+
+    .dijitPopup .ctHideConnector .dijitTooltipConnector {
+        display: none;
+    }
+    .dijitPopup .ctLayerInfoTooltip .dijitTooltipContainer {
+        // background-color:@primary-color;
+        border: 2px solid @primary-color;
+    }
+
+    //Styling for icons in front of each LayerItem
+    .transparencySlider {
+        .iconNode {
+            .setWebFont();
+            font-size: 20px;
+            display: block;
+            .size(20px);
+            max-height: 55px;
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            margin-top: -10px;
+        }
+        .POLYGON .iconNode:before {
+            font-family: agivUiFont;
+            content: "\e613";
+        }
+        .POLYLINE .iconNode:before {
+            content: '\e054';
+        }
+        .TEXT .iconNode:before {
+            content: '\e066';
+        }
+        .POINT .iconNode:before {
+            font-family: agivUiFont;
+            content: "\e61f";
+        }
+        .WMTS .iconNode:before,
+            .WMS .iconNode:before,
+            .INSPIRE_VIEW .iconNode:before {
+            content: '\e0be';
+        }
+        .POI .iconNode:before {
+            content: '';
+        }
+        .POI .iconNode {
+            font-size: inherit;
+            margin-top: -5px;
+            left: 10px;
+        }
+        /*.SEARCH_RESULT_POI .iconNode:before,
+        .SEARCH_RESULT_COORDINATE .iconNode:before,
+        .SEARCH_RESULT_ADDRESS .iconNode:before,
+        .SEARCH_RESULT .iconNode:before {
+            font-family: agivUiFont;
+            content: "\e615";
+        }*/
+        .SEARCH_RESULT_PARCEL .iconNode:before {
+            font-family: agivUiFont;
+            content: "\e614";
+        }
+    }
+
+    //Styling for icons in front of each LayerItem
+    .transparencySlider div[class*='SEARCH_RESULT_ADDRESS'],
+    .transparencySlider div[class*='SEARCH_RESULT_POI'],
+    .transparencySlider div[class*='RESULT_IDENTIFY'],
+    .transparencySlider div[class*='SEARCH_RESULT_COORDINATE'],
+    .ctNearbyResultContainer[class*='result']{
+        .iconNode{
+            display: inline-block;
+            .size(25px,32px);
+            margin-top: -16px;
+            margin-left: -4px;
+        }
+        &[class*='result'] .iconNode{
+            .bgHD('../images/marker/search/searchMarker_00.png',23px);                
+        }
+
+        //function to set the number inside the icon for the 20 Result Marker Icons
+        .createSerchResultLegend(20);
+        .createSerchResultLegend(@n, @i: 1) when (@i =< @n) {
+            .iTest() when (@i < 10){
+                &.result@{i} .iconNode{
+                    .bgHD('../images/marker/search/searchMarker_0@{i}.png',23px);
+                }
+            }
+            .iTest() when (@i >= 10){
+                &.result@{i} .iconNode{
+                    .bgHD('../images/marker/search/searchMarker_@{i}.png',23px);
+                }
+            }
+            .iTest();
+            .createSerchResultLegend(@n, (@i + 1));
+        }
+    }
+
+
+
+    // BUILDER
+    .appbuilder.ctBuilderWindowRoot .ctContentModelBuilderWidget {
+        .content {
+            padding: 0;
+        }
+        .services {
+            width: 30%;
+        }
+        .categories {
+            width: 30%;
+        }
+    }
+    &.ctEnv_IE_8 .ctAgivAllLayersSliderNode .buttonContainer.upperButtonContainer {
+        .layermanagerToolbar,
+        .visibilityButton {
+            float: left; //fixes IE8 Bug where Buttons are overlapping
+        }
+    }
+
+
+}

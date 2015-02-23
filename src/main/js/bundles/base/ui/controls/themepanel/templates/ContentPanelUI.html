@@ -1,0 +1,33 @@
+<div>
+
+    <div data-dojo-type="dijit/layout/TabContainer"
+         data-dojo-attach-point="tabContainer"
+         data-dojo-props="tabStrip: true, tabPosition: 'top'">
+
+        <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-attach-point="treeBorderContainer"
+             data-dojo-props="title:'${i18n.ui.kiesThemas}',selected:true, design:'headline'">
+
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="'class':'ctAgivDescriptionNode',title:'${i18n.ui.description.title}',region:'top'"
+                 data-dojo-attach-point="descNode"></div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="'class':'ctAgivNearbyNode',region:'top'"
+                 data-dojo-attach-point="nearbyNode"></div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="'class':'ctAgivTreeNode noPadding',title:'${i18n.ui.kiesThemas}',region:'center'"
+                 data-dojo-attach-point="treeNode"></div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="'class':'ctAgivLayermanager noPadding',title:'${i18n.ui.mijnSelecties}'"
+             data-dojo-attach-point="layermanagerNode">
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-attach-point="poiLayersNode"
+                 data-dojo-props="'class':'noPadding poiLayersNode'"></div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-attach-point="nonpoiLayersNode"
+                 data-dojo-props="'class':'noPadding nonpoiLayersNode'"></div>
+        </div>
+
+    </div>
+
+</div>

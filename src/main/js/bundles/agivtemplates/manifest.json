@@ -1,0 +1,8 @@
+{
+    "Bundle-SymbolicName": "agivtemplates",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Layer": "",
+    "Bundle-Main": "",
+    "Bundle-StartLevel": 1
+}

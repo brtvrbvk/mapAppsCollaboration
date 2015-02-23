@@ -1,0 +1,110 @@
+
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+  .icon-capakey:before{
+    color: lighten(@agiv-dark-grey,25%);
+  }
+
+  .icon-capakey:after{
+    color: @agiv-dark-grey;
+    position: absolute;
+    left: 0;
+  }
+
+  .ctTool_capakeyTool {
+    .dijitIcon{
+      position: relative;
+      top:1px;
+      font-size: 18px;
+    }
+    top: 0; right:0;
+    .dijitButtonNode{
+      .resetBG();
+      background: #FFF;
+      .border-radius(100%);
+      padding: 2px 6px 6px;
+      font-size: 18px;
+      .transition(border 0.2s ease-out);
+      border: 3px solid @primary-color;
+    }
+    &.dijitHover,
+    &.dijitChecked{
+      .dijitButtonNode{
+        background-color: @textbox-hovered-background-color;
+        color: @text-color;
+        border-color: @text-color;
+      }
+    }
+  }
+
+  .capakeyWindow{
+
+    .dijitDialogTitle{
+      margin-right: 18px;
+      position: relative;
+      &:before,
+      &:after {
+        .setWebFont("agivUiFont");
+        margin-right: .4em;
+        font-size: 15px;
+        vertical-align: bottom;
+      }
+      &:before {
+        content: "\e632";
+        color: lighten(@agiv-dark-grey,25%);
+      }
+      &:after {
+        content: "\e633";
+        color: @agiv-dark-grey;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+  }
+
+  .capakeySearch{
+    .first-row{
+      position: relative;
+      .labelCell,
+      .valueCell{
+           position: absolute;
+           clear: both;
+      }
+
+          .labelCell{
+            right: -56%;
+            top: 2px;
+          }
+          .valueCell{
+            left: 150px;
+          }
+    }
+      .last-row{
+           label{
+             visibility: hidden;
+           }
+      }
+    .dijitTextBox,
+    .dijitTextBoxHover,
+    .dijitTextBoxFocused{
+      .dijitButtonNode{
+        border-color: transparent;
+      }
+    }
+     .dijitTextBox .dijitInputContainer{
+        border-radius: 3px 0 0 3px;
+    }
+    .dijitTextArea{
+      background-color: transparent;
+      border-color: transparent;
+      color: @text-color;
+      margin: 0;
+      padding: 0;
+      height: 55px;
+      width: 215px;
+    }
+  }
+}

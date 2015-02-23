@@ -1,0 +1,62 @@
+/* 
+    Created on : 07.01.2014, 11:23:31
+    Author     : juku
+*/
+
+.ctTpl_light[class*='ctLayout_mobile_'] .dockingBarBottom {
+    padding-right: 0;
+}
+
+.ctTpl_light[class*='ctLayout_mobile_'] .toolWrapperFooterRight {
+    /*width: 70px;*/
+}
+
+.ctTpl_light[class*='ctLayout_mobile_'] .toolWrapperFooterLeft {
+    width: 50px;
+}
+
+.ctTpl_light[class*='ctLayout_tablet_'] .dijitContentPane.templateButtons {
+    width: 140px;
+}
+.ctTpl_light.ctLayout_tablet_portrait .footer .copyrightText.infoBar {
+    padding-right: 305px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    .ctTpl_light .ctSearchWrapper .resetSearchButton .dijitButtonText {
+        top: -2px;
+        position: relative;
+    }
+
+    .ctTpl_light .ctSearchWrapper .resetSearchButton .dijitButtonNode {
+        height: 14px;
+    }
+}
+
+/*hiding/moving stuff on smal screens*/
+@media screen and (max-width: 640px) {
+    .ctTpl_light .templateButtons,
+    .ctTpl_light .ctScaleBar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .ctTpl_light .toolWrapperFooterLeft .ctGridContainer {
+        position: fixed;
+        bottom: 70px;
+        left: 10px;
+    }
+}
+
+/*fix for ios7 landscape bug
+http://krpano.com/ios/bugs/ios7-ipad-landscape/
+*/
+@media (orientation: landscape) {
+    /*can´t be used because of the portal integration*/
+    /*body[class*="ctEnv_iPad_7"]{*/
+    /*height: 650px !important;*/
+    /*overflow: hidden !important;*/
+    /*}*/
+
+}

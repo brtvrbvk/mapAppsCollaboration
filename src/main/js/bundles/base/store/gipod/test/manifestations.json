@@ -1,0 +1,1302 @@
+[
+    {
+        "initiator": null,
+        "eventType": "(Werf)kraan",
+        "recurrencePattern": null,
+        "gipodId": 763214,
+        "owner": "Stad Aalst",
+        "description": "Torenkraan                                                                                                                                                                                                                                                                                                                                                                                                      ",
+        "startDateTime": "2013-07-23T07:00:00",
+        "endDateTime": "2014-01-18T10:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                449635.0792646464,
+                6610557.2462029383
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/763214?crs=EPSG3857",
+        "cities": ["Aalst"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": null,
+        "gipodId": 722660,
+        "owner": "AGIV_Groen",
+        "description": "Buurtfeest                                                                                                                                                                                                                                                                                                                                                                                                      ",
+        "startDateTime": "2013-09-25T06:00:00",
+        "endDateTime": "2013-09-30T19:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                474035.08264488977,
+                6658821.1204663245
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722660?crs=EPSG3857",
+        "cities": ["Beveren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "(Werf)kraan",
+        "recurrencePattern": null,
+        "gipodId": 817902,
+        "owner": "Training",
+        "description": "torenkraan steenweg                                                                                                                                                                                                                                                                                                                                                                                             ",
+        "startDateTime": "2013-09-28T00:00:00",
+        "endDateTime": "2013-11-01T00:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                406300.41728320421,
+                6606663.5217315061
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817902?crs=EPSG3857",
+        "cities": ["Gavere"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140923T120000;INTERVAL=1;BYDAY=MO",
+        "gipodId": 817524,
+        "owner": "Training",
+        "description": "wekelijkse markt op maandagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-09-30T06:00:00",
+        "endDateTime": "2013-09-30T13:30:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                407260.81968381704,
+                6608906.4967431277
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817524?crs=EPSG3857",
+        "cities": ["Gavere"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150924T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 719817,
+        "owner": "Blauw",
+        "description": "nbvn                                                                                                                                                                                                                                                                                                                                                                                                            ",
+        "startDateTime": "2013-10-01T00:00:00",
+        "endDateTime": "2013-10-02T00:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                344691.85224637564,
+                6633576.309016794
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/719817?crs=EPSG3857",
+        "cities": ["Torhout"]
+    },
+    {
+        "initiator": "Gemeente Torhout",
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150201T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 719758,
+        "owner": "Rood",
+        "description": "Manifestatie in Torhout                                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-01T04:00:00",
+        "endDateTime": "2013-10-01T15:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                345199.4604795429,
+                6632814.2546269912
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/719758?crs=EPSG3857",
+        "cities": ["Torhout"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150929T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 818096,
+        "owner": "AGIV_Rood",
+        "description": "Wekelijkse Markt Geel                                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-01T05:00:00",
+        "endDateTime": "2013-10-01T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                555354.91664605169,
+                6649987.3668994606
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/818096?crs=EPSG3857",
+        "cities": ["Geel"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140129T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 763177,
+        "owner": "Training",
+        "description": "wekelijkse markt op dinsdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-01T06:00:00",
+        "endDateTime": "2013-10-01T13:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                347803.17484594218,
+                6611608.3592128633
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/763177?crs=EPSG3857",
+        "cities": ["Roeselare"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140916T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 817129,
+        "owner": "Training",
+        "description": "plaats kippenverkoop                                                                                                                                                                                                                                                                                                                                                                                            ",
+        "startDateTime": "2013-10-01T06:00:00",
+        "endDateTime": "2013-10-01T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                578026.16608208418,
+                6597542.994962465
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817129?crs=EPSG3857",
+        "cities": ["Nieuwerkerken"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150208T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722332,
+        "owner": "Stad Brugge",
+        "description": "Markt brugge                                                                                                                                                                                                                                                                                                                                                                                                    ",
+        "startDateTime": "2013-10-02T06:00:00",
+        "endDateTime": "2013-10-02T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                358794.10361405351,
+                6658401.8204611195
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722332?crs=EPSG3857",
+        "cities": ["Brugge"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140101T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722655,
+        "owner": "Training",
+        "description": "wekelijkse markt op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                          ",
+        "startDateTime": "2013-10-02T06:00:00",
+        "endDateTime": "2013-10-02T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                443999.32915544463,
+                6639884.5575733986
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722655?crs=EPSG3857",
+        "cities": ["Lokeren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131225T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 725663,
+        "owner": "Training",
+        "description": "Markt op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                                     ",
+        "startDateTime": "2013-10-02T06:00:00",
+        "endDateTime": "2013-10-02T13:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                569175.79277480382,
+                6612190.9880528077
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/725663?crs=EPSG3857",
+        "cities": ["Halen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140515T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 762551,
+        "owner": "Training",
+        "description": "wekelijkse markt te Brakel op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                ",
+        "startDateTime": "2013-10-02T06:00:00",
+        "endDateTime": "2013-10-02T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                418873.20766709425,
+                6586791.06465721
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762551?crs=EPSG3857",
+        "cities": ["Brakel"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150630T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 764090,
+        "owner": "Training",
+        "description": "Woensdagmarkt in Juni is verplaatst naar de Kaai en de Demerstraat.                                                                                                                                                                                                                                                                                                                                             ",
+        "startDateTime": "2013-10-02T06:00:00",
+        "endDateTime": "2013-10-02T13:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                561969.36221433629,
+                6618753.6982658114
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/764090?crs=EPSG3857",
+        "cities": ["Diest"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150213T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722901,
+        "owner": "Gemeente Evergem",
+        "description": "test wederkerende manifestatie                                                                                                                                                                                                                                                                                                                                                                                  ",
+        "startDateTime": "2013-10-02T08:00:00",
+        "endDateTime": "2013-10-02T12:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                416871.92142815643,
+                6652845.4349478316
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722901?crs=EPSG3857",
+        "cities": ["Evergem"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150301T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 725664,
+        "owner": "Training",
+        "description": "markt op woensdagnamiddag                                                                                                                                                                                                                                                                                                                                                                                       ",
+        "startDateTime": "2013-10-02T13:00:00",
+        "endDateTime": "2013-10-02T18:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                574841.2004821247,
+                6610899.1930808956
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/725664?crs=EPSG3857",
+        "cities": ["Herk-de-Stad"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131226T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 774320,
+        "owner": "Training",
+        "description": "wekelijkse donderdagmarkt op markt en wegvoeringsstraat                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-03T05:00:00",
+        "endDateTime": "2013-10-03T13:30:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                432383.654724218,
+                6622605.9591413941
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/774320?crs=EPSG3857",
+        "cities": ["Wetteren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150212T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 722664,
+        "owner": "AGIV_Groen",
+        "description": "Wekelijkse markt                                                                                                                                                                                                                                                                                                                                                                                                ",
+        "startDateTime": "2013-10-03T06:00:00",
+        "endDateTime": "2013-10-03T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                401086.21272767638,
+                6593678.1711996729
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722664?crs=EPSG3857",
+        "cities": ["Oudenaarde"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20141231T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 762487,
+        "owner": "Training",
+        "description": "wekelijkse markt op donderdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-03T06:00:00",
+        "endDateTime": "2013-10-03T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                471659.77917015832,
+                6574833.12134778
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762487?crs=EPSG3857",
+        "cities": ["Halle"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150221T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 724039,
+        "owner": "Stad Antwerpen",
+        "description": "2100 Deurne Cogelsplein                                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-03T07:30:00",
+        "endDateTime": "2013-10-03T13:30:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                495779.25830529124,
+                6660390.1094558248
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/724039?crs=EPSG3857",
+        "cities": ["Antwerpen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150228T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 724792,
+        "owner": "Groen",
+        "description": "jaar-markt                                                                                                                                                                                                                                                                                                                                                                                                      ",
+        "startDateTime": "2013-10-04T00:00:00",
+        "endDateTime": "2013-10-05T00:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                632650.92421273,
+                6608668.1569888117
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/724792?crs=EPSG3857",
+        "cities": ["Lanaken"]
+    },
+    {
+        "initiator": "Handelsraad",
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150208T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 722337,
+        "owner": "AGIV_Rood",
+        "description": "Vrijdagmarkt                                                                                                                                                                                                                                                                                                                                                                                                    ",
+        "startDateTime": "2013-10-04T05:00:00",
+        "endDateTime": "2013-10-04T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                303381.0682519094,
+                6595888.5784865282
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722337?crs=EPSG3857",
+        "cities": ["Poperinge"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140128T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 716729,
+        "owner": "Training",
+        "description": "vrijdagmarkt op de vrijdagmarkt                                                                                                                                                                                                                                                                                                                                                                                 ",
+        "startDateTime": "2013-10-04T06:00:00",
+        "endDateTime": "2013-10-04T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                414597.74992733554,
+                6631473.5085296324
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/716729?crs=EPSG3857",
+        "cities": ["Gent"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131227T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 724030,
+        "owner": "Training",
+        "description": "wekelijkse markt op vrijdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-04T06:00:00",
+        "endDateTime": "2013-10-04T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                503327.56108240166,
+                6657555.4313311335
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/724030?crs=EPSG3857",
+        "cities": ["Wommelgem"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150605T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 764052,
+        "owner": "AGIV",
+        "description": "organisatie wekelijkse markt op het Marktplein in Vichte                                                                                                                                                                                                                                                                                                                                                        ",
+        "startDateTime": "2013-10-04T06:00:00",
+        "endDateTime": "2013-10-04T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                378972.05721137137,
+                6592299.6694084732
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/764052?crs=EPSG3857",
+        "cities": ["Anzegem"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131217T120000;INTERVAL=1;BYDAY=FR",
+        "gipodId": 719829,
+        "owner": "Rood",
+        "description": "Wederkerig 150                                                                                                                                                                                                                                                                                                                                                                                                  ",
+        "startDateTime": "2013-10-04T15:30:00",
+        "endDateTime": "2013-10-04T18:30:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                524867.60372154356,
+                6628901.986783986
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/719829?crs=EPSG3857",
+        "cities": ["Heist-op-den-Berg"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131225T120000;INTERVAL=1;BYDAY=SA",
+        "gipodId": 725661,
+        "owner": "Training",
+        "description": "wekelijkse markt op zaterdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                          ",
+        "startDateTime": "2013-10-05T06:00:00",
+        "endDateTime": "2013-10-05T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                577695.41393629217,
+                6618904.2427893588
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/725661?crs=EPSG3857",
+        "cities": ["Lummen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140113T120000;INTERVAL=1;BYDAY=SA",
+        "gipodId": 762499,
+        "owner": "Training",
+        "description": "wekelijkse markt op zaterdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                          ",
+        "startDateTime": "2013-10-05T06:00:00",
+        "endDateTime": "2013-10-05T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                471659.77917015832,
+                6574833.12134778
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762499?crs=EPSG3857",
+        "cities": ["Halle"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131228T120000;INTERVAL=1;BYDAY=SA",
+        "gipodId": 774360,
+        "owner": "Training",
+        "description": "Zaterdagmarkt te Eisden-dorp, vrijthof                                                                                                                                                                                                                                                                                                                                                                          ",
+        "startDateTime": "2013-10-05T06:00:00",
+        "endDateTime": "2013-10-05T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                635751.37240392738,
+                6618814.335219183
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/774360?crs=EPSG3857",
+        "cities": ["Maasmechelen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150927T120000;INTERVAL=1;BYDAY=SA",
+        "gipodId": 817916,
+        "owner": "Groen",
+        "description": "Markt in wachtebeke                                                                                                                                                                                                                                                                                                                                                                                             ",
+        "startDateTime": "2013-10-05T07:00:00",
+        "endDateTime": "2013-10-06T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                429428.635127721,
+                6651534.1807858748
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817916?crs=EPSG3857",
+        "cities": ["Wachtebeke"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": null,
+        "gipodId": 723789,
+        "owner": "Stad Antwerpen",
+        "description": "Pieter Van Hobokenstraat\r\nBuurtfeest                                                                                                                                                                                                                                                                                                                                                                            ",
+        "startDateTime": "2013-10-05T08:00:00",
+        "endDateTime": "2013-10-05T23:30:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                491019.06636306783,
+                6660745.5453451043
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/723789?crs=EPSG3857",
+        "cities": ["Antwerpen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150808T120000;INTERVAL=1;BYDAY=SA",
+        "gipodId": 783730,
+        "owner": "Gemeente Lennik",
+        "description": "Wekelijkse markt op zaterdag                                                                                                                                                                                                                                                                                                                                                                                    ",
+        "startDateTime": "2013-10-05T13:00:00",
+        "endDateTime": "2013-10-05T18:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                466146.9939016588,
+                6586062.3921370236
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/783730?crs=EPSG3857",
+        "cities": ["Lennik"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131229T120000;INTERVAL=1;BYDAY=SU",
+        "gipodId": 774319,
+        "owner": "Training",
+        "description": "Wekelijkse zondagsmarkt                                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-06T06:00:00",
+        "endDateTime": "2013-10-06T13:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                431708.52955635055,
+                6621905.0328103695
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/774319?crs=EPSG3857",
+        "cities": ["Wetteren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Wielerwedstrijd - open criterium",
+        "recurrencePattern": null,
+        "gipodId": 814697,
+        "owner": "AGIV_Geel",
+        "description": "Wielerwedstrijd De lustige wielervrienden Bertem                                                                                                                                                                                                                                                                                                                                                                ",
+        "startDateTime": "2013-10-06T14:00:00",
+        "endDateTime": "2013-10-06T16:30:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                515069.05390755151,
+                6596145.2302266005
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/814697?crs=EPSG3857",
+        "cities": ["Bertem"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140923T120000;INTERVAL=1;BYDAY=MO",
+        "gipodId": 817524,
+        "owner": "Training",
+        "description": "wekelijkse markt op maandagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-07T06:00:00",
+        "endDateTime": "2013-10-07T13:30:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                407260.81968381704,
+                6608906.4967431277
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817524?crs=EPSG3857",
+        "cities": ["Gavere"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150924T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 719817,
+        "owner": "Blauw",
+        "description": "nbvn                                                                                                                                                                                                                                                                                                                                                                                                            ",
+        "startDateTime": "2013-10-08T00:00:00",
+        "endDateTime": "2013-10-09T00:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                344691.85224637564,
+                6633576.309016794
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/719817?crs=EPSG3857",
+        "cities": ["Torhout"]
+    },
+    {
+        "initiator": "Gemeente Torhout",
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150201T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 719758,
+        "owner": "Rood",
+        "description": "Manifestatie in Torhout                                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-08T04:00:00",
+        "endDateTime": "2013-10-08T15:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                345199.4604795429,
+                6632814.2546269912
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/719758?crs=EPSG3857",
+        "cities": ["Torhout"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150929T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 818096,
+        "owner": "AGIV_Rood",
+        "description": "Wekelijkse Markt Geel                                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-08T05:00:00",
+        "endDateTime": "2013-10-08T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                555354.91664605169,
+                6649987.3668994606
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/818096?crs=EPSG3857",
+        "cities": ["Geel"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140129T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 763177,
+        "owner": "Training",
+        "description": "wekelijkse markt op dinsdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-08T06:00:00",
+        "endDateTime": "2013-10-08T13:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                347803.17484594218,
+                6611608.3592128633
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/763177?crs=EPSG3857",
+        "cities": ["Roeselare"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140916T120000;INTERVAL=1;BYDAY=TU",
+        "gipodId": 817129,
+        "owner": "Training",
+        "description": "plaats kippenverkoop                                                                                                                                                                                                                                                                                                                                                                                            ",
+        "startDateTime": "2013-10-08T06:00:00",
+        "endDateTime": "2013-10-08T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                578026.16608208418,
+                6597542.994962465
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/817129?crs=EPSG3857",
+        "cities": ["Nieuwerkerken"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150208T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722332,
+        "owner": "Stad Brugge",
+        "description": "Markt brugge                                                                                                                                                                                                                                                                                                                                                                                                    ",
+        "startDateTime": "2013-10-09T06:00:00",
+        "endDateTime": "2013-10-09T14:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                358794.10361405351,
+                6658401.8204611195
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722332?crs=EPSG3857",
+        "cities": ["Brugge"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140101T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722655,
+        "owner": "Training",
+        "description": "wekelijkse markt op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                          ",
+        "startDateTime": "2013-10-09T06:00:00",
+        "endDateTime": "2013-10-09T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                443999.32915544463,
+                6639884.5575733986
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722655?crs=EPSG3857",
+        "cities": ["Lokeren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131225T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 725663,
+        "owner": "Training",
+        "description": "Markt op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                                     ",
+        "startDateTime": "2013-10-09T06:00:00",
+        "endDateTime": "2013-10-09T13:00:00",
+        "importantHindrance": false,
+        "coordinate": {
+            "coordinates": [
+                569175.79277480382,
+                6612190.9880528077
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/725663?crs=EPSG3857",
+        "cities": ["Halen"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140515T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 762551,
+        "owner": "Training",
+        "description": "wekelijkse markt te Brakel op woensdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                ",
+        "startDateTime": "2013-10-09T06:00:00",
+        "endDateTime": "2013-10-09T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                418873.20766709425,
+                6586791.06465721
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762551?crs=EPSG3857",
+        "cities": ["Brakel"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150630T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 764090,
+        "owner": "Training",
+        "description": "Woensdagmarkt in Juni is verplaatst naar de Kaai en de Demerstraat.                                                                                                                                                                                                                                                                                                                                             ",
+        "startDateTime": "2013-10-09T06:00:00",
+        "endDateTime": "2013-10-09T13:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                561969.36221433629,
+                6618753.6982658114
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/764090?crs=EPSG3857",
+        "cities": ["Diest"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150213T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 722901,
+        "owner": "Gemeente Evergem",
+        "description": "test wederkerende manifestatie                                                                                                                                                                                                                                                                                                                                                                                  ",
+        "startDateTime": "2013-10-09T08:00:00",
+        "endDateTime": "2013-10-09T12:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                416871.92142815643,
+                6652845.4349478316
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/722901?crs=EPSG3857",
+        "cities": ["Evergem"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20150301T120000;INTERVAL=1;BYDAY=WE",
+        "gipodId": 725664,
+        "owner": "Training",
+        "description": "markt op woensdagnamiddag                                                                                                                                                                                                                                                                                                                                                                                       ",
+        "startDateTime": "2013-10-09T13:00:00",
+        "endDateTime": "2013-10-09T18:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                574841.2004821247,
+                6610899.1930808956
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/725664?crs=EPSG3857",
+        "cities": ["Herk-de-Stad"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20131226T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 774320,
+        "owner": "Training",
+        "description": "wekelijkse donderdagmarkt op markt en wegvoeringsstraat                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-10T05:00:00",
+        "endDateTime": "2013-10-10T13:30:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                432383.654724218,
+                6622605.9591413941
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/774320?crs=EPSG3857",
+        "cities": ["Wetteren"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Markt",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20141231T120000;INTERVAL=1;BYDAY=TH",
+        "gipodId": 762487,
+        "owner": "Training",
+        "description": "wekelijkse markt op donderdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                         ",
+        "startDateTime": "2013-10-10T06:00:00",
+        "endDateTime": "2013-10-10T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                471659.77917015832,
+                6574833.12134778
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762487?crs=EPSG3857",
+        "cities": ["Halle"]
+    },
+    {
+        "initiator": null,
+        "eventType": "Andere ",
+        "recurrencePattern": "FREQ=WEEKLY;UNTIL=20140113T120000;INTERVAL=2;BYDAY=TH",
+        "gipodId": 762490,
+        "owner": "Training",
+        "description": "Voddekensmarkt op donderdagvoormiddag                                                                                                                                                                                                                                                                                                                                                                           ",
+        "startDateTime": "2013-10-10T06:00:00",
+        "endDateTime": "2013-10-10T14:00:00",
+        "importantHindrance": true,
+        "coordinate": {
+            "coordinates": [
+                471206.42209781829,
+                6574677.4848506665
+            ],
+            "type": "Point",
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::3857"
+                }
+            }
+        },
+        "detail": "http://ws.beta.agiv.be/Gipod/ws/v1/manifestation/762490?crs=EPSG3857",
+        "cities": ["Halle"]
+    }
+]

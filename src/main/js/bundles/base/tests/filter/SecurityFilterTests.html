@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .test {
+            outline: 1px solid black;
+            margin: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="../../../../../ct/dojo-init.js"></script>
+    <script type="text/javascript">
+        afterMapAppsLoad(function () {
+            require([
+                "ct/request",
+                "ct/_when",
+                "dojo/dom",
+                "dojo/domReady!"
+            ], function (
+                    ct_request,
+                    ct_when,
+                    d_dom
+                    ) {
+
+                var host = window.location.hostname;
+
+                var sendReqText = function (tourl) {
+                    return "sending request from host</br>   " + host + "</br>with referer</br>   " + window.location.href + "</br>to URL</br>   " + tourl + "</br>...</br>";
+                }
+
+                var test1Text = d_dom.byId("test1");
+                var test2Text = d_dom.byId("test2");
+                var test3Text = d_dom.byId("test3");
+
+                test1Text.innerHTML += sendReqText("/js/prj/agiv/bundles/bundles.json");
+
+                ct_when(ct_request.request({
+                    url: "/js/prj/agiv/bundles/bundles.json"
+                }, {
+                    useProxy: true
+                }), function (res) {
+
+                    test1Text.innerHTML += "PASS</br>";
+                    test1Text.innerHTML += host + " was ALLOWED to send the request for JSON through the proxy</br>";
+
+                }, function (err) {
+
+                    test1Text.innerHTML += "FAIL</br>";
+                    test1Text.innerHTML += host + " was DENIED to send the request for JSON through the proxy</br>";
+
+                });
+
+                test2Text.innerHTML += sendReqText("http://google.de");
+
+                ct_when(ct_request.request({
+                    url: "http://google.de",
+                    handleAs: "text"
+                }), function (res) {
+
+                    test2Text.innerHTML += "FAIL</br>";
+                    test2Text.innerHTML += host + " was ALLOWED to send the request for text/html through the proxy</br>";
+
+                }, function (err) {
+
+                    test2Text.innerHTML += "PASS</br>";
+                    test2Text.innerHTML += host + " was DENIED to send the request for text/html through the proxy</br>";
+
+                });
+
+            });
+        }, true);
+    </script>
+</head>
+<body>
+<div id="test1" class="test"></div>
+<div id="test2" class="test"></div>
+<div id="test3" class="test"></div>
+</body>
+</html>

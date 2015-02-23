@@ -1,0 +1,78 @@
+<div>
+    <div data-dojo-type="dijit/layout/ContentPane"
+         data-dojo-props="gutters:false,'class':'ctRouting'"
+         data-dojo-attach-point="mainNode">
+
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="'class':'agivRoutingActionsTop',gutters:false,design:'sidebar'">
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'center','class':'upperButtonContainer'"
+                 data-dojo-attach-point="toptoolbarnode">
+            </div>
+            <!--<div data-dojo-type="dijit/layout/ContentPane"-->
+            <!--data-dojo-props="region:'center'">-->
+            <!--<div class="ctAddThisButton" data-dojo-attach-point="addThisNode"></div>-->
+            <!--</div>-->
+
+            <!--<div data-dojo-type="dijit/form/Button"
+                 data-dojo-props="label:'${i18n.calculate}','class':'ctRoutingFloatRight'"
+                 data-dojo-attach-event="onClick:_onCalcClick"></div>-->
+            <div data-dojo-attach-point="loaderNode"
+                 class="ctRoutingLoader"></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="gutters:false,design:'sidebar','class':'ctRoutingSelectionListContainer'">
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'left'">
+                <select name="transportMode"
+                        data-dojo-type="dojox/form/CheckedMultiSelect"
+                        data-dojo-attach-point="transportModeNode">
+                    <option value="car"
+                            selected="selected">${i18n.transport.car}
+                    </option>
+                    <option value="pedestrian">${i18n.transport.pedestrian}</option>
+                </select>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'center','class':'ctRoutingSelectionList'">
+                <select name="type"
+                        data-dojo-type="dojox/form/CheckedMultiSelect"
+                        data-dojo-attach-point="typeNode">
+                    <option value="fastest"
+                            selected="selected">${i18n.types.fastest}
+                    </option>
+                    <option value="shortest">${i18n.types.shortest}</option>
+                    <option value="economic">${i18n.types.economic}</option>
+                </select>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center'">
+            <div data-dojo-attach-point="targetAttachNode"></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane">
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="switchTargets"
+                 data-dojo-props="label:'${i18n.switchTargets}','class':'ctRoutingSwitchButton ctRoutingFloatRight', iconClass:'icon-swap',tabIndex:'-1'"
+                 data-dojo-attach-event="onClick:_onSwitchTargetsClick"></div>
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="addTarget"
+                 data-dojo-props="label:'${i18n.addTarget}','class':'ctRoutingAddButton mutedButton', iconClass:'ctRouteAddIcon',tabIndex:'-1'"
+                 data-dojo-attach-event="onClick:_onAddTargetClick"></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="'class':'routeResultNode',gutters:false,region:'center'">
+            <!--            <div data-dojo-attach-point="printRoutingResultNode"></div>-->
+            <div data-dojo-attach-point="messagePane"
+                 data-dojo-type="ct/ui/controls/MessagePane"
+                 data-dojo-props=""></div>
+            <div data-dojo-attach-point="routeResultAttachNode"></div>
+
+        </div>
+
+    </div>
+</div>

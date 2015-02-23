@@ -1,0 +1,54 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    .ctcopyrightNode{
+        position: absolute;
+        white-space: nowrap;
+        background-color:rgba(150, 150, 150, 0.65);
+        .border-radius(5px);
+        padding: 2px;
+        display: inline-block;
+        a{
+            color:@text-color;
+        }
+        a:hover{
+            color:@agiv-link-color;
+        }
+        a:selected{
+            color:@text-color;
+        }
+    }
+
+    .ctcopyrightLeftLowerCorner{
+        left: 105px;
+        bottom: 5px;
+    }
+
+    .ctcopyrightLeftUpperCorner{
+        left: 5px;
+        top: 5px;
+    }
+
+    .ctcopyrightRightLowerCorner{
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .ctcopyrightRightUpperCorner{
+        right: 5px;
+        top: 5px;
+    }
+
+    .ctcopyrightImg {
+        background:transparent;
+        border: 0;
+    }
+    &.ctEnv_IE_7 .ctCopyrightNode {
+        background-color: lightgrey;
+    }
+    
+    .ctcopyrightTextNode {
+        white-space: normal;
+    }
+}

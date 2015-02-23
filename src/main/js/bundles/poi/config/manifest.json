@@ -1,0 +1,367 @@
+{
+    "Bundle-SymbolicName": "poi-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Main POI Builder Menu Entry ========
+        {
+            "name": "POIBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderCategoryNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "id": "poiBuilderNode"
+                }
+            }
+        },
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "POIStoreBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "poiBuilderNode",
+                "menuNode": {
+                    "title": "${menu.symbolization.title}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "poiStoreBuilderNode"
+                }
+            }
+        },
+        // ======= POI Retrieval Builder Widget ========
+        {
+            "name": "POIStoreBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./POIRetrievalDataForm.json')",
+                "pid": "poi-POIServerStoreLayerRegistration",
+                "bid": "poi",
+                "id": "poiStoreBuilderNode",
+                "defaultProperties": {
+                    "maxcount": 200,
+                    "showClusterLabels": true,
+                    "clusterLookupTable": {
+                        "point-cluster": {
+                            "text": "TEXT",
+                            "type": "esriTS",
+                            "yoffset": -4,
+                            "font": {
+                                "size": "11pt",
+                                "align": "middle",
+                                "style": "normal",
+                                "variant": "normal",
+                                "weight": "bold",
+                                "family": "sans-serif"
+                            }
+                        }
+                    },
+                    "symbolFactoryOpts": {
+                        "doGeneralization": false,
+                        "generalizationThreshold": 500,
+                        "generalizationScale": 1000000,
+                        "colorArray": [
+                            [
+                                255,
+                                0,
+                                0,
+                                255
+                            ],
+                            [
+                                255,
+                                153,
+                                0,
+                                255
+                            ],
+                            [
+                                255,
+                                255,
+                                0,
+                                255
+                            ],
+                            [
+                                0,
+                                255,
+                                0,
+                                255
+                            ],
+                            [
+                                0,
+                                255,
+                                255,
+                                255
+                            ],
+                            [
+                                204,
+                                0,
+                                255,
+                                255
+                            ],
+                            [
+                                255,
+                                97,
+                                97,
+                                255
+                            ],
+                            [
+                                255,
+                                189,
+                                91,
+                                255
+                            ],
+                            [
+                                255,
+                                255,
+                                153,
+                                255
+                            ],
+                            [
+                                204,
+                                255,
+                                153,
+                                255
+                            ],
+                            [
+                                102,
+                                204,
+                                255,
+                                255
+                            ],
+                            [
+                                204,
+                                153,
+                                255,
+                                255
+                            ],
+                            [
+                                200,
+                                0,
+                                0,
+                                255
+                            ],
+                            [
+                                210,
+                                125,
+                                0,
+                                255
+                            ],
+                            [
+                                229,
+                                229,
+                                0,
+                                255
+                            ],
+                            [
+                                0,
+                                153,
+                                0,
+                                255
+                            ],
+                            [
+                                0,
+                                0,
+                                255,
+                                255
+                            ],
+                            [
+                                102,
+                                0,
+                                204,
+                                255
+                            ]
+                        ],
+                        "lookupTable": {
+                            "point": {
+                                "color": "colorPlaceholder",
+                                "size": 10,
+                                "type": "esriSMS",
+                                "style": "esriSMSCircle",
+                                "outline": {
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        160
+                                    ],
+                                    "width": 1,
+                                    "type": "esriSLS",
+                                    "style": "esriSLSSolid"
+                                }
+                            },
+                            "point-cluster": {
+                                "color": "colorPlaceholder",
+                                "size": 20,
+                                "type": "esriSMS",
+                                "style": "esriSMSCircle",
+                                "outline": {
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        160
+                                    ],
+                                    "width": 1,
+                                    "type": "esriSLS",
+                                    "style": "esriSLSSolid"
+                                }
+                            },
+                            "point-selected": {
+                                "color": [
+                                    0,
+                                    0,
+                                    255,
+                                    255
+                                ],
+                                "size": 12,
+                                "type": "esriSMS",
+                                "style": "esriSMSCircle",
+                                "outline": {
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        255
+                                    ],
+                                    "width": 1,
+                                    "type": "esriSLS",
+                                    "style": "esriSLSSolid"
+                                }
+                            },
+                            "point-selected-cluster": {
+                                "color": [
+                                    0,
+                                    0,
+                                    255,
+                                    255
+                                ],
+                                "size": 15,
+                                "type": "esriSMS",
+                                "style": "esriSMSCircle",
+                                "outline": {
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        255
+                                    ],
+                                    "width": 1,
+                                    "type": "esriSLS",
+                                    "style": "esriSLSSolid"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        },
+
+        {
+            "name": "OnChangeHandler",
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_builderController",
+                    "providing": "poi.config.POISymbolLSBuilderController"
+                }
+            ]
+        },
+
+        // ======= Search Builder Menu Entry ========
+        {
+            "name": "SearchBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "sourcesBuilderNode",
+                "menuNode": {
+                    "title": "${menu.search.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIconSearch.png')",
+                    "widget": "poiSearchBuilderNode"
+                }
+            }
+        },
+
+        // ======= Search Builder Widget ========
+        {
+            "name": "POISearchBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": [
+                "dijit.wizard.Widget",
+                "poi.config.POISearchBuilderController"
+            ],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./POISearchForm.json')",
+                "pid": "poi-POISuggestHandler",
+                "bid": "poi",
+                "id": "poiSearchBuilderNode",
+                "defaultProperties": {
+                    "componentEnabled": true,
+                    "storeQueryOptions": {
+                        "count": 5,
+                        "maxmodel": true
+                    },
+                    "storeParameters": {
+                        "minQueryLength": 2,
+                        "target": "http://ws.beta.agiv.be/poi/core"
+                    }
+                },
+                "description": "${menu.search.description}"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+
+    ]
+}

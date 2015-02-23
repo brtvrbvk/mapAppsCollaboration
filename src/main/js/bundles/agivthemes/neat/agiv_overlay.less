@@ -1,0 +1,119 @@
+@import "themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+  .ctWindowDockingBar .ctWindowTabButton .dijitIcon {
+    display: block;
+    .size(45px);
+    &:before {
+     font-size: inherit;
+    }
+  }
+
+  .ctWindowDockingBar.ctToolContainer .ctTool .dijitButtonNode {
+    background-color: #FFF !important;
+    border-color: #FBD837;
+    border-width: 3px !important;
+    padding: 0 !important;
+    &.dijitActive{
+      border-color: #FBD837 !important;
+      border-width: 3px !important;
+    }
+
+  }
+
+  .ctWindowDockingBar.ctToolContainer .ctTool.dijitFocused  .dijitButtonNode{
+    border-color: #FBD837;
+    border-width: 3px !important;
+  }
+
+   .ctScaleBar .esriScalebar {
+    position: absolute;
+    width: 0;
+    height: 20px;
+  }
+
+
+  .ctCollapseGrid{
+    .ctCollapseHandleLeft,
+    .ctCollapseHandleRight{
+      .ctCollapseInnerHandle{
+        width: 17px;
+      }
+    }
+  }
+
+  .dijitTabListContainer-top,
+  .dijitTabListContainer-bottom{
+    background-color: transparent;
+  }
+
+ .ctWindow {
+   .ctWindowToolbar{
+     top: 5px;
+     right: 2px;
+   }
+   .ctWindowContentPadding{
+     .border-radius(0, 0, 0,0);
+   }
+ }
+
+  .ctToolWindow .ctTool,
+  .ctToolPopup .dijitToggleButton{
+    .dijitIcon{
+
+      border-left-width:0;
+      border-right-width:0;
+    }
+  }
+
+  /* Hovered ToolButtons Backgrounds */
+ /* .ctToolWindow .ctWindowContentPadding  .ctTool.dijitHover,
+  .ctToolPopup .ctWindowContentPadding  .dijitToggleButton.dijitHover {
+    .dijitButtonNode{
+      .standard-gradient-and-filter(@ct-toolset-tool-button-hovered-background-color);
+      border-color: @ct-toolset-tool-button-hovered-background-color ;
+    }
+  }*/
+
+  //  6) Styling for ctDropDownColorSelector
+  .ctDropDownColorSelector{
+    .dijitButtonNode{
+      padding: 2px 4px;
+    }
+    .dijitIcon{
+      .size(15px);
+      border: 1px solid @border-color;
+    }
+  }
+
+  .dijitSliderTopBumper,
+  .dijitSliderBottomBumper{
+    .border-radius(0);
+  }
+
+  .ctElevationsProfile{
+    padding: 0;
+    margin: 0;
+  }
+
+  .ctScopedFilter {
+    float: right;
+  }
+
+  .toolbar .ctAddButton ,
+  .toolbar .ctDeleteButton ,
+  .toolbar [class*='ctTool_delete'] ,
+  .toolbar [class*='ctTool_remove'] ,
+  .toolbar [class*='ctTool_add'] .dijitButtonNode,
+  .toolbar [class*='ctTool_create']{
+    .dijitButtonNode{
+       .border-radius(0);
+    }
+  }
+
+  .ctDataView .ctToolContainer {
+    margin-right: 10px;
+  }
+}
+

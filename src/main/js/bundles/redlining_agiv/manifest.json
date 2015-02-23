@@ -1,0 +1,182 @@
+{
+    "Bundle-SymbolicName": "redlining_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["parameter, URL"],
+    "Bundle-StartLevel": 2,
+
+    "Require-Bundle": [
+//        {
+//            "name": "redlining",
+//            "version": "[3.0,)"
+//        }
+    ],
+    "Components": [
+        {
+            "name": "ContentRegistrationDrawing",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "drawinginfowidget": "redlining_agiv.ContentWidgetFactoryDrawing"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "DRAWING",
+                                "splitviewmap": true
+                            }
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap"
+                        },
+                        "type": "drawinginfowidget"
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "DRAWING"
+                            }
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify"
+                        },
+                        "type": "drawinginfowidget"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentWidgetFactoryDrawing",
+            "provides": "redlining_agiv.ContentWidgetFactoryDrawing",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "drawinginfowidget": {
+                        "info": "redlining_agiv.featureinfointegration.DrawingInfoWidget"
+                    }
+                },
+                "ui": {
+                    "DrawingInfoWidget": {
+                        "addBtn": "${ui.addBtn}",
+                        "elevationBtn": "${ui.elevationBtn}",
+                        "textBoxPlaceHolder": "${ui.textBoxPlaceHolder}",
+                        "comment": "${ui.comment}",
+                        "commentWindowTitle": "${ui.commentWindowTitle}",
+                        "addCommentWindowTitle": "${ui.addCommentWindowTitle}",
+                        "type": "${ui.type}",
+                        "area": "${ui.area}",
+                        "length": "${ui.length}",
+                        "types": {
+                            "polygon": "${ui.types.polygon}",
+                            "polyline": "${ui.types.polyline}",
+                            "point": "${ui.types.point}"
+                        },
+                        "remainingCharacters": "${ui.remainingCharacters}"
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                }
+            ]
+        },
+
+        {
+            "name": "GeometryRendererModifier",
+            "provides": ["redlining_agiv.GeometryRenderer"],
+            "references": [
+                {
+                    "name": "geometryRenderer",
+                    "providing": "redlining.GeometryRenderer"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "drawTextController",
+                    "providing": "redlining.DrawTextController"
+                },
+                {
+                    "name": "editStateController",
+                    "providing": "ct.mapping.edit.EditStateController"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService",
+                    "cardinality": "1..1"
+                },
+                {
+                    "name": "_undoRedoService",
+                    "providing": "undoredo.UndoRedoService",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "GeometryParameterResolver",
+            "immediate": true,
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "agiv.api.Persistable"
+            ],
+            //        "properties" : {
+            //            "CM-Target-Pids" : ["map-MapModelFactory", "map-MapState"]
+            //        },
+            "references": [
+                {
+                    "name": "_coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_renderer",
+                    "providing": "redlining_agiv.GeometryRenderer"
+                }
+            ]
+        }
+    ]
+}

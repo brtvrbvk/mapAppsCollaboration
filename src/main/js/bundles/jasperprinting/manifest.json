@@ -1,0 +1,481 @@
+{
+    "Bundle-SymbolicName": "jasperprinting",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": [""],
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    //"Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "dataform",
+            "version": "[3.0,)"
+        }
+    ],
+    "Components": [
+
+        {
+            "name": "MapPrinter",
+            "provides": [
+                "jasperprinting.MapPrinter",
+                "jasperprinting.api.MapPrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "scalebarParams": {
+                    "transparency": 1,
+                    "show": true,
+                    "bottomMargin": 30,
+                    "leftMargin": 5,
+                    "fontSize": 14,
+                    "scalebarLength": 150,
+                    "unit": "km"
+                    // distanceInMap: 0,		 // Measured dynamically in MapPrinter!
+                    // extent: extent		 // Measured dynamically in MapPrinter!
+                },
+                "ignoreFeatures": false,
+                "DATAFORM_ELEMENT": [
+                    {
+                        "type": "label",
+                        "value": "${ui.title}",
+                        "cssClass": "title"
+                    },
+                    {
+                        "type": "textbox",
+                        "label": "${ui.title}",
+                        "field": "print.map.title",
+                        "cssClass": "fullWidth",
+                        "max": 50
+                    },
+                    {
+                        "type": "label",
+                        "value": "${ui.description}",
+                        "cssClass": "title"
+                    },
+                    {
+                        "type": "textarea",
+                        "label": "${ui.description}",
+                        "field": "print.map.description",
+                        "cssClass": "fullWidth",
+                        "wrap": "soft",
+                        "max": 255
+                    }
+
+                ]
+            },
+            "references": [
+                {
+                    "name": "esriMap",
+                    "providing": "esri.Map",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "legendPrinter",
+                    "providing": "jasperprinting.api.MapLegendPrintDataProvider",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "extentProvider",
+                    "providing": "jasperprinting.api.ExtentProvider",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+
+        {
+            "name": "SplitviewMapPrinter",
+            "impl": "MapPrinter",
+            "provides": [
+                "jasperprinting.SplitviewMapPrinter",
+                "jasperprinting.api.MapPrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "id": "splitViewMapDataProvider",
+//                "featuresDataName":"featuresSplitview",
+//                "layersDataName":"layersSplitview",
+                "dataformKey": "splitviewmap",
+                "scalebarParams": {
+                    "transparency": 1,
+                    "show": true,
+                    "bottomMargin": 30,
+                    "leftMargin": 5,
+                    "fontSize": 14,
+                    "scalebarLength": 150,
+                    "unit": "km"
+                },
+                "ignoreFeatures": false,
+                "DATAFORM_ELEMENT": [
+                    {
+                        "type": "label",
+                        "value": "${ui.titleLeft}",
+                        "cssClass": "title"
+                    },
+                    {
+                        "type": "textbox",
+                        "label": "${ui.title}",
+                        "field": "print.splitviewmap.title",
+                        "cssClass": "fullWidth",
+                        "max": 50
+                    },
+                    {
+                        "type": "label",
+                        "value": "${ui.descriptionLeft}",
+                        "cssClass": "title"
+                    },
+                    {
+                        "type": "textarea",
+                        "label": "${ui.description}",
+                        "cssClass": "fullWidth",
+                        "field": "print.splitviewmap.description",
+                        "max": 255
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "esriMap",
+                    "providing": "esri.SplitviewMap",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "legendPrinter",
+                    "providing": "jasperprinting.api.SplitviewMapLegendPrintDataProvider",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+
+        {
+            "name": "PrintingController",
+            "provides": ["jasperprinting.PrintingController"],
+            "propertiesConstructor": true,
+            "properties": {
+                "mapDataProvidersInUse": [
+                    "mainMapDataProvider",
+                    "splitViewMapDataProvider"
+                ],
+                "url": "@@agiv.services.baseurl@@/resources/printing/",
+                "templates": {
+                    "s_basic_landscape_A4": {
+                        "mapsize": {
+                            "w": 802,
+                            "h": 450
+                        }
+                    },
+                    "s_basic_portrait_A4": {
+                        "mapsize": {
+                            //TEST
+//                            "w": 555,
+//                            "h": 675
+                            //multiply actual size time 1.5 to get a more or less correc timage
+                            //Jasper can only do 72dpi
+//                            "w": 833,
+//                            "h": 1013
+                            //fac 2.03
+                            "w": 555,
+                            "h": 550
+                        }
+                    },
+                    "s_hik_landscape_A4": {
+                        "mapsize": {
+                            "w": 802,
+                            "h": 300
+                        }
+                    },
+                    "s_hik_portrait_A4": {
+                        "mapsize": {
+                            "w": 555,
+                            "h": 300
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "printDataProvider",
+                    "providing": "jasperprinting.api.PrintDataProvider",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "mapPrintDataProvider",
+                    "providing": "jasperprinting.api.MapPrintDataProvider",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "mandatoryPrintDataProvider",
+                    "providing": "jasperprinting.api.MandatoryPrintDataProvider",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+
+            ]
+        },
+
+        {
+            "name": "BasicPrintTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "basicPrintTool",
+                "toolRole": "toolset",
+                "title": "Afdrukken",
+                "tooltip": "Afdrukken",
+                "iconClass": "icon-printer",
+                "togglable": true,
+                "rules": {
+                    "groups": ["none"],
+                    "printDialog": "basic",
+                    "ruleSuccessProperty": "visibility"
+                }
+            }
+        },
+
+        {
+            "name": "BasicPrintDialog",
+            "impl": "PrintDialog",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "dijit.Widget"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "basicPrintDialog",
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/printing/UPDATE_DIALOG",
+                        "method": "_initWidget"
+                    }
+                ],
+                "optionalChildrenOrder": [
+                    "ElevationController",
+                    "LegendPrinter",
+                    "RoutingPrinter"
+                ], // Defines the displayed order of the print data providers in the dialog.
+                "binding": {
+                    "print": {
+                        "template": {
+                            "s_basic_landscape_A4": false,
+                            "s_basic_portrait_A4": true
+                        },
+                        "map": {
+                            "title": "{currentApp}.title",
+                            "description": "",
+                            "useExtent": false,
+                            "useCenter": true
+                        },
+                        "splitviewmap": {
+                            "title": "",
+                            "description": ""
+                        },
+                        "type": {
+                            "pdf": true,
+                            "png": false,
+                            "jpeg": false,
+                            "docx": false,
+                            "pptx": false
+                        }
+                    }
+                },
+                "structure_top": {
+                    "type": "tablepanel",
+                    "showLabels": false,
+                    "cols": 1,
+                    "children": [
+
+                    ]
+                },
+                "structure_bottom_left": {
+                    "type": "tablepanel",
+                    "showLabels": true,
+                    "cssClass": "paperOrientation reversedOrder",
+                    "cols": 1,
+                    "children": [
+                        {
+                            "type": "radiobutton",
+                            "groupId": "extent",
+                            "label": "${ui.extent}",
+                            "cssClass": "icon-extent",
+                            "field": "print.map.useExtent"
+                        },
+                        {
+                            "type": "radiobutton",
+                            "groupId": "extent",
+                            "label": "${ui.center}",
+                            "cssClass": "icon-map-center",
+                            "field": "print.map.useCenter"
+                        },
+                        {
+                            "type": "label",
+                            "value": "&nbsp;"
+                        },
+                        {
+                            "type": "radiobutton",
+                            "groupId": "template",
+                            "label": "${ui.portrait}",
+                            "cssClass": "label-staand",
+                            "field": "print.template.s_basic_portrait_A4"
+                        },
+                        {
+                            "type": "radiobutton",
+                            "groupId": "template",
+                            "label": "${ui.landscape}",
+                            "cssClass": "label-liggend",
+                            "field": "print.template.s_basic_landscape_A4"
+                        }
+                    ]
+                },
+                "structure_bottom_right": {
+                    "type": "tablepanel",
+                    "showLabels": true,
+                    "cssClass": "reversedOrder",
+                    "cols": 1,
+                    "children": [
+                        {
+                            "type": "radiobutton",
+                            "groupId": "type",
+                            "label": "PDF",
+                            "field": "print.type.pdf"
+                        },
+//                        {
+//                            "type":"label",
+//                            "value":"PDF"
+//                        },
+                        {
+                            "type": "radiobutton",
+                            "groupId": "type",
+                            "label": "PNG",
+                            "field": "print.type.png"
+                        }
+//                        {
+//                            "type":"label",
+//                            "value":"PNG"
+//                        },
+//                        {
+//                            "type": "radiobutton",
+//                            "groupId": "type",
+//                            "label": "JPEG",
+//                            "field": "print.type.jpeg"
+//                        },
+//                        {
+//                            "type":"label",
+//                            "value":"JPEG"
+//                        },
+//                        {
+//                            "type": "radiobutton",
+//                            "groupId": "type",
+//                            "label": "DOCX",
+//                            "field": "print.type.docx"
+//                        },
+//                        {
+//                            "type":"label",
+//                            "value":"DOCX"
+//                        },
+//                        {
+//                            "type": "radiobutton",
+//                            "groupId": "type",
+//                            "label": "PPTX",
+//                            "field": "print.type.pptx"
+//                        }
+//                        {
+//                            "type":"label",
+//                            "value":"PPTX"
+//                        }
+
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "printController",
+                    "providing": "jasperprinting.PrintingController"
+                },
+                {
+                    "name": "printDataProvider",
+                    "providing": "jasperprinting.api.PrintDataProvider",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "mapPrintDataProvider",
+                    "providing": "jasperprinting.api.MapPrintDataProvider",
+                    "cardinality": "1..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "esrimap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "extentProvider",
+                    "providing": "jasperprinting.api.ExtentProvider",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        }
+
+    ]
+}

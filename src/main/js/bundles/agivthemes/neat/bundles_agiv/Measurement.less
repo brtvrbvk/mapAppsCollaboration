@@ -1,0 +1,79 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .measurementtoolbar{ 
+
+        .dijitDialogTitle{
+            margin-right: 18px;
+            &:before {
+                .setWebFont();
+                content:'\e050';
+                margin-right: .2em;
+                font-size: 25px;
+                line-height: 14px;
+                vertical-align: bottom;
+            }
+        }
+        &.ctToolPopup .ctWindowContentPadding .ctMeasurement{
+            .dijitToggleButton{
+                margin: .3em;
+                .dijitButtonNode{
+                    .border-radius(@button-border-radius);
+                    background-color: @agiv-light-grey;
+                    .dijitIcon:before{
+                        color: inherit;
+                    }
+                    .dijitIcon{
+                        border: none;
+                        .setWebFont(agivUiFont);
+                    }
+                    .dijitButtonText{
+                        display: block;
+                        font-size: 9px;
+                        font-weight: normal;
+                        width: 55px;
+                        text-align: center;
+                    }
+                }
+                &.dijitHover  .dijitButtonNode{
+                    background-color: @button-hovered-background-color;
+                    color: @ct-button-hovered-text-color;
+                }
+                &.dijitChecked .dijitButtonNode{
+                    background-color: @button-background-color;  
+                    color: @ct-button-text-color            
+                }
+            }
+            .dijitDropDownButton{
+                .dijitButtonNode{
+                    background-color: transparent;
+                    font-weight: normal;
+                }
+                &.dijitHover .dijitButtonNode{
+                    background-color: @button-hovered-background-color;
+                }
+                .dijitArrowButtonInner{
+                    font-size: 15px;
+                    vertical-align: top;
+                    &:before{
+                        content: '\e00b';
+                    }
+                }
+            }
+            .agivResultWrapper{
+                padding: 8px 2px;
+            }
+            .ctResultLabel{
+                display: none;
+            }
+            .ctResult {
+                display: inline-block;
+                color: @text-color;
+                font-weight: bold;
+                position: relative;
+                top: 5px;
+            }
+        }
+    }
+
+}

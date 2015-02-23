@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Folder><name>testpuntenjoeri</name>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8739025611,51.355848183799999,28.382745720399999</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8738710092,51.355817770400002,28.344498117400001</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8735428376,51.354955477300003,28.013964341800001</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8732544615,51.354182054,28.1647310281</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8729717853,51.3534339574,28.344615917100001</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8738215969,51.355790689800003,28.200557122199999</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8739956406,51.355742254100001,28.337938214800001</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8735457343,51.355026094400003,28.00605136</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.873242959,51.354234675199997,28.166941484599999</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name></name>
+	<description></description>
+      <Point><altitudeMode>relativeToGround</altitudeMode><coordinates>4.8729479252,51.353445524100003,28.348762754599999</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

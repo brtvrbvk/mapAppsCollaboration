@@ -1,0 +1,403 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    //   1. Buttons
+    .button .dijitButtonNode{
+        border: none;
+    }
+    .dijitButtonText{
+        text-transform: none;
+    }
+
+    .ctOmniSearchUI .dijitButton .dijitButtonNode,
+    .ctTool.dijitButton .dijitButtonNode{
+        border: none;
+    }
+    //   2. TextBox / TextInputs
+    .dijitContentPane .dijitTextBox,
+    .dojoDndAvatar .dijitTextBox {
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        .transition(background, .5s, ease-out);
+        &.dijitTextBoxError{
+            border-color: @error-color;
+        }
+    }
+    .dijitContentPane .dijitTextBox .dijitInputContainer{
+        border-radius: 3px;
+        .transition(box-shadow, .2s, ease-out);
+    }
+    .dijitTextBox.dijitTextBoxHover .dijitInputContainer,
+    .dijitTextBox.dijitTextBoxFocused .dijitInputContainer{
+        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .3);
+        .transition(box-shadow, .2s, ease-out);
+    }
+
+    .dijitTextBox.dijitTextBoxError{
+        border-color: @error-color;
+        .dijitValidationContainer{
+            background-image: none;
+            &:after{
+                position: relative;
+                top: 3px;
+            }
+        }
+        .dijitInputContainer {
+            .border-radius(3px, 0, 0, 3px);
+        }
+    }
+
+    .dijitComboBox .dijitArrowButton.dijitRight {
+        &,
+        .dijitArrowButtonInner{
+            .border-radius(0,5px,5px,0);
+        }
+    }
+    //dijitSelect
+    .dijitSelect{
+        border: none;
+        .dijitButtonContents{
+            border-right: none;
+            background: @primary-color;
+            .border-radius(@button-border-radius, 0, 0, @button-border-radius);
+        }
+        .dijitButtonText{
+            color: inherit;
+        }
+        .dijitArrowButton{
+            background: @primary-color;
+            .border-radius(0, @button-border-radius, @button-border-radius, 0);
+            .setWebFont();font-size: 15px;
+            color: inherit;
+            &:before{
+                content:'\e00b';
+            }
+        }
+        .dijitArrowButtonInner{
+            display: none;
+        }
+        &.dijitHover{
+            .dijitSelectLabel,
+            .dijitButtonNode{
+                color: @hovered-text-color;
+            }
+            .dijitButtonContents,
+            .dijitArrowButton{
+                background-color: @button-hovered-background-color;
+            }  
+        }
+    }
+    .dijitSelectHover{
+        .border-radius(@button-border-radius);
+    }
+    //   3. Drag N Drop
+    .dojoDndAvatar,
+    .dojoDndAvatar tr{
+        background: white none!important;
+        border:1px dashed #575656!important;
+        .border-radius(4px);
+    }
+    .dojoDndAvatar .dojoDndAvatarHeader{
+        display: none;
+    }
+    .dojoDndAvatar .dojoDndItem{
+        background: white;
+        .border-radius(3px);
+    }
+    .dojoDndAvatar .dojoDndItem .ctRoutingTextBox {
+        width: 100%;
+        opacity: .2;
+        margin: 0;
+    }
+    .dojoDndAvatar .dojoDndItem .routingDeleteButton {
+        display: none;
+    }
+    .dojoDndAvatarItem td {
+        padding: 0px;
+    }
+    .dojoDndItemBefore {
+        border-top: 1px dashed #575656;
+    }
+    .dojoDndItemAfter {
+        border-top: none;  
+        border-bottom: 1px dashed #575656;      
+    }
+    .dijitComboBoxHighlightMatch {
+        background-color: @primary-color;
+    }
+
+
+    //4. TabContainer
+    .dijitTabContainer{
+        background: lighten(@agiv-light-grey, 6);
+        padding: 5px 0 0;
+    }
+    .dijitTabContainerTop-container, 
+    .dijitTabContainerBottom-container, 
+    .dijitTabContainerLeft-container, 
+    .dijitTabContainerRight-container,
+    .dijitTabContainerTop-tabs,
+    .dijitTabContainerBottom-tabs,
+    .dijitTabContainerLeft-tabs,
+    .dijitTabContainerRight-tabs,
+    .dijitTab{
+        border: none;
+    }
+    .dijitTab{
+        font-size: 17px;
+        background-color: darken(@container-background-color, 10%);
+        &.dijitTabAnimated{
+            background: darken(@container-background-color, 10%);
+            .animation(ContentManagerFlash, 2s, 1, linear);
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            -ms-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        &.dijitTabHover{
+            color: @hovered-text-color;
+            background: @button-hovered-background-color!important;
+        }
+        &.dijitTabChecked{
+            color: @text-color;
+            background: @container-background-color!important;//make sure no animation styles override the active Tab
+            background-image: none!important;
+        }
+    }
+    .dijitTabContainerTop-tabs .dijitTab,
+    .dijitTabContainerBottom-tabs .dijitTab{
+        padding: 8px 10px 10px;
+    }
+    .dijitTabContainerLeft-tabs .dijitTab,
+    .dijitTabContainerRight-tabs .dijitTab{
+        padding: 8px 10px;
+    }
+    .dijitTabContainerTop-tabs .dijitTab {
+        .border-radius(12px 12px 0 0);
+        .linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.15) 100%);
+    }
+    .dijitTabContainerBottom-tabs .dijitTab {
+        .border-radius(0 0 12px 12px);
+        .linear-gradient(bottom,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.15) 100%);
+    }
+    .dijitTabContainerLeft-tabs .dijitTab {
+        .border-radius(12px 0 0 12px);
+        .linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.15) 100%);
+    }
+    .dijitTabContainerRight-tabs .dijitTab {
+        .border-radius(0 12px 12px 0);
+        .linear-gradient(right,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.15) 100%);
+    }
+
+
+    // 5. Checkboxes
+    .dijitCheckBoxIcon{
+        .size(15px);
+    }
+    .dijitCheckBox,
+    .dijitToggleButton .dijitCheckBoxIcon{
+        border: 1px solid @agiv-dark-grey;
+        .border-radius(5px);
+        &:before{
+            content: none;
+        } 
+    }  
+    .dijitCheckBoxChecked,
+    .dijitToggleButtonChecked .dijitCheckBoxIcon{
+        &:before{
+            content:'\e60d';
+        }
+    }
+    .dijitCheckBoxHover{
+        border-color: darken(@agiv-dark-grey,10%);
+    }
+
+    .dijitCheckBoxDisabled{
+       border-color: @agiv-light-grey;
+    }
+  .dijitToggleButtonHover .dijitCheckBoxIcon{
+        border-color: @hovered-text-color;
+    }
+    //for checkboxes inside dgrid we need another approach as these are html checkboxes
+    &.ctEnv_Chrome{
+      .dgrid{
+        input[type=checkbox]{
+          .setWebFont(mapappsUiFont);
+          visibility: hidden;
+          &:before{
+            visibility: visible;
+            display: block;
+            border: 1px solid @agiv-light-grey;
+            .border-radius(5px);
+            .size(15px);
+            content:'';
+            font-size: 15px;
+            color: @agiv-dark-grey;
+            cursor: pointer;
+            background-color: @dialog-underlay-color;
+          }
+          &:checked:before{
+            content:'\e60d';
+          }
+          &[aria-checked=mixed]{
+            &:before{
+              content:'\e018';
+            }
+          }
+        }
+      }
+    }
+
+
+
+
+    .appbuilder.ctBuilderWindowRoot .service.dojoDndItem .content{
+        max-width: 140px;
+    }
+
+    //special style to make buttons look as if they were an html a link-element
+    .dijitButton.convertButtonToLink,
+    .dijitToggleButton.convertButtonToLink{
+        margin: 0;
+        .dijitButtonNode{
+            color: @agiv-link-color;
+            background: transparent none;
+            border: none;
+            padding: 0;
+            font-weight: normal;
+        }
+        .dijitButtonText{
+            text-decoration: underline;
+        }
+        .dijitIcon{
+            color: @text-color;
+        }
+        &.dijitHover,
+        &.dijitActive{
+            .dijitButtonNode,
+            .dijitIcon{
+                color: darken(@agiv-link-color, 100%);
+            }
+        }
+    }
+    .dijitButton.backButton{
+        margin: 0 0 1em;
+        .dijitButtonNode{
+            font-weight: normal;
+            color: @agiv-link-color;
+            background: transparent none;
+            border: none;
+            padding: 0;
+        }
+        &.dijitHover,
+        &.dijitActive{
+            .dijitButtonNode{
+                color: darken(@agiv-link-color, 100%);
+            }
+        }
+
+      &.dijitDisabled{
+          .dijitButtonNode{
+            color: @disabled-text-color;
+          }
+      }
+    }
+
+    // common helper class to create muted buttons
+    // add the class "mutedButton" to your dijitButton
+    .dijitButton.mutedButton {
+        .dijitButtonNode {
+            background-color: transparent;
+            padding: 2px 2px 3px 2px;
+            color: @disabled-color;
+            .border-radius(0);
+        }
+        .dijitButtonText {
+            text-decoration: underline;
+        }
+        .dijitIcon,
+        .dijitButtonText {
+            color: inherit;
+        }
+        &.dijitHover,
+        &.dijitCheked {
+            .dijitButtonNode {
+                background: @button-hovered-background-color;
+                color: @ct-button-hovered-text-color;
+            }
+        }
+        &.dijitDisabled .dijitButtonNode {
+            background: @disabled-background-color;
+            color: @ct-button-disabled-text-color;
+
+        }
+    }
+
+
+    //warning messages
+  .ctMessagePane{
+    .desc{
+      margin-left: 22px;
+    }
+    .ctMessageItem{
+      &.warning{
+        background-color: transparent;
+        .icon{
+          color: @ct-warn-color;
+        }
+      }
+    }
+
+    .icon.ctErrorIcon{
+      font-family: agivUiFont;
+     &:before{
+       content: '\e631';
+     }
+    }
+  }
+
+
+
+
+
+
+    
+
+    //animation for contentmanager
+    @-webkit-keyframes ContentManagerFlash {
+        0%, 66% {background-color: darken(@container-background-color, 10%)}
+        33%, 100%  {background-color: @primary-color;}
+    }
+    @-moz-keyframes ContentManagerFlash {
+        0%, 66% {background-color: darken(@container-background-color, 10%)}
+        33%, 100%  {background-color: @primary-color;}
+    }
+    @-ms-keyframes ContentManagerFlash {
+        0%, 66% {background-color: darken(@container-background-color, 10%)}
+        33%, 100%  {background-color: @primary-color;}
+    }
+    @keyframes ContentManagerFlash {
+        0%, 66% {background-color: darken(@container-background-color, 10%)}
+        33%, 100%  {background-color: @primary-color;}
+    }
+
+}
+
+
+@media screen
+and (min-width:767px){
+  .@{themeName}{
+    // Data Grid in ctGipodInfoResult
+    .ctGipodInfoResult{
+      .dgrid{
+        .dgrid-scroller{
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
+}
+

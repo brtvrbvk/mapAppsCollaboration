@@ -1,0 +1,69 @@
+{
+    "Bundle-SymbolicName": "copyright-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "agivBuilderNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "copyrightBuilderWidget"
+                }
+            }
+        },
+
+        // ======= Builder Widget ========
+        {
+            "name": "CopyrightBuilderController",
+            "provides": ["dijit.wizard.Widget"],
+            "instanceFactory": true,
+            "properties": {
+                "widgetProperties": {
+                    "id": "copyrightBuilderWidget",
+                    "pid": "copyright-Copyright",
+                    "bid": "copyright"
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_dataFormService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,438 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .ctBasemapDropDownToggler .dijitIcon{
+        .bgHD('../images/spriteBasemapToggler.png',1330px);        
+    }
+    .ctShrinkingDropDownMenu.ctBasemapDropDownList,
+    .ctShrinkingDropDownMenu.ctAppsDropDownList{
+            font-size: 0.8em;
+        .dijitMenuItem{
+            text-transform: none;
+            font-weight: normal;
+            display: block;
+        }
+        .dijitMenuItem,
+        .dijitMenuItem.dijitMenuItemHover,
+        .dijitMenuItem.dijitMenuItemSelected{
+            border: none;
+        }
+    }
+    .ctShrinkingDropDownMenu .ctToggleCollapser .dijitArrowButtonInner{
+        background:none;
+    }
+
+    // resizing buttons Node because later some Borders are added
+    .templateButtons .ctShrinkingDropDown .ctShrinkingDropDownTitleNode, 
+    .templateButtons .ctShrinkingDropDown .ctShrinkingDropDownLabelNode,
+    .ctBasemapDropDownToggler .ctShrinkingDropDownTitleNode,
+    .ctBasemapDropDownToggler .ctShrinkingDropDownLabelNode,
+    .agivBasemapToggler .ctShrinkingDropDownTitleNode,
+    .agivBasemapToggler .ctShrinkingDropDownLabelNode {
+        width: (@ct-toggler-width - 6px);
+    }
+    .templateButtons .ctShrinkingDropDown{        
+        .dijitButtonNode{
+            font-size: .8em;
+        }
+        .ctShrinkingDropDownTitleNode{
+            .border-radius(10px);
+            //cause IE8 sucks, we can not put a relative value like (65%) here and have to use an absolute width.
+            width: (@ct-toggler-width - 16px);
+            padding-right: 8px; // padding right prevents the button text to overly the arrow on the right
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .dijitDownArrowButton{
+            position: relative;
+            
+            .dijitArrowButtonInner{
+                display: inline-block;
+                .size(10px);
+                background: none;
+                position: absolute; top: 30px; right:2px;
+                margin: 0;
+                &:before{
+                    color: @ct-primary-contrast-text-color;
+                    content:'\e00b';
+                }
+            }
+        }
+        
+        &.dijitHover .dijitDownArrowButton .dijitArrowButtonInner:before{
+            color: @hovered-text-color;
+        }
+
+        //switch ordering of icon and label
+        .ctShrinkingDropDownTitleNode{
+            position: relative;
+            top: 30px;
+            height:13px;
+            font-weight: normal;
+            text-transform: none;
+        }
+        .dijitIcon{
+            position: relative;
+            top: -19px;
+        }
+    }
+    .extraTitle{
+        background-color: @primary-color;
+        font-weight: bold;
+    }
+    .templateButtons{
+        .agivBasemapToggler,
+        .ctBasemapDropDownToggler{
+            .ctShrinkingDropDownLabelNode{
+                .border-radius(10px);
+                //cause IE8 sucks, we can not put a relative value like (65%) here and have to use an absolute width.
+                width: (@ct-toggler-width - 16px);
+                padding-right: 8px; // padding right prevents the button text to overly the arrow on the right
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .dijitDownArrowButton .dijitArrowButtonInner{
+                top: 37px
+            }
+            .dijitIcon{
+                top: 0;
+            }
+            .ctShrinkingDropDownLabelNode{
+                    margin: 0;
+                    top: 0;
+                    font-weight: normal;
+            }
+            .ctShrinkingDropDownTitleNode{
+                display: none!important;
+            }
+        }
+    }
+    .ctToggleCollapser .dijitArrowButtonInner{
+        background: none;
+        color: @secondary-color;
+        font-size: @ct-icon-small;
+        &:before{
+            color: @secondary-color;
+            position: relative; 
+            bottom: 5px;
+            content:'\e005';
+        }
+    }
+    .agivBasemapToggler .ctBasemapDropDownToggler .dijitButtonNode{
+        .box-sizing(border-box);
+        border: 3px solid @primary-color;
+        border-top: none;
+    }
+    .ctBasemapDropDownToggler{
+        //additional custom styling for BasemapTogglerButton
+        .dijitArrowButtonInner{
+            //display: none!important;
+        }
+        .dijitButtonNode{
+            .box-sizing(border-box);
+            border: 3px solid @primary-color;
+            border-top: none;
+        }
+        .dijitIcon{
+            .size(109px, 35px);
+        }
+
+
+        &.ctBasemapDropDownTogglerHover .dijitButtonNode{
+            background-color: @primary-color;
+            border-color: @primary-color;
+        }
+
+        .dijitIcon.nobasemap{
+            background-position: -15px -86px;
+        }
+        &.dijitHover .dijitIcon.nobasemap{
+            background-position: -15px -86px;
+        }
+
+        .dijitIcon.grb,
+        .dijitIcon[class*='grb_'],
+        .dijitIcon[class*='minimal_'] {
+            background-position: -377px -73px;
+        }
+        /* hover status mapicon Topo */
+        &.dijitHover .dijitIcon.grb,
+        &.dijitHover .dijitIcon[class*='grb_'],
+        &.dijitHover .dijitIcon[class*='minimal_'] {
+            background-position: -377px -13px;
+        }
+
+        .dijitIcon.grijs,
+        .dijitIcon[class*='grijs']{
+            background-position: -852px -73px;
+        }
+        &.dijitHover .dijitIcon.grijs,
+        &.dijitHover .dijitIcon[class*='grijs'] {
+            background-position: -852px -73px;
+        }
+
+        .dijitIcon.ortho79_90,
+        .dijitIcon[class*='ortho79_90']{
+            background-position: -1215px -73px;
+        }
+        &.dijitHover .dijitIcon.ortho79_90,
+        &.dijitHover .dijitIcon[class*='ortho79_90'] {
+            background-position: -1215px -73px;
+        }
+
+        .dijitIcon.vandermaelen,
+        .dijitIcon[class*='vandermaelen']{
+            background-position: -1095px -73px;
+        }
+        &.dijitHover .dijitIcon.vandermaelen,
+        &.dijitHover .dijitIcon[class*='vandermaelen'] {
+            background-position: -1095px -73px;
+        }
+
+        .dijitIcon.fricx,
+        .dijitIcon[class*='fricx'],
+        .dijitIcon.frixc,
+        .dijitIcon[class*='frixc']{
+            background-position: -974px -73px;
+        }
+
+        &.dijitHover .dijitIcon.fricx,
+        &.dijitHover .dijitIcon[class*='fricx'],
+        &.dijitHover .dijitIcon.frixc,
+        &.dijitHover .dijitIcon[class*='frixc'] {
+            background-position: -974px -73px;
+        }
+
+        .dijitIcon[class*='topo_'] {
+            background-position: -43px -74px;
+        }
+        &.dijitHover .dijitIcon[class*='topo_']{
+            background-position: -43px -14px;
+        }
+
+        .dijitIcon.ortho, &,
+        .dijitIcon[class*='ortho_'] {
+            background-position: -257px -74px;
+        }
+        /* hover status mapicon Topo */
+        &.dijitHover .dijitIcon.ortho, &,
+        &.dijitHover .dijitIcon[class*='ortho_'] {
+            background-position: -257px -14px;
+        }
+
+        .dijitIcon,
+        .dijitIcon.hybrid,
+        .dijitIcon[class*='hybrid_']  {
+            background-position: -495px -74px;
+        }
+        /* hover status mapicon Topo */
+        &.dijitHover .dijitIcon,
+        &.dijitHover .dijitIcon.hybrid,
+        &.dijitHover .dijitIcon[class*='hybrid_'] {
+            background-position: -495px -14px;
+        }
+
+        .dijitIcon.navteq,
+        .dijitIcon.navteq_1,
+        .dijitIcon[class*='streets_'] {
+            background-position: -136px -86px;
+        }
+        /* hover status mapicon Topo */
+        &.dijitHover .dijitIcon.navteq,
+        &.dijitHover .dijitIcon.navteq_1,
+        &.dijitHover .dijitIcon[class*='streets_'] {
+            background-position: -136px -26px;
+        }
+
+        //historic maps
+        .dijitIcon[class*='ferraris_']{
+            background-position: -615px -74px;
+        }
+        &.dijitHover .dijitIcon[class*='ferraris_']{
+            background-position: -615px -14px;
+        }
+        .dijitIcon[class*='popp_'] {
+            background-position: -734px -74px;
+        }
+        &.dijitHover .dijitIcon[class*='popp_'] {
+            background-position: -734px -14px;
+        }
+
+
+
+
+    }
+
+    .ctBasemapDropDownList{
+        .dijitMenuTable{
+            border-left: 3px solid @primary-color !important;
+            border-right: 3px solid @primary-color !important;
+        }
+        tr.dijitMenuItem,
+        tr.dijitMenuItem.dijitHover,
+        tr.dijitMenuItem.dijitFocused{
+            border-top: 1px solid @button-hovered-background-color;
+            border-bottom: 1px solid @button-hovered-background-color;
+            .dijitMenuItemLabel{
+                width: (@ct-toggler-width - 6px);
+                height: 14px; 
+                padding-top: 42px;
+                border-color: @primary-color;
+            }
+        }
+        .dijitMenuItem{
+            .dijitMenuItemLabel{
+                .bgHD('../images/spriteBasemapToggler.png',1330px);
+            }
+            &.dijitSelected {
+                background-color: @primary-color !important;
+            }
+            &.dijitHover {
+                background-color: @primary-color !important;
+            }
+            &.grb,
+            &[class*='grb_'],
+            &[class*='minimal_']{
+                .dijitMenuItemLabel{
+                    background-position: -377px -80px;
+                }
+
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -377px -80px;
+                }
+            }
+            //ortho and default icon!!!
+            &.ortho, &,
+            &[class*='ortho_'] {
+                .dijitMenuItemLabel{
+                    background-position: -257px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -257px -80px;
+                }
+            }
+
+            //nobasemap  
+            &.nobasemap{
+                .dijitMenuItemLabel{
+                    background-position: -15px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -15px -80px;
+                }
+            }
+
+            &.hybrid,
+            &[class*='hybrid_'] {
+                .dijitMenuItemLabel{
+                    background-position: -496px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -496px -80px;
+                }
+            }
+
+            &.navteq,
+            &.navteq_1,
+            &[class*='streets_']  {
+                .dijitMenuItemLabel{
+                    background-position: -136px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -136px -80px;
+                }
+            }
+
+            &[class*='topo_'] {
+                .dijitMenuItemLabel{
+                    background-position: -23px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -23px -80px;
+                }
+            }
+            &[class*='popp_'] {
+                .dijitMenuItemLabel{
+                    background-position: -734px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -734px -80px;
+                }
+            }
+            &[class*='ferraris_'] {
+                .dijitMenuItemLabel{
+                    background-position: -615px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -615px -80px;
+                }
+            }
+            &[class*='grijs'] {
+                .dijitMenuItemLabel{
+                    background-position: -852px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -852px -80px;
+                }
+            }
+            &[class*='ortho79_90'] {
+                .dijitMenuItemLabel{
+                    background-position: -1215px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -1215px -80px;
+                }
+            }
+            &[class*='fricx'] {
+                .dijitMenuItemLabel{
+                    background-position: -974px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -974px -80px;
+                }
+            }
+            &[class*='frixc'] {
+                .dijitMenuItemLabel{
+                    background-position: -974px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -974px -80px;
+                }
+            }
+            &[class*='vandermaelen'] {
+                .dijitMenuItemLabel{
+                    background-position: -1095px -80px;
+                }
+                &.dijitSelected .dijitMenuItemLabel,
+                &.dijitHover .dijitMenuItemLabel,
+                &.dijitFocused .dijitMenuItemLabel{
+                    background-position: -1095px -80px;
+                }
+            }
+        }
+    }
+}

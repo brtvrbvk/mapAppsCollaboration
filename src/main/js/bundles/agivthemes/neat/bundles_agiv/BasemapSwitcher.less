@@ -1,0 +1,183 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23.04.2014, 10:19:06
+    Author     : juku
+*/
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+    //button to open the basemapswitcher
+    .ctTool_basemapSwitcherToggleTool {
+        margin: 0;
+        .dijitButtonNode {
+            color: #fff !important;
+            padding: 0;
+            .size(80px);
+            border: 3px solid @primary-color;
+            .border-radius(6px);
+        }
+        &.ctTool .dijitButtonNode .dijitButtonText {
+            top: 3px;
+            right: 3px;
+            bottom: 3px;
+            left: 3px;
+            width: 75px;
+            padding-top: 60px;
+            text-align: center;
+        }
+        &.dijitToggleButtonChecked,
+        &.dijitToggleButtonHover {
+            .dijitButtonNode {
+                border-color: @agiv-dark-grey;
+            }
+        }
+        .dijitButtonNode {
+            .bgHD('../images/basemap-switcher-sprite.png', 80px);
+            background-position: 0 -960px;
+        }
+        &.ctTool .dijitButtonText {
+            font-weight: normal;
+            font-size: 11px;
+            letter-spacing: normal;
+        }
+        .dijitIcon {
+            display: none;
+        }
+    }
+    &.ctActiveTool_basemapSwitcherToggleTool .fakeSpacerBottomLeft {
+        background: #fff;
+        visibility: visible;
+        border: 1px solid @agiv-light-grey;
+        border-width: 0 1px 0 1px;
+    }
+    // additional styles for double switcher support
+    &.ctActiveTool_basemapSwitcherToggleTool .fakeSpacerBottomLeft.double {
+        visibility: hidden;
+    }
+    //all about the window that opens
+    .basemapswitcher {
+        &.ctWindow {
+            border-width: 0 1px 0 1px;
+        }
+        .ctWindowContentPadding > .dijitDialogPaneContent {
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        .ctWindowContentPadding {
+            background: @container-background-color;
+            padding-bottom: 9px;
+        }
+        .dijitMenuItem {
+            padding: 0;
+            height: 100px;
+            background-color: transparent !important;
+            position: relative;
+            color: #fff;
+            td {
+                padding: 0;
+                border: none;
+            }
+            .dijitMenuArrowCell {
+                display: none;
+            }
+            .dijitMenuItemIcon {
+                .size(80px);
+                border: 3px solid @agiv-light-grey;
+                .border-radius(6px);
+                background: #3498db;
+                .bgHD('../images/basemap-switcher-sprite.png', 80px);
+                display: block;
+            }
+            .dijitMenuItemLabel {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                position: absolute;
+                left: 13px;
+                width: 80px;
+                text-align: center;
+                .border-radius(3px);
+
+                display: table-cell;
+                height: 30px;
+                min-width: 74px;
+                vertical-align: middle;
+                padding-top: 60px;
+                white-space: normal;
+            }
+
+            &.dijitMenuItemHover .dijitMenuItemIcon {
+                border-color: @agiv-dark-grey;
+            }
+            &.dijitMenuItemSelected .dijitMenuItemIcon {
+                border-color: @primary-color;
+            }
+            //setting correct image positions
+            &[class*='minimal_'] .dijitMenuItemIcon,
+            &[class*='grb'] .dijitMenuItemIcon {
+                background-position: 0 -80px;
+            }
+            &[class*='luchtfoto'] .dijitMenuItemIcon {
+                background-position: 0 -160px;
+            }
+            &[class*='ortho_88-91'] .dijitMenuItemIcon {
+                background-position: 0 -400px;
+            }
+            &[class*='grb_grijs'] .dijitMenuItemIcon {
+                background-position: 0 -240px;
+            }
+            &[class*='hybride'] .dijitMenuItemIcon {
+                background-position: 0 -480px;
+            }
+            &[class*='fricx'] .dijitMenuItemIcon {
+                background-position: 0 -560px;
+            }
+            &[class*='ferraris'] .dijitMenuItemIcon {
+                background-position: 0 -640px;
+            }
+            &[class*='vandermaelen'] .dijitMenuItemIcon {
+                background-position: 0 -800px;
+            }
+            &[class*='streets'] .dijitMenuItemIcon,
+            &[class*='straten'] .dijitMenuItemIcon {
+                background-position: 0 -880px;
+            }
+            &[class*='popp'] .dijitMenuItemIcon {
+                background-position: 0 -720px;
+            }
+
+        }
+
+    }
+    //shared gradient for Button and MenuItems
+    .ctTool_basemapSwitcherToggleTool .dijitButtonText,
+    .ctTool_comparebasemapSwitcherToggleTool .dijitButtonText,
+    .basemapswitcher .dijitMenuItemLabel,
+    .comparebasemapswitcher .dijitMenuItemLabel {
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.01) 39%, rgba(0, 0, 0, 0.01) 40%, rgba(0, 0, 0, 0.01) 42%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.37) 83%, rgba(0, 0, 0, 0.43) 91%, rgba(0, 0, 0, 0.47) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(39%, rgba(255, 255, 255, 0.01)), color-stop(40%, rgba(0, 0, 0, 0.01)), color-stop(42%, rgba(0, 0, 0, 0.01)), color-stop(55%, rgba(0, 0, 0, 0.1)), color-stop(83%, rgba(0, 0, 0, 0.37)), color-stop(91%, rgba(0, 0, 0, 0.43)), color-stop(100%, rgba(0, 0, 0, 0.47))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.01) 39%, rgba(0, 0, 0, 0.01) 40%, rgba(0, 0, 0, 0.01) 42%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.37) 83%, rgba(0, 0, 0, 0.43) 91%, rgba(0, 0, 0, 0.47) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.01) 39%, rgba(0, 0, 0, 0.01) 40%, rgba(0, 0, 0, 0.01) 42%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.37) 83%, rgba(0, 0, 0, 0.43) 91%, rgba(0, 0, 0, 0.47) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.01) 39%, rgba(0, 0, 0, 0.01) 40%, rgba(0, 0, 0, 0.01) 42%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.37) 83%, rgba(0, 0, 0, 0.43) 91%, rgba(0, 0, 0, 0.47) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.01) 39%, rgba(0, 0, 0, 0.01) 40%, rgba(0, 0, 0, 0.01) 42%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.37) 83%, rgba(0, 0, 0, 0.43) 91%, rgba(0, 0, 0, 0.47) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#78000000', GradientType=0); /* IE6-9 */
+    }
+
+    &.ctEnv_FF .basemapswitcher .dijitMenuItem .dijitMenuItemLabel {
+        // re-align element to fix AGMV-1357. Initial left Value was 13px
+        left: 3px;
+    }
+    &.ctEnv_IE_8 .basemapswitcher .dijitMenuItem .dijitMenuItemLabel {
+        padding-top: 69px;
+    }
+
+    //change image of button when grb map is active
+    //    &.grb_active .ctTool_comparebasemapSwitcherToggleTool .dijitButtonNode,
+    //    &.grb_active .ctTool_basemapSwitcherToggleTool .dijitButtonNode{
+    //        background-position: 0 -160px;
+    //    }
+}

@@ -1,0 +1,506 @@
+/*
+    Document   : default
+    Created on : 21.02.2011, 20:24:06
+    Author     : mre
+    Description:
+        Styles required by the template and not covered by the themes.
+*/
+@import url("../common/common.css");
+
+/*-------------------------
+    Header  Classes
+-------------------------*/
+.ctTpl_splitview .header {
+    /* ensure logo text not wrapped*/
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    height: 52px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 5;
+}
+
+.ctTpl_splitview .appTitleWrapper {
+    display: table;
+    height: 100%;
+}
+
+.ctTpl_splitview .appTitle {
+    display: table-cell;
+}
+
+.ctTpl_splitview .header .logo .currentDate {
+    position: absolute;
+    right: 0px;
+    /*right: 0px;*/
+    bottom: 16px;
+}
+
+.ctTpl_splitview .fakeSpacerBottomRight {
+    width: 344px;
+    height: 23px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.ctTpl_splitview .fakeSpacerBottomLeft {
+    width: 118px;
+    height: 52px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.ctTpl_splitview .extraTitle {
+    text-align: center;
+    padding: 2px;
+}
+
+.ctTpl_splitview .operationalTitle {
+    font-weight: bold;
+}
+
+.ctTpl_splitview .ctBasemapDropDownToggler .dijitButtonNode {
+    width: 115px;
+}
+
+.ctTpl_splitview .header .logo {
+    width: 220px;
+    height: 43px;
+}
+
+.ctTpl_splitview .header .logo h1 {
+    position: absolute;
+    /*    top: 10px;*/
+    /*    left: 10px;*/
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+}
+
+.ctTpl_splitview .esriControlsBR {
+    display: none;
+}
+
+.ctTpl_splitview .omnisearch {
+    overflow: visible;
+}
+
+.ctTpl_splitview .search {
+    min-width: 80px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.neat .searchresultlist {
+    margin: 0 auto;
+    min-width: 80px;
+    max-width: 655px;
+    padding-right: 45px;
+}
+
+.ctTpl_splitview .search .ctSearchResultAttachPointWidget .ctSearchResultWidget .dijitMenuItem {
+    color: #000000 !important;
+}
+
+.ctTpl_splitview .search .ctSearchWrapper .dijitInputField .dijitInputInner {
+    color: #000000;
+}
+
+/*-------------------------
+    Footer Classes
+-------------------------*/
+
+.ctTpl_splitview .copyright_agiv {
+    bottom: 0px;
+    display: inline-block;
+    left: 5px;
+    position: absolute;
+    z-index: 49;
+}
+
+.ctEnv_IE.ctTpl_splitview .copyright_agiv{
+    overflow-x: hidden;
+}
+
+.ctTpl_splitview .footer {
+    bottom: 0;
+    left: 0;
+    height: 45px;
+    /* ensure that copyright and coordinates never wrapped*/
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* The middle pane in the foot*/
+.ctTpl_splitview .infopane {
+    overflow: hidden;
+}
+
+.ctTpl_splitview .scalebarinfopane {
+    overflow: hidden;
+    width: 150px;
+}
+
+.ctTpl_splitview .ctScaleViewer {
+    position: relative;
+    bottom: -20px;
+}
+
+.ctTpl_splitview .coordinateinfopane {
+    overflow: hidden;
+    width: 200px;
+}
+
+.ctTpl_splitview .ctCoordinateViewer table {
+    border-spacing: 0px;
+}
+
+.ctTpl_splitview .footer .coordinateInfo {
+    position: relative;
+    /*left: 14%;*/
+    text-align: left;
+    /*bottom: -4px;*/
+    /*padding-left: 0;*/
+    /* width: 520px; */
+}
+
+.ctTpl_splitview .footer .footerLeft {
+    width: 50%;
+}
+
+.ctTpl_splitview .footer .footerRight {
+    width: 50%;
+}
+
+.ctTpl_splitview .toolWrapperFooterLeft {
+    width: 80px;
+}
+
+.ctTpl_splitview .toolWrapperFooterLeft .ctTool {
+    display: block;
+}
+
+/*-------------------------
+    Map Classes
+-------------------------*/
+
+/*.ctTpl_splitview .mainMap .dijitContentPane,*/
+.ctTpl_splitview .map .dijitContentPane {
+    /* make map fullsize */
+    padding: 0;
+}
+
+.ctTpl_splitview .doubleMap,
+.ctTpl_splitview .mainMap {
+    width: 49.9%; /*old Browser Fallback*/
+    width: calc(50% - 5px);
+}
+
+.ctTpl_splitview .doubleMap {
+    height: 100%;
+}
+
+.ctTpl_splitview .dijitSplitterV,
+.ctTpl_splitview .dijitGutterV {
+    width: 10px;
+    /*width:1%;*/
+}
+
+.ctTpl_splitview .dijitSplitterV .dijitSplitterThumb {
+    width: 10px;
+    height: 25px;
+    left: 0;
+}
+
+.ctTpl_splitview #appRoot .dojoxResizeHandleClone {
+    left: -10px
+}
+
+/*
+    Fix for IE who presents
+    the ZoomSlider with a to
+    big vertical extend
+*/
+.ctEnv_IE_8.ctTpl_splitview .esriLargeSliderVertical,
+.ctEnv_IE_9.ctTpl_splitview .esriLargeSliderVertical,
+.ctEnv_IE_10.ctTpl_splitview .esriLargeSliderVertical {
+    height: 125px;
+}
+
+.ctTpl_splitview .separator {
+    overflow: visible;
+    width: 10px !important;
+    z-index: 3;
+}
+
+.ctTpl_splitview .swipeControlGroup {
+    position: absolute;
+    left: -10px;
+    top: 50%;
+}
+
+.ctTpl_splitview .basemapTogglerContainer {
+    overflow: visible;
+    width: 96px;
+}
+
+.ctTpl_splitview .basemapswitcherTool {
+    bottom: 10px;
+    left: 10px;
+    z-index: 1;
+    position: absolute;
+}
+
+.ctTpl_splitview.ctActiveTool_swipeLeftTool .appswitcher .ctCollapseHandleRight {
+    /*to avoid appswitcher handle and swipetool overlap*/
+    margin-top: 80px;
+}
+
+.ctTpl_splitview .toExtentToolButton {
+    position: absolute;
+    top: 210px;
+    left: 6px;
+}
+
+/*-------------------------
+    Button Classes
+-------------------------*/
+.ctTpl_splitview .dijitContentPane.templateButtons,
+.ctTpl_splitview .dijitContentPane.legalInfos {
+    overflow: visible;
+    padding: 0;
+}
+
+.ctTpl_splitview .dijitContentPane.templateButtons {
+    width: 250px;
+    overflow: hidden;
+}
+
+/*-------------------------
+    Zoom Slider Classes
+-------------------------*/
+/*-------------------------
+    Zoom Slider Classes
+    Zoom Slider position is selected via esriMapOpts in app.json
+-------------------------*/
+.ctTpl_splitview .esriLargeSliderTR,
+.ctTpl_splitview .esriSimpleSliderTR {
+    top: 30%;
+}
+
+.ctTpl_splitview .esriLargeSliderTL,
+.ctTpl_splitview .esriSimpleSliderTL {
+    top: 8px;
+    left: 8px;
+}
+
+.ctTpl_splitview .esriLargeSliderBR,
+.ctTpl_splitview .esriSimpleSliderBR {
+    bottom: 30%;
+}
+
+.ctTpl_splitview .esriLargeSliderBL,
+.ctTpl_splitview .esriSimpleSliderBL {
+    bottom: 30%;
+    left: 8px;
+}
+
+/*-------------------------
+    Slider Classes
+    Styling for the esri
+    Mobile Slider, defined in
+    map's manifest.json
+-------------------------*/
+
+.ctTpl_splitview .esriSimpleSlider {
+    position: absolute;
+    top: 85px;
+    left: 13px;
+    border-width: 2px;
+}
+
+.ctTpl_splitview .esriSimpleSliderIncrementButton {
+    border-bottom-width: 2px;
+}
+
+.ctTpl_splitview .mapZoomSlider .dijitSliderImageHandleV {
+    right: 0;
+    top: 0;
+}
+
+/*Moveable Handle*/
+.ctTpl_splitview .mapZoomSlider .dijitSliderMoveable {
+    right: 0;
+}
+
+/*-------------------------
+    WindowDockingBar  Classes
+-------------------------*/
+.ctTpl_splitview .dockingBarBottomLeft .ctWindowDockingBar {
+    text-align: left;
+    width: 300px;
+}
+
+.ctTpl_splitview .dockingBarBottom .ctWindowDockingBar {
+    text-align: right;
+    width: 100px;
+    min-width: 50px;
+    max-width: 600px;
+}
+
+.ctTpl_splitview .dockingBarBottom .ctTool {
+    position: relative;
+    bottom: 20px;
+}
+
+/*-
+/*-------------------------
+    MapLoadingInfo  Classes
+-------------------------*/
+
+.mapLoadingInfo {
+    position: absolute;
+    left: calc(50%);
+    top: 5px;
+}
+
+/*-------------------------
+    MessageBar  Classes
+-------------------------*/
+
+.ctTpl_splitview .messageBar,
+.ctTpl_splitview .ctMessageBar {
+    position: absolute;
+    right: 80px;
+    top: 20px;
+}
+
+/*-------------------------
+    OverviewMap  Classes
+-------------------------*/
+
+.ctTpl_splitview .overviewMap {
+    overflow: visible;
+}
+
+/*-------------------------
+    Scalebar  Classes
+-------------------------*/
+
+/* first ensure that size of content pane is correct*/
+.ctTpl_splitview .scaleBar {
+    position: relative;
+    width: 135px;
+    /*height: 30px;*/
+    bottom: -40px;
+    left: -25px;
+}
+
+.ctTpl_splitview .esriScalebarLabel.esriScalebarSecondNumber {
+    position: relative;
+    left: 33%;
+    top: 2px;
+    text-transform: lowercase;
+}
+
+.ctTpl_splitview .ctFinderSubmit {
+    position: absolute;
+    right: -34px;
+    top: 0;
+}
+
+.ctTpl_splitview .ctFinderLoading {
+    top: 10px;
+}
+
+.ctTpl_splitview .ctFinderLoading,
+.ctTpl_splitview .ctFinderReset {
+    position: absolute;
+    right: 3px;
+}
+
+.ctTpl_splitview .dijitMenu li {
+    font-size: 14px;
+}
+
+/*-------------------------
+    Toolset.css  Classes
+-------------------------*/
+.ctTpl_splitview .ctToolWindow.dijitDialogFixed.bottom {
+    top: auto !important;
+    bottom: 10px !important;
+    left: 0 !important;
+}
+
+/*to allow overlapping tools, we need to enable overflow on the tool containers*/
+.ctTpl_splitview .toolWrapperHeader,
+.ctTpl_splitview .toolWrapperFooterRight,
+.ctTpl_splitview .toolWrapperFooterLeft,
+.ctTpl_splitview .dockingBarBottom {
+    overflow: visible; /*<-- causes app shifting on startup*/
+    padding: 0;
+}
+
+.ctTpl_splitview .toolWrapperFooterRight {
+    width: 100px;
+}
+
+.ctTpl_splitview .dockingBarBottom {
+    width: 125px;
+    text-align: right;
+}
+
+.ctTpl_splitview .dockingBarTopRight,
+.ctTpl_splitview .toolWrapperHeader {
+    width: 300px;
+    z-index: 5;
+}
+
+.ctTpl_splitview .toolWrapperHeader .ctToolWindow {
+    top: 5px !important; /*needed to solve tool problems with tools in top right corner*/
+}
+
+.ctTpl_splitview .geopuntLogo {
+    display: none;
+}
+
+.ctTpl_splitview.ctActiveTool_maximizeViewerTool .geopuntLogo {
+    display: inline;
+    cursor: pointer;
+}
+
+.ctTpl_splitview.ctActiveTool_maximizeViewerTool .appTitle {
+    display: none;
+}
+
+.ctTpl_splitview .geopuntLogo img {
+    height: 52px;
+}
+
+.ctTpl_splitview .capakeyTool {
+    float: right;
+    margin-right: -35px;
+    margin-top: -2px;
+}
+
+.ctTpl_splitview.ctEnv_IE .capakeyTool {
+    margin-right: -40px;
+}
+
+/*fix for ios7 landscape bug
+http://krpano.com/ios/bugs/ios7-ipad-landscape/
+*/
+@media (orientation: landscape) {
+    body[class*="ctEnv_iPad_7"] {
+        height: 650px !important;
+        overflow: hidden !important;
+    }
+
+}
+

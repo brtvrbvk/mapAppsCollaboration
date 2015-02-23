@@ -1,0 +1,34 @@
+<FeatureInfoResponse xmlns:esri_wms="http://www.esri.com/wms" xmlns="http://www.esri.com/wms">
+    <FIELDS ID="29243" UIDN="189133" OIDN="36110" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="66559" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29180" UIDN="189086" OIDN="36039" BMS="44" BMSOMSCHR="naaldhout - fijnspar" ONT="22"
+            ONTOMSCHR="middeloud naaldhout (20 - 60j )" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout"
+            NISCODE="42003" GEMEENTE="Berlare" POLNR="64174" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29272" UIDN="189141" OIDN="36141" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="67013" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="84826" UIDN="189087" OIDN="113463" BMS="0" BMSOMSCHR="te herbebossen oppervlakte" ONT="0"
+            ONTOMSCHR="niet van toepassing" SLG="0" SLGOMSCHR="niet van toepassing" BED="0"
+            BEDOMSCHR="niet van toepassing" NISCODE="42003" GEMEENTE="Berlare" POLNR="64181" KLASSE="300"
+            KLASSEOMSCHR=" Open ruimte binnen bos" SHAPE="Null"/>
+    <FIELDS ID="29192" UIDN="241957" OIDN="36055" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="2" SLGOMSCHR="van 1/3 tot 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="64178" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29232" UIDN="189121" OIDN="36098" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="66126" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29226" UIDN="189119" OIDN="36091" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="65978" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29241" UIDN="189137" OIDN="36108" BMS="0" BMSOMSCHR="te herbebossen oppervlakte" ONT="0"
+            ONTOMSCHR="niet van toepassing" SLG="0" SLGOMSCHR="niet van toepassing" BED="0"
+            BEDOMSCHR="niet van toepassing" NISCODE="0" GEMEENTE="Null" POLNR="0" KLASSE="0"
+            KLASSEOMSCHR="initialisatiewaarde, nog niet behandeld" SHAPE="Null"/>
+    <FIELDS ID="29218" UIDN="247444" OIDN="36083" BMS="13" BMSOMSCHR="loofhout - populier" ONT="13"
+            ONTOMSCHR="oud loofhout" SLG="3" SLGOMSCHR="meer dan 2/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="64907" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+    <FIELDS ID="29247" UIDN="189139" OIDN="36115" BMS="13" BMSOMSCHR="loofhout - populier" ONT="11"
+            ONTOMSCHR="jong loofhout" SLG="1" SLGOMSCHR="minder dan 1/3" BED="2" BEDOMSCHR="hooghout" NISCODE="42003"
+            GEMEENTE="Berlare" POLNR="66755" KLASSE="500" KLASSEOMSCHR="Bos" SHAPE="Null"/>
+</FeatureInfoResponse>

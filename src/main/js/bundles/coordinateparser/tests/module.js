@@ -1,0 +1,3 @@
+define([
+    "./CoordinateParserTest"
+], 1);

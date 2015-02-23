@@ -1,0 +1,3 @@
+define([
+    "./SelectionListControllerTest"
+], 1);

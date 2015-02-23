@@ -1,0 +1,51 @@
+<div>
+
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="gutters:false, design:'headline'"
+         data-dojo-attach-point="baseNode">
+
+
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="region:'top',gutters:false, design:'sidebar', 'class':'loadServiceTopNode'"
+             data-dojo-attach-point="topNode">
+
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'center', gutters:false">
+                <span data-dojo-attach-point="textBox"
+                      data-dojo-type="dijit/form/TextBox"
+                      data-dojo-props="placeHolder: '${i18n.ui.textBoxPlaceholder}','class':'ctLoadServiceTextBox'"
+                      data-dojo-attach-event="onKeyUp:_onTextBoxKeyUp,onKeyPress:_onTextBoxKeyUp,onChange:_onValueChange"></span>
+                <span data-dojo-type="dijit/form/Button"
+                      data-dojo-attach-point="clearSearch"
+                      data-dojo-props="label:'${i18n.ui.buttons.clear}',showLabel: false, iconClass:'icon-closing_x', 'class':'loadServiceResetButton'"
+                      data-dojo-attach-event="onClick:_onClearClicked"></span>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'right', gutters:false,'class':'loadServiceButtonContainer'">
+                <span data-dojo-type="dijit/form/Button"
+                      data-dojo-attach-point="submitSearch"
+                      data-dojo-props="label:'${i18n.ui.buttons.search}'"
+                      data-dojo-attach-event="onClick:_onSubmitClicked"></span>
+            </div>
+
+        </div>
+
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center', title:'${i18n.ui.results}', label:'${i18n.ui.results}', gutters:false, 'class':'loadServiceResultPane'">
+            <div data-dojo-attach-point="dataviewNode"></div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'bottom', 'class':'loadServiceBottomContainer'"
+             data-dojo-attach-point="bottomPanel">
+            <div data-dojo-attach-point="_loadButton"
+                 data-dojo-type="dijit/form/Button"
+                 data-dojo-props="label:'${i18n.ui.buttons.load}'"
+                 data-dojo-attach-event="onClick:_onLoadClick"></div>
+            <span class="ctHint">${i18n.ui.stepTwo}</span>
+        </div>
+
+    </div>
+
+
+</div>

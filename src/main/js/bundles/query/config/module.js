@@ -1,0 +1,4 @@
+define([
+    ".",
+    "wizard/DataFormBuilderWidgetFactory"
+    ],{});

@@ -1,0 +1,17 @@
+{
+    "Bundle-SymbolicName": "json2",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "json2",
+    "Bundle-Description": "Adds json support to older browsers",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["storage"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+    "Bundle-Layer": "main",
+    "Bundle-RequiredExecutionEnvironment": ["IE:[6,8]"],
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Bundle-StartLevel": 0,
+    "Bundle-Localization": []
+}

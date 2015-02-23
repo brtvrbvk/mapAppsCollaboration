@@ -1,0 +1,3 @@
+define([
+    "./MapModelParameterResolver"
+], 1);

@@ -1,0 +1,31 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "checkbox",
+            "title": "${menu.search.useInSearch}",
+            "field": "componentEnabled"
+        },
+        {
+            "type": "numbertextbox",
+            "title": "${menu.search.count}",
+            "field": "storeQueryOptions.count",
+            "min": 0,
+            "max": 100
+        },
+        {
+            "type": "numbertextbox",
+            "title": "${menu.search.minQueryLength}",
+            "field": "storeParameters.minQueryLength",
+            "min": 0,
+            "max": 100
+        }
+    ]
+}

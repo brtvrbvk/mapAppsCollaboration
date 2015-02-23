@@ -1,0 +1,38 @@
+<div>
+    <div data-dojo-type="dijit.layout.BorderContainer"
+         data-dojo-attach-point="mainContainer"
+         data-dojo-props="design:'sidebar', gutters:false,splitter:false">
+        <div data-dojo-type="dijit.layout.BorderContainer"
+             data-dojo-props="design:'sidebar', gutters:false,splitter:true, region:'leading','class':'services'">
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'top','class':'mapModelBuilderTitle'">
+                <h2>${i18n.servicesTitle}</h2>
+            </div>
+            <!--<div data-dojo-type="dijit.layout.ContentPane" class="detailsHint" data-dojo-props="region:'top','class':'detailsHint'"></div>-->
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'center'">
+                <div data-dojo-attach-point="_servicesTreeNode">
+                </div>
+            </div>
+        </div>
+        <div data-dojo-type="dijit.layout.BorderContainer"
+             data-dojo-props="design:'sidebar', gutters:false,splitter:true, region:'center','class':'categories'">
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'top','class':'mapModelBuilderTitle'">
+                <h2>${i18n.layerList}</h2>
+            </div>
+            <!--<div data-dojo-type="dijit.layout.ContentPane" class="detailsHint" data-dojo-props="region:'top','class':'detailsHint'"></div>-->
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'center'">
+                <div data-dojo-type="dijit.form.Button"
+                     data-dojo-props="'class':'categorieOperator', 'iconClass':'remove'"
+                     data-dojo-attach-event="onClick:_onRemoveClick"></div>
+                <div data-dojo-attach-point="_dragHintNode"
+                     class="dragHint">${i18n.dragLayerHint}
+                </div>
+                <div data-dojo-attach-point="_layerNode"
+                     class="dragTarget"></div>
+            </div>
+        </div>
+    </div>
+</div>

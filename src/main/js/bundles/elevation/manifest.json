@@ -1,0 +1,593 @@
+{
+    "Bundle-SymbolicName": "elevation",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,)"
+        },
+        {
+            "name": "redlining",
+            "version": "[3.0,)"
+        }
+    ],
+    "Components": [
+
+        {
+            "name": "ElevationWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "elevation.ElevationWidgetFactory"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "elevation",
+                "chartRenderingOptions": {
+                    "chartTitleFontSize": 13,
+                    "axisTitleFontSize": 11,
+                    "axisLabel": "normal normal bold 9pt Verdana",
+                    "indicatorFontColor": "#eee",
+                    "indicatorFillColor": "#575656",
+                    "titleFontColor": "#eee",
+                    "axisFontColor": "#575656",
+                    "axisMajorTickColor": "#575656",
+                    "skyTopColor": "#FFFFFF",
+                    "skyBottomColor": "#FFFFFF",
+//                    "waterLineColor": "#eee",
+//                    "waterTopColor": "#ADD8E6",
+//                    "waterBottomColor": "#FFFFFF",
+                    "elevationLineColor": "#f9c114",
+                    "elevationTopColor": "#fbd837",
+                    "elevationBottomColor": "#fbd837",
+                    "elevationIndicatorLabel": "normal normal bold 9pt Verdana",
+                    "noDataStrokeColor": "#FFFFFF",
+                    "noDataFillColor": "#FFFFFF"
+                },
+                "decimalPlaces": {
+                    "height": 1,
+                    "distance": 3
+                }
+            },
+            "references": [
+                {
+                    "name": "esriMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ChartGeometryRenderer",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/elevation/selection/SELECT_PART",
+                        "method": "_render"
+                    },
+                    {
+                        "topic": "ct/elevation/selection/CLEAR",
+                        "method": "clear"
+                    }
+                ],
+                "_symbolTable": {
+                    "polyline": {
+                        "color": [
+                            249,
+                            193,
+                            20,
+                            210
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",
+                        "width": 5
+                    },
+                    "polyline-selected": {
+                        "color": [
+                            249,
+                            193,
+                            20,
+                            180
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",
+                        "width": 5
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationController",
+            "provides": [
+                "elevation.ElevationController",
+                "ct.framework.api.EventHandler",
+                "jasperprinting.api.PrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/elevation/UPDATE_CHART",
+                        "method": "_handleUpdateChart"
+                    },
+                    {
+                        "topic": "ct/elevation/GET_ELEVATION_INFO",
+                        "method": "_retrieveElevationInfo"
+                    },
+                    {
+                        "topic": "ct/elevation/GET_ELEVATION_INFO_FOR_ROUTE",
+                        "method": "_retrieveElevationInfoRoute"
+                    },
+                    {
+                        "topic": "ct/elevation/WINDOW_HIDDEN",
+                        "method": "_windowClose"
+                    }
+                ],
+                "clearDiagramOnClose": false,
+                "sampleRates": {
+                    "low": 50,
+                    "medium": 200,
+                    "high": 1000
+                }
+            },
+            "references": [
+                {
+                    "name": "elevationWidget",
+                    "providing": "elevation.ElevationWidgetFactory"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "geometryRenderer",
+                    "providing": "elevation.GeometryRenderer",
+                    "connect": {
+                        "onAfterRenderGeometry": "onNewGeometry"
+                    }
+                },
+                {
+                    "name": "drawStateController",
+                    "providing": "elevation.DrawStateController"
+                },
+                {
+                    "name": "elevationStore",
+                    "providing": "elevation.ElevationStore"
+                },
+                {
+                    "name": "elevationToggleTool",
+                    "providing": "elevation.ToggleTool"
+                },
+                {
+                    "name": "elevationPolylineTool",
+                    "providing": "elevation.PolylineTool"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "elevation.ToggleTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "elevationToggleTool",
+                "iconClass": "icon-height-profile",
+                "title": "${ui.docktool.title}",
+                "tooltip": "${ui.docktool.tooltip}",
+                "togglable": true,
+                "rules": {
+                    "groups": "bottom_windows"
+                }
+            }
+        },
+
+        {
+            "name": "DrawStateController",
+            "provides": ["elevation.DrawStateController"],
+            "properties": {
+                "-drawToolbarOpts": {
+                    "finishWithButton": true
+                }
+            },
+            "references": [
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map"
+                }
+            ]
+        },
+
+        {
+            "name": "StyleContext",
+            "impl": "redlining/StyleContext",
+            "provides": ["elevation.StyleContext"],
+            "propertiesConstructor": true
+        },
+        {
+            "name": "StyleContextSymbolLookupStrategy",
+            "impl": "redlining/StyleContextSymbolLookupStrategy",
+            "provides": ["elevation.SymbolLookupStrategy"],
+            "references": [
+                {
+                    "name": "_styleContext",
+                    "providing": "elevation.StyleContext"
+                }
+            ]
+        },
+        {
+            "name": "GraphicResolver",
+            "impl": "ct/mapping/edit/LookupGraphicResolver",
+            "provides": ["elevation.GraphicResolver"],
+            "references": [
+                {
+                    "name": "symbolLookupStrategy",
+                    "providing": "elevation.SymbolLookupStrategy"
+                },
+                {
+                    "name": "templateLookupStrategy",
+                    "providing": "redlining.InfoTemplateLookupStrategy",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "GeometryRenderer",
+            "provides": [
+                "elevation.GeometryRenderer",
+                "ct.framework.api.EventHandler"
+            ],
+            "properties": {
+                "_graphicNodeId": "elevationNode",
+                "_topicBase": "ct/elevation/",
+                "Event-Topics": [
+                    {
+                        "topic": "ct/elevation/WINDOW_HIDDEN",
+                        "method": "_clearGraphics"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_drawStateController",
+                    "providing": "elevation.DrawStateController"
+                },
+                {
+                    "name": "_editStateController",
+                    "providing": "ct.mapping.edit.EditStateController"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_graphicResolver",
+                    "providing": "elevation.GraphicResolver"
+                },
+                {
+                    "name": "_undoRedoService",
+                    "providing": "undoredo.UndoRedoService",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationPolylineTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "elevation.PolylineTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "priority": 8,
+                "id": "elevationPolylineTool",
+                "iconClass": "icon-pencil",
+                "title": "${ui.polylineTool.title}",
+                "tooltip": "${ui.polylineTool.tooltip}",
+                "togglable": true,
+                "geometryType": "PolyLine",
+                "activateHandler": "activateDraw",
+                "deactivateHandler": "deactivateDraw",
+                "rules": {
+                    "groups": [
+                        "maptools"
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.GeometryRenderer"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationUndoTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "elevation.UndoTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationUndoTool",
+                "title": "${ui.undoTool.title}",
+                "tooltip": "${ui.undoTool.tooltip}",
+                "toolRole": "toolset",
+                "priority": 10,
+                "togglable": false,
+                "iconClass": "icon-undo",
+                "clickHandler": "undo",
+                "rules": [
+                    {
+                        "canUndo": true,
+                        "redoInProgress": false,
+                        "undoInProgress": false
+                    },
+                    {
+                        "undoInProgress": true,
+                        "ruleSuccessProperty": "processing"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "undoredo.UndoRedoService"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationStore",
+            "provides": [
+                "ct.api.Store",
+                "elevation.ElevationStore"
+            ],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "target": "http://dhm.beta.agiv.be/api/elevation/v1",
+                "inputSrs": "4326",
+                "targetSrs": "4326",
+                "datasetName": "DHMV1",
+                "usedServiceVersion": "new"  // "old" or "new"
+                //"target": "http://@@ws.agiv.be@@/elevation/dhmv1"
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationClearTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationClearTool",
+                "priority": 9,
+                "title": "${ui.clearTool.title}",
+                "tooltip": "${ui.clearTool.tooltip}",
+                "iconClass": "icon-trashcan-detailed",
+                "togglable": false,
+                "clickHandler": "_clear"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationMaximizeTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationMaximizeTool",
+                "priority": 4,
+                "title": "${ui.maximizeTool.title}",
+                "tooltip": "${ui.maximizeTool.tooltip}",
+                "iconClass": "icon-viewer-max",
+                "togglable": false,
+                "clickHandler": "maximize",
+                "rules": {
+                    "groups": ["elevation_none"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationRestoreTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationRestoreTool",
+                "priority": 4,
+                "title": "${ui.minimizeTool.title}",
+                "tooltip": "${ui.minimizeTool.tooltip}",
+                "iconClass": "icon-viewer-min",
+                "togglable": false,
+                "clickHandler": "restore",
+                "rules": {
+                    "groups": ["elevation_none"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationSampleLowTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationSampleLowTool",
+                "priority": 7,
+                "title": "${ui.sampleLowTool.title}",
+                "tooltip": "${ui.sampleLowTool.tooltip}",
+                "iconClass": "icon-hoogte-detail1",
+                "togglable": true,
+                "activateHandler": "activateSampleLow",
+                "rules": {
+                    "groups": ["elevation_sample_tools"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationSampleMediumTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationSampleMediumTool",
+                "priority": 6,
+                "title": "${ui.sampleMediumTool.title}",
+                "tooltip": "${ui.sampleMediumTool.tooltip}",
+                "iconClass": "icon-hoogte-detail2",
+                "togglable": true,
+                "activateHandler": "activateSampleMedium",
+                "rules": {
+                    "groups": ["elevation_sample_tools"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "ElevationSampleHighTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "elevationSampleHighTool",
+                "priority": 5,
+                "title": "${ui.sampleHighTool.title}",
+                "tooltip": "${ui.sampleHighTool.tooltip}",
+                "iconClass": "icon-hoogte-detail3",
+                "togglable": true,
+                "activateHandler": "activateSampleHigh",
+                "rules": {
+                    "groups": ["elevation_sample_tools"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "elevation.ElevationController",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "LoadingController",
+            "impl": "base/util/LoadingController",
+            "propertiesConstructor": true,
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "loadClass": "ctElevationLoading",
+                "+Event-Topics": [
+                    {
+                        "topic": "agiv/elevation/loading/START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "agiv/elevation/loading/END",
+                        "method": "hideLoading"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        }
+
+    ]
+}

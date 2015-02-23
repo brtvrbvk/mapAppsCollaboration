@@ -1,0 +1,244 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    @agiv-zoomslider-width: 26px;
+
+    .esriLargeSlider {
+        .resetBG();
+        .box-shadow-none();
+        width: @agiv-zoomslider-width;        
+
+        .dijitSliderImageHandle:before{
+            font-family: agivUiFont;
+            content: "\e61f";
+            font-size: @ct-icon-small - 2px;
+            background-color: transparent;
+            color: @ct-icon-hovered-color;
+        }
+        /*Delete Ruler Marker*/
+        .dijitRuleContainerV{
+            display: none;
+        }
+        .dijitSliderBumperV {
+            border: none;
+        }
+
+        .dijitSliderHover, 
+        .dijitSliderRemainingBarV, 
+        .dijitSliderHover .dijitSliderTopBumper,
+        .dijitSliderProgressBar,
+        .dijitSliderRemainingBarV,
+        center{
+            background: transparent none;
+            background-color: transparent;
+        }
+        .dijitSliderBarContainerV,
+        center {
+            width: 100%;
+            background-image: none;
+        }
+        center{
+            text-align: left;
+        }
+        center.dijitSliderBarContainerV{
+            //order of properties is important. do not change
+            text-align: center;
+            text-align: -webkit-center;
+            text-align: -moz-center;
+        }
+
+        .dijitSliderButtonInner{
+            display: none;
+        }
+        .dijitSliderBarContainerV,
+        .dijitSliderDecrementIconV,
+        .dijitSliderIncrementIconV,
+        .dijitSliderBumperV{
+            width:@agiv-zoomslider-width - 6px;
+            border-left: 3px solid @primary-color;
+            border-right: 3px solid @primary-color;
+            background: fadeOut(@secondary-color, 40%);
+        }
+
+        .dijitSliderBarV{
+            width: 0;
+            border: none;
+            border-left: 3px dotted;
+        }
+
+        .dijitSliderImageHandleV{
+            width: auto;
+        }
+
+        /* ---- + /- Button ---- */
+        .dijitSliderButtonContainerV{
+            .size(@agiv-zoomslider-width, 25px);
+            padding: 0;
+            .resetBG();            
+        }
+        .dijitSliderDecrementIconV,
+        .dijitSliderIncrementIconV {
+            .border-radius(0);
+            height: 100%;
+            &:hover{
+                background-color: @text-color;
+            }
+            &:before{
+                left: 1px;
+                position: relative;
+            }
+        }
+        .dijitSliderButtonContainer:hover{ 
+            .dijitSliderIncrementIconV:before,
+                .dijitSliderDecrementIconV:before {
+                color: @secondary-color;
+            }
+        }        
+        .dijitSliderIncrementIconV{
+            .border-radius(25px,25px,0,0);
+            border-top: 3px solid @primary-color;
+            border-bottom: none;
+            &:before {
+                content:'\e017';
+                top: 4px;
+            }
+        }
+        .dijitSliderDecrementIconV{
+            .border-radius(0,0,25px,25px);
+            border-bottom: 3px solid @primary-color;
+            border-top: none;
+            &:before {
+                content:'\e018';
+            }
+        }
+
+
+
+    }
+
+    &.ctEnv_IE_8 .esriLargeSlider{
+        background: @secondary-color;
+        .dijitSliderIncrementIconV:before{
+            position: relative;
+            left: 0;
+        }
+        .dijitSliderDecrementIconV:before{
+            position: relative;
+            top: 4px;
+        }
+        .dijitSliderBumperV{
+            display: none;
+        }
+    }
+    //------------------   Simple Slider Style ---------------------//
+    // resetting default esri simple slider
+    .esriSimpleSlider,
+    .esriSimpleSliderIncrementButton{
+        border: none;
+        .box-shadow-none();
+        background: transparent none;
+    }
+
+    .esriSimpleSliderIncrementButton,
+    .esriSimpleSliderDecrementButton{
+        line-height: 24px;
+        height: 24px;
+        width: 30px;    
+        color: @ct-primary-contrast-text-color;
+        .standard-gradient-and-filter(@ct-toolset-button-background-color);
+    }
+    .esriSimpleSliderIncrementButton:hover,
+        .esriSimpleSliderDecrementButton:hover{
+        color: @minor-selected-color;
+    }
+    .esriSimpleSliderIncrementButton{
+        font-size: 17px;
+        .border-radius(20px,20px,0,0);
+    }
+    .esriSimpleSliderDecrementButton{
+        font-size: 18px;
+        .border-radius(0,0, 20px, 20px);
+    }
+    //------------------  End of Simple Slider Style ---------------------//
+
+
+    //-- additional styles for minimalistic zoomSlider used in miniMapTemplate
+    &.ctTpl_minimaps .esriLargeSlider{
+        background-color: transparent;
+        .dijitSliderButtonContainer {
+            .size(auto, 22px);
+            left: -5px;
+            .dijitSliderIncrementIconV,
+            .dijitSliderDecrementIconV{
+                .border-radius(2px);
+                border: 2px solid @primary-color;
+                .size(14px);
+                &:before{
+                    position: absolute;
+                    top: 4px;left: 2px;
+                }
+            }
+        }
+        .dijitSliderBarContainerV,
+        .dijitSliderBumper{
+            width: 4px;
+            border: 2px solid @primary-color;
+            background-color: @secondary-color;
+        }
+        .dijitSliderBarContainerV{
+            border-top: none;
+            border-bottom: none;
+        }
+        .dijitSliderBarV{
+            border: none;
+        }
+        .dijitSliderTopBumper{
+            border-bottom: none;
+        }
+
+        .dijitSliderBottomBumper{
+            border-top: none;
+        }
+        .dijitSliderImageHandleV{
+            background-color: @secondary-color;
+            border: 1px solid @border-color;
+            .size(22px,9px);
+            .border-radius(2px);
+            .box-shadow(0, 1px, 4px, 0.5);
+            &:before{
+                content: '...';
+                position: relative;
+                top: -7px; left: 5px;
+            }
+        }
+    }
+
+    // zoom handler fix for IE 11
+    &.ctEnv_IE_11 .esriLargeSlider{
+      .dijitSliderImageHandleV{
+        top:-6px;
+      }
+    }
+
+  // zoom handler fix for FF
+   &.ctEnv_FF .esriLargeSlider{
+    .dijitSliderImageHandleV{
+      top:-6px;
+    }
+  }
+
+    //AGMV-1030
+    &.ctTpl_minimaps.ctEnv_FF .esriLargeSlider{
+        .dijitSliderButtonContainer{
+            display: block;
+            margin: 1px 0;
+            .dijitSliderIncrementIconV,
+            .dijitSliderDecrementIconV{
+                &:before{
+                    top: 2px;
+                }
+            }
+        } 
+    }
+}

@@ -1,0 +1,498 @@
+{
+    "Bundle-SymbolicName": "identifymanagement",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["builder"],
+
+    "Require-Bundle": [
+        {
+            "name": "dataform",
+            "version": "[3.0.2,)"
+        }
+    ],
+    "layout-widgets": [
+        {
+            "role": "identifyConfigView",
+            "window": {
+                "dockTool": "appmanagement_identifyConfigListTool",
+                "marginBox": {
+                    "t": 65,
+                    "l": 10,
+                    "r": 10,
+                    "b": 10
+                },
+                "maximizable": false,
+                "closable": false,
+                "minimizeOnClose": true,
+                "resizable": false,
+                "minSize": {
+                    "w": 150,
+                    "h": 150
+                },
+                "draggable": false,
+                "dndDraggable": false,
+                "windowClass": "noTitleBarAndWindowTools",
+                "fixEdgesInViewPort": {}
+            }
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "IdentifyConfigListTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "appmanagement_identifyConfigListTool",
+                "title": "${identifyTool.title}",
+                "tooltip": "${identifyTool.desc}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-info",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            }
+        },
+        {
+            "name": "IdentifyViewToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["identifymanagement.IdentifyViewToolbar"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolSortIds": [
+                    "addIdentifyMappingTool",
+                    "removeSelectedIdentifyMappingTool",
+                    "exportAllIdentifyConfigTool",
+                    "importAllIdentifyConfigTool",
+                    "importOldIdentifyConfigTool"
+                ]
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(toolRole=identifyview)"
+                }
+            ]
+        },
+        {
+            "name": "IdentifyConfigView",
+            "impl": "ct/ui/controls/dataview/DataView",
+            "provides": [
+                "dijit.Widget",
+                "identifymanagement.IdentifyConfigView"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "dataViewCommon",
+                // Anchor name to use in a template
+                "widgetRole": "identifyConfigView",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "itemsPerPage": 25,
+                "class": "ctIdentifyDataView",
+                "DGRID": {
+                    "noDataMessage": "${identifyView.noDataMessage}",
+                    "checkboxSelection": true,
+                    "columns": [
+                        {
+                            "matches": {
+                                "name": "title"
+                            },
+                            "title": "${identifyView.title}",
+                            "width": 200
+                        },
+                        {
+                            "matches": {
+                                "name": "generalMapping"
+                            },
+                            "title": "${identifyView.generalMapping}",
+                            "width": 60
+                        },
+                        {
+                            "matches": {
+                                "name": "description"
+                            },
+                            "title": "${identifyView.desc}"
+                        },
+                        {
+                            "matches": {
+                                "name": "fileName"
+                            },
+                            "title": "${identifyView.filename}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "modifiedBy"
+                            },
+                            "title": "${identifyView.modifiedBy}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "modifiedAt"
+                            },
+                            "title": "${identifyView.modifiedAt}",
+                            "width": 100
+                        }
+                        // any field matching no rule above is used as is
+                    ]
+                },
+                "ICON": {
+                    "noDataMessage": "${identifyView.noDataMessage}",
+                    "resourceRelativeImages": true
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "identifymanagement.IdentifyViewToolbar",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "IdentifyConfigViewController",
+            "impl": "ct/ui/controls/dataview/DataViewController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "identifymanagement.IdentifyConfigViewController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/identifymanagement/IDENTIFY_CONFIG_UPDATED",
+                            "ct/identifymanagement/IDENTIFY_CONFIG_CREATED"
+                        ],
+                        "method": "refreshView"
+                    }
+                ],
+                "selectionTopic": "ct/identifymanagement/IDENTIFY_CONFIG_SHOWDETAILS",
+                "exportTarget": "@@agiv.services.baseurl@@/resources/identify/"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "store",
+                    "providing": "identifymanagement.IdentifyConfigStore"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "identifymanagement.IdentifyConfigView"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+        {
+            "name": "IdentifyConfigStore",
+            "impl": "base/store/IdentifyConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "identifymanagement.IdentifyConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyStore",
+                "target": "@@agiv.services.baseurl@@/resources/identify",
+                "useIn": ["dataform"]
+            }
+        },
+
+        {
+            "name": "CreateIdentifyConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyview",
+                "id": "createIdentifyTool",
+                "title": "${createIdentifyTool.title}",
+                "tooltip": "${createIdentifyTool.desc}",
+                "togglable": false,
+                "clickHandler": "createIdentifyConfig",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "identifymanagement.IdentifyConfigCreateController"
+                }
+            ]
+        },
+
+        {
+            "name": "RemoveSelectedIdentifyConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyview",
+                "id": "removeSelectedIdentifyConfigTool",
+                "title": "${removeSelectedIdentifyConfigTool.title}",
+                "tooltip": "${removeSelectedIdentifyConfigTool.desc}",
+                "togglable": false,
+                "clickHandler": "removeSelectedItemsWithSaveQuestion",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "identifymanagement.IdentifyConfigViewController"
+                }
+            ]
+        },
+
+        {
+            "name": "ExportAllIdentifyConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyview",
+                "id": "exportAllIdentifyConfigTool",
+                "title": "${exportAllIdentifyConfigTool.title}",
+                "tooltip": "${exportAllIdentifyConfigTool.desc}",
+                "iconClass": "icon-floppy",
+                "togglable": false,
+                "clickHandler": "exportAll",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "identifymanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ImportAllIdentifyConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyview",
+                "id": "importAllIdentifyConfigTool",
+                "title": "${importAllIdentifyConfigTool.title}",
+                "tooltip": "${importAllIdentifyConfigTool.desc}",
+                "iconClass": "icon-doc-export",
+                "togglable": false,
+                "clickHandler": "importAll",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "identifymanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ImportOldIdentifyConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyview",
+                "id": "importOldIdentifyConfigTool",
+                "title": "${importOldIdentifyConfigTool.title}",
+                "tooltip": "${importOldIdentifyConfigTool.desc}",
+                "iconClass": "icon-login",
+                "togglable": false,
+                "clickHandler": "importOld",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "identifymanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ExportImportController",
+            "provides": ["identifymanagement.ExportImportController"],
+            "propertiesConstructor": "true",
+            "properties": {
+                "exportAllTarget": "@@agiv.services.baseurl@@/resources/identify/export/all",
+                "importOldTarget": "@@agiv.services.baseurl@@/resources/identify/import/old",
+                "importAllTarget": "@@agiv.services.baseurl@@/resources/identify/import/all"
+            },
+            "references": [
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyConfigCreateController",
+            "provides": ["identifymanagement.IdentifyConfigCreateController"],
+            "references": [
+                {
+                    "name": "identifyConfigStore",
+                    "providing": "identifymanagement.IdentifyConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyConfigDetailsController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "identifymanagement.IdentifyConfigDetailsController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/identifymanagement/IDENTIFY_CONFIG_CREATED",
+                            "ct/identifymanagement/IDENTIFY_CONFIG_SHOWDETAILS"
+                        ],
+                        "method": "showServiceDetails"
+                    },
+                    {
+                        "topic": ["ct/identifymanagement/SAVE_IDENTIFY_CONFIG"],
+                        "method": "saveIdentifyConfig"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "identifyConfigStore",
+                    "providing": "identifymanagement.IdentifyConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyMappingCreateController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "identifymanagement.IdentifyMappingCreateController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/identifymanagement/IDENTIFY_CONFIG_SHOW",
+                        "method": "createIdentifyMapping"
+                    }
+                ],
+                "target": "@@agiv.services.baseurl@@/resources/identify/{id}.json",
+                "servicesTarget": "@@agiv.services.baseurl@@/resources/services/{id}.json",
+                "servicesBaseTarget": "@@agiv.services.baseurl@@/resources/services"
+            },
+            "references": [
+                {
+                    "name": "identifyConfigStore",
+                    "providing": "identifymanagement.IdentifyConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

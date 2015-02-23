@@ -1,0 +1,35 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    .ctAppLinksContainer ul {
+        padding-left: 15px;
+        list-style-type: none;
+        li{
+            color: #575656;
+        }
+        li:hover{
+            font-weight: bold;
+            list-style-type: initial;
+        }
+    }
+    .ctDynamicAppLinkItem {
+        font-weight: normal;
+    }
+
+    .ctDynamicApplink:hover {
+        color: @text-color;
+        cursor: pointer;
+    }
+
+    .ctDynamicApplinkDescription {
+
+    }
+    .ctAppLinksContainer {
+        overflow-y: auto;
+    }
+    .ctDynamicAppLinkHeader {
+        font-weight:bold;
+    }
+
+}

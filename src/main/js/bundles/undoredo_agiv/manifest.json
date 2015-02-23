@@ -1,0 +1,115 @@
+{
+    "Bundle-SymbolicName": "undoredo_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Category": [
+        "mapping",
+        "tools",
+        "editing"
+    ],
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Copyright": "con terra GmbH",
+    "Components": [
+        {
+            "name": "UndoRedoService",
+            "impl": "UndoManager",
+            "provides": ["undoredo.UndoRedoService"],
+            "propertiesConstructor": true,
+            "properties": {
+                "maxOperations": 10,
+                "logInfoMessages": false
+            },
+            "references": [
+                {
+                    "name": "_logger",
+                    "providing": "ct.framework.api.LogService"
+                }
+            ]
+        },
+        {
+            "name": "UndoRedoPossibleToolRuleProcessor",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "toolrules.ToolRuleProcessor"
+            ],
+            "references": [
+                {
+                    "name": "ruleContextState",
+                    "providing": "toolrules.ToolRuleContext"
+                },
+                {
+                    "name": "undoRedoService",
+                    "providing": "undoredo.UndoRedoService",
+                    "connect": {
+                        "onChange": "_checkUndoRedoState"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "UndoTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "undoTool",
+                "title": "${undoTool.title}",
+                "tooltip": "${undoTool.tooltip}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-undo",
+                "activateHandler": "undo",
+                "rules": [
+                    {
+                        "canUndo": true,
+                        "redoInProgress": false,
+                        "undoInProgress": false
+                    },
+                    {
+                        "undoInProgress": true,
+                        "ruleSuccessProperty": "processing"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "undoredo.UndoRedoService"
+                }
+            ]
+        },
+        {
+            "name": "RedoTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "redoTool",
+                "title": "${redoTool.title}",
+                "tooltip": "${redoTool.tooltip}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-redo",
+                "activateHandler": "redo",
+                "rules": [
+                    {
+                        "canRedo": true,
+                        "redoInProgress": false,
+                        "undoInProgress": false
+                    },
+                    {
+                        "redoInProgress": true,
+                        "ruleSuccessProperty": "processing"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "undoredo.UndoRedoService"
+                }
+            ]
+        }
+    ]
+}

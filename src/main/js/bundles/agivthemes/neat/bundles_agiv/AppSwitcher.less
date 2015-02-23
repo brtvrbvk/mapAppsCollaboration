@@ -1,0 +1,91 @@
+
+/* 
+    Created on : 07.04.2014, 09:43:12
+    Author     : juku
+*/
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} .appswitcher{
+    &.ctWindow{
+        .border-radius(0);
+        border: none;
+    }  
+    .ctWindowContentPadding{
+        background: @container-background-color;
+        padding-bottom: 60px;
+    }
+    .ctCollapseGrid  .ctCollapseHandleRight .ctCollapseInnerHandle{
+        .border-radius(0,6px,6px,0);
+        background-color: @primary-color;
+        &:before{
+            font-family: mapappsUiFont;
+            position: relative;
+            content:'\e00e';
+            font-size: 22px;
+            top: 30px;
+            left: -3px;
+        }
+    }
+    &.ctCollapsed{
+        .ctWindowPadding{
+            overflow: hidden;
+        } 
+        .ctCollapseGrid .ctCollapseHandleRight .ctCollapseInnerHandle:before{
+            content:'\e00f';
+        }
+    }
+    .dijitDialogPaneContent{
+        overflow-y: auto;
+        padding-left: 12px;
+    }
+
+    .dijitMenuItem{
+        display: block;
+        .size(80px, 80px);
+        .border-radius(6px);
+        background-color: #dfdede; //FIXME: matches grey of bg images but should be replaced by @agiv-light-grey and images should be transparent bg
+        margin: 20px 0;
+        &.dijitMenuItemHover,
+        &.dijitFocused{
+            background-color: @text-color;
+        }
+        &.dijitMenuItemSelected{
+            color: @text-color;
+            background-color: @primary-color;
+        }
+        &:first-child{
+            margin-top: 8px;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        td{
+            border-bottom: none;
+        }
+    }
+    .dijitMenuItemIconCell,
+    .dijitMenuArrowCell{
+        display: none;
+    }
+    .dijitMenuItemLabel {
+        //convention: images are 110px X 40px
+        display: table-cell;
+        text-align: center;
+        height: 30px;
+        min-width: 74px;
+        vertical-align: middle;
+        background-size: auto 40px;
+        background-repeat: no-repeat;
+        background-position: top center;
+        padding-top: 45px;
+        white-space: normal;
+    }
+}
+
+//media querry to move collapseHandle to bottom viewport edge so that it does not overlap with zoomSlider
+@media (max-height: 730px){
+    .@{themeName} .appswitcher .ctCollapseGrid  .ctCollapseHandleRight{
+        top: auto;
+        bottom: 100px;
+    }
+}

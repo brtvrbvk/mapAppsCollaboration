@@ -1,0 +1,118 @@
+{
+    "Bundle-SymbolicName": "themainfo-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "appsstore",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderContentNode",
+                "menuNode": {
+                    "title": "${menu.mapmodel.title}",
+                    "iconUrl": "resource('styles/images/mapContent.png')",
+                    "widget": "themainfoBuilderWidget"
+                }
+            }
+        },
+
+        // ======= Builder Widget ========
+        {
+            "name": "ContentModelBuilderController",
+            "impl": "base/mapping/contentmodel/config/ContentModelBuilderController",
+            "instanceFactory": true,
+            "provides": ["dijit.wizard.Widget"],
+            "properties": {
+                "bid": "themainfo",
+                "pid": "themainfo-ContentModel",
+                "id": "themainfoBuilderWidget",
+                "defaultImageUrl": "resource('styles/images/defaultCover.png')",
+                "metadataOnlineResourceMatcher": "metadata.agiv.be"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_knownServices",
+                    "providing": "mapconfig.KnownServicesStore"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "appsstore",
+                    "providing": "appsstore.AppStore"
+                },
+                {
+                    "name": "_identifyMappingStore",
+                    "providing": "themainfo.IdentifyMappingStore"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyMappingStore",
+            "impl": "base/store/IdentifyMappingStore",
+            "provides": [
+                "ct.api.Store",
+                "themainfo.IdentifyMappingStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyMappingStore",
+                "target": "@@agiv.services.baseurl@@/resources/identifymapping"
+            }
+        },
+
+        // ======= Contentmodel search config Builder Menu Entry ========
+        {
+            "name": "ContentmodelSearchBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "sourcesBuilderNode",
+                "menuNode": {
+                    "title": "${menu.search.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "contentmodelSearchBuilderNode"
+                }
+            }
+        }
+
+    ]
+}

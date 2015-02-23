@@ -1,0 +1,753 @@
+{
+    "Bundle-SymbolicName": "genericidentify",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "contentviewer",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "infoviewer",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "splitviewmap",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+    "Components": [
+        {
+            "name": "GenericIdentifyCommand",
+            "impl": "./resultcenterintegration/GenericIdentifyCommand",
+            "references": [
+                {
+                    "name": "dataModel",
+                    "providing": "ct.resultcenter.DataModel"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "resultcenter.DataView",
+                    "cardinality": "0..1",
+                    "connect": {
+                        "onItemClicked": "handleOnItemClicked"
+                    }
+                },
+                {
+                    "name": "fiController",
+                    "providing": "genericidentify.FeatureInfoController"
+                }
+            ]
+        },
+        {
+            "name": "MapModelStoreHelper",
+            "impl": "genericidentify/MapModelStoreHelper",
+            "propertiesConstructor": true,
+            "provides": ["genericidentify.MapModelStoreHelper"],
+            "properties": {
+                "target": "@@agiv.services.baseurl@@/resources/identify/{id}.json",
+                "pointGeometryTolerance": 10,
+                "layerTypeMapping": [
+//                    {
+//                        "layerId": "Refgem",
+//                        "serviceId": "administrative_units",
+//                        "ignoreAttributes": "UIDN;GEOMID",
+//                        "mapping": [
+//                            {
+//                                "attributeName": "SHAPE.STLength",
+//                                "displayName": "Length1",
+//                                "index": 3,
+//                                "attributeValue": "",
+//                                "displayValue": ""
+//                            },
+//                            {
+//                                "attributeName": "OIDN",
+//                                "displayName": "Identifier1",
+//                                "attributeValue": "274",
+//                                "displayValue": "274a"
+//                            },
+//                            {
+//                                "attributeName": "SHAPE.STArea",
+//                                "displayName": "Area1",
+//                                "attributeValue": "56350121,4295458",
+//                                "displayValue": "56350121"
+//                            }
+//                        ],
+//                        "extraInfo": [
+//                            {
+//                                "title": "Test",
+//                                "description": "Here is something specific to this layer..."
+//                            }
+//                        ]
+//                    }
+                ],
+                "generalTypeMapping": {
+//                    "ignoreAttributes": "UIDN;GEOMID",
+//                    "mapping": [
+//                        {
+//                            "attributeName": "SHAPE.STLength",
+//                            "displayName": "Length",
+//                            "attributeValue": "",
+//                            "displayValue": ""
+//                        },
+//                        {
+//                            "attributeName": "OIDN",
+//                            "displayName": "Identifier",
+//                            "attributeValue": "274",
+//                            "displayValue": "274a"
+//                        },
+//                        {
+//                            "attributeName": "SHAPE.STArea",
+//                            "displayName": "Area",
+//                            "attributeValue": "",
+//                            "displayValue": ""
+//                        }
+//                    ],
+//                    "extraInfo": [
+//                        {
+//                            "title": "Test",
+//                            "description": "Here is something for all layers..."
+//                        }
+//                    ]
+                },
+                "areaAndLengthAttrNames": [
+                    "OPPERVL",
+                    "SHAPE.STArea",
+                    "SHAPE.STArea()",
+                    "OPPERVLAKTE",
+                    "Oppervlakte",
+                    "Area1",
+                    "LENGTE",
+                    "SHAPE.STLength",
+                    "SHAPE.STLength()",
+                    "Lengte",
+                    "Length1"
+                ]
+                // layers to exclude from feature info request (unique layer ids)
+                //"ignoreLayers": ["railways01/1","railways05/5"]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_compareMapModel",
+                    "providing": "splitviewmap.AgivMapModel",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_compareMap",
+                    "providing": "splitviewmap.MapWidget",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_identifyConfigStore",
+                    "providing": "genericidentify.IdentifyConfigStore"
+                },
+                {
+                    "name": "_identifyMappingStore",
+                    "providing": "genericidentify.IdentifyMappingStore"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyConfigStore",
+            "impl": "base/store/IdentifyConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "genericidentify.IdentifyConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyConfigStore",
+                "target": "@@agiv.services.baseurl@@/resources/identify"
+            }
+        },
+
+        {
+            "name": "IdentifyMappingStore",
+            "impl": "base/store/IdentifyMappingStore",
+            "provides": [
+                "ct.api.Store",
+                "genericidentify.IdentifyMappingStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyMappingStore",
+                "target": "@@agiv.services.baseurl@@/resources/identifymapping/query"
+            }
+        },
+
+        {
+            "name": "FeatureInfoController",
+            "impl": "genericidentify/FeatureInfoController",
+            "propertiesConstructor": true,
+            "provides": [
+                "genericidentify.FeatureInfoController",
+                "ct.framework.api.EventHandler"
+            ],
+            "properties": {
+                //clickTolerance in px, an extent is calculated based on screenPoint and clickTolerance arround the point
+                "clickTolerance": 5,
+                "alwaysEnableFeatureInfo": true,
+                "year": "2014",
+                "municipalityLink": "http://aps.vlaanderen.be/lokaal/pdf/gemeente-${year}/${municipality}.pdf",
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/genericidentify/SHOW",
+                        "method": "showFeatureInfos"
+                    },
+                    {
+                        "topic": "agiv/genericidentify/SHOW_NEXT",
+                        "method": "showNextFeatureInfo"
+                    },
+                    {
+                        "topic": "agiv/genericidentify/SHOW_PREVIOUS",
+                        "method": "showPreviousFeatureInfo"
+                    },
+                    {
+                        "topic": "agiv/genericidentify/CLOSE",
+                        "method": "closeFeatureInfo"
+                    },
+                    {
+                        "topic": "agiv/identify/NODE",
+                        "method": "identifyNode"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mapModelStoreHelper",
+                    "providing": "genericidentify.MapModelStoreHelper"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_historicMap",
+                    "providing": "splitviewmap.MapWidget",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "cardinality": "0..1"
+                },
+//                {
+//                    "name": "_secondMapModel",
+//                    "providing": "splitviewmap.AgivMapModel",
+//                    "cardinality": "0..1"
+//                },
+                {
+                    "name": "_contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                },
+                {
+                    "name": "_logger",
+                    "providing": "ct.framework.api.LogService",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_poiFocus",
+                    "providing": "poi.POIFocusHandler",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "agivGeocoder",
+                    "providing": "ct.api.Store",
+                    "filter": "(&(useIn=genericidentify)(id=geocodingstore))"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "GenericFeatureInfoTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "genericFeatureInfoTool",
+                "title": "${ui.featureInfoToolTitle}",
+                "tooltip": "${ui.featureInfoToolTooltip}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "activateHandler": "activateFeatureInfo",
+                "deactivateHandler": "deactivateFeatureInfo",
+                "iconClass": "icon-location-information-bubble",
+                "rules": {
+                    "groups": [
+                        "default",
+                        "maptools"
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "genericidentify.FeatureInfoController"
+                }
+            ]
+        },
+        // This component is a workaround for MAPAPPS-2941 since there is a bug with automatic tool activation in the
+        // toolrules bundle.
+        {
+            "name": "MAPAPPS2941WorkaroundFeatureInfoTool",
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "Event-Topics": ["ct/tool/set/*"],
+                "themaInfoToolId": "themainfodocktool"
+            },
+            "references": [
+                {
+                    "name": "_themaInfoDockTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=themainfodocktool)"
+                },
+                {
+                    "name": "_genericFeatureInfoTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=genericFeatureInfoTool)"
+                }
+            ]
+        },
+        {
+            "name": "GenericFeatureInfoToolBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "genericidentify"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=genericFeatureInfoTool)"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentRegistration",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "featureInfoWidget": "genericidentify.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "content": {
+                            },
+                            "context": {
+                                "splitviewmap": true,
+                                "infotype": "RANDOM_FEATURE_INFO"
+                            }
+                        },
+                        "type": "featureInfoWidget",
+                        // Although windowTitle, windowSize probably have already been set in a Content Viewer rule, these settings have to be set again for Feature Info, because it defines the frame window.
+                        "windowTitle": "${ui.contentInfoWindowTitle}",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        },
+                        "hideEmptyLayerResults": false,
+                        "layerFeatureCount": 15
+                    },
+                    {
+                        "matches": {
+                            "content": {
+                            },
+                            "context": {
+                                "infotype": "RANDOM_FEATURE_INFO"
+                            }
+                        },
+                        "type": "featureInfoWidget",
+                        // Although windowTitle, windowSize probably have already been set in a Content Viewer rule, these settings have to be set again for Feature Info, because it defines the frame window.
+                        "windowTitle": "${ui.contentInfoWindowTitle}",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+                        },
+                        "hideEmptyLayerResults": false,
+                        "layerFeatureCount": 15
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentRegistrationWMSGridContentWidget",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "WMSGridContentWidget": "genericidentify.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "WMS_FEATURE_INFO_GRID"
+                            }
+                        },
+                        "type": "WMSGridContentWidget"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentRegistrationWMSFeatureInfoWidget",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "WMSFeatureInfoWidget": "genericidentify.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "WMS_FEATURE_INFO",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "WMSFeatureInfoWidget",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 150
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        }
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "WMS_FEATURE_INFO"
+                            }
+                        },
+                        "type": "WMSFeatureInfoWidget",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 150
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+//                            "marginBox": {
+//                                "t": 70,
+//                                "b": 70,
+//                                "w": 300
+//                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentWidgetFactory",
+            "provides": "genericidentify.ContentWidgetFactory",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "featureInfoWidget": {
+                        "info": "base/ui/genericidentify/RandomClickFeatureInfoWidget"
+                    },
+                    "WMSGridContentWidget": {
+                        "info": "genericidentify/GridContentWidget"
+                    },
+                    "WMSFeatureInfoWidget": {
+                        "info": "genericidentify/WMSFeatureInfoWidget"
+                    }
+                    //                "wmsFeatureInfoContent": {
+                    //                    "info": "genericidentify.WMSFeatureInfoContent"
+                    //                }
+                },
+                "RandomClickFeatureInfoWidget": {
+                },
+                "expandInfoHeight": 230,
+                "GridContentWidget": {
+                    "i18n": {
+                        "key": "Kenmerk",
+                        "value": "Waarde",
+                        "detailView": "${ui.content.grid.detailView}",
+                        "print": "${ui.content.grid.print}",
+                        "noResultsFound": "${ui.noResultsFound}",
+                        "noAttributes": "${ui.noAttributes}",
+                        "loadingGeneralInfo": "${ui.loadingInfoText}",
+                        "errors": {
+                            "SCREENSIZE": "${ui.errors.SCREENSIZE}",
+                            "noValidResponse": "${ui.errors.noValidResponse}"
+                        },
+                        "previous": "${ui.previous}",
+                        "next": "${ui.next}",
+                        "back": "${ui.back}"
+                    }
+                },
+                "ui": {
+                    "FeatureInfo": {
+                        "contentInfoWindowTitle": "${ui.contentInfoWindowTitle}",
+                        "noResultsFound": "${ui.noResultsFound}",
+                        "noAttributes": "${ui.noAttributes}",
+                        "loadingInfoText": "${ui.loadingInfoText}",
+                        "layer": "${ui.layer}",
+                        "feature": "${ui.feature}",
+                        "loadingGeneralInfo": "${ui.loadingGeneralInfo}",
+                        "cityLevel": "${ui.cityLevel}",
+                        "addressLevel": "${ui.addressLevel}",
+                        "activeLayers": "${ui.activeLayers}",
+                        "showGeneralInfo": "${ui.showGeneralInfo}",
+                        "hideGeneralInfo": "${ui.hideGeneralInfo}",
+                        "showDescription": "${ui.showDescription}",
+                        "hideDescription": "${ui.hideDescription}",
+                        "showRoute": "${ui.showRoute}",
+                        "showNearby": "${ui.showNearby}",
+                        "windowTitle": "${ui.windowTitle}",
+                        "errorMessage": "${ui.crabErrorMessage}",
+                        "loadErrorMessage": "${ui.loadErrorMessage}",
+                        "routeTo": "${ui.routeTo}",
+                        "routeFrom": "${ui.routeFrom}",
+                        "noQueryLayersFound": "${ui.noQueryLayersFound}",
+                        "formatNotSupported": "${ui.formatNotSupported}",
+                        "featureInfoTool": "Identify",
+                        "addressTitle": "${ui.addressTitle}",
+                        "moreInformation": "${ui.moreInformation}",
+                        "coordinates": "${ui.coordinates}"
+                    }
+                },
+                "cityServiceUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/27",
+                "highlightSymbol": {
+                    // esri simple fill symbol
+                    "type": "esriSFS",
+                    "color": [
+                        190,
+                        190,
+                        0,
+                        100
+                    ],
+                    "outline": {
+                        "color": [
+                            255,
+                            0,
+                            0,
+                            150
+                        ],
+                        "style": "esriSLSSolid",
+                        // esri simple line symbol
+                        "type": "esriSLS",
+                        "width": 3
+                    },
+                    "size": 16,
+                    "style": "esriSFSSolid",
+                    "xoffset": 0,
+                    "yoffset": 0
+                },
+                "addressLevelSwitch": 72000,
+                "profileUrl": "http://aps.vlaanderen.be/lokaal/pdf/gemeente-2013/",
+                "reportingUrl": "http://aps.vlaanderen.be/${layer}",
+                "metadataMapping": [
+                    {
+                        "id": "Gent",
+                        "url": "http://www.visitgent.be/",
+                        "attributes": [
+                            {
+                                "id": "id",
+                                "title": "Id",
+                                "value": ""
+                            },
+                            {
+                                "id": "desc",
+                                "title": "Description",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    {
+                        "id": "Antwerpen",
+                        "url": "http://www.visitantwerpen.be/bze.net?id=1470",
+                        "attributes": []
+                    }
+                ],
+                "alwaysEnableFeatureInfo": true
+            },
+            "references": [
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                },
+                {
+                    "name": "agivGeocoder",
+                    "providing": "ct.api.Store",
+                    "filter": "(&(useIn=genericidentify)(id=geocodingstore))"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+//                {
+//                    "name": "staticFeatureInfoModelStoreHelper",
+//                    "providing": "genericidentify.StaticFeatureInfoModelStoreHelper"
+//                },
+                {
+                    "name": "genericFeatureInfoModelStoreHelper",
+                    "providing": "genericidentify.MapModelStoreHelper"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "routingTool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..1",
+                    "filter": "(id=routingtool)"
+                },
+                {
+                    "name": "locationInfoController",
+                    "providing": "themeinfo.LocationInfoController",
+                    "policy": "dynamic",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "AgivRoutingStore",
+            "impl": "base/store/GeolocatorStore",
+            "provides": ["ct.api.Store"],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "enabled": true,
+            "properties": {
+                "id": "geocodingstore",
+                "title": "AGIV Geolocator",
+                "description": "${stores.agivSearchStore.description}",
+                "omniSearchAutoSubmit": true,
+                "omniSearchDefaultLabel": "${stores.agivSearchStore.placeHolder}",
+                "omniSearchSearchAttr": "title",
+                "useIn": ["genericidentify"],
+                "omniSearchLabelAttr": "title",
+                "omniSearchTypingDelay": 500,
+                "omniSearchPageSize": 1,
+                "timeout": 15000,
+                "searchType": "locationUrl",
+                "parameters": {
+                },
+                "minQueryLength": 0,
+                "wkid": 4326,
+                "resolveType": false,
+                "response": {
+                    "resultArrayName": "LocationResult"
+                }
+            },
+            "references": [
+                {
+                    "name": "geolocatorUrlProvider",
+                    "providing": "agiv.geolocator.GeolocatorUrlProvider"
+                }
+            ]
+        },
+
+        {
+            "name": "LoadingController",
+            "impl": "base/util/LoadingController",
+            "propertiesConstructor": true,
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "loadClass": "ctFeatureInfoLoading",
+                "+Event-Topics": [
+                    {
+                        "topic": "agiv/genericidentify/loading/START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "agiv/genericidentify/loading/END",
+                        "method": "hideLoading"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        }
+
+    ]
+}

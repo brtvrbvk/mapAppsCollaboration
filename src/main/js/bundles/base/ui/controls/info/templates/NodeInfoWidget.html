@@ -1,0 +1,27 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-attach-point="mainNode">
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+            <div data-dojo-attach-point="titlenode" class="ctTooltipLayerTitle"></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+            <div data-dojo-attach-point="descriptionnode" class="ctTooltipLayerDesc"></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
+            <div class="ctTooltipMapScale">
+                <span data-dojo-attach-point="scalenode"></span>
+            </div>
+            <div class="ctMoreInfoLink" data-dojo-attach-point="moreInfoNode" data-dojo-attach-event="onClick:_onMoreInfoClick">${i18n.ui.linkToMetadata}
+            </div>
+        </div>
+
+    </div>
+    <ul data-dojo-attach-point="linkNode" class="dijitHidden">
+
+    </ul>
+    <div data-dojo-attach-point="messageNode" class="dijitHidden">
+        <div data-dojo-type="ct/ui/controls/MessagePane" data-dojo-attach-point="messagePane"></div>
+    </div>
+</div>

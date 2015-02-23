@@ -1,0 +1,996 @@
+{
+    "Bundle-SymbolicName": "search",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "coordinatetransformer",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "windowmanager",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "startupmessagebox",
+            "version": "[4.0.0,)"
+        }
+    ],
+    "Components": [
+
+        /*
+         * INFO WIDGETS
+         */
+
+        {
+            "name": "ContentRegistrationAddressSearchResultInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "addresssearchresultinfowidget": "search.ContentWidgetFactorySearchResultInfo"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_ADDRESS",
+                                "splitviewmap": true
+                            }
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 115
+                        },
+                        "type": "addresssearchresultinfowidget",
+                        "hideEmptyLayerResults": true
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_ADDRESS"
+                            }
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 115
+                        },
+                        "type": "addresssearchresultinfowidget",
+                        "hideEmptyLayerResults": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentWidgetFactoryParcelSearchResultParcelInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "parcelsearchresultinfowidget": "search.ContentWidgetFactorySearchResultInfo"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_PARCEL",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "parcelsearchresultinfowidget",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "hideEmptyLayerResults": true
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_PARCEL"
+                            }
+                        },
+                        "type": "parcelsearchresultinfowidget",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "hideEmptyLayerResults": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentWidgetFactoryParcelSearchResultCoordinateInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "coordinateinfowidget": "search.ContentWidgetFactorySearchResultInfo"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_COORDINATE",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "coordinateinfowidget",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 115
+                        },
+                        "hideEmptyLayerResults": true
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "SEARCH_RESULT_COORDINATE"
+                            }
+                        },
+                        "type": "coordinateinfowidget",
+                        "window": {
+                            "windowName": "agivGenericIdentify",
+                            "tools": []
+                        },
+                        "windowSize": {
+                            "w": 375,
+                            "h": 125
+                        },
+                        "hideEmptyLayerResults": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentRegistrationSearchResultHoverInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "SearchResultHoverInfoWidget": "search.ContentWidgetFactorySearchResultInfo"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "type": "SearchResultHoverInfoWidget"
+                            }
+                        },
+                        "type": "SearchResultHoverInfoWidget",
+                        "windowSize": {
+                        },
+                        "window": {
+                            "windowName": "agivSearchResultHover",
+                            "baseClass": "ctSearchResultHover"
+                        },
+                        "noInfoWindow": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ContentWidgetFactorySearchResultInfo",
+            "provides": "search.ContentWidgetFactorySearchResultInfo",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "addresssearchresultinfowidget": {
+                        "info": "search.selectionhandler.featureinfointegration.AddressInfoWidget"
+                    },
+                    "coordinateinfowidget": {
+                        "info": "search.selectionhandler.featureinfointegration.CoordinateInfoWidget"
+                    },
+                    "parcelsearchresultinfowidget": {
+                        "info": "search.selectionhandler.featureinfointegration.ParcelInfoWidget"
+                    },
+                    "SearchResultHoverInfoWidget": {
+                        "info": "search.SearchResultHoverInfoWidget"
+                    }
+                },
+                "AddressInfoWidget": {
+                    "i18n": {
+                        "SEARCH_RESULT_ADDRESS": "Adres",
+                        "loadingGeneralInfo": "${identify.loadingGeneralInfo}",
+                        "showRoute": "${identify.showRoute}",
+                        "addressLevel": "${identify.addressLevel}",
+                        "moreInformation": "${ui.moreInformation}",
+                        "coordinates": "${identify.coordinates}",
+                        "showNearby": "${identify.showNearby}"
+                    }
+                },
+                "CoordinateInfoWidget": {
+                    "i18n": {
+                        "SEARCH_RESULT_COORDINATE": "Coordinate",
+                        "loadingGeneralInfo": "${identify.loadingGeneralInfo}",
+                        "showRoute": "${identify.showRoute}",
+                        "addressLevel": "${identify.addressLevel}",
+                        "moreInformation": "${ui.moreInformation}",
+                        "coordinates": "${identify.coordinates}",
+                        "showNearby": "${identify.showNearby}"
+                    }
+                },
+                "ParcelInfoWidget": {
+                    "i18n": {
+                        "loadingGeneralInfo": "${identify.loadingGeneralInfo}",
+                        "showRoute": "${identify.showRoute}",
+                        "addressLevel": "${identify.addressLevel}",
+                        "moreInformation": "${ui.moreInformation}",
+                        "coordinates": "${identify.coordinates}",
+                        "showNearby": "${identify.showNearby}"
+                    }
+                },
+                "SearchResultHoverInfoWidget": {
+                    "i18n": {
+
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "deleteTool",
+                    "providing": "search.SearchResultDeleteTool"
+                },
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "genericFeatureInfoModelStoreHelper",
+                    "providing": "genericidentify.MapModelStoreHelper",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "routingTool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..1",
+                    "filter": "(id=routingtool)"
+                },
+                {
+                    "name": "locationInfoController",
+                    "providing": "themeinfo.LocationInfoController",
+                    "policy": "dynamic",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "SearchResultFocusHandler",
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "mapstate",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "contentviewer",
+                    "providing": "ct.contentviewer.ContentViewer",
+                    "connect": {
+                        "closeContentInfo": "closeContentInfo"
+                    }
+                }
+            ]
+        },
+
+        /*
+         * WIDGET FACTORY
+         */
+        {
+            "name": "SearchWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "search.SearchWidget"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "searchInput"
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ResultListAttachPointWidget",
+            "provides": [
+                "dijit.Widget",
+                "search.ResultListAttachPointWidget"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "searchresultlist"
+            }
+        },
+
+        /*
+         * WIDGET CONTROLLER
+         */
+        {
+            "name": "SearchWidgetController",
+            "provides": [
+                "search.SearchWidgetController",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "searchDelay": 300,
+                "removeResultsOnClear": false,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/handler/START",
+                        "method": "_addHandlerWorker"
+                    },
+                    {
+                        "topic": "agiv/search/handler/COMPLETE",
+                        "method": "_removeHandlerWorker"
+                    },
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "_handleResultSelection"
+                    },
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleNewSearch"
+                    },
+                    {
+                        "topic": "agiv/search/result/CLOSE_WINDOW",
+                        "method": "_closeWindow"
+                    },
+                    {
+                        "topic": "agiv/search/result/NEW",
+                        "method": "_handleNewResult"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "widget",
+                    "providing": "search.SearchWidget"
+                }
+            ]
+        },
+
+        /*
+         * RESULTPANEL CONTROLLER
+         */
+        {
+            "name": "ResultPanelController",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/result/NEW",
+                        "method": "_handleNewResult"
+                    },
+                    {
+                        "topic": "agiv/search/result/FOCUS_FIRST",
+                        "method": "_focusFirstChild"
+                    },
+                    {
+                        "topic": "agiv/search/result/CLOSE_WINDOW",
+                        "method": "_closeWindow"
+                    },
+                    {
+                        "topic": "agiv/search/result/OPEN_WINDOW",
+                        "method": "_openWindow"
+                    },
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleNewSearch"
+                    },
+                    {
+                        "topic": "agiv/search/widget/BLUR",
+                        "method": "_handleSearchWidgetBlur"
+                    }
+                ],
+                "highlightMatch": true,
+                "closeResultsOnBlur": true
+            },
+            "references": [
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "resultAttachWidget",
+                    "providing": "search.ResultListAttachPointWidget"
+                }
+            ]
+        },
+
+        {
+            "name": "SearchResultSymbolLookupProvider",
+            "impl": "ct/Stateful",
+            "provides": ["search.SearchResultSymbolLookupProvider"],
+            "propertiesConstructor": true,
+            "properties": {
+                "lookupAttributeName": "resultNumber",
+                "symbolTable": {
+                    "point": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_00.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-1": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_01.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-2": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_02.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-3": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_03.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-4": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_04.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-5": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_05.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-6": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_06.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-7": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_07.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-8": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_08.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-9": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_09.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-10": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_10.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-11": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_11.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-12": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_12.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-13": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_13.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-14": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_14.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-15": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_15.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-16": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_16.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-17": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_17.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-18": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_18.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-19": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_19.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-20": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_20.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+
+                    "point-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_00@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-1-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_01@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-2-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_02@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-3-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_03@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-4-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_04@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-5-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_05@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-6-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_06@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-7-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_07@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-8-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_08@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-9-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_09@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-10-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_10@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-11-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_11@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-12-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_12@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-13-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_13@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-14-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_14@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-15-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_15@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-16-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_16@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-17-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_17@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-18-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_18@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-19-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_19@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+                    "point-20-highres": {
+                        "url": "resource('agivthemes:neat/images/marker/search/searchMarker_20@2x.png')",
+                        "width": 21,
+                        "height": 30,
+                        "xoffset": 0,
+                        "yoffset": 14,
+                        "type": "esriPMS"
+                    },
+
+                    "polygon": {
+                        "type": "esriSFS",
+                        "color": [
+                            255,
+                            255,
+                            255,
+                            0
+                        ],
+                        "outline": {
+                            "color": [
+                                65,
+                                115,
+                                255,
+                                255
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",
+                            "width": 4
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    }
+                }
+            },
+            "references": [
+
+            ]
+        },
+
+        {
+            "name": "DrawGeometryEventReciever",
+            "impl": "./selectionhandler/DrawGeometryEventReciever",
+            "provides": [
+                "search.DrawGeometryEventReciever",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "pointZoomScale": 2500,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "_handleResultSelection"
+                    },
+                    {
+                        "topic": "agiv/themainfo/QUERY",
+                        "method": "_handleResultSelectionIdentify"
+                    },
+                    {
+                        "topic": "agiv/search/result/CLEAR",
+                        "method": "_handleResultClear"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_WIDGET_CLICK",
+                        "method": "_handleItemClick"
+                    },
+                    {
+                        "topic": "ct/contentmanager/REMOVE_ITEM",
+                        "method": "_handleRemove"
+                    },
+                    {
+                        "topic": "ct/contentmanager/CLEAR_ALL",
+                        "method": "_handleClearAll"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "symbolTableProvider",
+                    "providing": "search.SearchResultSymbolLookupProvider"
+                }
+            ]
+        },
+        {
+            "name": "SearchResultParameterResolver",
+            "impl": "./selectionhandler/SearchResultParameterResolver",
+            "immediate": true,
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "agiv.api.Persistable",
+                "agiv.api.LocalPersistable"
+            ],
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_drawGeometryEventReceiver",
+                    "providing": "search.DrawGeometryEventReciever"
+                }
+            ]
+        },
+
+        {
+            "name": "SearchParameterResolver",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "propertiesConstructor": true,
+            "properties": {
+                "searchTerm": "coordinaten"
+            },
+            "references": [
+                {
+                    "name": "_searchController",
+                    "providing": "search.SearchWidgetController"
+                },
+                {
+                    "name": "startupMessageBox",
+                    "providing": "agiv.startupmessagebox.StartupMessageBox"
+                }
+            ]
+        },
+
+        {
+            "name": "SearchResultDeleteHandler",
+            "provides": ["search.SearchResultDeleteHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                }
+            ]
+        },
+
+        {
+            "name": "SearchResultDeleteTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["search.SearchResultDeleteTool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "searchResultDeleteTool",
+                "title": "${identify.deleteResult}",
+                "tooltip": "${identify.deleteResult}",
+                "iconClass": "icon-trashcan",
+                "togglable": false,
+                "clickHandler": "deleteSearchResult"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "search.SearchResultDeleteHandler"
+                }
+            ]
+        }
+    ]
+}

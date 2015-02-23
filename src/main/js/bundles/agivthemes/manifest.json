@@ -1,0 +1,11 @@
+{
+    "Bundle-SymbolicName": "agivthemes",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Localization": [],
+    "Bundle-Layer": "",
+    "Bundle-Main": "",
+    "Bundle-StartLevel": 1,
+    "CSS-Themes": [{
+            "name": "neat"
+        }]
+}

@@ -1,0 +1,34 @@
+<div>
+    <div data-dojo-type="dijit/form/Button"
+         data-dojo-props="'class':'backButton dijitHidden', label:'terug', iconClass:'icon-arrow-bold-left'"
+         data-dojo-attach-event="onClick:_backClicked"
+         data-dojo-attach-point="backButton">
+
+    </div>
+    <table class="ctCoordinateTable">
+        <tr>
+            <td class="ctCoordinateLabel">${i18n.ui.wgs84}:</td>
+            <td class="ctCoordinateValue"
+                data-dojo-attach-point="wgs84Node"></td>
+            <td>
+                <select data-dojo-type="dijit/form/Select"
+                        data-dojo-attach-event="onChange:_onTypeChange">
+                    <option value="DMS"
+                            selected="selected">${i18n.ui.dms}
+                    </option>
+                    <option value="DEGREE">${i18n.ui.degree}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="ctCoordinateLabel">${i18n.ui.webMercator}:</td>
+            <td class="ctCoordinateValue"
+                data-dojo-attach-point="webMercatorNode"></td>
+        </tr>
+        <tr>
+            <td class="ctCoordinateLabel">${i18n.ui.lambert72}:</td>
+            <td class="ctCoordinateValue"
+                data-dojo-attach-point="lambert72Node"></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <div data-dojo-type="dijit.form.TextBox"
+         data-dojo-attach-point="inputText"
+         data-dojo-attach-event="onKeyPress:_onKeyPress, onKeyUp:_onKeyUp"
+         data-dojo-props="placeHolder:'${i18n.textBoxPlaceHolder}',trim:false"></div>
+    <div data-dojo-type="dijit.form.Button"
+         data-dojo-props="'class':'addNameBtn',label:'${i18n.addBtn}'"
+         data-dojo-attach-point="addBtn"
+         data-dojo-attach-event="onClick:_addCommentClick"></div>
+    <div class="ctRemainingCharsLabel"
+         data-dojo-attach-point="remainingCharsLabel"></div>
+
+    <div class="value"
+         data-dojo-attach-point="geometryAttrLabel"></div>
+    <div data-dojo-type="dijit/form/Button"
+         data-dojo-attach-point="btnStartElevation"
+         data-dojo-props="'iconClass':'icon-height-profile','class':'dijitHidden ctMenuButton elevationButton', 'label':'${i18n.elevationBtn}'"
+         data-dojo-attach-event="onClick:_onShowElevation">
+    </div>
+</div>

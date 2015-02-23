@@ -1,0 +1,209 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+
+    & .mainMap .mainMap svg {
+        image, text, circle, path {
+            cursor: pointer;
+        }
+    }
+
+    .routing .dojoxCheckedMultiSelect,
+    .routing .dojoxCheckedMultiSelectWrapper {
+        // needed to prevent some (sutpidly) unprefixed mixins from esri.css
+        border: none;
+        margin: 0;
+        overflow: auto;
+        height: auto;
+    }
+    .routing {
+        .dijitContentPane.ctRouting,
+        .ctRoutingSelectionList {
+            padding: 0;
+        }
+    }
+    .routing .ctRoutingSelectionListContainer {
+        height: 60px;
+    }
+    .agivRoutingActionsTop {
+        display: none;
+        //        .upperButtonContainer {
+        //            width: 100px;
+        //        }
+        //        .dijitContentPane {
+        //            padding: 0;
+        //        }
+        //        .upperButtonContainer .ctTool {
+        //            margin: 0 0.3em;
+        //            .dijitButtonNode {
+        //                padding: 0;
+        //                font-size: @ct-icon-small;
+        //            }
+        //        }
+        //        .ctAddThisButton {
+        //            display: inline-block;
+        //            margin-top: 3px;
+        //        }
+    }
+    //    .ctTool {
+    //        .ctToolIcon_sendMailTool:before {
+    //            content: "\e616";
+    //        }
+    //        &.ctTool_sendMailTool.dijitHover .dijitButtonNode {
+    //            background-color: transparent;
+    //        }
+    //    }
+    .ctRoutingTextBox {
+        margin: 2px;
+        width: 100%;
+    }
+    .ctRouting .dojoDndItem {
+        border: none;
+        height: 45px !important; //important needed here to fix erroneous height calc of dojoDndItem
+        img.dojoDndHandle {
+            cursor: move;
+        }
+    }
+    .ctRoutingAddButton {
+        margin-left: 31px;
+    }
+    .ctRoutingSwitchButton {
+        .dijitButtonNode {
+            padding: 2px 2px 3px 2px;
+        }
+        .dijitButtonText {
+            display: none;
+        }
+        .ctRouteSwitchIcon {
+            .size(15px);
+            font-site: @ct-icon-medium;
+        }
+    }
+    .dojoxCheckedMultiSelectHidden {
+        display: none;
+    }
+
+    .ctRoutingLoader {
+        float: right;
+    }
+
+    .ctRoutingFloatRight {
+        float: right;
+    }
+
+    .ctRouting h3,
+    .ctRouting h2 {
+        margin: 0.5em 0px 0.5em 0px;
+    }
+
+    .routingDeleteButton .dijitButtonNode {
+        padding: 2px 1px 2px 2px;
+        margin-left: 4px;
+    }
+    .routeResultNode {
+        border-top: 1px solid;
+    }
+    .routingNoticeSummary,
+    .routingStatsSummary {
+        margin: 5px 0;
+        padding-left: 31px;
+    }
+    .routingNoticeSummary {
+        display: none;
+        clear: both;
+        position: relative;
+        border: 1px solid @agiv-light-grey;
+        padding: 5px;
+        line-height: 1.6em;
+    }
+    .elevationButton {
+        margin: 0;
+        float: right;
+        position: relative;
+        top: -45px;
+        .dijitButtonNode {
+            border: none;
+            padding: 4px 6px;
+        }
+        .dijitButtonText {
+            display: block;
+        }
+        .dijitIcon:before {
+            font-size: @ct-icon-medium;
+        }
+    }
+    .ctRoutingResultContainer {
+        padding: 2px;
+        position: relative;
+        .ctRoutingResultHeader {
+            cursor: pointer;
+        }
+    }
+    .ctRoutingResultContainer ::selection {
+        background: #3399FF;
+        color: #fff;
+    }
+    .ctRoutingResultContainer ::-moz-selection {
+        background: #3399FF;
+        color: #fff;
+    }
+    .ctRoutingResultContainer ul {
+        padding-left: 45px;
+        list-style-image: url(../images/routingListIcon.png);
+    }
+
+    // Routing Popup Menu
+    .dijitMenuTable.ctRoutingPopup {
+        border: 3px solid @primary-color;
+    }
+    .dijitMenuTable.ctRoutingPopup .dijitMenuItem {
+        background-color: white;
+    }
+    .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemSelected {
+        color: @text-color;
+    }
+    .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemHover,
+    .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemSelected.dijitMenuItemHover {
+        background-color: #575656;
+        .dijitMenuItemLabel {
+            color: white;
+        }
+    }
+
+    .stopOverTitle {
+        font-weight: bold;
+        position: relative;
+        top: -2em;
+        margin-left: 25px;
+    }
+
+    .ctRoutingAvatar.dojoDndAvatar {
+        //imporants needed due to dijits/common.css which uses also importants.
+        border: none !important;
+        background-color: transparent !important;
+        .box-shadow-none();
+        .dojoDndAvatarItem,
+        .dojoDndItem,
+        tr {
+            border: none !important;
+            background: transparent !important;
+        }
+        * {
+            border: none;
+        }
+        .ctRoutingTextBox {
+            display: none;
+        }
+        img[data-dojo-attach-point="marker"] {
+            position: relative;
+            top: -59px; //value below 59px causes serios DND errors
+            left: -30px;
+        }
+        .ctRoutingTextBox,
+        .routingDeleteButton {
+            display: none;
+        }
+    }
+
+}

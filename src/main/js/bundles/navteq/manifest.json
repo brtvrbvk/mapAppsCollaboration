@@ -1,0 +1,21 @@
+{
+    "Bundle-SymbolicName": "navteq",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+    // ensure startup before map
+    "Bundle-StartLevel": 8,
+
+    "Components": [
+        {
+            "name": "NavteqLayerRegistration"
+        }
+    ]
+}

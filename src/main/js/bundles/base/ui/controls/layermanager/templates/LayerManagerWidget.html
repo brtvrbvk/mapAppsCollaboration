@@ -1,0 +1,45 @@
+<div>
+    <div data-dojo-attach-point="allItemsNode"
+         data-dojo-type="dijit/layout/ContentPane"
+         data-dojo-props="region:'top','class':'noPadding ctAgivAllLayersSliderNode'">
+        <div>
+            <span class="allLayersLabel"
+                  data-dojo-attach-point="myLayersLabelNode"></span>
+            <span data-dojo-props="ctContextMenuClose"
+                  data-dojo-attach-point="closeContextMenuNode"></span>
+
+            <div class="buttonContainer upperButtonContainer">
+
+                <div class="layermanagerToolbar"
+                     data-dojo-attach-point="toolbarNode"></div>
+
+                <div class="visibilityButton"
+                     data-dojo-attach-point="removeAllButton"
+                     data-dojo-type="dijit/form/Button"
+                     data-dojo-props="label:'remove','iconClass':'icon-trashcan'"
+                     data-dojo-attach-event="onClick:_onRemoveAll"></div>
+            </div>
+            <div class="allLayersSliderContainer dijitHidden"
+                 data-dojo-attach-point="allLayersSliderContainer">
+                <!--<div class="backgroundLabel">${i18n.backgroundLabel}</div>-->
+                <span class="transparencySlider"
+                      data-dojo-attach-point="allLayersSliderNode"></span>
+
+                <!--<div class="overlayLabel">${i18n.overlayLabel}</div>-->
+            </div>
+        </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane"
+         data-dojo-props="region:'center','class':' noPadding ctAgivLayerSliderNode'">
+        <div>
+            <!--<span data-dojo-attach-point="layerLabelNode">${i18n.layersLabel}</span>-->
+            <span class="ctLayerVisible"
+                  data-dojo-attach-point="layerVisibleNode"></span>
+            <span class="ctLayerRemove"
+                  data-dojo-attach-point="layerRemoveNode"></span>
+        </div>
+        <div class="transparencySlider"
+             data-dojo-attach-point="layersNode"></div>
+    </div>
+
+</div>

@@ -1,0 +1,76 @@
+{
+    "Bundle-SymbolicName": "elevation-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["wizard"],
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)"
+        }
+    ],
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "agivBuilderNode",
+                "menuNode": {
+                    "title": "${menu.elevation.title}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "elevationControllerConfigWidget"
+                }
+            }
+        },
+
+        {
+            "name": "ElevationControllerConfigWidget",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./ElevationSamplerate.json')",
+                "pid": "elevation-ElevationController",
+                "bid": "elevation",
+                "id": "elevationControllerConfigWidget",
+                "defaultProperties": {
+                    "sampleRates": {
+                        "low": 50,
+                        "medium": 200,
+                        "high": 500
+                    }
+                },
+                "description": "${menu.elevation.description}"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+
+    ]
+}

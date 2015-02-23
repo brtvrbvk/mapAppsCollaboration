@@ -1,0 +1,28 @@
+{
+    "Bundle-SymbolicName": "devicecheck",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Bundle-RequiredExecutionEnvironment": ["Mobile"],
+    "Bundle-ExcludedExecutionEnvironment": ["iPad"],
+    "Require-Bundle": [
+        {
+            "name": "windowmanager",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "DeviceCheck",
+            "immediate": true,
+            "references": [
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        }
+    ]
+}

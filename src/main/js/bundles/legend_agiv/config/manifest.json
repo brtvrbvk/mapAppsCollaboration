@@ -1,0 +1,67 @@
+{
+    "Bundle-SymbolicName": "legend_agiv-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "LegendBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "agivBuilderNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "legendBuilderWidget"
+                }
+            }
+        },
+
+        // ======= Builder Widget ========
+        {
+            "name": "LegendBuilderController",
+            "provides": ["dijit.wizard.Widget"],
+            "instanceFactory": true,
+            "properties": {
+                "description": "${legendBuilderWidget.description}",
+                "widgetProperties": {
+                    "id": "legendBuilderWidget",
+                    "pid": "legend_agiv-LegendUI",
+                    "bid": "legend_agiv"
+//                "legendMapping": [
+//                    {
+//                        "id": "manifestations",
+//                        "legendURL": "resource('images/mapMarker_sun.png')"
+//                    },
+//                    {
+//                        "id": "workassignment",
+//                        "legendURL": "resource('images/mapMarker_sun.png')"
+//                    }
+//                ]
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                }
+            ]
+        }
+    ]
+}

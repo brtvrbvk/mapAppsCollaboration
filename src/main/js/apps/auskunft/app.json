@@ -1,0 +1,680 @@
+{
+    "properties": {
+        "modifiedAt": 1415707435294,
+        "thumbnailFile": "",
+        "title": "rare tekeningentjes op een kaart in de buurt van Munster, Duitsland",
+        "modifiedBy": "admin",
+        "optimized": true,
+        "createdAt": 1415628175620,
+        "description": "",
+        "createdBy": "admin",
+        "templateFile": "auskunft.zip",
+        "templateId": "14999F7C52E14E3",
+        "editorState": "PUBLISHED",
+        "id": "auskunft"
+    },
+    "load": {
+        "bundleLocations": [{
+                "name": "localbundles",
+                "noprefetch": true
+            }, "bundles"],
+        "allowedBundles": ["wizard", "quory", "sample_templates", "sample_themes", "console", "custominfo", "dataform", "filesaver", "mobileview", "notifier", "parametermanager", "splashscreen", "toolrules", "toolset", "windowmanager", "basemapgallery", "basemaptoggler", "contentviewer", "coordinatetransformer", "infoviewer", "map", "agsprinting", "bookmarks", "coordinateviewer", "legend", "locateme", "maptip", "measurement", "navigationtoolset", "overviewmap", "scalebar", "agssearch", "locator", "omnisearch", "featureinfo", "resultcenter", "selection", "mapflow", "mobiletoc", "system", "templatelayout", "templates", "themes", "layerlist"],
+        "styles": ["${app}:app.css"]
+    },
+    "bundles": {
+        "quory": {
+            "QueryController": {
+                "namePlaceHolder": "e.g. 'mk'"
+            }
+        },
+        "agsprinting": {
+            "enabled": true
+        },
+        "agssearch": {
+            "AGSStore": [{
+                    "title": "St\u00F6rungen",
+                    "description": "Durchsucht die Beschreibung aller St\u00F6rungsmeldugen.",
+                    "omniSearchLabelAttr": "${details} (${melder})",
+                    "omniSearchSearchAttr": "details",
+                    "idProperty": "objectid",
+                    "url": "http://services.conterra.de/arcgis/rest/services/training/stoerungen/MapServer/0",
+                    "useIn": ["omnisearch", "selection"],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "id": "_AGS_STORE_1415700524461",
+                    "pid": "agssearch-AGSStore-0",
+                    "type": "Dynamisch"
+                }],
+            "enabled": true
+        },
+        "basemapgallery": {
+            "Gallery": {
+                "showArcGisComMaps": true,
+                "showOwnMaps": false,
+                "defaultThumbnailServiceUrlPostfix": "/tile/11/676/11111",
+                "ignoredServices": []
+            },
+            "enabled": false
+        },
+        "basemaptoggler": {
+            "DropDownBasemapToggler": {
+                "showLabel": true
+            },
+            "enabled": true
+        },
+        "bookmarks": {
+            "BookmarksFactory": {
+                "storageName": "mapapps_mapmarks",
+                "bookmarksOpts": {
+                    "editable": true
+                },
+                "predefinedBookmarks": [{
+                        "extent": {
+                            "spatialReference": {
+                                "wkid": 3857
+                            },
+                            "xmax": 875265.444285086,
+                            "xmin": 826957.2424089197,
+                            "ymax": 6807504.378502956,
+                            "ymin": 6775095.078510085
+                        },
+                        "name": "M\u00FCnster"
+                    }]
+            },
+            "enabled": true
+        },
+        "console": {
+            "enabled": true
+        },
+        "contentviewer": {
+            "ContentRegistration": {
+                "contentRules": [{
+                        "info": {
+                            "valueNotFoundString": "-",
+                            "type": "CustomTemplate",
+                            "dataViewOptions": {
+                                "showPager": false,
+                                "showFilter": false,
+                                "showViewButtons": false,
+                                "itemsPerPage": 100,
+                                "DGRID": {
+                                    "checkboxSelection": false
+                                }
+                            },
+                            "title": "{details}",
+                            "showDetailsButton": false,
+                            "template": "<font color=\"#b9b8b8\" size=\"4\">{details}</font><div><font color=\"#b9b8b8\">Gemeldet von: {melder}</font></div><div><font color=\"#b9b8b8\">Zeitpunkt: {zeitpunkt}</font></div><div><hr /><font color=\"#b9b8b8\" size=\"4\">{kommentar}</font></div><div><font color=\"#b9b8b8\" size=\"1\">(Bemerkung der Stadtverwaltung)</font></div><div><hr /><font color=\"#b9b8b8\">Status: {status}</font></div>"
+                        },
+                        "windowSize": {
+                            "w": 320,
+                            "h": 240
+                        },
+                        "matches": {
+                            "context": {
+                                "$or": [{
+                                        "storeId": "_AGS_STORE_1415700524461"
+                                    }, {
+                                        "mapModelNodeId": "stoerungen/0"
+                                    }]
+                            }
+                        },
+                        "title": "St\u00F6rungen",
+                        "type": "Grid"
+                    }]
+            },
+            "enabled": true
+        },
+        "coordinatetransformer": {
+            "enabled": true
+        },
+        "coordinateviewer": {
+            "CoordinateViewer": {
+                "degreeFormat": true,
+                "transformSrs": true,
+                "targetSrs": "EPSG:4326"
+            },
+            "enabled": true
+        },
+        "custominfo": {
+            "CustomInfoToggleTool": [{
+                    "widgetSettings": {
+                        "link": "http://www.conterra.de/de/conterra/impressum/index.shtm",
+                        "openLinkExternally": true,
+                        "window": {
+                            "title": "Copyright"
+                        }
+                    },
+                    "type": "COPYRIGHT",
+                    "toolClass": "ctCopyright",
+                    "title": "Copyright",
+                    "tooltip": "Zeige Copyright Information",
+                    "togglable": false,
+                    "clickHandler": "showContent",
+                    "id": "COPYRIGHT_Copyright_1415712062939_CustomInfoTool"
+                }],
+            "enabled": true
+        },
+        "dataform": {
+            "enabled": true
+        },
+        "featureinfo": {
+            "MapModelStoreHelper": {
+                "ignoreLayers": ["stoerungen/1"]
+            },
+            "enabled": true
+        },
+        "filesaver": {
+            "enabled": true
+        },
+        "infoviewer": {
+            "enabled": true
+        },
+        "legend": {
+            "enabled": true
+        },
+        "locateme": {
+            "LocateMe": {
+                "showPositionLogs": true
+            },
+            "WatchHandler": {
+                "outlineColor": [79, 118, 145, 0.5],
+                "outlineStroke": 1,
+                "fillColor": [79, 118, 145, 0.4],
+                "symbol": {
+                    "url": "images/locateme_marker_winter.png",
+                    "width": 14.5,
+                    "height": 14.5
+                }
+            },
+            "ZoomToHandler": {
+                "trackPosition": true
+            },
+            "enabled": true
+        },
+        "locator": {
+            "enabled": false
+        },
+        "map": {
+            "MapModelFactory": {
+                "_configData": {
+                    "maps": [{
+                            "id": "default",
+                            "glass_pane": [{
+                                    "id": "settlements",
+                                    "enabled": true,
+                                    "maptip": {
+                                        "content": "{name2}",
+                                        "dimensions": {
+                                            "width": 100,
+                                            "height": 28
+                                        }
+                                    },
+                                    "infoTemplate": {
+                                        "title": "${name}",
+                                        "content": "<p><b>${name2}<br />${name3}</b></p><p>${street}<br />${plz_city}</p><p>Telefon ${tel}<br /><a href='mailto:${email}'>${email}</a></p><p><a href='${link}' target='_blank'>Homepage aufrufen</a></p>",
+                                        "dimensions": {
+                                            "width": 250,
+                                            "height": 250
+                                        }
+                                    },
+                                    "graphics": [{
+                                            "geometry": {
+                                                "x": 851833,
+                                                "y": 6788378,
+                                                "spatialReference": {
+                                                    "wkid": 3857
+                                                }
+                                            },
+                                            "attributes": {
+                                                "name": "con terra",
+                                                "name2": "con terra GmbH",
+                                                "name3": "",
+                                                "street": "Martin-Luther-King-Weg 24",
+                                                "plz_city": "DE-48155 Muenster",
+                                                "tel": "+49 251 74745 0",
+                                                "email": "conterra@conterra.de",
+                                                "link": "http://www.conterra.de/"
+                                            },
+                                            "symbol": {
+                                                "color": [221, 0, 85, 230],
+                                                "size": 12,
+                                                "angle": 0,
+                                                "xoffset": 0,
+                                                "yoffset": 0,
+                                                "type": "esriSMS",
+                                                "style": "esriSMSSquare",
+                                                "outline": {
+                                                    "color": [255, 255, 255, 255],
+                                                    "width": 0,
+                                                    "type": "esriSLS",
+                                                    "style": "esriSLSSolid"
+                                                }
+                                            }
+                                        }]
+                                }],
+                            "operationalLayer": [{
+                                    "id": "stoerungen",
+                                    "title": "Stoerungen",
+                                    "enabled": true,
+                                    "service": "stoerungen",
+                                    "category": {
+                                        "title": "Stoerungen",
+                                        "description": "Karte mit fiktiven St\u00F6rungsmeldungen f\u00FCr map.apps Trainings.",
+                                        "imgUrl": ""
+                                    },
+                                    "children": [{
+                                            "layer": "0",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "1",
+                                            "enabled": true
+                                        }],
+                                    "opacity": 1
+                                }],
+                            "baseLayer": [{
+                                    "title": "Luftbild",
+                                    "enabled": false,
+                                    "service": "worldimage",
+                                    "children": [{
+                                            "layer": "0",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "1",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "2",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "3",
+                                            "enabled": true
+                                        }],
+                                    "category": {
+                                        "title": "Luftbild",
+                                        "description": "Luftbildaufnahmen der gesamten Welt",
+                                        "imgUrl": "http://localhost:8080/ct-mapapps-webapp-3.0.1/js/bundles/mapcore/map/config/styles/images/defaultCover.png"
+                                    }
+                                }, {
+                                    "title": "Topographische Karte",
+                                    "enabled": true,
+                                    "service": "worldtopo",
+                                    "children": [{
+                                            "layer": "0",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "5",
+                                            "enabled": true
+                                        }, {
+                                            "layer": "10",
+                                            "enabled": true
+                                        }],
+                                    "category": {
+                                        "title": "Topographische Karte",
+                                        "description": "Eine topographische Weltkarte",
+                                        "imgUrl": "http://localhost:8080/ct-mapapps-webapp-3.0.1/js/bundles/mapcore/map/config/styles/images/defaultCover.png"
+                                    }
+                                }, {
+                                    "title": "Stra\u00DFen",
+                                    "enabled": false,
+                                    "service": "streets",
+                                    "children": [{
+                                            "layer": "0",
+                                            "enabled": true
+                                        }],
+                                    "category": {
+                                        "title": "Stra\u00DFen",
+                                        "description": "Eine detaillierte Stra\u00DFenkarte",
+                                        "imgUrl": "http://localhost:8080/ct-mapapps-webapp-3.0.1/js/bundles/mapcore/map/config/styles/images/defaultCover.png"
+                                    }
+                                }]
+                        }]
+                }
+            },
+            "MapState": {
+                "initialExtent": {
+                    "xmin": 826957.2424089197,
+                    "xmax": 875265.444285086,
+                    "ymin": 6775095.078510085,
+                    "ymax": 6807504.378502956,
+                    "wkid": 3857
+                }
+            },
+            "MapWidgetFactory": {
+                "esriMapOpts": {
+                    "slider": false,
+                    "nav": false,
+                    "logo": true,
+                    "sliderStyle": "small",
+                    "doubleClickZoom": true,
+                    "clickRecenter": true,
+                    "pan": true,
+                    "rubberBandZoom": true,
+                    "keyboardNavigation": true,
+                    "scrollWheelZoom": true,
+                    "sliderPosition": "bottom-right",
+                    "displayGraphicsOnPan": true,
+                    "fadeOnZoom": true,
+                    "showAttribution": true,
+                    "sliderOrientation": "vertical",
+                    "sliderLabels": [""],
+                    "navigationMode": "css-transforms"
+                }
+            },
+            "MappingResourceRegistryFactory": {
+                "_knownServices": {
+                    "services": [{
+                            "id": "worldimage",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Luftbild",
+                            "description": "Luftbildaufnahmen der gesamten Welt",
+                            "layers": [{
+                                    "id": "0",
+                                    "title": "World Imagery"
+                                }, {
+                                    "id": "1",
+                                    "title": "Low Resolution 15m Imagery"
+                                }, {
+                                    "id": "2",
+                                    "title": "High Resolution 60cm Imagery"
+                                }, {
+                                    "id": "3",
+                                    "title": "High Resolution 30cm Imagery"
+                                }]
+                        }, {
+                            "id": "worldtopo",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Topographische Karte",
+                            "description": "Eine topographische Weltkarte",
+                            "layers": [{
+                                    "id": "0",
+                                    "title": "Topographic Info"
+                                }, {
+                                    "id": "1",
+                                    "title": "Elevation (m)",
+                                    "parentId": "0"
+                                }, {
+                                    "id": "2",
+                                    "title": "Elevation (ft)",
+                                    "parentId": "0"
+                                }, {
+                                    "id": "3",
+                                    "title": "Slope",
+                                    "parentId": "0"
+                                }, {
+                                    "id": "4",
+                                    "title": "Aspect",
+                                    "parentId": "0"
+                                }, {
+                                    "id": "5",
+                                    "title": "Places Info"
+                                }, {
+                                    "id": "6",
+                                    "title": "Place Names (Country Level)",
+                                    "parentId": "5",
+                                    "maxScale": 80000000
+                                }, {
+                                    "id": "7",
+                                    "title": "Place Names (State Level)",
+                                    "parentId": "5",
+                                    "maxScale": 80000001
+                                }, {
+                                    "id": "8",
+                                    "title": "Place Names (County Level)",
+                                    "parentId": "5",
+                                    "maxScale": 1500001
+                                }, {
+                                    "id": "9",
+                                    "title": "Place Names (City Level)",
+                                    "parentId": "5",
+                                    "maxScale": 399999
+                                }, {
+                                    "id": "10",
+                                    "title": "Citations"
+                                }]
+                        }, {
+                            "id": "streets",
+                            "description": "Eine detaillierte Stra\u00DFenkarte",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Stra\u00DFen",
+                            "layers": [{
+                                    "id": "0",
+                                    "title": "Stra\u00DFen"
+                                }]
+                        }, {
+                            "id": "stoerungen",
+                            "url": "http://services.conterra.de/arcgis/rest/services/training/stoerungen/MapServer",
+                            "type": "AGS_DYNAMIC",
+                            "title": "Stoerungen",
+                            "description": "Karte mit fiktiven St\u00F6rungsmeldungen f\u00FCr map.apps Trainings.",
+                            "layers": [{
+                                    "id": "0",
+                                    "title": "St\u00F6rungen"
+                                }, {
+                                    "id": "1",
+                                    "title": "Status"
+                                }]
+                        }]
+                }
+            },
+            "enabled": true
+        },
+        "mapflow": {
+            "enabled": true
+        },
+        "maptip": {
+            "enabled": true
+        },
+        "measurement": {
+            "enabled": true
+        },
+        "mobiletoc": {
+            "enabled": true
+        },
+        "mobileview": {
+            "enabled": true
+        },
+        "navigationtoolset": {
+            "enabled": true
+        },
+        "notifier": {
+            "enabled": true
+        },
+        "omnisearch": {
+            "ZoomHandler": {
+                "scale": 5000
+            },
+            "enabled": true
+        },
+        "overviewmap": {
+            "OverviewMap": {
+                "serviceDefinition": {
+                    "service": "worldtopo",
+                    "layers": ["*"]
+                }
+            },
+            "enabled": true
+        },
+        "parametermanager": {
+            "enabled": true
+        },
+        "resultcenter": {
+            "FeatureMapVisualizer": {
+                "useDataViewPaging": false
+            },
+            "enabled": true
+        },
+        "scalebar": {
+            "enabled": true
+        },
+        "selection": {
+            "SelectionAction": {
+                "autoDeactivateTool": true
+            },
+            "SelectionTool": [{
+                    "geoType": "Extent",
+                    "iconClass": "icon-selection-circle",
+                    "id": "selectionTool_1415707134968",
+                    "storeId": "_AGS_STORE_1415700524461",
+                    "title": "St\u00F6rungen"
+                }],
+            "enabled": true
+        },
+        "splashscreen": {
+            "enabled": false
+        },
+        "templatelayout": {
+            "enabled": true
+        },
+        "templates": {
+            "TemplateSelector": {
+                "componentEnabled": false
+            },
+            "TemplateModel": {
+                "_selectedTemplate": "auskunfttemplate",
+                "_templates": [
+                    {
+                        "name": "seasons",
+                        "widgets": [{
+                                "role": "overviewMap",
+                                "window": {
+                                    "title": "This is my custom Window Title",
+                                    "marginBox": {
+                                        "w": 400,
+                                        "h": 400
+                                    },
+                                    "resizable": false
+                                }
+                            }]
+                    },
+                    {
+                        "name": "auskunfttemplate",
+                        "location": "sample_templates"
+                    }]
+            }
+        },
+        "themes": {
+            "ApplicationStyleWriter": {
+                "styles": ["${app}:app.css"]
+            },
+            "ThemeModel": {
+                "_selectedTheme": "auskunfttheme",
+                "_themes": [{
+                        "name": "auskunfttheme",
+                        "location": "sample_themes"
+                    }]
+            },
+            "ThemeSelector": {
+                "componentEnabled": true
+            },
+            "enabled": true
+        },
+        "toolrules": {
+            "ToolRuleManager": {
+                "_rules": {
+                    "agsprinttool": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape", "tablet_portrait", "tablet_landscape"]
+                        }
+                    },
+                    "urlEncoder": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape"]
+                        }
+                    },
+                    "measurementtool": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape"]
+                        }
+                    },
+                    "navigation_tools": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape"]
+                        }
+                    },
+                    "bookmarkstool": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape"]
+                        }
+                    },
+                    "overviewmap": {
+                        "ruleSuccessProperty": "visibility",
+                        "not": {
+                            "subLayoutNames": ["mobile_portrait", "mobile_landscape"]
+                        }
+                    }
+                }
+            },
+            "enabled": true
+        },
+        "toolset": {
+            "ToolsetManager": {
+                "toolsets": [{
+                        "id": "dropdown1",
+                        "cssClass": "ctWDYWBtn",
+                        "title": "Was m\u00F6chten Sie tun?",
+                        "container": "map",
+                        "windowType": "dropdown",
+                        "window": {
+                            "closable": false
+                        },
+                        "position": {
+                            "rel_l": 20,
+                            "rel_t": 72
+                        },
+                        "tools": ["agsprinttool", "urlEncoder", "measurementtool", "bookmarkstool"]
+                    }, {
+                        "id": "mapview_tools",
+                        "title": "Kartenwerkzeuge",
+                        "tooltip": "Kartenwerkzeuge",
+                        "container": "map",
+                        "max_horizontal": 1,
+                        "windowType": "css_positioned",
+                        "cssClass": "notitle muted mapview_tools",
+                        "window": {
+                            "closable": false
+                        },
+                        "__isDirty": true,
+                        "position": {
+                            "rel_l": 0,
+                            "rel_t": 0
+                        },
+                        "tools": ["zoomInClickTool", "zoomOutClickTool", "locateme", "overviewmap", "COPYRIGHT_Copyright_1415712062939_CustomInfoTool"]
+                    }, {
+                        "id": "toolset_1415707249366",
+                        "title": "Selection",
+                        "container": "map",
+                        "__isDirty": true,
+                        "window": {
+                            "closable": false
+                        },
+                        "windowType": "fixed",
+                        "cssClass": "notitle",
+                        "position": {
+                            "rel_l": 330,
+                            "rel_t": 20
+                        },
+                        "tools": ["selectionTool_1415707134968", "queryTool"]
+                    }]
+            },
+            "enabled": true
+        },
+        "windowmanager": {
+            "enabled": true
+        },
+        "wizard": {
+            "enabled": true
+        }
+    }
+}

@@ -1,0 +1,277 @@
+{
+    "Bundle-SymbolicName": "legend_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "LegendUI",
+            "impl": "LegendFactory",
+            "instanceFactory": true,
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "legend_agiv.LegendUI"
+            ],
+            "properties": {
+                // Anchor name to use in a template
+                "legendOpts": {
+                    // legend aligned to the left (if 'false' alignment is right)
+                    "alignmentLeft": true,
+                    // will update with every scale change and displays only the layers and sub layers that are visible in the current map scale
+                    "respectCurrentMapScale": true,
+                    // if false, baselayer information is not shown in the legend, but a message like "no legend available" is displayed
+                    "showBaseLayer": false
+                },
+                //mappings used for gourplayer legends
+                "mappings": {
+                    "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer": {
+                        "3": 4,
+                        "14": 15
+                    },
+                    "http://@@wms.agiv.be@@/inspire/wms/RVV": {
+                        "2": 2,
+                        "4": 4,
+                        "15": 15,
+                        "26": 26,
+                        "27": 27
+                    }
+                },
+                "replacements": {
+                    "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer": {
+                        "1": "<div style='height:35px;color:#B83A00;font-size:100%;font-style:normal;margin-top:10px;margin-bottom:-10px;'>259A</div>"
+                    }
+                },
+                "legendMapping": [],
+                "graphicsItems": {
+                    "SEARCH_RESULT_ADDRESS": "resource('images/SEARCH_RESULT_ADDRESS_legend.png')",
+                    "SEARCH_RESULT_PARCEL": "resource('images/SEARCH_RESULT_PARCEL_legend.png')",
+                    "POLYGON": "resource('images/POLYGON_legend.png')",
+                    "POINT": "resource('images/POINT_legend.png')",
+                    "POLYLINE": "resource('images/POLYLINE_legend.png')"
+                },
+                "showMyPlaces": true,
+                "Event-Topics": [
+                    {
+                        "topic": "ct/template/RENDERED",
+                        "method": "handleTemplateRendered"
+                    }
+                ],
+                "printTargetTemplate": "genericprint"
+            },
+            "references": [
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+        },
+        {
+            "name": "SplitviewLegendUI",
+            "impl": "LegendFactory",
+            "instanceFactory": true,
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "legend_agiv.SplitviewLegendUI"
+            ],
+            "properties": {
+                // Anchor name to use in a template
+                "legendOpts": {
+                    // legend aligned to the left (if 'false' alignment is right)
+                    "alignmentLeft": true,
+                    // will update with every scale change and displays only the layers and sub layers that are visible in the current map scale
+                    "respectCurrentMapScale": true,
+                    // if false, baselayer information is not shown in the legend, but a message like "no legend available" is displayed
+                    "showBaseLayer": false
+                },
+                //mappings used for gourplayer legends
+                "mappings": {
+                    "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer": {
+                        "3": 4,
+                        "14": 15
+                    },
+                    "http://@@wms.agiv.be@@/inspire/wms/RVV": {
+                        "2": 2,
+                        "4": 4,
+                        "15": 15,
+                        "26": 26,
+                        "27": 27
+                    }
+                },
+                "replacements": {
+                    "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer": {
+                        "1": "<div style='height:35px;color:#B83A00;font-size:100%;font-style:normal;margin-top:10px;margin-bottom:-10px;'>259A</div>"
+                    }
+                },
+                "legendMapping": [],
+                "graphicsItems": {
+                    "SEARCH_RESULT_ADDRESS": "resource('images/SEARCH_RESULT_ADDRESS_legend.png')",
+                    "SEARCH_RESULT_PARCEL": "resource('images/SEARCH_RESULT_PARCEL_legend.png')",
+                    "POLYGON": "resource('images/POLYGON_legend.png')",
+                    "POINT": "resource('images/POINT_legend.png')",
+                    "POLYLINE": "resource('images/POLYLINE_legend.png')"
+                },
+                "showMyPlaces": true,
+                "Event-Topics": [
+                    {
+                        "topic": "ct/template/RENDERED",
+                        "method": "handleTemplateRendered"
+                    }
+                ],
+                "printTargetTemplate": "genericprint"
+            },
+            "references": [
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.SplitviewMap"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                }
+            ]
+        },
+        {
+            "name": "LegendToggleUI",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "legend"
+            },
+            "references": [
+                {
+                    "name": "_templateModel",
+                    "providing": "templates.TemplateModel"
+                },
+                {
+                    "name": "rightMapLegend",
+                    "providing": "legend_agiv.LegendUI"
+                },
+                {
+                    "name": "leftMapLegend",
+                    "providing": "legend_agiv.SplitviewLegendUI",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+        {
+            "name": "LegendToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "legendToggleTool",
+                "title": "${tool.title}",
+                "tooltip": "${tool.tooltip}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon legendTool",
+                "rules": {
+                    "groups": "dockTools"
+                }
+            }
+        },
+
+        {
+            "name": "LegendPrinter",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "jasperprinting.api.PrintDataProvider",
+                "jasperprinting.api.MapLegendPrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "Event-Topics": [
+                    {
+                        "topic": "ct/map/MODEL_STRUCTURE_CHANGED",
+                        "method": "_updatePrintInfo"
+                    },
+                    {
+                        "topic": "ct/map/MODEL_NODESTATE_CHANGED",
+                        "method": "_updatePrintInfo"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "legendUI",
+                    "providing": "legend_agiv.LegendUI"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "SplitviewMapPrinter",
+            "impl": "LegendPrinter",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "jasperprinting.api.SplitviewMapLegendPrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "Event-Topics": [
+                    {
+                        "topic": "ct/doublemap/MODEL_STRUCTURE_CHANGED",
+                        "method": "_updatePrintInfo"
+                    },
+                    {
+                        "topic": "ct/doublemap/MODEL_NODESTATE_CHANGED",
+                        "method": "_updatePrintInfo"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "map",
+                    "providing": "splitviewmap.MapWidget"
+                },
+                {
+                    "name": "legendUI",
+                    "providing": "legend_agiv.SplitviewLegendUI"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

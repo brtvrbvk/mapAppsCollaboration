@@ -1,0 +1,24 @@
+/*TODO: extract custom bundle styles from bundles to bundles_agiv folder*/
+/*@import url("Applink.css");*/
+@import url("AppsToggler.css");
+@import url("BaseMaps.css");
+@import url("Copyright.css");
+@import url("Dijits.css");
+@import url("historicmaps.css");
+@import url("combicontentmanager.css");
+@import url("Routing.css");
+@import url("ToolIcons.css");
+@import url("WindowBase.css");
+@import url("agivcopyright.css");
+@import url("agivlegend.css");
+@import url("dnd.css");
+@import url("notifier.css");
+@import url("poi.css");
+@import url("pprinfo.css");
+@import url("print.css");
+@import url("Tools.css");
+@import url("ToolsOnMap.css");
+@import url("ResultCenter.css");
+
+/*/---   overwriting original map.apps bundles files   ---/*/
+@import url("Menu.css");

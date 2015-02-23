@@ -1,0 +1,81 @@
+{
+    "Bundle-SymbolicName": "startup",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "Startup",
+            "impl": "startup/Startup",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "immediate": true,
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "queryUrl": "http://ws.agiv.be/ArcGIS/rest/services/RVV/MapServer/27/query",
+                "query": {
+                    "geometryType": "esriGeometryPolygon",
+                    "where": "NISCODE=${municipalityId}" //e.g. NISCODE=11057
+                },
+                "_graphicNodeId": "startupSelection",
+                "_renderGeometry": true,
+                "_symbolTable": {
+                    "polygon": {
+                        "type": "esriSFS",       // esri simple fill symbol
+                        "color": [
+                            255,
+                            255,
+                            255,
+                            0
+                        ],
+                        "outline": {
+                            "color": [
+                                125,
+                                205,
+                                234
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",   // esri simple line symbol
+                            "width": 4
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService",
+                    "cardinality": "0..1"
+                }
+            ]
+        }
+    ]
+}

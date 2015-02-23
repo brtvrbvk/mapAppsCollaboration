@@ -1,0 +1,187 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    .ctDataView.ctAppOverview  {
+        background-color: @pane-background-color;
+    }
+
+    .ctInfoWindow,
+    .ctToolPopup,
+    .ctWindowEffect,
+    .ctMapDesk .ctWindow{
+        .dijitDialogPaneContent{
+            background-color: @pane-background-color;
+        }
+        .dijitDialogTitleBar{
+            background-color: @dialog-titlebar-background-color;
+        }
+    }
+    .ctWindow, 
+    .ctWindow.draggable {
+        border: 2px solid @agiv-light-grey;
+    }
+    .ctWindow.dijitDialogFixed{
+        border-width: 3px;
+        border-color: @agiv-light-grey;
+    }
+    &.ctEnv_IE .ctWindowTool.dijitButton.dijitButtonHover .dijitButtonNode{
+        .resetBG();
+    }
+    .ctWindow .dijitDialogTitle{
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .dijitDialogPaneContent {
+        border-top-color: transparent;
+    }
+    .ctWindowToolbar .dijitButton.dijitButton .ctToolIcon_windowClose:before{
+        font-family: 'agivUiFont';
+        content: "\e61e";
+    }
+
+    //shadow for Zoomslider and Toolset
+    &.ctEnv_IE_9 .mapZoomSlider{
+        // IE9 allows Box-Shadow on Tables only if the border-collapse is set to seperate
+        border-collapse: separate;
+    }
+    .mapZoomSlider{
+        .border-radius(19px);
+    }
+
+    .ctMeasurement .dijitDropDownButton {
+        // fix for AGMV-805
+        margin-bottom: 2px;
+    }
+    //-- additional styles for minimalistic style used in miniMapTemplate
+    &.ctTpl_minimaps {  
+        .ctWindow, 
+        .neat .ctWindow.draggable{
+            border-width:2px;
+        }
+    }
+
+    // used to fake that tools in footer overlap the fixed dialogs like Routing 
+    // or thema'S panel'. It is only visible when corresponding tools are active
+    .fakeSpacerBottomRight,
+    .fakeSpacerBottomLeft{
+        //display: none;
+        visibility: hidden;
+        background: transparent;
+        border-color: transparent;
+        .transition-timing-function(linear);
+        .transition-duration(.25s);
+        .transition-property(visibility, background-color, border-color);
+    }
+    
+    // disable transition on visibility. otherwise the fakeSpacer aren't visible 
+    // on older Android devices
+    &.ctEnv_Android_4_0,
+    &.ctEnv_Android_4_1{
+        .fakeSpacerBottomRight,
+        .fakeSpacerBottomLeft{
+            -webkit-transition: color;
+            transition: color;
+        }
+    }
+    // here we need to add the windows/their tools that need the fakeSpacer
+    &.ctActiveTool_combicontentmanagerTool,
+    &.ctActiveTool_routingtool,
+    &.ctActiveTool_resultCenterToggleTool,
+    &.ctActiveTool_gipodParameterControlsTool,
+    &.ctActiveTool_legendToggleTool,
+    &.ctActiveTool_PPRResultCenterToggleTool,
+    &.ctActiveTool_themainfodocktool{
+        .fakeSpacerBottomRight{
+            background: #fff;
+            visibility: visible;
+            border: 1px solid @agiv-light-grey;
+            border-width: 0 3px 3px 3px;
+        }
+    }
+    .ctWindow.dijitDialogFixed{
+        &.combiContentManager,
+        &.themainfo,
+        &.gipodParameterControls,
+        &.routing,
+        &.legend,
+        &.resultCenterPPR{
+            //removing dialogs bottom border as this is rendered by FakeSpacer
+            border-bottom: none;
+            .border-radius(0);
+        }
+    }
+    .magnifier,
+    .overviewMap,
+    .streetView,
+    .legend {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        -ms-animation: none;
+        animation: none;
+    }
+
+    //change size of WindowTitles and WindowTools
+    .ctWindow .dijitDialogTitle,
+    .dijitDialogTitleBar .ctWindowDragTitleBar .dijitDialogTitle{
+        font-size: 13px;
+        min-height: 11px;
+    }
+    .ctWindowToolbar {
+        top: 5px;
+        .ctToolContainer .ctWindowTool {
+            .dijitButtonNode{
+                background: transparent;
+                padding: 0 0 0 10px;
+            }
+            &.dijitHover .dijitButtonNode{
+                background: transparent;
+            }
+        }
+    }
+
+    // additional loading info in window TitleBars
+
+    &.ctRoutingLoading .routing,
+    &.ctMapLoading .combiContentManager,
+    &.ctElevationLoading .elevation,
+    &.ctLoadingThemaInfo .themainfo,
+    &.ctRVVLoading .resultCenterPPR,
+    &.ctFeatureInfoLoading .agivGenericIdentify{
+        &.ctWindow .dijitDialogTitle{
+            &:after{
+                display: inline-block;
+                .setWebFont();
+                content:'\e097';
+                position: absolute;
+                .animation(spin, 1.5s, infinite, linear);
+                font-size: 15px;
+                width: 15px;
+                margin-left: .3em;
+            }
+        }
+
+    }
+    &.ctEnv_IE_8,
+    &.ctEnv_IE_9{
+        &.ctRoutingLoading .routing,
+        &.ctMapLoading .combiContentManager,
+        &.ctElevationLoading .elevation,
+        &.ctLoadingThemaInfo .themainfo,
+        &.ctRVVLoading .resultCenterPPR,
+        &.ctFeatureInfoLoading .agivGenericIdentify{
+            &.ctWindow .dijitDialogTitle{
+                &:after{
+                    display: inline-block;
+                    content:'';
+                    position: absolute;
+                    .size(15px);
+                    margin-left: .3em;
+                    background: transparent url('../images/ie_fallback_spinner.gif') center center no-repeat;
+                }
+            }
+
+        }
+    }
+}

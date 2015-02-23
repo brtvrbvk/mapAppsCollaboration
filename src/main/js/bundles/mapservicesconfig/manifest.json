@@ -1,0 +1,18 @@
+{
+    "Bundle-SymbolicName": "mapservicesconfig",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["builder"],
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+
+    "Require-Bundle": [
+    ],
+
+    "Components": [
+    ]
+}

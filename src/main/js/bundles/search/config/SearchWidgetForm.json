@@ -1,0 +1,24 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "numbertextbox",
+            "title": "${menu.searchwidget.delay}",
+            "field": "searchDelay",
+            "min": 20,
+            "max": 10000
+        },
+        {
+            "type": "checkbox",
+            "title": "Remove results on clear",
+            "field": "removeResultsOnClear"
+        }
+    ]
+}

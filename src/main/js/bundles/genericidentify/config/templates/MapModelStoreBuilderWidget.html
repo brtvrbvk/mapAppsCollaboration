@@ -1,0 +1,86 @@
+<div>
+    <div data-dojo-attach-point="mainContainer"
+         data-dojo-type="dijit.layout.BorderContainer"
+         data-dojo-props="design:'sidebar',gutters:false,splitter:true">
+
+        <div data-dojo-type="dijit.layout.BorderContainer"
+             style="width: 200px"
+             data-dojo-props="design:'headline',gutters:false,splitter:true,region:'left','class':'services'">
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'top','class':'mapModelBuilderTitle'">
+                <h2>${i18n.servicesTitle}</h2>
+            </div>
+            <!--<div data-dojo-type="dijit.layout.ContentPane" class="detailsHint" data-dojo-props="region:'top','class':'detailsHint'"></div>-->
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="region:'center'">
+                <div>
+                    <a data-dojo-attach-event="onclick:_onGeneralClick">${i18n.generalMapping}</a>
+                </div>
+                <div data-dojo-attach-point="_servicesTreeNode">
+                </div>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit.layout.ContentPane"
+             data-dojo-props="region:'center','class':'dijitDisplayNone layerDetails'"
+             data-dojo-attach-point="_detailsContainer">
+
+            <!-- attribute mapping -->
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="'class':'mapModelStoreBuilderTitle'"
+                 data-dojo-attach-point="_buttonContainer">
+                <h2>${i18n.details}</h2>
+
+                <div data-dojo-type="dijit.form.Button"
+                     data-dojo-props="'class':'categorieOperator','iconClass':'add'"
+                     data-dojo-attach-event="onClick:_onAddClick">+
+                </div>
+                <div data-dojo-type="dijit.form.Button"
+                     data-dojo-props="'class':'categorieOperator','iconClass':'remove'"
+                     data-dojo-attach-event="onClick:_onRemoveClick">-
+                </div>
+            </div>
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-attach-point="formContainer">
+                <div class="dndContainer"
+                     data-dojo-attach-point="dndList"></div>
+                <!-- placeholder for layer mapping -->
+                <div data-dojo-attach-point="generalList"></div>
+                <!-- placeholder for general mapping -->
+            </div>
+
+            <!-- extra info -->
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-props="'class':'mapModelStoreBuilderTitle'"
+                 data-dojo-attach-point="buttonInfoContainer">
+                <h2>Extra Info</h2>
+
+                <div data-dojo-type="dijit.form.Button"
+                     data-dojo-props="'class':'categorieOperator','iconClass':'add'"
+                     data-dojo-attach-event="onClick:_onAddInfoClick">+
+                </div>
+                <div data-dojo-type="dijit.form.Button"
+                     data-dojo-props="'class':'categorieOperator','iconClass':'remove'"
+                     data-dojo-attach-event="onClick:_onRemoveInfoClick">-
+                </div>
+            </div>
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-attach-point="formInfoContainer">
+                <div class="dndContainer"
+                     data-dojo-attach-point="dndInfoList"></div>
+                <!-- placeholder for layer info -->
+                <div data-dojo-attach-point="generalInfoList"></div>
+                <!-- placeholder for general info -->
+            </div>
+
+            <div data-dojo-type="dijit.layout.ContentPane"
+                 data-dojo-attach-point="ignoreListContainer">
+                <label>${i18n.ignoreList}</label>
+
+                <div data-dojo-attach-point="ignoreListNode"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

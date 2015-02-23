@@ -1,0 +1,41 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .dijitIcon.icon-coordinateviewer{
+        font-family: agivUiFont;
+    }
+    .ctTool_multiCoordinateToggleTool{
+        .dijitButtonNode{
+            padding: 0;
+            background: transparent none;
+        }
+        &.dijitHover .dijitIcon{
+            color: #000;
+        }
+    }
+    .footer .ctTool_multiCoordinateToggleTool{ 
+        margin-top: 5px;
+        .dijitButtonText{
+            display: none;
+        }
+    }
+
+    .multiCoordinateViewer{
+        &.ctWindow .dijitDialogTitle:before{
+            .setWebFont(agivUiFont);
+            content: "\e62d";
+            font-size: 14px;
+            margin-right: .5em;
+        }
+        .ctCoordinateTable{
+            width: 100%;
+        }
+        .ctCoordinateLabel{
+            color: #C0C0C0;
+            line-height: 24px;
+        }
+        .ctCoordinateValue{
+            font-weight: bold;
+        }
+    }
+}

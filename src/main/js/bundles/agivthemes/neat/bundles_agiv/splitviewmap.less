@@ -1,0 +1,59 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    .ctDoubleMapWidget {
+        .agivBasemapToggler {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    }
+    .swipeLeftButton, 
+    .swipeRightButton{
+        margin: 0;        
+        .dijitButtonNode{
+            padding: 0;
+            .border-radius(100%);
+            border: 3px solid @primary-color;
+            background-color: #fff;
+            .dijitIcon{
+                font-size: @ct-icon-medium;
+            }
+        }
+        .dijitToggleButtonChecked .dijitButtonNode{
+            background-color: #fff;
+        }
+        .dijitToggleButtonChecked.dijitHover,
+        .dijitHover{
+            .dijitButtonNode{
+                background-color: @primary-color;
+            }
+            .dijitIcon:before{
+                color: @hovered-text-color;
+            }
+        }
+    }
+    
+    // hide tool and invert icon
+    &.ctActiveTool_swipeLeftTool .swipeControlGroup{
+        left: -10px;
+        .icon-arrow-light-left:before{
+            content:'\e006';
+        }
+        .ctTool_swipeRightTool{
+            display: none;
+        }
+    }
+    // hide tool and invert icon
+    &.ctActiveTool_swipeRightTool .swipeControlGroup{
+        right: -10px;
+        left: auto;
+        .ctTool_swipeLeftTool{
+            display: none;
+        }
+        .icon-arrow-light-right:before{
+            content:'\e008';
+        }
+    }
+}

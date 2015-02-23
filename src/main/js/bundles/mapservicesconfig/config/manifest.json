@@ -1,0 +1,101 @@
+{
+    "Bundle-SymbolicName": "mapservicesconfig-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderContentNode",
+                "menuNode": {
+                    "title": "${menu.serviceconfig.title}",
+                    "iconUrl": "resource('images/bundleIcon.png')",
+                    "widget": "serviceConfigBuilderWidget"
+                }
+            }
+        },
+
+        {
+            "name": "ServicesConfigBuilderWidget",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "pid": "map-MappingResourceRegistryFactory",
+                "bid": "map",
+                "id": "serviceConfigBuilderWidget",
+                "baseURL": "../../../..",
+                "defaultProperties": {
+
+                },
+                "description": "${menu.serviceconfig.description}"
+            },
+            "references": [
+                {
+                    "name": "configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "_store",
+                    "providing": "ServiceConfigStore"
+                }
+            ]
+        },
+
+        {
+            "name": "ServiceConfigStore",
+            "impl": "base/store/ServiceConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "ServiceConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "serviceConfigStore",
+                "useIn": ["dataform"],
+                "target": "@@agiv.services.baseurl@@/resources/services"
+            }
+        },
+
+        {
+            "name": "AgivBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderCategoryNode",
+                "menuNode": {
+                    "title": "${menu.agiv.baseTitle}",
+                    "iconUrl": "resource('images/bundleIcon.png')",
+                    "id": "agivBuilderNode"
+                }
+            }
+        }
+    ]
+}

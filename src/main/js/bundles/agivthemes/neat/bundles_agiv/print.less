@@ -1,0 +1,131 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+    .ctPrintButton.dijitButton .dijitIcon {
+        font-size: 18px;
+    }
+    .ctPrintButton.dijitHover .dijitIcon:before {
+        color: @secondary-color;
+    }
+
+    .printLoader {
+        padding: 25px;
+        background: url("../images/loader.gif") center center no-repeat !important;
+    }
+
+    .dijitButton .icon-spinner {
+        display: inline-block;
+    }
+
+    .basicPrintDialog {
+        .ctWindowContentPadding > .dijitDialogPaneContent {
+            padding-top: 0;
+        }
+        .formBody {
+            overflow-y: auto;
+            > .dijitLayoutContainer.ctFormControl {
+            }
+        }
+        .dijitTextBox {
+            background-color: @textbox-background-color;
+        }
+        .dijitTextArea {
+            word-wrap: break-word;
+        }
+        .ctDataForm {
+            .fullWidth {
+                width: 100%;
+                .box-sizing(border-box);
+                &.textarea {
+                    height: 38px;
+                    padding: 5px;
+                    overflow: auto;
+                }
+            }
+            td.tableContainer-valueCell {
+                padding: 3px 0;
+                vertical-align: top;
+            }
+            .title {
+                display: inline-block;
+                font-weight: normal;
+                margin-top: .5em;
+                margin-bottom: 0;
+            }
+            .reversedOrder > table {
+                direction: rtl;
+                tr > td {
+                    direction: ltr;
+                    width: 20px;
+                }
+            }
+            .paperOrientation > table tr > td {
+                width: 30px;
+            }
+            .icon-map-center,
+            .icon-extent {
+                overflow: visible;
+                &:after {
+                    font-family: 'mapappsUiFont';
+                    font-size: 15px;
+                    position: relative;
+                    top: -1.1em;
+                    right: -20px;
+                }
+            }
+            .icon-map-center:after {
+                content: '\e06f';
+            }
+            .icon-extent:after {
+                content: '\e07e';
+            }
+            .label-liggend,
+            .label-staand {
+                overflow: visible;
+                &:after {
+                    font-family: 'agivUiFont';
+                    font-size: 15px;
+                    position: relative;
+                    top: -1.1em;
+                    right: -20px;
+                }
+            }
+            .label-liggend:after {
+                content: "\e629";
+            }
+            .label-staand:after {
+                content: "\e628";
+            }
+            .optionalChildren > table {
+                width: 50%;
+
+            }
+        }
+    }
+
+    .hikPrintDialog{
+      .tableContainer-table{
+        width: 95%;
+      }
+    }
+
+    .printBtn {
+        .dijitButtonNode {
+            background-color: @primary-color;
+            border: none;
+            .border-radius(3px);
+        }
+        &.dijitHover .dijitButtonNode {
+            background-color: @button-hovered-background-color;
+        }
+    }
+    .cancelBtn {
+        .dijitButtonNode {
+            font-weight: normal;
+            border-color: transparent;
+            color: @ct-highlight-color;
+        }
+    }
+
+}

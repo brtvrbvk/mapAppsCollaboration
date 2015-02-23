@@ -1,0 +1,292 @@
+{
+    "Bundle-SymbolicName": "analytics",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "analytics",
+    "Bundle-Description": "Google Analytics",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["analytics"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+
+    "Require-Bundle": [
+        {
+            "name": "basemaptoggler",
+            "version": "[3.0,4.0)",
+            "policy": "optional"
+        },
+        {
+            "name": "measurement",
+            "version": "[3.0,4.0)",
+            "policy": "optional"
+        },
+        {
+            "name": "splitviewmap",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "GoogleAnalyticsTracker",
+            "provides": ["ct.framework.api.EventHandler"],
+            "immediate": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "account": "UA-46010735-1",
+                "localUse": "@@google.analytics.dev@@",
+                "devAccount": "@@google.analytics.dev.account@@",
+                "anonymizeIPs": true,
+                "categories": {
+                    "SEARCH": {
+                        "name": "Zoeken",
+                        "eventTypes": {
+                            //mappings for eventtypes
+                            "SEARCH_POI": "Zoek POI",
+                            "SEARCH_POI_TYPE": "Zoek POIType",
+                            "SEARCH_LAYER": "Zoek Laag",
+                            "SEARCH_ADDRESS": "Zoek adres",
+                            "SEARCH_PARCEL": "Zoek perceel",
+                            "SELECT_GEOPUNT": "Zoek in SiteCore"
+                        }
+                    },
+                    "THEME": {
+                        "name": "Thema",
+                        "eventTypes": {
+                            "SELECT_POI": "Selecteer POIType",
+                            "SELECT_LAYER": "Selecteer Laag",
+                            "SELECT_APP": "Selecteer APP"
+                        }
+                    },
+                    "ADD_SERVICE": {
+                        "name": "Toevoegen Service",
+                        "eventTypes": {
+                            "ADD_SERVICE_URL": "URL",
+                            "ADD_SERVICE_CAT": "from catalogue",
+                            "ADD_SERVICE": "from Add Service"
+                        }
+                    },
+                    "ADDED_SERVICE": {
+                        "name": "Opladen Lagen",
+                        "eventTypes": {
+                            "ADDED_SERVICE_URL": "URL"
+                        }
+                    },
+                    "IDENTIFY_ON_MAP": {
+                        "name": "Identify on Map",
+                        "eventTypes": {
+                            "IDENTIFY_POI": "Identify POI",
+                            "IDENTIFY_GEOMETRY": "Identify geometrie",
+                            "IDENTIFY_RANDOM_POINT": "Identify random punt",
+                            "IDENTIFY_ADDRESS": "Identify adres",
+                            "IDENTIFY_PARCEL": "Identify perceel"
+                        }
+                    },
+                    "IDENTIFY_DESCRIPTION": {
+                        "name": "Identify – Beschrijving",
+                        "eventTypes": {
+                            "IDENTIFY_POI_DESCRIPTION": "Identify POI - Beschrijving"
+                        }
+                    },
+                    "IDENTIFY_MORE_INFO": {
+                        "name": "Identify - Meer Info",
+                        "eventTypes": {
+                            "MORE_INFO_GEOMETRY": "Meer Info – geometrie",
+                            "MORE_INFO_RANDOM_POINT": "Meer Info – willekeurig punt",
+                            "MORE_INFO_ADDRESS": "Meer Info – adres",
+                            "MORE_INFO_PARCEL": "Meer Info – perceel",
+                            "MORE_INFO_GIPOD": "Meer Info – hinder in kaart"
+                        }
+                    },
+                    "TOOLBOX": {
+                        "name": "Toolbox",
+                        "eventTypes": {
+                            "DRAW_POINT": "Teken punt",
+                            "DRAW_LINE": "Teken lijn",
+                            "DRAW_POLYLINE": "Teken polylijn",
+                            "DRAW_POLYGON": "Teken polygon",
+                            "DRAW_FREEHANDPOLYGON": "Teken polygon",
+                            "DRAW_SYMBOL": "Teken symbol",
+                            "MEASURE": "Meten"
+                        }
+                    },
+                    "ROUTE": {
+                        "name": "Route",
+                        "eventTypes": {
+                            "TRANSPORT_CAR": "Auto",
+                            "TRANSPORT_PEDESTRIAN": "Te voet"
+                        }
+                    },
+                    "PRINT": {
+                        "name": "Print",
+                        "eventTypes": {
+                            "PRINT_ROUTE": "Print route",
+                            "PRINT_MAP": "Print kaart",
+                            "WORD": "Word",
+                            "EXCEL": "Excel"
+                        }
+                    },
+                    "TRANSPARENCY": {
+                        "name": "Transparency",
+                        "eventTypes": {
+                            "TRANSPARENCY": "Transparency"
+                        }
+                    },
+                    "BASEMAP": {
+                        "name": "Achtergrond",
+                        "eventTypes": {
+                            "SELECT_BASEMAP": "Selecteer achtergrond",
+                            "BASEMAP_LEFT": "Selecteer achtergrond – links",
+                            "BASEMAP_RIGHT": "Selecteer achtergrond – rechts"
+                        }
+                    },
+                    "FILTER": {
+                        "name": "Filter",
+                        "eventTypes": {
+                            "FILTER": "Filter"
+                        }
+                    },
+                    "IDENTIFY": {
+                        "name": "Identify",
+                        "eventTypes": {
+                            "IDENTIFY_MANIFESTATION": "Event",
+                            "IDENTIFY_WORKASSIGNMENT": "Workassignment",
+                            "IDENTIFY_ADDRESS": "Address",
+                            "IDENTIFY_PARCEL": "Parcel"
+                        }
+                    },
+                    "REDLINING": {
+                        "name": "Tekenen",
+                        "eventTypes": {
+                            "REDLINING_POINT": "Teken punt",
+                            "REDLINING_LINE": "Teken lijn",
+                            "REDLINING_POLYLINE": "Teken polylijn",
+                            "REDLINING_POLYGON": "Teken polygon",
+                            "REDLINING_SYMBOL": "Teken symbol",
+                            "REDLINING_TEXT": "Teken text"
+                        }
+                    },
+                    "ELEVATION": {
+                        "name": "Hoogte",
+                        "eventTypes": {
+                            "ELEVATION": "Height profile",
+                            "ELEVATION_ROUTE": "Route"
+                        }
+                    },
+                    "SHARING": {
+                        "name": "Sharing",
+                        "eventTypes": {
+                            "SHARING_FACEBOOK": "Facebook",
+                            "SHARING_GOOGLEPLUS": "Goolge+",
+                            "SHARING_EMAIL": "Email",
+                            "SHARING_TWITTER": "Twitter",
+                            "SHARING_URL": "Show URL",
+                            "SHARING_MINIMAPS": "Mini maps"
+                        }
+                    },
+                    "RESIZE": {
+                        "name": "Max/Min",
+                        "eventTypes": {
+                            "RESIZE_MAX": "Max",
+                            "RESIZE_MIN": "Min"
+                        }
+                    },
+                    "FILTER_PERIOD": {
+                        "name": "Filter - Period",
+                        "eventTypes": {
+                            "FILTER_PERIOD": "Period",
+                            "FILTER_TOMORROW": "Tomorrow",
+                            "FILTER_TODAY": "Today",
+                            "FILTER_TODAY_MONTH": "Today + 1 month"
+
+                        }
+                    },
+                    "IDENTIFY_DETAIL": {
+                        "name": "Identify - detail",
+                        "eventTypes": {
+                            "IDENTIFY_DETAIL_MANIFESTATION": "Identify evenement",
+                            "IDENTIFY_DETAIL_WORKASSIGNMENT": "Identify werken"
+                        }
+                    },
+                    "SLIDER": {
+                        "name": "Slider",
+                        "eventTypes": {
+                            "SLIDER_PLAY": "Play"
+                        }
+                    },
+                    "REFERRER": {
+                        "name": "Referrer",
+                        "eventTypes": {
+                            "REFERRER": "Referrer"
+                        }
+                    },
+                    "MEASURE": {
+                        "name": "Meten",
+                        "eventTypes": {
+                            "MEASURE_POINT": "Punt",
+                            "MEASURE_DISTANCE": "Lijn",
+                            "MEASURE_AREA": "Oppervlakte"
+                        }
+                    },
+                    "APP": {
+                        "name": "App",
+                        "eventTypes": {
+                            "SELECT_APP": "Selecteer APP"
+                        }
+                    }
+                },
+                "Event-Topics": [
+                    {
+                        "topic": "analytics/TRACK_EVENT",
+                        "method": "trackEvent"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TrackEventHandler",
+            "references": [
+                {
+                    "name": "basemapModel",
+                    "providing": "basemaptoggler.BasemapModel",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "agivMapModel",
+                    "providing": "splitviewmap.AgivMapModel",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+//                {
+//                    "name": "measurementTool",
+//                    "providing": "ct.tools.Tool",
+//                    "filter": "(id=measurementtool)",
+//                    "cardinality": "0..1",
+//                    "policy": "dynamic"
+//                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "measurementUI",
+                    "providing": "measurement.MeasurementToolbar",
+                    "cardinality": "0..1",
+                    "policy": "dynamic",
+                    "connect": {
+                        "onMeasureEnd": "_onMeasureEnd"
+                    }
+                }
+            ]
+        }
+    ]
+}

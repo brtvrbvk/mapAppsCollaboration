@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <!-- this is required to let ace editor work in IE 8 and 7 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="author" content="con terra GmbH, Muenster, Germany"/>
+    <meta name="keywords"
+          content="con terra, GIS, map, maps, karte, social, map.apps, android, rwd, responsive ,iPad, iPhone, smartphone, mobile, rest, json,tablet, RIA, application, osgi, esri "/>
+    <meta name="description" content="map.apps - innovative apps for web & mobile"/>
+    <meta name="robots" content="nofollow"/>
+    <meta name="copyright" content="con terra GmbH"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+    <link rel="icon" href="../../../../favicon.ico" type="image/x-icon"/>
+    <!--Import the init_night.css if you wish the map.apps 2.x default splashscreen
+    <link type="text/css" rel="stylesheet" href="init_night.css"/>-->
+    <link type="text/css" rel="stylesheet" href="../../../../../init_seasons.css"/>
+    <style type="text/css">html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }</style>
+    <title>map.apps</title>
+    <!-- For non-Retina iPhone, iPod Touch -->
+    <link rel="apple-touch-ico-precomposed" href="../../../../images/mobile/home-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../images/mobile/home-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../images/mobile/home-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../images/mobile/home-icon-144x144.png"/>
+    <!-- Chrome Mobile Browser -->
+    <link rel="shortcut icon" sizes="196x196" href="../../../../images/mobile/home-icon-196x196.png">
+    <link rel="shortcut icon" sizes="114x114" href="../../../../images/mobile/home-icon-114x114.png"/>
+    <script type="text/javascript" src="../../../../prj/dojo-init.js" charset="utf-8"></script>
+    <script src="./gremlins.js"></script>
+    <script type="text/javascript">
+        afterMapAppsLoad(function (Launcher) {
+            // use an inline application for application overview
+            var appsOverViewJson = {
+                "appName": "management",
+                "properties": {
+                    "title": "${appOverview.title} - Version @@application.version@@",
+                    //trick to transport i18n of appbuild link
+                    "builderTitle": "${builder.title}"
+                },
+                "load": {
+                    "allowedBundles": [
+                        "system",
+                        "templatelayout",
+                        "templates",
+                        "themes",
+                        "authentication",
+                        "appsstore",
+                        "appsoverview",
+                        "splashscreen"
+                    ],
+                    "i18n": [
+                        "agiv/i18n:bundle",
+                        "appContext:/nls/bundle"
+                    ],
+                    "require": ["dojo/i18n!appContext/nls/bundle"]
+                },
+                "bundles": {
+                    "templates": {
+                        "TemplateModel": {
+                            "_selectedTemplate": "seasons",
+                            "_templates": [
+                                {
+                                    "name": "seasons",
+                                    "domId": "appOverViewTemplate",
+                                    "requiresCSS": true
+                                }
+                            ]
+                        }
+                    },
+                    "themes": {
+                        "ThemeModel": {
+                            "_selectedTheme": "winter",
+                            "_themes": [
+                                {
+                                    "name": "winter"
+                                }
+                            ]
+                        },
+                        "ThemeSelector": {
+                            "componentEnabled": false
+                        }
+                    }
+                }
+            };
+            new Launcher().launchAppFromParam({
+                param: "app",
+                defaultApp: appsOverViewJson
+            })
+                    .then(function () {
+                        require(["base/tests/GremlinsLauncher"], function (GremlinsLauncher) {
+                            GremlinsLauncher.releaseHorde();
+                            setInterval(function () {
+                                GremlinsLauncher.releaseHorde()
+                            }, 10000)
+                        });
+
+                    });
+        });
+    </script>
+</head>
+<body class="start">
+<div class="startLogo"></div>
+<div id="splashScreen" class="splashScreen">
+    <div class="anim_bg">
+        <div class="progress">
+            <div class="progressMsg">
+                <p class="splashHeader">Opstarten van de kaarttoepassing</br> &nbsp;</p>
+
+                <p class="splashBundle">Bezig met laden</p>
+
+                <div class="splashSpacer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="appOverViewTemplate" style="display: none" class="fullwidthAndHeight">
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="gutters:false,design:'headline','class':'fullwidthAndHeight'">
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="gutters:false,design:'sidebar',region:'top','class':'header'">
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'left', layoutPriority: 1"
+                 class="logo"><span>AGIV</span></div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'left', layoutPriority: 2"
+                 class="appTitle">${appProps.title}
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right','class':'templateButtons'">
+
+                        <span class="userMenu">
+                            <span class="username" data-dojo-attach-point="username"></span>
+                            <span class="logoutBtn" data-dojo-attach-point="logoutBtn"></span>
+                            <span class="loginBtn" data-dojo-attach-point="loginBtn"></span>
+                        </span>
+                <span class="languageToggler" data-dojo-attach-point="languageToggler"></span>
+
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="label:'${appProps.builderTitle}', 'class':'ctTool  ctAppManagmentButton', 'iconClass':'ctAppManagmentIcon', onClick: function(){location.href='builder'}"></div>
+            </div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="appsOverview"
+             data-dojo-props="region:'center','class':'applist'"></div>
+    </div>
+</div>
+</body>
+</html>

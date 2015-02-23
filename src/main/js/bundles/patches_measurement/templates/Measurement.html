@@ -1,0 +1,42 @@
+<div class="esriMeasurement">
+    <div dojoType='dijit.form.ToggleButton'
+         baseClass='esriButton'
+         dojoAttachPoint='area'
+         checked='false'
+         iconClass='icon-agiv-area'
+         showLabel='true'
+         dojoAttachEvent='onClick:areaToggleButton'></div>
+
+    <div dojoType='dijit.form.ToggleButton'
+         baseClass='esriButton'
+         dojoAttachPoint='distance'
+         iconClass='icon-agiv-distance'
+         showLabel='true'
+         dojoAttachEvent='onClick:distanceToggleButton'></div>
+
+    <div dojoType='dijit.form.ToggleButton'
+         baseClass='esriButton'
+         dojoAttachPoint='location'
+         iconClass='icon-agiv-coordinate'
+         showLabel='true'
+         dojoAttachEvent='onClick:locationToggleButton'></div>
+
+    <div dojoType='dijit.layout.ContentPane'
+         dojoAttachPoint='resultLabel'
+         class='resultLabel'></div>
+    
+    <div class="agivResultWrapper">
+        <div dojoType='dijit.layout.ContentPane'
+             dojoAttachPoint='resultValue'
+             align='left'
+             class='result'></div>
+
+        <button dojoType='dijit.form.DropDownButton'
+                baseClass='esriToggleButton'
+                dojoAttachPoint='unit'
+                label='unit'
+                value='unit'
+                style='visibility:hidden;'></button>
+    </div>
+
+</div>

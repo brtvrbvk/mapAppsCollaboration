@@ -1,0 +1,13 @@
+{
+    "Bundle-SymbolicName": "sample_themes",
+    "Bundle-Version": "1.0",
+    "Bundle-Localization": [],
+    "Bundle-Layer": "",
+    "Bundle-Main": "",
+    "Bundle-StartLevel": 1,
+    "CSS-Themes": [{
+            "name": "mytheme"
+        },{
+            "name":"auskunfttheme"
+        }]
+}

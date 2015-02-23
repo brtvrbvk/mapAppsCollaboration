@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'agivUiFont';
+    src:url('agivUiFont.eot');
+    src:url('agivUiFont.eot?#iefix') format('embedded-opentype'),
+        url('agivUiFont.woff') format('woff'),
+        url('agivUiFont.ttf') format('truetype'),
+        url('agivUiFont.svg#agivUiFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-add-comment, .icon-apps, .icon-bookmarkings, .icon-eye-open, .icon-eye-closed, .icon-flandern, .icon-directions,
+.icon-bronnen, .icon-info, .icon-help, .icon-law, .icon-printer, .icon-tool, .icon-swap, .icon-share, .icon-screen, 
+.icon-reset, .icon-pin, .icon-overiewmap, .icon-area, .icon-parcell, .icon-search-result, .icon-mail, .icon-link, 
+.icon-layer-managment, .icon-historic-maps, .icon-hinderen, .icon-handle, .icon-hand, .icon-overview, .icon-closing_x, 
+.icon-point, .icon-viewer-max, .icon-viewer-min, .icon-height-profile, .icon-agiv-play, .icon-agiv-pause , .icon-hoogte-detail3, 
+.icon-hoogte-detail2, .icon-hoogte-detail1, .icon-staand, .icon-liggend, .icon-external-link, .icon-arrow-rounded-right, .icon-phone, 
+.icon-coordinateviewer, .icon-agiv-coordinate, .icon-agiv-distance, .icon-agiv-area, .icon-agiv-error, .dijitIcon.icon-capakey{
+    font-family: 'agivUiFont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add-comment:before {
+    content: "\e600";
+}
+.icon-apps:before {
+    content: "\e601";
+}
+.icon-bookmarkings:before {
+    content: "\e602";
+}
+.icon-eye-open:before {
+    content: "\e603";
+}
+.icon-eye-closed:before {
+    content: "\e604";
+}
+.icon-flandern:before {
+    content: "\e605";
+}
+.icon-directions:before {
+    content: "\e606";
+}
+.icon-bronnen:before {
+    content: "\e607";
+}
+.icon-info:before {
+    content: "\e608";
+}
+.icon-info-italic:before {
+    content: "i";
+    font-style: italic;
+    font-weight: bold;
+}
+.icon-help:before {
+    content: "\e609";
+}
+.icon-law:before {
+    content: "\e60a";
+}
+.icon-printer:before {
+    content: "\e60b";
+}
+.icon-tool:before {
+    content: "\e60c";
+}
+.icon-swap:before {
+    content: "\e60d";
+}
+.icon-share:before {
+    content: "\e60e";
+}
+.icon-screen:before {
+    content: "\e60f";
+}
+.icon-reset:before {
+    content: "\e610";
+}
+.icon-pin:before {
+    content: "\e611";
+}
+.icon-overiewmap:before {
+    content: "\e612";
+}
+.icon-area:before {
+    content: "\e613";
+}
+.icon-parcell:before {
+    content: "\e614";
+}
+.icon-search-result:before {
+    content: "\e615";
+}
+.icon-mail:before {
+    content: "\e616";
+}
+.icon-link:before {
+    content: "\e617";
+}
+.icon-layer-managment:before {
+    content: "\e618";
+}
+.icon-historic-maps:before {
+    content: "\e619";
+}
+.icon-hinderen:before {
+    content: "\e61a";
+}
+.icon-handle:before {
+    content: "\e61b";
+}
+.icon-hand:before {
+    content: "\e61c";
+}
+.icon-overview:before {
+    content: "\e61d";
+}
+.icon-closing_x:before {
+    content: "\e61e";
+}
+.icon-point:before {
+    content: "\e61f";
+}
+.icon-viewer-max:before {
+    content: "\e620";
+}
+.icon-viewer-min:before {
+    content: "\e621";
+}
+.icon-height-profile:before {
+    content: "\e622";
+}
+.icon-agiv-play:before {
+    content: "\e623";
+}
+.icon-agiv-pause:before {
+    content: "\e624";
+}
+.icon-hoogte-detail3:before {
+	content: "\e625";
+}
+.icon-hoogte-detail2:before {
+	content: "\e626";
+}
+.icon-hoogte-detail1:before {
+	content: "\e627";
+}.icon-staand:before {
+	content: "\e628";
+}
+.icon-liggend:before {
+	content: "\e629";
+}
+.icon-external-link:before {
+	content: "\e62a";
+}
+.icon-arrow-rounded-right:before {
+	content: "\e62b";
+}
+.icon-phone:before {
+	content: "\e62c";
+}
+.icon-coordinateviewer:before {
+	content: "\e62d";
+}
+.icon-agiv-coordinate:before {
+	content: "\e62e";
+}
+.icon-agiv-distance:before {
+	content: "\e62f";
+}
+.icon-agiv-area:before {
+	content: "\e630";
+}
+
+.icon-agiv-error:before {
+    content: "\e631";
+}
+
+.icon-capakey:before{
+	  content: "\e632";
+}
+
+.icon-capakey:after{
+	  content: "\e633";
+}

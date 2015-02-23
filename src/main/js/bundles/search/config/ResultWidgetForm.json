@@ -1,0 +1,22 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "checkbox",
+            "title": "${menu.resultwidget.highlight}",
+            "field": "highlightMatch"
+        },
+        {
+            "type": "checkbox",
+            "title": "${menu.resultwidget.closeOnBlur}",
+            "field": "closeResultsOnBlur"
+        }
+    ]
+}

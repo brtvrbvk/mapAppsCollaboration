@@ -1,0 +1,31 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .dijitMenuPreviousButton, 
+    .dijitMenuNextButton {
+        display: none;
+    }
+    .dijitSelectMenu{
+        border: none;
+        background: #E5E5E5;
+    }
+    .dijitSelectMenu .dijitMenuItemHover td{
+        color: @text-color;
+    }
+    .dijitSelectMenu .dijitMenuItemSelected,
+    .dijitSelectMenu .dijitMenuItemHover{
+        background: @agiv-light-grey;
+        td{
+            color: @hovered-text-color;
+            border-color: @hovered-text-color;
+        }
+    }
+
+    
+    .dijitSelectMenu .dijitMenuItemHover td,
+    .dijitComboBoxMenu .dijitMenuItemHover{
+        background-color: @agiv-dark-grey;
+        color: @hovered-text-color
+    }
+    
+}

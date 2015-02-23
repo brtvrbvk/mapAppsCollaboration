@@ -1,0 +1,383 @@
+{
+    "Bundle-SymbolicName": "sharemap",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["parameter, URL"],
+    "Bundle-StartLevel": 2,
+    "Config-Bundle-Location": "/config",
+
+    "Require-Bundle": [
+        {
+            "name": "statestoring",
+            "version": "[4.0.0,)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "ShareUrlProvider",
+            "impl": "ct/Stateful",
+            "provides": ["sharemap.ShareUrlProvider"],
+            "propertiesConstructor": true,
+            "properties": {
+                "shareUrl": "http://www.beta.geopunt.be/kaart?viewer_url="
+            }
+        },
+
+        {
+            "name": "MailSharer",
+            "impl": "sharemap/Sharer",
+            "provides": ["sharemap.MailSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "service": "mailto:?body=${url}",
+                "textTemplate": "",
+                "useLocal": true,
+                "encodeCompleteURL": true,
+                "eventType": "SHARING_EMAIL"
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "shareUrlProvider",
+                    "providing": "sharemap.ShareUrlProvider"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "SendEMailTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareMailTool",
+                "title": "${ui.sendMail}",
+                "tooltip": "${ui.sendMail}",
+                "iconClass": "icon-mail",
+                "clickHandler": "share",
+                "priority": 1,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.MailSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "FacebookSharer",
+            "impl": "sharemap/Sharer",
+            "provides": ["sharemap.FacebookSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "service": "https://www.facebook.com/sharer/sharer.php?u=${url}&text=${text}",
+                "textTemplate": "",
+                "encodeCompleteURL": true,
+                "eventType": "SHARING_FACEBOOK"
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "shareUrlProvider",
+                    "providing": "sharemap.ShareUrlProvider"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ShareFacebookTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareFacebookTool",
+                "title": "${ui.facebook}",
+                "tooltip": "${ui.facebook}",
+                "iconClass": "icon-link",
+                "clickHandler": "share",
+                "priority": 2,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.FacebookSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "GooglePlusSharer",
+            "impl": "sharemap/Sharer",
+            "provides": ["sharemap.GooglePlusSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "service": "https://plus.google.com/share?url=${url}&text=${text}",
+                "textTemplate": "",
+                "encodeCompleteURL": true,
+                "eventType": "SHARING_GOOGLEPLUS"
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "shareUrlProvider",
+                    "providing": "sharemap.ShareUrlProvider"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ShareGooglePlusTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareGooglePlusTool",
+                "title": "${ui.googleplus}",
+                "tooltip": "${ui.googleplus}",
+                "iconClass": "icon-link",
+                "clickHandler": "share",
+                "priority": 3,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.GooglePlusSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "TwitterSharer",
+            "impl": "sharemap/Sharer",
+            "provides": ["sharemap.TwitterSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "service": "https://twitter.com/share?url=${url}&text=${text}",
+                "textTemplate": "Hey, check deze kaart op geopunt.be!",
+                "encodeCompleteURL": true,
+                "eventType": "SHARING_TWITTER"
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "shareUrlProvider",
+                    "providing": "sharemap.ShareUrlProvider"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ShareTwitterTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareTwitterTool",
+                "title": "${ui.twitter}",
+                "tooltip": "${ui.twitter}",
+                "iconClass": "icon-link",
+                "clickHandler": "share",
+                "priority": 4,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.TwitterSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "URLSharer",
+            "provides": ["sharemap.URLSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "encodeCompleteURL": true
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "shareUrlProvider",
+                    "providing": "sharemap.ShareUrlProvider"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ShareUrlTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareUrlTool",
+                "title": "${ui.url}",
+                "tooltip": "${ui.url}",
+                "iconClass": "icon-link",
+                "clickHandler": "share",
+                "priority": 5,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.URLSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "MinimapSharer",
+            "provides": ["sharemap.MinimapSharer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "encodeCompleteURL": false,
+                "infoURL": "http://www.beta.geopunt.be/over-geopunt/hoe-geopunt-gebruiken/disclaimer",
+                "shareUrl": "http://maps.geopunt.be/resources/apps/Minimaps_interface/index.html?id="
+            },
+            "references": [
+                {
+                    "name": "dbStorer",
+                    "providing": "statestoring.DBStateStorer"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "minimapInfoTool",
+                    "providing": "sharemap.MinimapInfoTool",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ShareMinimapTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "shareMinimapTool",
+                "title": "${ui.minimap}",
+                "tooltip": "${ui.minimap}",
+                "iconClass": "icon-link",
+                "clickHandler": "share",
+                "priority": 6,
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.MinimapSharer"
+                }
+            ]
+        },
+
+        {
+            "name": "MinimapInfoTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "sharemap.MinimapInfoTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "minimapInfoTool",
+                "title": "${ui.minimapHelp}",
+                "tooltip": "${ui.minimapHelp}",
+                "iconClass": "icon-help",
+                "clickHandler": "help",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "sharemap.MinimapSharer"
+                }
+            ]
+        }
+    ]
+}

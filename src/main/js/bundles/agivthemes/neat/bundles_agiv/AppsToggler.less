@@ -1,0 +1,54 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .ctAppsDropDownToggler{
+        .dijitButtonNode{
+            .box-sizing(border-box);
+            border: 3px solid @primary-color;
+            border-top: none;
+        }
+        .dijitIcon{
+            width: 109px;
+            height: 35px;
+            background-position: 0 -4px;
+            background-repeat: no-repeat;
+        }
+        &.dijitHover .dijitButtonNode{
+            background-color: @primary-color;
+        }
+    }
+    .ctAppsDropDownList.ctShrinkingDropDownMenu {
+        margin-top: -6px;
+        .dijitMenuTable{
+            table-layout: fixed;
+            width: (@ct-toggler-width);
+            border-left: 3px solid @primary-color !important;
+            border-right: 3px solid @primary-color !important;
+        }
+        .dijitMenuItem{
+            display: block; height: 63px; // fix for FF that calculates the height if the Table_Row erroneously because of switching the order of label and Image
+            &.dijitMenuItemHover,
+            &.dijitFocused{
+                background-color: @primary-color;
+            }
+        }
+        .dijitMenuItemLabel {
+            //convention: images are 110px X 40px
+            display: block;
+            //width: (@ct-toggler-width - 8px);
+            height: 14px;
+            background-size: auto 40px;
+            background-repeat: no-repeat;
+            padding-top: 42px;
+            border-color: @primary-color;
+            border-bottom-width: 2px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    &.ctEnv_IE_8  .ctAppsDropDownList.ctShrinkingDropDownMenu .dijitMenuItemLabel{
+        //IE8 doesn't understand background-size so we center the bg Image manually.
+        background-position: 0 0;
+
+    }
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+<head>
+    <title>Toolsetconfiguration TestPage</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../../../../prj/agiv/layout/themes/night/night.css"/>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../../../../bundles/base/themes/themes/nightbuilder/nightbuilder.css"/>
+    <!--        <link rel="stylesheet" type="text/css" href="../../../../../bundles/base/themes/themes/pure/pure.css"/>-->
+
+    <script type="text/javascript">
+        var dojoConfig = {
+            parseOnLoad: false,
+            async: true,
+            isDebug: true,
+            baseUrl: "../../../../../../",
+            tlmSiblingOfDojo: false,
+            packages: [
+                { name: "dojo", location: "dojo" },
+                { name: "dijit", location: "dijit" },
+                { name: "dojox", location: "dojox" },
+                { name: "ct", location: "ct" },
+                { name: "esri", location: "esri" },
+                { name: "xstyle", location: "xstyle" },
+                { name: "config", location: "prj/agiv/bundles/genericidentify/config/"},
+                { name: "dataform", location: "bundles/base/dataform"},
+                { name: "wizard", location: "bundles/builder/wizard"},
+                { name: "windowmanager", location: "bundles/base/windowmanager"}
+            ]
+        }
+    </script>
+    <script type="text/javascript"
+            src="../../../../../../dojo/dojo.js"></script>
+    <script type="text/javascript">
+        require([
+            "dojo/ready",
+            "config/MapModelStoreBuilderWidget",
+            "dataform/DataFormService",
+            "dataform/JsonFormBuilderResolver",
+            "dataform/ObjectBindingResolver",
+            "dojo/data/ObjectStore",
+            "dojo/store/Memory",
+            "dijit/tree/ForestStoreModel",
+        ], function (
+                ready,
+                MapModelStoreBuilderWidget,
+                DataFormService,
+                JsonFormBuilderResolver,
+                ObjectBindingResolver,
+                ObjectStore,
+                Memory,
+                ForestStoreModel
+                ) {
+
+            ready(function () {
+
+                var dataformService = new DataFormService({
+                    builderResolver: [new JsonFormBuilderResolver()],
+                    bindingResolver: [new ObjectBindingResolver()]
+                });
+
+                var services = [
+                    {
+                        "id": "agivService",
+                        "type": "AGS_DYNAMIC",
+                        //        "url":"http://nlbtest.agiv.be/ArcGIS/rest/services/RVVDev/MapServer",
+                        "url": "thtp://ws.agiv.be/ArcGIS/rest/services/RVV/MapServer",
+                        "children": [
+                            {
+                                "id": "Refgem",
+                                "service": "administrative_units"
+                            },
+                            {
+                                "id": "Refget",
+                                "service": "administrative_units"
+                            },
+                            {
+                                "id": "0",
+                                "title": "test",
+                                "service": "administrative_units"
+                            },
+                            {
+                                "id": "2"
+                            },
+                            {
+                                "id": "3"
+                            },
+                            {
+                                "id": "14"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "agivService_wms",
+                        "type": "WMS",
+                        "url": "http://ogc.beta.agiv.be/ogc/wms/RVV",
+                        "children": [
+                            {
+                                "id": "1"
+                            },
+                            {
+                                "id": "26"
+                            },
+                            {
+                                "id": "27"
+                            },
+                            {
+                                "id": "0"
+                            },
+                            {
+                                "id": "2"
+                            },
+                            {
+                                "id": "3"
+                            },
+                            {
+                                "id": "4"
+                            },
+                            {
+                                "id": "15"
+                            },
+                            {
+                                "id": "16"
+                            },
+                            {
+                                "id": "17"
+                            },
+                            {
+                                "id": "18"
+                            },
+                            {
+                                "id": "19"
+                            },
+                            {
+                                "id": "20"
+                            },
+                            {
+                                "id": "21"
+                            },
+                            {
+                                "id": "22"
+                            },
+                            {
+                                "id": "23"
+                            },
+                            {
+                                "id": "24"
+                            }
+                        ]
+                    }
+                ];
+
+                var layerTypeMapping = [
+                    {
+                        "layerId": "Refgem",
+                        "serviceId": "administrative_units",
+                        "ignoreAttributes": "ID,GEOMETRY",
+                        "mapping": [
+                            {
+                                "attributeName": "SHAPE",
+                                "displayName": "Length1",
+                                "index": 2
+                            },
+                            {
+                                "attributeName": "IDDD",
+                                "displayName": "Identifier1",
+                                "index": 4
+                            },
+                            {
+                                "attributeName": "AREAAAA",
+                                "displayName": "Area1",
+                                "index": 1
+                            }
+                        ]
+                    },
+                    {
+                        "layerId": "Refget",
+                        "serviceId": "administrative_units",
+                        "ignoreAttributes": "ID",
+                        "mapping": [
+                            {
+                                "attributeName": "UUUID",
+                                "displayName": "ID"
+                            },
+                            {
+                                "attributeName": "IDDD",
+                                "displayName": "Identifier"
+                            },
+                            {
+                                "attributeName": "GEOMETRY",
+                                "displayName": "Geometry"
+                            }
+                        ]
+                    }
+                ];
+
+                var generalTypeMapping = {
+                    "ignoreAttributes": "UIDN,GEOMID",
+                    "mapping": [
+                        {
+                            "attributeName": "SHAPE.STLength",
+                            "displayName": "Length"
+                        },
+                        {
+                            "attributeName": "OIDN",
+                            "displayName": "Identifier"
+                        },
+                        {
+                            "attributeName": "SHAPE.STArea",
+                            "displayName": "Area"
+                        }
+                    ]
+                }
+
+                var widget = new MapModelStoreBuilderWidget({
+                    dataFormService: dataformService
+                });
+
+                var memory = new Memory({
+                    data: services
+                });
+
+                var store = new ObjectStore({
+                    objectStore: memory,
+                    labelProperty: "title"
+                });
+
+                var serviceTreeModel = new ForestStoreModel({
+                    store: store,
+                    childrenAttrs: ["children"],
+                    mayHaveChildren: function (item) {
+                        return item.isService;
+                    }
+                });
+
+                widget.set("generalTypeMapping", generalTypeMapping);
+                widget.set("layerTypeMapping", layerTypeMapping);
+                widget.set("serviceTreeModel", serviceTreeModel);
+                widget.placeAt("widget").startup();
+                widget.resize({
+                    w: 900, h: 1150
+                });
+
+            });
+        });
+
+    </script>
+</head>
+<body class="night">
+<div class="nightbuilder ctBuilderWindowRoot">
+    <div class="ctAppBuilderWindow">
+        <div id="widget"
+             style="width:900px; height:1150px; background-color: #585A58;"></div>
+    </div>
+</div>
+</body>
+</html>

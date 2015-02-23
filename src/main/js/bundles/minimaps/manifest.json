@@ -1,0 +1,36 @@
+{
+    "Bundle-SymbolicName": "minimaps",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "minimaps",
+    "Bundle-Description": "",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": [""],
+    "Bundle-Localization": [],
+    "Bundle-Main": "",
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    //"Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+
+    ],
+    "Components": [
+        {
+            "name": "MiniMapsEventTracker",
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

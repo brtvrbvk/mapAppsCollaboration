@@ -1,0 +1,51 @@
+{
+    "Bundle-SymbolicName": "scaleviewer",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["mapping"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "splitviewmap",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "ScaleViewerFactory",
+            "impl": "scaleviewer/ScaleViewer",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "scaleviewer"
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "1..1"
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "cardinality": "0..1"
+                }
+            ]
+        }
+    ]
+}

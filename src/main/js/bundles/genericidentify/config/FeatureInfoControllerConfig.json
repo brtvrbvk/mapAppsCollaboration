@@ -1,0 +1,28 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "textbox",
+            "title": "${featureInfoContent.url}",
+            "field": "municipalityLink",
+            "size": {
+                "w": 500
+            }
+        },
+        {
+            "type": "textbox",
+            "title": "${featureInfoContent.year}",
+            "field": "year",
+            "size": {
+                "w": 500
+            }
+        }
+    ]
+}

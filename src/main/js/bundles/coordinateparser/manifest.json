@@ -1,0 +1,81 @@
+{
+    "Bundle-SymbolicName": "coordinateparser",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "coordinateparser",
+    "Bundle-Description": "",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": [""],
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    //"Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+
+    ],
+    "Components": [
+        /*
+         * COORDINATE PARSERS
+         */
+        {
+            "name": "WGS84Parser",
+            "provides": [
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "priority": 35,
+                "template": "${y}\u00B0 - ${x}\u00B0",
+                "decimals": 4,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleValueChange"
+                    },
+                    {
+                        "topic": "agiv/search/result/REHANDLE",
+                        "method": "_rehandleResult"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "BelgianLambert72Parser",
+            "provides": [
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "priority": 36,
+                "template": "${x} m - ${y} m",
+                "decimals": 2,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleValueChange"
+                    },
+                    {
+                        "topic": "agiv/search/result/REHANDLE",
+                        "method": "_rehandleResult"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

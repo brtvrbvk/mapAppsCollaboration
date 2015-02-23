@@ -1,0 +1,58 @@
+<div class="fullwidthAndHeight">
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="gutters:false,design:'headline','class':'mainMap fullwidthAndHeight'">
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="gutters:false,region:'center','class':'mainMap fullwidthAndHeight'">
+            <div data-dojo-type="ct/ui/template/OverlayContainer"
+                 data-dojo-props="region:'center'">
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-attach-point="map"></div>
+                <div class="mainMapControls">
+                    <div data-dojo-type="windowmanager/WindowDockingBar"
+                         id="${id}-dockingBarBottom"
+                         data-dojo-props="'class':'miniToolDock',toggleMode:false"></div>
+                    <!--                    <div class="search" data-dojo-attach-point="search">
+                                            <div class="searchinput" data-dojo-attach-point="searchInput"></div>
+                                        </div>
+                                        <div class="searchresultlist" data-dojo-attach-point="searchresultlist"></div>-->
+
+                    <div class="search"
+                         data-dojo-attach-point="search">
+                        <div data-dojo-attach-point="searchInput"></div>
+                        <div class="searchresultlist"
+                             data-dojo-attach-point="searchresultlist"></div>
+                    </div>
+
+
+                    <div class="mapLoadingInfo"
+                         data-dojo-attach-point="mapLoadingInfo"></div>
+                    <div class="copyright"
+                         data-dojo-attach-point="copyright"></div>
+                </div>
+                <div class="overlayFooter">
+                    <table class="fullwidthAndHeight">
+                        <tr>
+                            <td align="left"
+                                style="width: 66px;"><a target="_blank"
+                                                        href="@@applicationURL.geopunt@@"
+                                                        class="minimapLogo"></a></td>
+                            <td align="left">
+                                <div data-dojo-props="'class':'scaleBar'"
+                                     data-dojo-attach-point="scaleBar"></div>
+                            </td>
+                            <td align="right"><a target="_blank"
+                                                 href="@@applicationURL.geopunt@@/over-geopunt/hoe-geopunt-gebruiken/disclaimer">${i18n.termsofuse.linklabel}</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-dojo-attach-point="legend"
+         class="dijitHidden"
+         data-template-window="title:'${i18n.legend.title}',dockable:true,dockingBar:'${id}-dockingBarBottom',dockTool:'legendToggleTool',marginBox:{w:270,h:300,l:60,t:75},fixEdgesInViewPort:{l:false,t:false},maximizable:false,closable:true,minimizeOnClose:true,resizable:true,minSize:{w:150,h:150},dndDraggable:false,windowClass:'ctWindowEffect'"
+         windowEvents="onShow:'show',onHide:'hide'"></div>
+
+</div>

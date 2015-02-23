@@ -1,0 +1,3 @@
+define([
+    "./CommonIDTests"
+], 1);

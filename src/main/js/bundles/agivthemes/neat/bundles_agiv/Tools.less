@@ -1,0 +1,414 @@
+@import "../themeSettings.less";
+@tool-radius: 26px;
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .ctTool .dijitButtonNode{
+        text-transform: none;
+    }
+    //ToolsetDesign
+    .ctToolWindow{
+        .ctWindowPadding .ctWindowContentPadding{
+            background-color: transparent;
+        }
+        .ctTool .dijitButtonNode,
+        .ctTool.dijitHover .dijitButtonNode,
+        .ctWindowContentPadding .ctTool .dijitButtonNode,
+        .ctWindowContentPadding .ctTool.dijitHover .dijitButtonNode{
+            background: @container-background-color none;
+        }
+        .ctWindowContentPadding .ctTool .dijitIcon {
+            font-size: @ct-icon-large - 5px;
+            line-height: 1.8;            
+        }
+        .ctCollapseInnerHandle,
+        &.ctCollapsable {
+            background-color: @primary-color;
+        }
+        &.ctContainerItem.ctCollapsing{
+            background-color: @primary-color;
+        }
+        .ctCollapseOpposite,
+        .ctWindowContentPadding .ctTool {
+            border-top: 4px solid @primary-color;
+            border-bottom: 4px solid @primary-color;
+        }
+        .ctTool .dijitButtonNode .dijitIcon{
+            border-left: 1px solid @primary-color;
+            border-right: 1px solid @primary-color;
+        }
+        .ctCollapseGrid .ctCollapseOpposite{
+            .border-radius(100%);
+            border-right: 1px solid @primary-color;
+        }
+    }
+
+    .map .ctToolWindow .ctWindowPadding .ctWindowContentPadding{
+        background-color: @pane-background-color;
+    }
+    .ctToolWindow.draggable{
+        .ctWindowContentPadding .ctTool {
+            margin: 3px;
+            .dijitButtonNode{
+                .border-radius(100%);
+            }
+        }
+        .ctTool.dijitHover .dijitButtonNode,
+        .ctTool.dijitChecked .dijitButtonNode{
+            .box-shadow-none();
+        }
+    }
+    //Tools in DockingBar
+    .ctWindowDockingBar.ctToolContainer {
+        .ctWindowTabButton{
+            border: none;
+            padding: 0 5px;
+            height: auto;
+            .dijitButtonNode{
+                padding: 0;
+            }
+        }
+        .ctTool{
+            .dijitButtonNode{
+                .transition(all, .2s, ease-out);
+                background-color: white;
+                .border-radius(@tool-radius);
+                border: 3px solid @primary-color;
+            }
+            .dijitIcon{
+                font-size: @ct-icon-large - 5px;
+                line-height: 1.8;
+            }
+            &.dijitHover .dijitButtonNode,
+            &.dijitToggleButtonChecked .dijitButtonNode{
+                .transition(all, .2s, cubic-bezier(.17,.67,.74,1.53));
+                border-color: @text-color;
+            }
+        }
+    }
+    //enabling buttonText
+    .footer{
+        .ctTool{
+            .dijitButtonText{
+                position: absolute;
+                display: block;
+                font-size: 0.8em;
+                letter-spacing: -0.12em;
+                width: 51px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                bottom: -13px;
+                left: 3px;
+            }
+            &.dijitButtonHover,
+            &.dijitToggleButtonHover,
+            &.dijitToggleButtonChecked{
+                .dijitButtonNode{
+                    color: @ct-button-text-color;
+                }
+            }
+        }
+        .legalInfos .ctTool,  //used as hook point for rvv app
+        .ctToolWindow .ctTool{
+            margin: 4px;
+            padding: 0 5px;
+        }
+        .ctCollapsable.ctToolWindow .ctCollapseOpposite{
+            .border-radius(0,0,100%,100%);
+            border: none;
+            background-color: @primary-color;
+            .ctCollapseInnerHandle{
+                border-radius: 100%;
+                background-color: #FFF;
+                &:before{
+                    line-height: .6;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    //generally remove buttonTexts and margin/Padding from Tools that are inside a collapseToolset
+    .ctCollapsable.ctToolWindow{
+        .ctTool{
+            margin: 0;
+            padding: 0;
+            .dijitButtonText{
+                display: none;
+            }
+        }
+    }
+    .header{
+        //tools in header are slightly smaller
+        .share_tools.dijitDropDownButton,  //used as hook point for rvv app
+        .legalInfos .ctTool,  //used as hook point for rvv app
+        .ctToolWindow .ctWindowContentPadding .ctTool{
+            margin: 0 4px;
+            padding: 0 5px;
+            .dijitIcon{
+                .size(35px);
+                font-size: 18px;
+                line-height: 2;
+            }
+        }
+    }
+    .ctToolWindow.fixedNoTitle{
+        .dijitDialogPaneContent{
+            overflow: visible;
+        }
+        .ctTool{
+            position: relative;
+            .dijitButtonText{
+                bottom: -14px;
+            }
+        }
+    }
+    .legalInfos .dijitButtonNode ,  //used as hook point for rvv app
+    .ctToolWindow.fixedNoTitle .ctWindowContentPadding{
+        .ctTool .dijitButtonNode{
+            border: 3px solid @primary-color;
+        }
+    }
+    .legalInfos,  //used as hook point for rvv app
+    .ctToolWindow .ctWindowContentPadding{
+        .ctTool{
+            border: none;
+            height: auto;
+        }
+        .ctTool .dijitButtonNode{
+            .transition(all, .2s, ease-out);
+            background-color: white;
+            .border-radius(@tool-radius);
+        }
+        .ctTool .dijitButtonNode .dijitIcon{
+            border: none;
+        }
+        .ctTool.dijitHover .dijitButtonNode,
+        .ctTool.dijitToggleButtonChecked .dijitButtonNode{
+            .transition(all, .2s, cubic-bezier(.17,.67,.74,1.53));
+            border-color: @text-color;
+        }
+    }
+    .ctToolWindow.ctHorizontalCollaps{
+        .ctCollapseGrid .ctCollapseOpposite{
+            border-bottom: 1px solid  @primary-color;
+            border-top: 1px solid  @primary-color;
+            .border-radius(0);
+            background-color: @primary-color;
+            .ctCollapseInnerHandle{
+                border-radius: 100%;
+                background-color: #FFF;
+            }
+        }
+        .ctToolContainer{
+            border-bottom: 1px solid  @primary-color;
+            border-top: 1px solid  @primary-color;
+        }
+        .ctCollapseHandleRight{
+            background-color: @primary-color;
+            .border-radius(0, @tool-radius+9px,@tool-radius+9px,0);
+            right: -17px;
+            .size(17px,100%);
+            .ctCollapseInnerHandle{
+                height: 100%;
+            }
+        }
+        .ctCollapsable.ctToolWindow .ctCollapseOpposite{
+            .border-radius(0,0,100%,100%);
+            border: none;
+        }
+        &.ctCollapsed .ctCollapseGrid .ctCollapseHandleRight.ctCollapseInnerHandle{
+            background-position: -1409px -220px;
+        }    
+    }
+    .ctToolWindow.ctVerticalCollaps{
+        .ctCollapseHandleTop{
+            top: -17px;
+            .size(46px,17px);
+            .border-radius(@tool-radius+8px,@tool-radius+8px,0,0);
+            .ctCollapseInnerHandle{
+                height: 100%;
+                .border-radius(@tool-radius+9px,@tool-radius+9px,0,0);
+            }
+        }
+        &.ctCollapsed .ctCollapseGrid .ctCollapseHandleTop .ctCollapseInnerHandle{
+            background-position: -1409px -220px;
+        }    
+    }
+    //overwritings against windowDockingBar which hides ButtonTexts for buttons within dockingbar for IE8 and 7
+    &.ctEnv_IE_7 .ctWindowTabButton.dijitToggleButton .dijitButtonText, 
+    &.ctEnv_IE_8 .ctWindowTabButton.dijitToggleButton .dijitButtonText{
+        display: inline-block;
+        width: 51px;
+    }    
+    &.ctEnv_IE_7&.ctTpl_minimaps .ctWindowTabButton.dijitToggleButton .dijitButtonText, 
+    &.ctEnv_IE_8&.ctTpl_minimaps .ctWindowTabButton.dijitToggleButton .dijitButtonText{
+        display: none;
+    }
+    .ctTransparencyWindow .dijitSliderProgressBar{
+        background: transparent none;
+    }
+    .ctTransparencyWindow .dijitSliderBumper.dijitSliderBumperH,
+    .ctTransparencyWindow .dijitSliderBarContainerH,
+    .dijitSliderHover .dijitSliderRemainingBarH, 
+    .dijitSliderHover .dijitSliderRightBumper,
+    .dijitSliderFocused .dijitSliderRemainingBarH, 
+    .dijitSliderFocused .dijitSliderRightBumper{
+        background: rgb(204,204,204); /* Old browsers */
+        /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top,  rgba(204,204,204,1) 0%, rgba(237,237,237,1) 33%, rgba(255,255,255,1) 67%, rgba(230,230,230,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,204,204,1)), color-stop(33%,rgba(237,237,237,1)), color-stop(67%,rgba(255,255,255,1)), color-stop(100%,rgba(230,230,230,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(237,237,237,1) 33%,rgba(255,255,255,1) 67%,rgba(230,230,230,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(237,237,237,1) 33%,rgba(255,255,255,1) 67%,rgba(230,230,230,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(237,237,237,1) 33%,rgba(255,255,255,1) 67%,rgba(230,230,230,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(204,204,204,1) 0%,rgba(237,237,237,1) 33%,rgba(255,255,255,1) 67%,rgba(230,230,230,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-8 */
+    }
+    .ctTool.flash{
+        .resetBG();
+        &:after {        
+            display: block;
+            .size(17px);
+            content: '';
+            position: relative;
+            top: -52px;
+            right: -38px;
+        }
+    }
+    // changed BG color for activated Tools footerToolGroup
+    .fixedNoTitle .ctTool.dijitToggleButtonChecked .dijitButtonNode{
+        background-color: @primary-color;
+        border-color: @text-color;
+    }
+    .footer .ctActiveTool.ctCollapsable.ctCollapsed .ctCollapseOpposite .ctCollapseInnerHandle{
+        background-color: @primary-color;
+    }
+
+    .ctToolWindow .ctWindowContentPadding .ctTool{
+        .dijitButtonNode{
+            border: 3px solid transparent;
+        }
+        &.dijitToggleButtonChecked .dijitButtonNode{
+            background-color: #fff;   
+            border: 3px solid #565659;     
+        }
+
+    }
+
+    .roundToolDropDownButton{
+        .dijitButtonNode{
+            padding: 0;
+            color: @ct-icon-color;
+            border: 3px solid @primary-color;
+            .transition(all, .2s, ease-out);
+            background-color: white;
+            .border-radius(@tool-radius);
+        } 
+        .dijitButtonText{
+            position: absolute;
+            display: block;
+            font-size: 0.8em;
+            letter-spacing: -0.12em;
+            width: 51px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            bottom: -13px;
+            left: -2px;
+        }
+        .dijitArrowButtonInner{
+            display: none;
+        }
+        .dijitIcon.dijitNoIcon{
+            font-size: 25px;
+            .size(45px);
+            line-height: 1.8;
+            display: inline-block;
+            font-family: agivUiFont;
+            &:before{
+                content: "\e60c";
+            }
+        }
+
+        &.dijitHover,
+        &.dijitOpened{
+            .dijitButtonNode{
+                color:@ct-button-text-color;
+                .transition(all, .2s, cubic-bezier(.17,.67,.74,1.53));
+                border-color: @text-color;
+            }
+        }
+    }
+    .roundToolDropDownButton.dijitMenu{
+        margin-bottom: 10px;
+        margin-left: -22px;
+        &:after{ 
+            content:'\e00b';
+            color: @agiv-light-grey;
+            .setWebFont();
+            font-size: @ct-icon-large;
+            position: absolute; left: 50%; bottom: -10px; 
+            margin-left: -28px;
+        }
+        .dijitMenuItemLabel{
+            width: 54px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: inherit;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    .ctToolBubblePopUp.dijitMenu{
+        border: none;
+        background: transparent;
+        .dijitMenuItem{
+            padding: 0;
+            background-color: @agiv-light-grey;
+            td{
+                border-bottom: 1px solid #fff;                
+            }
+            &:first-child{
+                td:first-child{
+                    .border-radius(8px,0,0,0);
+                }
+                td:last-child{
+                    .border-radius(0,8px,0,0);
+                }
+            }
+            &:last-child{
+                td{
+                    border-bottom: none;
+                }
+                td:first-child{
+                    .border-radius(0,0,0,8px);
+                }
+                td:last-child{
+                    .border-radius(0,0,8px,0);
+                }
+            }
+            &.dijitMenuItemHover{
+                background-color: lighten(@agiv-light-grey, 3%);
+                td{
+                    color: @text-color;
+                }
+            }
+        }
+        .dijitMenuItemChecked{
+            background-color: @primary-color;
+        }
+        .dijitMenuItemIconCell{
+            padding: 2px 10px;
+        }
+    }
+    //-- additional styles for minimalistic style used in miniMapTemplate
+    &.ctTpl_minimaps .ctWindowDockingBar.ctToolContainer .ctWindowTabButton {
+        .dijitButtonNode{
+            border-width: 2px;            
+        }
+        .dijitIcon {
+            .size(34px);
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+    }
+}

@@ -1,0 +1,171 @@
+//
+//    Document   : night.css
+//    Created on : 04.01.2011, 19:10:59
+//    Author     : mre
+//    Description:
+//        night style extension of dijit.
+//        it references the oringinal pure style and imports some addional styles required by api widgets.
+// Import global night theme setting like colors
+// More Information about lesscss at http://lesscss.org/
+@import "themeSettings.less";
+//*-------------------------
+//    General dojo / dijit
+//    framework  Classes
+//-------------------------*/
+@import url("dijit/dijit.css");
+@import url("../common/common.css");
+// url("dojox/grid/dojoxGrid.css");
+// url("dojox/image/ThumbnailPicker.css");
+//-------------------------
+//    General mapApps  Classes
+//-------------------------*/
+@import url("ui/ui.css");
+//-------------------------
+//    Bundle  Classes
+//-------------------------
+@import url("bundles/bundles.css");
+@import url("bundles/bundles_1.css");
+//-------------------------
+//    Project specific Bundle  Classes
+//-------------------------
+@import url("bundles_agiv/bundles.css");
+@import url("bundles_agiv/bundles_1.css");
+//-------------------------
+// Import additional map.apps WebFont
+//-------------------------
+@import url("../common/fonts/agivUiFont/agivUiFont.css");
+@import url("agiv_overlay.css");
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+    font-family: @ct-font-family;
+    &.loading {
+        cursor: progress;
+    }
+
+    .floatRight {
+        float: right;
+    }
+
+    //fixes _ div problem for AutoResizeTextBox
+    .stupidDiv {
+        display: none;
+    }
+
+    &.ctActiveTool_drawTextTool .stupidDiv {
+        display: block;
+    }
+
+    *:focus {
+        outline: none;
+    }
+
+    /*-------------------------
+        Generic Classes
+    -------------------------*/
+
+    a {
+        color: @agiv-link-color;
+        cursor: pointer;
+        font-style: normal !important;
+        text-decoration: underline !important;
+    }
+    a:hover {
+        color: darken(@agiv-link-color, 100%);
+    }
+
+    /* loading icon */
+    .ctLoading {
+        .setWebFont();
+        font-size: @ct-icon-small;
+        color: @ct-highlight-color;
+        .animation(spin, 1.5s, infinite, linear);
+        &:before {
+            content: "\e097";
+        }
+    }
+    &.ctEnv_IE_8,
+    &.ctEnv_IE_9 {
+        //as IE <10 does not know css3 animations we need to put an animated gif instead.
+        .ctLoading {
+            .size(15px);
+            background-image: url(images/loading.gif);
+            //and remove the webFontIcon
+            &:before {
+                content: "";
+            }
+        }
+    }
+    .ctMapLoadingInfo.ctLoading {
+        font-size: @ct-icon-large;
+    }
+
+    .logo .agivLogo {
+        background: url("images/agiv/agiv_logo_resize.png") center center no-repeat;
+    }
+
+    /*-------------------------
+        Header Classes
+    -------------------------*/
+
+    .header,
+    .separator {
+        // separator is used in historic app to separate both maps from each other
+        background-color: @ct-header-background-color;
+    }
+
+    .header{
+       .logo{
+         h1{
+           width: 126px;
+           height: 30px;
+           span{
+             color: @text-color;
+           }
+         }
+       }
+
+      .appTitle{
+        line-height: 2.5em;
+        white-space: normal;
+        padding-left: 10px;
+        font-weight: bold;
+        vertical-align: middle;
+
+        font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: @text-color;
+        letter-spacing: -1px;
+      }
+    }
+
+
+
+    /*-------------------------
+        Footer Classes
+    -------------------------*/
+    .footer {
+        color: @text-color;
+        background-color: @ct-footer-background-color;
+    }
+    .overlayFooter {
+        color: @text-color;
+        .fade(@ct-footer-background-color, 70);
+    }
+
+    .esriScalebarLabel.esriScalebarSecondNumber {
+        text-transform: none;
+    }
+    &.ctActiveTool_panTool .mainMap .mainMap .layersDiv {
+        cursor: url("images/handCursor.png") 11 12, url("images/handCursor.gif") 11 12, auto;
+    }
+    &.ctEnv_IE.ctActiveTool_panTool .mainMap .mainMap .layersDiv {
+        //as IE of course calculates the path of a cursor image relative to the html file, we need it to be defined seperately
+        cursor: url("js/prj/agiv/layout/themes/neat/images/handCursor.cur"), move !important;
+    }
+
+    .ctMessagePane .icon {
+        font-size: @ct-icon-small;
+    }
+
+}

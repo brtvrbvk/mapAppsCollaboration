@@ -1,0 +1,122 @@
+{
+    "Bundle-SymbolicName": "timeslider",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,)"
+        }
+    ],
+    "Components": [
+
+        {
+            "name": "TimeSliderBarFactory",
+            "provides": ["timeslider.TimeSliderBar"],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "esrimap",
+                    "providing": "esri.Map"
+                }
+            ]
+        },
+
+        {
+            "name": "ImageSelectorFactory",
+            "provides": ["timeslider.ImageSelector"],
+            "propertiesConstructor": true,
+            "instanceFactory": true
+        },
+
+        {
+            "name": "TimeSliderController",
+            "propertiesConstructor": true,
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "properties": {
+                //time for a full transition between layers in ms
+                "transitionTime": 4000
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel",
+                    "connect": {
+                        "onModelNodeStateChanged": "_onModelNodeStateChange",
+                        "onModelStructureChanged": "_onModelStructureChange"
+                    }
+                },
+                {
+                    "name": "timeSlider",
+                    "providing": "timeslider.TimeSlider"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "TimeSliderFactory",
+            "provides": [
+                "dijit.Widget",
+                "timeslider.TimeSlider"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "timeslider"
+            },
+            "references": [
+                {
+                    "name": "imageSelector",
+                    "providing": "timeslider.ImageSelector"
+                },
+                {
+                    "name": "timeSliderBar",
+                    "providing": "timeslider.TimeSliderBar"
+                },
+                {
+                    "name": "esrimap",
+                    "providing": "esri.Map"
+                }
+            ]
+        },
+
+        {
+            "name": "ResolutionCheck",
+            "immediate": true,
+            "references": [
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+
+        {
+            "name": "LegendToolRuleProcessor",
+            "provides": ["toolrules.ToolRuleProcessor"],
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "legendUI",
+                    "providing": "legend_agiv.LegendUI"
+                }
+            ]
+        }
+
+    ]
+}

@@ -1,0 +1,236 @@
+{
+    "Bundle-SymbolicName": "search-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        //we hook everything directly to the appBuilderSearchNode
+
+        // ======= Search Menu Entry ========
+        {
+            "name": "SearchBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderSearchNode",
+                "menuNode": {
+                    "title": "Main-Search config",
+                    "iconUrl": "resource('styles/images/sources.png')",
+                    "id": "searchConfigBuilderNode"
+                }
+            }
+        },
+
+        // ======= Sources Menu Entry ========
+        {
+            "name": "SourcesBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "searchConfigBuilderNode",
+                "menuNode": {
+                    "title": "Sources config",
+                    "iconUrl": "resource('styles/images/sources.png')",
+                    "id": "sourcesBuilderNode"
+                }
+            }
+        },
+
+        // ======= UI Menu Entry ========
+        {
+            "name": "UIBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "searchConfigBuilderNode",
+                "menuNode": {
+                    "title": "User interface config",
+                    "iconUrl": "resource('styles/images/ui.png')",
+                    "id": "uiBuilderNode"
+                }
+            }
+        },
+
+        // ======= SearchWidget Builder Menu Entry ========
+        {
+            "name": "SearchWidgetBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "uiBuilderNode",
+                "menuNode": {
+                    "title": "${menu.searchwidget.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "searchwidgetBuilderNode"
+                }
+            }
+        },
+
+        // ======= SearchWidget Builder Widget ========
+        {
+            "name": "SearchWidgetBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./SearchWidgetForm.json')",
+                "pid": "search-SearchWidgetController",
+                "bid": "search",
+                "id": "searchwidgetBuilderNode",
+                "defaultProperties": {
+                    "searchDelay": 300,
+                    "removeResultsOnClear": false
+                },
+                "description": "${menu.searchwidget.description}"
+//                "styleClass": "ctCoordinateViewerBuilderWidget"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        },
+
+        // ======= ResultWidget Builder Menu Entry ========
+        {
+            "name": "ResultWidgetBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "uiBuilderNode",
+                "menuNode": {
+                    "title": "${menu.resultwidget.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "resultwidgetBuilderNode"
+                }
+            }
+        },
+
+        // ======= ResultWidget Builder Widget ========
+        {
+            "name": "ResultWidgetBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./ResultWidgetForm.json')",
+                "pid": "search-ResultPanelController",
+                "bid": "search",
+                "id": "resultwidgetBuilderNode",
+                "defaultProperties": {
+                    "highlightMatch": true,
+                    "closeResultsOnBlur": true
+                },
+                "description": "${menu.resultwidget.description}"
+//                "styleClass": "ctCoordinateViewerBuilderWidget"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        },
+
+        // ======= GeometryRenderer Builder Menu Entry ========
+        {
+            "name": "SearchConfigBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "uiBuilderNode",
+                "menuNode": {
+                    "title": "${menu.geometryrenderer.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "geometryRendererBuilderNode"
+                }
+            }
+        },
+
+        // ======= GeometryRenderer Builder Widget ========
+        {
+            "name": "GeometryRendererBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": [
+                "dijit.wizard.Widget",
+                "search.config.GeometryRendererBuilderController"
+            ],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./GeometryRendererForm.json')",
+                "pid": "search-DrawGeometryEventReciever",
+                "bid": "search",
+                "id": "geometryRendererBuilderNode",
+                "defaultProperties": {
+                    "_symbolTable": {
+                        "polygon": {
+                            "color": [
+                                255,
+                                255,
+                                255,
+                                0
+                            ],
+                            "outline": {
+                                "color": [
+                                    65,
+                                    115,
+                                    255,
+                                    255
+                                ]
+                            }
+                        }
+                    },
+                    "pointZoomScale": 2500
+                },
+                "description": "${menu.geometryrenderer.description}"
+//                "styleClass": "ctCoordinateViewerBuilderWidget"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+    ]
+}

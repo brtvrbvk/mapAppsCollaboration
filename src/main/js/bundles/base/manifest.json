@@ -1,0 +1,7 @@
+{
+    "Bundle-SymbolicName": "base",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Layer": "module",
+    "Bundle-Main": "",
+    "Bundle-StartLevel": 1
+}

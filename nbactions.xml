@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-jetty</actionName>
+            <displayName>jetty</displayName>
+            <goals>
+                <goal>jetty:run</goal>
+            </goals>
+            <properties>
+                <jetty.port>9090</jetty.port>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-jetty.stop</actionName>
+            <displayName>jetty.stop</displayName>
+            <goals>
+                <goal>jetty:stop</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Compile LESS</actionName>
+            <displayName>Compile LESS</displayName>
+            <goals>
+                <goal>process-resources</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Compress and upload</actionName>
+            <displayName>Compress and upload</displayName>
+            <goals>
+                <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>compress</activatedProfile>
+                <activatedProfile>upload</activatedProfile>
+            </activatedProfiles>
+        </action>
+    </actions>

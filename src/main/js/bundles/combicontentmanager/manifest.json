@@ -1,0 +1,720 @@
+{
+    "Bundle-SymbolicName": "combicontentmanager",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["mapping"],
+
+    "Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Bundle-Layer": "module",
+
+    "Components": [
+        /*
+         * Content INFO CLICK
+         */
+        {
+            "name": "ContentInfoController",
+            "impl": "base/ui/controls/themepanel/ContentInfoController",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/contentmanager/INFO_CLICK",
+                        "method": "_handleInfoClick"
+                    }
+                ],
+                "pro": false,
+                "metadataBaseUrl": "http://www.geopunt.be/catalogus/datasetfolder/"
+            },
+            "references": [
+                {
+                    "name": "_contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentRegistrationNodeInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "NodeInfoWidget": "combicontentmanager.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "type": "NODE_INFO"
+                            }
+                        },
+                        "type": "NodeInfoWidget",
+                        "windowTitle": "Info",
+                        "window": {
+                            "closable": true,
+                            "marginBox": {
+                                "w": 350,
+                                "h": 200
+                            },
+                            "baseClass": "ctNodeInfo"
+                        },
+                        "noInfoWindow": true
+                    }
+                ]
+            }
+        },
+
+        {
+            "name": "ContentWidgetFactory",
+            "provides": "combicontentmanager.ContentWidgetFactory",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "NodeInfoWidget": {
+                        "info": "base/ui/controls/info/NodeInfoWidget"
+                    }
+                },
+                "NodeInfoWidget": {
+                    "i18n": {
+                        "ui": {
+                            "linkToMetadata": "${ui.linkToMetadata}",
+                            "scale": "${ui.scale}",
+                            "loadingMetadata": "${ui.loadingMetadata}",
+                            "noMetadata": "${ui.noMetadata}"
+                        }
+                    }
+                }
+            }
+        },
+
+        /*
+         * SEARCH INTEGRATION
+         */
+        {
+            "name": "ContentModelHandler",
+            "impl": "./searchintegration/ContentModelHandler",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "combicontentmanager.ContentModelHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleValueChange"
+                    },
+                    {
+                        "topic": "agiv/search/result/REHANDLE",
+                        "method": "_rehandleResult"
+                    }
+                ],
+                "storeQueryOptions": {
+                    "count": 5
+                },
+                "storeParameters": {
+                    "minQueryLength": 2,
+                    "synonyms": "@@agiv.services.baseurl@@/resources/synonyms"
+                }
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "model",
+                    "providing": "combicontentmanager.ContentModel",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+
+        /*
+         * SELECTION HANDLER
+         */
+
+        {
+            "name": "ContentModelLayerSelectionHandler",
+            "impl": "./searchintegration/ContentModelLayerSelectionHandler",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "_handleResultSelection"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "modelctrl",
+                    "providing": "combicontentmanager.ContentModelController",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "compareContentModelController",
+                    "providing": "combicontentmanager.CompareContentModelController",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        /*
+         COntent manager
+         */
+
+        {
+            "name": "ContentManagerUI",
+            "impl": "base/ui/controls/themepanel/ContentManagerUI",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "combiContentManager"
+            },
+            "references": [
+                {
+                    "name": "rightMapControls",
+                    "providing": "combicontentmanager.ContentPanel"
+                },
+                {
+                    "name": "leftMapControls",
+                    "providing": "combicontentmanager.CompareContentPanel",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentTreeView",
+            "impl": "base/ui/controls/themepanel/ContentPanelUIFactory",
+            "provides": ["combicontentmanager.ContentPanel"],
+            "instanceFactory": true,
+            "properties": {
+                "enablePOIHighlighting": false,
+                "treeOpts": {
+                    "showRoot": false
+                },
+                "showBottomToolbar": true,
+                "showDescription": false,
+                "description": "${ui.description.content}",
+                "expandTreePanel": true,
+                "openWindowOnNewData": true
+            },
+            "references": [
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.ContentModel"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_contentModelController",
+                    "providing": "combicontentmanager.ContentModelController"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "overlayToolbar",
+                    "providing": "overlay.Toolbar"
+                },
+                {
+                    "name": "combicontentmanagerTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=combicontentmanagerTool)"
+                },
+                {
+                    "name": "treeContent",
+                    "providing": "combicontentmanager.DrillDownContentTree"
+                }
+            ]
+        },
+
+        {
+            "name": "DrillDownContentTree",
+            "impl": "base/ui/controls/themepanel/DrillDownTreeFactory",
+            "provides": ["combicontentmanager.DrillDownContentTree"],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "model",
+                    "providing": "combicontentmanager.ContentModel"
+                }
+            ]
+        },
+
+        {
+            "name": "OverlayToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["overlay.Toolbar"],
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(|(toolRole=overlayLayermanager))"
+                }
+            ]
+        },
+
+        {
+            "name": "OverlayToolbarWithAddServiceTool",
+            "impl": "ct/tools/ToolContainer",
+            "enabled": false,
+            "provides": ["overlay.Toolbar"],
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(|(toolRole=overlayLayermanager)(id=addDynamicServiceTool))"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareOverlayToolbarWithAddServiceTool",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["overlay.CompareToolbar"],
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(|(toolRole=overlayLayermanager)(id=addDynamicCompareServiceTool))"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentModel",
+            "impl": "base/ui/controls/themepanel/ContentModelFactory",
+            "provides": ["combicontentmanager.ContentModel"],
+            "instanceFactory": true,
+            "properties": {
+                "mapModelId": "agivMapModel",
+                "serviceDefinitions": {
+                    "operationalLayer": []
+                }
+            },
+            "references": [
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+        {
+            "name": "ContentModelController",
+            "impl": "base/ui/controls/themepanel/ContentModelController",
+            "provides": [
+                "combicontentmanager.ContentModelController",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "pointZoomScale": 2500,
+                "Event-Topics": [
+                    {
+                        "topic": "ct/contentmanager/ON_CONTENTMANAGER_SHOW",
+                        "method": "activateContentManager"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_CONTENTMANAGER_HIDE",
+                        "method": "deactivateContentManager"
+                    },
+                    {
+                        "topic": "ct/poi/builder/REMOVE_ALL_LAYERS",
+                        "method": "removeAllLayers"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.ContentModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareContentTreeView",
+            "impl": "base/ui/controls/themepanel/ContentPanelUIFactory",
+            "provides": ["combicontentmanager.CompareContentPanel"],
+            "instanceFactory": true,
+            "properties": {
+                "isCompareContentPanel": true,
+                "enablePOIHighlighting": false,
+                "treeOpts": {
+                    "showRoot": false
+                },
+                "showBottomToolbar": true,
+                "showDescription": false,
+                "description": "${ui.description.content}",
+                "expandTreePanel": true
+            },
+            "references": [
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.CompareContentModel"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "splitviewmap.AgivMapState"
+                },
+                {
+                    "name": "_contentModelController",
+                    "providing": "combicontentmanager.CompareContentModelController"
+                },
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "overlayToolbar",
+                    "providing": "overlay.CompareToolbar"
+                },
+                {
+                    "name": "combicontentmanagerTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=combicontentmanagerTool)"
+                },
+                {
+                    "name": "treeContent",
+                    "providing": "combicontentmanager.CompareDrillDownContentTree"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareDrillDownContentTree",
+            "impl": "base/ui/controls/themepanel/DrillDownTreeFactory",
+            "provides": ["combicontentmanager.CompareDrillDownContentTree"],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "model",
+                    "providing": "combicontentmanager.CompareContentModel"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareContentModel",
+            "impl": "base/ui/controls/themepanel/ContentModelFactory",
+            "provides": ["combicontentmanager.CompareContentModel"],
+            "instanceFactory": true,
+            "properties": {
+                "mapModelId": "agivCompareMapModel",
+                "serviceDefinitions": {
+                    "operationalLayer": []
+                }
+            },
+            "references": [
+                {
+                    "name": "_mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+        {
+            "name": "CompareContentModelController",
+            "impl": "base/ui/controls/themepanel/ContentModelController",
+            "provides": [
+                "combicontentmanager.CompareContentModelController",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "pointZoomScale": 2500,
+                "Event-Topics": [
+                    {
+                        "topic": "ct/contentmanager/compare/ON_CONTENTMANAGER_SHOW",
+                        "method": "activateContentManager"
+                    },
+                    {
+                        "topic": "ct/contentmanager/compare/ON_CONTENTMANAGER_HIDE",
+                        "method": "deactivateContentManager"
+                    },
+                    {
+                        "topic": "ct/poi/builder/REMOVE_ALL_LAYERS",
+                        "method": "removeAllLayers"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "splitviewmap.AgivMapState"
+                },
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.CompareContentModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ParametrizedURLResolver",
+            "impl": "base/ui/controls/themepanel/ParametrizedURLResolver",
+            "immediate": true,
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "agiv.api.Persistable",
+                "agiv.api.Persistable"
+            ],
+            "references": [
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.ContentModel"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_contentModelController",
+                    "providing": "combicontentmanager.ContentModelController"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareParametrizedURLResolver",
+            "impl": "base/ui/controls/themepanel/ParametrizedURLResolver",
+            "immediate": true,
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "agiv.api.Persistable"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "decodeableProperty": "compareSon"
+            },
+            "references": [
+                {
+                    "name": "_contentModel",
+                    "providing": "combicontentmanager.CompareContentModel"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "_contentModelController",
+                    "providing": "combicontentmanager.CompareContentModelController"
+                }
+            ]
+        },
+
+        {
+            "name": "ParametrizedRedirect",
+            "impl": "base/util/ParametrizedRedirect",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "url": "/resources/apps/{id}/index.html",
+                "baseURL": "@@applicationURL@@",
+                "useStorage": true,
+                "integratedParameter": {
+                    "app": "{id}"
+                },
+                "Event-Topics": [
+                    {
+                        "topic": "ct/appsoverview/APP_SELECTED",
+                        "method": "redirect"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_parameterManager",
+                    "providing": "parametermanager.ParameterManager",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentManagerDockTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "combicontentmanagerTool",
+                "iconClass": "icon-layer-managment",
+                "title": "${ui.docktool.title}",
+                "tooltip": "${ui.docktool.tooltip}",
+                "togglable": true,
+                "rules": {
+                    "groups": "dockTools"
+                }
+            }
+        },
+
+        {
+            "name": "ToolSetter",
+            "impl": "base/ui/controls/themepanel/ToolSetter",
+            "immediate": true,
+            "properties": {
+                "openPanelOnStartup": false
+            },
+            "references": [
+                {
+                    "name": "combicontentmanagerTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=combicontentmanagerTool)"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentModelParameterResolver",
+            "impl": "base/ui/controls/themepanel/ContentModelParameterResolver",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "propertiesConstructor": true,
+            "properties": {
+                "searchTerm": "kaart"
+            },
+            "references": [
+                {
+                    "name": "_handler",
+                    "providing": "combicontentmanager.ContentModelHandler"
+                },
+                {
+                    "name": "startupMessageBox",
+                    "providing": "agiv.startupmessagebox.StartupMessageBox"
+                }
+            ]
+        },
+
+        {
+            "name": "LoadingController",
+            "impl": "base/util/LoadingController",
+            "propertiesConstructor": true,
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "loadClass": "ctMapLoading",
+                "+Event-Topics": [
+                    {
+                        "topic": "ct/map/UPDATE_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/map/UPDATE_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/doublemap/UPDATE_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/doublemap/UPDATE_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/resultcenter/datamodel/UPDATE_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/resultcenter/datamodel/UPDATE_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/selection/SELECTION_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/selection/SELECTION_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/printing/PRINTING_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/printing/PRINTING_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/featureinfo/FEATUREINFO_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/featureinfo/FEATUREINFO_END",
+                        "method": "hideLoading"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-attach-point="mainContainer"
+         data-dojo-props="design:'sidebar', gutters:false,splitter:false">
+
+        <div data-dojo-type="dijit/layout/TabContainer"
+             data-dojo-props="region:'left','class':'services'">
+
+            <div data-dojo-type="dijit/layout/BorderContainer"
+                 data-dojo-props="design:'sidebar', selected:true, gutters:false,splitter:true,'class':'services',title:'${i18n.servicesTitle}'">
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-props="region:'center','class':'content'">
+                    <div data-dojo-attach-point="_servicesTreeNode">
+                    </div>
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit/layout/BorderContainer"
+                 data-dojo-props="design:'sidebar', gutters:false,splitter:true,'class':'services',title:'${i18n.appsTitle}'">
+                .
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-props="region:'center','class':'content'">
+                    <div data-dojo-attach-point="_appsListNode">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="design:'sidebar', gutters:false,splitter:true, region:'leading','class':'categories'">
+            <!--<div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'top','class':'mapModelBuilderTitle'">
+                <h2>${i18n.categoriesTitle}</h2>
+            </div>-->
+            <!--<div data-dojo-type="dijit/layout/ContentPane" class="detailsHint" data-dojo-props="region:'top','class':'detailsHint'"></div>-->
+            <div data-dojo-type="dijit/layout/BorderContainer"
+                 data-dojo-props="gutters:false,region:'center','class':'content'">
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-props="region:'top','class':'content'">
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="'class':'categorieOperator', 'iconClass':'add'"
+                         data-dojo-attach-event="onClick:_onAddClick"></div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="'class':'categorieOperator', 'iconClass':'remove'"
+                         data-dojo-attach-event="onClick:_onRemoveClick"></div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="'class':'categorieOperator', 'iconClass':'moveUp'"
+                         data-dojo-attach-event="onClick:_onUpClick"></div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="'class':'categorieOperator', 'iconClass':'moveDown'"
+                         data-dojo-attach-event="onClick:_onDownClick"></div>
+                </div>
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-props="region:'center','class':'content'">
+                    <div data-dojo-attach-point="_categoryTreeNode">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="design:'sidebar', gutters:false,splitter:false, region:'center','class':'content'"
+             data-dojo-attach-point="_detailsContainer">
+            <!--<div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'top','class':'mapModelBuilderTitle'">
+                <h2>${i18n.detailsTitle}</h2>
+            </div>-->
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-attach-point="_detailsHintNode"
+                 data-dojo-props="region:'top','class':'detailsHint'">${i18n.detailsHint}
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'center','class':'content'">
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="label:'${i18n.fillinFromCapabilities}'"
+                     data-dojo-attach-point="_getCapNode"
+                     data-dojo-attach-event="onClick:_onGetCapClick"></div>
+                <div data-dojo-type="dijit/layout/ContentPane"
+                     data-dojo-props="region:'center','class':'content'"
+                     data-dojo-attach-point="_detailsNode"></div>
+            </div>
+        </div>
+    </div>
+</div>

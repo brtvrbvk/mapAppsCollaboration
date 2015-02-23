@@ -1,0 +1,435 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+<head>
+    <title>Toolsetconfiguration TestPage</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../../../../prj/agiv/layout/themes/night/night.css"/>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../../../../bundles/base/themes/themes/nightbuilder/nightbuilder.css"/>
+    <!--        <link rel="stylesheet" type="text/css" href="../../../../../bundles/base/themes/themes/pure/pure.css"/>-->
+
+    <script type="text/javascript">
+        var dojoConfig = {
+            parseOnLoad: false,
+            async: true,
+            isDebug: true,
+            baseUrl: "../../../../../../",
+            tlmSiblingOfDojo: false,
+            packages: [
+                { name: "dojo", location: "dojo" },
+                { name: "dijit", location: "dijit" },
+                { name: "dojox", location: "dojox" },
+                { name: "ct", location: "ct" },
+                { name: "esri", location: "esri" },
+                { name: "xstyle", location: "xstyle" },
+                { name: "config", location: "prj/agiv/bundles/combicontentmanager/config/"},
+                { name: "dataform", location: "bundles/base/dataform"},
+                { name: "wizard", location: "bundles/builder/wizard"},
+                { name: "windowmanager", location: "bundles/base/windowmanager"}
+            ]
+        }
+    </script>
+    <script type="text/javascript"
+            src="../../../../../../dojo/dojo.js"></script>
+    <script type="text/javascript">
+        require([
+            "dojo/ready",
+            "config/ContentModelBuilderWidget",
+            "dataform/DataFormService",
+            "dataform/JsonFormBuilderResolver",
+            "dataform/ObjectBindingResolver"
+        ], function (
+                ready,
+                ContentModelBuilderWidget,
+                DataFormService,
+                JsonFormBuilderResolver,
+                ObjectBindingResolver
+                ) {
+
+            ready(function () {
+
+                var dataformService = new DataFormService({
+                    builderResolver: [new JsonFormBuilderResolver()],
+                    bindingResolver: [new ObjectBindingResolver()]
+                });
+
+                var services = [
+                    {
+                        "id": "agivService",
+                        "type": "AGS_DYNAMIC",
+                        //        "url":"http://nlbtest.agiv.be/ArcGIS/rest/services/RVVDev/MapServer",
+                        "url": "thtp://ws.agiv.be/ArcGIS/rest/services/RVV/MapServer",
+                        "children": [
+                            {
+                                "id": "25"
+                            },
+                            {
+                                "id": "1"
+                            },
+                            {
+                                "id": "0",
+                                "title": "test"
+                            },
+                            {
+                                "id": "2"
+                            },
+                            {
+                                "id": "3"
+                            },
+                            {
+                                "id": "14"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "agivService_wms",
+                        "type": "WMS",
+                        "url": "http://ogc.beta.agiv.be/ogc/wms/RVV",
+                        "children": [
+                            {
+                                "id": "1"
+                            },
+                            {
+                                "id": "26"
+                            },
+                            {
+                                "id": "27"
+                            },
+                            {
+                                "id": "0"
+                            },
+                            {
+                                "id": "2"
+                            },
+                            {
+                                "id": "3"
+                            },
+                            {
+                                "id": "4"
+                            },
+                            {
+                                "id": "15"
+                            },
+                            {
+                                "id": "16"
+                            },
+                            {
+                                "id": "17"
+                            },
+                            {
+                                "id": "18"
+                            },
+                            {
+                                "id": "19"
+                            },
+                            {
+                                "id": "20"
+                            },
+                            {
+                                "id": "21"
+                            },
+                            {
+                                "id": "22"
+                            },
+                            {
+                                "id": "23"
+                            },
+                            {
+                                "id": "24"
+                            }
+                        ]
+                    }
+                ];
+
+                var opLayers = [
+                    {
+                        "id": "administrative_units",
+                        "title": "administrative_units",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.administrative_units.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/administratieve_grenzen_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "Refgew",
+                                "title": "${generic.map.operational.administrative_units.Refgew}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Refgew"]
+                            },
+                            {
+                                "id": "Watering",
+                                "title": "${generic.map.operational.administrative_units.Watering}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Watering"]
+                            },
+                            {
+                                "id": "Polder",
+                                "title": "${generic.map.operational.administrative_units.Polder}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Polder"]
+                            },
+                            {
+                                "id": "Refgem",
+                                "title": "${generic.map.operational.administrative_units.Refgem}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Refgem"]
+                            },
+                            {
+                                "id": "Refarr",
+                                "title": "${generic.map.operational.administrative_units.Refarr}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Refarr"]
+                            },
+                            {
+                                "id": "Refprv",
+                                "title": "${generic.map.operational.administrative_units.Refprv}",
+                                "service": "administrative_units",
+                                "enabled": false,
+                                "layers": ["Refprv"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "protected_areas",
+                        "title": "protected_areas",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.protected_areas.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/Beschermde_gebieden_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "ortho2",
+                                "title": "ortho2",
+                                "enabled": true,
+                                "category": {
+                                    "description": "${generic.map.operational.ortho_imagery.description}",
+                                    "imgUrl": "js/prj/agiv/apps/generic/images/ortho_prev.jpg"
+                                },
+                                "children": [
+                                    {
+                                        "id": "RGB2",
+                                        "title": "${generic.map.operational.ortho_imagery.RGB}",
+                                        "service": "ortho_imagery",
+                                        "enabled": false,
+                                        "layers": ["RGB"]
+                                    },
+                                    {
+                                        "id": "PAN2",
+                                        "title": "${generic.map.operational.ortho_imagery.PAN}",
+                                        "service": "ortho_imagery",
+                                        "enabled": false,
+                                        "layers": ["PAN"]
+                                    },
+                                    {
+                                        "id": "CIR2",
+                                        "title": "${generic.map.operational.ortho_imagery.CIR}",
+                                        "service": "ortho_imagery",
+                                        "enabled": false,
+                                        "layers": ["CIR"]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "Natres",
+                                "title": "${generic.map.operational.protected_areas.Natres}",
+                                "service": "protected_areas",
+                                "enabled": false,
+                                "layers": ["Natres"]
+                            },
+                            {
+                                "id": "Ven",
+                                "title": "${generic.map.operational.protected_areas.Ven}",
+                                "service": "protected_areas",
+                                "enabled": false,
+                                "layers": ["Ven"]
+                            },
+                            {
+                                "id": "Vogrl",
+                                "title": "${generic.map.operational.protected_areas.Vogrl}",
+                                "service": "protected_areas",
+                                "enabled": false,
+                                "layers": ["Vogrl"]
+                            },
+                            {
+                                "id": "Bosres",
+                                "title": "${generic.map.operational.protected_areas.Bosres}",
+                                "service": "protected_areas",
+                                "enabled": false,
+                                "layers": ["Bosres"]
+                            },
+                            {
+                                "id": "Habrl",
+                                "title": "${generic.map.operational.protected_areas.Habrl}",
+                                "service": "protected_areas",
+                                "enabled": false,
+                                "layers": ["Habrl"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "hydrography",
+                        "title": "hydrography",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.hydrography.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/Hydrografie_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "Wlas",
+                                "title": "${generic.map.operational.hydrography.Wlas}",
+                                "service": "hydrography",
+                                "enabled": false,
+                                "layers": ["Wlas"]
+                            },
+                            {
+                                "id": "Bekken",
+                                "title": "${generic.map.operational.hydrography.Bekken}",
+                                "service": "hydrography",
+                                "enabled": false,
+                                "layers": ["Bekken"]
+                            },
+                            {
+                                "id": "Deelbekken",
+                                "title": "${generic.map.operational.hydrography.Deelbekken}",
+                                "service": "hydrography",
+                                "enabled": false,
+                                "layers": ["Deelbekken"]
+                            },
+                            {
+                                "id": "Vhazone",
+                                "title": "${generic.map.operational.hydrography.Vhazone}",
+                                "service": "hydrography",
+                                "enabled": false,
+                                "layers": ["Vhazone"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "land_use",
+                        "title": "land_use",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.land_use.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/Bodemgebruik_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "Bos",
+                                "title": "${generic.map.operational.land_use.Bosreferentielaag}",
+                                "service": "land_use",
+                                "enabled": false,
+                                "layers": ["Bos"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "adresses",
+                        "title": "adresses",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.adresses.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/address_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "Adrespos",
+                                "title": "${generic.map.operational.adresses.Adrespos}",
+                                "service": "adresses",
+                                "enabled": false,
+                                "layers": ["Adrespos"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "height",
+                        "title": "height",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.height.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/height_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "DHM",
+                                "title": "${generic.map.operational.height.DHM}",
+                                "service": "height",
+                                "enabled": false,
+                                "layers": ["DHM"]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ortho",
+                        "title": "ortho",
+                        "enabled": true,
+                        "category": {
+                            "description": "${generic.map.operational.ortho_imagery.description}",
+                            "imgUrl": "js/prj/agiv/apps/generic/images/ortho_prev.jpg"
+                        },
+                        "children": [
+                            {
+                                "id": "RGB",
+                                "title": "${generic.map.operational.ortho_imagery.RGB}",
+                                "service": "ortho_imagery",
+                                "enabled": false,
+                                "layers": ["RGB"]
+                            },
+                            {
+                                "id": "PAN",
+                                "title": "${generic.map.operational.ortho_imagery.PAN}",
+                                "service": "ortho_imagery",
+                                "enabled": false,
+                                "layers": ["PAN"]
+                            },
+                            {
+                                "id": "CIR",
+                                "title": "${generic.map.operational.ortho_imagery.CIR}",
+                                "service": "ortho_imagery",
+                                "enabled": false,
+                                "layers": ["CIR"]
+                            }
+                        ]
+                    }
+                ];
+
+                var widget = new ContentModelBuilderWidget({
+                    dataFormService: dataformService
+                });
+                var obj = [
+                    {
+                        title: "root",
+                        id: "root1",
+                        children: opLayers
+                    }
+                ];
+                widget.createStructureTree(obj);
+                widget.createServiceTree(services);
+                widget.placeAt("widget").startup();
+                widget.resize({
+                    w: 900, h: 1150
+                });
+
+            });
+        });
+
+    </script>
+</head>
+<body class="night">
+<div class="nightbuilder ctBuilderWindowRoot">
+    <div class="ctAppBuilderWindow">
+        <div id="widget"
+             style="width:900px; height:1150px; background-color: #585A58;"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>QueryWidget Test Page</title>
+        <link rel="stylesheet" type="text/css" href="../../sample_themes/auskunfttheme/auskunfttheme.css"/>
+        <script type="text/javascript">
+            var dojoConfig = {
+                parseOnLoad: true,
+                async: true,
+                isDebug: true,
+                baseUrl: "../../",
+                tlmSiblingOfDojo: false,
+                packages: [
+                    {name: "dojo", location: "http://localhost:8080/ct-mapapps-webapp-3.1.2/resources/jsregistry/root/dojo/1.10.0"},
+                    {name: "dijit", location: "http://localhost:8080/ct-mapapps-webapp-3.1.2/resources/jsregistry/root/dijit/1.10.0"},
+                    {name: "query", location: "query"}
+                ]
+            };
+        </script>
+        <script type="text/javascript" src="http://localhost:8080/ct-mapapps-webapp-3.1.2/resources/jsregistry/root/dojo/1.10.0/dojo.js"></script>
+        <script type="text/javascript">
+            require([
+                "dojo/ready", "query/QueryWidget"
+            ], function(ready, QueryWidget) {
+                ready(function() {
+                   var queryWidget = new QueryWidget({}, "query");
+                   queryWidget.on("find", function(event){
+                       console.debug("Test page: onFind event received", event);
+                   })
+                });
+            });
+        </script>
+    </head>
+    <body class="auskunfttheme">
+        <div id="query"></div>
+    </body>
+</html>

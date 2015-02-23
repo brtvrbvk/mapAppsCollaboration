@@ -1,0 +1,589 @@
+{
+    "Bundle-SymbolicName": "pprselection",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "selection",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "resultcenter",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "geolocator",
+            "version": "[4.0.0,)"
+        },
+        {
+            "name": "patches_resultcenter",
+            "version": "[4.0.0,)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "GeolocatorStore",
+            "impl": "base/store/GeolocatorStore",
+            "provides": ["ct.api.Store"],
+            "propertiesConstructor": true,
+            "properties": {
+                "timeout": 15000,
+                "minQueryLength": 2,
+                "wkid": 4326,
+                "searchType": "locationUrl",
+                "useIn": ["pprselection"],
+                "response": {
+                    "resultArrayName": "LocationResult"
+                }
+            },
+            "references": [
+                {
+                    "name": "geolocatorUrlProvider",
+                    "providing": "agiv.geolocator.GeolocatorUrlProvider"
+                }
+            ]
+        },
+        {
+            "name": "MapServerLayerStore",
+            "provides": [
+                "ct.api.Store",
+                "pprselection.MapServerLayerStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "PPR",
+                "target": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/25",
+                "municipalityUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/27",
+                "title": "PPR",
+                "useIn": ["selection"],
+                "dateOutFields": [
+                    "startDate",
+                    "endDate"
+                ],
+                "dateFormatter": "dd.MM.yyyy",
+                "fieldMappings": {
+                    "begunstigde": "beneficiary",
+                    "soortType": "ppr_type",
+                    "id": "id",
+                    "perceelNr": "parcelID",
+                    "bdrvv": "startDate",
+                    "edrvv": "endDate",
+                    "NAAM": "municipality",
+                    "orde": "order"
+                },
+                "muniFields": {
+                    "NAAM": true
+                },
+                "outFields": {
+                    "perceelNr": true,
+                    "orde": true,
+                    "soortType": true,
+                    "begunstigde": true,
+                    "bdrvv": true,
+                    "edrvv": true,
+                    "geometry": true
+                },
+                "description": "This store contains PPRs"
+            }
+        },
+        {
+            "name": "ParcelStore",
+            "impl": "MapServerLayerStore",
+            "provides": [
+                "ct.api.Store",
+                "pprselection.ParcelStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "noPPR",
+                "target": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/2",
+                "municipalityUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/27",
+                "title": "noPPR",
+                "useIn": ["selection"],
+                "dateOutFields": [
+                    "startDate",
+                    "endDate"
+                ],
+                "dateFormatter": "dd.MM.yyyy",
+                "fieldMappings": {
+                    "NAAM": "municipality"
+                },
+                "muniFields": {
+                    "NAAM": true
+                },
+                "outFields": {
+                    "geometry": true
+                },
+                "description": "This store contains the parcel IDs"
+            }
+        },
+        {
+            "name": "PPRContentRegistration",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "PPR": "pprselection.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "content": {
+                                "OBJECTID": {
+                                    "$exists": true
+                                }
+                            }
+                        },
+
+                        "type": "PPR",
+                        "windowTitle": "${ui.content.pprinfo.title}",
+                        "windowSize": {
+                            "w": 525,
+                            "h": 150
+                        },
+                        "info": {
+                            "title": "Feature '{OBJECTID}'",
+                            //"allowedProperties" : [],
+                            "skipProperties": [],
+                            "showDetailsButton": true,
+                            "valueNotFoundString": "-"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PPRContentWidgetFactory",
+            "provides": "pprselection.ContentWidgetFactory",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "PPR": {
+                        "info": "pprselection.PPRContent"
+                        //                    "detail" : "pprselection.PPRDetailView"
+                    }
+                },
+                "ui": {
+                    "PPR": {
+                        "detailViewButtonLabel": "${ui.content.pprinfo.detailViewButtonLabel}",
+                        "beneficiary": "${ui.content.pprinfo.beneficiary}",
+                        "municipality": "${ui.content.pprinfo.municipality}",
+                        "parcelID": "${ui.content.pprinfo.parcelID}",
+                        "order": "${ui.content.pprinfo.order}",
+                        "result": "${ui.content.pprinfo.result}",
+                        "type": "${ui.content.pprinfo.type}",
+                        "startDate": "${ui.content.pprinfo.startDate}",
+                        "endDate": "${ui.content.pprinfo.endDate}"
+                    }
+                },
+                "parameters": {
+                    "PPR": {
+                        "info": {
+                            "dateFormatter": "dd/MM/yyyy"
+                        }
+                    }
+                }
+                //            "serviceDefinition" : {
+                //                "service": "agiv_wmts_bsk",
+                //                "layers" : ["*"]
+                //            }
+            },
+            "references": [
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "dataModel",
+                    "providing": "ct.resultcenter.DataModel"
+                }
+            ]
+        },
+        {
+            "name": "SelectionAction",
+            "provides": [
+                "selection.SelectionAction",
+                "pprselection.SelectionAction"
+            ],
+            "properties": {
+                "maxFeatures": -1,
+                "autoDeactivateTool": false,
+                "sortAttribute": "order",
+                "sortAscending": true
+            },
+            "references": [
+                {
+                    "name": "_logger",
+                    "providing": "ct.api.system.log.LogService",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_drawController",
+                    "providing": "pprselection.DrawStateController"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_clearHandler",
+                    "providing": "clearselection.ClearSelectionHandler",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "geocoder",
+                    "providing": "ct.api.Store",
+                    "filter": "(useIn=pprselection)"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "parcelStore",
+                    "providing": "pprselection.ParcelStore"
+                }
+            ]
+        },
+        {
+            "name": "DrawStateController",
+            "impl": "ct/mapping/edit/DrawStateController",
+            "provides": ["pprselection.DrawStateController"],
+            "properties": {
+                "-drawToolbarOpts": {
+                    "finishWithButton": true,
+                    "showTooltips": false
+                }
+            },
+            "references": [
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map"
+                }
+            ]
+        },
+        {
+            "name": "DataView",
+            "provides": [
+                "dijit.Widget",
+                "resultcenter.DataView"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "resultcenter.ui.dataView",
+                // Anchor name to use in a template
+                "widgetRole": "resultCenterPPR",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "hideEmptyTable": true,
+                "itemsPerPage": 25,
+                "DGRID": {
+                    "checkboxSelection": true, // indicates whether a CheckboxSelector is used or not
+                    "columns": [
+                        {
+                            // any field matching no rule above is used as is
+                            "matches": {
+                                "name": {
+                                    "$exists": true
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "resultcenter.DataViewToolbar",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "ParcelIdWidget",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "parcelIdWidget",
+                "parcelID": "parcelID"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "_dataModel",
+                    "providing": "ct.resultcenter.DataModel",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "AddressWidget",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "addressWidget"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "_dataModel",
+                    "providing": "ct.resultcenter.DataModel",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "LogoGeopuntPictureFactory1",
+            "impl": "base/ui/PictureFactory",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "logoGeopunt",
+                "img": "images/logo_geopunt.png",
+                "imgClass": "logoGeopunt"
+            }
+        },
+        {
+            "name": "LogoGeopuntPictureFactory2",
+            "impl": "base/ui/PictureFactory",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "logoAgiv",
+                "img": "images/agiv_logo.png",
+                "imgClass": "logoAgiv"
+            }
+        },
+        {
+            "name": "LogoGeopuntPictureFactory3",
+            "impl": "base/ui/PictureFactory",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "northArrow",
+                "img": "images/north_arrow.png",
+                "imgClass": "northArrow"
+            }
+        },
+        {
+            "name": "LogoGeopuntPictureFactory4",
+            "impl": "base/ui/PictureFactory",
+            "provides": ["dijit.Widget"],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "logoLion",
+                "img": "images/lion.png",
+                "imgClass": "logoLion"
+            }
+        },
+
+        {
+            "name": "TriggerShowResultCenter",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                // shows the result center tool if data is available
+                "showToolOnData": true,
+                // opens the result center window, if data is available
+                "autoOpen": true,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/parcelselection/HIDE_INFO",
+                        "method": "hide"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_dataModel",
+                    "providing": "ct.resultcenter.DataModel",
+                    "connect": {
+                        "onDatasourceChanged": "handleOnUpdate"
+                    }
+                },
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=PPRResultCenterToggleTool)"
+                },
+                {
+                    "name": "selectionAction",
+                    "providing": "pprselection.SelectionAction",
+                    "connect": {
+                        "onSelectionStart": "show"
+                    }
+                }
+            ]
+        },
+
+        {
+            "name": "LoadingController",
+            "impl": "base/util/LoadingController",
+            "propertiesConstructor": true,
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "loadClass": "ctRVVLoading",
+                "+Event-Topics": [
+                    {
+                        "topic": "ct/ppr/PROCESSING_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/ppr/PROCESSING_END",
+                        "method": "hideLoading"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        },
+
+        {
+            "name": "ResultCenterToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "PPRResultCenterToggleTool",
+                "title": "${ui.dockTool.title}",
+                "tooltip": "${ui.dockTool.tooltip}",
+                "togglable": true,
+                "visibility": false,
+                "rules": {
+                    "groups": "dockTools"
+                }
+            }
+        },
+
+        {
+            "name": "ExportRVVResultsCommand",
+            "provides": [
+                "resultcenter.ExportResultsCommand",
+                "pprselection.ExportRVVResultsCommand"
+            ],
+            "properties": {
+                "mimetype": "text/csv",
+                "filename": "resultcenter.csv",
+                "separator": ";",
+                "undefinedValue": "",
+                "_defaultIgnoreFields": [
+                    "selected",
+                    "focus",
+                    "infoTemplate",
+                    "symbol",
+                    "geometry",
+                    "Shape_Area",
+                    "Shape_Length",
+                    "compositeId"
+                ],
+                "ignoreFields": {
+                    "infoservice": [
+                        "data",
+                        "point"
+                    ]
+                },
+                "includeFields": [
+                    "parcelID",
+                    "ppr_type",
+                    "beneficiary",
+                    "order"
+                ]
+            },
+            "references": [
+                {
+                    "name": "_dataModel",
+                    "providing": "ct.resultcenter.DataModel"
+                },
+                {
+                    "name": "_fileSaver",
+                    "providing": "filesaver.FileSaver"
+                }
+            ]
+        },
+
+        {
+            "name": "RVVPrinter",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "pprselection.RVVPrinter",
+                "jasperprinting.api.PrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/parcelselection/ENABLE_PRINT_INFO",
+                        "method": "_enablePrintInfo"
+                    },
+                    {
+                        "topic": "agiv/parcelselection/DISABLE_PRINT_INFO",
+                        "method": "_disablePrintInfo"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_dataView",
+                    "providing": "resultcenter.DataView",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_dataModel",
+                    "providing": "ct.resultcenter.DataModel",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=PPRResultCenterToggleTool)"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

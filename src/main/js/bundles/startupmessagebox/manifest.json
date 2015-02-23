@@ -1,0 +1,25 @@
+{
+    "Bundle-SymbolicName": "startupmessagebox",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Layer": "module",
+
+    "Require-Bundle": [
+        {
+            "name": "windowmanager",
+            "version": "[3.0,4.0)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "StartupMessageBox",
+            "provides": "agiv.startupmessagebox.StartupMessageBox",
+            "references": [
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "Bundle-SymbolicName": "geojsonservicetype",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["geojson"],
+
+    "Bundle-StartLevel": 7,
+
+    "Require-Bundle": [
+//        {
+//            "name": "geojson",
+//            "version": "[3.0.0,)"
+//        }
+    ],
+
+    "Components": [
+        {
+            "name": "GeoJsonServiceTypeRegistrator",
+            "references": [
+                {
+                    "name": "geoJsonServiceType",
+                    "providing": "geojsonservicetype.GeoJsonServiceType"
+                }
+            ]
+        },
+        {
+            "name": "GeoJsonServiceTypeFactory",
+            "provides": ["geojsonservicetype.GeoJsonServiceType"],
+            "instanceFactory": true,
+            "references": [
+                {
+                    "name": "geoJsonTransformer",
+                    "providing": "geojsonservicetype.SymbolAddingGeoJsonTransformer",
+                    "cardinality": "0..1" // We need to make this optional, otherwise this Factory component won't start before the map bundle starts.
+                }
+            ]
+        },
+
+        {
+            "name": "SymbolAddingGeoJsonTransformer",
+            "impl": "base/mapping/geojson/SymbolAddingGeoJsonTransformer",
+            "provides": ["geojsonservicetype.SymbolAddingGeoJsonTransformer"],
+            "references": [
+                {
+                    "name": "geojsonTransformer",
+                    "providing": "geojson.Transformer"
+                },
+                {
+                    "name": "symbolCreator",
+                    "providing": "geojsonservicetype.EsriSymbolCreator"
+                }
+            ]
+        },
+
+        {
+            "name": "EsriSymbolCreator",
+            "provides": ["geojsonservicetype.EsriSymbolCreator"]
+        },
+
+        {
+            "name": "GeoJsonServiceTypeRegistration",
+            "provides": ["loadservice.ServiceTypeRegistration"],
+            "impl": "ct/Stateful",
+            "propertiesConstructor": true,
+            "properties": {
+                "type": "radiobutton",
+                "groupId": "servicetype",
+                "label": "GeoJSON",
+                "field": "GeoJSON"
+            },
+            "references": [
+                {
+                    "name": "controller",
+                    "providing": "loadservice.GeoJsonServiceExtensionController"
+                }
+            ]
+        },
+
+        {
+            "name": "GeoJsonServiceExtensionController",
+            "provides": ["loadservice.GeoJsonServiceExtensionController"],
+            "references": [
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "geoJsonTransformer",
+                    "providing": "geojson.Transformer"
+                }
+            ]
+        }
+    ]
+}

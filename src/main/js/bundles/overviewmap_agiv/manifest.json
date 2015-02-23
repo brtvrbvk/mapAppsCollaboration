@@ -1,0 +1,50 @@
+{
+    "Bundle-SymbolicName": "overviewmap_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["mapping"],
+
+    "Bundle-ExcludedExecutionEnvironment": [
+        "Android",
+        "iPhone",
+        "iPad",
+        "BlackBerry",
+        "Touch",
+        "Mobile"
+    ],
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "overviewmap",
+            "version": "[2.0.0,)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "OverviewmapBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "overviewmapToggleButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=overviewmap)"
+                }
+            ]
+        }
+    ]
+}

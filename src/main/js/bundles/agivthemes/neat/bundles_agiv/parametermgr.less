@@ -1,0 +1,75 @@
+/*
+ * COPYRIGHT 2012 con terra GmbH Germany
+*/
+
+// More Information about lesscss at http://lesscss.org/
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctAddThisButton {
+        display: inline;
+        div{
+            display: inline;
+        }
+        .at300b{
+            margin: 0 5px;
+        }
+    }
+
+    .ctParameterWindow{
+        .ctParameterTextbox, 
+        .ctParameterWrapper{
+            width: 440px;
+        }
+
+        .ctParameterWrapper{
+            margin-top: -20px;
+            tr div{
+                padding-top: 20px;
+            }
+            .dijitContentPane{
+                padding: 0;
+            }
+        }
+        .ctParameterButtons.dijitContentPane{
+            display: block;
+            padding: 20px 0 10px;
+            border-bottom: 1px solid @minor-border-color;
+            .toolbar{
+                float: left;
+                display:inline;
+                top: -2px;
+                position: relative;
+                padding-top: 2px;
+                .ctToolContainer{
+                    display: inline;
+                }
+                .dijitToggleButton, .dijitButton{
+                    margin:0 5px;
+                }
+                .dijitButton .dijitButtonNode {
+                    padding:0;
+                }
+            }
+        }
+        .ctParameterButtons td:first-child{
+            width:100%;
+            display:inline;
+        }
+        .ctParameterForms.dijitContentPane {
+            overflow:hidden;
+        }
+        .ctParameterForms{
+            div{
+                margin:10px 0;
+            }
+        }
+
+    }
+
+    &.ctEnv_IE .ctParameterWindow {
+        .ctParameterWrapper{
+            margin-top: -10px;
+        }
+    }
+}

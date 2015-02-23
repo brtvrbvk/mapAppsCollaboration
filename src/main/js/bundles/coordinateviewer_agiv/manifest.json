@@ -1,0 +1,281 @@
+{
+    "Bundle-SymbolicName": "coordinateviewer_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["mapping"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "coordinatetransformer",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        },
+        {
+            "name": "coordinateviewer",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "splitviewmap",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "CoordinateViewerFactory",
+            "impl": "coordinateviewer_agiv/MultiMapCoordinateViewer",
+            "instanceFactory": true,
+            "provides": ["dijit.Widget"],
+            "properties": {
+                "widgetRole": "agivcoordinateviewer",
+                "decimalPlaces": 0,
+                "showScale": true,
+                "showCoordinates": true,
+                "degreeFormat": false,
+                "transformSrs": false
+                // EPSG string for target reference system. Will only be applied if transformSrs is set to true.
+                // "targetSrs" : "EPSG:4326"
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "1..1"
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map",
+                    "cardinality": "1..1"
+                },
+                {
+                    "name": "_coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "MultiCoordinateWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "coordinateviewer_agiv.MultiCoordinateWidget"
+            ],
+            "propertiesConstructor": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "multiCoordinateViewer"
+            },
+            "references": [
+
+            ]
+        },
+
+        {
+            "name": "MultiCoordinateToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "multiCoordinateToggleTool",
+                "title": "Toon co\u00F6rdinaten",
+                "tooltip": "Toon co\u00F6rdinaten",
+                "togglable": true,
+                "iconClass": "icon-coordinateviewer",
+                "rules": {
+                    "groups": ["none"]
+                }
+            }
+        },
+        {
+            "name": "MultiCoordinateToggleToolBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "multiCoordinateViewerToggleTool"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=multiCoordinateToggleTool)"
+                }
+            ]
+        },
+
+        {
+            "name": "MultiCoordinateWidgetController",
+            "propertiesConstructor": true,
+            "properties": {
+            },
+            "references": [
+                {
+                    "name": "_mainMapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "connect": {
+                        "onMouseMove": "_onPosition"
+                    }
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "connect": {
+                        "onMouseMove": "_onPosition"
+                    },
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "widget",
+                    "providing": "coordinateviewer_agiv.MultiCoordinateWidget"
+                },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+            ]
+        },
+
+        {
+            "name": "MultiCoordinateWidgetFeatureInfoController",
+            "impl": "MultiCoordinateWidgetController",
+            "provides": ["coordinateviewer_agiv.MultiCoordinateWidgetController"],
+            "propertiesConstructor": true,
+            "properties": {
+            },
+            "references": [
+                {
+                    "name": "_mainMapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "cardinality": "0..1",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentRegistrationWMSFeatureInfoWidget",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "MultiCoordinateWidget": "coordinateviewer_agiv.ContentWidgetFactory"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "COORDINATE_INFO",
+                                "splitviewmap": true
+                            }
+                        },
+                        "type": "MultiCoordinateWidget",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 160
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify multiCoordinateViewer",
+                            "dndContainerName": "doublemap",
+                            "tools": []
+                        }
+                    },
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "COORDINATE_INFO"
+                            }
+                        },
+                        "type": "MultiCoordinateWidget",
+                        "windowSize": {
+                            "w": 375,
+                            "h": 160
+                        },
+                        "window": {
+                            "windowName": "agivGenericIdentify multiCoordinateViewer",
+                            "tools": []
+                        }
+                    }
+                ]
+            }
+        },
+
+        {
+            "name": "ContentWidgetFactory",
+            "provides": "coordinateviewer_agiv.ContentWidgetFactory",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "MultiCoordinateWidget": {
+                        "info": "coordinateviewer_agiv/MultiCoordinateWidget"
+                    }
+                },
+                "ui": {
+                    "MultiCoordinateWidget": {
+                        "ui": {
+                            "lambert72": "Lambert72",
+                            "wgs84": "WGS84",
+                            "webMercator": "Web Mercator",
+                            "dms": "DMS",
+                            "degree": "graden",
+                            "coordinates":"Co\u00F6rdinaten"
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "contentViewer",
+                    "providing": "ct.contentviewer.ContentViewer"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "multiCoordinateController",
+                    "providing": "coordinateviewer_agiv.MultiCoordinateWidgetController"
+                }
+            ]
+        }
+    ]
+}

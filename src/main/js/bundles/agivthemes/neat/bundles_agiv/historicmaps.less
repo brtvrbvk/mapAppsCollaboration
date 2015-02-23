@@ -1,0 +1,41 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+    .ctHistoricMapsWidget{
+        .agivBasemapToggler{
+            width: (@ct-toggler-width - 6px);
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            .ctShrinkingDropDownTitleNode {
+                display: block;
+                margin: 6px auto 0;
+            }
+        }
+    }
+
+  .dijitSplitterV{
+        .transition (background, .2s, ease);
+        background-color: @ct-header-background-color;
+        .dijitSplitterThumb{
+            background: transparent none;
+           &:before{
+                position: relative;
+                right: 4px;
+                top: 2px;
+                .setWebFont(agivUiFont);
+                content: "\e61b";
+                font-size: 18px;
+                color: @secondary-color;
+            }
+        }
+        &.dijitSplitterHover,
+        &.dijitSplitterActive{
+            background: @pressed-background-color none;
+            .dijitSplitterThumb:before{
+                color: @ct-icon-hovered-color;
+            }
+        }
+    }
+}

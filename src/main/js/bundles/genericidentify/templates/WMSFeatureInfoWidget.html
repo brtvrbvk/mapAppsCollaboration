@@ -1,0 +1,48 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-attach-point="mainContainer"
+         data-dojo-props="gutters:false,design:'headline'"
+         style="overflow: visible;">
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="'class':'',region:'top'">
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-props="'class':'backButton dijitHidden', label:'${i18n.back}', iconClass:'icon-arrow-bold-left'"
+                 data-dojo-attach-event="onClick:_backClicked"
+                 data-dojo-attach-point="backButton">
+            </div>
+            <h2 class=""
+                 data-dojo-attach-point="titleNode"></h2>
+
+            <div class="navButtons">
+
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-props="'class':'prevButton backButton dijitHidden', label:'${i18n.previous}', iconClass:'icon-arrow-bold-left'"
+                 data-dojo-attach-event="onClick:_previousClicked"
+                 data-dojo-attach-point="previousButton">
+            </div>
+
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-props="'class':'nextButton backButton dijitHidden', label:'${i18n.next}', iconClass:'icon-arrow-bold-right'"
+                 data-dojo-attach-event="onClick:_nextClicked"
+                 data-dojo-attach-point="nextButton">
+            </div>
+
+            </div>
+
+            <div>
+                <div data-dojo-attach-point="messagePane"
+                     data-dojo-type="ct/ui/controls/MessagePane"
+                     data-dojo-props=""></div>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="'class':'',region:'center'"
+             data-dojo-attach-point="layerInfoPane">
+
+        </div>
+
+    </div>
+
+</div>

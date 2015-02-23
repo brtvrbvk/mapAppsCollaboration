@@ -1,0 +1,476 @@
+{
+    "Bundle-SymbolicName": "splitviewmap",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["mapping"],
+
+    //"Bundle-ExcludedExecutionEnvironment": ["iPhone"],
+
+    "Config-Bundle-Location": "/config",
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0.0,)"
+        },
+        {
+            "name": "infoviewer",
+            "version": "[3.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        {
+            "name": "MapWidgetFactory",
+            "impl": "map/MapWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "splitviewmap.MapWidget",
+                "ct.ui.dnd.Container"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "+dndContainerName": "doublemap",
+                "+widgetRole": "doublemap",
+                "_widgetProperties": {
+                    // The map is a drag & drop container. This property controls whether child widgets of this container can be dragged.
+                    "dndEnabled": true,
+                    // Defines whether the grid cells under the currently dragged item should be optically highlighted.
+                    "highlightTargetCell": false,
+                    // Defines whether the snapping grid of the drag & drop container should be displayed.
+                    "drawGrid": false,
+                    // The size of the cells of the grid.
+                    "gridCellSize": {
+                        "w": 1,
+                        "h": 1
+                    },
+                    // Border size of the internal grid.
+                    "gridCellBorder": {
+                        "t": 0,
+                        "r": 0,
+                        "b": 0,
+                        "l": 0
+                    }
+                },
+                "_esriMapRefProvides": ["ct.mapping.map.SplitviewMap"],
+                "_esriMapRefServiceProperties": {},
+                "_esriMapProvides": ["esri.SplitviewMap"],
+                "_esriMapServiceProperties": {},
+                "_esriMapDefaultOpts": {
+                    "wrapAround180": false,
+                    // Whether to show the slider control on the map.
+                    "slider": true,
+                    // Whether to show navigation arrows.
+                    "nav": false,
+                    // Whether to display the "Powered by esri" logo on the map.
+                    "logo": true,
+                    // The style of the slider ("small" or "large")
+                    "sliderStyle": "large",
+                    // Whether zoomimg is possible by a doubleclick.
+                    "doubleClickZoom": true,
+                    // Whether recentering the map is possible.
+                    "clickRecenter": true,
+                    // Whether to pan the map.
+                    "pan": true,
+                    // Whether zooming is possible by pressing [Shift] and drawing a bounding box in the map.
+                    "rubberBandZoom": true,
+                    // Whether the map can be controlled using the keyboard.
+                    "keyboardNavigation": true,
+                    // Whether zooming by scrolling the mousewheel is possible.
+                    "scrollWheelZoom": true,
+
+                    // new options with map.apps 3.0
+                    // The position of the slider ("top-left", "top-right", "bottom-right" or "bottom-left")
+                    "sliderPosition": "top-left",
+                    // When true, graphics are displayed during panning. When false, the graphics are turned off during pan movement. Setting to false may improve performance in Internet Explorer. The default is true.
+                    "displayGraphicsOnPan": true,
+                    // When true a fade effect is enabled for supported layers. Currently only tiled layers are supported. This option is not applicable if navigationMode is set to classic. (As of v2.6)
+                    "fadeOnZoom": true,
+                    // Enable or disable map attribution display. The attribution is displayed at the bottom of the map next to the Esri logo. The default value is true unless you are using the compact build then the default is false. To add attribution with the compact build import the esri.dijit.Attribution module and enable showAttribution. As of v 3.1
+                    "showAttribution": true,
+                    // Orientation of the zoom slider. Valid values are: "vertical" or "horizontal". The default value is "vertical". As of version 3.3
+                    "sliderOrientation": "vertical",
+                    //Define labels for the slider. Only valid when the "large" slider option is true. As of version 3.3
+                    "sliderLabels": [""],
+                    // navigation mode ("css-transform" or "classic")
+                    "navigationMode": "css-transforms",
+                    // optimizes the amout of tile requests if extent changes are to far away between each other
+                    "optimizePanAnimation": true
+                },
+                "esriMapOpts": {
+                    // The style of the slider ("small" or "large")
+                    // "sliderStyle": "large"
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "splitviewmap.AgivMapState"
+                },
+                {
+                    "name": "_layerVisibilityRules",
+                    "providing": "ct.mapping.map.EsriLayerManagerVisibilityRule",
+                    "cardinality": "0..n"
+                },
+                {
+                    "name": "_esriLayerFactory",
+                    "providing": "ct.mapping.map.EsriLayerFactory"
+                }
+            ]
+        },
+        {
+            "name": "MapController",
+            "provides": ["ct.framework.api.EventHandler"],
+            "immediate": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "handleResultSelection"
+                    },
+                    {
+                        "topic": "agiv/splitview/DISCONNECT_EVENTS",
+                        "method": "disconnect"
+                    },
+                    {
+                        "topic": "agiv/splitview/BIND_EVENTS",
+                        "method": "bindEvents"
+                    },
+                    {
+                        "topic": "agiv/splitview/SYNC_HISTORIC",
+                        "method": "activateSyncToHistoricMap"
+                    },
+                    {
+                        "topic": "agiv/splitview/SYNC_MAIN",
+                        "method": "activateSyncToMainMap"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_WIDGET_CLICK",
+                        "method": "handleResultSelection"
+                    },
+                    {
+                        "topic": "basemapswitcher/BASEMAP_SELECTED",
+                        "method": "_syncBasemaps"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mainMap",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_historicMap",
+                    "providing": "splitviewmap.MapWidget"
+                }
+            ]
+        },
+        {
+            "name": "InfoViewerDndMapWidgetFactory",
+            "impl": "infoviewer.InfoViewerDndWidgetFactory",
+            "provides": ["ct.ui.dnd.WidgetFactory"],
+            "properties": {
+                "dndFactoryFunctions": [
+                    {
+                        "name": "infoviewerDoubleMapFn",
+                        // methods are useful for map and mapdesk as wellknown containers
+                        "containers": ["doublemap"],
+                        // content type "infoviewer"
+                        "type": "infoviewer",
+                        // create method (executed in context of the ContainerWidgetFactory of the DndContainer)
+                        "create": "createMapDndWidget",
+                        // destroy method
+                        "destroy": "destroyInfoViewerDndWidget"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "MapModelFactory",
+            "impl": "map/MapModelFactory",
+            "provides": ["splitviewmap.AgivMapModel"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                // The ID of the map model. This is needed to identify a map model.
+                "_mapModelId": "splitviewmap",
+                "_configData": {
+                    "maps": [
+                        {
+                            "baseLayer": [
+                                {
+                                    "id": "navteq",
+                                    "title": "${baselayers.normaldaygrey.title}",
+                                    "service": "navteq",
+                                    "layers": ["normal.day.grey"],
+                                    "enabled": true
+                                },
+                                {
+                                    "service": "agiv_ferraris",
+                                    "layers": ["*"],
+                                    "enabled": false
+                                },
+                                {
+                                    "service": "agiv_popp",
+                                    "layers": ["*"],
+                                    "enabled": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "_mappingResourceRegistry",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+        {
+            "name": "HistoricMapStateFactory",
+            "provides": ["splitviewmap.AgivMapState"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "id": "default",
+                // The mapModelId of the map model that is associated with this mapState.
+                "mapModelId": "splitviewmap"
+            },
+            "references": [
+                {
+                    "name": "_mainMapState",
+                    "providing": "ct.mapping.map.MapState"
+                }
+            ]
+        },
+        {
+            "name": "MapEventBroadcaster",
+            "impl": "map/MapEventBroadcaster",
+            "properties": {
+                "_topicBase": "ct/doublemap/"
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "splitviewmap.AgivMapState"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "MapLoadingInfoWidget",
+            "impl": "map/MapLoadingInfoWidget",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "dijit.Widget"
+            ],
+            "properties": {
+                "widgetRole": "doubleMapLoadingInfo",
+                "Event-Topics": [
+                    {
+                        "topic": "ct/map/UPDATE_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/map/UPDATE_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/resultcenter/datamodel/UPDATE_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/resultcenter/datamodel/UPDATE_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/selection/SELECTION_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/selection/SELECTION_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/printing/PRINTING_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/printing/PRINTING_END",
+                        "method": "hideLoading"
+                    },
+                    {
+                        "topic": "ct/featureinfo/FEATUREINFO_START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "ct/featureinfo/FEATUREINFO_END",
+                        "method": "hideLoading"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "MapModelParameterResolver",
+            "immediate": true,
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_secondMapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                }
+            ]
+        },
+        {
+            "name": "SwitchViewHandler",
+            "provides": [
+                "splitviewmap.SwitchViewHandler",
+                "ct.framework.api.EventHandler"
+            ],
+            "immediate": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/template/RENDERED",
+                        "method": "switchSlider"
+                    },
+                    {
+                        "topic": "ct/map/SIZE_CHANGE",
+                        "method": "syncResize"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mainMap",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "leftTool",
+                    "providing": "splitviewmap.LeftButton",
+                    "policy": "dynamic",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "rightTool",
+                    "providing": "splitviewmap.RightButton",
+                    "policy": "dynamic",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "SwipeLeftTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "swipeLeftTool",
+                "toolRole": "toolset",
+                "title": "${splitviewmap.swipeLeft}",
+                "iconClass": "icon-arrow-light-left",
+                "tooltip": "${splitviewmap.swipeLeftTooltip}",
+                "activateHandler": "swipeLeft",
+                "deactivateHandler": "syncLeft",
+                "togglable": true,
+                "rules": {
+                    "groups": ["switchview"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "splitviewmap.SwitchViewHandler"
+                }
+            ]
+        },
+        {
+            "name": "SwipeLeftBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget",
+                "splitviewmap.LeftButton"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "swipeLeftButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=swipeLeftTool)"
+                }
+            ]
+        },
+        {
+            "name": "SwipeRightTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "swipeRightTool",
+                "toolRole": "toolset",
+                "title": "${splitviewmap.swipeRight}",
+                "iconClass": "icon-arrow-light-right",
+                "tooltip": "${splitviewmap.swipeRightTooltip}",
+                "activateHandler": "swipeRight",
+                "deactivateHandler": "syncRight",
+                "togglable": true,
+                "rules": {
+                    "groups": ["switchview"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "splitviewmap.SwitchViewHandler"
+                }
+            ]
+        },
+        {
+            "name": "SwipeRightBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget",
+                "splitviewmap.RightButton"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "swipeRightButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=swipeRightTool)"
+                }
+            ]
+        }
+    ]
+}

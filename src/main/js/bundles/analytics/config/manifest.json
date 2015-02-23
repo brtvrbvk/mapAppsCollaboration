@@ -1,0 +1,73 @@
+{
+    "Bundle-SymbolicName": "analytics-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        //we hook everything directly to the appBuilderCategoryNode
+
+        // ======= GA Builder Menu Entry ========
+        {
+            "name": "GAWidgetBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderCategoryNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "analyticsBuilderNode"
+                }
+            }
+        },
+
+        // ======= GA Builder Widget ========
+        {
+            "name": "GABuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./GAForm.json')",
+                "pid": "analytics-GoogleAnalyticsTracker",
+                "bid": "analytics",
+                "id": "analyticsBuilderNode",
+                "defaultProperties": {
+                    "account": "UA-46010735-1",
+                    "anonymizeIPs": true
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+
+    ]
+}

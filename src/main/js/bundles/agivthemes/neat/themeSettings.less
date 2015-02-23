@@ -1,0 +1,344 @@
+// -----------------------------------------------
+//    Here you define the global theme settings
+//    like colors, borders for the night theme
+// ------------------------------------------------
+// theme Name
+@themeName: neat;
+@agiv-color-dark-orange: #f9c114;
+@agiv-light-grey: #E5E5E5;
+@agiv-dark-grey: @text-color;
+@agiv-link-color: #998406;
+
+@ct-seasons-theme-style:false;
+@ct-toggler-height: 55px;
+@ct-standard-box-shadow: none;
+@ct-highlight-secondary-color: #D05;
+@ct-button-hovered-text-color: @hovered-text-color;
+
+@ct-tab-text-color: @text-color;
+@ct-tab-text-hover-color: @ct-tab-text-color;
+@ct-tab-text-active-color: @ct-tab-text-color;
+@ct-tab-text-disabled-color: @disabled-text-color;
+@ct-tab-text-checked-color: @ct-tab-text-color;
+
+// new variables provided by Dojo 1.9
+@image-calendar-arrows: "images/calendarArrows.png";
+@image-calendar-arrows-ie6: "images/calendarArrows8bit.png";
+@image-checkmark: "images/checkmarkNoBorder.png";
+@image-checkmark-ie6: "images/checkmarkNoBorder.gif";
+@image-dialog-close: "images/dialogCloseIcon.png";
+@image-dialog-close-ie6: "images/dialogCloseIcon8bit.png";
+@image-editor-icons-enabled: "../../icons/images/editorIconsEnabled.png";
+@image-form-button-arrows: "form/images/buttonArrows.png";
+@image-form-checkbox-and-radios: "form/images/checkboxRadioButtonStates.png";
+@image-form-checkbox-and-radios-ie6: "form/images/checkboxAndRadioButtons_IE6.png";
+@image-form-common-arrows: "form/images/commonFormArrows.png";
+@image-form-error: "form/images/error.png";
+@image-form-slider-thumbs: "form/images/sliderThumbs.png";
+@image-layout-tab-close: "layout/images/tabClose.png"; // [x] icon to close a tab
+@image-tooltip: "images/tooltip.png"; // arrow connectors
+@image-tooltip-ie6: "images/tooltip8bit.png"; // arrow connectors (8 bit)
+@image-progressbar-anim: "images/progressBarAnim.gif";
+
+// new variables provided by map.apps 3.0
+@ct-use-font-icons: true;
+@ct-warn-color: #f39c12;
+@ct-message-pane-info-color: darken(@selected-background-color,5%);
+@ct-message-pane-loading-color: @ct-message-pane-info-color;
+@ct-message-pane-success-color: #27ae60;
+@ct-message-pane-warning-color: @ct-warn-color;
+@ct-message-pane-error-color: @error-color;
+
+@ct-textbox-font-color: #fff - @textbox-background-color;
+@ct-dialog-title-text-color: @text-color;// Text color for the dialog title
+@ct-textbox-edit-background-color: @textbox-background-color;
+
+// (d)Grid Colors
+//@ct-dGrid-header-background-color: #F4F4F4;
+@ct-dGrid-header-background-color: #f0f0f0;
+@ct-dGrid-header-text-color: #636363;
+@ct-dGrid-hovered-row-color: @minor-selected-color; //bg color of hovered grid rows
+@ct-dGrid-hovered-row-text-color: @ct-highlight-text-color; //text color of hovered grid rows
+@ct-dGrid-highlighted-row-text-color: lighten(@ct-dGrid-hovered-row-color, 5%); //text color of selected grid rows
+@ct-dGrid-background-color: @container-background-color;
+@ct-dGrid-border-color: @ct-dGrid-header-background-color;
+@ct-dGrid-vertical-table-borders: true;
+@ct-dGrid-horizontal-table-borders: true;
+@ct-dGrid-highlighted-row-color: @button-hovered-background-color; //bg color of hover and selected grid rows
+
+@ct-zoomslider-is-animated: false;               // if true, the zoomSlider expands on hover an collapses after some time (doesn't work with esriSimpleSlider)
+@ct-button-padding: 2px 14px 3px 14px; // Button Padding
+@ct-toolset-tool-button-checked-background-color: @ct-highlight-color;          // used for a checked Toolset ToolButton
+
+// IconSizeConfiguration
+@ct-icon-small: 15px;
+@ct-icon-medium: 22px;
+@ct-icon-large: 30px;
+//default icon colors
+@ct-icon-color: @text-color;
+@ct-icon-hovered-color: @ct-icon-color;
+//color for muted icons (e.g. LocateMe)
+@ct-icon-muted-color: @ct-icon-color;
+@ct-icon-muted-hovered-color: @ct-icon-hovered-color;
+//color for icons, lying above the highlight color:
+@ct-icon-on-primary-color: @ct-icon-hovered-color;
+@ct-icon-on-primary-hovered-color: @ct-icon-hovered-color;
+
+
+
+// General
+
+@primary-color: #fbd837; 								// Base color for entire theme
+@secondary-color: #fff;						// Base color for bar-backgrounds
+@text-color: #565656;									// Text color for enabled widgets
+@disabled-color: #A6A6A6;								// Base for disabled backgrounds and borders
+@error-color: #e74c3c;
+@container-background-color: @secondary-color;                                                      // Backgrounds for various content areas such as TitlePane, ContentPane and Inputs (if changed, adjust selected tab to match)
+
+@minor-selected-color: @ct-highlight-color;                                             // Color for various arrows and buttons
+@base-border-color: spin(desaturate(darken(@primary-color, 29), 44), -1);		// Augmented and used directly by variables to create border colors for various widgets
+@unfocused-clickable-color: spin(saturate(lighten(@primary-color, 5), 10), 0);		// Background color for enabled buttons, text inputs
+@border-color: spin(desaturate(darken(@primary-color, 15), 100), 8);			// Border color for (enabled, unhovered) TextBox, Slider, Accordion, BorderContainer, TabContainer
+@minor-border-color: #A4A1A3;                                                           // Color of borders inside widgets: horizontal line in Calendar between weeks, around color swatches in ColorPalette, above Dialog action bar
+@popup-border-color: lighten(@primary-color, 8%);					// Border for Dialog, Menu, Tooltip.   Must also update tooltip.png (the arrow image file) to match
+
+
+@disabled-border-color: #fff1ff;                                                        // Border color for disabled/readonly Button, TextBox etc. widgets
+@disabled-background-color: #ccc;                                                    // Disabled button, textbox, etc.
+@disabled-text-color: #D9D8D8;                                                          // Text color for disabled/readonly widgets
+
+@unselected-background-color: lighten(@disabled-color,20%);				// Background color for unselected/unopened tab button, accordion pane, TitlePane, Menu items
+@unselected-text-color: darken(@secondary-color, 65);					// Text color for unselected/unopened tab button, accordion pane, TitlePane, Menu items
+
+@hovered-border-color: @base-border-color;						// Hover of textbox, tab label, BorderContainer splitter, Calendar, etc.
+@hovered-background-color: @primary-color;                                              // Background color for hover of Button, MenuBar, Accordion pane, Calendar... anything that has a (non-white) color to start with and gets darker on hover
+@hovered-text-color: #fff;                                                              // Used for title of select Accordion pane, label of select tab, hovered Menu item, etc.
+
+@pressed-border-color:  @base-border-color;						// During click on Calendar day, Slider up/down buttons, tab button, etc.
+@pressed-background-color: #A4A1A3;		// Background color while clicking on Accordion/TitlePane title bar, tab button, Calendar day, Toolbar button, Tree row.
+
+@selected-border-color: @base-border-color;                                             // Selected AccordionPane, tab of nested TabContainer (but plain TabContainer is special)
+@selected-background-color: @secondary-color;						// Selected Accordion pane, nested tab label, Tree row
+@selected-text-color: @text-color;                                                      // title of selected Accordion pane, label of selected tab, hovered Menu item, etc.
+
+@bar-background-color: @secondary-color;                                                // MenuBar, Toolbar, action bar at bottom of dialog
+@pane-background-color: @container-background-color;					// Background color of  Accordion panes, Dialogs, etc.
+@popup-background-color: @container-background-color;					// Background for Dialog.   TODO: currently use for ColorPalette, maybe should change.
+
+
+
+// Buttons
+@button-border-color:  @base-border-color;						// Border for (stand-alone) buttons in normal, hovered, or active state
+@button-background-color: @primary-color;                                          // Background color for (unhovered) buttons
+@button-hovered-background-color: @pressed-background-color;                                       // Background color for hovered buttons
+@button-pressed-background-color: @pressed-background-color;                                       // Background color for active buttons
+@button-border-radius: 5px;                                                             //TODO: incooperate in Button.less  and where it should be needed...                                                  // Rounded corner radius for buttons (except in toolbar)
+
+// Input widgets
+@focused-border-color: @base-border-color;						// Focused textbox, editor, select, etc.
+@error-border-color: @error-color;							// Border for textbox in error state
+@error-focused-border-color: darken(@error-color, 5);					// Border of textbox in error state, and focused
+@erroricon-background-color: @error-color;						// Background color for exclamation point validation icon (for TextBox in error state)
+@textbox-background-color: #fff;    //@container-background-color;			// Default background color of TextBox based widgets
+@textbox-hovered-background-color: @textbox-background-color;                           // Background color when hovering a unfocused TextBox, Select, Editor, or other input widget
+@textbox-focused-background-color: @textbox-background-color;
+@textbox-error-background-color: @textbox-background-color;
+@textbox-disabled-background-color: @disabled-background-color;
+
+@textbox-padding: 5px;	// Padding for Textbox, Textarea, etc.     // note: at the moment, only used for padding of selectDropDowns
+
+// CheckBox, RadioButton
+@focus-outline-color: darken(@secondary-color, 65);					// Color for artificial focus outline around labels of checkboxes
+
+// TabContainer
+@nestedtab-hovered-background-color: @unfocused-clickable-color;
+@nestedtab-hovered-border-color: @primary-color;
+@nestedtab-selected-border-color: @selected-border-color;
+@nestedtab-selected-background-color: @minor-selected-color;
+@tab-disabled-background-color: @disabled-color;					// For disabled tabs of a TabContainer (not officially supported)
+
+// Arrow buttons (stand alone, or inside ComboBox / ComboButton / Spinner / etc.
+@arrowbutton-background-color: @secondary-color;
+@arrowbutton-hovered-background-color: @button-hovered-background-color;                           // Color of arrow when hovering ComboBox.   But hovering Spinner doesn't change arrow color (TODO)
+@arrowbutton-pressed-background-color: lighten(@button-hovered-background-color,10%);
+@arrowbutton-inner-border-color: @container-background-color;				// Typically the arrows have an inner white border (a.k.a. padding) and then an outer black-ish border
+
+// Slider
+// Note: any changes here require corresponding changes in form/images/sliderThumbs.png
+@slider-fullbar-background-color: @primary-color;					// Background color for part of slider bar before (to the left or below) the handle
+@slider-remainingbar-background-color: @container-background-color;			// Background color for part of slider bar after (to the right or above) the handle
+@slider-hovered-fullbar-background-color: @minor-selected-color;			// Background color for part of bar of hovered slider before (to the left or below) the handle
+@slider-hovered-remainingbar-background-color: @container-background-color;             // Background color for part of bar of hovered slider after (to the right or above) the handle
+@slider-hoveredButton-background-color: @container-background-color;                    // Background color of slider increment/decrement buttons when mouse is over slider but not over the buttons
+@slider-focused-fullbar-background-color: @minor-selected-color;			// Background color for part of bar of focused slider before (to the left or below) the handle
+@slider-focused-remainingbar-background-color: @container-background-color;             // Background color for part of bar of focused slider after (to the right or above) the handle
+@slider-button-hovered-background-color: @primary-color;				// Background color of slider increment/decrement buttons when mouse is over the buttons
+@slider-button-pressed-background-color: @minor-selected-color;				// Background color of slider increment/decrement buttons while button is depressed
+
+// Select, ComboBox
+@select-dropdownitem-background-color: @container-background-color;			// Background color for items in the drop down list of a ComboBox/Select
+@select-dropdownitem-hovered-background-color: #565656;// @pressed-background-color;               // Background color for the hovered item in the drop down list of a ComboBox/Select
+@select-matchedtext-background-color: @minor-selected-color;				// Background color of text in ComboBox drop down that matches typed in phrase
+
+// Menus
+@menu-background-color: @secondary-color; //lighten(@secondary-color,5%);
+
+// Calendar
+@calendar-background-color: @primary-color;
+@calendar-currentmonth-background-color: #fff;                  // Background color for days of the current month
+@calendar-adjacentmonth-background-color: @disabled-color;                              // Background color used for days from previous or next month
+@calendar-adjacentmonth-text-color: @disabled-text-color;				// Text color used for days from previous or next month
+@calendar-date-pressed-border-color: @container-background-color;			// For some reason pressing a day of the month (as opposed to hovering it) makes the border go away, is this intentional?
+@calendar-date-pressed-background-color: @pressed-background-color;
+@calendar-date-selected-border-color: @selected-border-color;
+@calendar-date-selected-background-color: @minor-selected-color;
+@calendar-button-hovered-background-color: @minor-selected-color;                       // for hover or next/previous year, and month drop down (TODO: border and background are built in to calendarArrows.png, can't control from here)
+@calendar-button-hovered-border-color: darken(@hovered-background-color,10);		// for hover or next/previous year, and month drop down
+@calendar-button-pressed-background-color: @pressed-background-color;
+@calendar-button-pressed-border-color: @pressed-border-color;
+
+
+// ProgressBar
+@progressbar-border-color: @popup-border-color;						// Border color of progress bar
+@progressbar-full-background-color:@minor-selected-color;				// Background color for part of progress bar indicating amount completed
+@progressbar-empty-background-color: @container-background-color;			// Background color for part of progress bar indicating amount remaining
+@progressbar-text-color: @text-color;							// Color of progress bar text (ex: "35%").  Must contrast with both empty and full background colors.
+
+// TimePicker
+@timepicker-minorvalue-background-color: @secondary-color;                              // For 3:15, 3:30, 3:45 but not 3:00 or 4:00
+@timepicker-minorvalue-text-color: darken(@secondary-color, 43);
+@timepicker-majorvalue-background-color: @unfocused-clickable-color;                    // For 3:00, 4:00, 5:00, etc.
+@timepicker-value-hovered-background-color: @pressed-background-color;
+@timepicker-value-hovered-text-color: @hovered-text-color;
+@timepicker-arrow-hovered-background-color: @minor-selected-color;
+
+// ColorPalette
+@colorpalette-background-color: @container-background-color;
+@swatch-border-color: @minor-border-color;
+@swatch-hovered-border-color: #000;
+@swatch-selected-border-color: #000;
+
+// Dialog
+@dialog-underlay-color: #fff;                                    // the thing that grays out the screen when a dialog is shown
+@dialog-titlebar-border-color: @container-background-color;                             // Inner border around the title sectionof a Dialog, inside the main border of the Dialog and the border between title and content
+@dialog-titlebar-background-color: @agiv-light-grey;
+
+// Tooltip
+@tooltip-gradient-color: transparent;                                      // a little swath of color at the bottom of tooltips
+
+// BorderContainer
+@splitter-hovered-background-color: @primary-color;                                     // Color of splitter when user hovers it, before mouse down
+@splitter-dragged-background-color: @minor-selected-color;                              // Color of splitter while it's being dragged
+
+// Toolbar
+@toolbar-button-checked-background-color: @container-background-color;			// a toggled-on button in the toolbar
+@toolbar-combobutton-hovered-unhoveredsection-background-color: spin(saturate(lighten(@primary-color, 8), 19), -29);	// when user hovers a ComboButton in a Toolbar, the other half of the button turns this color
+@toolbar-button-border-radius: 2px;                                                     // Rounded corner radius for buttons for buttons in toolbar
+
+// DnD
+@dnd-avatar-background-color: @container-background-color;				// Background color of little Dialog-type box indicating dragged items
+@dnd-avatar-header-background-color: #f58383;                                           // Title bar for dragged items
+@dnd-avatar-candrop-header-background-color: #97e68d;                                   // Title bar for dragged items when they can be dropped
+@dnd-dropseparator-color: @base-border-color;                                           // Color of line indicating that user is about to drop between items A & B
+
+// Document level
+@document-text-color: @text-color;							// Text color for document itself (text outside of widgets)
+@document-shadedsection-background-color: @bar-background-color;                        // background color used for <pre>, <code>, and table header rows
+@document-border-color: @disabled-color;						// Border for <pre>, <code>, tables, etc.
+
+
+// Icons, arrows, etc.  
+@image-dnd: "images/dnd.png";
+@image-loading-animation: "images/loadingAnimation.gif";
+@image-tree-expand: "images/treeExpandImages.png";
+@image-tree-expand-ie6: "images/treeExpandImages8bit.png";
+
+
+//---------------------------------------
+//---------------------------------------
+//---------------------------------------
+
+
+/*additional mixins*/
+
+@ct-highlight-color: @primary-color;                                                           // Highlight Color, should have a high contrast to primary-color
+
+@ct-primary-button-color: @ct-highlight-color;                                                      //primary buttons use to create a user-focus for very special UI Elements. Use class "ctPrimaryInput" wisely
+@ct-primary-button-text-color: @ct-button-text-color;
+@ct-primary-button-hovered-color: lighten(@ct-primary-button-color,6%);
+@ct-primary-button-hovered-text-color: @ct-primary-button-text-color;
+
+@ct-warn-color: #f39c12;
+
+@ct-header-background-color: @primary-color;
+@ct-footer-background-color: @primary-color;
+
+@ct-highlight-text-color: @ct-highlight-color;
+@ct-highlight-hover-text-color: @ct-highlight-color;
+@ct-highlight-border-color: @ct-highlight-color;
+@ct-highlight-border-color: @ct-highlight-color;
+
+@ct-primary-contrast-text-color: #242323;                               // color, used e.g. for header and footer. Needs a hight contrast to primary color!
+@ct-primary-contrast-border-color: #000;
+@ct-highlight-contrast-text-color: #000;                                                // color that has a high contrast to the highlight color
+
+
+@ct-dialog-border-radius: 5px;                                                          // used for Dialogs and TabContainer Tabs
+
+@ct-collapse-and-resize-handle-color: @primary-color;                     //TODO: integrate to Collapsehandles to replace bg images!
+
+@ct-tooltip-text-color: #fff;
+@ct-tooltip-border-color: @text-color;                                                      // can't be dependend because the tooltip connector is just an image and the tooltip border color needs to match this image ;)
+@ct-tooltip-background-color: @text-color;
+
+@ct-toolset-button-background-color: @secondary-color;                                    // used for first toolset Button when Toolset is Collapsed and the WindowTitleBar
+@ct-toolset-tool-button-background-color: @secondary-color;
+@ct-toolset-tool-button-hovered-background-color: @primary-color;                       // used for a hovered Toolset ToolButton
+@ct-shrinking-dropdown-button-background-color: #fff;            // used for basemap, theme, template and language toggle buttons 
+
+@ct-font-family: Arial, Helvetica, sans-serif;
+@ct-font-family-alternative: Arial, Helvetica, sans-serif;
+
+@ct-text-color: @ct-highlight-color; // Standard link color inside panels
+
+@ct-button-text-color: @text-color;
+@ct-button-disabled-text-color: lighten(@disabled-text-color,10);
+
+
+// Scrollbar Colors (Chrome only)
+@ct-scrollbar-track-color: @text-color;
+@ct-scrollbar-thumb-color: @minor-selected-color;
+@ct-scrollbar-thumb-border-color: @text-color;
+
+
+// Width of DropdownTogglers in Top Right
+@ct-toggler-width: 115px;                                                                     
+@ct-language-toggler-width: 79px;
+
+// Map Flow Colors
+@ct-mapflow-cover-text-color: #000;
+@ct-mapflow-cover-border-color: #fff;
+@ct-mapflow-selected-cover-border-color: darken(@minor-selected-color,15%);
+
+// Omni Search Colors
+@ct-omnisearch-result-list-hover-color: lighten(@minor-selected-color,10%);
+// Scale Bar Colors
+@ct-scalebar-color: darken(@ct-primary-contrast-text-color,10%);
+
+
+// IMPORTANT - DO NOT MOVE TO THE TOP OF THE PAGE
+@import "../common/crossBrowserSettings.less";
+// Mixins defining gradients (originally defined in dijit variables.less
+.standard-gradient (@baseColor, @pathToRoot: "") {
+        background-color: @baseColor;
+	// Fallback for IE (not used for mapapps)
+	//background-image: url("@{pathToRoot}images/standardGradient.png");
+	//background-repeat: repeat-x;
+        //.linear-gradient (rgba(255,255,255,.2), rgba(0,0,0,.2));
+}
+.standard-gradient-and-filter (@baseColor) {
+        background-color: @baseColor;
+        //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#38000000',GradientType=0 );
+	//background-repeat: repeat-x;
+        //.linear-gradient (rgba(255,255,255,.2), rgba(0,0,0,.2));
+}

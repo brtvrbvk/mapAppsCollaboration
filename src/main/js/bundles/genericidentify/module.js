@@ -1,0 +1,21 @@
+define([
+    ".",
+    "base/ui/genericidentify/FeatureInfoWidget",
+//    "./RandomClickFeatureInfoWidget",
+    "./WMSFeatureInfoWidget",
+    "./FeatureInfoController",
+    "./MapModelStoreHelper",
+//    "./GraphicsFeatureInfoStore",
+    "./WMSFeatureInfoStore",
+    "./WMTSFeatureInfoStore",
+    "./GridContentWidget",
+    "./AttributeConfigHelper",
+    "./resultcenterintegration/GenericIdentifyCommand",
+    "./MAPAPPS2941WorkaroundFeatureInfoTool",
+    "base/store/GeolocatorStore",
+    "base/store/IdentifyConfigStore",
+    "base/store/IdentifyMappingStore",
+    "base/util/LoadingController",
+    "ct/tools/Tool",
+    "ct/tools/ToolButtonFactory"
+], {});

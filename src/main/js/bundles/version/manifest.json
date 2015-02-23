@@ -1,0 +1,30 @@
+{
+    "Bundle-SymbolicName": "version",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Components": [
+        {
+            "name": "Version",
+            "propertiesConstructor": true,
+            "properties": {
+                "shortCutKey": 13, // = enter
+                "version": "@@application.version@@"
+            },
+            "references": [
+                {
+                    "name": "_windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        }
+    ]
+}

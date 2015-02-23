@@ -1,0 +1,420 @@
+{
+    "Bundle-SymbolicName": "gipod-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Main GIPOD Builder Menu Entry ========
+        {
+            "name": "GIPODBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderCategoryNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "id": "gipodBuilderNode"
+                }
+            }
+        },
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "GIPODSymbolLSBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "gipodBuilderNode",
+                "menuNode": {
+                    "title": "${menu.symbolization.title}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "gipodSymbolLSBuilderNode"
+                }
+            }
+        },
+        // ======= Builder Widget ========
+        {
+            "name": "GIPODSymbolLSBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": [
+                "dijit.wizard.Widget",
+                "gipod.config.GIPODSymbolLSBuilderController"
+            ],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./SymbolDataForm.json')",
+                "pid": "gipod-GipodStoreLayerRegistration",
+                "bid": "gipod",
+                "id": "gipodSymbolLSBuilderNode",
+                "defaultProperties": {
+                    "showClusterLabels": true,
+                    "clusterLookupTable": {
+                        "point-manifestation-cluster": {
+                            "text": "TEXT",
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                255
+                            ],
+                            "yoffset": -4,
+                            "font": {
+                                "size": "11pt",
+                                "align": "middle",
+                                "style": "normal",
+                                "variant": "normal",
+                                "weight": "bold",
+                                "family": "sans-serif"
+                            }
+                        },
+                        "point-manifestation-severe-cluster": {
+                            "text": "TEXT",
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                255
+                            ],
+                            "yoffset": -4,
+                            "font": {
+                                "size": "11pt",
+                                "align": "middle",
+                                "style": "normal",
+                                "variant": "normal",
+                                "weight": "bold",
+                                "family": "sans-serif"
+                            }
+                        },
+                        "point-workassignment-severe-cluster": {
+                            "text": "TEXT",
+                            "type": "esriTS",
+                            "color": [
+                                255,
+                                255,
+                                255,
+                                255
+                            ],
+                            "yoffset": -4,
+                            "font": {
+                                "size": "11pt",
+                                "align": "middle",
+                                "style": "normal",
+                                "variant": "normal",
+                                "weight": "bold",
+                                "family": "sans-serif"
+                            }
+                        },
+                        "point-workassignment-cluster": {
+                            "text": "TEXT",
+                            "type": "esriTS",
+                            "color": [
+                                255,
+                                255,
+                                255,
+                                255
+                            ],
+                            "yoffset": -4,
+                            "font": {
+                                "size": "11pt",
+                                "align": "middle",
+                                "style": "normal",
+                                "variant": "normal",
+                                "weight": "bold",
+                                "family": "sans-serif"
+                            }
+                        }
+                    },
+                    "lookupTable": {
+                        "point-manifestation": {
+                            "color": [
+                                0,
+                                200,
+                                0,
+                                255
+                            ],
+                            "size": 9,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-manifestation-eventtype": {
+                            "angle": 0,
+                            "xoffset": 0,
+                            "yoffset": 0,
+                            "type": "esriPMS",
+                            "url": "http://gipod.api.agiv.be/ws/v1/icon/manifestation?size=32",
+                            "contentType": "image/png",
+                            "width": 26,
+                            "height": 26
+                        },
+                        "point-manifestation-cluster": {
+                            "color": [
+                                0,
+                                200,
+                                0,
+                                255
+                            ],
+                            "size": 16,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-manifestation-severe": {
+                            "color": [
+                                0,
+                                200,
+                                0,
+                                255
+                            ],
+                            "size": 9,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    255,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-manifestation-severe-cluster": {
+                            "color": [
+                                0,
+                                200,
+                                0,
+                                255
+                            ],
+                            "size": 16,
+                            "type": "esriSMS",
+                            "style": "esriSMSCircle",
+                            "outline": {
+                                "color": [
+                                    255,
+                                    0,
+                                    0,
+                                    255
+                                ],
+                                "width": 1,
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid"
+                            }
+                        },
+                        "point-workassignment": {
+                            "angle": 0,
+                            "xoffset": 0,
+                            "yoffset": 0,
+                            "type": "esriPMS",
+                            "url": "http://gipod.api.agiv.be/ws/v1/icon/workassignment?important=false&size=32",
+                            "contentType": "image/png",
+                            "width": 26,
+                            "height": 26
+                        },
+                        "point-workassignment-cluster": {
+                            "angle": 0,
+                            "xoffset": 0,
+                            "yoffset": 0,
+                            "type": "esriPMS",
+                            "url": "http://gipod.api.agiv.be/ws/v1/icon/workassignment?important=false&size=32",
+                            "contentType": "image/png",
+                            "width": 26,
+                            "height": 26
+                        },
+                        "point-workassignment-severe": {
+                            "angle": 0,
+                            "xoffset": 0,
+                            "yoffset": 0,
+                            "type": "esriPMS",
+                            "url": "http://gipod.api.agiv.be/ws/v1/icon/workassignment?important=true&size=32",
+                            "contentType": "image/png",
+                            "width": 26,
+                            "height": 26
+                        },
+                        "point-workassignment-severe-cluster": {
+                            "angle": 0,
+                            "xoffset": 0,
+                            "yoffset": 0,
+                            "type": "esriPMS",
+                            "url": "http://gipod.api.agiv.be/ws/v1/icon/workassignment?important=true&size=32",
+                            "contentType": "image/png",
+                            "width": 26,
+                            "height": 26
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+//        ,
+//
+//        // ======= Builder Menu Entry ========
+//        {
+//            "name": "POIStoreBuilderMenuEntry",
+//            "impl": "ct/Stateful",
+//            "provides": ["wizard.MenuEntry"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "parentNodeId": "poiBuilderNode",
+//                "menuNode": {
+//                    "title": "Retrieval",
+//                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+//                    "widget": "poiStoreBuilderNode"
+//                }
+//            }
+//        },
+//        // ======= POI Retrieval Builder Widget ========
+//        {
+//            "name": "POIStoreBuilderController",
+//            "impl": "wizard/DataFormBuilderWidgetFactory",
+//            "provides": ["dijit.wizard.Widget"],
+//            "immediate": true,
+//            "instanceFactory": true,
+//            "properties": {
+//                "dataformFile": "resource('./POIRetrievalDataForm.json')",
+//                "pid": "poi-POIServerStoreLayerRegistration",
+//                "bid": "poi",
+//                "id": "poiStoreBuilderNode",
+//                "defaultProperties": {
+//                    "maxcount":200
+//                },
+//                "description": "${menu.description}",
+//                "styleClass": "ctCoordinateViewerBuilderWidget"
+//            },
+//            "references": [
+//                {
+//                    "name": "_configAdminService",
+//                    "providing": "ct.framework.api.ConfigurationAdmin"
+//                },
+//                {
+//                    "name": "_dataformService",
+//                    "providing":"dataform.DataFormService"
+//                }
+//            ]
+//        },
+//
+//
+//        {
+//            "name": "OnChangeHandler",
+//            "propertiesConstructor": true,
+//            "references": [
+//                {
+//                    "name": "_eventService",
+//                    "providing": "ct.framework.api.EventService"
+//                },
+//                {
+//                    "name": "_builderController",
+//                    "providing": "poi.config.POISymbolLSBuilderController"
+//                }
+//            ]
+//        },
+//
+//
+//        // ======= Search Builder Menu Entry ========
+//        {
+//            "name": "SearchBuilderMenuEntry",
+//            "impl": "ct/Stateful",
+//            "provides": ["wizard.MenuEntry"],
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "parentNodeId": "sourcesBuilderNode",
+//                "menuNode": {
+//                    "title": "${menu.search.baseTitle}",
+//                    "iconUrl": "resource('styles/images/bundleIconSearch.png')",
+//                    "widget": "poiSearchBuilderNode"
+//                }
+//            }
+//        },
+//
+//        // ======= Search Builder Widget ========
+//        {
+//            "name": "POISearchBuilderController",
+//            "impl": "wizard/DataFormBuilderWidgetFactory",
+//            "provides": ["dijit.wizard.Widget", "poi.config.POISearchBuilderController"],
+//            "immediate": true,
+//            "instanceFactory": true,
+//            "properties": {
+//                "dataformFile": "resource('./POISearchForm.json')",
+//                "pid": "poi-POISuggestHandler",
+//                "bid": "poi",
+//                "id": "poiSearchBuilderNode",
+//                "defaultProperties": {
+//                    "componentEnabled":true,
+//                    "storeQueryOptions": {
+//                        "count": 5
+//                    },
+//                    "storeParameters": {
+//                        "minQueryLength": 2,
+//                        "target": "http://ws.beta.agiv.be/poi/core"
+//                    }
+//                },
+//                "description": "${menu.search.description}"
+//            },
+//            "references": [
+//                {
+//                    "name": "_configAdminService",
+//                    "providing": "ct.framework.api.ConfigurationAdmin"
+//                },
+//                {
+//                    "name": "_dataformService",
+//                    "providing":"dataform.DataFormService"
+//                }
+//            ]
+//        }
+
+    ]
+}

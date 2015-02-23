@@ -1,0 +1,388 @@
+{
+    "Bundle-SymbolicName": "synonymmanagement",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["builder"],
+
+    "Require-Bundle": [
+        {
+            "name": "dataform",
+            "version": "[3.0.2,)"
+        }
+    ],
+
+    "layout-widgets": [
+        {
+            "role": "synonymConfigView",
+            "window": {
+                "dockTool": "appmanagement_synonymConfigListTool",
+                "marginBox": {
+                    "t": 65,
+                    "l": 10,
+                    "r": 10,
+                    "b": 10
+                },
+                "maximizable": false,
+                "closable": false,
+                "minimizeOnClose": true,
+                "resizable": false,
+                "minSize": {
+                    "w": 150,
+                    "h": 150
+                },
+                "draggable": false,
+                "dndDraggable": false,
+                "windowClass": "noTitleBarAndWindowTools",
+                "fixEdgesInViewPort": {}
+            }
+        }
+    ],
+
+    "Components": [
+        // tab panel
+        {
+            "name": "SynonymConfigListTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "appmanagement_synonymConfigListTool",
+                "title": "${synonymTool.title}",
+                "tooltip": "${synonymTool.desc}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-toolcase",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            }
+        },
+        // tools (add, remove)
+        {
+            "name": "SynonymViewToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["synonymmanagement.SynonymViewToolbar"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolSortIds": [
+                    "addSynonymTool",
+                    "removeSelectedSynonymsTool",
+                    "exportAllSynonymsTool",
+                    "importAllSynonymsTool"
+                ]
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(toolRole=synonymview)"
+                }
+            ]
+        },
+        // dataview in tab panel
+        {
+            "name": "SynonymConfigView",
+            "impl": "ct/ui/controls/dataview/DataView",
+            "provides": [
+                "dijit.Widget",
+                "synonymmanagement.SynonymConfigView"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "dataViewCommon",
+                // Anchor name to use in a template
+                "widgetRole": "synonymConfigView",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "itemsPerPage": 25,
+                "class": "ctSynonymDataView",
+                "DGRID": {
+                    "noDataMessage": "${synonymView.noDataMessage}",
+                    "checkboxSelection": true,
+                    "columns": [
+                        {
+                            "matches": {
+                                "name": "title"
+                            },
+                            "title": "${synonymView.title}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "synonyms"
+                            },
+                            "title": "${synonymView.synonyms}"
+                        }
+                        // any field matching no rule above is used as is
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "synonymmanagement.SynonymViewToolbar",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "SynonymConfigViewController",
+            "impl": "ct/ui/controls/dataview/DataViewController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "synonymmanagement.SynonymConfigViewController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/synonymmanagement/SYNONYM_CONFIG_UPDATED",
+                            "ct/synonymmanagement/SYNONYM_CONFIG_CREATED"
+                        ],
+                        "method": "refreshView"
+                    }
+                ],
+                "selectionTopic": "ct/synonymmanagement/SYNONYM_CONFIG_SHOWDETAILS",
+                "exportTarget": "@@agiv.services.baseurl@@/resources/synonyms/"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "store",
+                    "providing": "synonymmanagement.SynonymConfigStore"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "synonymmanagement.SynonymConfigView"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+        {
+            "name": "SynonymConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "synonymmanagement.SynonymConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "synonymStore",
+                "target": "@@agiv.services.baseurl@@/resources/synonyms",
+                "useIn": ["dataform"]
+            }
+        },
+        {
+            "name": "CreateSynonymConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "synonymview",
+                "id": "createSynonymTool",
+                "title": "${createSynonymTool.title}",
+                "tooltip": "${createSynonymTool.desc}",
+                "togglable": false,
+                "clickHandler": "createSynonymConfig",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "synonymmanagement.SynonymConfigCreateController"
+                }
+            ]
+        },
+        {
+            "name": "RemoveSelectedSynonymsConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "synonymview",
+                "id": "removeSelectedSynonymsTool",
+                "title": "${removeSelectedSynonymsTool.title}",
+                "tooltip": "${removeSelectedSynonymsTool.desc}",
+                "togglable": false,
+                "clickHandler": "removeSelectedItemsWithSaveQuestion",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "synonymmanagement.SynonymConfigViewController"
+                }
+            ]
+        },
+        {
+            "name": "ExportAllSynonymConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "synonymview",
+                "id": "exportAllSynonymsTool",
+                "title": "${exportAllSynonymsTool.title}",
+                "tooltip": "${exportAllSynonymsTool.desc}",
+                "iconClass": "icon-floppy",
+                "togglable": false,
+                "clickHandler": "exportAll",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "synonymmanagement.ExportImportController"
+                }
+            ]
+        },
+        {
+            "name": "ImportAllSynonymConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "synonymview",
+                "id": "importAllSynonymsTool",
+                "title": "${importAllSynonymsTool.title}",
+                "tooltip": "${importAllSynonymsTool.desc}",
+                "iconClass": "icon-doc-export",
+                "togglable": false,
+                "clickHandler": "importAll",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "synonymmanagement.ExportImportController"
+                }
+            ]
+        },
+        {
+            "name": "ExportImportController",
+            "provides": ["synonymmanagement.ExportImportController"],
+            "propertiesConstructor": "true",
+            "properties": {
+                "exportAllTarget": "@@agiv.services.baseurl@@/resources/synonyms/export/all",
+                "importAllTarget": "@@agiv.services.baseurl@@/resources/synonyms/import/all"
+            },
+            "references": [
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        // window showing form for adding new entry
+        {
+            "name": "SynonymConfigCreateController",
+            "provides": ["synonymmanagement.SynonymConfigCreateController"],
+            "references": [
+                {
+                    "name": "synonymConfigStore",
+                    "providing": "synonymmanagement.SynonymConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        // window showing form for editing entries in dataview tab panel
+        {
+            "name": "SynonymConfigDetailsController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "synonymmanagement.SynonymConfigDetailsController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": ["ct/synonymmanagement/SYNONYM_CONFIG_SHOWDETAILS"],
+                        "method": "showSynonymDetails"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "synonymConfigStore",
+                    "providing": "synonymmanagement.SynonymConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+
+    ]
+}

@@ -1,0 +1,39 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{      
+    .ctTool.ctTool_maximizeViewerTool .dijitIcon:before{
+        font-family: agivUiFont;
+        content: "\e620";
+    }
+    .ctTool.ctTool_maximizeViewerTool.dijitChecked .dijitIcon:before{
+        content: "\e621";
+    }
+    .ctTool.ctTool_overviewmap .dijitIcon:before{
+        font-family: agivUiFont;
+        content: "\e61d";
+    }
+    .ctTool.ctTool_toExtentTool {
+        .dijitButtonNode {
+            padding: 3px;
+            background-color: @ct-toolset-button-background-color;
+            border: 3px solid @primary-color;
+            .border-radius(100%);
+
+        }
+        .dijitIcon {
+            .size(15px);
+            font-size: @ct-icon-small;
+            &:before {
+                color: @text-color;
+            }
+        }
+        &.dijitButtonHover {
+            .dijitButtonNode {
+                background-color: @text-color;
+            }
+            .dijitIcon:before {
+                color: @hovered-text-color;
+            }
+        }
+    }
+}

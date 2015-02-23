@@ -1,0 +1,110 @@
+{
+    "Bundle-SymbolicName": "copyright",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "Copyright",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "immediate": true,
+            "properties": {
+                // Anchor name to use in a template
+                "widgetRole": "copyright",
+                // Base directory of local.
+                "imglocation": "images",
+                //position of the images [lowerleft | upperleft | lowerright | upperright]
+                "position": "lowerleft",
+                // default Image (local or global)
+                "defaultimg": "images/agiv_logo_resize.png",
+                // optional Image  (local or global)
+                "images": [
+                    {
+                        "img": "logo_krg_agiv.png",
+                        "link": "http://www.agiv.be",
+                        "copyright": "AGIV/GDI-Vlaanderen",
+                        "text": "De ontsluiting van deze historische kaart kwam tot stand door een samenwerking tussen het AGIV en de KBR",
+                        "enabled": {
+                            "layerid": "",
+                            "serviceid": "agiv_ferraris",
+                            "serviceurl": ["http://grb.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts"]
+                        }
+                    },
+                    {
+                        "img": "logo_krg_agiv.png",
+                        "link": "http://www.agiv.be",
+                        "copyright": "AGIV/GDI-Vlaanderen",
+                        "text": "De ontsluiting van deze historische kaart kwam tot stand door een samenwerking tussen het AGIV en de KBR",
+                        "enabled": {
+                            "layerid": "",
+                            "serviceid": "agiv_popp",
+                            "serviceurl": ["http://grb.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts"]
+                        }
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_secondMapModel",
+                    "providing": "splitviewmap.AgivMapModel",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "_copyrightText",
+                    "providing": "copyright.CopyrightText"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "CopyrightText",
+            "provides": [
+                "dijit.Widget",
+                "copyright.CopyrightText"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "copyrightText"
+            }
+        },
+
+        {
+            "name": "CopyrightPrinter",
+            "provides": [
+                "jasperprinting.api.MandatoryPrintDataProvider",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "copyrights/changed",
+                        "method": "_handleCopyrightsChanged"
+                    }
+                ]
+            },
+            "references": [
+
+            ]
+        }
+    ]
+}

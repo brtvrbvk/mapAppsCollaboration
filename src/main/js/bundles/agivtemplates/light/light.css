@@ -1,0 +1,10 @@
+/*
+    Document   : default
+    Created on : 21.02.2011, 20:24:06
+    Author     : mre
+    Description:
+        Styles required by the template and not covered by the themes.
+*/
+@import url("../common/common.css");
+@import url("light_desktop.css");
+@import url("light_responsive.css");

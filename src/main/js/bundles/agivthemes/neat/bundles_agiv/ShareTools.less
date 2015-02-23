@@ -1,0 +1,86 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+@tool-radius: 26px;
+.@{themeName}{
+    //make the dropdownButton look like a ctTool
+    .share_tools{
+        .dijitButtonNode{
+            padding: 0;
+            color: @ct-icon-color;
+            border: 3px solid @primary-color;
+            .transition(all, .2s, ease-out);
+            background-color: white;
+            .border-radius(@tool-radius);
+        } 
+        .dijitButtonText,
+        .dijitArrowButtonInner{
+            display: none;
+        }
+        .dijitIcon.dijitNoIcon{
+            display: inline-block;
+            font-family: agivUiFont;
+            &:before{
+                content: "\e60e";
+            }
+        }
+
+        &.dijitHover,
+        &.dijitOpened{
+            .dijitButtonNode{
+                color:@ct-button-text-color;
+                .transition(all, .2s, cubic-bezier(.17,.67,.74,1.53));
+                border-color: @text-color;
+            }
+        }
+
+        //Styling for the Menu that opens
+        &.dijitMenuTable {       
+            margin-top: 10px;
+            &:before{ 
+                content:'\e009';
+                color: @agiv-light-grey;
+                .setWebFont();
+                font-size: @ct-icon-large;
+                position: absolute; right: 10px; top: -9px; 
+                margin-left: -28px;
+            }
+            .dijitMenuItemIconCell .dijitIcon{
+                .size(25px);     
+                .bgHD('../images/agivShareTools.png',25px);
+                &:before{
+                    display: none;
+                }
+            }
+            .ctTool_shareTwitterTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 0;
+            }
+            .ctTool_shareGooglePlusTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 -25px;
+            }
+            .ctTool_shareFacebookTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 -50px;
+            }
+            .ctTool_shareMailTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 -75px;
+            }
+            .ctTool_shareUrlTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 -100px;
+            }
+            .ctTool_shareMinimapTool .dijitMenuItemIconCell .dijitIcon{
+                background-position: 0 -125px;
+            }
+        }
+    }
+    //widget for sharing the app's URL
+    .shareUrlWidget{
+        .dijitTextBox{
+            width: 100%;
+            display: inline-block;
+        }
+        .dijitButton{
+            float: right;
+            margin: 12px 0;
+        }
+    }
+
+}

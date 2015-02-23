@@ -1,0 +1,151 @@
+{
+    "Bundle-SymbolicName": "basemapswitcher",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": [""],
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    //"Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+
+    ],
+    "Components": [
+
+        {
+            "name": "BasemapSwitcherFactory",
+            "impl": "base/ui/controls/buttonselectionlist/SelectionListWidgetFactory",
+            "provides": ["dijit.Widget"],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "basemapswitcher",
+                "topic": "basemapswitcher/BASEMAP_SELECTED"
+            },
+            "references": [
+                {
+                    "name": "model",
+                    "providing": "basemapswitcher.Model"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "BasemapSwitcherToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "basemapswitcher.ToggleTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "basemapSwitcherToggleTool",
+                "title": "${ui.labelTitle}",
+                "tooltip": "${ui.tooltip}",
+                "iconClass": "icon-gallery",
+                "togglable": true,
+                "rules": {
+                    "groups": ["none"]
+                }
+            }
+        },
+
+        {
+            "name": "BasemapSwitcherToggleToolBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": ["dijit.Widget"],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "basemapswitcherTool"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "basemapswitcher.ToggleTool"
+                }
+            ]
+        },
+
+        {
+            "name": "SelectionListModel",
+            "impl": "base/ui/SelectionModel",
+            "provides": ["basemapswitcher.Model"],
+            "propertiesConstructor": true,
+            "properties": {
+                "idProperty": "id",
+                "selectionProperty": "enabled"
+            }
+        },
+
+        {
+            "name": "MapModelAdapter",
+            "impl": "base/ui/controls/buttonselectionlist/adapters/MapModelAdapter",
+            "provides": ["basemapswitcher.Adapter"],
+            "propertiesConstructor": true,
+            "properties": {
+                "grbIDs": ["grb"]
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+        },
+
+        {
+            "name": "SelectionListController",
+            "impl": "base/ui/controls/buttonselectionlist/SelectionListController",
+            "propertiesConstructor": true,
+            "properties": {
+                "eventType": "SELECT_BASEMAP",
+                "eventCategory": "BASEMAP"
+            },
+            "references": [
+                {
+                    "name": "adapter",
+                    "providing": "basemapswitcher.Adapter"
+                },
+                {
+                    "name": "model",
+                    "providing": "basemapswitcher.Model"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "WindowToolController",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "basemapswitcher/BASEMAP_SELECTED",
+                        "method": "handleSelection"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "basemapswitcher.ToggleTool"
+                }
+            ]
+        }
+
+    ]
+}

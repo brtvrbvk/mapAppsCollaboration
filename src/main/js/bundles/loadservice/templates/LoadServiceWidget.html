@@ -1,0 +1,33 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="gutters:false, design:'headline'"
+         data-dojo-attach-point="baseNode">
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'top', gutters:false"
+             data-dojo-attach-point="typeSelection">
+
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center', title:'${i18n.ui.results}', label:'${i18n.ui.results}', gutters:false, 'class':'noPadding'"
+             data-dojo-attach-point="extensionWidgetNode">
+
+        </div>
+
+        <div data-dojo-attach-point="linkPane"
+             style="width:inherit"
+             data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'bottom','class':'noPadding linkPane'">
+            <a href="${dataLink}"
+               target="_blank">${i18n.ui.dataLink}</a>
+        </div>
+
+        <div data-dojo-attach-point="infoPane"
+             style="width:inherit"
+             data-dojo-type="ct/ui/controls/MessagePane"
+             data-dojo-props="region:'bottom'"></div>
+
+    </div>
+
+</div>

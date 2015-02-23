@@ -1,0 +1,38 @@
+{
+    "load": {
+        "bundleLocations": [
+            "localbundles",
+            "bundles"
+        ],
+        "allowedBundles": [
+            "system",
+            "themes",
+            "agivthemes",
+            "templates",
+            "templatelayout",
+            "theme-tester",
+            "parametermanager"
+        ]
+    },
+    "bundles": {
+        "themes": {
+            "ThemeModel": {
+                "_selectedTheme": "neat"
+            },
+            "ThemeBundleListener": {
+                "componentEnabled": true
+            }
+        },
+        "templates": {
+            "TemplateModel": {
+                "_selectedTemplate": "test-layout",
+                "_templates": [
+                    {
+                        "name": "test-layout",
+                        "location": "theme-tester"
+                    }
+                ]
+            }
+        }
+    }
+}

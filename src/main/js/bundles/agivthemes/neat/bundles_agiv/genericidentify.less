@@ -1,0 +1,410 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+
+    &.ctActiveTool_genericFeatureInfoTool .mainMap .mainMap svg {
+        image, text, circle, path {
+            cursor: pointer;
+        }
+    }
+
+    &.ctActiveTool_featureInfoTool .mainMap .container * {
+        cursor: help;
+    }
+
+    .agivGenericIdentify {
+        .dijitContentPane.noOverflow{
+            overflow:hidden;
+        }
+        .innerBorderContainer {
+            min-height: 45px;
+        }
+        .agivFeatureInfoWidget {
+            //overflow: auto;
+            .ctMultiHit {
+                clear: both;
+                display: block;
+                font-size: 0.9em;
+                padding: 0;
+                margin: 0;
+                .dijitButtonNode {
+                    width: 100%;
+                    padding: 5px 0;
+                    border-width: 0 0 1px 0;
+                    border-color: darken(@menu-background-color, 10%);
+                    font-weight: normal;
+                    text-align: left;
+                    background-color: transparent;
+                }
+                &.dijitHover .dijitButtonNode {
+                    //background-color: @select-dropdownitem-hovered-background-color;
+                    background-color: transparent;
+                }
+                .dijitButtonText {
+                    width: 95%;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    padding: 0;
+                    margin: 0 5px 0 5px;
+                }
+            }
+            .ctInfoContainer.dijitContentPane {
+                padding: 4px 8px 0;
+            }
+
+            /*reenable text selection color*/
+            .agivFeatureInfoResult .label::selection,
+            .agivFeatureInfoResult .value::selection {
+                background: #3399FF;
+                color: white;
+            }
+            .agivFeatureInfoResult .label::-moz-selection,
+            .agivFeatureInfoResult .value::-moz-selection {
+                background: #3399FF;
+                color: white;
+            }
+            .agivFeatureInfoResult .ctDetailButton {
+                position: absolute;
+                bottom: 12px;
+                left: 0px;
+                .dijitButtonNode {
+                    border: none;
+                    padding: 2px 2px 3px 2px;
+                }
+                .dijitButtonText {
+                    text-decoration: underline;
+                    color: @disabled-color;
+                }
+                .dijitHover .dijitButtonText {
+                    color: #fff;
+                }
+            }
+            .label {
+                font-weight: bold;
+            }
+            .activeLayerList {
+                font-weight: normal;
+                padding-left: 1em;
+            }
+            .agivDrawingInfoWidget {
+                .dijitTextBox {
+                    width: 75%;
+                }
+                .addNameBtn {
+                    float: right;
+                    margin: 0;
+                    .dijitButtonNode {
+                        padding: 2px 4px 3px 4px;
+                    }
+                }
+                .value {
+                    line-height: 1em;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        p.hint {
+            margin: .4em 0;
+            font-size: 9px;
+            padding-left: 20px;
+            color: #ADADAD;
+        }
+        .featureInfoButtonContainer {
+            max-width: 170px;
+            overflow: visible;
+        }
+        .ctButtonGroup {
+            text-align: center;
+            margin-top:5px;
+            .ctMenuButton {
+                margin: .2em 0;
+            }
+            .ctMenuButton .dijitButtonNode {
+                .border-radius(0);
+            }
+            .ctMenuButton .dijitButtontext {
+                padding-right: 0;
+            }
+            .ctMenuButton:first-child {
+                margin-right: 3px;
+                .dijitButtonNode {
+                   // .border-radius(@button-border-radius, 0, 0, @button-border-radius);
+                   border-top-left-radius: @button-border-radius;
+                   border-bottom-left-radius: @button-border-radius;
+                }
+            }
+            .ctMenuButton:last-child {
+                .dijitButtonNode {
+                    //.border-radius(0, @button-border-radius, @button-border-radius, 0);
+                  border-top-right-radius: @button-border-radius;
+                  border-bottom-right-radius: @button-border-radius;
+                }
+            }
+        }
+        .ctMenuButton {
+            .dijitButtonNode {
+                .border-radius(7px);
+                padding: 8px 3px;
+            }
+            .dijitButtonText {
+                text-align: left;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .dijitIcon {
+                font-size: 15px;
+                width: 15px;
+                margin-right: 2px;
+                &.icon-info-italic:before {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+        .elevationButton {
+            position: static;
+        }
+        .ctMoreInfo {
+            min-height: 15px;
+        }
+        .ctPoiInfoResult .centerPanel {
+            overflow: hidden;
+        }
+        .ctPoiInfoTable {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .ctMoreInfo,
+        .ctPoiInfoTable,
+        .innerBorderContainer .label,
+        .ctFeatureInfoAddress,
+        .ctFeatureInfoContact {
+            padding-left: 20px;
+        }
+        .ctFeatureInfoContact {
+            margin-top: 5px;
+        }
+        .ctFeatureInfoContact .icon,
+        .featureinfoIcon {
+            left: 0px;
+            position: absolute;
+        }
+        .innerBorderContainer .label {
+            margin-bottom: 3px;
+            color: #adadad
+        }
+        .featureinfoIcon,
+        .icon-arrow-rounded-right,
+        .icon-coordinateviewer,
+        .dijitHover .icon-coordinateviewer,
+        .dijitHover .icon-arrow-rounded-right {
+            font-size: @ct-icon-small;
+        }
+        .ctMoreInfo:before,
+        .icon-arrow-rounded-right {
+            .setWebFont(agivUiFont);
+        }
+        .label.title,
+        .label.alias,
+        .descriptionWrapper {
+            margin-bottom: 8px;
+            margin-top: 3px;
+            margin-left: 20px;
+
+        }
+        .poiSidebarRight {
+            text-align: right;
+            width: 160px;
+            color: #adadad;
+            .dijitButton {
+                margin-right: 0;
+            }
+        }
+        .value,
+        .label.title {
+            font-weight: bold;
+            line-height: 1.5em;
+            color: @ct-button-text-color;
+        }
+        .layerInfoList {
+            > span {
+                display: block;
+            }
+            .icon-arrow-rounded-right:before {
+                content: '\e618';
+            }
+        }
+        .ctWindowTool .ctToolIcon_searchResultDeleteTool {
+            //to align icon with the close icon
+            line-height: 16px;
+        }
+
+
+      h2{
+        font-weight: bold;
+      }
+
+
+      .navButtons{
+        .prevButton {
+          float: left;
+        }
+        .nextButton{
+          float: right;
+          .dijitIcon{
+            float: right;
+          }
+        }
+      }
+
+
+    }
+
+    .multiPOI {
+        .dijitDialogPaneContent {
+            padding: 0;
+        }
+        .ctMultiHit {
+            margin: 0;
+            border-bottom: 1px solid @agiv-light-grey;
+            position: relative;
+            //  top: -10px;
+            // left: -8px;
+            width: 100%;
+            &:last-child {
+                border-bottom-width: 0;
+            }
+            .dijitButtonNode {
+                width: 100%;
+                padding: 15px 0;
+                .border-radius(0);
+                background-color: transparent;
+                .dijitButtonContents {
+                }
+            }
+            &.dijitHover .dijitButtonNode {
+                background-color: @hovered-background-color;
+                color: @hovered-text-color;
+            }
+            .dijitButtonText {
+                font-weight: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 100%;
+                text-align: left;
+
+                .ctPOIIcon {
+                    margin-right: 4px;
+                    vertical-align: text-bottom;
+                }
+                .ctPOITypeLabel {
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    // BUILDER
+    .ctBlocker {
+        .ctLoading {
+            .setWebFont();
+            font-size: @ct-icon-small;
+            color: @text-color;
+            background-image: none;
+            .animation(spin, 1.5s, infinite, linear);
+            &:before {
+                content: "\e097";
+            }
+        }
+    }
+    .appbuilder.ctBuilderWindowRoot {
+        .categorieOperator {
+            .dijitButtonText {
+                display: none;
+            }
+            .dijitIcon {
+                font-size: 17px;
+            }
+            .dijitButtonNode {
+                padding: 1px 3px;
+                color: @secondary-color;
+            }
+            .add:before {
+                content: '\e017' !important; //importants needed here to allow iconfont usage in builder theme before map.apps 4
+            }
+            .remove:before {
+                content: '\e018' !important;
+            }
+            .moveDown:before {
+                content: '\e00b' !important;
+            }
+            .moveUp:before {
+                content: '\e009' !important;
+            }
+            &.dijitButtonDisabled .dijitButtonNode {
+                color: @disabled-text-color;
+            }
+        }
+        .ctStaticFeatureInfoContentModelBuilderWidget,
+        .ctMapModelStoreBuilderWidget {
+            .services, .categories {
+                width: 50%;
+            }
+            .dragTarget {
+                height: 100%
+            }
+            .dojoDndItem {
+                /*height: 30px;*/
+                padding: 3px;
+                .title {
+                    font-weight: bold;
+                    overflow: hidden;
+                    height: 1.5em;
+                    font-size: 9px;
+                }
+                .service {
+                    padding-left: 10px;
+                    overflow: hidden;
+                    height: 1.3em;
+                    font-weight: lighter;
+                    font-size: 9px;
+                }
+            }
+            .categories,
+            .layerDetails {
+                .dijitTextBox {
+                    width: 150px;
+                }
+                .ctExtraInfoWidget {
+                    .dijitCheckBox, .dijitTextBox {
+                        vertical-align: top;
+                    }
+                    .ctBuilderTextArea {
+                        width: 480px;
+                        height: 50px;
+                        resize: none;
+                    }
+                }
+            }
+        }
+    }
+
+    //feature infor extension for hik app,
+    .agivGenericIdentify.hik {
+        .dijitDialogTitle,
+        .dijitDialogTitle:before {
+            vertical-align: middle;
+        }
+        .dijitDialogTitle:before {
+            content: '';
+            display: inline-block;
+            margin-right: 5px;
+            .size(32px);
+        }
+    }
+}

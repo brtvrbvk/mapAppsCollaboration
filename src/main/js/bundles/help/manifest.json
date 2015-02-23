@@ -1,0 +1,62 @@
+{
+    "Bundle-SymbolicName": "help",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+    ],
+    "Components": [
+        {
+            "name": "HelpHandler",
+            "provides": ["help.HelpHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "helpUrl": "http://www.agiv.be/gis/diensten/geo-vlaanderen/?artid=1877"
+            }
+        },
+        {
+            "name": "HelpTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "help",
+                "title": "${help.title}",
+                "iconClass": "icon-help",
+                "tooltip": "${help.description}",
+                "clickHandler": "onHelpClick",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "help.HelpHandler"
+                }
+            ]
+        },
+        {
+            "name": "HelpBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "help"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=help)"
+                }
+            ]
+        }
+    ]
+}

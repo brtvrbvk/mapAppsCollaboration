@@ -1,0 +1,41 @@
+{
+    "Bundle-SymbolicName": "appinsights",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "AppInsights",
+    "Bundle-Description": "AppInsights",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["analytics"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Components": [
+        {
+            "name": "AppInsightsFactory",
+            "provides": ["agiv.appinsights.AppInsights"],
+            "instanceFactory": true,
+            "properties": {
+                "versionToUse": "v00", // "v00" or "v07"
+                "v00": {
+                    "iKey": "b5d40913-97f4-46df-ab81-2f5613ce01e7",
+                    "scriptUrl": "//az416426.vo.msecnd.net/scripts/a/ai.0.js"
+                },
+                "v07": {
+                    "appInsightsId": "00991a4a-ac8d-4ceb-ab90-14476778c5d3",
+                    "scriptUrl": "//az416426.vo.msecnd.net/scripts/v/ai.0.7.js"
+                }
+            }
+        },
+        {
+            "name": "PageViewTracker",
+            "references": [
+                {
+                    "name": "appInsights",
+                    "providing": "agiv.appinsights.AppInsights"
+                }
+            ]
+        }
+    ]
+}

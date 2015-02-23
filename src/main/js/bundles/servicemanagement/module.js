@@ -1,0 +1,20 @@
+define([
+    ".",
+    "ct/ui/controls/dataview/DataView",
+    "ct/ui/controls/dataview/DataViewController",
+    "ct/ui/dnd/GridContainerWidget",
+    "ct/store/ComplexMemory",
+    "base/store/ServiceConfigStore",
+    "base/store/IdentifyConfigStore",
+    "base/store/IdentifyMappingStore",
+    "./CreateServiceConfigController",
+    "./ServiceConfigDetailsController",
+    "base/store/KnownServicesStore",
+    "./MRRBuilderController",
+    "./ServiceDetailsController",
+    "./ServiceResolver",
+    "./ServiceConfigViewController",
+    "./ExportImportController",
+    "./IdentifyLayerMappingCreateController",
+    "./IdentifyLayerMappingWidget"
+], {});

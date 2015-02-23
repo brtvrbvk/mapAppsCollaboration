@@ -1,0 +1,74 @@
+{
+    "Bundle-SymbolicName": "disclaimer-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "agivBuilderNode",
+                "menuNode": {
+                    "title": "${menu.title}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "disclaimerBuilderWidget"
+                }
+            }
+        },
+
+        // ======= Builder Widget ========
+        {
+            "name": "DisclaimerBuilderWidget",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./DisclaimerForm.json')",
+                "bid": "disclaimer",
+                "pid": "disclaimer-DisclaimerController",
+                "id": "disclaimerBuilderWidget",
+                "defaultProperties": {
+                    "alwaysShowOnStartup": "false",
+                    "i18n": {
+                        "ui": {
+                            "disclaimer": "${i18n.ui.disclaimer}"
+                        }
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+    ]
+}

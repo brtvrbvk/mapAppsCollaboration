@@ -1,0 +1,51 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-attach-point="mainContainer"
+         data-dojo-props="design:'headline', gutters:false,'class':'fullwidthAndHeight'">
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'top'">
+            <div data-dojo-attach-point="messagePane"
+                 data-dojo-type="ct/ui/controls/MessagePane"
+                 data-dojo-props=""></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center'">
+            <div class="label"
+                 data-dojo-attach-point="labelNode"></div>
+            <div class="value"
+                 data-dojo-attach-point="addressNode">
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'bottom',layoutPriority:3">
+            <div class="label"
+                 data-dojo-attach-point="infoNode"></div>
+            <div class="ctMoreInfo"
+                 data-dojo-attach-point="moreInformation">
+            </div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'bottom',layoutPriority:2">
+            <div class="layerInfoList"
+                 data-dojo-attach-point="layerInfoList">
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="buttonContainer"
+             data-dojo-props="region:'bottom',layoutPriority:1,'class':'ctButtonGroup'">
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="btnStartRouting"
+                 data-dojo-props="'iconClass':'icon-directions','class':'ctMenuButton routingButton'"
+                 data-dojo-attach-event="onClick:_onShowRoute">${i18n.showRoute}
+            </div>
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="coordinatesButton"
+                 data-dojo-props="iconClass: 'icon-coordinateviewer',
+                 label:'${i18n.coordinates}','class':'ctMenuButton'"
+                 data-dojo-attach-event="onClick:_onCoordinatesClick">
+            </div>
+        </div>
+    </div>
+</div>

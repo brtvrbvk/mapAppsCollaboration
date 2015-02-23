@@ -1,0 +1,209 @@
+{
+    "Bundle-SymbolicName": "parcelselection",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+
+        {
+            "name": "ParcelSelectionModel",
+            "provides": ["parcelselection.SelectionModel"],
+            "propertiesConstructor": true,
+            "properties": {
+                "idProperty": "ID"
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+
+        },
+
+        {
+            "name": "ParcelSelectionController",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/parcelselection/PARCEL",
+                        "method": "add"
+                    },
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "_handleResultSelection"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_WIDGET_CLICK",
+                        "method": "_handleItemClick"
+                    },
+                    {
+                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
+                        "method": "_handleItemRemove"
+                    }
+                ],
+                "pointZoomScale": 2500,
+                "_symbolTable": {
+                    "SEARCH_RESULT_PARCEL": {
+                        "type": "esriSFS",
+                        "color": [
+                            255,
+                            255,
+                            255,
+                            0
+                        ],
+                        "outline": {
+                            "color": [
+                                65,
+                                115,
+                                255,
+                                255
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",
+                            "width": 3
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "SEARCH_RESULT_PARCEL-selected": {
+                        "type": "esriSFS",
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                65,
+                                115,
+                                255,
+                                255
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",
+                            "width": 4
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "parcelSelectionModel",
+                    "providing": "parcelselection.SelectionModel",
+                    "connect": {
+                        "onSelectionChanged": "renderParcel",
+                        "onUpdate": "renderParcel"
+                    }
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService",
+                    "cardinality": "0..1"
+                }
+            ]
+
+        },
+        {
+            "name": "ParcelSelectionPersistable",
+            "provides": [
+                "agiv.api.Persistable",
+                "agiv.api.LocalPersistable"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_symbolTable": {
+                    "SEARCH_RESULT_PARCEL": {
+                        "type": "esriSFS",
+                        "color": [
+                            255,
+                            255,
+                            255,
+                            0
+                        ],
+                        "outline": {
+                            "color": [
+                                65,
+                                115,
+                                255,
+                                255
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",
+                            "width": 3
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "SEARCH_RESULT_PARCEL-selected": {
+                        "type": "esriSFS",
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                65,
+                                115,
+                                255,
+                                255
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",
+                            "width": 4
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "parcelSelectionModel",
+                    "providing": "parcelselection.SelectionModel"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+        }
+    ]
+}

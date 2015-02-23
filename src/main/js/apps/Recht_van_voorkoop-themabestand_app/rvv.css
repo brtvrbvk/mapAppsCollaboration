@@ -1,0 +1,6 @@
+/*
+* Always show buttons in layermanager
+*/
+.neat .layerItemNode .buttonContainer{
+    display:block;
+}

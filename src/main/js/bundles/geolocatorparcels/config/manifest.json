@@ -1,0 +1,203 @@
+{
+    "Bundle-SymbolicName": "geolocatorparcels-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        //we hook everything directly to the appBuilderSearchNode
+
+        // ======= Geolocator Builder Menu Entry ========
+        {
+            "name": "GeolocatorParcelMainBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "appBuilderSearchNode",
+                "menuNode": {
+                    "title": "${menu.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "id": "geolocatorparcelNode"
+                }
+            }
+        },
+
+        // ======= Geolocator Builder Menu Entry ========
+        {
+            "name": "GeolocatorWidgetBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "geolocatorparcelNode",
+                "menuNode": {
+                    "title": "${menu.urlTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "geolocatorparcelUrlBuilderNode"
+                }
+            }
+        },
+
+        // ======= ParcelUrl Builder Menu Entry ========
+        {
+            "name": "ParcelWidgetBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "geolocatorparcelNode",
+                "menuNode": {
+                    "title": "${menu.parcelTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "geolocatorparcelParcelUrlBuilderNode"
+                }
+            }
+        },
+
+        // ======= GeolocatorUrlProvider Builder Widget ========
+        {
+            "name": "SearchWidgetBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./GeolocatorUrlsForm.json')",
+                "pid": "geolocatorparcels-GeolocatorUrlProvider",
+                "bid": "geolocatorparcels",
+                "id": "geolocatorparcelUrlBuilderNode",
+                "defaultProperties": {
+                    "suggestUrl": "http://loc.api.geopunt.be/geolocation/Suggestion",
+                    "locationUrl": "http://loc.api.geopunt.be/geolocation/Location"
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        },
+
+        // ======= ParcelUrlProvider Builder Widget ========
+        {
+            "name": "ParcelUrlProviderBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./ParcelUrlForm.json')",
+                "pid": "geolocatorparcels-ParcelUrlProvider",
+                "bid": "geolocatorparcels",
+                "id": "geolocatorparcelParcelUrlBuilderNode",
+                "defaultProperties": {
+                    "parcelUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/2/query",
+                    "parcelIDFieldName": "perceelNr"
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        },
+
+        // ======= Geolocator Builder Menu Entry ========
+        {
+            "name": "SearchBuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "sourcesBuilderNode",
+                "menuNode": {
+                    "title": "${menu.geolocator.baseTitle}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "geolocatorParcelsBuilderNode"
+                }
+            }
+        },
+
+        // ======= Geolocator Builder Widget ========
+        {
+            "name": "GeolocatorBuilderController",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": [
+                "dijit.wizard.Widget",
+                "geolocator.config.GeolocatorBuilderController"
+            ],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./GeolocatorForm.json')",
+                "pid": "geolocatorparcels-GeolocatorHandler",
+                "bid": "geolocatorparcels",
+                "id": "geolocatorParcelsBuilderNode",
+                "defaultProperties": {
+                    "componentEnabled": true,
+                    "geolocatorSuggestQueryOptions": {
+                        "count": 5
+                    },
+                    "geolocatorSuggestStoreParameters": {
+                        "timeout": 15000,
+                        "minQueryLength": 2,
+                        "wkid": 4326,
+                        "response": {
+                            "resultArrayName": "SuggestionResult"
+                        }
+                    },
+                    "geolocatorStoreParameters": {
+                        "timeout": 15000,
+                        "minQueryLength": 2,
+                        "wkid": 4326,
+                        "response": {
+                            "resultArrayName": "LocationResult"
+                        }
+                    },
+                    "useNavteqFallback": false
+                },
+                "description": "${menu.geolocator.description}"
+//                "styleClass": "ctCoordinateViewerBuilderWidget"
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "Bundle-SymbolicName": "geopunt",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+
+        {
+            "name": "GeopuntParameterResolver",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "references": [
+                {
+                    "name": "esrimap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "loadServiceController",
+                    "providing": "loadservice.Controller"
+                },
+                {
+                    "name": "combicontentmanagerTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=combicontentmanagerTool)"
+                }
+            ]
+
+        },
+        {
+            "name": "GeopuntHandler",
+            "impl": "./searchintegration/GeopuntHandler",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleValueChange"
+                    }
+                ],
+                "minQueryLength": 2,
+                "redirectTarget": "@@applicationURL.geopunt@@/search?facet=all&q=${query}"
+//                "geopuntAPI": "@@applicationURL.geopunt@@/api/search/counters?query="
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "MaximizeViewerHandler",
+            "provides": [
+                "geopunt.MaximizeViewerHandler",
+                "ct.api.parametermanager.Parametrizable"
+            ],
+            "references": [
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+        {
+            "name": "MaximizeViewerTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "geopunt.MaximizeTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "maximizeViewerTool",
+                "toolRole": "toolset",
+                "title": "${maximizeViewer.title}",
+                "tooltip": "${maximizeViewer.title}",
+                "maximizeTooltip": "${maximizeViewer.title}",
+                "minimizeTooltip": "${maximizeViewer.minimizeTooltip}",
+                "iconClass": "icon-viewer-max",
+                "togglable": true,
+                "activateHandler": "maximizeScreen",
+                "deactivateHandler": "minimizeScreen",
+                "rules": {
+                    "groups": ["maxgroup"]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "geopunt.MaximizeViewerHandler"
+                }
+            ]
+        },
+
+        {
+            "name": "MaximizeParametrizable",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "geopunt.MaximizeTool"
+                }
+            ]
+        },
+
+        {
+            "name": "MaximizeViewerBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "maximizeViewerToggleButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=maximizeViewerTool)"
+                }
+            ]
+        }
+    ]
+}

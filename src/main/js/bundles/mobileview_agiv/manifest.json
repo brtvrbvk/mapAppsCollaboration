@@ -1,0 +1,40 @@
+{
+    "Bundle-SymbolicName": "mobileview_agiv",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["system"],
+    "Bundle-Copyright": "con terra GmbH",
+
+    "Bundle-RequiredExecutionEnvironment": [
+        "Android",
+        "iPhone",
+        "iPad",
+        "BlackBerry",
+        "Touch",
+        "Mobile"
+    ],
+
+    "Require-Bundle": [
+        {
+            "name": "templatelayout",
+            "version": "[3.0.2,)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "RootWidgetResizer",
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "templateLayout",
+                    "providing": "templatelayout.TemplateLayout",
+                    "policy": "dynamic"
+                }
+            ]
+        }
+    ]
+}

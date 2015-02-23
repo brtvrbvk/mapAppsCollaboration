@@ -1,0 +1,311 @@
+{
+    "Bundle-SymbolicName": "statestoring",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["statestoring"],
+
+    "Bundle-StartLevel": 1,
+
+    //    "Config-Bundle-Location" : "/config",
+
+    "Require-Bundle": [
+        {
+            "name": "jstorage",
+            "version": "[4.0.0,)"
+        },
+        {
+            "name": "parametermanager",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+
+        {
+            "name": "StateRestorer",
+            "properties": {
+                "appsToRestore": [
+//                    "generic",
+//                    "generic_advanced",
+//                    "generic_template",
+//                    "generic_advanced_template",
+//                    "Geopunt-kaart_app",
+//                    "Geopunt-kaart_pro_app"
+                ],
+                "parameterWhitelist": [
+                    "app",
+                    "center",
+                    "lod",
+                    "sbn",
+                    "searchResult"
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "stateStorer",
+                    "providing": "statestoring.LocalStateStorer"
+                }
+            ]
+        },
+
+        {
+            "name": "DBStateStorer",
+            "propertiesConstructor": true,
+            "immediate": true,
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "statestoring.DBStateStorer"
+            ],
+            "properties": {
+                "target": "@@agiv.services.baseurl@@/resources/map",
+                "excludeSearchTerms": [
+                    "adres",
+                    "coordinaten",
+                    "perceel",
+                    "kaart"
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "persistable",
+                    "providing": "agiv.api.Persistable",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+
+        {
+            "name": "LocalStateStorer",
+            "impl": "DBStateStorer",
+            "propertiesConstructor": true,
+            "immediate": true,
+            "provides": [
+                "statestoring.LocalStateStorer"
+            ],
+            "properties": {
+                "target": "@@agiv.services.baseurl@@/resources/map",
+                "excludeSearchTerms": [
+                    "adres",
+                    "coordinaten",
+                    "perceel",
+                    "kaart"
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "persistable",
+                    "providing": "agiv.api.LocalPersistable",
+                    "cardinality": "0..n",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+
+        {
+            "name": "DBStateStorerTestTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "dbTestTool",
+                "toolRole": "toolset",
+                "iconClass": "icon-rotate-ccw",
+                "togglable": false,
+                "clickHandler": "storeState"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "statestoring.DBStateStorer"
+                }
+            ]
+        },
+
+        {
+            "name": "ContinuousStateStorer",
+            "references": [
+                {
+                    "name": "stateStorer",
+                    "providing": "statestoring.LocalStateStorer"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel",
+                    "connect": {
+                        "onModelStructureChanged": "storeState",
+                        "onModelNodeStateChanged": "storeState"
+                    }
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "connect": {
+                        "onExtentChange": "storeState"
+                    }
+                },
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        },
+
+        {
+            "name": "MapModelParameterResolver",
+            "immediate": true,
+            "provides": ["agiv.api.Persistable"],
+            "properties": {
+                "poiSearchLookupTable": {
+                    "point": {
+                        "url": "resource('images/mapMarker_sun.png')",
+                        "width": 17,
+                        "height": 26,
+                        "xoffset": 0,
+                        "yoffset": 10,
+                        "type": "esriPMS"
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+
+        {
+            "name": "LocalMapModelParameterResolver",
+            "impl": "MapModelParameterResolver",
+            "immediate": true,
+            "provides": ["agiv.api.LocalPersistable"],
+            "properties": {
+                "decodeableProperty": false,
+                "poiSearchLookupTable": {
+                    "point": {
+                        "url": "resource('images/mapMarker_sun.png')",
+                        "width": 17,
+                        "height": 26,
+                        "xoffset": 0,
+                        "yoffset": 10,
+                        "type": "esriPMS"
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareMapModelParameterResolver",
+            "impl": "MapModelParameterResolver",
+            "immediate": true,
+            "provides": ["agiv.api.Persistable"],
+            "properties": {
+                "decodeableProperty": "compareSon",
+                "poiSearchLookupTable": {
+                    "point": {
+                        "url": "resource('images/mapMarker_sun.png')",
+                        "width": 17,
+                        "height": 26,
+                        "xoffset": 0,
+                        "yoffset": 10,
+                        "type": "esriPMS"
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "_map",
+                    "providing": "splitviewmap.MapWidget"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                }
+            ]
+        },
+
+        {
+            "name": "MapStateParameterResolver",
+            "impl": "map/MapStateParameterResolver",
+            "immediate": true,
+            "provides": [
+                "agiv.api.Persistable",
+                "ct.framework.api.ConfigurationPlugin",
+                "agiv.api.LocalPersistable"
+            ],
+            "properties": {
+                "+CM-Target-Pids": ["map-MapState"],
+                "-encodeCenter": true
+            },
+            "references": [
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "esriMap",
+                    "providing": "esri.Map",
+                    "cardinality": "0..1"
+                }
+            ]
+        }
+
+    ]
+}

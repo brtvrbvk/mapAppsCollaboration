@@ -1,0 +1,287 @@
+{
+    "Bundle-SymbolicName": "loadservice",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "loadservice",
+    "Bundle-Description": "Used to load services",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["loadservice"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Require-Bundle": [
+    ],
+    "Components": [
+
+        {
+            "name": "LoadServiceWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "loadservice.Widget"
+            ],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "widgetRole": "loadservice",
+                "dataLink": "http://www.geopunt.be"
+            }
+        },
+
+        {
+            "name": "WMSServiceTypeRegistration",
+            "provides": ["loadservice.ServiceTypeRegistration"],
+            "impl": "ct/Stateful",
+            "immediate": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "type": "radiobutton",
+                "groupId": "servicetype",
+                "label": "WMS",
+                "field": "WMS",
+                "selected": true
+            },
+            "references": [
+                {
+                    "name": "controller",
+                    "providing": "loadservice.WMSServiceExtensionController"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareWMSServiceTypeRegistration",
+            "impl": "WMSServiceTypeRegistration",
+            "provides": ["loadservice.CompareServiceTypeRegistration"],
+            "impl": "ct/Stateful",
+            "immediate": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "type": "radiobutton",
+                "groupId": "servicetype",
+                "label": "WMS",
+                "field": "WMS",
+                "selected": true
+            },
+            "references": [
+                {
+                    "name": "controller",
+                    "providing": "loadservice.CompareWMSServiceExtensionController"
+                }
+            ]
+        },
+
+        {
+            "name": "WMSServiceExtensionController",
+            "provides": ["loadservice.WMSServiceExtensionController"],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "target": "@@sdi.services.baseurl@@/resources/str"
+            },
+            "references": [
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareWMSServiceExtensionController",
+            "impl": "WMSServiceExtensionController",
+            "provides": ["loadservice.CompareWMSServiceExtensionController"],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "target": "@@sdi.services.baseurl@@/resources/str"
+            },
+            "references": [
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "LoadServiceController",
+            "provides": [
+                "loadservice.Controller"
+            ],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "serviceTypeForm": {
+                    "dataform-version": "1.0.0",
+                    "size": {
+                        "h": 30,
+                        "w": 400
+                    },
+                    "type": "tablepanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "children": []
+                }
+            },
+            "references": [
+                {
+                    "name": "serviceType",
+                    "providing": "loadservice.ServiceTypeRegistration",
+                    "cardinality": "1..n"
+                },
+                {
+                    "name": "widget",
+                    "providing": "loadservice.Widget"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_windowTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=addDynamicServiceTool)"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+
+        },
+
+        {
+            "name": "AddServiceTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "addDynamicServiceTool",
+                "iconClass": "icon-layer-add",
+                "title": "${ui.tool.title}",
+                "tooltip": "${ui.tool.tooltip}",
+                "togglable": true,
+                "rules": {
+                    "groups": ["dynamicloadservice"]
+                }
+            }
+        },
+
+        //SPLITMAP
+        {
+            "name": "LoadServiceCompareWidgetFactory",
+            "impl": "LoadServiceWidgetFactory",
+            "provides": [
+                "dijit.Widget",
+                "loadservice.CompareWidget"
+            ],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "loadserviceCompare",
+                "dataLink": "http://gepunt.be"
+            }
+        },
+
+        {
+            "name": "LoadServiceCompareController",
+            "impl": "LoadServiceController",
+            "provides": ["loadservice.CompareController"],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+                "serviceTypeForm": {
+                    "dataform-version": "1.0.0",
+                    "size": {
+                        "h": 30,
+                        "w": 400
+                    },
+                    "type": "tablepanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "children": []
+                }
+            },
+            "references": [
+                {
+                    "name": "serviceType",
+                    "providing": "loadservice.CompareServiceTypeRegistration",
+                    "cardinality": "1..n"
+                },
+                {
+                    "name": "widget",
+                    "providing": "loadservice.CompareWidget"
+                },
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_windowTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=addDynamicCompareServiceTool)"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+
+        },
+
+        {
+            "name": "AddCompareServiceTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "addDynamicCompareServiceTool",
+                "iconClass": "icon-layer-add",
+                "title": "${ui.tool.title}",
+                "tooltip": "${ui.tool.title}",
+                "togglable": true,
+                "rules": {
+                    "groups": ["dynamicloadservice"]
+                }
+            }
+        }
+
+    ]
+}

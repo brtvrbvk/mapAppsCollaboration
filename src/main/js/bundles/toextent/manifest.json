@@ -1,0 +1,106 @@
+{
+    "Bundle-SymbolicName": "toextent",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "splitviewmap",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+    "Components": [
+        {
+            "name": "ToExtentHandler",
+            "provides": ["toextent.ToExtentHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "extent": {
+                    "xmin": 280000,
+                    "ymin": 6550000,
+                    "xmax": 660000,
+                    "ymax": 6725000,
+                    "spatialReference": {
+                        "wkid": 3857
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_secondMapState",
+                    "providing": "splitviewmap.AgivMapState",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "ToExtentTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "toExtentTool",
+                "title": "${toExtentTool.title}",
+                "iconClass": "icon-globe",
+                "tooltip": "${toExtentTool.tooltip}",
+                "clickHandler": "toExtent",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "toextent.ToExtentHandler"
+                }
+            ]
+        },
+
+        {
+            "name": "ToExtentToolBtnFactory1",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "toExtentToolButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=toExtentTool)"
+                }
+            ]
+        },
+
+        {
+            "name": "ToExtentToolBtnFactory2",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": ["dijit.Widget"],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "doubleToExtentToolButton"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=toExtentTool)"
+                }
+            ]
+        }
+
+    ]
+}

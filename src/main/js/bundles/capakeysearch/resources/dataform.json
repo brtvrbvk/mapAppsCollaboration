@@ -1,0 +1,83 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cssClass" : "capakeySearch",
+    "cols": 1,
+    "children": [
+        {
+            "type": "checkbox",
+            "title": "${nis}",
+            "field": "nis",
+            "id": "nis"
+        },
+        {
+            "type": "combobox",
+            "labelAttribute": "title",
+            "title": "${municipality}",
+            "field": "municipality",
+            "store": "municipalityStore",
+            "disabled": true,
+            "placeHolder": "${setMunicipality}",
+            "searchAttribute": "title",
+            "valueAttr": "title",
+            "id" : "municipality"
+        },
+        {
+            "type": "combobox",
+            "title": "${department}",
+            "field": "department",
+            "id": "department",
+            "store": "departmentStore",
+            "placeHolder": "${setDepartment}",
+            "searchAttribute": "title",
+            "valueAttr": "title",
+            "labelAttribute": "title",
+            "disabled": true
+        },
+        {
+            "type": "combobox",
+            "title": "${section}",
+            "field": "section",
+            "disabled": true,
+            "placeHolder": "${setSection}",
+            "store": "sectionStore",
+            "id": "section"
+        },
+        {
+            "type": "combobox",
+            "title": "${parcel}",
+            "field": "parcel",
+            "store": "parcelStore",
+            "placeHolder": "${setParcel}",
+            "disabled": true,
+            "id": "parcel"
+        },
+        {
+            "type": "label",
+            "title": "${capakey}",
+            "field": "capakey",
+            "disabled": true,
+            "id": "capakey"
+        },
+        {
+            "type": "textarea",
+            "title": "${address}",
+            "field": "address",
+            "disabled": true,
+            "id": "address",
+            "wrap":"soft"
+        },
+        {
+            "type": "button",
+            "title": "${show}",
+            "field": "texbox1",
+            "disabled": true,
+            "id": "show"
+        }
+    ]
+}

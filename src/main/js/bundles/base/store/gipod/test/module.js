@@ -1,0 +1,3 @@
+define([
+    "./GipodStoreTest"
+], 1);

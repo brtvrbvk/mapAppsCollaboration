@@ -1,0 +1,25 @@
+{
+    "Bundle-SymbolicName": "jstorage",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "jstorage",
+    "Bundle-Description": "Used to save to local storage",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["storage"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+    "Bundle-Layer": "main",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Bundle-StartLevel": 0,
+    "Bundle-Localization": [],
+    "Bundle-DocURL": "https://github.com/andris9/jStorage",
+
+    "Require-Bundle": [
+        {
+            "name": "json2",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ]
+}

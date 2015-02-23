@@ -1,0 +1,3 @@
+define([
+    "./CoordinateFormattingTests"
+], 1);

@@ -1,0 +1,19 @@
+@import "../themeSettings.less";
+
+//theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+     .ctMap .infoWindowPointer {
+        width: 2px;
+        background: @container-background-color;
+        border-color: @dialog-titlebar-background-color;
+        .box-shadow(0, 1px, 3px, 0.25,~"!important");
+    } 
+    
+    //additional style to solve problems that occur only on deployment
+    .pointer path{
+        fill-opacity: 1;
+        fill: @container-background-color;
+        stroke: @dialog-titlebar-background-color;
+        stroke-width: 2;
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "Bundle-SymbolicName": "extrainfo",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+    ],
+    "Components": [
+        {
+            "name": "ExtraInfoHandler",
+            "provides": ["extrainfo.ExtraInfoHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "categoryDependent": true,
+                "infoURL": "http://www.agiv.be"
+            },
+            "references": [
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                }
+            ]
+        },
+        {
+            "name": "ExtraInfoTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "extrainfo",
+                "title": "${extrainfo.title}",
+                "tooltip": "${extrainfo.description}",
+                "clickHandler": "onExtraClick",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "extrainfo.ExtraInfoHandler"
+                }
+            ]
+        },
+        {
+            "name": "ExtraInfoBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "extrainfo"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=extrainfo)"
+                }
+            ]
+        }
+    ]
+}

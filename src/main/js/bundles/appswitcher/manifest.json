@@ -1,0 +1,161 @@
+{
+    "Bundle-SymbolicName": "appswitcher",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": [""],
+    "Bundle-StartLevel": 8,
+
+    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    //"Config-Bundle-Location": "/config",
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+    ],
+    "Components": [
+
+        {
+            "name": "AppswitcherFactory",
+            "impl": "base/ui/controls/buttonselectionlist/SelectionListWidgetFactory",
+            "provides": ["dijit.Widget"],
+            "instanceFactory": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "appswitcher",
+                "thumbnailUrl": "@@applicationURL@@/resources/apps/{id}/{thumbnailFile}",
+                "writesToCollapseHandle": false,
+                "collapseTimeout": 3000,
+                "autoCollapseFactor": 3
+            },
+            "references": [
+                {
+                    "name": "model",
+                    "providing": "appswitcher.Model"
+                },
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "_map",
+                    "providing": "ct.mapping.map.Map"
+                },
+                {
+                    "name": "_secondMap",
+                    "providing": "splitviewmap.MapWidget",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "SelectionListModel",
+            "impl": "base/ui/SelectionModel",
+            "provides": ["appswitcher.Model"],
+            "propertiesConstructor": true,
+            "properties": {
+                "selectionProperty": "none",
+                "idProperty": "id"
+            }
+        },
+
+        {
+            "name": "RqlStoreAdapter",
+            "impl": "base/ui/controls/buttonselectionlist/adapters/RqlStoreAdapter",
+            "provides": ["appswitcher.Adapter"],
+            "propertiesConstructor": true,
+            "properties": {
+                "query": {
+                    "id": {
+                        "$eqw": "*_app"
+                    }
+                },
+                "options": {
+                    "sort": [
+                        {
+                            "attribute": "id"
+                        }
+                    ]
+                },
+                "selectionTopic": "ct/appsoverview/APP_SELECTED"
+            },
+            "references": [
+                {
+                    "name": "store",
+                    "providing": "appsstore.AppStore"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "SelectionListController",
+            "impl": "base/ui/controls/buttonselectionlist/SelectionListController",
+            "propertiesConstructor": true,
+            "properties": {
+                "eventType": "SELECT_APP",
+                "eventCategory": "APP"
+            },
+            "references": [
+                {
+                    "name": "adapter",
+                    "providing": "appswitcher.Adapter"
+                },
+                {
+                    "name": "model",
+                    "providing": "appswitcher.Model"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ParametrizedRedirect",
+            "impl": "base/util/ParametrizedRedirect",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "url": "/resources/apps/{id}/index.html",
+                "baseURL": "@@applicationURL@@",
+                "useStorage": true,
+                "integratedParameter": {
+                    "app": "{id}"
+                },
+                "Event-Topics": [
+                    {
+                        "topic": "ct/appsoverview/APP_SELECTED",
+                        "method": "redirect"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_parameterManager",
+                    "providing": "parametermanager.ParameterManager",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "TemplateHtmlTagFilter",
+            "references": [
+                {
+                    "name": "appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        }
+
+    ]
+}

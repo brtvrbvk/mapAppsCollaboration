@@ -1,0 +1,333 @@
+{
+    "label": {
+        "term": "Count",
+        "value": "1"
+    },
+    "pois": [
+        {
+            "id": "41432",
+            "phone": "+32 9 267 96 11",
+            "email": "sint.bavohumaniora@sbhg.be",
+            "created": "2014-09-11T12:58:00",
+            "updated": "2014-10-01T15:48:00",
+            "labels": [
+                {
+                    "term": "primary",
+                    "value": "Sint-Bavohumaniora"
+                },
+                {
+                    "term": "note",
+                    "value": "hoofdzetel"
+                },
+                {
+                    "term": "municipality",
+                    "value": "Gent"
+                },
+                {
+                    "term": "alternate",
+                    "value": "Algemeen Stedelijk Ziekenhuis"
+                }
+
+            ],
+            "description": {
+                "value": "Tel.: +32 9 267 96 11<br />Fax: +32 9 267 96 12<br />E-mail: sint.bavohumaniora@sbhg.be"
+            },
+            "categories": [
+                {
+                    "type": "Thema",
+                    "term": "Onderwijs",
+                    "value": "Onderwijs"
+                },
+                {
+                    "type": "Categorie",
+                    "term": "SecundairOnderwijs",
+                    "value": "Secundair onderwijs"
+                },
+                {
+                    "type": "Type",
+                    "term": "GewoonVoltijdsSecundairOnderwijs",
+                    "value": "Gewoon voltijds secundair onderwijs"
+                }
+            ],
+            "links": [
+                {
+                    "href": "http://www.ond.vlaanderen.be/onderwijsaanbod/adres.asp?sn=36996",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Link naar de schoolfiche"
+                },
+                {
+                    "href": "http://www.sbhg.be/",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Website van Sint-Bavohumaniora"
+                }
+            ],
+            "location": {
+                "points": [
+                    {
+                        "pointQuality": "manueel",
+                        "Point": {
+                            "coordinates": [
+                                415209.6291575144,
+                                6630581.007408253
+                            ],
+                            "type": "Point",
+                            "crs": {
+                                "type": "link",
+                                "properties": {
+                                    "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                                }
+                            }
+                        },
+                        "author": {
+                            "term": "owner",
+                            "value": "CRAB"
+                        },
+                        "term": "center",
+                        "type": "Pinpoint"
+                    }
+                ],
+                "address": {
+                    "street": "Reep",
+                    "streetnumber": "4",
+                    "boxnumber": "",
+                    "postalcode": "9000",
+                    "municipality": "Gent",
+                    "created": "2014-09-11T12:58:00",
+                    "updated": "2014-09-11T12:58:00",
+                    "term": "crab"
+                }
+            },
+            "authors": [
+                {
+                    "term": "owner",
+                    "value": "Vlaams Ministerie van Onderwijs en Vorming"
+                }
+            ],
+            "license": {
+                "term": "Gratis_Open_Data_Licentie",
+                "value": "Open Data Licentie"
+            }
+        },
+        {
+            "id": "414322",
+            "phone": "+32 9 267 96 11",
+            "email": "sint.bavohumaniora@sbhg.be",
+            "created": "2014-09-11T12:58:00",
+            "updated": "2014-10-01T15:48:00",
+            "labels": [
+                {
+                    "term": "primary",
+                    "value": "Sint-Bavohumaniora"
+                },
+                {
+                    "term": "note",
+                    "value": "hoofdzetel"
+                },
+                {
+                    "term": "municipality",
+                    "value": "Gent"
+                },
+                {
+                    "term": "alternate",
+                    "value": "Sint-Bavohumaniora"
+                }
+
+            ],
+            "description": {
+                "value": "Tel.: +32 9 267 96 11<br />Fax: +32 9 267 96 12<br />E-mail: sint.bavohumaniora@sbhg.be"
+            },
+            "categories": [
+                {
+                    "type": "Thema",
+                    "term": "Onderwijs",
+                    "value": "Onderwijs"
+                },
+                {
+                    "type": "Categorie",
+                    "term": "SecundairOnderwijs",
+                    "value": "Secundair onderwijs"
+                },
+                {
+                    "type": "Type",
+                    "term": "GewoonVoltijdsSecundairOnderwijs",
+                    "value": "Gewoon voltijds secundair onderwijs"
+                }
+            ],
+            "links": [
+                {
+                    "href": "http://www.ond.vlaanderen.be/onderwijsaanbod/adres.asp?sn=36996",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Link naar de schoolfiche"
+                },
+                {
+                    "href": "http://www.sbhg.be/",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Website van Sint-Bavohumaniora"
+                }
+            ],
+            "location": {
+                "points": [
+                    {
+                        "pointQuality": "manueel",
+                        "Point": {
+                            "coordinates": [
+                                415209.6291575144,
+                                6630581.007408253
+                            ],
+                            "type": "Point",
+                            "crs": {
+                                "type": "link",
+                                "properties": {
+                                    "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                                }
+                            }
+                        },
+                        "author": {
+                            "term": "owner",
+                            "value": "CRAB"
+                        },
+                        "term": "center",
+                        "type": "Pinpoint"
+                    }
+                ],
+                "address": {
+                    "street": "Reep",
+                    "streetnumber": "4",
+                    "boxnumber": "",
+                    "postalcode": "9000",
+                    "municipality": "Gent",
+                    "created": "2014-09-11T12:58:00",
+                    "updated": "2014-09-11T12:58:00",
+                    "term": "crab"
+                }
+            },
+            "authors": [
+                {
+                    "term": "owner",
+                    "value": "Vlaams Ministerie van Onderwijs en Vorming"
+                }
+            ],
+            "license": {
+                "term": "Gratis_Open_Data_Licentie",
+                "value": "Open Data Licentie"
+            }
+        },
+        {
+            "id": "4122",
+            "phone": "+32 9 267 96 11",
+            "email": "sint.bavohumaniora@sbhg.be",
+            "created": "2014-09-11T12:58:00",
+            "updated": "2014-10-01T15:48:00",
+            "labels": [
+                {
+                    "term": "primary",
+                    "value": "Sint-Bavohumaniora"
+                },
+                {
+                    "term": "note",
+                    "value": "hoofdzetel"
+                },
+                {
+                    "term": "municipality",
+                    "value": "Gent"
+                },
+                {
+                    "term": "alternate",
+                    "value": "Sint-BAVOHUMANIORA"
+                }
+
+            ],
+            "description": {
+                "value": "Tel.: +32 9 267 96 11<br />Fax: +32 9 267 96 12<br />E-mail: sint.bavohumaniora@sbhg.be"
+            },
+            "categories": [
+                {
+                    "type": "Thema",
+                    "term": "Onderwijs",
+                    "value": "Onderwijs"
+                },
+                {
+                    "type": "Categorie",
+                    "term": "SecundairOnderwijs",
+                    "value": "Secundair onderwijs"
+                },
+                {
+                    "type": "Type",
+                    "term": "GewoonVoltijdsSecundairOnderwijs",
+                    "value": "Gewoon voltijds secundair onderwijs"
+                }
+            ],
+            "links": [
+                {
+                    "href": "http://www.ond.vlaanderen.be/onderwijsaanbod/adres.asp?sn=36996",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Link naar de schoolfiche"
+                },
+                {
+                    "href": "http://www.sbhg.be/",
+                    "created": "2014-10-01T15:48:00",
+                    "updated": "2014-10-01T15:48:00",
+                    "term": "related",
+                    "value": "Website van Sint-Bavohumaniora"
+                }
+            ],
+            "location": {
+                "points": [
+                    {
+                        "pointQuality": "manueel",
+                        "Point": {
+                            "coordinates": [
+                                415209.6291575144,
+                                6630581.007408253
+                            ],
+                            "type": "Point",
+                            "crs": {
+                                "type": "link",
+                                "properties": {
+                                    "href": "http://www.opengis.net/def/crs/EPSG/0/3857"
+                                }
+                            }
+                        },
+                        "author": {
+                            "term": "owner",
+                            "value": "CRAB"
+                        },
+                        "term": "center",
+                        "type": "Pinpoint"
+                    }
+                ],
+                "address": {
+                    "street": "Reep",
+                    "streetnumber": "4",
+                    "boxnumber": "",
+                    "postalcode": "9000",
+                    "municipality": "Gent",
+                    "created": "2014-09-11T12:58:00",
+                    "updated": "2014-09-11T12:58:00",
+                    "term": "crab"
+                }
+            },
+            "authors": [
+                {
+                    "term": "owner",
+                    "value": "Vlaams Ministerie van Onderwijs en Vorming"
+                }
+            ],
+            "license": {
+                "term": "Gratis_Open_Data_Licentie",
+                "value": "Open Data Licentie"
+            }
+        }
+    ],
+    "clusters": []
+}

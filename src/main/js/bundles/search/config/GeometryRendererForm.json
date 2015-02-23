@@ -1,0 +1,27 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 200,
+        "w": 500
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+//        {
+//            "type": "textbox",
+//            "title": "${menu.geometryrenderer.color}",
+//            "field": "_symbolTable.polygon.color"
+//        },
+//        {
+//            "type": "textbox",
+//            "title": "${menu.geometryrenderer.outlineColor}",
+//            "field": "_symbolTable.polygon.outline.color"
+//        },
+        {
+            "type": "numbertextbox",
+            "title": "${menu.geometryrenderer.pointZoomScale}",
+            "field": "pointZoomScale"
+        }
+    ]
+}

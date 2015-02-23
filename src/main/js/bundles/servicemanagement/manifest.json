@@ -1,0 +1,1015 @@
+{
+    "Bundle-SymbolicName": "servicemanagement",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["builder"],
+
+    "Require-Bundle": [
+        {
+            "name": "dataform",
+            "version": "[3.0.2,)"
+        }
+    ],
+
+    "layout-widgets": [
+        {
+            "role": "serviceView",
+            "window": {
+                "dockTool": "appmanagement_serviceListTool",
+                "marginBox": {
+                    "t": 65,
+                    "l": 10,
+                    "r": 10,
+                    "b": 10
+                },
+                "maximizable": false,
+                "closable": false,
+                "minimizeOnClose": true,
+                "resizable": false,
+                "minSize": {
+                    "w": 150,
+                    "h": 150
+                },
+                "draggable": false,
+                "dndDraggable": false,
+                "windowClass": "noTitleBarAndWindowTools",
+                "fixEdgesInViewPort": {}
+            }
+        },
+        {
+            "role": "serviceConfigView",
+            "window": {
+                "dockTool": "appmanagement_serviceConfigListTool",
+                "marginBox": {
+                    "t": 65,
+                    "l": 10,
+                    "r": 10,
+                    "b": 10
+                },
+                "maximizable": false,
+                "closable": false,
+                "minimizeOnClose": true,
+                "resizable": false,
+                "minSize": {
+                    "w": 150,
+                    "h": 150
+                },
+                "draggable": false,
+                "dndDraggable": false,
+                "windowClass": "noTitleBarAndWindowTools",
+                "fixEdgesInViewPort": {}
+            }
+        },
+        {
+            "role": "identifyLayerMappingView",
+            "window": {
+                "dockTool": "identifyLayerMappingViewTool",
+                "marginBox": {
+                    "t": 65,
+                    "l": 10,
+                    "r": 10,
+                    "b": 10
+                },
+                "maximizable": false,
+                "closable": false,
+                "minimizeOnClose": true,
+                "resizable": false,
+                "minSize": {
+                    "w": 150,
+                    "h": 150
+                },
+                "draggable": false,
+                "dndDraggable": false,
+                "windowClass": "noTitleBarAndWindowTools",
+                "fixEdgesInViewPort": {}
+            }
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "ServiceConfigListTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "appmanagement_serviceConfigListTool",
+                "title": "${serviceTool.title}",
+                "tooltip": "${serviceTool.desc}",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-toolcase",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            }
+        },
+        {
+            "name": "ServiceViewToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["servicemanagement.ServiceConfigViewToolbar"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolSortIds": [
+                    "createServiceTool",
+                    "removeSelectedServicesTool",
+                    "exportAllServicesTool",
+                    "exportIdentifyMappingsTool",
+                    "importAllServicesTool",
+                    "importIdentifyMappingsTool"
+                ]
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(toolRole=serviceconfigview)"
+                }
+            ]
+        },
+        {
+            "name": "ServiceConfigView",
+            "impl": "ct/ui/controls/dataview/DataView",
+            "provides": [
+                "dijit.Widget",
+                "servicemanagement.ServiceConfigView"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "dataViewCommon",
+                // Anchor name to use in a template
+                "widgetRole": "serviceConfigView",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "itemsPerPage": 25,
+                "class": "ctServiceDataView",
+                "DGRID": {
+                    "noDataMessage": "${serviceView.noDataMessage}",
+                    "checkboxSelection": true,
+                    "columns": [
+                        {
+                            "matches": {
+                                "name": "title"
+                            },
+                            "title": "${serviceView.title}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "description"
+                            },
+                            "title": "${serviceView.desc}"
+                        },
+                        {
+                            "matches": {
+                                "name": "fileName"
+                            },
+                            "title": "${serviceView.filename}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "modifiedBy"
+                            },
+                            "title": "${serviceView.modifiedBy}",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "modifiedAt"
+                            },
+                            "title": "${serviceView.modifiedAt}",
+                            "width": 100
+                        }
+                        // any field matching no rule above is used as is
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "servicemanagement.ServiceConfigViewToolbar",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "ServiceConfigViewController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "servicemanagement.ServiceConfigViewController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/servicemanagement/SERVICE_CONFIG_UPDATED",
+                            "ct/servicemanagement/SERVICE_CONFIG_CREATED"
+                        ],
+                        "method": "refreshView"
+                    }
+                ],
+                "selectionTopic": "ct/servicemanagement/SERVICE_CONFIG_SHOWDETAILS",
+                "exportTarget": "@@agiv.services.baseurl@@/resources/services/"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "store",
+                    "providing": "servicemanagement.ServiceConfigStore"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "servicemanagement.ServiceConfigView"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+        {
+            "name": "ServiceStore",
+            "impl": "base/store/ServiceConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "servicemanagement.ServiceConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "serviceStore",
+                "target": "@@agiv.services.baseurl@@/resources/services",
+                "useIn": ["dataform"]
+            }
+        }
+        ,
+        {
+            "name": "RemoveSelectedServiceConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "removeSelectedServicesTool",
+                "title": "${removeSelectedServicesTool.title}",
+                "tooltip": "${removeSelectedServicesTool.desc}",
+                "togglable": false,
+                "clickHandler": "removeSelectedItemsWithSaveQuestion",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ServiceConfigViewController"
+                }
+            ]
+        },
+//        {
+//            "name": "ExportSelectedServiceConfigTool",
+//            "impl": "ct/tools/Tool",
+//            "provides": ["ct.tools.Tool"],
+//            "enabled": true,
+//            "propertiesConstructor": true,
+//            "properties": {
+//                "toolRole": "serviceconfigview",
+//                "id": "exportSelectedServicesTool",
+//                "title": "${exportSelectedServicesTool.title}",
+//                "tooltip": "${exportSelectedServicesTool.desc}",
+//                "togglable": false,
+//                "clickHandler": "exportSelectedServiceConfigs",
+//                "iconClass": "icon-doc-export",
+//                "rules": {
+//                    "roles": ["maAdmin"],
+//                    "ruleSuccessProperty": "visibility"
+//                }
+//            },
+//            "references": [
+//                {
+//                    "name": "handlerScope",
+//                    "providing": "servicemanagement.ServiceConfigViewController"
+//                }
+//            ]
+//        },
+
+        {
+            "name": "ExportImportController",
+            "provides": ["servicemanagement.ExportImportController"],
+            "propertiesConstructor": "true",
+            "properties": {
+                "exportAllTarget": "@@agiv.services.baseurl@@/resources/services/export/all",
+                "exportIdentifyMappingsTarget": "@@agiv.services.baseurl@@/resources/identifymapping/export/all",
+                "importIdentifyMappingsTarget": "@@agiv.services.baseurl@@/resources/identifymapping/import/all",
+                "importAllTarget": "@@agiv.services.baseurl@@/resources/services/import/all"
+            },
+            "references": [
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "ExportAllServiceConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "exportAllServicesTool",
+                "title": "${exportAllServicesTool.title}",
+                "tooltip": "${exportAllServicesTool.desc}",
+                "togglable": false,
+                "clickHandler": "exportAll",
+                "iconClass": "icon-floppy",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ExportIdentifyMappingsTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "exportIdentifyMappingsTool",
+                "title": "${exportAllIdentifyMappings.title}",
+                "tooltip": "${exportAllIdentifyMappings.desc}",
+                "togglable": false,
+                "clickHandler": "exportAllIdentifyMappings",
+                "iconClass": "icon-floppy",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ImportAllServiceConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "importAllServicesTool",
+                "title": "${importAllServicesTool.title}",
+                "tooltip": "${importAllServicesTool.desc}",
+                "togglable": false,
+                "clickHandler": "importAll",
+                "iconClass": "icon-doc-export",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "ImportAllIdentifyMappingsTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "importIdentifyMappingsTool",
+                "title": "${importIdentifyMappingsTool.title}",
+                "tooltip": "${importIdentifyMappingsTool.desc}",
+                "togglable": false,
+                "clickHandler": "importAllIdentifyMappings",
+                "iconClass": "icon-doc-export",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ExportImportController"
+                }
+            ]
+        },
+
+        {
+            "name": "CreateServiceConfigTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "serviceconfigview",
+                "id": "createServiceTool",
+                "title": "${createServiceTool.title}",
+                "tooltip": "${createServiceTool.desc}",
+                "togglable": false,
+                "clickHandler": "createService",
+                "rules": {
+                    "roles": ["maAdmin"],
+                    "ruleSuccessProperty": "visibility"
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.CreateServiceConfigController"
+                }
+            ]
+        },
+        {
+            "name": "CreateServiceConfigController",
+            "provides": ["servicemanagement.CreateServiceConfigController"],
+            "references": [
+                {
+                    "name": "serviceStore",
+                    "providing": "servicemanagement.ServiceConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+        ,
+        {
+            "name": "ServiceConfigDetailsController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "servicemanagement.ServiceConfigDetailsController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/servicemanagement/SERVICE_CONFIG_CREATED",
+                            "ct/servicemanagement/SERVICE_CONFIG_SHOWDETAILS"
+                        ],
+                        "method": "showServiceDetails"
+                    },
+                    {
+                        "topic": ["ct/servicemanagement/SAVE_SERVICE_CONFIG"],
+                        "method": "saveServiceConfig"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "serviceStore",
+                    "providing": "servicemanagement.ServiceConfigStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        // ======= MRR Builder ========
+        {
+            "name": "ServiceView",
+            "impl": "ct/ui/controls/dataview/DataView",
+            "provides": [
+                "dijit.wizard.Widget",
+                "servicemanagement.ServiceView",
+                "dijit.Widget"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "mrrBuilderWidget.dataView",
+                "widgetRole": "serviceView",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "itemsPerPage": 25,
+                "DGRID": {
+                    "noDataMessage": "${mrrBuilderWidget.dataView.noDataFound}",
+                    "checkboxSelection": true,
+                    "columns": [
+                        /*     {
+                         "matches": {
+                         "name": "id"
+                         },
+                         "title" : "${mrrBuilderWidget.categories.id}"
+
+                         },*/
+                        {
+                            "matches": {
+                                "name": "title"
+                            },
+                            "title": "${mrrBuilderWidget.categories.title}"
+                        },
+                        {
+                            "matches": {
+                                "name": "url"
+                            },
+                            "title": "${mrrBuilderWidget.categories.serviceUrl}"
+                        },
+                        {
+                            "matches": {
+                                "name": "type"
+                            },
+                            "title": "${mrrBuilderWidget.categories.serviceType}"
+                        }
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "servicemanagement.ServicesGridToolbar",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "ServiceListTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "appmanagement_serviceListTool",
+                "title": "Selected Configured Services",
+                "tooltip": "List of all services in the currently selected configuration",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-view-table",
+                "visibility": false
+            }
+        },
+
+        {
+            "name": "KnownServicesStore",
+            "impl": "base/store/KnownServicesStore",
+            "provides": ["servicemanagement.KnownServicesStore"],
+            "propertiesConstructor": true,
+            "properties": {
+                "target": "@@agiv.services.baseurl@@/resources/services/"
+            }
+        },
+        {
+            "name": "MRRBuilderController",
+            "provides": [
+                "servicemanagement.MRRBuilderController",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/servicemanagement/SERVICE_UPDATED",
+                            "ct/servicemanagement/SERVICE_CREATED"
+                        ],
+                        "method": "refreshView"
+                    },
+                    {
+
+                        "topic": ["ct/servicemanagement/SERVICE_SHOW"],
+                        "method": "showService"
+                    }
+                ],
+                "selectionTopic": "ct/servicemanagement/SERVICE_SHOWDETAILS",
+                "target": "@@agiv.services.baseurl@@/resources/services/{id}.json"
+            },
+            "references": [
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "servicemanagement.ServiceView"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "store",
+                    "providing": "servicemanagement.KnownServicesStore"
+                },
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "serviceViewTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=appmanagement_serviceListTool)"
+                }
+            ]
+        },
+        {
+            "name": "ServicesGridToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["servicemanagement.ServicesGridToolbar"],
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(toolRole=servicesgridtool)"
+                }
+            ]
+        }
+
+        ,
+        {
+            "name": "AddServiceTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "servicesgridtool",
+                "id": "addServiceTool",
+                "title": "${mrrBuilderWidget.addServiceTool}",
+                "tooltip": "${mrrBuilderWidget.addServiceTool}",
+                "togglable": false,
+                "clickHandler": "createService"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.ServiceDetailsController"
+                }
+            ]
+        },
+        {
+            "name": "RemoveServiceTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "servicesgridtool",
+                "id": "removeSelectedServiceTool",
+                "title": "${mrrBuilderWidget.removeServiceTool}",
+                "tooltip": "${mrrBuilderWidget.removeServiceTool}",
+                "togglable": false,
+                "clickHandler": "removeSelectedItemsWithSaveQuestion"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.MRRBuilderController"
+                }
+            ]
+        },
+        {
+            "name": "ServiceDetailsController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "servicemanagement.ServiceDetailsController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": ["ct/servicemanagement/SERVICE_SHOWDETAILS"],
+                        "method": "showServiceDetails"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "store",
+                    "providing": "servicemanagement.KnownServicesStore"
+                },
+                {
+                    "name": "identifyLayerMappingViewTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=identifyLayerMappingViewTool)"
+                },
+                {
+                    "name": "identifyLayerMappingStore",
+                    "providing": "servicemanagement.IdentifyLayerMappingStore"
+                }
+            ]
+        },
+
+        //IDENTIFY MAPPING
+        {
+            "name": "IdentifyLayerMappingViewTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyLayerMappingViewTool",
+                "toolRole": "toolset",
+                "togglable": true,
+                "iconClass": "icon-toolcase",
+                "visibility": false
+//                "rules": {
+//                    "roles": ["maAdmin"],
+//                    "ruleSuccessProperty": "visibility"
+//                }
+            }
+        },
+        {
+            "name": "IdentifyLayerMappingView",
+            "impl": "ct/ui/controls/dataview/DataView",
+            "provides": [
+                "dijit.Widget",
+                "servicemanagement.IdentifyLayerMappingView"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "_i18nPath": "dataViewCommon",
+                // Anchor name to use in a template
+                "widgetRole": "identifyLayerMappingView",
+                "showFilter": true,
+                "filterDuringKeyUp": true,
+                "showPager": true,
+                "showViewButtons": false,
+                "itemsPerPage": 25,
+                "class": "ctServiceDataView",
+                "DGRID": {
+                    "noDataMessage": "${serviceView.noDataMessage}",
+                    "checkboxSelection": false,
+                    "columns": [
+                        {
+                            "matches": {
+                                "name": "id"
+                            },
+                            "title": "Layer-ID",
+                            "width": 150
+                        },
+                        {
+                            "matches": {
+                                "name": "title"
+                            },
+                            "title": "Title",
+                            "width": 150
+                        }
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "toolbar",
+                    "providing": "servicemanagement.IdentifyLayerMappingViewToolbar",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "IdentifyLayerMappingViewController",
+            "impl": "ct/ui/controls/dataview/DataViewController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "servicemanagement.IdentifyLayerMappingViewController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": [
+                            "ct/servicemanagement/IDENTIFY_LAYER_MAPPING_UPDATED",
+                            "ct/servicemanagement/IDENTIFY_LAYER_MAPPING_CREATED"
+                        ],
+                        "method": "refreshView"
+                    }
+                ],
+                "selectionTopic": "ct/servicemanagement/IDENTIFY_LAYER_MAPPING_SHOWDETAILS"
+            },
+            "immediate": true,
+            "references": [
+                {
+                    "name": "store",
+                    "providing": "servicemanagement.IdentifyLayerMappingStore"
+                },
+                {
+                    "name": "dataView",
+                    "providing": "servicemanagement.IdentifyLayerMappingView"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+        {
+            "name": "IdentifyLayerMappingStore",
+            "impl": "ct/store/ComplexMemory",
+            "provides": ["servicemanagement.IdentifyLayerMappingStore"]
+        },
+
+        {
+            "name": "IdentifyConfigStore",
+            "impl": "base/store/IdentifyConfigStore",
+            "provides": [
+                "ct.api.Store",
+                "servicemanagement.IdentifyConfigStore"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "identifyConfigStore",
+                "target": "@@agiv.services.baseurl@@/resources/identify",
+                "useIn": ["dataform"]
+            }
+        },
+
+        {
+            "name": "IdentifyMappingStore",
+            "impl": "base/store/IdentifyMappingStore",
+            "provides": ["servicemanagement.IdentifyMappingStore"],
+            "propertiesConstructor": true,
+            "properties": {
+                "target": "@@agiv.services.baseurl@@/resources/identifymapping"
+            }
+        },
+
+        {
+            "name": "IdentifyLayerMappingCreateToolContainer",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["servicemanagement.IdentifyLayerMappingCreateToolContainer"],
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(toolRole=identifyLayerMappingCreateGrid)"
+                }
+            ]
+        },
+
+        {
+            "name": "RemoveIdentifyLayerMappingTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "enabled": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "identifyLayerMappingCreateGrid",
+                "id": "removeSelectedIdentifyLayerMappingTool",
+                "title": "Delete mapping",
+                "tooltip": "Delete mapping",
+                "togglable": false,
+                "clickHandler": "removeSelectedItemsWithSaveQuestion"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "servicemanagement.IdentifyLayerMappingCreateController"
+                }
+            ]
+        },
+
+        {
+            "name": "IdentifyLayerMappingCreateController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "servicemanagement.IdentifyLayerMappingCreateController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": ["ct/servicemanagement/IDENTIFY_LAYER_MAPPING_SHOWDETAILS"],
+                        "method": "showMapping"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "layerMappingstore",
+                    "providing": "servicemanagement.IdentifyLayerMappingStore"
+                },
+                {
+                    "name": "store",
+                    "providing": "servicemanagement.IdentifyMappingStore"
+                },
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                },
+                {
+                    "name": "windowManager",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "toolset",
+                    "providing": "servicemanagement.IdentifyLayerMappingCreateToolContainer"
+                }
+            ]
+        }
+
+    ]
+}

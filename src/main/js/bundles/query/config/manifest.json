@@ -1,0 +1,52 @@
+{
+    "Bundle-SymbolicName": "query-config",
+    "Bundle-Version": "1.0",
+    "Bundle-Name": "QueryBuilder config",
+    "Bundle-Description": "Configuration Bundle for QueryBuilder",
+    "Bundle-Vendor": "2foo Inc",
+    "Bundle-Localization" : [],
+    "Require-Bundle": [{
+        "name": "dataform"
+    },{
+        "name": "wizard"
+    }],
+    "Components": [
+    {
+        "name" : "BuilderEntry",
+        "impl" : "ct/Stateful",
+        "provides" : ["wizard.MenuEntry"],
+        "propertiesConstructor" : true,
+        "properties" : {
+            "menuNode" : {
+                "priority" : 10,
+                "title": "QueryBuilder",
+                "widget" : "queryBuilderWidget"
+            }
+        }
+    },
+    {
+        "name": "BuilderWidget",
+        "impl": "wizard/DataFormBuilderWidgetFactory",
+        "provides": ["dijit.wizard.Widget"],
+        "immediate": true,
+        "instanceFactory": true,
+        "properties" : {
+            "dataformFile": "resource('./DataForm.json')",
+            "bid": "query",
+            "pid": "query-QueryController",
+            "id": "queryBuilderWidget",
+            "defaultProperties": {
+                "namePlaceHolder": "Type a name"
+            },
+            "description" : "Setting for the QueryBuilder"
+        },
+        "references": [{
+            "name": "_configAdminService",
+            "providing": "ct.framework.api.ConfigurationAdmin"
+        },{
+            "name": "_dataformService",
+            "providing": "dataform.DataFormService"
+        }]
+    }
+    ]
+}

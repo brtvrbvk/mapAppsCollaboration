@@ -1,0 +1,12 @@
+.ctTpl_light .basemapTogglerContainer,
+.ctTpl_light .dockingBarBottom,
+.ctTpl_light .toolWrapperFooterRight,
+.ctTpl_light .toolWrapperFooterLeft {
+    display: none !important;
+}
+
+.ctTpl_light .footer .copyrightText.dijitContentPane {
+    /*reenable copyright for timeslider app*/
+    display: inline-block;
+    padding-top: 3px;
+}

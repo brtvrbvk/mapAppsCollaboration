@@ -1,0 +1,13 @@
+{
+    "Bundle-SymbolicName": "kmltogeojson",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-StartLevel": 1,
+    "Components": [
+        {
+            "name": "Transformer",
+            "provides": ["kmltogeojson.Transformer"]
+        }
+    ]
+}

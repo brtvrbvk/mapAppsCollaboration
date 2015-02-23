@@ -1,0 +1,53 @@
+{
+    "Bundle-SymbolicName": "browsercheck",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Bundle-ExcludedExecutionEnvironment": [
+        "Android",
+        "iPhone",
+        "iPad",
+        "BlackBerry",
+        "Touch",
+        "Mobile"
+    ],
+    "Require-Bundle": [
+        {
+            "name": "windowmanager",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "BrowserCheck",
+            "immediate": true,
+            "references": [
+                {
+                    "name": "waitForMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        },
+        {
+            "name": "ZoomCheck",
+            "immediate": true,
+            "enabled": false,
+            "references": [
+                {
+                    "name": "waitForMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                }
+            ]
+        }
+    ]
+}

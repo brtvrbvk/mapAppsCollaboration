@@ -1,0 +1,828 @@
+{
+    "Bundle-SymbolicName": "routing",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["map"],
+    "Bundle-Icon": {},
+    "Bundle-License": {},
+
+    "Config-Bundle-Location": "/config",
+
+    "Bundle-AutoStartPolicy": "yes",
+
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "geolocator",
+            "version": "[4.0.0,)"
+        },
+        {
+            "name": "elevation",
+            "version": "[4.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "SearchHandler",
+            "provides": ["routing.SearchStore"],
+            "propertiesConstructor": true,
+            "properties": {
+                "extentTypes": [
+                    "gemeente",
+                    "straat",
+                    "crab_gemeente",
+                    "crab_straat"
+                ],
+                "useNavteqFallback": true,
+                "geolocatorSuggestQueryOptions": {
+                    "count": 5
+                },
+                "navteqQueryOptions": {
+                    //"count":5
+                },
+                "geolocatorSuggestStoreParameters": {
+                    "timeout": 15000,
+                    "minQueryLength": 2,
+                    "wkid": 4326,
+                    "searchType": "suggestUrl",
+                    "response": {
+                        "resultArrayName": "SuggestionResult"
+                    }
+                },
+                "geolocatorStoreParameters": {
+                    "timeout": 15000,
+                    "minQueryLength": 2,
+                    "wkid": 4326,
+                    "searchType": "locationUrl",
+                    "response": {
+                        "resultArrayName": "LocationResult"
+                    }
+                },
+                "navteqStoreParameters": {
+                    "url": "http://geo.nlp.nokia.com/search/6.2/search.json",
+                    "appid": "@@navteq.appid@@",
+                    "token": "@@navteq.token@@",
+                    "minQueryLength": 2,
+                    "wkid": 4326
+                }
+            },
+            "references": [
+                {
+                    "name": "geolocatorUrlProvider",
+                    "providing": "agiv.geolocator.GeolocatorUrlProvider"
+                }
+            ]
+        },
+
+        {
+            "name": "GeocodingHandler",
+            "provides": ["routing.GeocodingStore"],
+            "propertiesConstructor": true,
+            "properties": {
+                "extentTypes": [
+                    "gemeente",
+                    "straat"
+                ],
+                "useNavteqFallback": true,
+                "geolocatorSuggestQueryOptions": {
+                    "count": 5
+                },
+                "navteqQueryOptions": {
+                    "count": 1
+                },
+                "geolocatorStoreParameters": {
+                    "timeout": 15000,
+                    "minQueryLength": 2,
+                    "wkid": 4326,
+                    "searchType": "locationUrl",
+                    "response": {
+                        "resultArrayName": "LocationResult"
+                    }
+                },
+                "navteqRoutingStoreParameters": {
+                    "timeout": 5000,
+                    "appid": "@@navteq.appid@@",
+                    "token": "@@navteq.token@@",
+                    "url": "http://geo.nlp.nokia.com/search/6.2/reversegeocode.json",
+                    "parameters": {
+                        "mode": "retrieveAddresses"
+                    },
+                    "minQueryLength": 0,
+                    "wkid": 4326
+                }
+            },
+            "references": [
+                {
+                    "name": "geolocatorUrlProvider",
+                    "providing": "agiv.geolocator.GeolocatorUrlProvider"
+                }
+            ]
+        },
+
+        {
+            "name": "RoutingTopToolbar",
+            "impl": "ct/tools/ToolContainer",
+            "provides": ["routing.top.Toolbar"],
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..n",
+                    "filter": "(|(toolRole=routing)(toolRole=sharing))"
+                }
+            ]
+        },
+
+        {
+            "name": "RoutingWidgetFactory",
+            "instanceFactory": true,
+            "provides": [
+                "dijit.Widget",
+                "routing.RoutingWidget"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "widgetRole": "routing",
+                "comboboxOpts": {
+                    "placeHolder": "${ui.textboxPlaceholder}",
+                    "searchDelay": 350,
+                    "pageSize": 5,
+                    "autoComplete": false
+                },
+                "markerUrls": [
+                    "resource('agivthemes:neat/images/marker/routing/a.png')",
+                    "resource('agivthemes:neat/images/marker/routing/b.png')",
+                    "resource('agivthemes:neat/images/marker/routing/c.png')",
+                    "resource('agivthemes:neat/images/marker/routing/d.png')",
+                    "resource('agivthemes:neat/images/marker/routing/e.png')",
+                    "resource('agivthemes:neat/images/marker/routing/f.png')",
+                    "resource('agivthemes:neat/images/marker/routing/g.png')",
+                    "resource('agivthemes:neat/images/marker/routing/h.png')",
+                    "resource('agivthemes:neat/images/marker/routing/i.png')",
+                    "resource('agivthemes:neat/images/marker/routing/j.png')"
+                ]
+            },
+            "references": [
+                {
+                    "name": "searchStore",
+                    "providing": "routing.SearchStore"
+                },
+                {
+                    "name": "parameterManager",
+                    "providing": "parametermanager.ParameterManager",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "esriMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "topToolbar",
+                    "providing": "routing.top.Toolbar"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "_elevationTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=elevationToggleTool)",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "RoutingController",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "routing.RoutingController"
+            ],
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "ct/routing/ADD_FROM_DIRECT",
+                        "method": "createFromDirection"
+                    },
+                    {
+                        "topic": "ct/routing/ADD_TO_DIRECT",
+                        "method": "createToDirection"
+                    },
+                    {
+                        "topic": "ct/routing/ADD_ROUTE_DIRECT",
+                        "method": "createRouteDirection"
+                    }
+                ],
+                "geometry": "resource('polygon/vlaanderen_gen10.json')"
+            },
+            "references": [
+                {
+                    "name": "routingwidget",
+                    "providing": "routing.RoutingWidget",
+                    "connect": {
+                        "onCalculateRoute": "_onCalculateRoute",
+                        "onClearRoute": "_onClearRoute"
+                    }
+                },
+                {
+                    "name": "router",
+                    "providing": "ct.api.Router"
+                },
+                {
+                    "name": "renderer",
+                    "providing": "routing.RouteRenderer"
+                },
+                {
+                    "name": "map",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "geocoderStore",
+                    "providing": "routing.GeocodingStore"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=routingtool)"
+                },
+                {
+                    "name": "menutool",
+                    "providing": "ct.tools.Tool",
+                    "cardinality": "0..1",
+                    "filter": "(id=routingmenutool)",
+                    "policy": "dynamic"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "logger",
+                    "providing": "ct.framework.api.LogService"
+                }
+            ]
+        }
+        ,
+        {
+            "name": "RouteRenderer",
+            "provides": ["routing.RouteRenderer"],
+            "propertiesConstructor": true,
+            "properties": {
+                "_routingMarkerSymbols": {
+                    "points": [
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/a.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/b.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/c.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/d.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/e.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/f.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/g.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/h.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/i.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/j.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        },
+                        {
+                            "url": "resource('agivthemes:neat/images/marker/routing/neutral.png')",
+                            "width": 21,
+                            "height": 30,
+                            "xoffset": 5,
+                            "yoffset": 14,
+                            "type": "esriPMS"
+                        }
+                    ]
+                },
+                "_symbolTable": {
+                    "point": {
+                        "url": "resource('agivthemes:neat/images/marker/routing/marker1.png')",
+                        "width": 37, // Although the icon's actual size is 27x30 we have to specify smaller dimensions here to force the icon to display at the correct size. The unit is not px but pt.
+                        "height": 36,
+                        "xoffset": 4,
+                        "yoffset": 16,
+                        "type": "esriPMS"
+                        //                    "color": [0,0,255,128],
+                        //                    "size": 12,
+                        //                    "type": "esriSMS",
+                        //                    "style": "esriSMSCircle",
+                        //                    "outline": {
+                        //                        "color": [0,0,0,255],
+                        //                        "width": 1,
+                        //                        "type":" esriSLS",
+                        //                        "style": "esriSLSSolid"
+                        //                    }
+                    },
+                    "point-highlighted": {
+                        "color": [
+                            255,
+                            215,
+                            0,
+                            100
+                        ],
+                        "size": 12,
+                        "type": "esriSMS",
+                        "style": "esriSMSCircle",
+                        "outline": {
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                255
+                            ],
+                            "width": 1,
+                            "type": " esriSLS",
+                            "style": "esriSLSSolid"
+                        }
+                    },
+                    "point-selected": {
+                        "color": [
+                            0,
+                            0,
+                            255,
+                            128
+                        ],
+                        "size": 12,
+                        "type": "esriSMS",
+                        "style": "esriSMSCircle",
+                        "outline": {
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                255
+                            ],
+                            "width": 2,
+                            "type": " esriSLS",
+                            "style": "esriSLSSolid"
+                        }
+                    },
+                    "point-selected-highlighted": {
+                        "color": [
+                            255,
+                            215,
+                            0,
+                            100
+                        ],
+                        "size": 12,
+                        "type": "esriSMS",
+                        "style": "esriSMSCircle",
+                        "outline": {
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                255
+                            ],
+                            "width": 2,
+                            "type": " esriSLS",
+                            "style": "esriSLSSolid"
+                        }
+                    },
+                    "polyline": {
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            255
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",   // esri simple line symbol
+                        "width": 4
+                    },
+                    //                {
+                    //                    "color": [65, 115, 0, 255],
+                    //                    "style": "esriSLSSolid",
+                    //                    "type": "esriSLS",   // esri simple line symbol
+                    //                    "width": 3
+                    //                }
+                    //                ],
+                    "polyline-highlighted": {
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            255
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",   // esri simple line symbol
+                        "width": 3
+                    },
+                    "polyline-selected": {
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            255
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",   // esri simple line symbol
+                        "width": 4
+                    },
+                    "polyline-selected-highligthed": {
+                        "color": [
+                            65,
+                            115,
+                            255,
+                            255
+                        ],
+                        "style": "esriSLSSolid",
+                        "type": "esriSLS",   // esri simple line symbol
+                        "width": 4
+                    },
+                    "polygon-highlighted": {
+                        "type": "esriSFS",       // esri simple fill symbol
+                        "color": [
+                            0,
+                            100,
+                            0,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                255,
+                                0,
+                                0,
+                                100
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",   // esri simple line symbol
+                            "width": 2
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "polygon-selected": {
+                        "type": "esriSFS",       // esri simple fill symbol
+                        "color": [
+                            0,
+                            0,
+                            255,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                255,
+                                0,
+                                0,
+                                100
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",   // esri simple line symbol
+                            "width": 5
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "polygon-selected-highlighted": {
+                        "type": "esriSFS",       // esri simple fill symbol
+                        "color": [
+                            255,
+                            215,
+                            0,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                255,
+                                0,
+                                0,
+                                100
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",   // esri simple line symbol
+                            "width": 2
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "polygon": {
+                        "type": "esriSFS",       // esri simple fill symbol
+                        "color": [
+                            0,
+                            0,
+                            255,
+                            100
+                        ],
+                        "outline": {
+                            "color": [
+                                0,
+                                255,
+                                0,
+                                100
+                            ],
+                            "style": "esriSLSSolid",
+                            "type": "esriSLS",   // esri simple line symbol
+                            "width": 1.3
+                        },
+                        "size": 16,
+                        "style": "esriSFSSolid",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    }
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_mapState",
+                    "providing": "ct.mapping.map.MapState"
+                },
+                {
+                    "name": "_ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "transformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_routingWidget",
+                    "providing": "routing.RoutingWidget"
+                }
+            ]
+        },
+        {
+            "name": "RoutingTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "routingtool",
+                "title": "${ui.tool.title}",
+                "tooltip": "${ui.tool.tooltip}",
+                "iconClass": "icon-directions",
+                "togglable": true,
+                "rules": {
+                    "groups": [
+                        "dockTools"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "RoutingMenuTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "routingmenutool",
+                "toolRole": "toolset",
+                "title": "${tool.menuToolTitle}",
+                "iconClass": "icon-directions",
+                "tooltip": "${tool.menuToolTooltip}",
+                "togglable": true,
+                "activateHandler": "enable",
+                "deactivateHandler": "disable",
+                "rules": {
+                    "groups": [
+                        "default",
+                        "maptools"
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "routing.RoutingController"
+                }
+            ]
+        },
+        {
+            "name": "RoutingTargetWidget",
+            "provides": ["routing.RoutingTargetWidget"]
+        },
+        {
+            "name": "RoutingParameterResolver",
+            "provides": [
+                "ct.api.parametermanager.Parametrizable",
+                "agiv.api.Persistable"
+            ],
+            "immediate": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "routingController",
+                    "providing": "routing.RoutingController"
+                }
+            ]
+        },
+
+        {
+            "name": "RoutingClearTool",
+            "impl": "ct/tools/Tool",
+            "provides": ["ct.tools.Tool"],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "routingClearTool",
+                "title": "${ui.tooltip.clearRoute}",
+                "tooltip": "${ui.tooltip.clearRoute}",
+                "iconClass": "icon-trashcan-detailed",
+                "clickHandler": "_onClearTargetFields",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "routing.RoutingWidget"
+                }
+            ]
+        },
+
+        {
+            "name": "ContentRegistrationRoutingInfo",
+            "impl": "ct/Stateful",
+            "provides": ["ct.contentviewer.ContentRule"],
+            "propertiesConstructor": true,
+            "properties": {
+                "contentWidgetClasses": {
+                    "RoutingFeatureInfoWidget": "routing.ContentWidgetFactoryRouting"
+                },
+                "contentRules": [
+                    {
+                        "matches": {
+                            "context": {
+                                "infotype": "ROUTING"
+                            }
+                        },
+                        "type": "RoutingFeatureInfoWidget"
+                    }
+                ]
+            }
+        },
+
+        {
+            "name": "ContentWidgetFactoryRoutingFeatureinfo",
+            "provides": "routing.ContentWidgetFactoryRouting",
+            "impl": "contentviewer/_ContentWidgetFactory",
+            "propertiesConstructor": true,
+            "properties": {
+                "typeMapping": {
+                    "RoutingFeatureInfoWidget": {
+                        "info": "routing.featureinfointegration.FeatureInfoWidget"
+                    }
+                },
+                "FeatureInfoWidget": {
+                    "i18n": {
+                        "title": "${ui.featureinfointegration.title}",
+                        "descriptionLabel": "${ui.featureinfointegration.descriptionLabel}",
+                        "duration": "${ui.featureinfointegration.duration}",
+                        "distance": "${ui.featureinfointegration.distance}"
+                    }
+                }
+            }
+        },
+
+        {
+            "name": "RoutingPrinter",
+            "provides": [
+                "ct.framework.api.EventHandler",
+                "routing.RoutingPrinter",
+                "jasperprinting.api.PrintDataProvider"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/routing/UPDATE_PRINT_INFO",
+                        "method": "_updatePrintInfo"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_routingWidget",
+                    "providing": "routing.RoutingWidget"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "LoadingController",
+            "impl": "base/util/LoadingController",
+            "propertiesConstructor": true,
+            "provides": ["ct.framework.api.EventHandler"],
+            "properties": {
+                "loadClass": "ctRoutingLoading",
+                "+Event-Topics": [
+                    {
+                        "topic": "agiv/routing/loading/START",
+                        "method": "showLoading"
+                    },
+                    {
+                        "topic": "agiv/routing/loading/END",
+                        "method": "hideLoading"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,153 @@
+{
+    "Bundle-SymbolicName": "kml",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["kml"],
+
+    "Bundle-StartLevel": 8,
+
+    "Require-Bundle": [
+        {
+            "name": "kmltogeojson",
+            "version": "[4.0.0,)"
+        },
+        {
+            "name": "coordinatetransformer",
+            "version": "[3.0.0,)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "KMLParser",
+            "provides": ["agiv.bundles.kml.KMLParser"],
+            "propertiesConstructor": true,
+            "properties": {
+
+            },
+            "references": [
+                {
+                    "name": "coordinateTransformer",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "geojsonTransformer",
+                    "providing": "geojson.Transformer",
+                    "cardinality": "0..1"
+                },
+                {
+                    "name": "togeojsonTransformer",
+                    "providing": "kmltogeojson.Transformer",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+        {
+            "name": "DirectKMLLayerRegistration",
+            "propertiesConstructor": true,
+            "immediate": true,
+            "properties": {
+            },
+            "references": [
+                {
+                    "name": "kmlParser",
+                    "providing": "agiv.bundles.kml.KMLParser",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "KMLServiceTypeRegistration",
+            "provides": ["loadservice.ServiceTypeRegistration"],
+            "impl": "ct/Stateful",
+            "propertiesConstructor": true,
+            "properties": {
+                "type": "radiobutton",
+                "groupId": "servicetype",
+                "label": "KML",
+                "field": "DirectKML"
+            },
+            "references": [
+                {
+                    "name": "controller",
+                    "providing": "loadservice.KMLServiceExtensionController"
+                }
+            ]
+        },
+
+        {
+            "name": "KMLServiceExtensionController",
+            "provides": ["loadservice.KMLServiceExtensionController"],
+            "references": [
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "kmlParser",
+                    "providing": "agiv.bundles.kml.KMLParser",
+                    "cardinality": "0..1"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareKMLServiceTypeRegistration",
+            "impl": "KMLServiceTypeRegistration",
+            "provides": ["loadservice.CompareServiceTypeRegistration"],
+            "impl": "ct/Stateful",
+            "propertiesConstructor": true,
+            "properties": {
+                "type": "radiobutton",
+                "groupId": "servicetype",
+                "label": "KML",
+                "field": "DirectKML"
+            },
+            "references": [
+                {
+                    "name": "controller",
+                    "providing": "loadservice.CompareKMLServiceExtensionController"
+                }
+            ]
+        },
+
+        {
+            "name": "CompareKMLServiceExtensionController",
+            "impl": "KMLServiceExtensionController",
+            "provides": ["loadservice.CompareKMLServiceExtensionController"],
+            "references": [
+                {
+                    "name": "mrr",
+                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+                },
+                {
+                    "name": "mapModel",
+                    "providing": "splitviewmap.AgivMapModel"
+                },
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                }
+            ]
+        }
+    ]
+}

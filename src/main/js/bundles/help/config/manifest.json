@@ -1,0 +1,69 @@
+{
+    "Bundle-SymbolicName": "help-config",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["wizard"],
+
+    "Require-Bundle": [
+        {
+            "name": "wizard",
+            "version": "[2.0.0,)"
+        },
+        {
+            "name": "dataform",
+            "version": "[2.0.0,)",
+            "policy": "optional"
+        }
+    ],
+
+    "Components": [
+
+        // ======= Builder Menu Entry ========
+        {
+            "name": "BuilderMenuEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "parentNodeId": "agivBuilderNode",
+                "menuNode": {
+                    "title": "${menu.title}",
+                    "iconUrl": "resource('styles/images/bundleIcon.png')",
+                    "widget": "helpBuilderWidget"
+                }
+            }
+        },
+
+        // ======= Builder Widget ========
+        {
+            "name": "HelpBuilderWidget",
+            "impl": "wizard/DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./HelpUrlForm.json')",
+                "bid": "help",
+                "pid": "help-HelpHandler",
+                "id": "helpBuilderWidget",
+                "defaultProperties": {
+                    "helpUrl": "http://www.agiv.be/"
+                }
+            },
+            "references": [
+                {
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                },
+                {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }
+            ]
+        }
+    ]
+}

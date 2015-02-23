@@ -1,0 +1,30 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    //sendMailButton
+    .ctParameterButtons td:first-child{
+        width: 16px;
+    }
+    .upperButtonContainer{
+        .dijitButtonNode{
+            border: none;
+            padding: 3px;
+            background: transparent none;
+        }
+    }
+    //only temporarily... let's see if we can finda  better solution'
+    .icon-add-comment, .icon-apps, .icon-bookmarkings, .icon-eye-open, .icon-eye-closed, .icon-flandern, .icon-directions,
+    .icon-bronnen, .icon-info, .icon-help, .icon-law, .icon-printer, .icon-tool, .icon-swap, .icon-share, .icon-screen, 
+    .icon-reset, .icon-pin, .icon-overiewmap, .icon-area, .icon-parcell, .icon-search-result, .icon-mail, .icon-link, 
+    .icon-layer-managment, .icon-historic-maps, .icon-hinderen, .icon-handle, .icon-hand, .icon-height-profile, .icon-viewer-min,
+    .icon-viewer-max, .icon-hoogte-detail3, .icon-hoogte-detail2, .icon-hoogte-detail1, .icon-closing_x{
+        font-family: 'agivUiFont';
+    }
+    .icon-help:before {
+        content: "\e609";
+    }
+    .icon-link:before {
+        content: "\e617";
+    }
+
+}

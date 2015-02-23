@@ -1,0 +1,89 @@
+<div>
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-attach-point="mainContainer"
+         data-dojo-props="design:'headline', gutters:false,'class':'fullwidthAndHeight'">
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'top'">
+            <div data-dojo-attach-point="messagePane"
+                 data-dojo-type="ct/ui/controls/MessagePane"
+                 data-dojo-props=""></div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center','class':'centerPanel'"
+             data-dojo-attach-point="centerPanel">
+            <div class="label title"
+                 data-dojo-attach-point="labelNode"></div>
+            <div class="label alias dijitHidden"
+                 data-dojo-attach-point="aliasNode"></div>
+            <div class="value"
+                 data-dojo-attach-point="addressNode"></div>
+            <p class="hint dijitHidden"
+               data-dojo-attach-point="addressHint">Opgelet! De positie op de kaart kan onnauwkeurig zijn.</p>
+
+            <div class="label"
+                 data-dojo-attach-point="phoneNode"></div>
+
+            <div class="label"
+                 data-dojo-attach-point="emailNode"></div>
+
+            <div class="label"
+                 data-dojo-attach-point="infoNode"></div>
+            <div data-dojo-attach-point="nameNode"
+                 class="ctPoiName">
+            </div>
+
+            <div data-dojo-attach-point="nodataNode"></div>
+            <div class="ctPoiInfoTable"
+                 data-dojo-attach-point="infoTableNode">
+
+                <table border="0">
+                    <tr>
+                        <!--<td>${i18n.noteLabel}:</td>-->
+                        <td data-dojo-attach-point="note">
+                            <div data-dojo-attach-point="note"></div>
+                            <div data-dojo-type="dijit/form/ToggleButton"
+                                 data-dojo-attach-point="moreNoteButton"
+                                 data-dojo-props="'class':'dijitDisplayNone ctMoreToggleButton'">more
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'bottom',layoutPriority:1,'class':'descriptionWrapper dijitHidden'"
+                 data-dojo-attach-point="descriptionContainer">
+                <span data-dojo-attach-point="description"></span>
+
+                <div data-dojo-type="dijit/form/ToggleButton"
+                     data-dojo-attach-point="moreDescriptionButton"
+                     data-dojo-props="'class':'dijitDisplayNone ctMoreToggleButton mutedButton dijitButton  '">more
+                </div>
+            </div>
+
+            <div class="ctMoreInfo ctPoiInfo"
+                 data-dojo-attach-point="moreInformationPOI">
+            </div>
+            <div class="ctMoreInfo"
+                 data-dojo-attach-point="moreInformation">
+            </div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'bottom',layoutPriority:2,'class':'ctButtonGroup'"
+             data-dojo-attach-point="buttonContainer">
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="btnStartRouting"
+                 data-dojo-props="'iconClass':'icon-directions','class':'ctMenuButton routingButton'"
+                 data-dojo-attach-event="onClick:_onShowRoute">${i18n.showRoute}
+            </div>
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="coordinatesButton"
+                 data-dojo-props="'class': 'ctMenuButton', iconClass: 'icon-coordinateviewer',
+                 label:'${i18n.coordinates}'"
+                 data-dojo-attach-event="onClick:_onCoordinatesClick">
+            </div>
+        </div>
+
+    </div>
+</div>

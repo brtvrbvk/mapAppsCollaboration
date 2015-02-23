@@ -1,0 +1,67 @@
+{
+    "Bundle-SymbolicName": "toolwrapper",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Category": ["widgets"],
+    "Bundle-Copyright": "con terra GmbH",
+
+//    "Bundle-StartLevel": 10,
+
+    "Require-Bundle": [
+        {
+            "name": "templates",
+            "version": "[2.0.0,)"
+        }
+    ],
+
+    "Components": [
+        {
+            "name": "ToolWrapper",
+            "impl": "ct/ui/dnd/GridContainerWidget",
+            "provides": [
+                "dijit.Widget",
+                "ct.ui.dnd.Container"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                // Name for use of Mapdesk as a Drag and Drop container
+                "dndContainerName": "toolWrapperFooterLeft",
+                // Anchor name to use in a template
+                "widgetRole": "toolWrapperFooterLeft"
+            }
+        },
+        {
+            "name": "ToolWrapper2",
+            "impl": "ct/ui/dnd/GridContainerWidget",
+            "provides": [
+                "dijit.Widget",
+                "ct.ui.dnd.Container"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                // Name for use of Mapdesk as a Drag and Drop container
+                "dndContainerName": "toolWrapperFooterRight",
+                // Anchor name to use in a template
+                "widgetRole": "toolWrapperFooterRight"
+            }
+        },
+        {
+            "name": "ToolWrapper3",
+            "impl": "ct/ui/dnd/GridContainerWidget",
+            "provides": [
+                "dijit.Widget",
+                "ct.ui.dnd.Container"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                // Name for use of Mapdesk as a Drag and Drop container
+                "dndContainerName": "toolWrapperHeader",
+                // Anchor name to use in a template
+                "widgetRole": "toolWrapperHeader"
+            }
+        }
+    ]
+}

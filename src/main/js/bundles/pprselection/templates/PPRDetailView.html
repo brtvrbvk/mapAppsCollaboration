@@ -1,0 +1,52 @@
+<div class="DetailView ctInfoViewer">
+    <div data-dojo-attach-point="rootContainer"
+         data-dojo-type="dijit.layout.BorderContainer"
+         data-dojo-props="design:'sidebar', gutters:false, liveSplitters:false">
+        <div data-dojo-attach-point="leftPane"
+             data-dojo-type="dijit.layout.ContentPane"
+             data-dojo-props="splitter:false, region:'center'">
+            <div data-dojo-type="dijit.layout.BorderContainer"
+                 data-dojo-props="design:'headline', gutters:false, liveSplitters:false">
+                <div data-dojo-type="dijit.layout.ContentPane"
+                     data-dojo-props="splitter:false, region:'left', style:'text-align:left'"
+                     data-dojo-attach-point="pprdetailarea">
+                    <div>
+
+                        <div class="ctBottomSpace">
+                            <span class="ctBold">${ui.type}:</span>
+
+                            <div data-dojo-attach-point="typeNode"></div>
+                        </div>
+                        <div class="ctBottomSpace">
+                            <span class="ctBold">${ui.beneficiary}:</span>
+
+                            <div data-dojo-attach-point="beneficiaryNode"></div>
+                        </div>
+                        <div class="ctBottomSpace">
+                            <span class="ctBold">${ui.startDate}:</span>
+
+                            <div data-dojo-attach-point="startDateNode"></div>
+                        </div>
+                        <div class="ctBottomSpace">
+                            <span class="ctBold">${ui.endDate}:</span>
+
+                            <div data-dojo-attach-point="endDateNode"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div data-dojo-type="dijit.layout.ContentPane"
+             data-dojo-props="splitter:false, region:'bottom', 'class':'ctBottomBar'">
+            <div data-dojo-type="dijit.layout.BorderContainer"
+                 data-dojo-props="design:'headline', gutters:false, liveSplitters:false">
+                <div data-dojo-attach-point="mapPane"
+                     data-dojo-type="dijit.layout.ContentPane"
+                     data-dojo-props="splitter:false, region:'left', 'class':'ctPPRMapPane'"></div>
+                <div data-dojo-attach-point="mapPaneOverview"
+                     data-dojo-type="dijit.layout.ContentPane"
+                     data-dojo-props="splitter:false, region:'left', 'class':'ctPPRMapPane'"></div>
+            </div>
+        </div>
+    </div>

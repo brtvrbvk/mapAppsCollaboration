@@ -1,0 +1,505 @@
+/* 
+    Created on : 07.01.2014, 11:22:38
+    Author     : juku
+*/
+.ctTpl_light .ctConfigureButton {
+    left: 150px !important;
+}
+
+/*-------------------------
+    Header  Classes
+-------------------------*/
+.ctTpl_light .header {
+    /* ensure logo text not wrapped*/
+    position: absolute;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    height: 52px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 5;
+}
+
+.ctTpl_light .header .logo .currentDate {
+    /*    font-size: 1.2em;*/
+    /*    font-weight: bold;*/
+    position: absolute;
+    right: 0;
+    /*right: 0px;*/
+    bottom: 16px;
+}
+
+.ctTpl_light .fakeSpacerBottomLeft {
+    width: 118px;
+    height: 52px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.ctTpl_light .fakeSpacerBottomRight {
+    width: 344px;
+    height: 23px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.ctTpl_light .operationalTitle {
+    font-weight: bold;
+}
+
+.ctTpl_light .basemapTogglerContainer {
+    overflow: visible;
+    width: 96px;
+}
+
+.ctTpl_light .basemapswitcherTool {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.ctTpl_light .header .logo {
+    width: 220px;
+    height: 43px;
+}
+
+.ctTpl_light .header .logo h1 {
+    position: absolute;
+    /*    top: 10px;*/
+    /*    left: 10px;*/
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+}
+
+.ctTpl_light .esriControlsBR {
+    display: none;
+}
+
+.ctTpl_light .omnisearch {
+    overflow: visible;
+}
+
+.ctTpl_light .search {
+    min-width: 80px;
+    max-width: 700px;
+    padding-top: 7px;
+    margin: 0 auto;
+
+}
+
+.neat .searchresultlist {
+    margin: 0 auto;
+    min-width: 80px;
+    max-width: 655px;
+    padding-right: 45px;
+}
+
+/*-------------------------
+    Footer Classes
+-------------------------*/
+.ctTpl_light .footer {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+}
+
+.ctTpl_light .copyright_agiv {
+    bottom: 0px;
+    display: inline-block;
+    left: 5px;
+    position: absolute;
+    z-index: 49;
+}
+
+.ctTpl_light .footer .dockingBarBottomLeft {
+    width: 150px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ctTpl_light .footer .dockingBarBottomRight {
+    display: inline-block;
+    right: 0;
+}
+
+.ctTpl_light .ctcopyrightRightLowerCorner {
+    bottom: 20px;
+}
+
+.ctTpl_light .footer .copyrightText.infoBar > div {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ctTpl_light .footer .ctcopyrightTextNode {
+    display: inline-block;
+    padding: 5px 25px;
+}
+
+/*-------------------------
+    Map Classes
+-------------------------*/
+
+.ctTpl_light .mainMap .dijitContentPane {
+    /* make map fullsize */
+    padding: 0;
+}
+
+.ctTpl_light #appRoot .dojoxResizeHandleClone {
+    left: -10px
+}
+
+/**/
+.ctTpl_light .layermanagertool {
+    display: none;
+}
+
+.ctTpl_light.ctLayerManagerToolVisible .layermanagertool {
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 350px;
+    top: 0px;
+}
+
+.ctTpl_light .layermanagertool .dijitToggleButton,
+.ctTpl_light .layermanagertool .dijitButtonNode {
+    height: 100%;
+    margin: 0;
+}
+
+/*-------------------------
+    Zoom Slider Classes
+-------------------------*/
+/*-------------------------
+    Zoom Slider Classes
+    Zoom Slider position is selected via esriMapOpts in app.json
+-------------------------*/
+.ctTpl_light .esriLargeSliderTR,
+.ctTpl_light .esriSimpleSliderTR {
+    top: 8px;
+}
+
+.ctTpl_light .esriLargeSliderTL,
+.ctTpl_light .esriSimpleSliderTL {
+    top: 8px;
+    left: 8px;
+}
+
+.ctTpl_light .esriLargeSliderBR,
+.ctTpl_light .esriSimpleSliderBR {
+    bottom: 30%;
+}
+
+.ctTpl_light .esriLargeSliderBL,
+.ctTpl_light .esriSimpleSliderBL {
+    bottom: 30%;
+    left: 8px;
+}
+
+/*
+    Fix for IE who presents
+    the ZoomSlider with a to
+    big vertical extend
+*/
+.ctEnv_IE_8.ctTpl_light .esriLargeSliderVertical,
+.ctEnv_IE_9.ctTpl_light .esriLargeSliderVertical,
+.ctEnv_IE_10.ctTpl_light .esriLargeSliderVertical {
+    height: 125px;
+}
+
+/*-------------------------
+    Button Classes
+-------------------------*/
+.ctTpl_light .dijitContentPane.templateButtons,
+.ctTpl_light .dijitContentPane.legalInfos {
+    overflow: visible;
+    padding: 0;
+}
+
+.ctTpl_light .dijitContentPane.templateButtons {
+    width: 250px;
+    overflow: hidden;
+}
+
+/*-------------------------
+    Slider Classes
+    Styling for the esri
+    Mobile Slider, defined in
+    map's manifest.json
+-------------------------*/
+
+.ctTpl_light .esriSimpleSlider {
+    position: absolute;
+    top: 85px;
+    left: 13px;
+    border-width: 2px;
+}
+
+.ctTpl_light .esriSimpleSliderIncrementButton {
+    border-bottom-width: 2px;
+}
+
+.ctTpl_light .mapZoomSlider .dijitSliderImageHandleV {
+    right: 0;
+    top: 0;
+}
+
+/*Moveable Handle*/
+.ctTpl_light .mapZoomSlider .dijitSliderMoveable {
+    right: 0;
+}
+
+/*-------------------------
+    WindowDockingBar  Classes
+-------------------------*/
+.ctTpl_light .dockingBarTopLeft .ctWindowDockingBar {
+    min-width: 60px;
+}
+
+.ctTpl_light .dockingBarBottomLeft .ctWindowDockingBar {
+    text-align: left;
+    width: 300px;
+}
+
+.ctTpl_light .dockingBarBottom .ctWindowDockingBar {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 60px !important;
+    text-align: right;
+    z-index: 50;
+}
+
+.ctTpl_light .dockingBarTopRight .ctWindowDockingBar {
+    text-align: right;
+    min-width: 250px;
+}
+
+.ctTpl_light .dockingBarTopLeft,
+.ctTpl_light .dockingBarTopRight {
+    padding: 2px;
+}
+
+.ctTpl_light .dockingBarBottom .ctTool {
+    position: relative;
+    bottom: 20px;
+}
+
+/*-------------------------
+    MapLoadingInfo  Classes
+-------------------------*/
+
+.ctTpl_light .mapLoadingInfo {
+    /*    position: absolute;
+        left: 50%;
+        top: 10px;
+        margin-left: -48px;*/
+    display: none;
+}
+
+.ctTpl_light .toExtentToolButton {
+    position: absolute;
+    top: 210px;
+    left: 6px;
+}
+
+/*-------------------------
+    MessageBar  Classes
+-------------------------*/
+
+.ctTpl_light .messageBar,
+.ctTpl_light .ctMessageBar {
+    position: absolute;
+    right: 80px;
+    top: 20px;
+}
+
+/*-------------------------
+    OverviewMap  Classes
+-------------------------*/
+
+.ctTpl_light .overviewMap {
+    overflow: visible;
+}
+
+/*-------------------------
+    Scalebar  Classes
+-------------------------*/
+
+.ctTpl_light .scalebarinfopane {
+    overflow: hidden;
+    width: 150px;
+}
+
+.ctTpl_light .ctScaleViewer {
+    position: relative;
+    bottom: -25px;
+    left: 9px;
+}
+
+.ctTpl_light .scaleBar {
+    position: relative;
+    width: 135px;
+    bottom: -45px;
+    left: -15px;
+}
+
+.ctTpl_light .esriScalebarLabel.esriScalebarSecondNumber {
+    position: relative;
+    left: 33%;
+    top: 2px;
+    text-transform: lowercase;
+}
+
+.ctTpl_light .ctCoordinateViewer table {
+    border-spacing: 0px;
+    padding-top: 6px;
+}
+
+.ctTpl_light .coordinateInfo {
+    min-width: 275px; /*otherwise the surrounding contentpane fails to calculate a size*/
+}
+
+.ctTpl_light .ctFinderSubmit {
+    position: absolute;
+    right: -34px;
+    top: 0;
+}
+
+.ctTpl_light .ctFinderLoading {
+    top: 10px;
+}
+
+.ctTpl_light .ctFinderLoading,
+.ctTpl_light .ctFinderReset {
+    position: absolute;
+    right: 3px;
+}
+
+.ctTpl_light .ctFinderSubmit {
+    position: absolute;
+    right: -34px;
+    top: 0;
+}
+
+.ctTpl_light .ctFinderLoading {
+    top: 10px;
+}
+
+.ctTpl_light .ctFinderLoading,
+.ctTpl_light .ctFinderReset {
+    position: absolute;
+    right: 3px;
+}
+
+.ctTpl_light .dijitMenu li {
+    font-size: 14px;
+}
+
+/*-------------------------
+    Toolset.css  Classes
+-------------------------*/
+
+.ctTpl_light .footer {
+    overflow: visible;
+}
+
+.ctToolWindow.dijitDialogFixed.bottom {
+    top: auto !important;
+    bottom: 10px !important;
+    left: 0 !important;
+}
+
+/*to allow overlapping tools, we need to enable overflow on the tool containers*/
+.ctTpl_light .dockingBarTopRight,
+.ctTpl_light .toolWrapperHeader,
+.ctTpl_light .toolWrapperFooterLeft,
+.ctTpl_light .toolWrapperFooterRight,
+.ctTpl_light .dockingBarBottom {
+    overflow: visible;
+    padding: 0;
+}
+
+.ctTpl_light .toolWrapperHeader {
+    width: 300px;
+    z-index: 5;
+}
+
+.ctTpl_light .dockingBarTopRight {
+    width: 300px;
+    z-index: 5;
+}
+
+.ctTpl_light .toolWrapperHeader .ctToolWindow {
+    top: 5px !important; /*needed to solve tool problems with tools in top right corner*/
+    right: 0 !important;
+    left: auto !important;
+}
+
+.ctTpl_light .toolWrapperFooterLeft {
+    width: 80px;
+}
+
+.ctTpl_light .toolWrapperFooterRight {
+    /*width: 100px;*/
+}
+
+.ctTpl_light .dockingBarBottom {
+    width: 188px;
+    text-align: right;
+}
+
+.ctTpl_light.ctLayout_desktop .ctNodeInfo {
+    /*show info window next to contentmanager*/
+    right: 350px !important;
+    left: inherit !important;
+}
+
+.ctTpl_light .timeslider {
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    height: 90px;
+}
+
+.ctTpl_light .geopuntLogo {
+    display: none;
+}
+
+.ctTpl_light.ctActiveTool_maximizeViewerTool .geopuntLogo {
+    display: inline;
+    cursor: pointer;
+}
+
+.ctTpl_light .appTitleWrapper {
+    display: table;
+    height: 100%;
+}
+
+.ctTpl_light .appTitle {
+    vertical-align: middle;
+}
+
+.ctTpl_light.ctActiveTool_maximizeViewerTool .appTitleWrapper {
+    display: none;
+}
+
+.ctTpl_light .geopuntLogo img {
+    height: 52px;
+}
+
+.ctTpl_light .capakeyTool {
+    float: right;
+    margin-right: -35px;
+    margin-top: -2px;
+    width: 35px;
+    height: 20px;
+
+}

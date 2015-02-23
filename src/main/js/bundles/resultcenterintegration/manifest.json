@@ -1,0 +1,54 @@
+{
+    "Bundle-SymbolicName": "resultcenterintegration",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+    "Bundle-Vendor": "con terra GmbH",
+
+    "Bundle-Category": ["resultcenter"],
+
+    //    "Config-Bundle-Location" : "/config",
+
+    "Components": [
+
+        {
+            "name": "ResultcenterExtentUpdater",
+            "provides": ["ct.framework.api.EventHandler"],
+            "propertiesConstructor": true,
+            "properties": {
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/resultcenter/NEW_STORE",
+                        "method": "_handleNewStore"
+                    },
+                    {
+                        "topic": "ct/window/HIDDEN",
+                        "method": "_onResultcenterClose"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "mapState",
+                    "providing": "ct.mapping.map.MapState",
+                    "connect": {
+                        "onExtentChange": "_onExtentChange"
+                    }
+                },
+                {
+                    "name": "dataModel",
+                    "providing": "ct.resultcenter.DataModel"
+//                    "connect":{
+//                        "onDatasourceChanged":"_onDatasourceChanged"
+//                    }
+                }
+            ]
+        }
+
+    ]
+}

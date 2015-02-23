@@ -1,0 +1,139 @@
+@import "../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName} {
+    .ctWindow.legend {
+        .ctWindowContentPadding > .dijitDialogPaneContent {
+            padding: 0;
+            border-top: none;
+            overflow-y: auto;
+        }
+    }
+    .ctLegend {
+        padding: 8px;
+        background-color: white;
+        color: @text-color;
+        .ctLegendServiceURL {
+            display: block;
+            padding-top: 5px;
+        }
+        a.ctLegendServiceURL:hover {
+            border-bottom: @text-color;
+        }
+
+        .esriLegendServiceLabel,
+        .ctLegendServiceLabel {
+            text-transform: none;
+            font-size: 11px;
+        }
+        .esriLegendService {
+            padding-bottom: 5px;
+            border-bottom: 1px solid @disabled-background-color;
+        }
+        .esriLegendLeft {
+            padding-left: 0px;
+        }
+        .esriLegendGroupLayerLabel {
+            display: none;
+        }
+        .esriLegendLayerLabel {
+            /*padding-top: 5px;*/
+            position: absolute;
+            padding-left: 40px;
+        }
+        .esriLegendLayer {
+            padding-top: 5px;
+        }
+
+        .ctHeaderLabel {
+            font-weight: bold;
+            margin: 5px 0 5px 0;
+            font-size: 12px;
+        }
+        .ctHeaderLabel.lastItem {
+            border-top: 2px solid @primary-color;
+            padding-top: 5px;
+        }
+    ;
+
+        .ctGraphicLegend {
+            .ctGraphicsLegendItem {
+                margin: 5px 0 5px 0;
+
+                .ctLegendLabel {
+                    margin-left: 10px;
+                    vertical-align: super;
+                }
+
+                .ctPOILegendIcon {
+                }
+            }
+
+            .iconNode {
+                .setWebFont();
+                font-size: @ct-icon-small;
+                &.POLYGON:before {
+                    font-family: agivUiFont;
+                    content: "\e613";
+                }
+                &.POLYLINE:before {
+                    content: '\e054';
+                }
+                &.TEXT:before {
+                    content: '\e066';
+                }
+                &.POINT:before {
+                    font-family: agivUiFont;
+                    content: "\e61f";
+                }
+                &.WMTS:before,
+                &.WMS:before,
+                &.INSPIRE_VIEW:before {
+                    content: '\e0be';
+                }
+                &.POI:before {
+                    content: '';
+                }
+                &.POI .iconNode {
+                    font-size: inherit;
+                }
+                &.SEARCH_RESULT_PARCEL:before {
+                    font-family: agivUiFont;
+                    content: "\e614";
+                }
+            }
+
+            .RESULT_IDENTIFY,
+            [class*='SEARCH_RESULT_ADDRESS'],
+            [class*='SEARCH_RESULT_POI'] {
+                .iconNode {
+                    vertical-align: bottom;
+                    .size(25px, 32px);
+                    display: inline-block;
+                    .bgHD('../images/searchMarker.png', 23px);
+                }
+
+                &[class*='result'] .iconNode {
+                    .bgHD('../images/marker/search/searchMarker_00.png', 23px);
+                }
+                //function to set the number inside the icon for the 20 Legend Icon
+                .createSerchResultLegend(20);
+                .createSerchResultLegend(@n, @i: 1) when (@i =< @n) {
+                    .iTest() when (@i < 10) {
+                        &.result@{i} .iconNode {
+                            .bgHD('../images/marker/search/searchMarker_0@{i}.png', 23px);
+                        }
+                    }
+                    .iTest() when (@i >= 10) {
+                        &.result@{i} .iconNode {
+                            .bgHD('../images/marker/search/searchMarker_@{i}.png', 23px);
+                        }
+                    }
+                    .iTest();
+                    .createSerchResultLegend(@n, (@i + 1));
+                }
+            }
+
+        }
+    }
+}

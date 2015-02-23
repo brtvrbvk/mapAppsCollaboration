@@ -1,0 +1,52 @@
+//.night .ctAgivcopyrightNode {
+//    white-space: nowrap;
+//    background-color:rgba(100, 100, 100, 0.85);
+//    border-radius: 5px;
+//    -moz-border-radius: 5px;
+//    -webkit-border-radius: 5px;
+//    padding: 2px;
+//    display:inline-block;
+//}
+//.ctEnv_IE.night .ctAgivcopyrightNode {
+//    background-color: grey;
+//    width:135px;
+//}
+//
+//
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+
+  .ctAgivcopyrightNode {
+    white-space: nowrap;
+    background-color: @primary-color;
+    .transition(background-color, .25s, ease-out);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 2px 8px;
+    display:inline-block;
+  }
+
+  .ctAgivcopyrightNode a {
+    //color: #575656;
+    text-decoration: none;
+  }
+  .ctAgivcopyrightNode:hover {
+    background-color: rgba(100, 100, 100, 0.50);
+    color: white;
+    a {
+      //color: #7dcdea;
+      border-bottom: 1px dotted #575656;
+    }
+  }
+  &.ctEnv_IE .ctAgivcopyrightNode {
+    background-color: grey;
+    width:135px;
+  }
+
+  .copyrightinfo .dijitButtonNode {
+    padding: 0px;
+    .resetBG();
+  }
+
+}

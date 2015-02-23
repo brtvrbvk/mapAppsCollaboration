@@ -1,0 +1,106 @@
+////////////////////////////////////////////
+// 1. Table Header
+// 2. Table Rows (including Hover and selected styles
+// 3. Table Cells
+// 4. Special styles to support transparency of parent window
+// 0. Less Funtions
+////////////////////////////////////////////
+@import "../../themeSettings.less";
+
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .dgrid {
+        border: none;
+        .dgrid-scroller { // needed to resolve https://issuetracker02.eggits.net/browse/MAPAPPS-1402
+                          overflow: auto;
+        }
+        // 1. Table Header
+        .dgrid-header,
+        .dgrid-header-row,
+        .dgrid-footer {
+            .standard-gradient(@ct-dGrid-header-background-color);
+            .dgrid-cell { //hide border cell
+                          border-top: 1px solid @ct-dGrid-border-color;
+                          border-color: @container-background-color;
+                          color: @ct-dGrid-header-text-color;
+            }
+            .dgrid-cell:hover {
+                .standard-gradient(@button-hovered-background-color);
+                color: #fff;
+                .ui-icon {
+                    background-image: url(../../images/ui-icons_222222_256x240_hover.png);
+                }
+            }
+        }
+        .ui-icon {
+            background-image: url(../../images/ui-icons_222222_256x240_grey.png);
+        }
+        // 2. Table Rows (including Hover and selected styles
+        .dgrid-row-even {
+            //background-color: @ct-dGrid-background-color;
+        }
+        .dgrid-row-odd {
+            //background-color: darken(@ct-dGrid-background-color, 7%);
+        }
+        .dgrid-row:hover {
+            cursor: pointer;
+        }
+        .dgrid-row:hover,
+            .dgrid-row-highlight,
+            .dgrid-row.dgrid-selected {
+            color: @ct-highlight-text-color;
+            background: @ct-dGrid-highlighted-row-color;
+            color: #fff;
+        }
+        // 3. Table Cells
+        .dgrid-cell {
+            border-width: 0;
+            border-color: @ct-dGrid-border-color;
+            .addVerticalCellBorder();
+            .addHorizontalCellBorder();
+        }
+        .dgrid-cell-padding{
+            padding: 7px;
+        }
+        //reduced width for default checkbox cells-columns
+        .dgrid-selector {
+            width: 33px!important;
+        }
+        .dgrid-no-data {
+            padding: 10px;
+        }
+    }
+    //4. Special styles to support transparency of parent window
+    .ctTransparent .dgrid {
+        background-color: fade(@ct-dGrid-background-color, 30%);
+        .dgrid-row-odd {
+            background-color: fade(lighten(@ct-dGrid-background-color, 5%), 40%);
+        }
+        .dgrid-header,
+        .dgrid-header-row,
+        .dgrid-footer {
+            .standard-gradient-and-filter(fade(@ct-dGrid-header-background-color,30%));
+        }
+    }
+}
+
+// 0. Less Funtions
+.addHorizontalCellBorder()when (@ct-dGrid-horizontal-table-borders = true){
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+}
+
+.addHorizontalCellBorder()when (@ct-dGrid-horizontal-table-borders = false){
+    border-bottom-width: 0;
+    border-top-width: 0;
+}
+
+.addVerticalCellBorder()when (@ct-dGrid-vertical-table-borders = true){
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+.addVerticalCellBorder()when (@ct-dGrid-vertical-table-borders = false){
+    border-left-width: 0;
+    border-right-width: 0;
+}

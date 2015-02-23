@@ -1,0 +1,92 @@
+{
+    "Bundle-SymbolicName": "capakeysearch",
+    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Require-Bundle": [
+        {
+            "name": "map",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "dataform",
+            "version": "[3.0,4.0)"
+        },
+        {
+            "name": "geolocatorparcels",
+            "version": "[4.0,)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "CapakeyController",
+            "provides": [
+                "capakeysearch.CapakeyController",
+                "dijit.Widget"
+            ],
+            "propertiesConstructor": true,
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "capakeyDialog",
+                "dataformJson": "resource('resources/dataform.json')",
+                "capakeyServiceUrl": "http://ws.beta.agiv.be/capakey/api/v0/municipality"
+            },
+            "references": [
+                {
+                    "name": "dataformService",
+                    "providing": "dataform.DataFormService"
+                },
+                {
+                    "name": "tool",
+                    "providing": "capakeysearch.CapakeyTool"
+                },
+                {
+                    "name": "handler",
+                    "providing": "geolocatorparcels.GeolocatorHandler"
+                }
+            ]
+        },
+        {
+            "name": "CapakeyTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool",
+                "capakeysearch.CapakeyTool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "capakeyTool",
+                "iconClass": "icon-capakey",
+                "title": "${ui.tool.title}",
+                "tooltip": "${ui.tool.tooltip}",
+                "togglable": true,
+                "rules": {
+                    "noGroup": true
+                }
+//                "activateHandler": "activateCapakeySearch"
+            }
+        },
+        {
+            "name": "capakeyToolFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "capakeytool"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=capakeyTool)"
+                }
+            ]
+        }
+    ]
+}
