@@ -15,22 +15,7 @@ define([
         "dojo/text!./templates/FeatureInfoWidget.html",
         "dijit/layout/TabContainer"
     ],
-    function (
-        declare,
-        d_array,
-        d_lang,
-        d_string,
-        ct_array,
-        ct_css,
-        ct_when,
-        Connect,
-        _Widget,
-        _TemplatedMixin,
-        _WidgetsInTemplateMixin,
-        AnalyticsConstants,
-        agiv_css,
-        templateStringContent
-        ) {
+    function (declare, d_array, d_lang, d_string, ct_array, ct_css, ct_when, Connect, _Widget, _TemplatedMixin, _WidgetsInTemplateMixin, AnalyticsConstants, agiv_css, templateStringContent) {
         /*
          * COPYRIGHT 2012 con terra GmbH Germany
          */
@@ -104,7 +89,7 @@ define([
                                             c),
                                         function (w) {
 
-                                            if (w) {
+                                            if (w && this.tabcontainer) {
                                                 this.tabcontainer.addChild(w);
                                             }
 
@@ -147,10 +132,7 @@ define([
                     this.tabcontainer.resize(dim);
                 }
             });
-        FeatureInfoWidget.createWidget = function (
-            params,
-            contentFactory
-            ) {
+        FeatureInfoWidget.createWidget = function (params, contentFactory) {
             var opts = contentFactory.get("FeatureInfoWidget");
             return new FeatureInfoWidget({
                 content: params.content,

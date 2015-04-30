@@ -79,7 +79,7 @@ define([
                     }
 
                     if (this.appsToRestore.length === 0) {
-                        return true;
+                        return false;
                     }
 
                     return ( (ct_array.arrayFirstIndexOf(this.appsToRestore,

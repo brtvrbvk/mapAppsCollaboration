@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "kml",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
@@ -14,6 +14,10 @@
         {
             "name": "kmltogeojson",
             "version": "[4.0.0,)"
+        },
+        {
+            "name": "geojson",
+            "version": "[3.1.0,)"
         },
         {
             "name": "coordinatetransformer",

@@ -24,25 +24,7 @@ define([
         "dijit/Tooltip",
         "dojo/text!./templates/TreeNode.html"
     ],
-    function (
-        declare,
-        d_lang,
-        d_string,
-        d_dom,
-        d_class,
-        _Widget,
-        _TemplatedMixin,
-        _WidgetsInTemplateMixin,
-        ct_css,
-        TooltipDialog,
-        popup,
-        Connect,
-        Button,
-        ToggleButton,
-        ServiceTypes,
-        Tooltip,
-        templateString
-        ) {
+    function (declare, d_lang, d_string, d_dom, d_class, _Widget, _TemplatedMixin, _WidgetsInTemplateMixin, ct_css, TooltipDialog, popup, Connect, Button, ToggleButton, ServiceTypes, Tooltip, templateString) {
         return declare([
                 _Widget,
                 _TemplatedMixin,
@@ -109,12 +91,12 @@ define([
                         }
 
                     } else {
-                        btn = new ToggleButton({
+                        btn = this._toggleButton = new ToggleButton({
                             label: this.label,
                             "class": this.isHeader ? "ctThemaHeader" : "",
                             checked: this.uncollapsed
                         }, this.buttonNode);
-                        this._listeners.connect("button", btn, "onChange", "_onNodeClick");
+                        this._listeners.connect("button", btn, "onClick", "_onNodeClick");
                     }
 
                     var tooltipHtml = this._getMapPreviewUrl(this.modelNode);

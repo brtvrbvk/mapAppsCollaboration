@@ -17,6 +17,7 @@ define([
         "dojo/dom-class",
         "dojo/date/locale",
         "dijit/layout/ContentPane",
+        "base/util/CommonID",
         "ct/request",
         "ct/array",
         "ct/_when",
@@ -30,31 +31,7 @@ define([
         "base/analytics/AnalyticsConstants",
         "base/store/GeolocatorStore"
     ],
-    function (
-        declare,
-        d_lang,
-        d_array,
-        d_class,
-        d_dom,
-        DeferredList,
-        Deferred,
-        query,
-        d_domClass,
-        d_date,
-        ContentPane,
-        ct_request,
-        ct_array,
-        ct_when,
-        Stateful,
-        Connect,
-        ct_css,
-        ct_geom,
-        DateTimeUtil,
-        MessagePane,
-        GipodParameterWidget,
-        AnalyticsConstants,
-        GeolocatorStore
-        ) {
+    function (declare, d_lang, d_array, d_class, d_dom, DeferredList, Deferred, query, d_domClass, d_date, ContentPane, commonID, ct_request, ct_array, ct_when, Stateful, Connect, ct_css, ct_geom, DateTimeUtil, MessagePane, GipodParameterWidget, AnalyticsConstants, GeolocatorStore) {
         return declare([
                 Stateful,
                 Connect
@@ -73,7 +50,7 @@ define([
                 dataform: {
                     "dataform-version": "1.0.0",
                     "size": {
-                        "h": 660,
+                        "h": 800,
                         "w": 310
                     },
                     "type": "tablepanel",
@@ -163,6 +140,7 @@ define([
                             },
                             "type": "tablepanel",
                             "showLabels": false,
+                            "id": "ctGipodDatePickerTable",
                             "cssClass": "ctGipodDatePickerTable dijitDisplayNone",
                             "cols": 3,
                             "children": [
@@ -291,6 +269,7 @@ define([
                     }
 
                     this._cp.setQueryOptions = d_lang.hitch(this, this._updateQueryOptions);
+                    this._cp.updateLayers = d_lang.hitch(this, this._updateNodes);
                     this._cp.gipodBaseUrl = this.gipodBaseUrl;
 
                     this._referenceUrl = this.gipodBaseUrl + "/ReferenceData";
@@ -475,7 +454,7 @@ define([
                         "labelAttribute": "name",
                         "autoComplete": false,
                         "hasDownArrow": false,
-                        "pageSize": 5,
+                        "pageSize": this.ownerPageSize || 10,
                         "size": {
                             "w": 185
                         }
@@ -495,7 +474,7 @@ define([
                         "labelAttribute": "name",
                         "autoComplete": false,
                         "hasDownArrow": false,
-                        "pageSize": 5,
+                        "pageSize": this.provincePageSize || 10,
                         "size": {
                             "w": 185
                         }
@@ -515,7 +494,7 @@ define([
                         "labelAttribute": "name",
                         "autoComplete": false,
                         "hasDownArrow": false,
-                        "pageSize": 5,
+                        "pageSize": this.citiesPageSize || 10,
                         "size": {
                             "w": 185
                         }
@@ -535,9 +514,9 @@ define([
                     var df = this.dataform;
                     var dfwidget = this._dfwidget = this._dataformService.createDataForm(df);
 
-                    if (this._cp.get("opts")) {
-                        this._updateQueryOptions(this._cp.get("opts"));
-                    }
+//                    if (this._cp.get("opts")) {
+//                        this._updateQueryOptions(this._cp.get("opts"));
+//                    }
 
                     if (this.queryOptions.eventType) {
                         var count = 0;
@@ -621,11 +600,7 @@ define([
                     }
                 },
 
-                _update: function (
-                    fieldname,
-                    oldval,
-                    newval
-                    ) {
+                _update: function (fieldname, oldval, newval) {
 
                     if (this._stopUpdate) {
                         return;
@@ -703,11 +678,7 @@ define([
 
                 },
 
-                _trackEvent: function (
-                    cat,
-                    type,
-                    val
-                    ) {
+                _trackEvent: function (cat, type, val) {
 
                     if (this.eventService) {
                         this.eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
@@ -754,18 +725,27 @@ define([
                 },
 
                 _setDatePickerVisibility: function (visible) {
-                    var datepickers = query(".ctGipodDatePickerTable");
-                    d_array.forEach(datepickers, function (item) {
-                        ct_css.switchHidden(item, !visible);
-                    });
+                    var datepicker = this._getControlById(this._dfwidget.bodyControl, "ctGipodDatePickerTable")
+                    ct_css.switchHidden(datepicker.widget.domNode, !visible);
                     this._periodDateSelection = visible;
                 },
 
-                _modifyNewValues: function (
-                    fieldname,
-                    oldval,
-                    newval
-                    ) {
+                _getControlById: function (parent, id) {
+                    var children = parent.children,
+                        foundElem;
+                    d_array.some(children, function (child) {
+                        if (child.children && child.children.length > 0) {
+                            foundElem = this._getControlById(child, id) || foundElem;
+                        }
+                        if (child.id === id) {
+                            foundElem = child;
+                            return true;
+                        }
+                    }, this);
+                    return foundElem;
+                },
+
+                _modifyNewValues: function (fieldname, oldval, newval) {
 
                     switch (fieldname) {
                         case "enddate":
@@ -775,11 +755,7 @@ define([
 
                 },
 
-                _isValidState: function (
-                    fieldname,
-                    oldval,
-                    newval
-                    ) {
+                _isValidState: function (fieldname, oldval, newval) {
 
                     if (this["_validate_" + fieldname]) {
                         return !this["_validate_" + fieldname](oldval, newval);
@@ -789,10 +765,7 @@ define([
 
                 },
 
-                _validate_startdate: function (
-                    oldval,
-                    newval
-                    ) {
+                _validate_startdate: function (oldval, newval) {
 
                     if (!newval) {
                         return this.i18n.ui.validation.defineStart;
@@ -816,10 +789,7 @@ define([
 
                 },
 
-                _validate_enddate: function (
-                    oldval,
-                    newval
-                    ) {
+                _validate_enddate: function (oldval, newval) {
 
                     if (!newval) {
                         return this.i18n.ui.validation.defineEnd;
@@ -888,7 +858,7 @@ define([
 
                 },
 
-                _updateQueryOptionsPanel: function (qo) {
+                _formatDates: function (qo) {
 
                     var opts = d_lang.clone(qo);
                     if (opts["enddate"] && !opts["enddate"].length) {
@@ -904,21 +874,83 @@ define([
                         });
                     }
 
-                    this._cp.set("opts", opts);
+                    return opts;
+
+                },
+
+                _prepareForLayerUpdate: function (qo) {
+
+                    for (var k in qo) {
+
+                        switch (k) {
+                            case "period":
+                                var periods = qo[k];
+                                for (var period in periods) {
+                                    switch (period) {
+                                        case "today":
+                                            if (periods[period]) {
+                                                var ed = new Date();
+                                                ed.setTime(this._today);
+                                                var sd = new Date();
+                                                sd.setTime(this._today);
+                                                qo.startdate = sd;
+                                                qo.enddate = ed;
+                                            }
+                                            break;
+                                        case "nextmonth":
+                                            if (periods[period]) {
+                                                var ed = new Date();
+                                                ed.setTime(this._today + (1000 * 60 * 60 * 24) * 30);
+                                                var sd = new Date();
+                                                sd.setTime(this._today);
+                                                qo.startdate = sd;
+                                                qo.enddate = ed;
+                                            }
+                                            break;
+                                        case "specifieddate":
+                                            break;
+                                        case "tomorrow":
+                                            if (periods[period]) {
+                                                var ed = new Date();
+                                                ed.setTime(this._today + 1000 * 60 * 60 * 24);
+                                                var sd = new Date();
+                                                sd.setTime(this._today + 1000 * 60 * 60 * 24);
+                                                qo.startdate = sd;
+                                                qo.enddate = ed;
+                                            }
+                                            break;
+                                    }
+
+                                }
+                                delete qo[k];
+                                break;
+                            case "manifestation":
+                                delete qo[k];
+                                break;
+                            case "workassignment":
+                                delete qo[k];
+                                break;
+                        }
+
+                    }
+
+                    qo = this._formatDates(qo);
+
+                    return qo;
 
                 },
 
                 _updateNodes: function () {
 
                     var qo = d_lang.clone(this.queryOptions);
-                    this._updateQueryOptionsPanel(qo);
-                    delete qo.workassignment;
-                    delete qo.manifestation;
-                    delete qo.period;
+
+                    this._cp.set("opts", this._formatDates(qo));
+
+                    qo = this._prepareForLayerUpdate(qo);
 
                     d_array.forEach(this.nodes, function (n) {
 
-                        var node = this.mapModel.getNodeById(n.id);
+                        var node = commonID.findIdInModel(this.mapModel, n.id);
                         if (node && node.layerObject) {
                             node.layerObject.setQueryOptions(qo, true);
 

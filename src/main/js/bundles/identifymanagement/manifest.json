@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "identifymanagement",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
@@ -11,7 +11,11 @@
         {
             "name": "dataform",
             "version": "[3.0.2,)"
+        },
+        {
+            "name": "base"
         }
+
     ],
     "layout-widgets": [
         {

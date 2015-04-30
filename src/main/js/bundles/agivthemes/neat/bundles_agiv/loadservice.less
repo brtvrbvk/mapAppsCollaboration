@@ -2,7 +2,7 @@
 //DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
 .@{themeName} {
   .loadServiceTopNode {
-    height: 40px;
+    height: 30px;
   }
   .loadServiceTopNode > .dijitContentPane{
     padding: 0;
@@ -32,8 +32,8 @@
   }
   .loadServiceResetButton {
     position: absolute;
-    top: 10px;
-    right: 35px;
+    top: 3px;
+    right: 25px;
     margin: 0;
     .dijitButtonNode {
       background: transparent none;
@@ -41,6 +41,13 @@
     }
     &.dijitHover .dijitButtonNode {
       color: #000
+    }
+  }
+
+  .geoJsonContainer{
+    .loadServiceResetButton {
+      top: 10px;
+      right: 35px;
     }
   }
 
@@ -205,16 +212,62 @@
     }
 
     .ctMessagePane{
-      .ctMessageItem.error {
-        background-color: transparent;
-        color: @error-color;
-      }
+
       .icon{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        float: left;
+        font-family: mapappsUiFont;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1;
+        speak: none;
+        text-transform: none;
         &.ctErrorIcon{
           color: @error-color;
+          font-family: agivUiFont;
+        }
+        &.ctLoadingIcon {
+          -webkit-animation: spin 1.5s infinite linear;
+          -moz-animation: spin 1.5s infinite linear;
+          -o-animation: spin 1.5s infinite linear;
+          -ms-animation: spin 1.5s infinite linear;
+          animation: spin 1.5s infinite linear;
+          width: auto;
+          height: auto;
+          &:before{
+            content: '\e097';
+          }
         }
       }
+
+      .ctMessageItem{
+        padding: 6px 10px;
+        margin-bottom: 5px;
+        min-height: 1em;
+        font-weight: bold;
+        &.error {
+          background-color: transparent;
+          color: @error-color;
+        }
+        &.loading {
+          font-weight: normal;
+          background: #F2F2F2;
+        }
+      }
+
+      .desc {
+        display: block;
+        margin-left: 22px;
+      }
+
+
     }
+
+
 
     .dijitContentPane{
       .dijitTextBox{

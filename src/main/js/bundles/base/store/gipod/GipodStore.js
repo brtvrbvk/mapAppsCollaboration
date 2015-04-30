@@ -24,25 +24,7 @@ define([
         "../StoreDuplicateFilterPlugin",
         "../StoreResultClusterPlugin"
     ],
-    function (
-        declare,
-        d_array,
-        d_lang,
-        d_date,
-        QueryResults,
-        Deferred,
-        ct_lang,
-        ct_array,
-        ct_when,
-        ct_request,
-        ct_geometry,
-        SpatialQuery,
-        Connect,
-        GipodParser,
-        StoreResultFilterPlugin,
-        StoreDuplicateFilterPlugin,
-        StoreResultClusterPlugin
-        ) {
+    function (declare, d_array, d_lang, d_date, QueryResults, Deferred, ct_lang, ct_array, ct_when, ct_request, ct_geometry, SpatialQuery, Connect, GipodParser, StoreResultFilterPlugin, StoreDuplicateFilterPlugin, StoreResultClusterPlugin) {
         return declare([
                 Connect,
                 GipodParser
@@ -101,11 +83,7 @@ define([
 
                 },
 
-                _parseResults: function (
-                    results,
-                    targetQuery,
-                    options
-                    ) {
+                _parseResults: function (results, targetQuery, options) {
 
                     var res = this.inherited(arguments);
 
@@ -125,10 +103,7 @@ define([
                     return d;
                 },
 
-                query: function (
-                    query,
-                    options
-                    ) {
+                query: function (query, options) {
 
                     options = d_lang.mixin(d_lang.clone(this.queryOptions), options);
                     this._currentScale = options.currentScale;
@@ -139,35 +114,52 @@ define([
 
                     var targetQuery = this._convertQuery(query, options);
 
-                    var r = new Deferred(function () {
-                        canceled = true;
-                        d.reject();
-                    });
+                    var r = new Deferred();
 
                     this.onUpdateStart();
 
                     var d = ct_request.requestJSON({
                         content: targetQuery,
-                        url: this.target + restoption
+                        url: this.target + restoption,
+                        headers: {
+                            "Accept": "application/json"
+                        }
                     });
 
                     ct_when(d, function (res) {
-
+                        if (r && (r.isResolved() || r.isCanceled() || r.isRejected())) {
+                            this.onUpdateEnd();
+                            return;
+                        }
                         //- parse results
                         if (this._currentScale !== options.currentScale) {
-                            r.resolve([]);
+                            try {
+                                r.resolve([]);
+                            } catch (e) {
+
+                            }
                             this.onUpdateEnd();
                         } else {
                             var t = this._parseResults(res, targetQuery, options);
                             t.total = t.length;
-                            r.resolve(t);
+                            try {
+                                r.resolve(t);
+                            } catch (e) {
+
+                            }
                             this.onUpdateEnd(t);
                         }
 
                     }, function (err) {
-
                         this.onUpdateEnd();
-                        r.reject(err);
+                        if (r && (r.isResolved() || r.isCanceled() || r.isRejected())) {
+                            return;
+                        }
+                        try {
+                            r.reject(err);
+                        } catch (e) {
+
+                        }
 
                     }, this);
 
@@ -180,10 +172,7 @@ define([
 
                 },
 
-                _convertQuery: function (
-                    query,
-                    options
-                    ) {
+                _convertQuery: function (query, options) {
 
                     var targetQuery = {};
                     var opts = d_lang.clone(options) || {};
@@ -258,10 +247,7 @@ define([
 
                 },
 
-                _convertComplexQuery: function (
-                    targetQuery,
-                    walker
-                    ) {
+                _convertComplexQuery: function (targetQuery, walker) {
 
                     // here we don't walk, we simple check some cases for geometry
                     // otherwise the query will not be "valid"
@@ -289,10 +275,7 @@ define([
                     return false;
                 },
 
-                _addQueryOperator: function (
-                    targetQuery,
-                    walker
-                    ) {
+                _addQueryOperator: function (targetQuery, walker) {
 
                     var astNode = walker.current;
                     var rel = astNode.o.substring(1);
@@ -309,10 +292,7 @@ define([
 
                 },
 
-                _addSpatialOperator: function (
-                    targetQuery,
-                    walker
-                    ) {
+                _addSpatialOperator: function (targetQuery, walker) {
 
                     var astNode = walker.current;
                     var spatialRel = astNode.o.substring(1);

@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "patches_resultcenter",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
     "Bundle-Name": "Patched-components",
     "Bundle-Description": "Patched-components",
     "Bundle-Vendor": "con terra GmbH",

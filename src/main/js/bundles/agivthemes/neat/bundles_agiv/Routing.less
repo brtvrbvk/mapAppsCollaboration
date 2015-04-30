@@ -158,16 +158,17 @@
         border: 3px solid @primary-color;
     }
     .dijitMenuTable.ctRoutingPopup .dijitMenuItem {
-        background-color: white;
+        background-color: @dialog-underlay-color;
     }
     .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemSelected {
         color: @text-color;
     }
     .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemHover,
+    .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemFocused,
     .dijitMenuTable.ctRoutingPopup .dijitMenuItem.dijitMenuItemSelected.dijitMenuItemHover {
         background-color: #575656;
         .dijitMenuItemLabel {
-            color: white;
+            color:  @hovered-text-color;
         }
     }
 

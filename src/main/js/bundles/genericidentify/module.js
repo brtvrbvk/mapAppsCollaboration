@@ -1,7 +1,6 @@
 define([
     ".",
     "base/ui/genericidentify/FeatureInfoWidget",
-//    "./RandomClickFeatureInfoWidget",
     "./WMSFeatureInfoWidget",
     "./FeatureInfoController",
     "./MapModelStoreHelper",

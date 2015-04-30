@@ -541,6 +541,7 @@ define([
                     var geocodeDef = new Deferred();
 
                     context.infotype = "RANDOM_FEATURE_INFO";
+                    context = this._checkDeviceDependendContext(content, context);
 
                     if (!content.geocodeDeferred) {
                         content.geocodeDeferred = geocodeDef;
@@ -561,7 +562,6 @@ define([
                             this.eventService.postEvent("agiv/genericidentify/loading/END");
                         }, this);
                     }
-                    context = this._checkDeviceDependendContext(content, context);
                     this._placeWidget(content, context);
                     return false;
                 },

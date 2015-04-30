@@ -22,22 +22,7 @@ define([
         "./_POIParser"
     ],
 
-    function (
-        declare,
-        d_array,
-        d_lang,
-        QueryResults,
-        Deferred,
-        ct_lang,
-        ct_array,
-        ct_when,
-        ct_request,
-        ct_geometry,
-        SpatialQuery,
-        Connect,
-        rbush,
-        _POIParser
-        ) {
+    function (declare, d_array, d_lang, QueryResults, Deferred, ct_lang, ct_array, ct_when, ct_request, ct_geometry, SpatialQuery, Connect, rbush, _POIParser) {
         return declare([
             _POIParser,
             Connect
@@ -125,10 +110,7 @@ define([
              *    suggestContains
              *
              */
-            query: function (
-                query,
-                options
-                ) {
+            query: function (query, options) {
                 //- parse query
                 var content = {};
                 options = options || {};
@@ -212,7 +194,10 @@ define([
 
                     d = ct_request.requestJSON({
                         content: content,
-                        url: this.target
+                        url: this.target,
+                        headers: {
+                            "Accept": "application/json"
+                        }
                     });
                     ct_when(d, function (res) {
                         //- parse results
@@ -386,10 +371,7 @@ define([
                 return d;
             },
 
-            get: function (
-                id,
-                directives
-                ) {
+            get: function (id, directives) {
                 directives.srsOut = directives.srsOut || this.srs;
                 directives.loosePOItype = true;
                 return this.query({"id": {$eqw: id}}, directives);
@@ -406,11 +388,7 @@ define([
                 return this.idProperty;
             },
 
-            _convertQuery: function (
-                targetQuery,
-                query,
-                options
-                ) {
+            _convertQuery: function (targetQuery, query, options) {
 
                 // see specification of SpatialQueries!
                 var ast = SpatialQuery.parse(query, options).ast;
@@ -472,10 +450,7 @@ define([
 
             },
 
-            _addQueryOperator: function (
-                targetQuery,
-                walker
-                ) {
+            _addQueryOperator: function (targetQuery, walker) {
                 var astNode = walker.current;
                 var rel = astNode.o.substring(1);
 
@@ -499,10 +474,7 @@ define([
                 }
             },
 
-            _convertToSpatialQuery: function (
-                targetQuery,
-                walker
-                ) {
+            _convertToSpatialQuery: function (targetQuery, walker) {
                 // here we don't walk, we simple check some cases for geometry
                 // otherwise the query will not be "valid"
                 if (walker.isROOT() && !walker.toFirstChild()) {
@@ -531,10 +503,7 @@ define([
                 return false;
             },
 
-            _addSpatialOperator: function (
-                targetQuery,
-                walker
-                ) {
+            _addSpatialOperator: function (targetQuery, walker) {
                 var astNode = walker.current;
                 var spatialRel = astNode.o.substring(1);
                 //TODO comment out the bbxo/east-north elements when service supports them

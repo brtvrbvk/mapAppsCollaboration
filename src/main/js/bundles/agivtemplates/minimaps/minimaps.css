@@ -90,3 +90,12 @@
 .ctTpl_minimaps .overlayFooter a {
     margin-right: 5px;
 }
+
+.ctTpl_minimaps .ctScaleBar .esriScalebar {
+     position: static;
+
+}
+
+.ctTpl_minimaps .miniToolDock .ctWindowTabButton.dijitToggleButton .dijitButtonText {
+    display: none;
+}

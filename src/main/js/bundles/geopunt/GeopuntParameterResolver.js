@@ -21,22 +21,7 @@ define([
         "base/mapping/MappingResourceUtils",
         "base/util/CommonID"
     ],
-    function (
-        declare,
-        d_array,
-        d_json,
-        MappingResourceFactory,
-        MappingResourceTypes,
-        ServiceTypes,
-        ServiceNode,
-        RasterLayerNode,
-        CategoryNode,
-        FeatureLayerNode,
-        Connect,
-        Stateful,
-        MappingResourceUtils,
-        commonID
-        ) {
+    function (declare, d_array, d_json, MappingResourceFactory, MappingResourceTypes, ServiceTypes, ServiceNode, RasterLayerNode, CategoryNode, FeatureLayerNode, Connect, Stateful, MappingResourceUtils, commonID) {
         return declare([],
             {
 
@@ -112,6 +97,8 @@ define([
                                 type,
                                 "");
                             d_array.forEach(layers, function (l) {
+
+                                //delete l.title;
 
                                 var newLayerId = url + "_" + l.id + "_" + new Date().getTime();
 

@@ -17,20 +17,7 @@ define([
         "base/util/Comparator",
         "base/util/CommonID"
     ],
-    function (
-        d_lang,
-        JSON,
-        declare,
-        d_array,
-        d_domconstruct,
-        ct_array,
-        ct_request,
-        Stateful,
-        ServiceTypes,
-        NodeTypes,
-        comparator,
-        CommonID
-        ) {
+    function (d_lang, JSON, declare, d_array, d_domconstruct, ct_array, ct_request, Stateful, ServiceTypes, NodeTypes, comparator, CommonID) {
 
         return  declare(
             [Stateful],
@@ -104,7 +91,7 @@ define([
                     id = CommonID.to(id);
                     var mapping = this.legendUI.getLegendMappingById(id);
                     if (mapping) {
-                        if (mapping.type = "pdf") {
+                        if (mapping.type === "pdf") {
                             return {
                                 id: mainLayer.id,
                                 title: mainLayer.title,
@@ -374,10 +361,7 @@ define([
                     }
                 },
 
-                _findCorrectURL: function (
-                    styles,
-                    actualStyle
-                    ) {
+                _findCorrectURL: function (styles, actualStyle) {
                     for (var i = 0; i < styles.length; i++) {
                         if (styles[i].name == actualStyle) {
                             return styles[i].legendURL;
@@ -410,7 +394,7 @@ define([
                     }, this);
                     var opNodes = this.mapModel.getOperationalLayer().filterNodes(function (node) {
                         //get pois and gipod
-                        if (node.service && (node.service.serviceType === "POI" || node.service.serviceType == "DirectKML")) {
+                        if (node.service && (node.service.serviceType === "POI" || node.service.serviceType == "GeoJSON" || node.service.serviceType == "GIPOD" || node.service.serviceType == "DirectKML")) {
                             return node;
                         }
                         return null;
@@ -463,7 +447,7 @@ define([
                             var rgba = symbol.color.toRgba();
                             legendItems.graphicsLegend.push({
                                 legendTitle: graphicItem.title,
-                                legendImageUrl: "http:" + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
+                                legendImageUrl: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
                                 legendUrl: null
                             });
                         } else if (graphicItem.service && graphicItem.service.serviceType === ServiceTypes.DirectKML) {
@@ -475,7 +459,7 @@ define([
                             }
                             legendItems.graphicsLegend.push({
                                 legendTitle: graphicItem.title,
-                                legendImageUrl: "http:" + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
+                                legendImageUrl: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
                                 legendUrl: null
                             });
                         }
@@ -486,7 +470,7 @@ define([
                             if (graphicItem.nodeType.indexOf("SEARCH_RESULT") > -1 || graphicItem.nodeType.indexOf("RESULT_IDENTIFY") > -1) {
                                 url = graphicItem.graphics[0].symbol.url;
                             } else {
-                                url = "http:" + this.applicationUrl + "/js/prj/agiv/bundles/legend_agiv/images/" + graphicItem.nodeType + "_legend.png";
+                                url = this.resourceUrl + "/" + graphicItem.nodeType + "_legend.png";
                             }
                             legendItems.graphicsLegend.push({
                                 legendTitle: graphicItem.title,
@@ -510,10 +494,7 @@ define([
                     }
 
                     this._timer = setTimeout(d_lang.hitch(this, function () {
-                        var visibleNodes = this.mapModel.getOperationalLayer().filterNodes(function (
-                            n,
-                            ctx
-                            ) {
+                        var visibleNodes = this.mapModel.getOperationalLayer().filterNodes(function (n, ctx) {
                             var visibilityState = n.get("mapDependentVisibilityStates");
                             visibilityState = visibilityState && visibilityState["default"];
                             var visibleInMap = visibilityState.get("visibleInMap");
@@ -535,10 +516,7 @@ define([
                                     return true;
                             }
                         }, this);
-                        visibleNodes = visibleNodes.concat(this.mapModel.getGlassPaneLayer().filterNodes(function (
-                            n,
-                            ctx
-                            ) {
+                        visibleNodes = visibleNodes.concat(this.mapModel.getGlassPaneLayer().filterNodes(function (n, ctx) {
                             var visibilityState = n.get("mapDependentVisibilityStates");
                             visibilityState = visibilityState && visibilityState["default"];
                             if (!visibilityState) {

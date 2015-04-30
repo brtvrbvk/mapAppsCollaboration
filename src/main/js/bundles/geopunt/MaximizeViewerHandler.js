@@ -56,12 +56,11 @@ define([
             },
 
             maximizeScreen: function (event) {
-
                 if (!this._disabled) {
                     this._setTooltipForMinimize(event.tool);
 
                     var msg = { action: 'resize', params: 'maximize' };
-                    this._parent.postMessage(msg, this.parent_origin);
+                    this._parent.postMessage(JSON.stringify(msg), this.parent_origin);
                     console.debug("post message to " + this._parent_origin, msg);
                     if (this._eventService) {
                         this._eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
@@ -79,7 +78,7 @@ define([
                     this._setTooltipForMaximize(event.tool);
 
                     var msg = { action: 'resize', params: 'restore' };
-                    this._parent.postMessage(msg, this.parent_origin);
+                    this._parent.postMessage(JSON.stringify(msg), this.parent_origin);
                     console.debug("post message to " + this._parent_origin, msg);
                     if (this._eventService) {
                         this._eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {

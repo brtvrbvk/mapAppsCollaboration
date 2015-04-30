@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "toolruleprocessors",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
     "Bundle-Layer": "module",
     "Bundle-StartLevel": 4,
     "Bundle-AutoStartPolicy": "yes",

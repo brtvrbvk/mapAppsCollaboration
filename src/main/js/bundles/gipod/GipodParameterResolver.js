@@ -12,16 +12,7 @@ define([
         "ct/_when",
         "base/store/gipod/GipodStore"
     ],
-    function (
-        declare,
-        JSON,
-        d_string,
-        d_date,
-        d_array,
-        ct_request,
-        ct_when,
-        GipodStore
-        ) {
+    function (declare, JSON, d_string, d_date, d_array, ct_request, ct_when, GipodStore) {
         return declare([],
             {
 
@@ -48,10 +39,7 @@ define([
                     return tmp;
                 },
 
-                modifyConfiguration: function (
-                    targetInfo,
-                    configProperties
-                    ) {
+                modifyConfiguration: function (targetInfo, configProperties) {
                     var gipodOpts = this._gipodOpts;
                     if (gipodOpts) {
                         // now we change the initial extent
@@ -67,6 +55,7 @@ define([
                         this._gipodOpts = gipodOpts;
                         if (this.gipodController) {
                             this.gipodController.setQueryOptions(gipodOpts);
+                            this.gipodController.updateLayers();
                         }
                     }
                     var gipodId = urlObject && urlObject.GIPODID && JSON.parse(urlObject.GIPODID);
@@ -78,7 +67,7 @@ define([
                     }
                 },
 
-                _retrieveItemFromStore: function() {
+                _retrieveItemFromStore: function () {
                     var gipodId = this._gipodId;
                     if (!gipodId) {
                         return;
@@ -128,11 +117,7 @@ define([
                     }
                 },
 
-                _parseItem: function (
-                    resp,
-                    store,
-                    gipodType
-                    ) {
+                _parseItem: function (resp, store, gipodType) {
 
                     var item = resp[0].items[0];
                     var iconUrl;

@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "i18nmappings",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
     "Bundle-StartLevel": 1,
     "Bundle-Localization": [],
     "Bundle-Main": "",

@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "jstorage",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "jstorage",
     "Bundle-Description": "Used to save to local storage",

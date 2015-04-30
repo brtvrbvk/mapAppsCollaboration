@@ -17,28 +17,10 @@ define([
         "ct/mapping/map/FeatureLayerNode",
         "ct/_Connect"
     ],
-    function (
-        d_array,
-        d_lang,
-        MappingResourceFactory,
-        MappingResourceTypes,
-        ServiceTypes,
-        ServiceNode,
-        RasterLayerNode,
-        CategoryNode,
-        FeatureLayerNode,
-        Connect
-        ) {
+    function (d_array, d_lang, MappingResourceFactory, MappingResourceTypes, ServiceTypes, ServiceNode, RasterLayerNode, CategoryNode, FeatureLayerNode, Connect) {
         return {
 
-            getServiceResource: function (
-                mrr,
-                mrFactory,
-                urlOrID,
-                type,
-                title,
-                options
-                ) {
+            getServiceResource: function (mrr, mrFactory, urlOrID, type, title, options) {
                 if (urlOrID && urlOrID.indexOf("http") === 0) {
                     var uid = urlOrID.replace(/\//g, "_") + "_" + type;
                 } else if (urlOrID) {
@@ -67,13 +49,7 @@ define([
                 }
             },
 
-            getLayerResource: function (
-                mrr,
-                mrFactory,
-                serviceResouce,
-                layer,
-                nodeType
-                ) {
+            getLayerResource: function (mrr, mrFactory, serviceResouce, layer, nodeType) {
                 var foundLayers = mrr.filter(function (mr) {
                     return mr.getLocalId() === layer;
                 });
@@ -90,30 +66,29 @@ define([
                 return l;
             },
 
-            addLayerMapModelNode: function (
-                layerResource,
-                layerType,
-                serviceMapModelNode,
-                layertitle
-                ) {
+            addLayerMapModelNode: function (layerResource, layerType, serviceMapModelNode, layertitle) {
                 return this.addLayerMapModelNodeAt(null, layerResource, layerType, serviceMapModelNode, layertitle);
             },
 
-            addLayerMapModelNodeAt: function (
-                index,
-                layerResource,
-                layerType,
-                serviceMapModelNode,
-                layertitle
-                ) {
+            addLayerMapModelNodeAt: function (index, layerResource, layerType, serviceMapModelNode, layertitle) {
                 var layernode = serviceMapModelNode.findChildById(layerResource.getLocalId());
                 if (!layernode) {
-                    layernode = new layerType({
-                        id: layerResource.getLocalId(),
-                        title: layertitle,
-                        layer: layerResource,
-                        enabled: true
-                    });
+                    var tmp;
+                    if (layertitle) {
+                        tmp = {
+                            id: layerResource.getLocalId(),
+                            title: layertitle,
+                            layer: layerResource,
+                            enabled: true
+                        }
+                    } else {
+                        tmp = {
+                            id: layerResource.getLocalId(),
+                            layer: layerResource,
+                            enabled: true
+                        }
+                    }
+                    layernode = new layerType(tmp);
                     if (index === null) {
                         index = serviceMapModelNode.get("children").length;
                     }
@@ -124,27 +99,12 @@ define([
                 return layernode;
             },
 
-            addServiceMapModelNode: function (
-                serviceResource,
-                title,
-                insertionNode,
-                id,
-                priority,
-                options
-                ) {
+            addServiceMapModelNode: function (serviceResource, title, insertionNode, id, priority, options) {
                 return this.addServiceMapModelNodeAt(null, serviceResource, title, insertionNode, id, priority,
                     options);
             },
 
-            addServiceMapModelNodeAt: function (
-                index,
-                serviceResource,
-                title,
-                insertionNode,
-                id,
-                priority,
-                options
-                ) {
+            addServiceMapModelNodeAt: function (index, serviceResource, title, insertionNode, id, priority, options) {
                 var servicenode = insertionNode.findChildById(id || serviceResource.getLocalId());
                 if (!servicenode) {
                     servicenode = new ServiceNode({
@@ -166,31 +126,14 @@ define([
                 return servicenode;
             },
 
-            addLayer: function (
-                mrr,
-                mrFactory,
-                serviceResource,
-                layer,
-                type,
-                serviceMapModelNode,
-                mixinProperties
-                ) {
+            addLayer: function (mrr, mrFactory, serviceResource, layer, type, serviceMapModelNode, mixinProperties) {
                 return this.addLayerAt(null, mrr, mrFactory, serviceResource, layer, type, serviceMapModelNode,
                     mixinProperties)
             },
 
-            addLayerAt: function (
-                index,
-                mrr,
-                mrFactory,
-                serviceResource,
-                layer,
-                type,
-                serviceMapModelNode,
-                mixinProperties
-                ) {
+            addLayerAt: function (index, mrr, mrFactory, serviceResource, layer, type, serviceMapModelNode, mixinProperties) {
                 var layername = (layer && layer.id) || layer || serviceMapModelNode.title || serviceMapModelNode.id;
-                var layertitle = (layer && layer.title) || layer || serviceMapModelNode.title || serviceMapModelNode.id;
+                var layertitle = layer && layer.title;
                 var nodeType = MappingResourceTypes.RASTER_LAYER,
                     layerType = RasterLayerNode;
                 if (type == ServiceTypes.AGS_FEATURE) {

@@ -20,17 +20,17 @@
         }
     }
 
-    .gipodParameterControls{
+    .ctWindow.gipodParameterControls{
         .gipodParameterWidget .dataformwidgetnode{
-            overflow-x: hidden; 
+            overflow-x: hidden;
         }
         .dijitDialogSingleChild{
-            overflow: auto; overflow-x: hidden;
+            overflow-y: auto; overflow-x: hidden;
         }
         .dijitContentPaneSingleChild{
             padding: 0;
             overflow: visible;
-        } 
+        }
     }
 
 
@@ -45,7 +45,7 @@
         //        border-radius: 0;
         //    }
         .dijitButtonNode:hover,
-            .dijitButtonNode.dijitHasDropDownOpen:hover{ 
+            .dijitButtonNode.dijitHasDropDownOpen:hover{
             // dijit ArrowButton in ComboBoxes does not have dijitHover when hovered.
             background-color: @primary-color;
         }
@@ -98,7 +98,7 @@
     }
 
     .ctGipodInfoResult .ctGipodGridPanel {
-        padding:0;        
+        padding:0;
         .ctDataView > .dijitLayoutContainer > .dijitAlignTop,
         .ctDataView > .dijitLayoutContainer > .dijitAlignBottom{
             padding:0;
@@ -111,7 +111,7 @@
             right:0;
         }
     }
-    //remove unnecessary paddings and spacings    
+    //remove unnecessary paddings and spacings
     .ctGipodGridPanel,
     .ctGipodResultCalendar,
     .ctGipodResultIdentificatie{
@@ -135,10 +135,10 @@
     }
     .ctGipodInfoResult{
         .label{
-            font-weight: bold;            
+            font-weight: bold;
         }
     }
-    //.ctGipodResultIdentificatie, 
+    //.ctGipodResultIdentificatie,
     //.ctGipodInfoResult {font-size: 1.2em;}
 
     //layout for contact detail icons

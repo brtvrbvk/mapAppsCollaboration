@@ -1,120 +1,58 @@
-{"load": {
-    "i18n": [
-        "bundle"
-    ],
-    "allowedBundles": [
-        "agivthemes@5.0.0-SNAPSHOT",
-        "agivtemplates@5.0.0-SNAPSHOT",
-        "analytics@5.0.0-SNAPSHOT",
-        "appinsight@5.0.0-SNAPSHOT",
-        "appswitcher@5.0.0-SNAPSHOT",
-        "appsstore@3.1.x",
-
-        "base@5.0.0-SNAPSHOT",
-        "basemapswitcher@5.0.0-SNAPSHOT",
-        "browsercheck@5.0.0-SNAPSHOT",
-
-//        "capakeysearch@5.0.0-SNAPSHOT",
-        "combicontentmanager@5.0.0-SNAPSHOT",
-        "coordinateparser@5.0.0-SNAPSHOT",
-//        "coordinateviewer_agiv@5.0.0-SNAPSHOT",
-        "copyright@5.0.0-SNAPSHOT",
-        "console@3.1.x",
-        "coordinatetransformer@3.1.x",
-        "contentviewer@3.1.x",
-
-        "dataform@3.1.x",
-        "devicecheck@5.0.0-SNAPSHOT",
-
-//        "elevation@5.0.0-SNAPSHOT",
-        "extrainfo@5.0.0-SNAPSHOT",
-
-        "genericidentify@5.0.0-SNAPSHOT",
-        "geolocator@5.0.0-SNAPSHOT",
-        "geolocatorparcels@5.0.0-SNAPSHOT",
-        "geopunt@5.0.0-SNAPSHOT",
-        "geojson@3.1.x",
-        "geojsonservicetype@5.0.0-SNAPSHOT",
-
-        "help@5.0.0-SNAPSHOT",
-
-        "infoviewer@3.1.x",
-        "i18nmappings@5.0.0-SNAPSHOT",
-
-//        "jasperprinting@5.0.0-SNAPSHOT",
-        "jstorage@5.0.0-SNAPSHOT",
-        //        "json2",
-
-        "kml@5.0.0-SNAPSHOT",
-        "kmltogeojson@5.0.0-SNAPSHOT",
-
-        "legend_agiv@5.0.0-SNAPSHOT",
-        "loadservice@5.0.0-SNAPSHOT",
-
-        "map@3.1.x",
-        "minimaps@5.0.0-SNAPSHOT",
-//        "mobileview_agiv",
-
-        "navteq@5.0.0-SNAPSHOT",
-        "navteqrouting@5.0.0-SNAPSHOT",
-
-//        "overviewmap@3.1.x","overviewmap_agiv@5.0.0-SNAPSHOT",
-
-        "poi@5.0.0-SNAPSHOT",
-        "parametermanager@3.1.x",
-        "patches_main@5.0.0-SNAPSHOT",
-//        "patches-measurement@5.0.0-SNAPSHOT",
-
-        "redlining_agiv@5.0.0-SNAPSHOT",
-        "redlining@3.1.x",
-        "routing@5.0.0-SNAPSHOT",
-
-        "scaleviewer@5.0.0-SNAPSHOT",
-        "search@5.0.0-SNAPSHOT",
-        "sharemap@5.0.0-SNAPSHOT",
-        "splashscreen@3.1.x",
-        "scalebar@3.1.x",
-        "system@3.1.x",
-        "startup@5.0.0-SNAPSHOT",
-        "startupmessagebox@5.0.0-SNAPSHOT",
-        "statestoring@5.0.0-SNAPSHOT",
-
-        "toolwrapper@5.0.0-SNAPSHOT",
-        "toextent@5.0.0-SNAPSHOT",
-        "toolruleprocessors@5.0.0-SNAPSHOT",
-        "templates@3.1.x",
-        "templatelayout@3.1.x",
-        "themes@3.1.x",
-        "toolrules@3.1.x",
-        "toolset@3.1.x",
-
-//        "undoredo_agiv@5.0.0-SNAPSHOT",
-
-        "version@5.0.0-SNAPSHOT"
-    ],
-    "skipBundles": [
-        "splitviewmap"
-    ],
+{"properties": {
+    "modifiedAt": 1416313020441,
+    "thumbnailFile": "thumbnail.png",
+    "modifiedBy": "admin",
+    "optimized": true,
+    "createdAt": 1413207668112,
+    "createdBy": "admin",
+    "templateFile": "ct-agiv-mapviewer-4.0.0-Minimaps_interface.zip",
+    "editorState": "PUBLISHED",
+    "templateId": "14909B23AFD6E1",
+    "title": "Minimaps",
+    "description": "",
+    "id": "Minimaps_interface"
+}, "load": {
+    "i18n": ["bundle"],
+    "require": ["${app}.app"],
+    "skipBundles": ["splitviewmap"],
     "bundleLocations": [
         "localbundles",
         "bundles"
     ],
-    "require": ["${app}.app"]
-}, "properties": {
-    "templateId": "14909B23AFD6E1",
-    "id": "Minimaps_interface",
-    "title": "Minimaps",
-    "editorState": "PUBLISHED",
-    "modifiedAt": 1416313020441,
-    "createdBy": "admin",
-    "optimized": true,
-    "templateFile": "ct-agiv-mapviewer-4.0.0-Minimaps_interface.zip",
-    "modifiedBy": "admin",
-    "createdAt": 1413207668112,
-    "description": "",
-    "thumbnailFile": "thumbnail.png"
+    "allowedBundles": [
+        "toolrules@3.1.x",
+        "kmltogeojson@5.0.x",
+        "kml@5.0.x",
+        "typeformat@5.0.x",
+        "agivthemes@5.0.x",
+        "agivtemplates@5.0.x",
+        "analytics@5.0.x",
+        "appinsights@5.0.x",
+        "appsstore@3.1.x",
+        "base@5.0.x",
+        "browsercheck@5.0.x",
+        "coordinateparser@5.0.x",
+        "toextent@5.0.x",
+        "copyright@5.0.x", "coordinatetransformer@3.1.x", "dataform@3.1.x",
+        "devicecheck@5.0.x", "extrainfo@5.0.x", "genericidentify@5.0.x",
+        "geolocator@5.0.x", "geopunt@5.0.x", "geojson@3.1.x", "gipod@5.0.x",
+        "infoviewer@3.1.x", "i18nmappings@5.0.x", "jstorage@5.0.x", "jasperprinting@5.0.x",
+        "legend_agiv@5.0.x", "loadservice@5.0.x", "map@3.1.x", "navteq@5.0.x",
+        "minimaps@5.0.x", "poi@5.0.x", "parametermanager@3.1.x", "patches_main@5.0.x",
+        "scaleviewer@5.0.x", "search@5.0.x", "sharemap@5.0.x", "splashscreen@3.1.x",
+        "scalebar@3.1.x", "system@3.1.x", "startup@5.0.x", "startupmessagebox@5.0.x",
+        "statestoring@5.0.x", "templates@3.1.x", "templatelayout@3.1.x", "themes@3.1.x", "version@5.0.x"]
 }, "bundles": {
     "agivtemplates": {
+        "enabled": true
+    },
+    "toolrules": {
+        "ToolActiveStateManager": {
+            "activateOnStartToolIds": ["genericFeatureInfoTool"],
+            "defaultActiveToolIds": {
+                "maptools": "genericFeatureInfoTool"
+            }
+        },
         "enabled": true
     },
     "agivthemes": {
@@ -130,40 +68,10 @@
     "appinsights": {
         "enabled": true
     },
-    "appsoverview_agiv": {
-        "enabled": {}
-    },
     "appsstore": {
         "enabled": true
     },
-    "appstoggler_agiv": {
-        "enabled": true
-    },
-    "basemapgallery": {
-        "enabled": {}
-    },
-    "basemaptoggler": {
-        "DropDownBasemapToggler": {
-            "buttonStyles": {
-                "basemap9": "background1",
-                "basemap7": "background3",
-                "basemap8": "background2",
-                "basemap5": "background3",
-                "basemap6": "background3",
-                "basemap1": "background2",
-                "basemap10": "background2"
-            },
-            "noButtonForNode": ["__basemapGallery__"]
-        },
-        "enabled": true
-    },
     "browsercheck": {
-        "enabled": true
-    },
-    "clearselection": {
-        "enabled": {}
-    },
-    "contentviewer": {
         "enabled": true
     },
     "coordinatetransformer": {
@@ -182,15 +90,6 @@
                 "EPSG:32632": "+title=WGS 84 / UTM zone 32N +proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                 "EPSG:3857": "+title= WGS84 / Pseudo-Mercator-projectie +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
             }
-        },
-        "enabled": true
-    },
-    "coordinateviewer_agiv": {
-        "CoordinateViewerFactory": {
-            "transformSrs": true,
-            "targetSrs": "EPSG:4326",
-            "degreeFormat": true,
-            "decimalPlaces": 3
         },
         "enabled": true
     },
@@ -235,18 +134,12 @@
     "dataform": {
         "enabled": true
     },
-    "disclaimer": {
-        "enabled": {}
-    },
-    "editingtoolset": {
-        "enabled": {}
-    },
     "extrainfo": {
         "ExtraInfoHandler": {
             "categoryDependent": false,
             "infoURL": "http://www.agiv.be/gis/diensten/geo-vlaanderen/?catid=202"
         },
-        "enabled": {}
+        "enabled": ""
     },
     "genericidentify": {
         "ContentRegistration": {
@@ -284,7 +177,7 @@
                                 "$exists": true
                             }
                         },
-                        "context": {}
+                        "context": ""
                     },
                     "type": "featureInfoWidget",
                     "windowTitle": "${ui.contentInfoWindowTitle}",
@@ -309,10 +202,27 @@
     },
     "geolocator": {
         "GeolocatorHandler": {
-            "useNavteqFallback": false,
+            "componentEnabled": true,
             "geolocatorSuggestQueryOptions": {
                 "count": 5
             },
+            "geolocatorSuggestStoreParameters": {
+                "timeout": 15000,
+                "minQueryLength": 2,
+                "wkid": 4326,
+                "response": {
+                    "resultArrayName": "SuggestionResult"
+                }
+            },
+            "geolocatorStoreParameters": {
+                "timeout": 15000,
+                "minQueryLength": 2,
+                "wkid": 4326,
+                "response": {
+                    "resultArrayName": "LocationResult"
+                }
+            },
+            "useNavteqFallback": true,
             "geolocatorSuggestStoreParamteres": {
                 "response": {
                     "resultArrayName": "SuggestionResult"
@@ -328,8 +238,7 @@
                 "minQueryLength": 2,
                 "wkid": 4326,
                 "timeout": 15000
-            },
-            "componentEnabled": true
+            }
         },
         "GeolocatorUrlProvider": {
             "suggestUrl": "http://loc.api.geopunt.be/geolocation/Suggestion",
@@ -341,8 +250,18 @@
         "enabled": true
     },
     "gipod": {
+        "ContentWidgetFactoryGipodFeatureInfo": {
+            "serviceDefinition": {
+                "service": "grijs",
+                "layers": ["*"],
+                "enabled": true
+            }
+        },
         "GipodDockTool": {
             "title": "Verfijnen"
+        },
+        "GipodParameterController": {
+            "gipodBaseUrl": "http://gipod.api.agiv.be/ws/v1"
         },
         "GipodStoreLayerRegistration": {
             "showClusterLabels": true,
@@ -350,12 +269,7 @@
                 "point-manifestation-cluster": {
                     "text": "TEXT",
                     "type": "esriTS",
-                    "color": [
-                        110,
-                        110,
-                        110,
-                        255
-                    ],
+                    "color": [110, 110, 110, 255],
                     "yoffset": -2,
                     "font": {
                         "size": "10pt",
@@ -369,12 +283,7 @@
                 "point-manifestation-severe-cluster": {
                     "text": "TEXT",
                     "type": "esriTS",
-                    "color": [
-                        110,
-                        110,
-                        110,
-                        255
-                    ],
+                    "color": [110, 110, 110, 255],
                     "yoffset": -2,
                     "font": {
                         "size": "10pt",
@@ -388,12 +297,7 @@
                 "point-workassignment-severe-cluster": {
                     "text": "TEXT",
                     "type": "esriTS",
-                    "color": [
-                        110,
-                        110,
-                        110,
-                        255
-                    ],
+                    "color": [110, 110, 110, 255],
                     "yoffset": -6,
                     "font": {
                         "size": "10pt",
@@ -407,12 +311,7 @@
                 "point-workassignment-cluster": {
                     "text": "TEXT",
                     "type": "esriTS",
-                    "color": [
-                        110,
-                        110,
-                        110,
-                        255
-                    ],
+                    "color": [110, 110, 110, 255],
                     "yoffset": -6,
                     "font": {
                         "size": "10pt",
@@ -426,22 +325,12 @@
             },
             "lookupTable": {
                 "point-manifestation": {
-                    "color": [
-                        0,
-                        200,
-                        0,
-                        255
-                    ],
+                    "color": [0, 200, 0, 255],
                     "size": 9,
                     "type": "esriSMS",
                     "style": "esriSMSCircle",
                     "outline": {
-                        "color": [
-                            0,
-                            0,
-                            0,
-                            255
-                        ],
+                        "color": [0, 0, 0, 255],
                         "width": 1,
                         "type": "esriSLS",
                         "style": "esriSLSSolid"
@@ -531,40 +420,17 @@
         },
         "enabled": true
     },
-    "help": {
-        "HelpHandler": {
-            "helpUrl": "http://www.geopunt.be/over-geopunt/hoe-geopunt-gebruiken"
-        },
-        "enabled": true
-    },
-    "historicmaps": {
-        "enabled": {}
-    },
     "i18n": {
         "enabled": true
     },
     "infoviewer": {
         "enabled": true
     },
-    "json2": {
-        "enabled": true
-    },
     "jstorage": {
         "enabled": true
     },
-    "kml": {
+    "jasperprinting": {
         "enabled": true
-    },
-    "kmltogeojson": {
-        "enabled": true
-    },
-    "languagetoggler": {
-        "LanguageToggler": {
-            "languageNames": {
-                "en": "English",
-                "nl": "Dutch"
-            }
-        }
     },
     "legend_agiv": {
         "LegendToggleTool": {
@@ -590,12 +456,6 @@
     },
     "loadservice": {
         "enabled": true
-    },
-    "locateme": {
-        "enabled": {}
-    },
-    "magnifier": {
-        "enabled": {}
     },
     "map": {
         "MapLoadingInfoWidget": {
@@ -710,13 +570,13 @@
                                 },
                                 "title": "Luchtfoto",
                                 "description": "Selecteer luchtfoto als achtergrondlaag",
-                                "service": "ortho",
+                                "service": "ortho014",
                                 "children": []
                             },
                             {
                                 "id": "hybride",
                                 "enabled": false,
-                                "category": {},
+                                "category": "",
                                 "title": "Hybride",
                                 "description": "Selecteer een combinatie van luchtfoto en basiskaart als achtergrondlaag",
                                 "children": [
@@ -729,7 +589,7 @@
                                     {
                                         "id": "basemap2_1",
                                         "layers": ["*"],
-                                        "service": "ortho"
+                                        "service": "ortho014"
                                     }
                                 ]
                             },
@@ -754,7 +614,7 @@
                             {
                                 "id": "nobasemap",
                                 "enabled": false,
-                                "category": {},
+                                "category": "",
                                 "title": "Blanco",
                                 "description": "Selecteer blanco als achtergrondlaag"
                             }
@@ -858,98 +718,21 @@
         },
         "enabled": true
     },
-    "map-config": {
-        "MapModelBuilderController": {
-            "componentEnabled": true
-        }
-    },
-    "mapquest": {
-        "enabled": {}
-    },
-    "mapservicesconfig": {
-        "enabled": true
-    },
-    "measurement": {
-        "MeasurementFactory": {
-            "showTools": [
-                "area",
-                "distance"
-            ],
-            "skipAreaUnits": [
-                "ACRES",
-                "SQUARE_FEET",
-                "SQUARE_MILES",
-                "SQUARE_YARDS"
-            ],
-            "skipLengthUnits": [
-                "MILES",
-                "FEET",
-                "YARDS",
-                "NAUTICAL_MILES"
-            ]
-        },
-        "enabled": true
-    },
     "minimaps": {
         "enabled": true
     },
-    "mobileview": {
-        "enabled": {}
-    },
-    "navigationtoolset": {
-        "enabled": {}
-    },
     "navteq": {
-        "enabled": true
-    },
-    "navteqrouting": {
-        "enabled": true
-    },
-    "notifier": {
-        "NotifierFactory": {
-            "fadeTime": 2500,
-            "showGlueNode": false
-        },
-        "enabled": true
-    },
-    "overviewmap": {
-        "OverviewMap": {
-            "overviewMapOpts": {
-                "scopeRectangleOpacity": "0.4",
-                "expandFactor": 4,
-                "scopeRectangleColor": "#000000"
-            },
-            "serviceDefinition": {
-                "layers": ["normal.day.grey"],
-                "service": "navteq"
-            }
-        },
-        "enabled": true
-    },
-    "overviewmap_agiv": {
         "enabled": true
     },
     "parametermanager": {
         "enabled": true
     },
-    "patches_coordinateviewer": {
-        "enabled": true
-    },
     "patches_main": {
-        "enabled": true
-    },
-    "patches_menu": {
-        "enabled": true
-    },
-    "patches_resultcenter": {
-        "enabled": {}
-    },
-    "patches_typeformat": {
         "enabled": true
     },
     "poi": {
         "POIServerStoreLayerRegistration": {
-            "maxcount": 200,
+            "maxcount": 32,
             "clusterLookupTable": {
                 "point-cluster": {
                     "text": "TEXT",
@@ -971,20 +754,10 @@
                 "lookupTable": {
                     "point-selected": {
                         "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            255
-                        ],
+                        "color": [0, 0, 255, 255],
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
+                            "color": [0, 0, 0, 255],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -996,12 +769,7 @@
                         "color": "colorPlaceholder",
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                160
-                            ],
+                            "color": [0, 0, 0, 160],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -1010,20 +778,10 @@
                     },
                     "point-selected-cluster": {
                         "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            255
-                        ],
+                        "color": [0, 0, 255, 255],
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
+                            "color": [0, 0, 0, 255],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -1035,12 +793,7 @@
                         "color": "colorPlaceholder",
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                160
-                            ],
+                            "color": [0, 0, 0, 160],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -1049,114 +802,24 @@
                     }
                 },
                 "colorArray": [
-                    [
-                        255,
-                        0,
-                        0,
-                        255
-                    ],
-                    [
-                        255,
-                        153,
-                        0,
-                        255
-                    ],
-                    [
-                        255,
-                        255,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        255,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        255,
-                        255,
-                        255
-                    ],
-                    [
-                        204,
-                        0,
-                        255,
-                        255
-                    ],
-                    [
-                        255,
-                        97,
-                        97,
-                        255
-                    ],
-                    [
-                        255,
-                        189,
-                        91,
-                        255
-                    ],
-                    [
-                        255,
-                        255,
-                        153,
-                        255
-                    ],
-                    [
-                        204,
-                        255,
-                        153,
-                        255
-                    ],
-                    [
-                        102,
-                        204,
-                        255,
-                        255
-                    ],
-                    [
-                        204,
-                        153,
-                        255,
-                        255
-                    ],
-                    [
-                        200,
-                        0,
-                        0,
-                        255
-                    ],
-                    [
-                        210,
-                        125,
-                        0,
-                        255
-                    ],
-                    [
-                        229,
-                        229,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        153,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        0,
-                        255,
-                        255
-                    ],
-                    [
-                        102,
-                        0,
-                        204,
-                        255
-                    ]
+                    [255, 0, 0, 255],
+                    [255, 153, 0, 255],
+                    [255, 255, 0, 255],
+                    [0, 255, 0, 255],
+                    [0, 255, 255, 255],
+                    [204, 0, 255, 255],
+                    [255, 97, 97, 255],
+                    [255, 189, 91, 255],
+                    [255, 255, 153, 255],
+                    [204, 255, 153, 255],
+                    [102, 204, 255, 255],
+                    [204, 153, 255, 255],
+                    [200, 0, 0, 255],
+                    [210, 125, 0, 255],
+                    [229, 229, 0, 255],
+                    [0, 153, 0, 255],
+                    [0, 0, 255, 255],
+                    [102, 0, 204, 255]
                 ],
                 "generalizationScale": 1000000
             },
@@ -1175,64 +838,6 @@
         },
         "enabled": true
     },
-    "printhtml": {
-        "PrintScreen": {
-            "backTargetTemplate": "light"
-        },
-        "RuledTemplateSwitcher": {
-            "printTargetTemplate": "genericprint"
-        },
-        "enabled": true
-    },
-    "printimage": {
-        "enabled": true
-    },
-    "qrcode": {
-        "enabled": {}
-    },
-    "redlining": {
-        "enabled": true
-    },
-    "redlining_agiv": {
-        "enabled": true
-    },
-    "resultcenter": {
-        "enabled": {}
-    },
-    "resultcenterintegration": {
-        "enabled": true
-    },
-    "routing": {
-        "SearchHandler": {
-            "useNavteqFallback": false,
-            "geolocatorSuggestQueryOptions": {
-                "count": 5
-            },
-            "geolocatorSuggestStoreParamteres": {
-                "response": {
-                    "resultArrayName": "SuggestionResult"
-                },
-                "minQueryLength": 2,
-                "wkid": 4326,
-                "searchType": "suggestUrl",
-                "timeout": 15000
-            },
-            "geolocatorStoreParamteres": {
-                "response": {
-                    "resultArrayName": "LocationResult"
-                },
-                "minQueryLength": 2,
-                "wkid": 4326,
-                "searchType": "locationUrl",
-                "timeout": 15000
-            },
-            "componentEnabled": true
-        },
-        "enabled": true
-    },
-    "scaleadaptor": {
-        "enabled": true
-    },
     "scalebar": {
         "enabled": true
     },
@@ -1242,27 +847,6 @@
     "search": {
         "enabled": true
     },
-    "selection": {
-        "SelectionAction": {
-            "componentEnabled": false
-        },
-        "SelectionTool": [
-            {
-                "id": "selectPPR",
-                "title": "${tool.ppr}",
-                "iconClass": "selectionIconExtent",
-                "geoType": "Point",
-                "storeId": "PPR",
-                "rules": {
-                    "scaleRange": {
-                        "min": 50000,
-                        "max": 1
-                    }
-                }
-            }
-        ],
-        "enabled": {}
-    },
     "sharemap": {
         "ParameterUIFactory": {
             "baseURL": "http://www.geopunt.be/kaart?viewer="
@@ -1271,9 +855,6 @@
     },
     "splashscreen": {
         "enabled": true
-    },
-    "splitviewmap": {
-        "enabled": {}
     },
     "startup": {
         "enabled": true
@@ -1288,16 +869,6 @@
         "bundle": {
             "ActivityMonitor": {
                 "componentEnabled": false
-            }
-        }
-    },
-    "tableofcontents": {
-        "MANIFEST": {
-            "Bundle-AutoStartPolicy": "yes"
-        },
-        "TableOfContent": {
-            "treeOpts": {
-                "showRoot": false
             }
         }
     },
@@ -1319,9 +890,6 @@
         },
         "enabled": true
     },
-    "theme-tester": {
-        "enabled": {}
-    },
     "themes": {
         "ThemeModel": {
             "_selectedTheme": "neat"
@@ -1334,121 +902,7 @@
         },
         "enabled": true
     },
-    "toextent": {
-        "enabled": true
-    },
-    "toolrules": {
-        "ToolActiveStateManager": {
-            "activateOnStartToolIds": ["genericFeatureInfoTool"],
-            "defaultActiveToolIds": {
-                "maptools": "genericFeatureInfoTool"
-            }
-        },
-        "enabled": true
-    },
-    "toolset": {
-        "ToolsetManager": {
-            "toolsets": [
-                {
-                    "id": "toolset_0",
-                    "windowType": "bottom_collapsed",
-                    "position": {},
-                    "title": "Toolbar_Bottom_Left_Collapsable",
-                    "tools": [
-                        "measurementtool",
-                        "drawpointtool",
-                        "drawpolylinetool",
-                        "drawpolygontool",
-                        "drawfreehandpolygontool"
-                    ],
-                    "container": "toolWrapperFooterLeft",
-                    "cssClass": "ctVerticalCollaps"
-                },
-                {
-                    "id": "fixedNoTitle",
-                    "windowType": "fixed",
-                    "position": {
-                        "rel_t": 7
-                    },
-                    "title": "Toolbar_Top_Right",
-                    "tools": [
-                        "help",
-                        "printtool",
-                        "share_tools"
-                    ],
-                    "container": "toolWrapperHeader",
-                    "cssClass": "fixedNoTitle notitle top"
-                },
-                {
-                    "position": {
-                        "rel_t": 0,
-                        "rel_l": 0
-                    },
-                    "id": "fixedNoTitleGenericIdentify",
-                    "windowType": "fixed",
-                    "tools": [],
-                    "title": "Toolbar_Bottom_Mid",
-                    "__isDirty": true,
-                    "container": "toolWrapperFooterRight",
-                    "cssClass": "fixedNoTitle notitle bottom"
-                },
-                {
-                    "id": "share_tools",
-                    "title": "share",
-                    "tools": [
-                        "shareMailTool",
-                        "shareFacebookTool",
-                        "shareGooglePlusTool",
-                        "shareTwitterTool",
-                        "shareUrlTool"
-                    ],
-                    "container": "ignore",
-                    "windowType": "dropdown",
-                    "iconClass": "icon-share",
-                    "registerTool": {
-                        "groups": ["share_tools"]
-                    }
-                },
-                {
-                    "position": {
-                        "rel_b": 0,
-                        "rel_r": 0
-                    },
-                    "id": "unassigned_toolset_01",
-                    "tools": [
-                        "routingmenutool",
-                        "drawerasealltool",
-                        "zoomToInitialExtentTool",
-                        "zoomToPrevExtentTool",
-                        "zoomToNextExtentTool",
-                        "zoomOutTool",
-                        "zoomInTool",
-                        "toExtentTool",
-                        "legendToggleTool",
-                        "overviewmap",
-                        "urlEncoder",
-                        "panTool"
-                    ],
-                    "title": "Unassigned tools",
-                    "__isDirty": true
-                }
-            ]
-        },
-        "enabled": true
-    },
-    "toolwrapper": {
-        "enabled": true
-    },
-    "transparency": {
-        "enabled": {}
-    },
     "version": {
-        "enabled": true
-    },
-    "windowmanager": {
-        "enabled": true
-    },
-    "wizard": {
         "enabled": true
     }
 }}

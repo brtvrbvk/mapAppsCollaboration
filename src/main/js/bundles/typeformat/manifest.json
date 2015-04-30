@@ -1,0 +1,7 @@
+{
+    "Bundle-Name": "typeformat",
+    "Bundle-SymbolicName": "typeformat",
+    "Bundle-StartLevel": 1,
+    "Bundle-Layer": "module",
+    "Bundle-Version": "5.0.4"
+}

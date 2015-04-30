@@ -150,6 +150,9 @@ define([], function () {
                 var color, opacity;
                 v = v || "";
                 if (v.substr(0, 1) === "#") v = v.substr(1);
+                //PATCH for parsing
+                v = v.trim();
+                //PATCH end
                 if (v.length === 6 || v.length === 3) color = v;
                 if (v.length === 8) {
                     opacity = parseInt(v.substr(0, 2), 16) / 255;

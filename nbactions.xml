@@ -26,9 +26,37 @@
         </action>
         <action>
             <actionName>CUSTOM-Compress and upload</actionName>
-            <displayName>Compress and upload</displayName>
+            <displayName>Compress</displayName>
             <goals>
                 <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>compress</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-clean</actionName>
+            <displayName>clean</displayName>
+            <goals>
+                <goal>clean</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Upload bundles</actionName>
+            <displayName>Upload bundles</displayName>
+            <goals>
+                <goal>pa</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>compress</activatedProfile>
+                <activatedProfile>upload</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-Deploy upload</actionName>
+            <displayName>Deploy upload</displayName>
+            <goals>
+                <goal>package</goal>
             </goals>
             <activatedProfiles>
                 <activatedProfile>compress</activatedProfile>

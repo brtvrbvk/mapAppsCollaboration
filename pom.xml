@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.mapapps</groupId>
-    <artifactId>AUSKUNFT</artifactId>
-    <version>3.1.2</version>
+    <artifactId>mapapps-kaartviewer</artifactId>
+    <version>5.0.4</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -27,7 +27,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- EXTRA import dependencies management from mapapps -->
+                <!-- import dependencies management from mapapps -->
                 <groupId>de.conterra.mapapps</groupId>
                 <artifactId>ct-mapapps</artifactId>
                 <version>${mapapps.version}</version>
@@ -130,6 +130,7 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>2.4</version>
                 </plugin>
+                
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
@@ -158,6 +159,7 @@
         <sourceDirectory>src/main/js</sourceDirectory>
         <resources>
             <!-- sample for a project with customization of winter theme -->
+   
             <resource>
                 <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/common</directory>
                 <excludes>
@@ -166,25 +168,25 @@
                 <targetPath>${js.build.outputPath}/bundles/sample_themes/common</targetPath>
             </resource>
             <!-- theme "mytheme" -->
-            <resource>
+            <!--resource>
                 <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/winter</directory>
                 <excludes>
                     <exclude>*.css</exclude>
                     <exclude>themeSettings.less</exclude>
                 </excludes>
                 <targetPath>${js.build.outputPath}/bundles/sample_themes/mytheme</targetPath>
-            </resource>
-            <!-- theme "auskunfttheme" -->
+            </resource-->
+            <!-- theme "GeopuntKaarttheme"--> 
             <resource>
                 <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/winter</directory>
                 <excludes>
                     <exclude>*.css</exclude>
-                    <exclude>themeSettings.less</exclude>
+                    <!--exclude>themeSettings.less</exclude-->
                 </excludes>
-                <targetPath>${js.build.outputPath}/bundles/sample_themes/auskunfttheme</targetPath>
+                <targetPath>${js.build.outputPath}/bundles/sample_themes/GeopuntKaarttheme</targetPath>
             </resource>
             <resource>
-                <!-- template will reuse the common.css -->
+                 <!--template will reuse the common.css-->
                 <directory>${project.build.directory}/unpacked/bundles/base/templates/templates/common</directory>
                 <targetPath>${js.build.outputPath}/bundles/sample_templates/common</targetPath>
             </resource>
@@ -303,8 +305,8 @@
                     <!-- add here properties which are used in plugin configuration resolution -->
                     <properties>
                         <!-- deployment of map.apps installation -->
-                        <!--<mapapps.remote.base>http://www.mapapps.de/mapapps</mapapps.remote.base>-->
-                        <mapapps.remote.base>http://localhost:8080/ct-mapapps-webapp-3.1.2</mapapps.remote.base>
+                        <mapapps.remote.base>http://dmapappsremoteagiv.azurewebsites.net</mapapps.remote.base>
+                        <applicationURL.geopunt>http://www.beta.geopunt.be</applicationURL.geopunt>
                         <jetty.port>9090</jetty.port>
                     </properties>
                 </configuration>
@@ -379,6 +381,7 @@
                 <configuration>
                     <sourceDirectory>${js.build.outputPath}</sourceDirectory>
                     <outputDirectory>${js.build.outputPath}</outputDirectory>
+          
                 </configuration>
             </plugin>
             <plugin>
@@ -428,7 +431,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--plugin>
                 <groupId>de.conterra.mapapps</groupId>
                 <artifactId>mapapps-maven-plugin</artifactId>
                 <executions>
@@ -444,7 +447,7 @@
                             <templateFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</templateFile>
                             <templateResources>
                                 <templateResource>
-                                    <directory>${js.build.outputPath}/apps/auskunft</directory>
+                                    <directory>${js.build.outputPath}/apps/</directory>
                                     <includes>
                                         <include>**/*</include>
                                     </includes>
@@ -457,7 +460,7 @@
                     <skipDeploy>true</skipDeploy>
                     <createApp>false</createApp>
                 </configuration>         
-            </plugin>
+            </plugin-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -497,13 +500,13 @@
         <netbeans.hint.jdkPlatform>JDK_1.7</netbeans.hint.jdkPlatform>
 
         <!-- JS lib versions -->
-        <mapapps.version>3.1.2</mapapps.version>
+        <mapapps.version>3.1.3</mapapps.version>
         <!-- java lib versions -->
         <ct.jsregistry.version>1.0.4</ct.jsregistry.version>
-        <ct.jsrt-test.version>1.0.3</ct.jsrt-test.version>
+        <ct.jsrt-test.version>1.0.4</ct.jsrt-test.version>
         
         <!-- the default app, replaced in the *.html files to switch app names-->
-        <default.app.name>auskunft</default.app.name>
+        <default.app.name>Geopunt-kaart_app</default.app.name>
         <client.config.initjs>$\{mapapps.remote.base\}/resources/jsregistry/root/ct/${mapapps.version}/dojo-init.js</client.config.initjs>
 
         <!-- don't do this in production configuration! This allows to go any http traffic over the /proxy endpoint -->
@@ -511,10 +514,14 @@
             http,*;
         </proxy.allowedServerUrls>
         <proxy.allowedSSLDNs>*</proxy.allowedSSLDNs>
-        <applicationURL.maps.geopunt>${applicationURL.noscheme}</applicationURL.maps.geopunt>
-        <applicationURL.geopunt>http://www.beta.geopunt.be</applicationURL.geopunt>
+        
 <mapapps.build.outputPath>${project.build.directory}/unpacked</mapapps.build.outputPath>
-<agiv.services.baseurl>http://dmapappsv5agiv.azurewebsites.net/ct-agiv-services-webapp</agiv.services.baseurl>
+<agiv.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-services-webapp</agiv.services.baseurl>
+<sdi.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-sdi-extension-webapp</sdi.services.baseurl>
+
+<applicationURL.maps.geopunt>${applicationURL.noscheme}</applicationURL.maps.geopunt>
+        
+
     </properties>
     <profiles>
         <profile>
@@ -613,19 +620,19 @@
             <id>upload</id>
             <build>
                 <plugins>
-                    <plugin>
+                    <!--plugin>
                         <groupId>de.conterra.mapapps</groupId>
                         <artifactId>mapapps-maven-plugin</artifactId>
                         <configuration>
-                            <!-- enable deploy options -->
+                            <enable deploy options>
                             <skipDeploy>false</skipDeploy>
-                            <deployAsApp>true</deployAsApp>
+                            <deployAsApp>false</deployAsApp>
                             <appEditorState>PUBLISHED</appEditorState>
                             <serverResourcesEndpoint>${mapapps.remote.base}/resources</serverResourcesEndpoint>
                             <username>admin</username>
-                            <password>admin</password>
+                            <password>GeopuntMovesOnv5Test</password>
                         </configuration>
-                    </plugin>
+                    </plugin-->
                     <plugin>
                         <groupId>de.conterra.jsregistry</groupId>
                         <artifactId>ct-jsregistry-maven-plugin</artifactId>
@@ -638,7 +645,7 @@
                                 <configuration>
                                     <registryEndpoint>${mapapps.remote.base}/resources/jsregistry</registryEndpoint>
                                     <username>admin</username>
-                                    <password>admin</password>
+                                    <password>GeopuntMovesOnv5Test</password>
                                 </configuration>
                             </execution>
                         </executions>
@@ -724,4 +731,5 @@
             </build>
         </profile>
     </profiles>
+    <name>mapapps-kaartviewer</name>
 </project>

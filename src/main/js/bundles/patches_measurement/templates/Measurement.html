@@ -24,7 +24,7 @@
     <div dojoType='dijit.layout.ContentPane'
          dojoAttachPoint='resultLabel'
          class='resultLabel'></div>
-    
+
     <div class="agivResultWrapper">
         <div dojoType='dijit.layout.ContentPane'
              dojoAttachPoint='resultValue'
@@ -37,6 +37,15 @@
                 label='unit'
                 value='unit'
                 style='visibility:hidden;'></button>
+        <span dojoAttachPoint="mouseLongitude" dir='ltr' class="dijitHidden"></span>
+        <span dojoAttachPoint="mouseLatitude" dir='ltr' class="dijitHidden"></span>
+        <span dojoAttachPoint="markerLongitude" dir='ltr' class="dijitHidden"></span>
+        <span dojoAttachPoint="markerLatitude" dir='ltr' class="dijitHidden"></span>
+
+        <div dojoType='dijit.layout.ContentPane' dojoAttachPoint='resultTable' align='leading'
+             class="dijitHidden"></div>
+
+        </tr>
     </div>
 
 </div>

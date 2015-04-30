@@ -18,21 +18,7 @@ define([
         "base/util/CommonID",
         "./KMLServiceExtensionWidget"
     ],
-    function (
-        declare,
-        Deferred,
-        Stateful,
-        _Connect,
-        ct_when,
-        ct_request,
-        _ServiceExtensionController,
-        ServiceTypes,
-        MappingResourceUtils,
-        MappingResourceFactory,
-        AnalyticsConstants,
-        CommonID,
-        KMLServiceExtensionWidget
-        ) {
+    function (declare, Deferred, Stateful, _Connect, ct_when, ct_request, _ServiceExtensionController, ServiceTypes, MappingResourceUtils, MappingResourceFactory, AnalyticsConstants, CommonID, KMLServiceExtensionWidget) {
         return declare([
                 Stateful,
                 _Connect,
@@ -80,12 +66,7 @@ define([
                     return ServiceTypes.DirectKML;
                 },
 
-                load: function (
-                    url,
-                    store,
-                    fromCatalogue,
-                    title
-                    ) {
+                load: function (url, store, fromCatalogue, title) {
                     this.startLoading();
                     try {
                         title = title || url.substring(url.lastIndexOf("/") + 1);

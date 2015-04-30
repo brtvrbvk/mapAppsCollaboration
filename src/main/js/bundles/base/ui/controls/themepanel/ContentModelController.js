@@ -9,23 +9,11 @@ define([
         "base/analytics/AnalyticsConstants"
     ],
 
-    function (
-        declare,
-        d_array,
-        d_lang,
-        d_class,
-        css,
-        _Connect,
-        Stateful,
-        AnalyticsConstants
-        ) {
+    function (declare, d_array, d_lang, d_class, css, _Connect, Stateful, AnalyticsConstants) {
         /*
          * COPYRIGHT 2011 con terra GmbH Germany
          */
-        var isContainedInModel = function (
-            node,
-            items
-            ) {
+        var isContainedInModel = function (node, items) {
             var isContained = false;
             d_array.some(items, function (item) {
                 if (item.get("id") === node.get("id")) {
@@ -149,15 +137,15 @@ define([
                 }
             },
 
-            addLayerToMapModel: function (
-                layers,
-                silent
-                ) {
+            addLayerToMapModel: function (layers, silent) {
                 var mapModel = this._mapModel;
                 d_array.forEach(layers, function (lay) {
                     // add layer --> create a copy of the layer
                     var layerToAdd = d_lang.mixin({}, lay);
                     this._setNextRenderPriority(layerToAdd);
+                    if (layerToAdd.children && layerToAdd.children.length === 1) {
+                        layerToAdd.children[0].title = layerToAdd.title;
+                    }
                     mapModel.getOperationalLayer().addChild(layerToAdd);
                     this._fireTrackEvent(layerToAdd);
                 }, this);
@@ -236,10 +224,7 @@ define([
                 }
             },
 
-            _setEnableProperty: function (
-                layer,
-                enabled
-                ) {
+            _setEnableProperty: function (layer, enabled) {
                 layer.set("enabled", enabled);
                 if (this._isOnlyNodeSelected(layer)) {
                     this._traverseParentNode(layer, enabled);
@@ -295,10 +280,7 @@ define([
                 });
             },
 
-            _traverseParentNode: function (
-                layer,
-                enabled
-                ) {
+            _traverseParentNode: function (layer, enabled) {
                 var parent = layer.get("parent");
                 if (parent && parent.get("id") !== this.OPERATIONAL_LAYER) {
                     parent.set("enabled", enabled);
@@ -308,10 +290,7 @@ define([
                 }
             },
 
-            _traverseChildNodes: function (
-                children,
-                enabled
-                ) {
+            _traverseChildNodes: function (children, enabled) {
                 d_array.forEach(children, function (c) {
                     c.set("enabled", enabled);
                     var newChildren = c.get("children");

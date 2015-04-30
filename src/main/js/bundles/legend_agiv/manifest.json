@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "legend_agiv",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
@@ -201,7 +201,8 @@
             ],
             "propertiesConstructor": true,
             "properties": {
-                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "applicationUrl": "@@agiv.services.baseurl@@",
+                "resourceUrl": "resource('images')",
                 "Event-Topics": [
                     {
                         "topic": "ct/map/MODEL_STRUCTURE_CHANGED",
@@ -242,7 +243,8 @@
             ],
             "propertiesConstructor": true,
             "properties": {
-                "applicationUrl": "@@applicationURL.maps.geopunt@@",
+                "applicationUrl": "@@agiv.services.baseurl@@",
+                "resourceUrl": "resource('images')",
                 "Event-Topics": [
                     {
                         "topic": "ct/doublemap/MODEL_STRUCTURE_CHANGED",

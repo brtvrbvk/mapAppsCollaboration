@@ -9,22 +9,16 @@ define([
         "ct/mapping/mapcontent/ServiceTypes",
         "ct/array",
         "base/mapping/MappingResourceUtils",
+        "base/mapping/MapModelUtils",
         "ct/mapping/mapcontent/MappingResourceFactory",
         "base/analytics/AnalyticsConstants"
     ],
-    function (
-        declare,
-        d_array,
-        ServiceTypes,
-        ct_array,
-        MappingResourceUtils,
-        MappingResourceFactory,
-        AnalyticsConstants
-        ) {
+    function (declare, d_array, ServiceTypes, ct_array, MappingResourceUtils, MapModelUtils, MappingResourceFactory, AnalyticsConstants) {
         return declare([],
             {
 
                 _servicesFromCatalogue: {},
+
                 constructor: function () {
 
                 },
@@ -47,10 +41,7 @@ define([
                 onError: function () {
                 },
 
-                submit: function (
-                    url,
-                    fromCatalogue
-                    ) {
+                submit: function (url, fromCatalogue) {
                     this._fromCatalogue = fromCatalogue;
                     this._onSubmit({url: url});
                 },
@@ -94,7 +85,7 @@ define([
                                 serviceMapModelNode = MappingResourceUtils.addServiceMapModelNode(service,
                                         layer.TITLE || layer.ID || title,
                                     this.insertionNode,
-                                    genID);
+                                    genID, MapModelUtils.getNextRenderPriority(this.mapModel));
                                 serviceMapModelNode.added = true;
                                 serviceMapModelNode.fromCatalogue = this._servicesFromCatalogue[url];
                                 MappingResourceUtils.addLayer(this.mrr, this._mrFactory, service,
@@ -111,7 +102,8 @@ define([
                     if (addedData) {
 
                         this.mapModel.fireModelStructureChanged({
-                            source: this
+                            source: this,
+                            dynamicAdd: true
                         });
 
                     }

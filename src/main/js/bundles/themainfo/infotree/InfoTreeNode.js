@@ -17,20 +17,7 @@ define([
         "base/util/POISymbolRenderer",
         "dojo/text!./templates/InfoTreeNode.html"
     ],
-    function (
-        declare,
-        d_lang,
-        TreeNode,
-        units,
-        css,
-        ct_async,
-        ToggleButton,
-        Tooltip,
-        d_domConstruct,
-        d_domClass,
-        POISymbolRenderer,
-        templateString
-        ) {
+    function (declare, d_lang, TreeNode, units, css, ct_async, ToggleButton, Tooltip, d_domConstruct, d_domClass, POISymbolRenderer, templateString) {
         return declare([TreeNode],
             {
 
@@ -68,11 +55,13 @@ define([
                     }
                 },
 
-                _updateScaleVisibility: function (
-                    attributeName,
-                    oldVal,
-                    newVal
-                    ) {
+                _setCheckedAttr: function (checked) {
+                    if (this._toggleButton) {
+                        this._toggleButton.set("checked", checked);
+                    }
+                },
+
+                _updateScaleVisibility: function (attributeName, oldVal, newVal) {
                     css.toggleClass(this.domNode, "ctNotVisibleInMap", !newVal);
                     if (this._tooltip) {
                         this._tooltip.destroy();
@@ -96,9 +85,11 @@ define([
                     if (this._toggleButton && this._toggleButton.get("checked")) {
                         this.renderPOILegendIcon();
                         var mapModelNode = this.mapModel.getNodeById(this.modelNode.id);
-                        this._listeners.connectP("visibility", mapModelNode, "visibleInScale",
-                            this._updateScaleVisibility);
-                        this._updateScaleVisibility("", "", mapModelNode.visibleInScale);
+                        if (mapModelNode) {
+                            this._listeners.connectP("visibility", mapModelNode, "visibleInScale",
+                                this._updateScaleVisibility);
+                            this._updateScaleVisibility("", "", mapModelNode.visibleInScale);
+                        }
                     } else {
                         this.clearPOILegendIcon();
                         this._listeners.disconnect("visibility");
@@ -106,11 +97,7 @@ define([
 
                 },
 
-                _updateNearestFeature: function (
-                    attr,
-                    oldVal,
-                    newVal
-                    ) {
+                _updateNearestFeature: function (attr, oldVal, newVal) {
 
                     if (this._resultButton) {
                         this._resultButton.destroy();

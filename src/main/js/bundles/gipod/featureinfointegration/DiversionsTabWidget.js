@@ -87,10 +87,7 @@ define([
                             diversion.diversionGeometries = diversion.geometries;
                             diversion.geometries = this._originalGeometries;
 
-                            var elem = d_lang.mixin({}, item);
-                            elem = d_lang.mixin(elem, diversion);
-
-                            ct_when(this.contentviewer.resolveContentWidget(elem,
+                            ct_when(this.contentviewer.resolveContentWidget(diversion,
                                     c),
                                 function (w) {
 

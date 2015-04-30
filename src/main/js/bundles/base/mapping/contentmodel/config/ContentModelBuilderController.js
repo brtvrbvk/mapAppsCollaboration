@@ -20,27 +20,7 @@ define([
         "base/util/CommonID"
     ],
 
-    function (
-        declare,
-        d_lang,
-        d_array,
-        d_string,
-        ct_array,
-        ct_when,
-        ct_request,
-        _Connect,
-        ct_lang,
-        Locale,
-        ServiceTypes,
-        query,
-        ObjectStore,
-        Memory,
-        ForestStoreModel,
-        XMLUtils,
-        ContentModelBuilderWidget,
-        MappingResourceRegistryInitializer,
-        CommonID
-        ) {
+    function (declare, d_lang, d_array, d_string, ct_array, ct_when, ct_request, _Connect, ct_lang, Locale, ServiceTypes, query, ObjectStore, Memory, ForestStoreModel, XMLUtils, ContentModelBuilderWidget, MappingResourceRegistryInitializer, CommonID) {
         /*
          * COPYRIGHT 2012 con terra GmbH Germany
          */
@@ -148,11 +128,7 @@ define([
                                 }
                             }
                         },
-                        _deleteChildrenRecursive: function (
-                            id,
-                            children,
-                            index
-                            ) {
+                        _deleteChildrenRecursive: function (id, children, index) {
                             if (children[index].id == id) {
                                 children.splice(index,
                                     1);
@@ -277,10 +253,7 @@ define([
                     }
                 },
 
-                _parseCapResult: function (
-                    result,
-                    item
-                    ) {
+                _parseCapResult: function (result, item) {
                     var fire = false;
 //            var l = this._retrieveMetadataWebMapService(result, item);
                     var t = {};
@@ -337,11 +310,7 @@ define([
                     }
                 },
 
-                _retrieveLayerInfo: function (
-                    result,
-                    item,
-                    tagname
-                    ) {
+                _retrieveLayerInfo: function (result, item, tagname) {
                     var layers = this._getQueryableLayers(result);
                     var foundItem;
                     d_array.some(layers, function (layer) {
@@ -373,10 +342,7 @@ define([
                     return foundItem;
                 },
 
-                _retrieveMetadataWebMapService: function (
-                    result,
-                    item
-                    ) {
+                _retrieveMetadataWebMapService: function (result, item) {
                     var layers = this._getQueryableLayers(result);
                     var link;
                     d_array.some(layers, d_lang.hitch(this,
@@ -404,10 +370,7 @@ define([
                     return layers;
                 },
 
-                _retrieveOnlineResource: function (
-                    layer,
-                    item
-                    ) {
+                _retrieveOnlineResource: function (layer, item) {
                     var found = false,
                         nameTag = query("Name", layer)[0],
                         name = XMLUtils.getTextContent(nameTag),
@@ -440,10 +403,7 @@ define([
                     return foundItem;
                 },
 
-                _onUp: function (
-                    item,
-                    path
-                    ) {
+                _onUp: function (item, path) {
                     if (item && path) {
                         var id = item.id;
                         if (id == "root1") {
@@ -469,10 +429,7 @@ define([
                     }
                 },
 
-                _onDown: function (
-                    item,
-                    path
-                    ) {
+                _onDown: function (item, path) {
                     if (item && path) {
                         var id = item.id;
                         if (id == "root1") {
@@ -614,10 +571,7 @@ define([
                     var serviceResources = mrr.getServiceResources();
                     var services = [];
                     var serviceTypes = [];
-                    ct_lang.forEachOwnProp(ServiceTypes, function (
-                        val,
-                        key
-                        ) {
+                    ct_lang.forEachOwnProp(ServiceTypes, function (val, key) {
                         serviceTypes.push(key);
                     });
                     d_array.forEach(serviceResources,
@@ -652,6 +606,10 @@ define([
                                 }
                             }
                         }, this);
+                    //sort services
+                    services = ct_array.arraySort(services, {
+                        title: false
+                    });
                     return services;
                 },
 
@@ -669,10 +627,7 @@ define([
                                 layers: [layerResource.layerId]
                             });
                         }, this);
-                    return layers.sort(function (
-                        obj1,
-                        obj2
-                        ) {
+                    return layers.sort(function (obj1, obj2) {
                         var v1 = d_string.trim(obj1.title), v2 = d_string.trim(obj2.title);
                         var n1 = parseInt(v1), n2 = parseInt(v2);
 

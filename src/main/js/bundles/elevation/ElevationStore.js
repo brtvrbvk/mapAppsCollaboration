@@ -52,7 +52,10 @@ define([
                     url: this._properties.usedServiceVersion === "old" ? this._getQueryURLForOldServiceVersion() : this._getQueryURLForNewServiceVersion(),
                     postData: JSON.stringify(content),
                     contentType: "application/json",
-                    handleAs: "json"
+                    handleAs: "json",
+                    headers: {
+                        "Accept": "application/json"
+                    }
                 }, {
                     usePost: true
                 }), function (response) {

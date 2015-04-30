@@ -20,21 +20,7 @@ define([
         "ct/mapping/map/EsriLayerFactory",
         "ct/mapping/map/EsriService"
     ],
-    function (
-        declare,
-        query,
-        d_lang,
-        d_array,
-        d_number,
-        d_ioq,
-        ct_array,
-        ct_WMSLayer,
-        Stateful,
-        e_WMSLayer,
-        ServiceTypes,
-        EsriLayerFactory,
-        EsriService
-        ) {
+    function (declare, query, d_lang, d_array, d_number, d_ioq, ct_array, ct_WMSLayer, Stateful, e_WMSLayer, ServiceTypes, EsriLayerFactory, EsriService) {
         var oldGetImageUrl = e_WMSLayer.prototype.getImageUrl,
             oldGetCaps = e_WMSLayer.prototype._getCapabilities,
             oldGetLayerInfo = e_WMSLayer.prototype._getLayerInfo;
@@ -168,62 +154,7 @@ define([
                     this.imageFormat = this.getMapFormats[0];
                 }
                 this._initLayer();
-                //call setters for watch callbacks
-                this.set("minScale", 0);
-                this.set("maxScale", 0);
-                this.set("minScale", this._getScale(this.layerInfos, "minScale"));
-                this.set("maxScale", this._getScale(this.layerInfos, "maxScale"));
-                this.set("title", this._getTitleForVisibleLayers(this.layerInfos, this.visibleLayers));
-            },
 
-            _getTitleForVisibleLayers: function (
-                layerInfos,
-                visibleLayers
-                ) {
-                var title;
-                d_array.forEach(layerInfos, function (li) {
-
-                    d_array.forEach(visibleLayers, function (vl) {
-
-                        if (vl === li.name) {
-                            //we got our layer
-                            title = li.title;
-                        }
-
-                    }, this);
-
-                    if (!title && li.subLayers && li.subLayers.length > 0) {
-                        title = this._getTitleForVisibleLayers(li.subLayers, visibleLayers);
-                    }
-
-                }, this);
-
-                return title;
-
-            },
-            _getScale: function (
-                layerInfos,
-                paramName
-                ) {
-                var hasValue = false;
-                var scale = 0;
-                d_array.some(layerInfos, function (info) {
-                    var subLayers = info.subLayers;
-                    d_array.some(subLayers, function (item) {
-                        d_array.some(this.visibleLayers, function (layer) {
-                            if (item.name === layer) {
-                                scale = item[paramName] ? item[paramName] : 0;
-                                hasValue = true;
-                                return true;
-                            }
-                        });
-                        if (hasValue)
-                            return true;
-                    }, this);
-                    if (hasValue)
-                        return true;
-                }, this);
-                return scale;
             },
 
             _getStyle: function (node) {
@@ -280,10 +211,7 @@ define([
         });
 
         d_lang.extend(ct_WMSLayer, {
-            getLayerInfo: function (
-                name,
-                rootLayer
-                ) {
+            getLayerInfo: function (name, rootLayer) {
                 if (rootLayer && rootLayer.name && rootLayer.name === name) {
                     return rootLayer;
                 }
@@ -301,12 +229,7 @@ define([
                 }
                 return null;
             },
-            getImageUrl: function (
-                extent,
-                width,
-                height,
-                callback
-                ) {
+            getImageUrl: function (extent, width, height, callback) {
                 var that = this;
                 oldGetImageUrl.apply(this, [
                     extent,
@@ -332,14 +255,7 @@ define([
                     }
                 ]);
             },
-            getFeatureInfoUrl: function (
-                pixPoint,
-                extent,
-                width,
-                height,
-                layerIds,
-                format
-                ) {
+            getFeatureInfoUrl: function (pixPoint, extent, width, height, layerIds, format) {
                 var infoLayers = this.infoLayers && this.infoLayers.length > 0 ? this.infoLayers : this.visibleLayers;
                 // check if all queryable
                 infoLayers = d_array.filter(infoLayers, function (name) {
@@ -398,55 +314,78 @@ define([
             }
         });
 
-        var WMS = declare([
-            ct_WMSLayer,
-            Stateful
-        ], {
+        var findLayerInfo = function (layer, name) {
+            var layerInfo,
+                cleanedName = name.split(":");
+            cleanedName = cleanedName.length > 1 ? cleanedName[cleanedName.length - 1] : cleanedName[0];
+            d_array.some(layer.layerInfos || layer.subLayers, function (li) {
 
-        });
+                if (li.name === name) {
+                    layerInfo = li;
+                    return true;
+                }
+                if (li.name === cleanedName) {
+                    layerInfo = li;
+                    return true;
+                }
+                if (li.subLayers && li.subLayers.length > 0) {
+                    layerInfo = findLayerInfo(li, name) || layerInfo;
+                }
+
+            }, this);
+            return layerInfo;
+        }
+
+        var calculateScale = function (layer, type) {
+            var scale;
+            var visibleLayers = layer.visibleLayers || [];
+            d_array.forEach(visibleLayers, function (visibleLayer) {
+                var info = findLayerInfo(layer, visibleLayer);
+                if (info) {
+                    scale = info[type];
+                }
+            });
+
+            return scale;
+        };
+
+        var getTitleForVisibleLayers = function (layer, skip) {
+            var title, layerInfos = layer.layerInfos, visibleLayers = layer.visibleLayers || [];
+
+            d_array.forEach(visibleLayers, function (visibleLayer) {
+                var info = findLayerInfo(layer, visibleLayer);
+                if (info) {
+                    title = info.title;
+                }
+            });
+
+            return title;
+
+        };
 
         EsriLayerFactory.globalServiceFactories[ServiceTypes.WMS] = {
-            create: function (
-                node,
-                url,
-                mapmodel,
-                mapstate
-                ) {
+            create: function (node, url, mapmodel, mapstate) {
                 //TODO Optimize so that existing layer nodes are used
                 // and the wms don't performs a GetCapabilities request again!
                 return new EsriService({
                     mapModelNode: node,
                     reverseEnabledLayers: true,
                     createEsriLayer: function () {
-                        var layer = new WMS(url, node.get("options") || {});
-                        this.connectP(layer, "minScale", function (
-                            name,
-                            oldScale,
-                            newScale
-                            ) {
-                            if (!node.minScale) {
-                                node.set("minScale", newScale);
-                                mapmodel.fireModelNodeStateChanged();
+                        var layer = new ct_WMSLayer(url, node.get("options") || {});
+                        this.connect(layer, "refresh", function () {
+                            var minScale = calculateScale(layer, "minScale");
+                            if (minScale !== undefined) {
+                                node.set("minScale", minScale);
                             }
-                        });
-                        this.connectP(layer, "maxScale", function (
-                            name,
-                            oldScale,
-                            newScale
-                            ) {
-                            if (!node.minScale) {
-                                node.set("maxScale", newScale);
-                                mapmodel.fireModelNodeStateChanged();
+                            var maxScale = calculateScale(layer, "maxScale");
+                            if (maxScale !== undefined) {
+                                node.set("maxScale", maxScale);
                             }
-                        });
-                        this.connectP(layer, "title", function (
-                            name,
-                            oldTitle,
-                            newTitle
-                            ) {
-                            if (!node.title || node.title.length === 0 || node.title.indexOf("http://") > -1) {
-                                node.set("title", newTitle);
-                                mapmodel.fireModelNodeStateChanged();
+                            var title = getTitleForVisibleLayers(layer);
+                            if (title) {
+                                layer._titleForLegend = title;
+                                layer.title = title;
+                                node.set("title", title);
                             }
                         });
                         return layer;

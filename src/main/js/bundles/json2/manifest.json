@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "json2",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "json2",
     "Bundle-Description": "Adds json support to older browsers",

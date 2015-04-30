@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "loadservice",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "loadservice",
     "Bundle-Description": "Used to load services",

@@ -14,16 +14,7 @@ define([
         "dojo/text!./templates/InfoTree.html",
         "dijit/form/ToggleButton"
     ],
-    function (
-        declare,
-        d_array,
-        css,
-        ct_array,
-        _WidgetsInTemplateMixin,
-        DrillDownTree,
-        InfoTreeNode,
-        templateString
-        ) {
+    function (declare, d_array, css, ct_array, _WidgetsInTemplateMixin, DrillDownTree, InfoTreeNode, templateString) {
         return declare([
                 DrillDownTree,
                 _WidgetsInTemplateMixin
@@ -38,8 +29,12 @@ define([
 
                 postCreate: function () {
                     this.inherited(arguments);
-                    this._collapse(this.collapsed);
                     this._listeners.connect("button", this.collapseButton, "onClick", "_toggleButtonClicked");
+                },
+
+                startup: function () {
+                    this.inherited(arguments);
+                    this._collapse(this.collapsed);
                 },
 
                 _showCategories: function () {
@@ -94,6 +89,8 @@ define([
                     d_array.forEach(children, function (child) {
 
                         this._toggleLeafNodesCollapse(child, collapsed);
+                        var treenode = this._getTreeNodeForNode(child);
+                        treenode.set("checked", collapsed);
 
                     }, this);
 
@@ -132,10 +129,7 @@ define([
                     }
                 },
 
-                _toggleLeafNodesCollapse: function (
-                    modelNode,
-                    collapsed
-                    ) {
+                _toggleLeafNodesCollapse: function (modelNode, collapsed) {
 
                     modelNode.collapsed = !modelNode.collapsed;
 
@@ -165,9 +159,7 @@ define([
 
                 },
 
-                _buildCurrentView: function (
-                    node
-                    ) {
+                _buildCurrentView: function (node) {
                     var children = node.get("children");
                     this.treenodes = this.treenodes || [];
                     if (this.treenodes && this.treenodes.length > 0) {

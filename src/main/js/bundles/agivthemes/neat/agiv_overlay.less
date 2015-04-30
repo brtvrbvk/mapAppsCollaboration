@@ -12,18 +12,18 @@
 
   .ctWindowDockingBar.ctToolContainer .ctTool .dijitButtonNode {
     background-color: #FFF !important;
-    border-color: #FBD837;
+    border-color: @primary-color;
     border-width: 3px !important;
     padding: 0 !important;
     &.dijitActive{
-      border-color: #FBD837 !important;
+      border-color: @primary-color !important;
       border-width: 3px !important;
     }
 
   }
 
   .ctWindowDockingBar.ctToolContainer .ctTool.dijitFocused  .dijitButtonNode{
-    border-color: #FBD837;
+    border-color: @primary-color;
     border-width: 3px !important;
   }
 
@@ -115,5 +115,81 @@
   .ctDataView .ctToolContainer {
     margin-right: 10px;
   }
+
+  .dijitSelectMenu .dijitMenuItemHover td,
+  .dijitSelectMenu .dijitMenuItemFocused td,
+  .dijitComboBoxMenu .dijitMenuItemHover,
+  .dijitComboBoxMenu .dijitMenuItemFocused{
+     color: @hovered-text-color; //<---- change to blue!
+    border-color:@hovered-border-color;
+    background-color: @hovered-background-color;
+  }
+
+  // Measurement UI
+  .esriMeasurement{
+    padding: 8px 0;
+    height: auto;
+    .icon-agiv-area,
+    .icon-agiv-distance{
+      &:before{
+        line-height: 1.5;
+      }
+    }
+    .resultLabel{
+      display: none;
+    }
+  }
+
+
+
+  .measurementtoolbar.ctToolPopup{
+    .ctWindowContentPadding{
+       .ctMeasurement{
+             .agivResultWrapper{
+               padding: 8px 2px;
+             }
+         .result{
+           display: inline-block !important;
+           color: #565656;
+           font-weight: bold;
+           padding: 0;
+         }
+
+         .dijitDropDownButton{
+           margin-bottom: 0;
+           position: relative;
+           top: -3px;
+         }
+       }
+    }
+  }
+
+  // MAP
+   .map .container .layersDiv{
+     background-image: none;
+   }
+
+  // Load Service
+  .ctWindowPadding .ctWindowTitelBarPadding .dijitDialogTitleBar{
+    padding: 5px 7px 4px 7px;
+  }
+
+   .ctWindow .ctWindowToolbar{
+     position: absolute;
+   }
+
+  .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowClose:before{
+    content: "\e019";
+  }
+
+   .ctWindow .dijitDialogPaneContent {
+    overflow: hidden;
+  }
+
+  .dijitTabListContainer-top .tabStripButton {
+    background-image:none;
+
+  }
+
 }
 

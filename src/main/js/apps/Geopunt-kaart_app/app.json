@@ -1,118 +1,25 @@
-{"load": {
-    "i18n": [
-        "bundle"
-    ],
-    "allowedBundles": [
-        "agivthemes@5.0.0-SNAPSHOT",
-        "agivtemplates@5.0.0-SNAPSHOT",
-        "analytics@5.0.0-SNAPSHOT",
-        "appinsight@5.0.0-SNAPSHOT",
-        "appswitcher@5.0.0-SNAPSHOT",
-        "appsstore@3.1.x",
-
-        "base@5.0.0-SNAPSHOT",
-        "basemapswitcher@5.0.0-SNAPSHOT",
-        "browsercheck@5.0.0-SNAPSHOT",
-
-        "capakeysearch@5.0.0-SNAPSHOT",
-        "combicontentmanager@5.0.0-SNAPSHOT",
-        "coordinateparser@5.0.0-SNAPSHOT",
-        "coordinateviewer_agiv@5.0.0-SNAPSHOT",
-        "copyright@5.0.0-SNAPSHOT",
-        "console@3.1.x",
-        "coordinatetransformer@3.1.x",
-        "contentviewer@3.1.x",
-
-        "dataform@3.1.x",
-        "devicecheck@5.0.0-SNAPSHOT",
-
-        "elevation@5.0.0-SNAPSHOT",
-        "extrainfo@5.0.0-SNAPSHOT",
-
-        "genericidentify@5.0.0-SNAPSHOT",
-        "geolocator@5.0.0-SNAPSHOT",
-        "geolocatorparcels@5.0.0-SNAPSHOT",
-        "geopunt@5.0.0-SNAPSHOT",
-        "geojson@3.1.x",
-        "geojsonservicetype@5.0.0-SNAPSHOT",
-
-        "help@5.0.0-SNAPSHOT",
-
-        "infoviewer@3.1.x",
-        "i18nmappings@5.0.0-SNAPSHOT",
-
-        "jasperprinting@5.0.0-SNAPSHOT",
-        "jstorage@5.0.0-SNAPSHOT",
-        //        "json2",
-
-        "kml@5.0.0-SNAPSHOT",
-        "kmltogeojson@5.0.0-SNAPSHOT",
-
-        "legend_agiv@5.0.0-SNAPSHOT",
-        "loadservice@5.0.0-SNAPSHOT",
-
-        "map@3.1.x",
-//        "mobileview_agiv",
-
-        "navteq@5.0.0-SNAPSHOT",
-        "navteqrouting@5.0.0-SNAPSHOT",
-
-        "overviewmap@3.1.x",
-        "overviewmap_agiv@5.0.0-SNAPSHOT",
-
-        "poi@5.0.0-SNAPSHOT",
-        "parametermanager@3.1.x",
-        "patches_main@5.0.0-SNAPSHOT",
-        "patches-measurement@5.0.0-SNAPSHOT",
-
-        "redlining_agiv@5.0.0-SNAPSHOT",
-        "redlining@3.1.x",
-        "routing@5.0.0-SNAPSHOT",
-
-        "scaleviewer@5.0.0-SNAPSHOT",
-        "search@5.0.0-SNAPSHOT",
-        "sharemap@5.0.0-SNAPSHOT",
-        "splashscreen@3.1.x",
-        "scalebar@3.1.x",
-        "system@3.1.x",
-        "startup@5.0.0-SNAPSHOT",
-        "startupmessagebox@5.0.0-SNAPSHOT",
-        "statestoring@5.0.0-SNAPSHOT",
-
-        "toolwrapper@5.0.0-SNAPSHOT",
-        "toextent@5.0.0-SNAPSHOT",
-        "toolruleprocessors@5.0.0-SNAPSHOT",
-        "templates@3.1.x",
-        "templatelayout@3.1.x",
-        "themes@3.1.x",
-        "toolrules@3.1.x",
-        "toolset@3.1.x",
-
-        "undoredo_agiv@5.0.0-SNAPSHOT",
-
-        "version@5.0.0-SNAPSHOT"
-    ],
-    "skipBundles": [
-        "splitviewmap"
-    ],
+{"properties": {
+    "templateId": "",
+    "id": "Geopunt-kaart_app",
+    "title": "Geopunt-kaart",
+    "editorState": "PUBLISHED",
+    "modifiedAt": 1427885155979,
+    "createdBy": "admin",
+    "optimized": true,
+    "templateFile": "ct-agiv-mapviewer-js-5.0.0-RC1-Geopunt-kaart_app.zip",
+    "modifiedBy": "admin",
+    "createdAt": 1424121376925,
+    "description": "Bekijk verschillende kaarten in Vlaanderen met een verscheidenheid</br>aan informatie, van luchtfoto's tot locaties van kinderopvang.</br>Zoek op adressen, interessante plaatsen, perceelnummer, meet afstanden,</br>bepaal routes, vraag een hoogteprofiel op, gebruik een uitgebreid tekenpallet, voeg eigen geografische services toe, etc.",
+    "thumbnailFile": "thumbnail.png"
+}, "load": {
     "bundleLocations": [
         "localbundles",
         "bundles"
     ],
+    "i18n": ["bundle"],
+    "skipBundles": ["splitviewmap"],
+    "allowedBundles": ["typeformat@5.0.x", "agivthemes@5.0.x", "agivtemplates@5.0.x", "analytics@5.0.x", "appinsights@5.0.x", "appswitcher@5.0.x", "appsstore@3.1.x", "base@5.0.x", "basemapswitcher@5.0.x", "browsercheck@5.0.x", "capakeysearch@5.0.x", "combicontentmanager@5.0.x", "coordinateparser@5.0.x", "coordinateviewer_agiv@5.0.x", "copyright@5.0.x", "console@3.1.x", "coordinatetransformer@3.1.x", "contentviewer@3.1.x", "dataform@3.1.x", "devicecheck@5.0.x", "elevation@5.0.x", "extrainfo@5.0.x", "genericidentify@5.0.x", "geolocator@5.0.x", "geolocatorparcels@5.0.x", "geopunt@5.0.x", "geojson@3.1.x", "help@5.0.x", "infoviewer@3.1.x", "i18nmappings@5.0.x", "jasperprinting@5.0.x", "jstorage@5.0.x", "kml@5.0.x", "kmltogeojson@5.0.x", "legend_agiv@5.0.x", "loadservice@5.0.x", "map@3.1.x", "navteq@5.0.x", "navteqrouting@5.0.x", "overviewmap@3.1.x", "overviewmap_agiv@5.0.x", "poi@5.0.x", "parametermanager@3.1.x", "patches_main@5.0.x", "patches_measurement@5.0.x", "redlining_agiv@5.0.x", "redlining@3.1.x", "routing@5.0.x", "scaleviewer@5.0.x", "search@5.0.x", "sharemap@5.0.x", "splashscreen@3.1.x", "scalebar@3.1.x", "system@3.1.x", "startup@5.0.x", "startupmessagebox@5.0.x", "statestoring@5.0.x", "toolwrapper@5.0.x", "toextent@5.0.x", "toolruleprocessors@5.0.x", "templates@3.1.x", "templatelayout@3.1.x", "themes@3.1.x", "toolrules@3.1.x", "toolset@3.1.x", "undoredo_agiv@5.0.x", "version@5.0.x"],
     "require": ["${app}.app"]
-}, "properties": {
-    "templateId": "1491DC2FE822400",
-    "id": "Geopunt-kaart_app",
-    "title": "Geopunt-kaart",
-    "editorState": "PUBLISHED",
-    "modifiedAt": 1421390548717,
-    "createdBy": "admin",
-    "optimized": true,
-    "templateFile": "test.zip",
-    "modifiedBy": "admin",
-    "createdAt": 1413544451065,
-//    "description": "Bekijk verschillende kaarten in Vlaanderen met een verscheidenheid</br>aan informatie, van luchtfoto's tot locaties van kinderopvang.</br>Zoek op adressen, interessante plaatsen, perceelnummer, meet afstanden,</br>bepaal routes, vraag een hoogteprofiel op, gebruik een uitgebreid tekenpallet, voeg eigen geografische services toe, etc.",
-    "thumbnailFile": "thumbnail.png"
 }, "bundles": {
     "agivtemplates": {
         "enabled": true
@@ -130,13 +37,7 @@
     "appinsights": {
         "enabled": true
     },
-    "appsoverview_agiv": {
-        "enabled": {}
-    },
     "appsstore": {
-        "enabled": true
-    },
-    "appstoggler_agiv": {
         "enabled": true
     },
     "appswitcher": {
@@ -145,26 +46,7 @@
         },
         "enabled": true
     },
-    "basemapgallery": {
-        "enabled": {}
-    },
     "basemapswitcher": {
-        "enabled": true
-    },
-    "basemaptoggler": {
-        "DropDownBasemapToggler": {
-            "buttonStyles": {
-                "basemap9": "background1",
-                "basemap7": "background3",
-                "basemap8": "background2",
-                "basemap5": "background3",
-                "basemap6": "background3",
-                "basemap1": "background2",
-                "basemap10": "background2"
-            },
-            "noButtonForNode": ["__basemapGallery__"],
-            "showLabel": true
-        },
         "enabled": true
     },
     "browsercheck": {
@@ -175,9 +57,6 @@
             "capakeyServiceUrl": "http://geo.agiv.be/capakey/api/v0/municipality"
         },
         "enabled": true
-    },
-    "clearselection": {
-        "enabled": false
     },
     "combicontentmanager": {
         "ContentModel": {
@@ -689,142 +568,196 @@
                                 "enabled": true,
                                 "category": {
                                     "imgUrl": "",
-                                    "description": ""
+                                    "description": "",
+                                    "isHeader": false
                                 },
                                 "title": "Luchtfoto's",
                                 "__isDirty": true,
                                 "children": [
                                     {
-                                        "id": "ortho/OMKL_1383183443841",
-                                        "title": "Luchtfoto Vlaanderen, winter 2013 - kleur",
-                                        "enabled": false,
-                                        "service": "ortho",
-                                        "layers": ["*"],
-                                        "identifyConfigId": "",
-                                        "props": {
-                                            "description": "Dit product is een compilatie van de orthofotomoza\u00EFeken (winteropnamen) die voor ieder deel van Vlaanderen in 2013 beschikbaar zijn. De compilatie heeft een grondresolutie van 25cm.",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/7511d678-1a1b-465c-b880-6414b26689cb",
-                                            "imgUrl": "http://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f5304d6d-0dd4-43fd-a726-427af31e8d61&fname=OMWRGBMRVL_2013.01.jpg"
+                                        "id": "1427884899398",
+                                        "title": "Middenschalig, winteropnamen",
+                                        "category": {
+                                            "description": "",
+                                            "imgUrl": "",
+                                            "isHeader": false
                                         },
-                                        "keywords": ""
-                                    },
-                                    {
-                                        "id": "orthobeeldvorminginspire/RGB_773619743708",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2012 - kleur",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["RGB"],
-                                        "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012VlKleur",
-                                        "props": {
-                                            "description": "Orthofoto met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                        },
-                                        "keywords": "",
+                                        "enabled": true,
+                                        "children": [
+                                            {
+                                                "id": "ortho014/ortho2014_1381546424434",
+                                                "title": "Luchtfoto Vlaanderen, winter 2014 - kleur",
+                                                "enabled": false,
+                                                "service": "ortho014",
+                                                "layers": ["*"],
+                                                "identifyConfigId": "orth_omkl",
+                                                "props": {
+                                                    "description": "Dit product is een compilatie van de orthofotomoza\u00EFeken (winteropnamen) die voor ieder deel van Vlaanderen in 2014 beschikbaar zijn. De compilatie heeft een grondresolutie van 25 cm.",
+                                                    "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/f5304d6d-0dd4-43fd-a726-427af31e8d61",
+                                                    "imgUrl": "http://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f5304d6d-0dd4-43fd-a726-427af31e8d61&fname=OMWRGBMRVL_2014.07_1422876511358.jpg"
+                                                },
+                                                "keywords": ""
+                                            },
+                                            {
+                                                "id": "ortho/OMKL_593978140092",
+                                                "title": "Luchtfoto Vlaanderen, winter 2013 - kleur",
+                                                "enabled": false,
+                                                "service": "ortho",
+                                                "layers": ["*"],
+                                                "identifyConfigId": "",
+                                                "props": {
+                                                    "description": "Dit product is een compilatie van de orthofotomoza\u00EFeken (winteropnamen) die voor ieder deel van Vlaanderen in 2013 beschikbaar zijn. De compilatie heeft een grondresolutie van 25cm.",
+                                                    "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/7511d678-1a1b-465c-b880-6414b26689cb",
+                                                    "imgUrl": "http://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f5304d6d-0dd4-43fd-a726-427af31e8d61&fname=OMWRGBMRVL_2013.01.jpg"
+                                                },
+                                                "keywords": ""
+                                            },
+                                            {
+                                                "id": "ortho012/orthoklm_437423183844",
+                                                "title": "Luchtfoto Vlaanderen, winter 2012 - kleur",
+                                                "enabled": false,
+                                                "service": "ortho012",
+                                                "layers": ["*"],
+                                                "identifyConfigId": "",
+                                                "props": {
+                                                    "description": "Middenschalige kleurenorthofotobedekking Vlaanderen 2012",
+                                                    "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/e2a4923f-3547-4e0a-8016-38c489f106f3",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": ""
+                                            }
+                                        ],
                                         "__isDirty": true
                                     },
                                     {
-                                        "id": "orthobeeldvorminginspire/CIR_1096477197252",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2012 - infrarood",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["CIR"],
-                                        "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012VlInfrar",
-                                        "props": {
-                                            "description": "Orthofoto met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                        "id": "1427884901528",
+                                        "title": "Middenschalig, zomeropnamen",
+                                        "category": {
+                                            "description": "",
+                                            "imgUrl": "",
+                                            "isHeader": false
                                         },
-                                        "keywords": "",
+                                        "enabled": true,
+                                        "children": [
+                                            {
+                                                "id": "orthobeeldvorminginspire/RGB_776739298805",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2012 - kleur",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["RGB"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012VlKleur",
+                                                "props": {
+                                                    "description": "Orthofoto met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            },
+                                            {
+                                                "id": "orthobeeldvorminginspire/CIR_851981908465",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2012 - infrarood",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["CIR"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012VlInfrar",
+                                                "props": {
+                                                    "description": "Orthofoto met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            },
+                                            {
+                                                "id": "orthobeeldvorminginspire/PAN_35157930611",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2012 - zwart-wit",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["PAN"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012Panchr",
+                                                "props": {
+                                                    "description": "Orthofoto met als met pixelwaarden de reflectantie (8 bit-waarden) van \u00E9\u00E9n brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 \u00B5m en 0,7 \u00B5m), een zg. panchromatisch beeld.",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/251.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            },
+                                            {
+                                                "id": "orthobeeldvorminginspire/OMZ09VLRGB_849992188631",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2009 - kleur",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["OMZ09VLRGB"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2009VlKleur",
+                                                "props": {
+                                                    "description": "Orthofotomoza\u00EFek met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            },
+                                            {
+                                                "id": "orthobeeldvorminginspire/OMZ09VLCIR_978908835126",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2009 - infrarood",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["OMZ09VLCIR"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2009VlInfrarood",
+                                                "props": {
+                                                    "description": "Orthofotomoza\u00EFek met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            },
+                                            {
+                                                "id": "orthobeeldvorminginspire/OMZ09VLPAN_1308771840229",
+                                                "title": "Luchtfoto Vlaanderen, zomer 2009 - zwart-wit",
+                                                "enabled": false,
+                                                "service": "orthobeeldvorminginspire",
+                                                "layers": ["OMZ09VLPAN"],
+                                                "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2009VlPanchr",
+                                                "props": {
+                                                    "description": "Orthofotomoza\u00EFek met als met pixelwaarden de reflectantie (8 bit-waarden) van \u00E9\u00E9n brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 \u00B5m en 0,7 \u00B5m), een zg. panchromatisch beeld.",
+                                                    "metadataUrl": "",
+                                                    "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
+                                                },
+                                                "keywords": "",
+                                                "__isDirty": true
+                                            }
+                                        ],
                                         "__isDirty": true
                                     },
                                     {
-                                        "id": "orthobeeldvorminginspire/PAN_1243690867145",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2012 - zwart-wit",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["PAN"],
-                                        "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2012Panchr",
-                                        "props": {
-                                            "description": "Orthofoto met als met pixelwaarden de reflectantie (8 bit-waarden) van \u00E9\u00E9n brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 \u00B5m en 0,7 \u00B5m), een zg. panchromatisch beeld.",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/251.jpeg"
+                                        "id": "1427884903245",
+                                        "title": "Kleinschalig",
+                                        "category": {
+                                            "description": "",
+                                            "imgUrl": "",
+                                            "isHeader": false
                                         },
-                                        "keywords": "",
+                                        "enabled": true,
+                                        "children": [
+                                            {
+                                                "id": "agivortho88 91 wmts/ortho88-91_1370204369749",
+                                                "enabled": false,
+                                                "title": "Luchtfoto Vlaanderen, winter 1979-1990 - kleur",
+                                                "layers": ["*"],
+                                                "service": "agivortho88 91 wmts",
+                                                "props": {
+                                                    "imgUrl": "http://metadata.agiv.be:80/zoekdienst/srv/eng/resources.get?uuid=d4f733e5-fa8f-4a83-8c58-3c0328027e4e&fname=OKZRGB79_90VL.jpg",
+                                                    "description": "De orthofotomoza\u00EFek is samengesteld uit luchtopnamen die, tijdens de zomerseizoenen, ingewonnen werden over een periode van 1979 tot en met 1990. Ze toont een gebiedsdekkende orthofotobedekking van het Vlaamse Gewest, inclusief het Brussels Hoofdstedelijk Gewest met een grondresolutie van 1 m. ",
+                                                    "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/d4f733e5-fa8f-4a83-8c58-3c0328027e4e"
+                                                },
+                                                "identifyConfigId": "",
+                                                "keywords": ""
+                                            }
+                                        ],
                                         "__isDirty": true
-                                    },
-                                    {
-                                        "id": "ortho012/orthoklm_647125837399",
-                                        "title": "Luchtfoto Vlaanderen, winter 2012 - kleur",
-                                        "enabled": false,
-                                        "service": "ortho012",
-                                        "layers": ["*"],
-                                        "identifyConfigId": "",
-                                        "props": {
-                                            "description": "Middenschalige kleurenorthofotobedekking Vlaanderen 2012",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/e2a4923f-3547-4e0a-8016-38c489f106f3",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                        },
-                                        "keywords": ""
-                                    },
-                                    {
-                                        "id": "orthobeeldvorminginspire/OMZ09VLRGB_615538616653",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2009 - kleur",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["OMZ09VLRGB"],
-                                        "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2009VlKleur",
-                                        "props": {
-                                            "description": "Orthofotomoza\u00EFek met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                        },
-                                        "keywords": "",
-                                        "__isDirty": true
-                                    },
-                                    {
-                                        "id": "orthobeeldvorminginspire/OMZ09VLCIR_979086222164",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2009 - infrarood",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["OMZ09VLCIR"],
-                                        "identifyConfigId": "Ortho_INSPIRE_MiddenschZomer2009VlInfrarood",
-                                        "props": {
-                                            "description": "Orthofotomoza\u00EFek met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                        },
-                                        "keywords": "",
-                                        "__isDirty": true
-                                    },
-                                    {
-                                        "id": "orthobeeldvorminginspire/OMZ09VLPAN_313705046583",
-                                        "title": "Luchtfoto Vlaanderen, zomer 2009 - zwart-wit",
-                                        "enabled": false,
-                                        "service": "orthobeeldvorminginspire",
-                                        "layers": ["OMZ09VLPAN"],
-                                        "identifyConfigId": "",
-                                        "props": {
-                                            "description": "Orthofotomoza\u00EFek met als met pixelwaarden de reflectantie (8 bit-waarden) van \u00E9\u00E9n brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 \u00B5m en 0,7 \u00B5m), een zg. panchromatisch beeld.",
-                                            "metadataUrl": "",
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                        },
-                                        "keywords": "",
-                                        "__isDirty": true
-                                    },
-                                    {
-                                        "id": "agivortho88 91 wmts/ortho88-91_971456214268",
-                                        "enabled": false,
-                                        "title": "Luchtfoto Vlaanderen, winter 1979-1990 - kleur",
-                                        "layers": ["*"],
-                                        "service": "agivortho88 91 wmts",
-                                        "props": {
-                                            "imgUrl": "http://metadata.agiv.be:80/zoekdienst/srv/eng/resources.get?uuid=d4f733e5-fa8f-4a83-8c58-3c0328027e4e&fname=OKZRGB79_90VL.jpg",
-                                            "description": "De orthofotomoza\u00EFek is samengesteld uit luchtopnamen die, tijdens de zomerseizoenen, ingewonnen werden over een periode van 1979 tot en met 1990. Ze toont een gebiedsdekkende orthofotobedekking van het Vlaamse Gewest, inclusief het Brussels Hoofdstedelijk Gewest met een grondresolutie van 1 m. ",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/d4f733e5-fa8f-4a83-8c58-3c0328027e4e"
-                                        },
-                                        "identifyConfigId": "",
-                                        "keywords": ""
                                     }
                                 ]
                             },
@@ -885,7 +818,7 @@
                                         "layers": ["pf_bedter_ao"],
                                         "service": "aobedter mercator",
                                         "props": {
-                                            "imgUrl": "",
+                                            "imgUrl": "https://www.mercator.vlaanderen.be/zoekdienstenmercatorpubliek/srv/eng/resources.get?uuid=567b7264-63b7-4080-a82b-c041b1512afb&fname=voorbeeld2_1417008816430.JPG",
                                             "description": "Inventarisatie van de bedrijventerreinen op perceelsniveau in het Vlaams Gewest. De bestanden kunnen enkel gebruikt worden op middenschalig niveau omdat het belangrijkste bronbestand, het gewestplan, op schaal 1:10 000 werd opgemaakt.",
                                             "metadataUrl": ""
                                         },
@@ -918,7 +851,7 @@
                                         "props": {
                                             "description": "De puntlocaties van de Seveso- inrichtingen in Vlaanderen",
                                             "metadataUrl": "",
-                                            "imgUrl": ""
+                                            "imgUrl": "https://www.mercator.vlaanderen.be/zoekdienstenmercatorpubliek/srv/eng/resources.get?uuid=80a76866-5f6e-40fb-898e-4a0fd5a5a00b&fname=Seveso-inrichtingen_Vlaanderen_1417616772819.JPG"
                                         },
                                         "__isDirty": true,
                                         "keywords": ""
@@ -1054,7 +987,8 @@
                                             "description": "Geluidsbelasting spoorverkeer Lden 2011",
                                             "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/cadf1866-c9bf-4abe-ad5c-414c838808d9"
                                         },
-                                        "identifyConfigId": ""
+                                        "identifyConfigId": "",
+                                        "keywords": ""
                                     },
                                     {
                                         "id": "hhspoor lnight 2011 mercator/hh_spoor_lnight_2011_328765584352",
@@ -1068,9 +1002,66 @@
                                             "description": "Geluidsbelasting spoorverkeer Lnight 2011",
                                             "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/ca4ff434-8a17-488a-8945-4f7b94494b35"
                                         },
-                                        "identifyConfigId": ""
+                                        "identifyConfigId": "",
+                                        "keywords": ""
+                                    },
+                                    {
+                                        "id": "hhluch lden 2011 mercator/hh:hh_lucht_lden_2011_180314123794",
+                                        "title": "Geluidsbelasting luchtverkeer Lden 2011",
+                                        "enabled": false,
+                                        "service": "hhluch lden 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lden 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/28db7a8a-6161-4c8a-b311-a2a126845ee6",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
+                                    },
+                                    {
+                                        "id": "hhlucht lnight 2011 mercator/hh:hh_lucht_lnight_2011_1134988115936",
+                                        "title": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                        "enabled": false,
+                                        "service": "hhlucht lnight 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/46a5b396-8769-4b28-8d2f-ccd1394becae",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
                                     }
                                 ]
+                            },
+                            {
+                                "id": "1423045953329_444633918173",
+                                "title": "Overstromingsrisico",
+                                "category": {
+                                    "description": "",
+                                    "imgUrl": "",
+                                    "isHeader": false
+                                },
+                                "enabled": true,
+                                "children": [
+                                    {
+                                        "id": "vmmwatertoetsitf/Ovstrgev2014_402345554840",
+                                        "title": "Watertoets - Overstromingsgevoelige gebieden 2014",
+                                        "enabled": false,
+                                        "service": "vmmwatertoetsitf",
+                                        "layers": ["Ovstrgev2014"],
+                                        "identifyConfigId": "vmmwatertoetsitf_Ovstrgev2014",
+                                        "props": {
+                                            "description": "Overstromingsgevoeligheid",
+                                            "metadataUrl": "",
+                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/310.jpeg"
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true
+                                    }
+                                ],
+                                "__isDirty": true
                             },
                             {
                                 "id": "1384789057051_468325311714",
@@ -1106,7 +1097,7 @@
                                         "service": "rvvafbakitf",
                                         "props": {
                                             "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=1406bf74-3057-4a70-ab26-95d293b59c8f&fname=Havens_meta_1405512910184.jpg",
-                                            "description": "",
+                                            "description": "Havengebieden (Zeehavenbedrijven en Linkerscheldeoevergebied) waarbinnen op de private onroerende goederen een recht van voorkoop gevestigd is, krachtens het decreet houdende het beleid en het beheer van de zeehavens van 2 maart 1999.",
                                             "metadataUrl": ""
                                         },
                                         "identifyConfigId": "rvvafbakitf_RVVHavenGb",
@@ -1205,13 +1196,13 @@
                                     {
                                         "id": "rvvafbakitf/RVVVlEcolNetw_1217049411648",
                                         "enabled": false,
-                                        "title": "RVV Vlaams Ecologisch Netwerk",
+                                        "title": "RVV Vlaams Ecologisch Netwerk en Integraal Verwevings- en Ondersteunend Netwerk",
                                         "__isDirty": true,
                                         "layers": ["RVVVlEcolNetw"],
                                         "service": "rvvafbakitf",
                                         "props": {
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/249.jpeg",
-                                            "description": "Een gebied, gelegen in Vlaanderen, waarbinnen de Vlaamse Landmaatschappij een voorkooprecht kan uitoefenen, krachtens het decreet betreffende het natuurbehoud en het natuurlijk milieu van 21 oktober 1997 (BS 10/01/1998), gedurende een bepaalde periode.",
+                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=ab004656-754b-4efa-9505-9f4cd4ded2d4&fname=Figuur_RVVVENIVON_1426072272936.JPG",
+                                            "description": "Overzicht van de gebieden waarin een Vlaams voorkooprecht is ingesteld in uitvoering van art. 37, \u00A71, 1\u00B0 en 3\u00B0 van het decreet van 21 oktober 1997 betreffende het natuurbehoud en het natuurlijk milieu (B.S. 10/01/1998).",
                                             "metadataUrl": ""
                                         },
                                         "identifyConfigId": "rvvafbakitf_RVVVlEcolNetw",
@@ -1243,6 +1234,21 @@
                                 },
                                 "enabled": true,
                                 "children": [
+                                    {
+                                        "id": "vmmitf/Rovst_191187705732",
+                                        "title": "Meetnet riooloverstorten",
+                                        "enabled": false,
+                                        "service": "vmmitf",
+                                        "layers": ["Rovst"],
+                                        "identifyConfigId": "vmmitf_Rovst",
+                                        "props": {
+                                            "description": "In deze dataset zitten alle meetplaatsen riooloverstorten.",
+                                            "metadataUrl": "",
+                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=d61a6648-4aec-4d32-b92f-7acbcb5d0dc0&fname=Fig_metadata_1422274459831.jpg"
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true
+                                    },
                                     {
                                         "id": "vmmitf/STRENG_374658780632",
                                         "title": "Rioleringsdatabank Vlaanderen - Streng",
@@ -1313,9 +1319,12 @@
                                         "service": "mercatorwug",
                                         "props": {
                                             "imgUrl": "",
-                                            "description": "Atlas van de woonuitbreidingsgebieden",
+                                            "description": "De Atlas van de woonuitbreidingsgebieden geeft voor alle woonuitbreidingsgebieden in Vlaanderen aan of ze vanuit juridisch of planologisch oogpunt kunnen ontwikkeld worden voor woningbouw, rekening houdend met het Vlaamse beleid rond ruimtelijke ordening. De Atlas houdt rekening met de opties van de op dit moment gekende plannen (algemeen plan van aanleg (APA), bijzonder plan van Aanleg (BPA), ruimtelijk uitvoeringsplan (RUP), gemeentelijk ruimtelijk structuurplan (GRS), afbakeningsprocessen stedelijke gebieden, duinendecreet, habitatrichtlijngebieden, goedgekeurde niet-vervallen verkavelingen, woningbehoeftestudies, principi\u00EBle akkoorden, enz.). Belangrijk: de Atlas vervangt de genoemde plannen niet. Deze plannen kunnen wijzigen en er kunnen plannen bijkomen. Bijgevolg is de Atlas slechts een momentopname, die regelmatig zal moeten bijgewerkt worden om zijn actualiteitswaarde te behouden. De Vlaamse overheid zal zich bij het beoordelen van dossiers baseren op de aanduidingen in de Atlas. Deze aanduidingen houden echter geen rekening met eventuele beperkingen die van toepassing kunnen zijn als gevolg van andere sectorale regelgeving, vb. bosdecreet, natuurdecreet, watertoets, veiligheidsrapportage, Milieueffectenrapportering (MER) enz. In die zin houdt de aanduiding in de Atlas slechts een voorwaardelijke beleidsmatige vrijgave van de gronden in.",
                                             "metadataUrl": ""
-                                        }
+                                        },
+                                        "identifyConfigId": "",
+                                        "keywords": "",
+                                        "minScale": 200000
                                     },
                                     {
                                         "id": "deptrwoitf/RUPContour_1118491898332",
@@ -1617,22 +1626,6 @@
                                         "__isDirty": true
                                     },
                                     {
-                                        "id": "onroerenderfgoed/vioe:unesco_contouren_1170068866399",
-                                        "title": "UNESCO-Werelderfgoed",
-                                        "enabled": false,
-                                        "service": "onroerenderfgoed",
-                                        "layers": ["vioe:unesco_contouren"],
-                                        "identifyConfigId": "",
-                                        "props": {
-                                            "description": "Deze laag bevat de contouren van het Unesco werelderfgoed in Vlaanderen.",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/40c063a8-4f6a-401f-a54b-aa2f60a819d1",
-                                            "imgUrl": ""
-                                        },
-                                        "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 500000
-                                    },
-                                    {
                                         "id": "onroerenderfgoed/vioe_geoportaal:woi_relict_1083426394581",
                                         "title": "Inventaris van het Wereldoorlogerfgoed",
                                         "enabled": false,
@@ -1647,6 +1640,22 @@
                                         "keywords": "",
                                         "__isDirty": true,
                                         "minScale": 22000
+                                    },
+                                    {
+                                        "id": "oeps unesco mercator/ps_unesco_694643717016",
+                                        "title": "UNESCO werelderfgoed",
+                                        "enabled": false,
+                                        "service": "oeps unesco mercator",
+                                        "layers": ["ps_unesco"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "UNESCO werelderfgoed",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/40c063a8-4f6a-401f-a54b-aa2f60a819d1",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true,
+                                        "minScale": 500000
                                     }
                                 ]
                             },
@@ -2380,7 +2389,7 @@
                                 "props": {
                                     "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=8f54a85f-4a89-4a58-8bdf-73972a91c30f&fname=Popp_1406192805807.jpg",
                                     "description": "Popp kaarten (1842 - 1879)",
-                                    "metadataUrl": "https://metadata.agiv.be/zoekdienst/apps/tabsearch/index.html?hl=dut&uuid=8f54a85f-4a89-4a58-8bdf-73972a91c30f"
+                                    "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/8f54a85f-4a89-4a58-8bdf-73972a91c30f"
                                 },
                                 "identifyConfigId": "",
                                 "keywords": ""
@@ -2508,7 +2517,8 @@
                                 "enabled": true,
                                 "category": {
                                     "imgUrl": "",
-                                    "description": ""
+                                    "description": "",
+                                    "isHeader": false
                                 },
                                 "title": "Bedrijven",
                                 "__isDirty": true,
@@ -2521,7 +2531,7 @@
                                         "layers": ["pf_bedter_ao"],
                                         "service": "aobedter mercator",
                                         "props": {
-                                            "imgUrl": "",
+                                            "imgUrl": "https://www.mercator.vlaanderen.be/zoekdienstenmercatorpubliek/srv/eng/resources.get?uuid=567b7264-63b7-4080-a82b-c041b1512afb&fname=voorbeeld2_1417008816430.JPG",
                                             "description": "Inventarisatie van de bedrijventerreinen op perceelsniveau in het Vlaams Gewest. De bestanden kunnen enkel gebruikt worden op middenschalig niveau omdat het belangrijkste bronbestand, het gewestplan, op schaal 1:10 000 werd opgemaakt.",
                                             "metadataUrl": ""
                                         },
@@ -2554,7 +2564,7 @@
                                         "props": {
                                             "description": "De puntlocaties van de Seveso- inrichtingen in Vlaanderen",
                                             "metadataUrl": "",
-                                            "imgUrl": ""
+                                            "imgUrl": "https://www.mercator.vlaanderen.be/zoekdienstenmercatorpubliek/srv/eng/resources.get?uuid=80a76866-5f6e-40fb-898e-4a0fd5a5a00b&fname=Seveso-inrichtingen_Vlaanderen_1417616772819.JPG"
                                         },
                                         "__isDirty": true,
                                         "keywords": ""
@@ -2677,10 +2687,43 @@
                                         "props": {
                                             "description": "Overzicht van de ligging van de landbouwstreken in Vlaanderen, zoals vastgelegd bij koninklijk besluit van 24 februari 1951 houdende grensbepaling van de landbouwstreken van het Rijk (BS 15 maart 1951). Deze dataset geeft de toestand weer van de wijzigingen vastgelegd bij koninklijk besluit van 15 februari 1974.",
                                             "metadataUrl": "",
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=3cd62a4d-cef5-453e-b7c8-7c786afa7f4f&fname=Legende_Landbouwstreken.jpg"
+                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=3cd62a4d-cef5-453e-b7c8-7c786afa7f4f&fname=Figuur_Landbouwstreken_2__metadata_1412585508800.jpg"
                                         },
                                         "__isDirty": true,
                                         "keywords": ""
+                                    },
+                                    {
+                                        "id": "lnealbon bodem andere erosiegerelateerde gronden 2015 dov/so_a_grndn_2015_1125191901062",
+                                        "title": "Andere erosiegerelateerde gronden (2015)",
+                                        "enabled": false,
+                                        "service": "lnealbon bodem andere erosiegerelateerde gronden 2015 dov",
+                                        "layers": ["so_a_grndn_2015"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Andere erosiegerelateerde gronden (2015)",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/9ee21549-1642-4a06-9320-f5f61ac1bee0",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true,
+                                        "minScale": 150001
+                                    },
+                                    {
+                                        "id": "lnealbon_bodem_potentiele_bodemerosiekaart_per_perceel_2015_dov/so_potbdmerosiepp_2015_468691744753",
+                                        "title": "Potenti\u00EBle bodemerosiekaart per perceel (2015)",
+                                        "enabled": false,
+                                        "service": "lnealbon_bodem_potentiele_bodemerosiekaart_per_perceel_2015_dov",
+                                        "layers": ["so_potbdmerosiepp_2015"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Potenti\u00EBle bodemerosiekaart per perceel (2015)",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/fe6d2f90-774c-4a71-8be9-f1f52491f979",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true,
+                                        "minScale": 150001,
+                                        "maxScale": 500
                                     },
                                     {
                                         "id": "vlmitf/Rvkgeb_1165678822518",
@@ -3027,51 +3070,51 @@
                                 "title": "Bodem",
                                 "category": {
                                     "description": "",
-                                    "imgUrl": ""
+                                    "imgUrl": "",
+                                    "isHeader": false
                                 },
                                 "enabled": true,
                                 "children": [
                                     {
-                                        "id": "LNE_ALBON_Bodem-Afstromingskaart_DOV/afstromingskaart_1199987718371",
-                                        "title": "Afstromingskaart",
+                                        "id": "lnealbon_bodem_afstromingskaart_enkelvoudig_dov/afstromingskaart_evstrl_267304682628",
+                                        "title": "Afstromingskaart (enkelvoudige stroomlijnen)",
                                         "enabled": false,
-                                        "service": "LNE_ALBON_Bodem-Afstromingskaart_DOV",
-                                        "layers": ["afstromingskaart"],
+                                        "service": "lnealbon_bodem_afstromingskaart_enkelvoudig_dov",
+                                        "layers": ["afstromingskaart_evstrl"],
                                         "identifyConfigId": "",
                                         "props": {
-                                            "description": "",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/c29ac96c-21b5-4716-8cf3-0bfb7a768f81",
+                                            "metadataUrl": "",
+                                            "description": "De afstromingskaart met enkelvoudige stroomlijnen toont de lijnen in het landschap waar het water na een regenbui potentieel geconcentreerd afstroomt, rekening houdend met de topografie en de aanwezige waterlopen. De inkleuring geeft per pixel van 5m*5m de grootte van het afstroomgebied naar de pixel weer (in ha). Het berekeningsalgoritme leidt al het afstromend water die toekomt in een pixel naar de laagst gelegen omliggende pixel (Single Flow Direction). Hierdoor ontstaan geconcentreerde, duidelijk afgelijnde afstromingslijnen die de locaties in het landschap weergeeft met de meeste kans op afstroming. De afstromingskaart is gebaseerd op het digitaal hoogte model en de Vlaamse Hydrografische Atlas.",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
                                         "__isDirty": true
                                     },
                                     {
-                                        "id": "lnealbon bodem andere erosiegerelateerde gronden 2014 dov/erosie_andere_erosiegerelateerde_gronden_2014_342259529240",
-                                        "title": "Andere erosiegerelateerde gronden (2014)",
+                                        "id": "lnealbon_bodem_afstromingskaart_meervoudig_dov/afstromingskaart_mvstrl_79495084236",
+                                        "title": "Afstromingskaart (meervoudige stroomlijnen)",
                                         "enabled": false,
-                                        "service": "lnealbon bodem andere erosiegerelateerde gronden 2014 dov",
-                                        "layers": ["erosie_andere_erosiegerelateerde_gronden_2014"],
+                                        "service": "lnealbon_bodem_afstromingskaart_meervoudig_dov",
+                                        "layers": ["afstromingskaart_mvstrl"],
                                         "identifyConfigId": "",
                                         "props": {
-                                            "description": "Andere erosiegerelateerde gronden (2014)",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/6f6fbbde-faa0-4c9e-914f-dc50cc5958ad",
+                                            "metadataUrl": "",
+                                            "description": "De afstromingskaart met meervoudige stroomlijnen toont de lijnen in het landschap waar het water na een regenbui potentieel geconcentreerd afstroomt, rekening houdend met de topografie en de aanwezige waterlopen. De inkleuring geeft per pixel van 5m*5m de grootte van het afstroomgebied naar de pixel weer (in ha). Het berekeningsalgoritme leidt het afstromend water dat toekomt in een pixel proportioneel naar alle lager gelegen omliggende pixels, waarbij de laagstgelegen pixel de meeste afstroming ontvangt en de minst lager gelegen pixel het minste afstroming ontvangt (Multiple Flow Direction). Hierdoor ontstaan diffuse afstromingslijnen die een meer realistisch beeld geeft van afstroming over een helling. De kaart is vooral nuttig in geval van relatief vlakke of sterk divergente topografie, en op brede homogene hellingen. De afstromingskaart is gebaseerd op het digitaal hoogte model en de Vlaamse Hydrografische Atlas.",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 150001
+                                        "__isDirty": true
                                     },
                                     {
-                                        "id": "LNE_ALBON_Bodem-Andere_erosiegerelateerde_gronden_2013_DOV/Andere_erosiegerelateerde_gronden_2013_77846918566",
-                                        "title": "Andere erosiegerelateerde gronden (2013)",
+                                        "id": "lnealbon bodem andere erosiegerelateerde gronden 2015 dov/so_a_grndn_2015_1301475519494",
+                                        "title": "Andere erosiegerelateerde gronden (2015)",
                                         "enabled": false,
-                                        "service": "LNE_ALBON_Bodem-Andere_erosiegerelateerde_gronden_2013_DOV",
-                                        "layers": ["Andere_erosiegerelateerde_gronden_2013"],
+                                        "service": "lnealbon bodem andere erosiegerelateerde gronden 2015 dov",
+                                        "layers": ["so_a_grndn_2015"],
                                         "identifyConfigId": "",
                                         "props": {
-                                            "description": "Andere erosiegerelateerde gronden",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/d417a167-c019-4b3e-8634-ad9ec65364ad",
+                                            "description": "Andere erosiegerelateerde gronden (2015)",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/9ee21549-1642-4a06-9320-f5f61ac1bee0",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
@@ -3227,32 +3270,15 @@
                                         "maxScale": 500
                                     },
                                     {
-                                        "id": "LNE_ALBON_Erosie-Erosie_potentiele_bodemerosiekaart_per_perceel_2014_DOV/erosie_potentiele_bodemerosiekaart_per_perceel_2014_1391040767926",
-                                        "title": "Potenti\u00EBle bodemerosiekaart per perceel (2014)",
+                                        "id": "lnealbon_bodem_potentiele_bodemerosiekaart_per_perceel_2015_dov/so_potbdmerosiepp_2015_1175401165469",
+                                        "title": "Potenti\u00EBle bodemerosiekaart per perceel (2015)",
                                         "enabled": false,
-                                        "service": "LNE_ALBON_Erosie-Erosie_potentiele_bodemerosiekaart_per_perceel_2014_DOV",
-                                        "layers": ["erosie_potentiele_bodemerosiekaart_per_perceel_2014"],
+                                        "service": "lnealbon_bodem_potentiele_bodemerosiekaart_per_perceel_2015_dov",
+                                        "layers": ["so_potbdmerosiepp_2015"],
                                         "identifyConfigId": "",
                                         "props": {
-                                            "description": "Potenti\u00EBle bodemerosiekaart per perceel (2014)",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/d5467fef-da0d-4b6c-81cb-29961bee1f89",
-                                            "imgUrl": ""
-                                        },
-                                        "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 150001,
-                                        "maxScale": 500
-                                    },
-                                    {
-                                        "id": "LNE_ALBON_Bodem-Bodemerosie_perceel_2013_DOV/Bodemerosie_perceel_2013_876233007793",
-                                        "title": "Potenti\u00EBle bodemerosiekaart per perceel (2013)",
-                                        "enabled": false,
-                                        "service": "LNE_ALBON_Bodem-Bodemerosie_perceel_2013_DOV",
-                                        "layers": ["Bodemerosie_perceel_2013"],
-                                        "identifyConfigId": "",
-                                        "props": {
-                                            "description": "Potenti\u00EBle bodemerosie per perceel (2013)",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/b520b3d8-1581-4245-b939-12c012a59a05",
+                                            "description": "Potenti\u00EBle bodemerosiekaart per perceel (2015)",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/fe6d2f90-774c-4a71-8be9-f1f52491f979",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
@@ -3320,19 +3346,19 @@
                                         "keywords": ""
                                     },
                                     {
-                                        "id": "anbitf/Bosres_436496450546",
-                                        "enabled": false,
+                                        "id": "anbps bosres mercator/ps_bosres_795237096797",
                                         "title": "Bosreservaten",
-                                        "__isDirty": true,
-                                        "layers": ["Bosres"],
-                                        "service": "anbitf",
+                                        "enabled": false,
+                                        "service": "anbps bosres mercator",
+                                        "layers": ["ps_bosres"],
+                                        "identifyConfigId": "",
                                         "props": {
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=4912F787-64BD-4B7F-9C33-5E8E91C0CD9D&fname=Bosreservaten_1405502737890.jpg",
-                                            "description": "Deze entiteit geeft een overzicht van de bosreservaten in Vlaanderen.",
-                                            "metadataUrl": ""
+                                            "description": "Bosreservaten",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/bde56325-f09b-42ae-911c-3ab11e9f8a34",
+                                            "imgUrl": ""
                                         },
-                                        "identifyConfigId": "anbitf_Bosres",
-                                        "keywords": ""
+                                        "keywords": "",
+                                        "__isDirty": true
                                     },
                                     {
                                         "id": "anbitf/Boswijz13_104704025040",
@@ -3480,7 +3506,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/BWK2Zone_741588058647",
@@ -3496,7 +3522,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     }
                                 ]
                             },
@@ -3566,6 +3592,34 @@
                                             "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/ca4ff434-8a17-488a-8945-4f7b94494b35"
                                         },
                                         "identifyConfigId": ""
+                                    },
+                                    {
+                                        "id": "hhluch lden 2011 mercator/hh:hh_lucht_lden_2011_1021616435854",
+                                        "title": "Geluidsbelasting luchtverkeer Lden 2011",
+                                        "enabled": false,
+                                        "service": "hhluch lden 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lden 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/28db7a8a-6161-4c8a-b311-a2a126845ee6",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
+                                    },
+                                    {
+                                        "id": "hhlucht lnight 2011 mercator/hh:hh_lucht_lnight_2011_15880104212",
+                                        "title": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                        "enabled": false,
+                                        "service": "hhlucht lnight 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/46a5b396-8769-4b28-8d2f-ccd1394becae",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
                                     }
                                 ]
                             },
@@ -3671,11 +3725,10 @@
                                         "identifyConfigId": "",
                                         "props": {
                                             "description": "Grondwaterkwetsbaarheidskaart: de kwetsbaarheidsschaal",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/bd22091e-9b59-4533-b0b4-e3f2005fb0f5",
+                                            "metadataUrl": "",
                                             "imgUrl": ""
                                         },
                                         "__isDirty": true,
-                                        "minScale": 100000,
                                         "keywords": ""
                                     },
                                     {
@@ -3687,12 +3740,11 @@
                                         "identifyConfigId": "",
                                         "props": {
                                             "description": "Grondwaterkwetsbaarheidskaart: de deklaag",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/9831fea1-718a-42c3-a31e-89901a14e037",
+                                            "metadataUrl": "",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 100000
+                                        "__isDirty": true
                                     },
                                     {
                                         "id": "VMM_Grondwaterkwetsbaarheid_onverzadigde_zone_DOV/Grondwaterkwetsbaarheid_onverzadigde_zone_1149237302680",
@@ -3703,12 +3755,11 @@
                                         "identifyConfigId": "",
                                         "props": {
                                             "description": "Grondwaterkwetsbaarheidskaart: de onverzadigde zone",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/f7eb68b2-b377-4e63-8742-332e77191dc8",
+                                            "metadataUrl": "",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 100000
+                                        "__isDirty": true
                                     },
                                     {
                                         "id": "VMM_Grondwaterkwetsbaarheid_watervoerende_laag_DOV/Grondwaterkwetsbaarheid_watervoerende_laag_746859438939",
@@ -3719,28 +3770,26 @@
                                         "identifyConfigId": "",
                                         "props": {
                                             "description": "Grondwaterkwetsbaarheidskaart: de watervoerende laag",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/4a5717e4-1fc0-4b5d-90e2-4e46c190d1eb",
+                                            "metadataUrl": "",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
-                                        "__isDirty": true,
-                                        "minScale": 100000
+                                        "__isDirty": true
                                     },
                                     {
-                                        "id": "vmmgrondwaterlichamen dov/Grondwaterlichamen-index_20101008_423922635782",
+                                        "id": "grondwaterlichamendov/grondwaterlichamen_881742750563",
                                         "title": "Grondwaterlichamen",
                                         "enabled": false,
-                                        "service": "vmmgrondwaterlichamen dov",
-                                        "layers": ["Grondwaterlichamen-index_20101008"],
+                                        "service": "grondwaterlichamendov",
+                                        "layers": ["grondwaterlichamen"],
                                         "identifyConfigId": "",
                                         "props": {
-                                            "description": "Grondwaterlichamen indexlaag",
+                                            "description": "Om het grondwater te kunnen beheren is de Vlaamse ondergrond opgedeeld in verschillende driedimensionale eenheden: \"de grondwaterlichamen.\" Binnen deze grondwaterlichamen worden milieudoelstellingen getoetst en indien nodig maatregelen opgelegd.",
                                             "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/C7134DF8-84B8-4E6C-A57C-E89DFA1BE6AE",
                                             "imgUrl": ""
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 2000000,
                                         "maxScale": 5000
                                     },
                                     {
@@ -3994,55 +4043,41 @@
                                 "enabled": true,
                                 "category": {
                                     "imgUrl": "",
-                                    "description": ""
+                                    "description": "",
+                                    "isHeader": false
                                 },
                                 "title": "Natuur",
                                 "__isDirty": true,
                                 "children": [
                                     {
-                                        "id": "anbitf/Habrl_1306327361255",
+                                        "id": "anbps erknres mercator/ps_erknres_anb_657451431484",
+                                        "title": "Erkende natuurreservaten",
                                         "enabled": false,
-                                        "title": "Habitatrichtlijngebieden",
-                                        "__isDirty": true,
-                                        "layers": ["Habrl"],
-                                        "service": "anbitf",
+                                        "service": "anbps erknres mercator",
+                                        "layers": ["ps_erknres_anb"],
+                                        "identifyConfigId": "",
                                         "props": {
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=a8cfffb8-7579-4a5e-af81-73ee624adcc6&fname=Habitatrichtlijngebieden_meta_1405503546573.jpg",
-                                            "description": "Speciale beschermingszone van natuurlijke habitats in Vlaanderen afgebakend volgens de Europese Habitatrichtlijn 92/43/EEG en vastgesteld bij besluit door de Vlaamse regering op 24 mei 2002 en 15 februari 2008.",
-                                            "metadataUrl": ""
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/7b9424f7-bbb6-4248-9728-ae207f541780",
+                                            "description": "Erkende natuurreservaten",
+                                            "imgUrl": ""
                                         },
-                                        "identifyConfigId": "anbitf_Habrl",
-                                        "keywords": ""
+                                        "keywords": "",
+                                        "__isDirty": true
                                     },
                                     {
-                                        "id": "anbitf/Hbtvglrl_266437365190",
+                                        "id": "anbps vlnres mercator/ps_vlnres_575556300941",
+                                        "title": "Vlaamse natuurreservaten",
                                         "enabled": false,
-                                        "title": "Habitats in vogelrichtlijngebieden",
-                                        "__isDirty": true,
-                                        "layers": ["Hbtvglrl"],
-                                        "service": "anbitf",
+                                        "service": "anbps vlnres mercator",
+                                        "layers": ["ps_vlnres"],
+                                        "identifyConfigId": "",
                                         "props": {
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=E62892E0-67C4-40A7-B0A1-771B08477E4B&fname=Habitats_vogelrichtlijngebieden_meta_1405505679290.jpg",
-                                            "description": "Habitatafgebakend binnen de Vogelrichtlijngebieden.",
-                                            "metadataUrl": ""
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/43960a57-ba08-4887-a3f5-39656648de37",
+                                            "description": "Vlaamse natuurreservaten",
+                                            "imgUrl": ""
                                         },
-                                        "identifyConfigId": "anbitf_Hbtvglrl",
-                                        "keywords": ""
-                                    },
-                                    {
-                                        "id": "anbitf/Natres_467393821482",
-                                        "enabled": false,
-                                        "title": "Natuurreservaten",
-                                        "__isDirty": true,
-                                        "layers": ["Natres"],
-                                        "service": "anbitf",
-                                        "props": {
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/223.jpeg",
-                                            "description": "Geheel of gedeeltelijk grondgebied van een Vlaams of erkend natuurreservaat. Een Vlaams natuurreservaat is een gebied dat beheerd wordt door de Vlaamse overheid (meer bepaald door het Agentschap voor Natuur- en Bos). Een erkend natuurreservaat is een gebied dat beheerd wordt door \u00E9\u00E9n of meerdere natuurverenigingen (eventueel ism met de Vlaamse overheid) en gesubsidie\u00EBrd wordt door de overheid.",
-                                            "metadataUrl": ""
-                                        },
-                                        "identifyConfigId": "anbitf_Natres",
-                                        "keywords": ""
+                                        "keywords": "",
+                                        "__isDirty": true
                                     },
                                     {
                                         "id": "vlmitf/NatInrPrj_5169297366",
@@ -4075,34 +4110,49 @@
                                         "keywords": ""
                                     },
                                     {
-                                        "id": "anbitf/VenIvon_874384095222",
+                                        "id": "anbps venivon mercator/ps_ven_538119403667",
+                                        "title": "Gebieden van het VEN en het IVON",
                                         "enabled": false,
-                                        "title": "VEN en IVON",
-                                        "__isDirty": true,
-                                        "layers": ["VenIvon"],
-                                        "service": "anbitf",
+                                        "service": "anbps venivon mercator",
+                                        "layers": ["ps_ven"],
+                                        "identifyConfigId": "",
                                         "props": {
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/249.jpeg",
-                                            "description": "De identiteit van een VEN- of IVON-gebied is als volgt bepaald:\n- het gebied wordt bepaald door zijn gebiedsnummer (identificator: gebiedsnummer van het VEN-gebied (GEBIEDSNR))\n- het gebied wordt bepaald door zijn classificatiecode (identificator: classificatiecode (CATEGORIE))\n- het gebied wordt bepaald door de periode waarin het VEN- of IVON-gebied geldig is (identificator: begindatum (BD)).",
-                                            "metadataUrl": ""
+                                            "description": "VEN en IVON gebieden",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/6c55f7f5-df2e-4ccc-a6b2-85abd572a355",
+                                            "imgUrl": ""
                                         },
-                                        "identifyConfigId": "anbitf_VenIvon",
-                                        "keywords": ""
+                                        "keywords": "",
+                                        "__isDirty": true
                                     },
                                     {
-                                        "id": "anbitf/Vogrl_299626449090",
+                                        "id": "anbps hbtrl mercator/ps_hbtrl_279982958753",
+                                        "title": "Habitatrichtlijngebieden",
                                         "enabled": false,
-                                        "title": "Vogelrichtlijngebieden",
-                                        "__isDirty": true,
-                                        "layers": ["Vogrl"],
-                                        "service": "anbitf",
+                                        "service": "anbps hbtrl mercator",
+                                        "layers": ["ps_hbtrl"],
+                                        "identifyConfigId": "",
                                         "props": {
-                                            "imgUrl": "http://metadata.agiv.be/metadata_thumbs/35.jpeg",
-                                            "description": "Beschermingszones van vogelsoorten in Vlaanderen afgebakend volgens de Europese richtlijn 2009/147/EG",
-                                            "metadataUrl": ""
+                                            "description": "Habitatrichtlijngebieden",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/a84a87f5-5607-4019-a8db-9d52a827786b",
+                                            "imgUrl": ""
                                         },
-                                        "identifyConfigId": "anbitf_Vogrl",
-                                        "keywords": ""
+                                        "keywords": "",
+                                        "__isDirty": true
+                                    },
+                                    {
+                                        "id": "anbps vglrl mercator/ps_vglrl_1340445564550",
+                                        "title": "Vogelrichtlijngebieden",
+                                        "enabled": false,
+                                        "service": "anbps vglrl mercator",
+                                        "layers": ["ps_vglrl"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Vogelrichtlijngebieden",
+                                            "metadataUrl": "",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true
                                     },
                                     {
                                         "id": "inboitf/BWK1Zone_1238414074810",
@@ -4118,7 +4168,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/BWK2Fauna_535654420655",
@@ -4134,7 +4184,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/BWK2Zone_1292669004567",
@@ -4150,11 +4200,11 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/BWK2ZoneLabel_146650504225",
-                                        "title": "Kaartlabel Biologische waarderingskaart-karteringseenheden",
+                                        "title": "Kaartlabels Biologische waarderingskaart - karteringseenheden",
                                         "enabled": false,
                                         "service": "inboitf",
                                         "layers": ["BWK2ZoneLabel"],
@@ -4166,26 +4216,11 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 18899
-                                    },
-                                    {
-                                        "id": "inboitf/BWK2Zone,BWK2ZoneLabel_434393047172",
-                                        "title": "Mengeling1",
-                                        "enabled": false,
-                                        "service": "inboitf",
-                                        "layers": ["BWK2Zone,BWK2ZoneLabel"],
-                                        "identifyConfigId": "inboitf_BWK2ZONE",
-                                        "props": {
-                                            "description": "Polygoon waarvoor een biologische waarde gegeven wordt, alsook een aanduiding van de vegetatiekundige eenheden of ecotopen, bodembedekking en gegevens over eventueel aanwezige kleine landschapselementen.",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/5D89DD1E-5C44-11DC-8314-0800200C9A66",
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=5D89DD1E-5C44-11DC-8314-0800200C9A66&fname=Fig_bwk2_metadata_1412322983189.jpg"
-                                        },
-                                        "keywords": "",
-                                        "minScale": 57142
+                                        "minScale": 40000
                                     },
                                     {
                                         "id": "inboitf/BWK2Hab_434709993375",
-                                        "title": "Biologische waarderingskaart 2 - Habitat",
+                                        "title": "Natura 2000 Habitatkaart",
                                         "enabled": false,
                                         "service": "inboitf",
                                         "layers": ["BWK2Hab"],
@@ -4197,11 +4232,11 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/BWK2HabLabel_1319016615999",
-                                        "title": "Kaartlabel Habitat",
+                                        "title": "Kaartlabels Natura 2000 Habitat",
                                         "enabled": false,
                                         "service": "inboitf",
                                         "layers": ["BWK2HabLabel"],
@@ -4213,22 +4248,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 18899
-                                    },
-                                    {
-                                        "id": "inboitf/BWK2Hab,BWK2HabLabel_85813690155",
-                                        "title": "Mengeling2",
-                                        "enabled": false,
-                                        "service": "inboitf",
-                                        "layers": ["BWK2Hab,BWK2HabLabel"],
-                                        "identifyConfigId": "inboitf_BWK2Hab",
-                                        "props": {
-                                            "description": "",
-                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/5D89DD1E-5C44-11DC-8314-0800200C9A66",
-                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=1acb23e7-09b0-4d92-a0a1-61e4c9ece79b&fname=Habitat_1418028515609.jpg"
-                                        },
-                                        "keywords": "",
-                                        "minScale": 57142
+                                        "minScale": 40000
                                     },
                                     {
                                         "id": "inboitf/BWK2Hab3260_588449306455",
@@ -4244,7 +4264,7 @@
                                         },
                                         "keywords": "",
                                         "__isDirty": true,
-                                        "minScale": 57142
+                                        "minScale": 75000
                                     },
                                     {
                                         "id": "inboitf/PNVeg_1318564803582",
@@ -4286,6 +4306,21 @@
                                 },
                                 "enabled": true,
                                 "children": [
+                                    {
+                                        "id": "vmmitf/Rovst_841004114097",
+                                        "title": "Meetnet riooloverstorten",
+                                        "enabled": false,
+                                        "service": "vmmitf",
+                                        "layers": ["Rovst"],
+                                        "identifyConfigId": "vmmitf_Rovst",
+                                        "props": {
+                                            "description": "In deze dataset zitten alle meetplaatsen riooloverstorten.",
+                                            "metadataUrl": "",
+                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=d61a6648-4aec-4d32-b92f-7acbcb5d0dc0&fname=Fig_metadata_1422274459831.jpg"
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true
+                                    },
                                     {
                                         "id": "vmmitfN/STRENG_374658780632",
                                         "title": "Rioleringsdatabank Vlaanderen - Streng",
@@ -4403,6 +4438,21 @@
                                             "description": "In deze dataset zitten alle actieve lozende meetputten.",
                                             "metadataUrl": "",
                                             "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=cffce103-21a8-4e1e-8472-55c1abe3436e&fname=Fig_metadata_1408697679262.jpg"
+                                        },
+                                        "keywords": "",
+                                        "__isDirty": true
+                                    },
+                                    {
+                                        "id": "vmmitf/Rovst_818960294072",
+                                        "title": "Meetnet riooloverstorten",
+                                        "enabled": false,
+                                        "service": "vmmitf",
+                                        "layers": ["Rovst"],
+                                        "identifyConfigId": "vmmitf_Rovst",
+                                        "props": {
+                                            "description": "In deze dataset zitten alle meetplaatsen riooloverstorten.",
+                                            "metadataUrl": "",
+                                            "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=d61a6648-4aec-4d32-b92f-7acbcb5d0dc0&fname=Fig_metadata_1422274459831.jpg"
                                         },
                                         "keywords": "",
                                         "__isDirty": true
@@ -5762,6 +5812,34 @@
                                             "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/ca4ff434-8a17-488a-8945-4f7b94494b35"
                                         },
                                         "identifyConfigId": ""
+                                    },
+                                    {
+                                        "id": "hhluch lden 2011 mercator/hh:hh_lucht_lden_2011_288063942901",
+                                        "title": "Geluidsbelasting luchtverkeer Lden 2011",
+                                        "enabled": false,
+                                        "service": "hhluch lden 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lden 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/28db7a8a-6161-4c8a-b311-a2a126845ee6",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
+                                    },
+                                    {
+                                        "id": "hhlucht lnight 2011 mercator/hh:hh_lucht_lnight_2011_289317668662",
+                                        "title": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                        "enabled": false,
+                                        "service": "hhlucht lnight 2011 mercator",
+                                        "layers": ["*"],
+                                        "identifyConfigId": "",
+                                        "props": {
+                                            "description": "Geluidsbelasting luchtverkeer Lnight 2011",
+                                            "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/46a5b396-8769-4b28-8d2f-ccd1394becae",
+                                            "imgUrl": ""
+                                        },
+                                        "keywords": ""
                                     }
                                 ]
                             }
@@ -5823,15 +5901,6 @@
         },
         "enabled": true
     },
-    "coordinateviewer": {
-        "CoordinateViewer": {
-            "transformSrs": true,
-            "targetSrs": "EPSG:4326",
-            "degreeFormat": true,
-            "decimalPlaces": 3
-        },
-        "enabled": true
-    },
     "coordinateviewer_agiv": {
         "CoordinateViewerFactory": {
             "transformSrs": true,
@@ -5883,17 +5952,8 @@
         },
         "enabled": true
     },
-    "custominfo": {
-        "enabled": true
-    },
     "dataform": {
         "enabled": true
-    },
-    "disclaimer": {
-        "enabled": false
-    },
-    "editingtoolset": {
-        "enabled": {}
     },
     "elevation": {
         "ElevationStore": {
@@ -6446,7 +6506,7 @@
     },
     "geolocator": {
         "GeolocatorHandler": {
-            "useNavteqFallback": false,
+            "componentEnabled": true,
             "geolocatorSuggestQueryOptions": {
                 "count": 5
             },
@@ -6466,7 +6526,7 @@
                 "wkid": 4326,
                 "timeout": 15000
             },
-            "componentEnabled": true
+            "useNavteqFallback": true
         },
         "GeolocatorUrlProvider": {
             "suggestUrl": "http://loc.geopunt.be/geolocation/suggestion",
@@ -6514,55 +6574,16 @@
     "geopunt": {
         "enabled": true
     },
-    "gipod": {
-        "enabled": true
-    },
     "help": {
         "HelpHandler": {
             "helpUrl": "http://www.geopunt.be/over-geopunt/hoe-geopunt-gebruiken"
         },
         "enabled": true
     },
-    "historicmaps": {
-        "MapModelFactory": {
-            "_configData": {
-                "maps": [
-                    {
-                        "glass_pane": [],
-                        "operationalLayer": [],
-                        "baseLayer": [
-                            {
-                                "enabled": false,
-                                "layers": ["normal.day.grey"],
-                                "service": "navteq"
-                            },
-                            {
-                                "enabled": true,
-                                "layers": ["*"],
-                                "service": "agiv_ferraris"
-                            },
-                            {
-                                "enabled": false,
-                                "layers": ["*"],
-                                "service": "agiv_popp"
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        "enabled": {}
-    },
-    "i18n": {
-        "enabled": true
-    },
     "infoviewer": {
         "enabled": true
     },
     "jasperprinting": {
-        "enabled": true
-    },
-    "json2": {
         "enabled": true
     },
     "jstorage": {
@@ -6573,14 +6594,6 @@
     },
     "kmltogeojson": {
         "enabled": true
-    },
-    "languagetoggler": {
-        "LanguageToggler": {
-            "languageNames": {
-                "en": "English",
-                "nl": "Dutch"
-            }
-        }
     },
     "legend_agiv": {
         "LegendUI": {
@@ -6601,8 +6614,33 @@
                     "type": "pdf"
                 },
                 {
-                    "id": "hybride",
-                    "legendURL": "http://www.geopunt.be/~/media/Geopunt/Over%20Geopunt/documenten/Legende_GRB.pdf",
+                    "id": "hh_weg_lden_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_wegverkeer_lden_2011.pdf",
+                    "type": "pdf"
+                },
+                {
+                    "id": "hh_weg_lnight_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_wegverkeer_lnight_2011.pdf",
+                    "type": "pdf"
+                },
+                {
+                    "id": "hh_spoor_lden_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_spoorverkeer_lden_2011.pdf",
+                    "type": "pdf"
+                },
+                {
+                    "id": "hh_spoor_lnight_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_spoorverkeer_lnight_2011.pdf",
+                    "type": "pdf"
+                },
+                {
+                    "id": "hh:hh_lucht_lden_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_luchtverkeer_lden_2011.pdf",
+                    "type": "pdf"
+                },
+                {
+                    "id": "hh:hh_lucht_lnight_2011",
+                    "legendURL": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/legende_geluidsbelasting_luchtverkeer_lnight_2011.pdf",
                     "type": "pdf"
                 }
             ]
@@ -6614,12 +6652,6 @@
             "dataLink": "http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/vereisten%20voor%20het%20laden%20en%20een%20correcte%20weergave%20van%20je%20data.pdf"
         },
         "enabled": true
-    },
-    "locateme": {
-        "enabled": {}
-    },
-    "magnifier": {
-        "enabled": false
     },
     "map": {
         "DrawStateController": {
@@ -6741,7 +6773,7 @@
                                 },
                                 "title": "Luchtfoto",
                                 "description": "Selecteer luchtfoto als achtergrondlaag",
-                                "service": "ortho",
+                                "service": "ortho014",
                                 "children": []
                             },
                             {
@@ -6760,7 +6792,7 @@
                                     {
                                         "id": "basemap2_1",
                                         "layers": ["*"],
-                                        "service": "ortho"
+                                        "service": "ortho014"
                                     }
                                 ]
                             },
@@ -6944,13 +6976,6 @@
     "navteqrouting": {
         "enabled": true
     },
-    "notifier": {
-        "NotifierFactory": {
-            "fadeTime": 2500,
-            "showGlueNode": false
-        },
-        "enabled": true
-    },
     "overviewmap": {
         "OverviewMap": {
             "overviewMapOpts": {
@@ -6971,36 +6996,15 @@
     "parametermanager": {
         "enabled": true
     },
-    "parcelselection": {
-        "enabled": true
-    },
-    "patches_coordinateviewer": {
-        "enabled": true
-    },
     "patches_main": {
         "enabled": true
     },
     "patches_measurement": {
         "enabled": true
     },
-    "patches_menu": {
-        "enabled": true
-    },
-    "patches_overviewmap": {
-        "enabled": true
-    },
-    "patches_resultcenter": {
-        "enabled": true
-    },
-    "patches_toolsetwindow": {
-        "enabled": true
-    },
-    "patches_typeformat": {
-        "enabled": true
-    },
     "poi": {
         "POIServerStoreLayerRegistration": {
-            "maxcount": 200,
+            "maxcount": 32,
             "clusterLookupTable": {
                 "point-cluster": {
                     "text": "TEXT",
@@ -7022,20 +7026,10 @@
                 "lookupTable": {
                     "point-selected": {
                         "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            255
-                        ],
+                        "color": [0, 0, 255, 255],
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
+                            "color": [0, 0, 0, 255],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -7047,12 +7041,7 @@
                         "color": "colorPlaceholder",
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                160
-                            ],
+                            "color": [0, 0, 0, 160],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -7061,20 +7050,10 @@
                     },
                     "point-selected-cluster": {
                         "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            255
-                        ],
+                        "color": [0, 0, 255, 255],
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
+                            "color": [0, 0, 0, 255],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -7086,12 +7065,7 @@
                         "color": "colorPlaceholder",
                         "outline": {
                             "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                160
-                            ],
+                            "color": [0, 0, 0, 160],
                             "width": 1,
                             "type": "esriSLS"
                         },
@@ -7100,114 +7074,24 @@
                     }
                 },
                 "colorArray": [
-                    [
-                        255,
-                        0,
-                        0,
-                        255
-                    ],
-                    [
-                        255,
-                        153,
-                        0,
-                        255
-                    ],
-                    [
-                        255,
-                        255,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        255,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        255,
-                        255,
-                        255
-                    ],
-                    [
-                        204,
-                        0,
-                        255,
-                        255
-                    ],
-                    [
-                        255,
-                        97,
-                        97,
-                        255
-                    ],
-                    [
-                        255,
-                        189,
-                        91,
-                        255
-                    ],
-                    [
-                        255,
-                        255,
-                        153,
-                        255
-                    ],
-                    [
-                        204,
-                        255,
-                        153,
-                        255
-                    ],
-                    [
-                        102,
-                        204,
-                        255,
-                        255
-                    ],
-                    [
-                        204,
-                        153,
-                        255,
-                        255
-                    ],
-                    [
-                        200,
-                        0,
-                        0,
-                        255
-                    ],
-                    [
-                        210,
-                        125,
-                        0,
-                        255
-                    ],
-                    [
-                        229,
-                        229,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        153,
-                        0,
-                        255
-                    ],
-                    [
-                        0,
-                        0,
-                        255,
-                        255
-                    ],
-                    [
-                        102,
-                        0,
-                        204,
-                        255
-                    ]
+                    [255, 0, 0, 255],
+                    [255, 153, 0, 255],
+                    [255, 255, 0, 255],
+                    [0, 255, 0, 255],
+                    [0, 255, 255, 255],
+                    [204, 0, 255, 255],
+                    [255, 97, 97, 255],
+                    [255, 189, 91, 255],
+                    [255, 255, 153, 255],
+                    [204, 255, 153, 255],
+                    [102, 204, 255, 255],
+                    [204, 153, 255, 255],
+                    [200, 0, 0, 255],
+                    [210, 125, 0, 255],
+                    [229, 229, 0, 255],
+                    [0, 153, 0, 255],
+                    [0, 0, 255, 255],
+                    [102, 0, 204, 255]
                 ],
                 "generalizationScale": 1000000
             },
@@ -7221,12 +7105,9 @@
             },
             "storeParameters": {
                 "minQueryLength": 2,
-                "target": "http://aocsrv337:8283/poi/core"
+                "target": "http://a8da9008116d4b0b8ee34d6b6e1f21db.cloudapp.net/v1/core"
             }
         },
-        "enabled": true
-    },
-    "qrcode": {
         "enabled": true
     },
     "redlining": {
@@ -7320,166 +7201,9 @@
     "redlining_agiv": {
         "enabled": true
     },
-    "remotechannels": {
-        "enabled": true
-    },
-    "resultcenter": {
-        "ActionController": {
-            "zoomToClicked": false,
-            "zoomToFeatures": false,
-            "centerSelected": true,
-            "zoomToSelected": false,
-            "centerClicked": false,
-            "zoomAfterDeletion": false
-        },
-        "ContentViewerCommand": {
-            "componentEnabled": false
-        },
-        "DataView": {
-            "showFilter": false,
-            "DGRID": {
-                "selectionMode": "extended",
-                "columns": [
-                    {
-                        "title": "ID",
-                        "matches": {
-                            "name": "id"
-                        },
-                        "width": 50
-                    },
-                    {
-                        "title": "Naam",
-                        "matches": {
-                            "name": "primaryLabel"
-                        },
-                        "width": 300
-                    },
-                    {
-                        "title": "Adres",
-                        "matches": {
-                            "name": "address"
-                        }
-                    }
-                ],
-                "checkboxSelection": false
-            },
-            "showPager": true,
-            "filterDuringKeyUp": true,
-            "itemsPerPage": 10,
-            "showViewButtons": false
-        },
-        "DataViewToolbar": {
-            "componentEnabled": false
-        },
-        "FeatureMapVisualizer": {
-            "componentEnabled": false
-        },
-        "GraphicResolverFactory": {
-            "_defaultSymbolLookup": {
-                "_defaultLookupAttributeName": "type",
-                "_defaultLookupTable": {
-                    "POI-selected": {
-                        "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            128
-                        ],
-                        "outline": {
-                            "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
-                            "width": 3,
-                            "type": " esriSLS"
-                        },
-                        "type": "esriSMS",
-                        "size": 12
-                    },
-                    "point": {
-                        "style": "esriSMSCircle",
-                        "color": [
-                            0,
-                            0,
-                            255,
-                            128
-                        ],
-                        "outline": {
-                            "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
-                            "width": 1,
-                            "type": " esriSLS"
-                        },
-                        "type": "esriSMS",
-                        "size": 12
-                    },
-                    "POI-highlighted": {
-                        "style": "esriSMSCircle",
-                        "color": [
-                            255,
-                            215,
-                            0,
-                            100
-                        ],
-                        "outline": {
-                            "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
-                            "width": 1,
-                            "type": " esriSLS"
-                        },
-                        "type": "esriSMS",
-                        "size": 12
-                    },
-                    "POI-selected-highlighted": {
-                        "style": "esriSMSCircle",
-                        "color": [
-                            255,
-                            215,
-                            0,
-                            100
-                        ],
-                        "outline": {
-                            "style": "esriSLSSolid",
-                            "color": [
-                                0,
-                                0,
-                                0,
-                                255
-                            ],
-                            "width": 3,
-                            "type": " esriSLS"
-                        },
-                        "type": "esriSMS",
-                        "size": 12
-                    }
-                }
-            }
-        },
-        "TriggerShowResultCenterCommand": {
-            "autoOpen": true
-        },
-        "enabled": true
-    },
-    "resultcenterintegration": {
-        "enabled": true
-    },
     "routing": {
         "SearchHandler": {
-            "useNavteqFallback": false,
+            "componentEnabled": true,
             "geolocatorSuggestQueryOptions": {
                 "count": 5
             },
@@ -7501,11 +7225,8 @@
                 "searchType": "locationUrl",
                 "timeout": 15000
             },
-            "componentEnabled": true
+            "useNavteqFallback": true
         },
-        "enabled": true
-    },
-    "scaleadaptor": {
         "enabled": true
     },
     "scalebar": {
@@ -7514,34 +7235,7 @@
     "scaleviewer": {
         "enabled": true
     },
-    "sdi_loadservice": {
-        "AddServiceTool": {
-            "tooltip": "Voeg nieuwe laag toe"
-        },
-        "enabled": true
-    },
     "search": {
-        "enabled": true
-    },
-    "selection": {
-        "SelectionAction": {
-            "componentEnabled": false
-        },
-        "SelectionTool": [
-            {
-                "id": "selectPPR",
-                "title": "${tool.ppr}",
-                "iconClass": "selectionIconExtent",
-                "geoType": "Point",
-                "storeId": "PPR",
-                "rules": {
-                    "scaleRange": {
-                        "min": 50000,
-                        "max": 1
-                    }
-                }
-            }
-        ],
         "enabled": true
     },
     "sharemap": {
@@ -7576,16 +7270,6 @@
         "bundle": {
             "ActivityMonitor": {
                 "componentEnabled": false
-            }
-        }
-    },
-    "tableofcontents": {
-        "MANIFEST": {
-            "Bundle-AutoStartPolicy": "yes"
-        },
-        "TableOfContent": {
-            "treeOpts": {
-                "showRoot": false
             }
         }
     },
@@ -7644,13 +7328,7 @@
                         "rel_t": 7
                     },
                     "title": "Toolbar_Top_Right",
-                    "tools": [
-                        "help",
-                        "basicPrintTool",
-                        "share_tools",
-                        "overviewmap",
-                        "maximizeViewerTool"
-                    ],
+                    "tools": ["help", "basicPrintTool", "share_tools", "overviewmap", "maximizeViewerTool"],
                     "container": "toolWrapperHeader",
                     "cssClass": "fixedNoTitle notitle top"
                 },
@@ -7674,11 +7352,7 @@
                     },
                     "id": "toolset_0",
                     "windowType": "dropdown",
-                    "tools": [
-                        "measurementtool",
-                        "redlining_tools",
-                        "elevationToggleTool"
-                    ],
+                    "tools": ["measurementtool", "redlining_tools", "elevationToggleTool"],
                     "title": "Tools",
                     "container": "toolWrapperFooterLeft",
                     "cssClass": "ctToolBubblePopUp roundToolDropDownButton"
@@ -7686,14 +7360,7 @@
                 {
                     "id": "share_tools",
                     "title": "share",
-                    "tools": [
-                        "shareMailTool",
-                        "shareFacebookTool",
-                        "shareGooglePlusTool",
-                        "shareTwitterTool",
-                        "shareUrlTool",
-                        "shareMinimapTool"
-                    ],
+                    "tools": ["shareMailTool", "shareFacebookTool", "shareGooglePlusTool", "shareTwitterTool", "shareUrlTool", "shareMinimapTool"],
                     "container": "ignore",
                     "windowType": "dropdown",
                     "cssClass": "ctToolBubblePopUp",
@@ -7711,27 +7378,7 @@
                         "closable": true,
                         "minimizeOnClose": true
                     },
-                    "tools": [
-                        "drawpointtool",
-                        "drawlinetool",
-                        "drawpolylinetool",
-                        "drawfreehandpolylinetool",
-                        "drawrectangletool",
-                        "drawpolygontool",
-                        "drawfreehandpolygontool",
-                        "drawcircletool",
-                        "drawellipsetool",
-                        "drawtriangletool",
-                        "drawTextTool",
-                        "drawSymbolTool",
-                        "redliningSymbolPropertiesTool",
-                        "stylePropertiesTool",
-                        "deleteGraphicEditTool",
-                        "moveScaleRotateEditTool",
-                        "verticesEditTool",
-                        "drawerasealltool",
-                        "closeWindowTool"
-                    ],
+                    "tools": ["drawpointtool", "drawlinetool", "drawpolylinetool", "drawfreehandpolylinetool", "drawrectangletool", "drawpolygontool", "drawfreehandpolygontool", "drawcircletool", "drawellipsetool", "drawtriangletool", "drawTextTool", "drawSymbolTool", "redliningSymbolPropertiesTool", "stylePropertiesTool", "deleteGraphicEditTool", "moveScaleRotateEditTool", "verticesEditTool", "drawerasealltool", "closeWindowTool"],
                     "container": "map",
                     "position": {
                         "rel_t": 40,
@@ -7739,10 +7386,7 @@
                     },
                     "max_horizontal": 10,
                     "registerTool": {
-                        "groups": [
-                            "redlining_tools",
-                            "bottom_windows"
-                        ]
+                        "groups": ["redlining_tools", "bottom_windows"]
                     }
                 }
             ]
@@ -7752,19 +7396,10 @@
     "toolwrapper": {
         "enabled": true
     },
-    "transparency": {
-        "enabled": {}
-    },
     "undoredo_agiv": {
         "enabled": true
     },
     "version": {
-        "enabled": true
-    },
-    "windowmanager": {
-        "enabled": true
-    },
-    "wizard": {
         "enabled": true
     }
 }}

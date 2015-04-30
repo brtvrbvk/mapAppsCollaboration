@@ -24,31 +24,7 @@ define([
         "dojo/text!./templates/ContentPanelUI.html",
         "dijit/TitlePane"
     ],
-    function (
-        declare,
-        d_array,
-        d_html,
-        d_domClass,
-        d_basefx,
-        d_fx,
-        d_fxstyle,
-        d_fxeasing,
-        d_sniff,
-        Tooltip,
-        _WidgetBase,
-        _TemplatedMixin,
-        _WidgetsInTemplateMixin,
-        _Connect,
-        ct_async,
-        ct_css,
-        DrillDownTree,
-        LayerManagerWidget,
-        LayerManagerController,
-        DescriptionWidget,
-        ContentPane,
-        TabContainer,
-        templateStringContent
-        ) {
+    function (declare, d_array, d_html, d_domClass, d_basefx, d_fx, d_fxstyle, d_fxeasing, d_sniff, Tooltip, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _Connect, ct_async, ct_css, DrillDownTree, LayerManagerWidget, LayerManagerController, DescriptionWidget, ContentPane, TabContainer, templateStringContent) {
         /*
          * COPYRIGHT 2011 con terra GmbH Germany
          */
@@ -74,6 +50,7 @@ define([
                 CONTENT_MODEL_LAYER_ADD: "contentModelLayerAdd",
                 CONTENT_MODEL_LAYER_ADD_SILENT: "contentModelLayerAddSilent",
                 CONTENT_MODEL_LAYER_REMOVE: "contentModelLayerRemove",
+                CONTENT_MODEL_LAYER_LOAD: "contentModelLayerLoad",
                 LAYER_REMOVE: "layerRemove",
                 ALL_LAYERS_REMOVE: "allLayersRemove",
 
@@ -156,7 +133,8 @@ define([
                 },
 
                 _onModelStructureChanged: function (evt) {
-                    if (evt.action === this.CONTENT_MODEL_LAYER_ADD || evt.action === this.CONTENT_MODEL_LAYER_ADD_SILENT) {
+                    //change to mijn selecties tab only when layers are added over loadservice bundle
+                    if (evt.dynamicAdd) {
                         if (this.openWindowOnNewData) {
                             this._expandSelectionPanel();
                         }
@@ -218,9 +196,7 @@ define([
 
                 },
 
-                _handleOnClick: function (
-                    item
-                    ) {
+                _handleOnClick: function (item) {
                     var cmc = this.contentModelController;
 
                     if (item.type === "app") {
@@ -258,13 +234,25 @@ define([
                     this.poiLayersNode.set("content", this.layermanagerWidget);
                     this.nonpoiLayersNode.set("content", this.featurelayermanagerWidget);
 
+                    if (this._lmc) {
+                        this._lmc._onHide();
+                    }
+
+                    this._listeners.connect("tabcontainer", this.tabContainer, "selectChild", this, function (selectedChild) {
+                        if (selectedChild.id === this.layermanagerNode.id) {
+                            this._lmc._onShow();
+                        } else {
+                            this._lmc._onHide();
+                        }
+                    });
+
                 },
 
-                _setupOverlayToolbar: function() {
+                _setupOverlayToolbar: function () {
                     var contentPane = new ContentPane({
                         content: this.overlayToolbar,
                         region: "bottom",
-                       "class": "toolbarPane"
+                        "class": "toolbarPane"
                     });
                     this.treeBorderContainer.addChild(contentPane);
                 },
@@ -292,11 +280,15 @@ define([
                 },
 
                 _expandSelectionPanel: function () {
-                    if (!this.combicontentmanagerTool.get("active")) {
-                        this.combicontentmanagerTool.set("active", true);
-                    }
-                    if (!this.layermanagerNode.get("open")) {
-                        this.layermanagerNode.set("open", true);
+                    if (this.tabContainer && this.tabContainer.selectChild && this.tabContainer.getChildren().length === 2) {
+                        this.tabContainer.selectChild(this.tabContainer.getChildren()[1]);
+                    } else {
+                        if (!this.combicontentmanagerTool.get("active")) {
+                            this.combicontentmanagerTool.set("active", true);
+                        }
+                        if (!this.layermanagerNode.get("open")) {
+                            this.layermanagerNode.set("open", true);
+                        }
                     }
                 },
 

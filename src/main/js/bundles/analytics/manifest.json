@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "analytics",
-    "Bundle-Version": "5.0.0-SNAPSHOT",
+    "Bundle-Version": "5.0.4",
 
     "Bundle-Name": "analytics",
     "Bundle-Description": "Google Analytics",

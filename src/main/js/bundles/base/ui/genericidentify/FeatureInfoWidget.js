@@ -27,31 +27,7 @@ define([
         "dijit/layout/BorderContainer",
         "ct/ui/controls/MessagePane"
     ],
-    function (
-        declare,
-        d_array,
-        d_lang,
-        d_string,
-        d_html,
-        Deferred,
-        domGeom,
-        d_class,
-        domConstruct,
-        ct_lang,
-        ct_when,
-        ct_request,
-        ct_array,
-        css,
-        FourAnchorsPlacementStrategy,
-        _WidgetBase,
-        _TemplatedMixin,
-        _WidgetsInTemplateMixin,
-        BorderContainer,
-        ContentPane,
-        Button,
-        Connect,
-        templateStringContent
-        ) {
+    function (declare, d_array, d_lang, d_string, d_html, Deferred, domGeom, d_class, domConstruct, ct_lang, ct_when, ct_request, ct_array, css, FourAnchorsPlacementStrategy, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, BorderContainer, ContentPane, Button, Connect, templateStringContent) {
         /*
          * COPYRIGHT 2012 con terra GmbH Germany
          */
@@ -134,7 +110,9 @@ define([
                     if (!item.title && item.FormattedAddress) {
                         item.title = item.FormattedAddress;
                     }
-                    this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
+                    if (this.addressNode) {
+                        this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
+                    }
                     if (this.i18n.moreInformation && item.municipality) {
                         var name = d_string.substitute(this.i18n.moreInformation, {
                             name: item.municipality
@@ -184,10 +162,7 @@ define([
                     });
                 },
 
-                _showMessage: function (
-                    type,
-                    message
-                    ) {
+                _showMessage: function (type, message) {
                     this._hideMessage();
                     this._switchButtonNode(true);
                     this.messagePane.addMessage({
@@ -198,6 +173,9 @@ define([
                 },
 
                 _hideMessage: function () {
+                    if (!this.messagePane) {
+                        return;
+                    }
                     if (this.messagePane.messages.length > 0) {
                         this.messagePane.clearMessages();
                     }

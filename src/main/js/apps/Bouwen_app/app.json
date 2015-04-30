@@ -3,94 +3,95 @@
         "bundle"
     ],
     "allowedBundles": [
-        "agivthemes@5.0.0-SNAPSHOT",
-        "agivtemplates@5.0.0-SNAPSHOT",
-        "analytics@5.0.0-SNAPSHOT",
-        "appinsight@5.0.0-SNAPSHOT",
-        "appswitcher@5.0.0-SNAPSHOT",
+        "agivthemes@5.0.x",
+        "agivtemplates@5.0.x",
+        "analytics@5.0.x",
+        "appinsight@5.0.x",
+        "appswitcher@5.0.x",
         "appsstore@3.1.x",
 
-        "base@5.0.0-SNAPSHOT",
-        "basemapswitcher@5.0.0-SNAPSHOT",
-        "browsercheck@5.0.0-SNAPSHOT",
+        "base@5.0.x",
+        "basemapswitcher@5.0.x",
+        "browsercheck@5.0.x",
 
-        "capakeysearch@5.0.0-SNAPSHOT",
-//        "combicontentmanager@5.0.0-SNAPSHOT",
-        "coordinateparser@5.0.0-SNAPSHOT",
-        "coordinateviewer_agiv@5.0.0-SNAPSHOT",
-        "copyright@5.0.0-SNAPSHOT",
+        "capakeysearch@5.0.x",
+//        "combicontentmanager@5.0.x",
+        "coordinateparser@5.0.x",
+        "coordinateviewer_agiv@5.0.x",
+        "copyright@5.0.x",
         "console@3.1.x",
         "coordinatetransformer@3.1.x",
         "contentviewer@3.1.x",
 
         "dataform@3.1.x",
-        "devicecheck@5.0.0-SNAPSHOT",
+        "devicecheck@5.0.x",
 
-        "elevation@5.0.0-SNAPSHOT",
-        "extrainfo@5.0.0-SNAPSHOT",
+        "elevation@5.0.x",
+        "extrainfo@5.0.x",
 
-        "genericidentify@5.0.0-SNAPSHOT",
-        "geolocator@5.0.0-SNAPSHOT",
-        "geolocatorparcels@5.0.0-SNAPSHOT",
-        "geopunt@5.0.0-SNAPSHOT",
+        "genericidentify@5.0.x",
+        "geolocator@5.0.x",
+        "geolocatorparcels@5.0.x",
+        "geopunt@5.0.x",
         "geojson@3.1.x",
-        "geojsonservicetype@5.0.0-SNAPSHOT",
+        "geojsonservicetype@5.0.x",
 
-        "help@5.0.0-SNAPSHOT",
+        "help@5.0.x",
 
         "infoviewer@3.1.x",
-        "i18nmappings@5.0.0-SNAPSHOT",
+        "i18nmappings@5.0.x",
 
-        "jasperprinting@5.0.0-SNAPSHOT",
-        "jstorage@5.0.0-SNAPSHOT",
+        "jasperprinting@5.0.x",
+        "jstorage@5.0.x",
         //        "json2",
 
-        "kml@5.0.0-SNAPSHOT",
-        "kmltogeojson@5.0.0-SNAPSHOT",
+        "kml@5.0.x",
+        "kmltogeojson@5.0.x",
 
-        "legend_agiv@5.0.0-SNAPSHOT",
-        "loadservice@5.0.0-SNAPSHOT",
+        "legend_agiv@5.0.x",
+        "loadservice@5.0.x",
 
         "map@3.1.x",
 //        "mobileview_agiv",
 
-        "navteq@5.0.0-SNAPSHOT",
-        "navteqrouting@5.0.0-SNAPSHOT",
+        "navteq@5.0.x",
+        "navteqrouting@5.0.x",
 
-        "overviewmap@3.1.x","overviewmap_agiv@5.0.0-SNAPSHOT",
+        "overviewmap@3.1.x","overviewmap_agiv@5.0.x",
 
-        "poi@5.0.0-SNAPSHOT",
+        "poi@5.0.x",
         "parametermanager@3.1.x",
-        "patches_main@5.0.0-SNAPSHOT",
-        "patches-measurement@5.0.0-SNAPSHOT",
+        "patches_main@5.0.x",
+        "patches_measurement@5.0.x",
 
-        "redlining_agiv@5.0.0-SNAPSHOT",
+        "redlining_agiv@5.0.x",
         "redlining@3.1.x",
-        "routing@5.0.0-SNAPSHOT",
+        "routing@5.0.x",
 
-        "scaleviewer@5.0.0-SNAPSHOT",
-        "search@5.0.0-SNAPSHOT",
-        "sharemap@5.0.0-SNAPSHOT",
+        "scaleviewer@5.0.x",
+        "search@5.0.x",
+        "sharemap@5.0.x",
         "splashscreen@3.1.x",
         "scalebar@3.1.x",
         "system@3.1.x",
-        "startup@5.0.0-SNAPSHOT",
-        "startupmessagebox@5.0.0-SNAPSHOT",
-        "statestoring@5.0.0-SNAPSHOT",
+        "startup@5.0.x",
+        "startupmessagebox@5.0.x",
+        "statestoring@5.0.x",
 
-        "toolwrapper@5.0.0-SNAPSHOT",
-        "toextent@5.0.0-SNAPSHOT",
-        "toolruleprocessors@5.0.0-SNAPSHOT",
+        "toolwrapper@5.0.x",
+        "toextent@5.0.x",
+        "toolruleprocessors@5.0.x",
+        "typeformat@5.0.x",
         "templates@3.1.x",
         "templatelayout@3.1.x",
         "themes@3.1.x",
         "toolrules@3.1.x",
         "toolset@3.1.x",
-        "themainfo@5.0.0-SNAPSHOT",
+        "themainfo@5.0.x",
 
-        "undoredo_agiv@5.0.0-SNAPSHOT",
+        "undoredo_agiv@5.0.x",
 
-        "version@5.0.0-SNAPSHOT"
+        "version@5.0.x"
     ],
     "skipBundles": [
         "splitviewmap"
@@ -2089,7 +2090,7 @@
                         "rel_t": 40,
                         "rel_l": 40
                     },
-                    "max_horizontal": 8,
+                    "max_horizontal": 10,
                     "registerTool": {
                         "groups": [
                             "redlining_tools",

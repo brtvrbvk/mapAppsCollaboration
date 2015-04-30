@@ -4,12 +4,7 @@ define([
         "dojo/_base/array",
         "dojo/query"
     ],
-    function (
-        d_lang,
-        d_kernel,
-        d_array,
-        query
-        ) {
+    function (d_lang, d_kernel, d_array, query) {
         /*
          * COPYRIGHT 2011-2012 con terra GmbH Germany
          */
@@ -25,10 +20,7 @@ define([
          * Compatible to IE8,9,FF4+, Chrome
          * @return String
          */
-        exports.getTagValue = function (
-            path,
-            root
-            ) {
+        exports.getTagValue = function (path, root) {
             var res;
             if ((d_kernel.isIE || d_kernel.isFF) && path.split(">").length > 1) {
                 var tagPaths = path.split(">"),
@@ -53,10 +45,7 @@ define([
             return null;
         };
 
-        exports.getAttributeValue = function (
-            node,
-            attr
-            ) {
+        exports.getAttributeValue = function (node, attr) {
             var attrs = node.attributes;
             if (!attrs) {
                 return null;
@@ -81,13 +70,18 @@ define([
         };
 
         exports.getTextContent = function (node) {
-            return node.text ? node.text : node.textContent;
+            if (node.text !== undefined) {
+                if (node.text.length > 0) {
+                    return node.text;
+                } else {
+                    return " ";
+                }
+            } else {
+                return node.textContent;
+            }
         };
 
-        var _getTags = function (
-            paths,
-            roots
-            ) {
+        var _getTags = function (paths, roots) {
             var results;
             //iterate over paths and query
             d_array.forEach(paths, function (tagpath) {
@@ -126,10 +120,7 @@ define([
          * Compatible to IE8,9,FF4+, Chrome
          * @return [Element]
          */
-        exports.getTags = function (
-            path,
-            root
-            ) {
+        exports.getTags = function (path, root) {
             if ((d_kernel.isIE < 9) && path.split(">").length > 1) {
                 var tagPaths = path.split(">"),
                     roots = [root];
@@ -139,10 +130,7 @@ define([
             }
         };
 
-        exports.getFirstTag = function (
-            path,
-            root
-            ) {
+        exports.getFirstTag = function (path, root) {
             return exports.getTags(path, root)[0];
         };
 
@@ -151,10 +139,7 @@ define([
          * Compatible to IE8,9,FF4+, Chrome
          * @return [String]
          */
-        exports.getTagValues = function (
-            path,
-            root
-            ) {
+        exports.getTagValues = function (path, root) {
             //only chrome currently evaluates the paths correctly
             var res;
             if ((d_kernel.isIE || d_kernel.isFF) && path.split(">").length > 1) {
@@ -183,10 +168,7 @@ define([
          * Compatible to IE8,9,FF4+, Chrome
          * @return Element
          */
-        exports.getFirstTagValue = function (
-            path,
-            root
-            ) {
+        exports.getFirstTagValue = function (path, root) {
             var t = exports.getTagValues(path, root);
             return t ? t[0] : null;
         };
