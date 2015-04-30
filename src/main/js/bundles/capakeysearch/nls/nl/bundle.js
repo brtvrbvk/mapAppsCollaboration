@@ -23,7 +23,8 @@ define(
                 capakey: "CaPaKey",
                 address: "Adres",
                 show: "Toon op kaart",
-                nis: "NIS-codes"
+                nis: "NIS-codes",
+                noResultMessage: "Er is voor dit perceel geen adres gekend in het Centraal Referentieadressenbestand (CRAB)."
             },
             tool: {
                 "title": "Zoeken via perceelnummer",
