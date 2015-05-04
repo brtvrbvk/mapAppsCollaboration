@@ -24,6 +24,7 @@ define(
                 address: "Adres",
                 show: "Toon op kaart",
                 nis: "NIS-codes",
+//BartVerbeeck Bugxxx 20150503                
                 noResultMessage: "Er is voor dit perceel geen adres gekend in het Centraal Referentieadressenbestand (CRAB)."
             },
             tool: {

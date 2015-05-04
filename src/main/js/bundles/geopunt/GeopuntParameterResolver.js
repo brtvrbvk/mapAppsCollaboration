@@ -97,7 +97,7 @@ define([
                                 type,
                                 "");
                             d_array.forEach(layers, function (l) {
-
+//BartVerbeeck Bug29973 20150503
                                 //delete l.title;
 
                                 var newLayerId = url + "_" + l.id + "_" + new Date().getTime();

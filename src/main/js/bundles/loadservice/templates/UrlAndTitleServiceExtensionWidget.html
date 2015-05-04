@@ -1,3 +1,4 @@
+<!-- BartVerbeeck  Bug29970 20150503 Title velden ook eventgevoelig gemaakt-->
 <div>
     <div data-dojo-type="dijit/layout/BorderContainer"
          data-dojo-props="gutters:false, design:'headline', 'class':'mainBorderContainer geoJsonContainer', 'style':'height:100px'"
@@ -18,7 +19,9 @@
              data-dojo-props="region:'center', gutters:false, 'style':'height:30px !important'">
                <span data-dojo-attach-point="textBoxTitle"
                       data-dojo-type="dijit/form/TextBox"
-                      data-dojo-props="placeHolder: '${i18n.ui.titleTextBoxPlaceholder}','class':'ctLoadServiceTextBox ctLoadServiceTitle'"></span>
+                      data-dojo-props="placeHolder: '${i18n.ui.titleTextBoxPlaceholder}','class':'ctLoadServiceTextBox ctLoadServiceTitle'"
+                      data-dojo-attach-event="onKeyUp:_onTextBoxKeyUp,onKeyPress:_onTextBoxKeyUp,onChange:_onValueChange">
+                      ></span>
                <span data-dojo-type="dijit/form/Button"
                      data-dojo-attach-point="submitSearch"
                      data-dojo-props="label:'${i18n.ui.buttons.search}'"

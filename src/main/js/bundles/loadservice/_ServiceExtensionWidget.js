@@ -28,7 +28,9 @@ define([
                 _updateButtonStates: function () {
                     ct_css.switchVisibility(this.clearSearch.domNode, true);
                     var val = this.textBox.get("value");
-                    if (val.length > 0) {
+// BartVerbeeck  Bug29970 20150503 Title velden ook eventgevoelig gemaakt                    
+                    var val2 = (this.textBoxTitle)?this.textBoxTitle.get("value"):"0";
+                    if (val.length > 0 && val2.length > 0) {
                         this.submitSearch.set("disabled", false);
                     } else {
                         this.submitSearch.set("disabled", true);
