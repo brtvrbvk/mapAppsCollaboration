@@ -17,6 +17,65 @@
 
     ],
     "Components": [
+        
+        /*
+         * WIDGET CONTROLLER
+         */
+        {
+            "name": "CoordinateWidgetController",
+            "provides": [
+                "search.CoordinateWidgetController",
+                "ct.framework.api.EventHandler"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "searchDelay": 300,
+                "removeResultsOnClear": false,
+                "Event-Topics": [
+                    {
+                        "topic": "agiv/search/handler/START",
+                        "method": "_addHandlerWorker"
+                    },
+                    {
+                        "topic": "agiv/search/handler/COMPLETE",
+                        "method": "_removeHandlerWorker"
+                    },
+                    {
+                        "topic": "agiv/search/result/SELECTED_RESULT",
+                        "method": "_handleResultSelection"
+                    },
+                    {
+                        "topic": "agiv/search/VALUE_CHANGE",
+                        "method": "_handleNewSearch"
+                    },
+                    {
+                        "topic": "agiv/search/result/CLOSE_WINDOW",
+                        "method": "_closeWindow"
+                    },
+                    {
+                        "topic": "agiv/search/result/NEW",
+                        "method": "_handleNewResult"
+                    }
+                ]
+            },
+            "references": [
+                {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
+                },
+                {
+                    "name": "coordinateParsers",
+                    "providing": "ct.api.search.CoordinateParser",
+                    "cardinality": "0..n"
+                },
+                {
+                    "name": "widget",
+                    "providing": "search.SearchWidget"
+                }
+            ]
+        },
+        
+        
         /*
          * COORDINATE PARSERS
          */
