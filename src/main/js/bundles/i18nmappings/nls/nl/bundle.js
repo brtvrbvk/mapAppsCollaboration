@@ -968,7 +968,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                     graphicsLayerTitle: "Graphics",
                     loadingGeneralInfo: "Bezig met laden",
                     cityLevel: "De aangeklikte locatie ligt in ",
-                    addressLevel: "Dichtsbijzijnde adres",
+                    addressLevel: "Dichtstbijzijnde adres",
                     activeLayers: "Actieve lagen:",
                     serviceErrorMsg: "An error occured",
                     showGeneralInfo: "Toon info",
@@ -1078,7 +1078,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                 identify: {
                     loadingGeneralInfo: "Bezig met laden",
                     showRoute: "Routebegeleiding",
-                    addressLevel: "Dichtsbijzijnde adres",
+                    addressLevel: "Dichtstbijzijnde adres",
                     deleteResult: " Verwijder plaats",
                     coordinates: "Co\u00F6rdinaten",
                     showNearby: "Info in de buurt"
