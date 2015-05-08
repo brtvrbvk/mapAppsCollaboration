@@ -13,14 +13,7 @@ define([
         "esri/geometry/jsonUtils",
         "dojo/number"
     ],
-    function (
-        declare,
-        d_string,
-        _Handler,
-        SearchTopics,
-        e_geometryUtils,
-        d_number
-        ) {
+    function (declare, d_string, _Handler, SearchTopics, e_geometryUtils, d_number) {
         return declare([_Handler],
             {
 
@@ -89,6 +82,14 @@ define([
                     this._broadCast(SearchTopics.HANDLER_COMPLETE);
                 },
 
+                selectItem: function (item) {
+                    this._onSelectItem(item);
+                },
+
+                formatCoordinate: function (coord) {
+                    return this._formatCoordinate(coord);
+                },
+
                 _onSelectItem: function (item) {
                     this.inherited(arguments);
                     //ok, now we query our complete result or display it directly if we have a geometry
@@ -145,10 +146,7 @@ define([
                     return val;
                 },
 
-                _parseFloatingPointNumber: function (
-                    val,
-                    separator
-                    ) {
+                _parseFloatingPointNumber: function (val, separator) {
                     try {
                         var values = val.split(separator);
                         if (values.length > 2) {

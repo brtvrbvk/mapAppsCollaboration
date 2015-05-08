@@ -30,6 +30,16 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                     title: "${date} - <a href=\"http://www.agiv.be/gis/diensten/geo-vlaanderen/?artid=1876\" target=\"_blank\">Bronnen</a>"
                 }
             },
+            coordinateparser:{
+                ui:{
+                    errorMessage: "Coordinaten als parameter kan slechts éénmaal gebruikt worden.",
+                    invalidMessage: "Coordinaten ${coordinate} als parameter niet gevonden.",
+                    searchTypes: {
+                        COORDINATE_4326: "WGS84 coordinate",
+                        COORDINATE_31370: "Belgian Lambert 72 coordinate"
+                    }
+                }
+            },
 
             legend_agiv: {
                 tool: {

@@ -17,72 +17,14 @@
 
     ],
     "Components": [
-        
-        /*
-         * WIDGET CONTROLLER
-         */
-        {
-            "name": "CoordinateWidgetController",
-            "provides": [
-                "search.CoordinateWidgetController",
-                "ct.framework.api.EventHandler"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "searchDelay": 300,
-                "removeResultsOnClear": false,
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/search/handler/START",
-                        "method": "_addHandlerWorker"
-                    },
-                    {
-                        "topic": "agiv/search/handler/COMPLETE",
-                        "method": "_removeHandlerWorker"
-                    },
-                    {
-                        "topic": "agiv/search/result/SELECTED_RESULT",
-                        "method": "_handleResultSelection"
-                    },
-                    {
-                        "topic": "agiv/search/VALUE_CHANGE",
-                        "method": "_handleNewSearch"
-                    },
-                    {
-                        "topic": "agiv/search/result/CLOSE_WINDOW",
-                        "method": "_closeWindow"
-                    },
-                    {
-                        "topic": "agiv/search/result/NEW",
-                        "method": "_handleNewResult"
-                    }
-                ]
-            },
-            "references": [
-                {
-                    "name": "eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "coordinateParsers",
-                    "providing": "ct.api.search.CoordinateParser",
-                    "cardinality": "0..n"
-                },
-                {
-                    "name": "widget",
-                    "providing": "search.SearchWidget"
-                }
-            ]
-        },
-        
-        
         /*
          * COORDINATE PARSERS
          */
         {
             "name": "WGS84Parser",
             "provides": [
-                "ct.framework.api.EventHandler"
+                "ct.framework.api.EventHandler",
+                "agiv.api.CoordinateParser"
             ],
             "propertiesConstructor": true,
             "properties": {
@@ -111,7 +53,8 @@
         {
             "name": "BelgianLambert72Parser",
             "provides": [
-                "ct.framework.api.EventHandler"
+                "ct.framework.api.EventHandler",
+                "agiv.api.CoordinateParser"
             ],
             "propertiesConstructor": true,
             "properties": {
@@ -133,6 +76,31 @@
                 {
                     "name": "eventService",
                     "providing": "ct.framework.api.EventService"
+                }
+            ]
+        },
+
+        {
+            "name": "CoordinateParameterResolver",
+            "provides": ["ct.api.parametermanager.Parametrizable"],
+            "propertiesConstructor": true,
+            "properties": {
+                "searchTerm": "coordinaten"
+            },
+            "references": [
+                {
+                    "name": "parsers",
+                    "providing": "agiv.api.CoordinateParser",
+                    "cardinality": "1..n"
+                },
+                {
+                    "name": "startupMessageBox",
+                    "providing": "agiv.startupmessagebox.StartupMessageBox"
+                },
+                //to wait for the search
+                {
+                    "name": "_searchController",
+                    "providing": "search.SearchWidgetController"
                 }
             ]
         }

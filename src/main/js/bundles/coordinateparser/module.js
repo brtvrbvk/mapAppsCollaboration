@@ -1,9 +1,7 @@
 define([
     ".",
-       "./_CoordinateParser",
+    "./_CoordinateParser",
     "./WGS84Parser",
     "./BelgianLambert72Parser",
-     "./CoordinateWidgetController",
-    "./CoordinateWidget",
-    "./CoordinateWidgetFactory"
+    "./CoordinateParameterResolver"
 ], {});

@@ -932,24 +932,7 @@
             ]
         },
 
-        {
-            "name": "SearchParameterResolver",
-            "provides": ["ct.api.parametermanager.Parametrizable"],
-            "propertiesConstructor": true,
-            "properties": {
-                "searchTerm": "coordinaten"
-            },
-            "references": [
-                {
-                    "name": "_searchController",
-                    "providing": "search.SearchWidgetController"
-                },
-                {
-                    "name": "startupMessageBox",
-                    "providing": "agiv.startupmessagebox.StartupMessageBox"
-                }
-            ]
-        },
+        
 
         {
             "name": "SearchResultDeleteHandler",

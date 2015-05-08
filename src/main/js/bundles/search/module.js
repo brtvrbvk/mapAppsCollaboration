@@ -9,7 +9,7 @@ define([
     "./ItemWidget",
     "./SearchResultFocusHandler",
     "./SearchResultHoverInfoWidget",
-    "./SearchParameterResolver",
+
     "./SearchResultDeleteHandler",
     "./selectionhandler/DrawGeometryEventReciever",
     "./selectionhandler/SearchResultParameterResolver",
