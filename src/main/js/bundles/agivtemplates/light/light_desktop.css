@@ -469,12 +469,6 @@
     height: 90px;
 }
 
-@media (max-width:1024px) {
-  .ctTpl_light .timeslider {
-    left: 500px;
-    }
-
-
 .ctTpl_light .geopuntLogo {
     display: none;
 }
@@ -509,3 +503,10 @@
     height: 20px;
 
 }
+
+
+@media (max-width:1024px) {
+  .ctTpl_light .timeslider {
+    left: 500px;
+    }
+
