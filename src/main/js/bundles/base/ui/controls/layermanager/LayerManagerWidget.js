@@ -81,7 +81,9 @@ define([
                         generateText: false,
                         simpleSelection: true,
                         singular: true,
-                        accept: this.itemProperties.layerType
+                        accept: this.itemProperties.layerType,
+                        mapState:this.mapState,
+                        mapModel:this.mapModel
                     });
                     this.handler.connect(this.dnd, "onDndDrop", "onDndDrop");
                 },
@@ -96,7 +98,9 @@ define([
                         i18n: this.i18n,
 //                        sliderVisible: this._sliderVisible,
                         eventService: this.eventService,
-                        enablePOIHighlighting: this.enablePOIHighlighting
+                        enablePOIHighlighting: this.enablePOIHighlighting,
+                        mapState:this.mapState,
+                        mapModel:this.mapModel
                     }, this.itemProperties);
                     delete opts.title;
                     var contextMenuWidget = new LayerManagerItem(opts);

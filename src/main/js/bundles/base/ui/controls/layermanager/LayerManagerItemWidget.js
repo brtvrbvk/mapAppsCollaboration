@@ -29,7 +29,7 @@ define([
         "ct/util/css",
         "ct/mapping/mapcontent/ServiceTypes",
         "base/util/POISymbolRenderer",
-        "dojo/text!./templates/LayerManagerItemWidget.html"
+        "dojo/text!./templates/LayerManagerItemWidget.html"        
     ],
     function (
         declare,
@@ -326,6 +326,11 @@ define([
                         }
                     } else {
                         this._visibilityTooltip.set("label", this.i18n.notVisible);
+                        var Currentscale = this.mapState.getViewPort().getScale();
+                        if(Currentscale > this.layer.minScale)
+                                this.visibleScaleNode.innerHTML = this.i18n.visibleMinScale;
+                        else if(Currentscale < this.layer.maxScale)
+                                this.visibleScaleNode.innerHTML = this.i18n.visibleMaxScale;
                         ct_css.switchVisibility(this.visibleScaleNode, true);
                     }
                     this._button.set("disabled", !this.layer.visibleInScale);

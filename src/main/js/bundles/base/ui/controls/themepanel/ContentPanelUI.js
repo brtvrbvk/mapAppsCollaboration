@@ -102,7 +102,9 @@ define([
                             title: this.i18n.ui.graphicLayerTitle
                         },
                         baseClass: "layerManagerGraphics ctLayerManager",
-                        eventService: this.eventService
+                        eventService: this.eventService,
+                        mapState:this._mapState,
+                        mapModel:this._mapModel
                     });
                     widgets[this.types.GRAPHICS] = this.layermanagerWidget;
                     this.featurelayermanagerWidget = new LayerManagerWidget({
@@ -117,7 +119,9 @@ define([
                             title: this.i18n.ui.operationalLayerTitle
                         },
                         baseClass: "layerManagerOverlay ctLayerManager",
-                        eventService: this.eventService
+                        eventService: this.eventService,
+                         mapState:this._mapState,
+                        mapModel:this._mapModel
                     });
                     widgets[this.types.OPERATIONAL] = this.featurelayermanagerWidget;
                     this._lmc = new LayerManagerController({

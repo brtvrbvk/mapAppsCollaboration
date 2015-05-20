@@ -33,6 +33,7 @@ define([
                         i18n: this._i18n.get(),
                         _mrr: this._mrr,
                         _mapModel: this._mapModel,
+                        _mapState: this._mapState,
                         treeContent: this.treeContent,
                         nearbyPlacesWidget: this.nearbyPlacesWidget
                     };
