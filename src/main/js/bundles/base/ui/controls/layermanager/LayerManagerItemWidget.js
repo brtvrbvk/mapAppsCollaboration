@@ -126,6 +126,7 @@ define([
                     }
 
                     this.titleLabelNode.innerHTML = title;
+                    layer.title = title;
                     ct_css.toggleClass(this.domNode, type, true);
 
 //                    this.set("sliderVisible", this.sliderVisible);
@@ -202,6 +203,7 @@ define([
                         newValue
                         ) {
                         this.titleLabelNode.innerHTML = newValue;
+                        this.layer.title = newValue;
                     });
                     this._showLayerVisibility(layer);
 

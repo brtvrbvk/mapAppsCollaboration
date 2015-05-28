@@ -480,7 +480,7 @@ define([
                                         eventType = AnalyticsConstants.EVENT_TYPES.IDENTIFY_GEOMETRY;
                                     }
                                     this._createDefaultInfo(content, context);
-                                    preventRecenter = false;
+                                    preventRecenter = true;
 
                                     break;
 

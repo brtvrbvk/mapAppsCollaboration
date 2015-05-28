@@ -467,7 +467,10 @@ define([
                             gotALegend = true;
                             var url;
                             //searchresuts and redlinig
-                            if (graphicItem.nodeType.indexOf("SEARCH_RESULT") > -1 || graphicItem.nodeType.indexOf("RESULT_IDENTIFY") > -1) {
+                            if (graphicItem.nodeType.indexOf("SEARCH_RESULT_PARCEL") > -1 ) {
+                                url = this.resourceUrl + "/" + graphicItem.nodeType + "_legend.png";
+                            }
+                            else if (graphicItem.nodeType.indexOf("SEARCH_RESULT") > -1 || graphicItem.nodeType.indexOf("RESULT_IDENTIFY") > -1) {
                                 url = graphicItem.graphics[0].symbol.url;
                             } else {
                                 url = this.resourceUrl + "/" + graphicItem.nodeType + "_legend.png";
