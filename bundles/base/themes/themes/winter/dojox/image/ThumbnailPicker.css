@@ -1,0 +1,68 @@
+/* dojox.image.ThumbnailPicker */
+.winter {
+  /* Hightlight Selected Thumbnail */
+}
+.winter .thumbOuter .thumbNav {
+  background-image: none;
+}
+.winter .thumbOuter .thumbNav:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 42px;
+  line-height: 42px;
+  color: #696c75;
+}
+.winter .thumbOuter .prevHoriz.enabled:before {
+  content: '\e00e';
+}
+.winter .thumbOuter .nextHoriz.enabled:before {
+  content: '\e00f';
+}
+.winter .thumbOuter .thumbNav.enabled:hover:before {
+  color: #3c3c3c;
+}
+.winter .thumbWrapper .thumbNotifier {
+  background-color: transparent;
+}
+.winter .thumbOuter .thumbNav {
+  background-repeat: no-repeat;
+  width: 37px;
+  height: 43px;
+  top: 13%;
+  position: relative;
+}
+.winter .thumbOuter .enabled {
+  cursor: pointer;
+}
+.winter .thumbOuter.thumbHoriz {
+  padding: 5px 5px 0px 5px;
+  background-color: #f4f8f9;
+  border: 1px solid #bdc3c7;
+  height: 64px;
+  margin: 0 auto;
+}
+.winter .thumbScroller {
+  margin-left: 12px;
+  height: 64px;
+}
+.winter .thumbWrapper img {
+  height: 58px;
+  max-width: 58px;
+  width: expression(this.width > 58 ? 58: true); /*IE Hack*/;
+}
+.winter .thumbNav img {
+  height: 55px;
+}
+.winter .thumbWrapper.thumbHoriz div {
+  border: 1px solid transparent;
+  padding: 0;
+}
+.winter .thumbWrapper.thumbHoriz div.selected {
+  border-color: #3c3c3c;
+}

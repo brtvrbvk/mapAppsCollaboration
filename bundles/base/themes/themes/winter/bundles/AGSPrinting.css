@@ -1,0 +1,68 @@
+.winter .ctPrintDialog label {
+  width: 30%;
+  float: left;
+}
+.winter .ctPrintDialog .titleInput {
+  width: 68%;
+}
+.winter .ctPrintDialog .dijitButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.winter .ctPrintDialog .hidden {
+  display: none;
+}
+.winter .ctPrintDialog .loading {
+  width: 100px;
+  height: 100px;
+  display: block;
+  padding: 30px 0 0 210px;
+}
+.winter .ctPrintDialog .loading {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  color: #3c3c3c;
+  font-size: 22px;
+  padding: 0px;
+  width: 22px;
+  height: 22px;
+  margin: 50px auto;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .ctPrintDialog .loading:before {
+  content: "\e097";
+}
+.winter .ctPrintWindow .ctWindowContentPadding {
+  background-color: transparent;
+}
+.winter .ctImgPrintResultWidget .mapDiv {
+  position: relative !important;
+  max-height: 100%;
+}
+.winter .ctImgPrintResultWidget .mapDiv img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.winter .ctImgPrintResultWidget .buttonBar {
+  position: relative !important;
+  margin: 5px 0;
+  text-align: center;
+}
+.winter .ctImgPrintResultWidget .dijitContentPane {
+  padding: 0 5px 0 0;
+}
+.winter.ctEnv_FF .ctWindow.ctPrintWindow .ctWindowContentPadding {
+  background-image: none;
+}

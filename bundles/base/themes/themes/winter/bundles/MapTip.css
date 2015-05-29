@@ -1,0 +1,14 @@
+.winter .ctMapTip {
+  background-color: #f3f3f3;
+  background-color: rgba(243, 243, 243, 0.9);
+}
+.winter .ctMapTip .dijitDialogPaneContent {
+  padding: 6px 8px;
+  background: transparent none;
+}
+.winter .ctMapTip .dijitDialogPaneContent .dijitContentPane {
+  padding: 0;
+}
+.winter .ctMapTip.pointer {
+  display: none;
+}

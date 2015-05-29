@@ -1,0 +1,25 @@
+/**
+  AddTextBox adds a "add" button to a AutoResizeTextBox.
+*/
+.winter .ctAddTextBox.dijitTextBox .ctAddButton {
+  margin: 0px;
+  vertical-align: top;
+  height: 19px;
+  overflow: hidden;
+}
+.winter .ctAddTextBox.dijitTextBox .ctAddButton .ctAddIcon:before {
+  content: "\e017";
+}
+.winter .ctAddTextBox.dijitTextBox .ctAddButton .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .ctAddTextBox.dijitTextBox .ctAddButton.dijitHover .dijitButtonNode,
+.winter .ctAddTextBox.dijitTextBox .ctAddButton.dijitChecked .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .ctAddTextBox.dijitTextBox .ctAddButton.dijitDisabled .dijitButtonNode {
+  background-color: #a7a7a7;
+}
+.winter .ctDataView .toolbar .ctAddTextBox.dijitTextBox {
+  height: 19px;
+}

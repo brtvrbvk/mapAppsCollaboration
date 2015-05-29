@@ -1,0 +1,135 @@
+/*
+    Document   : WindowDockingBar
+    Created on : 09.05.2011, 06:55:13
+    Author     : mre
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.winter {
+  /*Not supported yet: IE8 does not support opaque shadows*/
+  /*Not supported yet propperly: TextRotation in IE8 */
+  /*Hack needed for proper display of bottom docking bar buttons*/
+  /* Flash Tool */
+}
+.winter .ctWindowDockingBar-horizontal {
+  height: 100%;
+}
+.winter .ctWindowDockingBar-horizontal .ctWindowTabButton .dijitButtonText {
+  display: block;
+}
+.winter.ctEnv_IE_8 .ctWindowDockingBar .dijitChecked .dijitButtonNode {
+  text-shadow: none;
+  border-color: #bdc3c7;
+}
+.winter.ctEnv_IE .ctWindowDockingBar-vertical-r .dijitButtonContents {
+  margin-top: -5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  margin-right: -5px;
+}
+.winter.ctEnv_IE_9 .ctWindowDockingBar-vertical-r .dijitChecked .dijitButtonContents,
+.winter.ctEnv_IE_9 .ctWindowDockingBar-vertical-r .dijitButtonContents {
+  font-weight: bold;
+}
+.winter.ctEnv_IE .dockingBarBottom .dijitButton .dijitButtonNode,
+.winter.ctEnv_IE .dockingBarBottom .dijitDropDownButton .dijitButtonNode,
+.winter.ctEnv_IE .dockingBarBottom .dijitComboButton .dijitButtonNode,
+.winter.ctEnv_IE .dockingBarBottom .dijitToggleButton .dijitButtonNode {
+  padding-bottom: 6px;
+  padding-top: 2px;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton {
+  margin: 0;
+}
+.winter .dockingBarBottomLeft,
+.winter .dockingBarBottomRight {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.winter .dockingBarBottomLeft .ctWindowDockingBar,
+.winter .dockingBarBottomRight .ctWindowDockingBar {
+  height: 100%;
+}
+.winter .dijitContentPane.dockingBarBottomRight {
+  min-width: 200px;
+  padding-right: 0;
+}
+.winter .dijitContentPane.dockingBarBottomLeft {
+  padding-left: 0;
+}
+.winter .ctWindowTabButton.ctTool.dijit .dijitButtonNode {
+  border: none;
+  padding: 8px 5px 6px;
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.winter .ctWindowTabButton.ctTool.dijit.dijitChecked .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton .dijitButtonNode {
+  color: #45474d;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton .dijitButtonText {
+  font-size: 13px;
+  font-weight: normal;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton .dijitIcon {
+  display: none;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton .dijitIcon:before {
+  font-size: 15px;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton {
+  border-right-width: 0;
+  border-left-width: 0;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton.dijitToggleButtonChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton.dijitToggleButtonHover .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton.dijitToggleButtonHover.flash .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton.dijitToggleButtonHover.dijitChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctWindowDockingBar .ctWindowTabButton.dijitDisabled .dijitButtonNode {
+  color: #dadada;
+}
+.winter.ctLayout_desktop .ctWindowTabButton.ctTool,
+.winter.ctLayout_tablet_portrait .ctWindowTabButton.ctTool,
+.winter.ctLayout_tablet_landscape .ctWindowTabButton.ctTool {
+  height: 30px;
+}
+.winter.ctLayout_desktop .ctWindowTabButton.ctTool .dijitButtonNode,
+.winter.ctLayout_tablet_portrait .ctWindowTabButton.ctTool .dijitButtonNode,
+.winter.ctLayout_tablet_landscape .ctWindowTabButton.ctTool .dijitButtonNode {
+  background-color: #f3f3f3;
+  transition: all 0.25s ease-in-out;
+}
+.winter.ctLayout_desktop .ctWindowTabButton.ctTool.dijitHover .dijitButtonNode,
+.winter.ctLayout_tablet_portrait .ctWindowTabButton.ctTool.dijitHover .dijitButtonNode,
+.winter.ctLayout_tablet_landscape .ctWindowTabButton.ctTool.dijitHover .dijitButtonNode,
+.winter.ctLayout_desktop .ctWindowTabButton.ctTool.dijitChecked .dijitButtonNode,
+.winter.ctLayout_tablet_portrait .ctWindowTabButton.ctTool.dijitChecked .dijitButtonNode,
+.winter.ctLayout_tablet_landscape .ctWindowTabButton.ctTool.dijitChecked .dijitButtonNode,
+.winter.ctLayout_desktop .ctWindowTabButton.ctTool.dijitFocused .dijitButtonNode,
+.winter.ctLayout_tablet_portrait .ctWindowTabButton.ctTool.dijitFocused .dijitButtonNode,
+.winter.ctLayout_tablet_landscape .ctWindowTabButton.ctTool.dijitFocused .dijitButtonNode {
+  background-color: #f3f3f3;
+  border-bottom: 4px solid #3c3c3c;
+  padding-bottom: 2px;
+  color: #45474d;
+}
+.winter .ctTool.flash {
+  background-color: #3c3c3c;
+}
+.winter .ctTool.flash .dijitButtonNode {
+  color: #ffffff;
+}

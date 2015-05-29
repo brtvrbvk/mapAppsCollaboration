@@ -1,0 +1,12 @@
+.winter .ctTool .ctToolIcon_printtool:before,
+.winter .ctTool .ctToolIcon_agsprinttool:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_agsprinttool .ctCollapseOpposite .ctCollapseInnerHandle:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_printtool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e05a";
+}
+.winter .ctWindow.ctPrintWindow .ctWindowContentPadding {
+  background: url(../images/loader.gif) no-repeat center center;
+}
+.winter.ctEnv_FF .ctWindow.ctPrintWindow .ctWindowContentPadding {
+  background-image: none;
+}

@@ -1,0 +1,17 @@
+.winter {
+  /*Center Map on StreetView Poisiton Button*/
+}
+.winter .ctWindowToolbar .dijitButton .ctToolIcon_streetViewCenterOnMarkerTool:before {
+  content: '\e031';
+}
+.winter .ctTool .ctToolIcon_streetViewToggleTool:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_streetViewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e04a';
+}
+.winter .ctStreetViewMarker {
+  cursor: move;
+  display: none;
+}
+.winter .ctStreetViewMarker.showMarker {
+  display: inline;
+}

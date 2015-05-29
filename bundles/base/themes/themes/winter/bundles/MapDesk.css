@@ -1,0 +1,99 @@
+.winter {
+  /*reset from window base background (grey gradient)*/
+  /*Mapdesk main div must not have a padding! otherwise the collapsing doesn't work proper*/
+  /* base class of a mapdesk */
+  /* class of the content/container node */
+  /* BG Mapdesk Content */
+  /* Reset for InfoWindow Widgets on Mapdesk */
+}
+.winter .mapDesk.ctWindow {
+  border: none;
+}
+.winter .mapDesk.ctWindow .dijitDialogPaneContent {
+  background-color: #f3f3f3;
+  background-color: rgba(243, 243, 243, 0.9);
+}
+.winter .mapDesk.ctWindow .dijitDialogTitleBar {
+  background-color: #3c3c3c;
+  background-color: rgba(60, 60, 60, 0.9);
+}
+.winter .mapDesk.ctWindow.ctTransparent .dijitDialogPaneContent {
+  background-color: #f3f3f3;
+  background-color: rgba(243, 243, 243, 0.7);
+}
+.winter .mapDesk.ctWindow.ctTransparent .dijitDialogTitleBar {
+  background-color: #3c3c3c;
+  background-color: rgba(60, 60, 60, 0.7);
+}
+.winter .ctMapDesk,
+.winter .mapDesk .ctWindowTitelBarPadding .dijitDialogTitleBar {
+  border-width: 0;
+}
+.winter .ctTransparent .ctMapDesk,
+.winter .ctTransparent.mapDesk .ctWindowTitelBarPadding .dijitDialogTitleBar {
+  background-image: none;
+}
+.winter .ctMapDeskContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+}
+.winter .ctMapDeskContent .dijitDialogPaneContent.dijitDialogSingleChild {
+  padding: 10px 8px;
+}
+.winter .mapDesk > .ctWindowPadding > .ctContentPadding > .dijitDialogPaneContent {
+  padding: 0;
+}
+.winter .mapDesk .dijitDialogPaneContent {
+  border-top-width: 0px;
+}
+.winter .mapDesk .ctWindowEffect .dijitDialogPaneContent {
+  padding-top: 8px;
+  border-top-width: 1px;
+}
+.winter .mapDesk .overviewMap.ctWindowEffect .dijitDialogPaneContent,
+.winter .mapDesk .magnifier.ctWindowEffect .dijitDialogPaneContent,
+.winter .mapDesk .streeView.ctWindowEffect .dijitDialogPaneContent {
+  padding-top: 0;
+  border-right-width: 0;
+}
+.winter .mapDesk .dijitDialogTitleBar {
+  border-width: 0;
+  padding: 5px 7px 4px 7px;
+}
+.winter .mapDesk .ctResizeGrid .ctResizeHandleLeft {
+  background-color: #3c3c3c;
+}
+.winter .mapDesk .dijitDialogPaneContent .ctResizeGrid .ctResizeHandleLeft {
+  background: transparent;
+}
+.winter .mapDesk .ctCollapseInnerHandle:before {
+  top: 34.5px;
+  font-size: 18px;
+}
+.winter .mapDesk > .ctWindowPadding > .ctWindowTitelBarPadding .ctWindowDragTitleBar {
+  display: none;
+}
+.winter .mapDesk > .ctWindowPadding > .ctWindowTitelBarPadding .ctWindowToolbar {
+  position: static;
+  display: block;
+}
+.winter .ctMapDeskContent .ctWindowContentPadding .dijitDialogPaneContent {
+  border-top-width: 1px;
+}
+.winter .ctMapDeskContent .overviewMap .ctWindowContentPadding .dijitDialogPaneContent,
+.winter .ctMapDeskContent .magnifier .ctWindowContentPadding .dijitDialogPaneContent,
+.winter .ctMapDeskContent .streeView .ctWindowContentPadding .dijitDialogPaneContent {
+  padding-top: 0;
+  border-right-width: 0;
+}
+.winter .ctMapDeskContent .mapDeskAnchor .ctWindowDragTitleBar {
+  display: block;
+}
+.winter .ctMapDeskContent .ctWindowToolbar {
+  position: absolute;
+}
+.winter.ctEnv_IE_8 .ctMapDeskContent .ctWindow {
+  border: 2px solid #c0c0c0;
+}

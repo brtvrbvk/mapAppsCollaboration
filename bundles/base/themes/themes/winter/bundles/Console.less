@@ -1,0 +1,87 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .consoleContainer{
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitButtonNode{
+                padding: 1px 4px 4px;
+            }
+        }
+    }
+
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitIcon{
+                .size(11px);
+            }
+        }
+        .ctTool{
+            .ctToolIcon_consoleStartBundleTool{
+                background-position: -1234px -325px;
+            }
+            .ctToolIcon_consoleStopBundleTool{
+                background-position: -1276px -324px;
+            }
+            .ctToolIcon_componentConfigureTool{
+                background-position: -469px -284px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .ctToolIcon_consoleStartBundleTool{
+                    background-position: -1234px -355px;
+                }
+                .ctToolIcon_consoleStopBundleTool{
+                    background-position: -1276px -354px;
+                }
+                .ctToolIcon_componentConfigureTool{
+                    background-position: -469px -329px;
+                }
+            }
+            &.dijitDisabled {
+                .ctToolIcon_consoleStartBundleTool{
+                    background-position: -1234px -385px;
+                }
+                .ctToolIcon_consoleStopBundleTool{
+                    background-position: -1276px -384px;
+                }
+                .ctToolIcon_componentConfigureTool{
+                    background-position: -469px -374px;
+                }
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitButtonNode{
+                font-size: @ct-icon-small;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .dijitButtonNode{
+                    background-color: @button-hovered-background-color;
+                }
+            }
+        }
+        .ctTool{
+            .ctToolIcon_consoleStartBundleTool:before{
+                content: "\e090";
+            }
+            .ctToolIcon_consoleStopBundleTool:before{
+                content: "\e08c";
+            }
+            .ctToolIcon_componentConfigureTool:before{
+                content: "\e051";
+            }
+        }
+    }
+
+    .showWebFonts();
+
+}

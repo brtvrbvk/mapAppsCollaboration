@@ -1,0 +1,67 @@
+.winter .ctToolWindow.Selection .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e074';
+}
+.winter .ctTool .ctToolIcon_selection_tools:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selection_tools .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e074';
+}
+.winter .ctTool .selectionIcon:before {
+  content: '\e04b';
+}
+.winter .ctTool .selectionIconExtent:before {
+  content: '\e06f';
+}
+.winter .ctTool .selectionIconCircle:before {
+  content: '\e604';
+}
+.winter .ctTool .selectionIconFreehandPolygon:before {
+  content: '\e603';
+}
+.winter .ctTool .selectionIconDrawPolygon:before {
+  content: '\e602';
+}
+.winter .ctTool .ctToolIcon_selectLocationInfoItems:before {
+  content: '\e074';
+}
+.winter .ctTool .selectionIconPoint:before {
+  content: '\e078';
+}
+.winter .ctTool .ctToolIcon_selectAirports:before {
+  content: '\e08a';
+}
+.winter .ctTool .ctToolIcon_selectHelipads {
+  content: '\e07b';
+}
+.winter .ctTool .ctToolIcon_selectSocialMedia {
+  content: '\e08d';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selectionIcon .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e04b';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_selectionIconPoint .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e078';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_selectionIconExtent .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e06f';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_selectionIconCircle .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e604';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_selectionIconFreehandPolygon .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e603';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_selectionIconDrawPolygon .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e602';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selectLocationInfoItems .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e074';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selectAirports .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e08a';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selectHelipads .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e07b';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_selectSocialMedia .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e08d';
+}

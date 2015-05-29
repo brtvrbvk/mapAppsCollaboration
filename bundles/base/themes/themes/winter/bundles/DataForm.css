@@ -1,0 +1,134 @@
+.winter .ctDataForm .dijitContentPane {
+  padding: 0;
+}
+.winter .ctDataForm .ctGridContainer.ctFormControl {
+  overflow: auto;
+}
+.winter .ctDataForm .ctFormControl.label.required,
+.winter .ctDataForm .ctFormControl .required > label {
+  border-left: 3px solid #45474d;
+  padding-left: 4px;
+}
+.winter .ctDataForm .ctFormControl.title {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+.winter .ctDataForm .ctFormControl.panel {
+  position: relative;
+  padding: 0;
+}
+.winter .ctDataForm .ctFormControl.panel .hasposition.ctFormControl {
+  position: absolute;
+}
+.winter .ctDataForm .ctFormControl.accordionpanel .panel,
+.winter .ctDataForm .ctFormControl.borderpanel .panel,
+.winter .ctDataForm .ctFormControl.tabpanel .panel,
+.winter .ctDataForm .ctFormControl.tablepanel .panel,
+.winter .ctDataForm .ctFormControl.wizardpanel .panel {
+  position: relative;
+}
+.winter .ctDataForm .ctFormControl.wizardpanel .dojoxWizardContainer > * {
+  overflow-y: auto;
+  width: 100%;
+}
+.winter .ctDataForm .ctFormControl.dijitSliderH {
+  width: 60%;
+}
+.winter .ctDataForm .ctFormControl.gridpanel {
+  position: relative;
+}
+.winter .ctDataForm .ctFormControl.gridpanel .cell {
+  display: inline;
+  position: relative;
+}
+.winter .ctDataForm .ctFormControl.gridpanel .cell.nowidth {
+  width: initial;
+}
+.winter .ctDataForm .ctFormControl.gridpanel .row {
+  clear: both;
+  padding: 2px;
+  margin-bottom: 5px;
+}
+.winter .ctDataForm .ctFormControl.gridpanel .row.last-row {
+  margin-bottom: 0;
+}
+.winter .ctDataForm .ctFormControl.gridpanel .labelCell {
+  float: left;
+  display: inline-block;
+  width: 30%;
+  text-align: left;
+  margin-right: 12px;
+  min-width: 100px;
+  max-width: 300px;
+}
+.winter .ctDataForm .ctFormControl.fullWidthCell .cell {
+  display: block;
+}
+.winter .ctDataForm .ctFormControl.borderpanel .slider.ctFormControl {
+  width: 100%;
+}
+.winter .ctDataForm .ctFormControl.image {
+  overflow: auto;
+}
+.winter .ctDataForm .tableContainer-table-horiz .tableContainer-labelCell,
+.winter .ctDataForm .tableContainer-table-horiz .tableContainer-valueCell {
+  padding: 4px 0;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled {
+  display: block;
+  text-align: center;
+  border: 2px dashed #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled:hover {
+  border-color: #ffffff;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled .dijitButtonNode {
+  height: 8em;
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled input {
+  width: 100%;
+  height: 100%;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled input,
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled .dijitButtonContents {
+  cursor: pointer;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled .dijitButtonContents {
+  margin: 5em 3em 1em;
+  background: #3c3c3c;
+  padding: 2px 12px 4px;
+}
+.winter .ctDataForm .dropZoneUploader.uploader.dropEnabled .dijitButtonContents:hover {
+  background: #565656;
+}
+.winter .verticalMiddle {
+  padding-right: 5px;
+}
+.winter .verticalMiddle,
+.winter .verticalMiddle span {
+  vertical-align: middle;
+}
+.winter .ctAppWidgetContent .cell {
+  display: table-cell;
+}
+.winter .ctAppWidgetContent .labelCell {
+  min-width: 200px;
+  max-width: 300px;
+}
+.winter .ctAppWidgetContent .row {
+  clear: both;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+.winter .dijitValidationContainer:after {
+  content: "!";
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}

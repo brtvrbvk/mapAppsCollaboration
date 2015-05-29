@@ -1,0 +1,92 @@
+.winter .toolbar .ctAddButton .dijitButtonText,
+.winter .toolbar .ctDeleteButton .dijitButtonText,
+.winter .toolbar [class*='ctTool_delete'] .dijitButtonText,
+.winter .toolbar [class*='ctTool_remove'] .dijitButtonText,
+.winter .toolbar [class*='ctTool_add'] .dijitButtonText,
+.winter .toolbar [class*='ctTool_create'] .dijitButtonText {
+  padding: 0;
+}
+.winter .toolbar .ctAddButton .dijitButtonNode,
+.winter .toolbar .ctDeleteButton .dijitButtonNode,
+.winter .toolbar [class*='ctTool_delete'] .dijitButtonNode,
+.winter .toolbar [class*='ctTool_remove'] .dijitButtonNode,
+.winter .toolbar [class*='ctTool_add'] .dijitButtonNode,
+.winter .toolbar [class*='ctTool_create'] .dijitButtonNode {
+  font-size: 22px;
+  padding: 0px;
+  height: 22px;
+}
+.winter .toolbar .ctAddButton .dijitIcon:before,
+.winter .toolbar .ctDeleteButton .dijitIcon:before,
+.winter .toolbar [class*='ctTool_delete'] .dijitIcon:before,
+.winter .toolbar [class*='ctTool_remove'] .dijitIcon:before,
+.winter .toolbar [class*='ctTool_add'] .dijitIcon:before,
+.winter .toolbar [class*='ctTool_create'] .dijitIcon:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  position: relative;
+  top: -6px;
+}
+.winter .ctTool .dijitIcon.ctAddIcon:before,
+.winter .ctTool .dijitIcon[class*='ctToolIcon_add']:before,
+.winter .ctTool .dijitIcon[class*='ctToolIcon_create']:before {
+  content: "\e017";
+}
+.winter .ctTool .dijitIcon.ctDeleteIcon:before,
+.winter .ctTool .dijitIcon[class*='ctToolIcon_delete']:before,
+.winter .ctTool .dijitIcon[class*='ctToolIcon_remove']:before {
+  content: "\e05b";
+}
+.winter .ctLoadingIndicator {
+  padding: 8px;
+  position: relative;
+}
+.winter .ctLoadingIndicator .ctLoading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+.winter .ctLoading {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+  color: #3c3c3c;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .ctLoading:before {
+  content: "\e097";
+}
+.winter.ctEnv_IE_8 .ctLoading,
+.winter.ctEnv_IE_9 .ctLoading {
+  width: 15px;
+  height: 15px;
+  background-image: url(../images/ie_fallback_spinner.gif);
+}
+.winter.ctEnv_IE_8 .ctLoading:before,
+.winter.ctEnv_IE_9 .ctLoading:before {
+  content: "";
+}
+.winter.ctEnv_FF .ctLoading {
+  line-height: 13px;
+}
+.winter .dijitTextBoxFocused {
+  outline-offset: 1px ;
+}

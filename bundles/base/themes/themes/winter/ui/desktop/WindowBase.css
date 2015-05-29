@@ -1,0 +1,328 @@
+/*
+    Document   : WindowBase
+    Created on : 27.11.2014, 08:45:00
+    Author     : juku
+    Description:
+
+ * Styling of the WindowBase consists of the following:
+ *
+ * 1. all ctWindows
+ *		.ctWindow - it has all in all 3 states. Normal, Hovered and one while dragging.
+ *              .ctAvatar - (or .dojoMoveItem) while drag and dropping a window.
+ * 2. titlebar
+ *              .ctWindowDragTitleBar - to enable dragging on the titlebar
+ * 3. windowTools
+ *              .ctToolContainer - contains tools for hiding, min- and maximizing a window etc.
+ * 4. WindowContent
+ *              .dijitDialogContentPane - space for content 
+ * 5  Avatar that is shown during dragging adraggable ctWindow
+ *              .ctAvatar - class is attached during dragging
+ * 6. Collaps Mechanism
+ *              .ctCollapsing - class is attached to ctWindow during collaps is in progress
+ *              .ctCollapsed - class atatched to ctWindow when it is collapsed
+ * 7. Special windows classes that can be used to alter the look and feel of a window
+ *              .dijitDialogFixed
+ *              .draggable
+ *              .noTitleBar
+ *              .noTitleBarAndWindowTools
+ *              .noCollapseHandles
+ *              .ctTransparent
+ *              .pseuroWindow
+ * 8. Browser specific styles
+ *              this section deals with browser specific treatments
+*/
+.winter {
+  /*
+    * 8. Browser specific styles
+    */
+}
+.winter .ctWindow {
+  /*
+        * 1. Windows in general
+        */
+  overflow: visible;
+  /*
+        * 2. TitleBar with title and draghandle
+        */
+  /*
+        * 3. WindowTools and according icons
+        */
+  /* The restore(from maximize) button */
+  /*
+        * 4. WindowContent
+        */
+  /*
+        * 5  Avatar that is shown during dragging a draggable ctWindow
+        */
+  /*
+        * 6. Collaps Mechanism
+        */
+  /*
+        * 7. Special Window Styles (e.g.) window without a titlebar, draggable windows...
+        */
+}
+.winter .ctWindow .dijitDialogTitleBar {
+  /** supress scrollbars in title bar */
+  overflow: hidden;
+  padding: 5px 7px 4px 7px;
+}
+.winter .ctWindow .dijitDialogTitle {
+  /*auto shorten window titles*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  padding-bottom: 4px;
+  width: auto;
+  min-height: 17px;
+  margin-right: 75px;
+}
+.winter .ctWindow .ctWindowToolbar {
+  /* display Toolbar right*/
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 5;
+}
+.winter .ctWindow .ctWindowToolbar .dijitButtonDisabled {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.winter .ctWindow .ctWindowTool {
+  margin: 0;
+}
+.winter .ctWindow .ctWindowTool .dijitButtonNode {
+  padding: 5px;
+}
+.winter .ctWindow.ctCollapsed .ctTool_windowCollapseTool .icon-arrow-down:before {
+  content: '\e00c';
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitButtonNode {
+  color: #ffffff;
+  background: transparent;
+  padding: 5px;
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon {
+  font-size: 15px;
+  vertical-align: top;
+  width: auto;
+  height: auto;
+  line-height: 1;
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowClose:before {
+  content: "\e019";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowMaximize:before {
+  content: '\e01b';
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_minimizeBtn:before {
+  content: "\e01a";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_maximizeBtn:before {
+  content: "\e01b";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowRestore:before {
+  content: "\e01c";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_focusMapTool:before {
+  content: "\e03a";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_attachToGeorefTool:before {
+  content: "\e03b";
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowOpacityTool:before {
+  content: '\e020';
+  font-size: 22px;
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool.dijitHover .dijitButtonNode {
+  color: #111111;
+  background: transparent none;
+}
+.winter .ctWindow .ctWindowToolbar .ctWindowTool.dijitDisabled .dijitButtonNode {
+  color: #dadada;
+}
+.winter .ctWindow .ctTransparent .ctWindowToolbar .ctWindowTool .dijitIcon.ctToolIcon_windowOpacityTool:before {
+  content: '\e021';
+}
+.winter .ctWindow.ctWindowMaximized .ctWindowToolbar .ctTool_windowRestore {
+  display: inline-block;
+}
+.winter .ctWindow.ctWindowMaximized .ctWindowToolbar .ctToolIcon_windowMaximize {
+  display: none;
+}
+.winter .ctWindow .ctWindowToolbar .ctTool_windowRestore {
+  display: none;
+}
+.winter .ctWindow .ctWindowContentPadding {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .ctWindow .dijitDialogPaneContent {
+  overflow: auto;
+}
+.winter .ctWindow .ctContentIFrame {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: block;
+}
+.winter .ctWindow.ctAvatar.draggable .dijitDialogPaneContent > div {
+  /* Hides the dialog content during drag */
+  opacity: 0;
+}
+.winter .ctWindow.ctCollapsing,
+.winter .ctWindow.ctCollapsed {
+  background-color: #f3f3f3;
+}
+.winter .ctWindow.ctCollapsing .ctWindowTitelBarPadding,
+.winter .ctWindow.ctCollapsed .ctWindowTitelBarPadding {
+  overflow: hidden;
+}
+.winter .ctWindow.ctCollapsing .ctWindowContentPadding {
+  display: none;
+}
+.winter .ctWindow.ctCollapsed .ctWindowContentPadding > .dijitDialogPaneContent {
+  /* ensure that content is not shown if collapsed */
+  padding: 0;
+}
+.winter .ctWindow.draggable .dijitDialogPaneContent > div {
+  opacity: 1;
+  transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  transition-property: opacity;
+}
+.winter .ctWindow.dijitDialogFixed {
+  border-top: 5px solid #3c3c3c;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-width: 0px;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+}
+.winter .ctWindow.dijitDialogFixed .dijitDialogPaneContent,
+.winter .ctWindow.dijitDialogFixed .dijitDialogTitleBar {
+  border-radius: 0;
+}
+.winter .ctWindow.dijitDialogFixed .dijitDialogPaneContent {
+  border-top-color: transparent;
+}
+.winter .ctWindow.noTitleBar .ctWindowContentPadding {
+  border-top: 5px solid #3c3c3c;
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar {
+  height: 10px;
+  display: block;
+  position: static;
+  text-align: center;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .ctToolContainer {
+  display: inline-block;
+  width: 84px;
+  height: 11px;
+  background-color: #3c3c3c;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .ctToolContainer {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .ctToolContainer.ctToolContainerHover {
+  background-color: #3c3c3c;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .ctToolContainer.ctToolContainerHover .ctWindowTool .dijitButtonNode .ctToolIcon_windowClose {
+  color: #ffffff;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .ctToolContainer .ctWindowTool .dijitIcon.ctToolIcon_windowClose:before {
+  content: "\e007";
+  position: relative;
+  top: -3px;
+}
+.winter .ctWindow.noTitleBar .ctWindowToolbar .dijitButtonNode {
+  display: block;
+  padding: 0;
+}
+.winter .ctWindow.noTitleBarAndWindowTools .ctWindowToolbar {
+  display: none;
+}
+.winter .ctWindow.noTitleBarAndWindowTools .ctWindowContentPadding {
+  border-top: none;
+}
+.winter .ctWindow.ctWindow.noTitleBar,
+.winter .ctWindow.ctWindow.noTitleBarAndWindowTools {
+  border-top: none;
+}
+.winter .ctWindow.ctWindow.noTitleBar .dijitDialogTitleBar,
+.winter .ctWindow.ctWindow.noTitleBarAndWindowTools .dijitDialogTitleBar {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  padding: 0!important;
+}
+.winter .ctWindow.ctWindow.noTitleBar .dijitDialogTitleBar .ctWindowDragTitleBar,
+.winter .ctWindow.ctWindow.noTitleBarAndWindowTools .dijitDialogTitleBar .ctWindowDragTitleBar {
+  display: none;
+}
+.winter .ctWindow.ctWindow.noTitleBar .dijitDialogTitleBar .dijitDialogPaneContent,
+.winter .ctWindow.ctWindow.noTitleBarAndWindowTools .dijitDialogTitleBar .dijitDialogPaneContent {
+  border-top: none;
+}
+.winter .ctWindow.noWindowTools .dijitDialogTitleBar .ctWindowToolbar {
+  display: none!important;
+}
+.winter .ctWindow.noWindowTools .ctWindowContentPadding {
+  border-top: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.winter .ctWindow.noWindowTools .dijitDialogPaneContent {
+  border-top-color: #bdc3c7;
+}
+.winter .ctWindow.pseudoWindow {
+  border: none;
+}
+.winter .ctWindow.pseudoWindow .dijitDialogTitleBar {
+  display: none;
+}
+.winter .ctWindow.pseudoWindow .dijitDialogPaneContent {
+  background: transparent none;
+}
+.winter .ctWindow.pseudoWindow .dijitDialogTitleBar {
+  background: transparent none;
+}
+.winter .ctWindow.pseudoWindow .dijitDialogPaneContent {
+  padding: 0;
+}
+.winter .ctWindow.ctTransparent .dijitDialogPaneContent {
+  background-color: #f3f3f3;
+  background-color: rgba(243, 243, 243, 0.7);
+}
+.winter .ctWindow.ctTransparent .dijitDialogTitleBar {
+  background-color: #3c3c3c;
+  background-color: rgba(60, 60, 60, 0.7);
+}
+.winter .ctWindow.noCollapseHandles .ctCollapseGrid {
+  display: none;
+}
+.winter .ctWindow .ctBlocker .msg {
+  margin-left: 10px;
+}
+.winter.ctEnv_IE_8 .ctTool_windowOpacityTool {
+  display: none;
+}
+.winter.ctEnv_IE_8 .ctWindow.ctAvatar .dijitDialogPaneContent > div {
+  display: none;
+}
+.winter .dijitDialog > .dijitDialogTitleBar {
+  padding: 5px 7px 4px 7px;
+}

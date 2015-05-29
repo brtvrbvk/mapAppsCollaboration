@@ -1,0 +1,165 @@
+.winter .dgrid {
+  border: none;
+}
+.winter .dgrid .dgrid-scroller {
+  overflow: auto;
+}
+.winter .dgrid .dgrid-header,
+.winter .dgrid .dgrid-header-row,
+.winter .dgrid .dgrid-footer {
+  background-color: #6f6f6f;
+}
+.winter .dgrid .dgrid-header .dgrid-cell,
+.winter .dgrid .dgrid-header-row .dgrid-cell,
+.winter .dgrid .dgrid-footer .dgrid-cell {
+  color: #ffffff;
+}
+.winter .dgrid .dgrid-header .dgrid-cell div,
+.winter .dgrid .dgrid-header-row .dgrid-cell div,
+.winter .dgrid .dgrid-footer .dgrid-cell div {
+  line-height: 17px;
+}
+.winter .dgrid .dgrid-header .dgrid-cell .ui-icon,
+.winter .dgrid .dgrid-header-row .dgrid-cell .ui-icon,
+.winter .dgrid .dgrid-footer .dgrid-cell .ui-icon {
+  background-image: url("../../../../../../../../js/dgrid/css/images/ui-icons_222222_256x240_white.png");
+}
+.winter .dgrid .dgrid-header .dgrid-cell.dgrid-sortable:hover,
+.winter .dgrid .dgrid-header-row .dgrid-cell.dgrid-sortable:hover,
+.winter .dgrid .dgrid-footer .dgrid-cell.dgrid-sortable:hover {
+  background-color: #565656;
+}
+.winter .dgrid .dgrid-header .dgrid-cell.dgrid-sortable:hover .ui-icon,
+.winter .dgrid .dgrid-header-row .dgrid-cell.dgrid-sortable:hover .ui-icon,
+.winter .dgrid .dgrid-footer .dgrid-cell.dgrid-sortable:hover .ui-icon {
+  background-image: url("../../../../../../../../js/dgrid/css/images/ui-icons_222222_256x240_white.png");
+}
+.winter .dgrid .dgrid-cell .ui-icon,
+.winter .dgrid .dgrid-cell:hover .ui-icon,
+.winter .dgrid .dgrid-header .dgrid-cell .ui-icon,
+.winter .dgrid .dgrid-header .dgrid-cell:hover .ui-icon {
+  background-image: none;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .dgrid .dgrid-sort-up .ui-icon:before {
+  content: '\e009';
+}
+.winter .dgrid .dgrid-sort-down .ui-icon:before {
+  content: '\e00b';
+}
+.winter .dgrid .dgrid-cell:hover .ui-icon:before {
+  color: #ffffff;
+}
+.winter .dgrid table .dgrid-cell {
+  border-width: 0;
+}
+.winter .dgrid .dgrid-row-even {
+  background-color: #f3f3f3;
+}
+.winter .dgrid .dgrid-row-odd {
+  background-color: #ffffff;
+}
+.winter .dgrid .dgrid-row-highlight,
+.winter .dgrid .dgrid-row.dgrid-selected {
+  color: #ffffff;
+  background-color: #565656;
+  background-color: rgba(86, 86, 86, 0.5);
+}
+.winter .dgrid .dgrid-row:hover,
+.winter .dgrid .dgrid-row.dgrid-selected:hover {
+  color: #ffffff;
+  background-color: #565656;
+  background-color: rgba(86, 86, 86, 0.5);
+}
+.winter .dgrid .dgrid-cell {
+  border-color: transparent;
+}
+.winter .dgrid .dgrid-row:hover button.dgrid-tool .icon,
+.winter .dgrid .dgrid-row.dgrid-selected:hover button.dgrid-tool .icon {
+  color: #ffffff;
+}
+.winter .dgrid .dgrid-row {
+  border: 1px solid transparent;
+}
+.winter .dgrid .dgrid-row.dgrid-selected + .dgrid-row.dgrid-selected {
+  border-top-color: #f3f3f3;
+}
+.winter .dgrid .dgrid-selected .dgrid-cell {
+  border-color: transparent;
+}
+.winter .dgrid .dgrid-cell {
+  border-width: 0;
+  border-color: #f3f3f3;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  vertical-align: middle;
+}
+.winter .dgrid .dgrid-cell .dgrid-input {
+  color: #000000;
+  font-size: 100%;
+  background-color: #ffffff;
+  border-width: 0;
+}
+.winter .dgrid .dgrid-selector {
+  width: 25px;
+}
+.winter .dgrid .dgrid-no-data {
+  padding: 10px;
+}
+.winter .dgrid .dgrid-tools {
+  padding: 0;
+}
+.winter .dgrid .dgrid-tool {
+  background: transparent;
+  border: none;
+  margin: 0 2px;
+  padding: 0;
+}
+.winter .dgrid .dgrid-tool .icon {
+  margin: 2px 3px 0 0;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  font-family: mapappsUiFont;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  color: #3c3c3c;
+}
+.winter .dgrid .dgrid-tool .label {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 11px;
+}
+.winter .dgrid .dgrid-tool:hover .label {
+  color: #ffffff;
+}
+.winter .dgrid .dgrid-row:hover .dgrid-tool .label {
+  color: #ffffff;
+}
+.winter .ctTransparent .dgrid {
+  background-color: rgba(243, 243, 243, 0.3);
+}
+.winter .ctTransparent .dgrid .dgrid-row-odd {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.winter .ctTransparent .dgrid .dgrid-header,
+.winter .ctTransparent .dgrid .dgrid-header-row,
+.winter .ctTransparent .dgrid .dgrid-footer {
+  background-color: rgba(111, 111, 111, 0.3);
+}

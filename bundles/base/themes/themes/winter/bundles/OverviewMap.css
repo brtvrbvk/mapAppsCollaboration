@@ -1,0 +1,22 @@
+.winter .ctTool .ctToolIcon_overviewmap:before {
+  content: '\e048';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_overviewmap .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e048';
+}
+.winter .ctOverviewMap {
+  position: relative !important;
+}
+.winter .ctOverviewMap.esriOverviewMap.ovwTL .ovwContainer {
+  border: none !important;
+  padding: 0;
+}
+.winter .ctOverviewMap .ovwHide {
+  display: none;
+}
+.winter .ctOverviewMap .map .container .layersDiv {
+  background-image: none;
+}
+.winter .ctOverviewMap .map .container .layersDiv:before {
+  content: none;
+}

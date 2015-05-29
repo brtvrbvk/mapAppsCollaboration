@@ -1,0 +1,67 @@
+.winter .ctTableOfContents {
+  background: #f3f3f3;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  max-height: 300px;
+  overflow: auto;
+  width: 250px;
+  border: 1px solid #dadada;
+}
+.winter .ctTableOfContents .ctNotVisibleInScale {
+  color: #dadada;
+}
+.winter .ctTableOfContents .ctNotVisibleInExtent {
+  color: #f39c12;
+}
+.winter .ctTableOfContents .ctNotVisibleInSpatialReference {
+  color: #c0392b;
+}
+.winter .ctTableOfContents .ctSelected {
+  font-weight: bold;
+}
+.winter .ctTableOfContentsToolTip {
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
+  color: #45474d;
+}
+.winter .dijitTreeIcon.ct_layer {
+  background-image: none;
+}
+.winter .dijitTreeIcon.ct_layer:before {
+  content: '\e0be';
+}
+.winter .dijitTreeIcon.ct_grouplayer:before {
+  content: '\e0af';
+}
+.winter .dijitTreeIcon.ct_service:before {
+  content: '\e624';
+}
+.winter .dijitTreeIcon.ct_service.WMS:before,
+.winter .dijitTreeIcon.ct_service.AGS_DYNAMIC:before {
+  content: '\e61d';
+}
+.winter .dijitTreeIcon.ct_service.WMTS:before,
+.winter .dijitTreeIcon.ct_service.AGS_IMAGE:before,
+.winter .dijitTreeIcon.ct_service.AGS_TILED:before {
+  content: '\e623';
+}
+.winter .dijitTreeIcon.ct_service.AGS_FEATURE:before {
+  content: '\e61e';
+}
+.winter .dijitTreeIcon.ct_service.INSPIRE_VIEW:before {
+  content: '\e620';
+}
+.winter .dijitTreeIcon.ct_service.GOOGLE_MAPS:before {
+  content: '\e61f';
+}
+.winter .dijitTreeIcon.ct_service.BING_MAPS:before {
+  content: '\e61c';
+}
+.winter .dijitTreeIcon.ct_service.OPEN_STREET_MAP:before {
+  content: '\e622';
+}
+.winter .dijitTreeIcon.ct_service.KML:before {
+  content: '\e621';
+}

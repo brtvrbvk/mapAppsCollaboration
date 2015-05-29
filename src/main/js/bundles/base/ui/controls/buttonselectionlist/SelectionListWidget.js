@@ -183,7 +183,8 @@ define([
                                         "url('" + url + "')");
                             }
 
-                            if (model.isSelected(model.getIdentity(item)) || (this.currentApp && this.currentApp.id === model.getIdentity(item))) {
+                            //if (model.isSelected(model.getIdentity(item)) || (this.currentApp && this.currentApp.id === model.getIdentity(item))) {
+                            if ((!this.currentApp && item.enabled) ||  (this.currentApp && this.currentApp.id === model.getIdentity(item))) {
                                 this.set("selected", menuItem);
                                 if (this.writesToCollapseHandle) {
                                     agiv_css.createSelector(".ctWindow." + this.widgetRole + " .ctCollapseGrid .ctCollapseInnerHandle",

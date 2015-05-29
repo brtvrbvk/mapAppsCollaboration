@@ -1,0 +1,668 @@
+@import "../themeSettings.less";
+
+/*
+*
+*   1) ToolIcon Definitions
+*   2) StylePropertiesUI
+*   3) DrawSymbol Selection Window Styles
+*   4) TextInput  Window Styles with css animation
+*
+*/
+
+.@{themeName}{
+    // DRAWING
+    /*
+    *   1) ToolIcon Definitions
+    */
+    .showWebFonts() when not (@ct-use-font-icons){
+        //Icons for Toolset
+        .ctToolWindow.redlining_tools .ctCollapseOpposite{
+            .ctCollapseInnerHandle{
+                background-position: -1485px 0;
+            }
+            &.ctCollapseHandleHover .ctCollapseInnerHandle{
+                background-position: -1485px -45px;
+            }
+        }
+        .ctToolWindow.edittoolbar .ctCollapseOpposite{
+            .ctCollapseInnerHandle{
+                background-position: -945px -270px;
+            }
+            &.ctCollapseHandleHover .ctCollapseInnerHandle{
+                background-position: -945px -315px;
+            }
+        }
+
+        .ctTool{
+            .ctToolIcon_drawerasealltool{
+                background-position: -1530px 0;
+            }
+            .ctToolIcon_drawpointtool,
+            .ctToolIcon_drawmultipointtool{
+                background-position: -1575px 0;
+            }
+            .ctToolIcon_drawlinetool{
+                background-position: -1620px 0;
+            }
+            .ctToolIcon_drawpolylinetool{
+                background-position: -1665px 0;
+            }
+            .ctToolIcon_drawfreehandpolylinetool{
+                background-position: -1710px 0;
+            }
+            .ctToolIcon_drawpolygontool{
+                background-position: -1755px 0;
+            }
+            .ctToolIcon_drawfreehandpolygontool{
+                background-position: -1800px 0;
+            }
+            .ctToolIcon_drawrectangletool{
+                background-position: -1845px 0;
+            }
+            .ctToolIcon_drawextenttool{
+                background-position: -405px -540px;
+            }
+            .ctToolIcon_drawcircletool{
+                background-position: -1890px 0;
+            }
+            .ctToolIcon_drawtriangletool{
+                background-position: -1845px -135px;
+            }
+            .ctToolIcon_drawellipsetool{
+                background-position: -1890px -135px;
+            }
+            .ctToolIcon_deleteGraphicEditTool.dijitIcon{
+                background-position: -990px -270px;
+            }
+            .ctToolIcon_drawleftarrowtool{
+                background-position: -1530px -270px;
+            }
+            .ctToolIcon_drawrightarrowtool{
+                background-position: -1485px -270px;
+            }
+            .ctToolIcon_drawuparrowtool{
+                background-position: -1440px -270px;
+            }
+            .ctToolIcon_drawdownarrowtool{
+                background-position: -1395px -270px;
+            }
+            .ctToolIcon_drawarrowtool{
+                background-position: -1618px -270px;
+            }
+            .ctToolIcon_drawTextTool{
+                background-position: -450px -540px;
+            }
+            .ctToolIcon_drawSymbolTool{
+                background-position: -495px -540px;
+            }
+            .ctToolIcon_stylePropertiesTool{
+                background-position: -540px -540px;
+            }
+            .ctToolIcon_moveScaleRotateEditTool{
+                background-position: -1035px -270px;
+            }
+            .ctToolIcon_verticesEditTool{
+                background-position: -1080px -270px;
+            }
+            .ctToolIcon_moveScaleRotateVerticesEditTool{
+                background-position: -630px -540px;
+            }
+            .ctToolIcon_exportGraphicsTool {
+                background-position: -45px -270px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .ctToolIcon_drawerasealltool{
+                    background-position: -1530px -45px;
+                }
+                .ctToolIcon_drawpointtool,
+                .ctToolIcon_drawmultipointtool{
+                    background-position: -1575px -45px;
+                }
+                .ctToolIcon_drawlinetool{
+                    background-position: -1620px -45px;
+                }
+                .ctToolIcon_drawpolylinetool{
+                    background-position: -1665px -45px;
+                }
+                .ctToolIcon_drawfreehandpolylinetool{
+                    background-position: -1710px -45px;
+                }
+                .ctToolIcon_drawpolygontool{
+                    background-position: -1755px -45px;
+                }
+                .ctToolIcon_drawfreehandpolygontool{
+                    background-position: -1800px -45px;
+                }
+                .ctToolIcon_drawrectangletool{
+                    background-position: -1845px -45px;
+                }
+                .ctToolIcon_drawextenttool{
+                    background-position: -405px -585px;
+                }
+                .ctToolIcon_drawcircletool{
+                    background-position: -1890px -45px;
+                }
+                .ctToolIcon_drawtriangletool{
+                    background-position: -1845px -180px;
+                }
+                .ctToolIcon_drawellipsetool{
+                    background-position: -1890px -180px;
+                }
+                .ctToolIcon_deleteGraphicEditTool.dijitIcon{
+                    background-position: -990px -315px;
+                }
+                .ctToolIcon_drawleftarrowtool{
+                    background-position: -1530px -315px;
+                }
+                .ctToolIcon_drawrightarrowtool{
+                    background-position: -1485px -315px;
+                }
+                .ctToolIcon_drawuparrowtool{
+                    background-position: -1440px -315px;
+                }
+                .ctToolIcon_drawdownarrowtool{
+                    background-position: -1395px -315px;
+                }
+                .ctToolIcon_drawarrowtool{
+                    background-position: -1618px  -315px;
+                }
+                .ctToolIcon_drawTextTool{
+                    background-position: -450px -585px;
+                }
+                .ctToolIcon_drawSymbolTool{
+                    background-position: -495px -585px;
+                }
+                .ctToolIcon_stylePropertiesTool{
+                    background-position: -540px -585px;
+                }
+                .ctToolIcon_deleteGraphicsEditTool.dijitIcon{
+                    background-position: -990px -315px;
+                }
+                .ctToolIcon_moveScaleRotateEditTool{
+                    background-position: -1035px -315px;
+                }
+                .ctToolIcon_verticesEditTool{
+                    background-position: -1080px -315px;
+                }
+                .ctToolIcon_moveScaleRotateVerticesEditTool{
+                    background-position: -630px -585px;
+                }
+                .ctToolIcon_exportGraphicsTool {
+                    background-position: -45px -315px;
+                }
+            }
+            &.dijitDisabled{
+                .ctToolIcon_drawerasealltool{
+                    background-position: -1530px -90px;
+                }
+                .ctToolIcon_drawpointtool,
+                .ctToolIcon_drawmultipointtool{
+                    background-position: -1575px -90px;
+                }
+                .ctToolIcon_drawlinetool{
+                    background-position: -1620px -90px;
+                }
+                .ctToolIcon_drawpolylinetool{
+                    background-position: -1665px -90px;
+                }
+                .ctToolIcon_drawfreehandpolylinetool{
+                    background-position: -1710px -90px;
+                }
+                .ctToolIcon_drawpolygontool{
+                    background-position: -1755px -90px;
+                }
+                .ctToolIcon_drawfreehandpolygontool{
+                    background-position: -1800px -90px;
+                }
+                .ctToolIcon_drawrectangletool{
+                    background-position: -1845px -90px;
+                }
+                .ctToolIcon_drawextenttool{
+                    background-position: -405px -630px;
+                }
+                .ctToolIcon_drawcircletool{
+                    background-position: -1890px -90px;
+                }
+                .ctToolIcon_drawtriangletool{
+                    background-position: -1845px -225px;
+                }
+                .ctToolIcon_drawellipsetool{
+                    background-position: -1890px -225px;
+                }
+                .ctToolIcon_deleteGraphicEditTool.dijitIcon{
+                    background-position: -990px -360px;
+                }
+                .ctToolIcon_drawleftarrowtool{
+                    background-position: -1530px -360px;
+                }
+                .ctToolIcon_drawrightarrowtool{
+                    background-position: -1485px -360px;
+                }
+                .ctToolIcon_drawuparrowtool{
+                    background-position: -1440px -360px;
+                }
+                .ctToolIcon_drawdownarrowtool{
+                    background-position: -1395px -360px;
+                }
+                .ctToolIcon_drawarrowtool{
+                    background-position: -1618px  -360px;
+                }
+                .ctToolIcon_drawTextTool{
+                    background-position: -450px -630px;
+                }
+                .ctToolIcon_drawSymbolTool{
+                    background-position: -495px -630px;
+                }
+                .ctToolIcon_stylePropertiesTool{
+                    background-position: -540px -630px;
+                }
+                .ctToolIcon_deleteGraphicsEditTool.dijitIcon{
+                    background-position: -990px -360px;
+                }
+                .ctToolIcon_moveScaleRotateEditTool{
+                    background-position: -1035px -360px;
+                }
+                .ctToolIcon_verticesEditTool{
+                    background-position: -1080px -360px;
+                }
+                .ctToolIcon_moveScaleRotateVerticesEditTool{
+                    background-position: -630px -630px;
+                }
+                .ctToolIcon_exportGraphicsTool {
+                    background-position: -45px -360px;
+                }
+            }
+        }
+        //ToolIcons
+        .ctToolWindow.ctCollapsed{
+            &.ctActiveToolIcon_ctToolIcon_drawpointtool .ctCollapseOpposite .ctCollapseInnerHandle,
+            &.ctActiveToolIcon_ctToolIcon_drawmultipointtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1575px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawlinetool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1620px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawpolylinetool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1665px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawfreehandpolylinetool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1710px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawpolygontool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1755px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawfreehandpolygontool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1800px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawrectangletool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1845px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawextenttool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -405px -630px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawcircletool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1890px -45px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawtriangletool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1845px -180px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawellipsetool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1890px -180px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_deleteGraphicEditTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -990px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawleftarrowtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1530px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawrightarrowtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1485px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawuparrowtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1440px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawdownarrowtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1395px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawarrowtool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1618px  -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawTextTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -450px -585px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawSymbolTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -495px -585px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_stylePropertiesTool  .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -540px -585px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_deleteGraphicTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -990px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_moveScaleRotateEditTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1035px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_verticesEditTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -1080px -315px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_moveScaleRotateVerticesEditTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -630px -585px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_exportGraphicsTool .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -45px -315px;
+            }
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        //Icons for Toolset
+        .ctToolWindow.redlining_tools .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e059';
+        }
+
+        .ctTool .ctToolIcon_redlining_tools:before,
+            .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_redlining_tools .ctCollapseOpposite .ctCollapseInnerHandle:before {
+            content:'\e059';
+        }
+
+        .ctToolWindow.edittoolbar .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e06b';
+        }
+
+        .ctTool{
+            .ctToolIcon_drawerasealltool:before{
+                content:'\e032';
+            }
+            .ctToolIcon_drawpointtool:before,
+                .ctToolIcon_drawmultipointtool:before{
+                content:'\e058';
+            }
+            .ctToolIcon_drawlinetool:before{
+                content:'\e057';
+            }
+            .ctToolIcon_drawpolylinetool:before{
+                content:'\e055';
+            }
+            .ctToolIcon_drawfreehandpolylinetool:before{
+                content:'\e054';
+            }
+            .ctToolIcon_drawpolygontool:before{
+                content:'\e053';
+            }
+            .ctToolIcon_drawfreehandpolygontool:before{
+                content:'\e056';
+            }
+            .ctToolIcon_drawrectangletool:before{
+                content:'\e003';
+            }
+            .ctToolIcon_drawextenttool:before{
+                content:'\e07e';
+            }
+            .ctToolIcon_drawcircletool:before{
+                content:'\e001';
+            }
+            .ctToolIcon_drawtriangletool:before{
+                content:'\e065';
+            }
+            .ctToolIcon_drawellipsetool:before{
+                content:'\e07f';
+            }
+            .ctToolIcon_deleteGraphicEditTool.dijitIcon:before{
+                content:'\e06e';
+            }
+            .ctToolIcon_drawleftarrowtool:before{
+                content:'\e072';
+            }
+            .ctToolIcon_drawrightarrowtool:before{
+                content:'\e071';
+            }
+            .ctToolIcon_drawuparrowtool:before{
+                content:'\e070';
+            }
+            .ctToolIcon_drawdownarrowtool:before{
+                content:'\e073';
+            }
+            .ctToolIcon_drawarrowtool:before{
+                content:'\e08f';
+            }
+            .ctToolIcon_drawTextTool:before{
+                content:'\e066';
+            }
+            .ctToolIcon_drawSymbolTool:before{
+                content:'\e08b';
+            }
+            .ctToolIcon_stylePropertiesTool:before{
+                content:'\e092';
+            }
+            .ctToolIcon_moveScaleRotateEditTool:before{
+                content:'\e06c';
+            }
+            .ctToolIcon_verticesEditTool:before{
+                content:'\e06d';
+            }
+            .ctToolIcon_moveScaleRotateVerticesEditTool:before{
+                content:'\e06a';
+            }
+        }
+        //ToolIcons
+        .ctToolWindow.ctCollapsed{
+            &.ctActiveToolIcon_ctToolIcon_drawpointtool .ctCollapseOpposite .ctCollapseInnerHandle:before,
+                &.ctActiveToolIcon_ctToolIcon_drawmultipointtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e058';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawlinetool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e057';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawpolylinetool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e055';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawfreehandpolylinetool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e054';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawpolygontool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e053';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawfreehandpolygontool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e056';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawrectangletool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e003';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawextenttool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e07e';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawcircletool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e001';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawtriangletool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e065';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawellipsetool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e07f';
+            }
+            &.ctActiveToolIcon_ctToolIcon_deleteGraphicEditTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e06e';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawleftarrowtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e072';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawrightarrowtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e071';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawuparrowtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e070';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawdownarrowtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e073';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawarrowtool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e08f';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawTextTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e066';
+            }
+            &.ctActiveToolIcon_ctToolIcon_drawSymbolTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e08b';
+            }
+            &.ctActiveToolIcon_ctToolIcon_stylePropertiesTool  .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e092';
+            }
+            &.ctActiveToolIcon_ctToolIcon_deleteGraphicTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e06e';
+            }
+            &.ctActiveToolIcon_ctToolIcon_moveScaleRotateEditTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e06c';
+            }
+            &.ctActiveToolIcon_ctToolIcon_verticesEditTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e06d';
+            }
+            &.ctActiveToolIcon_ctToolIcon_moveScaleRotateVerticesEditTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e06a';
+            }
+        }
+    }
+    .showWebFonts();
+
+    /*
+    *   2) StylePropertiesUI
+    */
+    .ctStyleProperties{
+        .dijitToggleButton .dijitButtonNode {
+            .standard-gradient-and-filter(@secondary-color);
+        }
+        .ctStylePresets{
+            .dgrid-column-0 {
+                cursor: pointer;
+            }
+
+            .dgrid-tools {
+                // tool buttons in the dgrid, created by ct/ui/controls/dataview/toolsColumn
+                button.dgrid-tool{
+                    cursor: pointer;
+
+                    .showWebFonts2() when not (@ct-use-font-icons){
+                        &.edit .icon{
+                            background-position: -912px -147px;
+                        }
+                        &.delete .icon{
+                            background-position: -1137px -418px;
+                        }
+                    }
+
+                    .showWebFonts2() when (@ct-use-font-icons){
+                        &.edit .icon{
+                            &:before {
+                                content: "\e059";
+                            }
+                        }
+                        &.delete .icon{
+                            &:before {
+                                content: "\e05b";
+                            }
+                        }
+                    }
+
+                    .showWebFonts2();
+
+                    .label{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .dijitContentPane.formBody{
+            padding: 8px;
+            overflow: auto;
+        }
+        // smaller icons for ToggleButtons in dGrid
+        .dijitToggleButton.ctFormControl{
+            // any applied margin here is useless because buttons are placed by dataForm
+            margin: 0;
+            .dijitButtonNode{
+                padding: 4px 2px;
+                .dijitButtonText{
+                    display: none;
+                }
+                .dijitIcon{
+                    .size(18px);
+                    border: none;
+                }
+            }
+            &.dijitToggleButtonChecked,
+            &.dijitToggleButtonHover{
+                .dijitButtonNode .dijitIcon{
+                    background-image: url('../images/editorIconsHover.png');
+                }
+            }
+        }
+    }
+
+    /*
+    *   3) DrawSymbol Selection Window Styles
+    */
+    .ctRedliningSymbolChooser .ctIconView{
+        .dijitToggleButtonChecked{
+            //TODO: define appropriate style for activated tool
+        }
+        .dijitIcon.dijitImageIcon{
+            border-left: none;
+            border-right: none;
+        }
+        .dijitButtonText{
+            text-align: center;
+            padding: 0;
+        }
+    }
+    /*
+    *   4) TextInput  Window Styles with css animation
+    */
+    .ctDrawText {
+        input{
+            // force the input to adjust text-style like it will look like when rendered on map
+            font-family: inherit!important;
+            color: inherit;
+            font-style: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+        display: inline-block;
+        min-width: 100px;
+        width: 100px;
+        font-size: 14px;
+        background: @textbox-background-color;
+        .box-shadow(2px, 2px, 1px, 0.5);
+        border: 1px solid @border-color;
+        padding: 5px;
+    }
+    .ctDrawText{
+        -webkit-animation-timing-function: ease-out;
+        -webkit-animation-name: sizeIn;
+        -webkit-animation-duration: .15s;
+        -moz-animation-timing-function: ease-out;
+        -moz-animation-name: sizeIn;
+        -moz-animation-duration: .15s;
+        -ms-animation-timing-function: ease-out;
+        -ms-animation-name: sizeIn;
+        -ms-animation-duration: .15s;
+        animation-timing-function: ease-out;
+        animation-name: sizeIn;
+        animation-duration:.15s;
+    }
+}
+
+@-webkit-keyframes sizeIn {
+    from {-webkit-transform: translateX(-53px) scaleX(0.01);}
+    to{-webkit-transform: translateX(0) scaleX(1);}
+}
+@-moz-keyframes sizeIn {
+    from {-moz-transform: translateX(-53px) scaleX(0.01);}
+    to{-moz-transform: translateX(0) scaleX(1);}
+}
+@-ms-keyframes sizeIn {
+    from {-ms-transform: translateX(-53px) scaleX(0.01);}
+    to{-ms-transform: translateX(0) scaleX(1);}
+}
+@keyframes sizeIn {
+    from {transform: translateX(-53px) scaleX(0.01);}
+    to{transform: translateX(0) scaleX(1);}
+}

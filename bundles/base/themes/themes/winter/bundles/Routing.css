@@ -1,0 +1,192 @@
+/**
+ * Author     : juku
+ *
+ * BASE
+ * [General Purpose]
+ *
+ * 1. [FIRST BLOCK] 
+ * 
+ * 2. [SECOND BLOCK]
+ */
+.winter {
+  /*  2. The main Routing widget layout'*/
+}
+.winter .esriDirectionsContainer .esriRouteIcon {
+  background-image: none;
+  font-family: directionsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 22px;
+  color: #000;
+}
+.winter .esriDirectionsContainer .esriStopsReverse,
+.winter .esriDirectionsContainer .esriStopIconRemove,
+.winter .esriDirectionsContainer .esriStopsClearDirections,
+.winter .esriDirectionsContainer .esriResultsPrint {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .esriDirectionsContainer .esriStopsReverse {
+  background-image: none;
+}
+.winter .esriDirectionsContainer .esriStopsReverse:before {
+  content: '\e61a';
+}
+.winter .esriDirectionsContainer .esriStopsClearDirections {
+  font-size: 0;
+  float: right;
+  color: #f4f8f9;
+  text-decoration: initial;
+}
+.winter .esriDirectionsContainer .esriStopsClearDirections:before {
+  font-size: 15px;
+  content: '\e05b';
+  vertical-align: middle;
+}
+.winter .esriDirectionsContainer .esriStopsClearDirections:hover {
+  color: #bdc3c7;
+}
+.winter .esriDirectionsContainer .esriStopIconRemoveColumn {
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+}
+.winter .esriDirectionsContainer .esriStopIconRemoveColumn .esriStopIconRemove {
+  background-image: none;
+}
+.winter .esriDirectionsContainer .esriStopIconRemoveColumn .esriStopIconRemove:before {
+  content: '\e019';
+}
+.winter .esriDirectionsContainer .esriResultsPrint {
+  background-image: none;
+}
+.winter .esriDirectionsContainer .esriResultsPrint:before {
+  content: '\e05a';
+}
+.winter .esriDirectionsContainer .esriDMTDepart .esriRouteIconColumn,
+.winter .esriDirectionsContainer .esriDMTStop .esriRouteIconColumn,
+.winter .esriDirectionsContainer .esriDMTStopOrigin .esriRouteIconColumn {
+  width: 35px;
+  text-align: left;
+}
+.winter .esriDirectionsContainer .esriDMTDepart .esriRouteIcon,
+.winter .esriDirectionsContainer .esriDMTStop .esriRouteIcon,
+.winter .esriDirectionsContainer .esriDMTStopOrigin .esriRouteIcon {
+  font-family: Lato, sans-serif;
+}
+.winter .esriDirectionsContainer .esriDMTDepart .esriRouteIcon:before,
+.winter .esriDirectionsContainer .esriDMTStop .esriRouteIcon:before,
+.winter .esriDirectionsContainer .esriDMTStopOrigin .esriRouteIcon:before {
+  font-family: directionsUiFont;
+}
+.winter .esriDirectionsContainer .esriRouteIconColumn {
+  text-align: center;
+}
+.winter .simpleDirections .esriResultsLoading .esriResultsContainer {
+  background: none;
+  text-align: center;
+}
+.winter .simpleDirections .esriResultsLoading .esriResultsContainer:before {
+  content: '\e097';
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 22px;
+  min-height: 22px;
+}
+.winter .simpleDirections {
+  height: 100%;
+  overflow: auto;
+  padding-right: 5px;
+}
+.winter .simpleDirections .esriStop .esriStopReverseColumn {
+  padding-left: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.winter .simpleDirections .esriStopsOptionsButton,
+.winter .simpleDirections .esriStopsAddDestination,
+.winter .simpleDirections .esriOptionsCheckboxes {
+  color: #45474d;
+}
+.winter .simpleDirections .esriDirectionsButton {
+  display: inline-block;
+  padding: 2px 12px 4px;
+  text-decoration: none;
+  text-transform: none;
+  font-weight: bold;
+  background-color: #3c3c3c;
+  color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin: 0 .3em;
+  border-width: 0;
+  vertical-align: middle;
+}
+.winter .simpleDirections .esriDirectionsButton:hover {
+  background-color: #565656;
+  color: #ffffff;
+}
+.winter .simpleDirections .esriStopsGetDirections {
+  float: none;
+  width: 100%;
+}
+.winter .simpleDirections .esriDirectionsTabButton {
+  background-color: transparent;
+  color: #45474d;
+  border: solid #3c3c3c;
+  border-width: 1px 1px 1px 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.winter .simpleDirections .esriDirectionsTabButton:first-child {
+  border-left-width: 1px;
+}
+.winter .simpleDirections .esriDirectionsPressedButton {
+  background-color: #3c3c3c;
+  color: #ffffff;
+}
+.winter .esriResultsSummary {
+  background: #f3f3f3;
+  color: #45474d;
+}
+.winter .esriResultsButtonsContainer {
+  color: #000;
+}
+.winter tr.esriRouteZoom:hover {
+  background-color: #565656;
+}
+.winter tr.esriRouteZoom:hover .esriRouteInfo,
+.winter tr.esriRouteZoom:hover .esriRouteIcon,
+.winter tr.esriRouteZoom:hover strong {
+  color: #ffffff;
+}
+.winter .esriInfoWindowRoute {
+  font-family: Lato, sans-serif;
+}
+.winter .esriInfoWindowRoute:before {
+  content: none;
+}

@@ -1,0 +1,27 @@
+.winter {
+  /* AttachementContent */
+  /* AGSDetailContent */
+}
+.winter .ctAttachmentContent .ctAttachmentUI .list .deleteAttachment {
+  display: none;
+}
+.winter .ctAttachmentContent .ctAttachmentUI .upload {
+  display: none!important;
+}
+.winter .ctAttachmentContent .ctAttachmentUI .title {
+  display: block;
+}
+.winter .ctAttachmentContent .ctAttachmentUI a {
+  font-weight: normal;
+}
+.winter .dijitContentPane.dijitAlignBottom .detailButton {
+  margin-right: 0;
+}
+.winter .AGSDetailView .mapPane {
+  text-align: left;
+  height: 25%;
+}
+.winter .AGSDetailView .ctAttachmentContent {
+  text-align: left;
+  height: 25%;
+}

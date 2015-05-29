@@ -1,0 +1,5 @@
+.winter .ctWindow.ctReportWindow .dijitDialogPaneContent {
+  background-image: url(../images/loader.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}

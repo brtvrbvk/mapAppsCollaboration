@@ -1,0 +1,78 @@
+.winter .ctTool .ctToolIcon_resultcenterToggleTool:before {
+  content: '\e045';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_resultcenterToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e045';
+}
+.winter .resultCenter .toolbar .dijitButtonNode {
+  font-size: 15px;
+}
+.winter .resultCenter .toolbar .dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .resultCenter .toolbar .dijitIcon {
+  top: 0;
+  left: 0;
+}
+.winter .resultCenter .toolbar .dijitButton .icon-select-multiple:before {
+  top: 4px;
+}
+.winter .resultCenter .toolbar .dijitButton .icon-trashcan:before,
+.winter .resultCenter .toolbar .dijitButton .icon-selection-delete-selected:before,
+.winter .resultCenter .toolbar .dijitButton .icon-select-multiple:before {
+  position: relative;
+  left: -1px;
+}
+.winter .resultCenter .toolbar .dijitButton .icon-trashcan:before {
+  content: '\e05b';
+  top: 2px;
+}
+.winter .resultCenter .toolbar .dijitButton .icon-selection-delete-selected:before {
+  content: '\e033';
+  top: 4px;
+}
+.winter .resultCenter .toolbar .dijitButton .icon-doc:before,
+.winter .resultCenter .toolbar .dijitButton .icon-doc-export:before {
+  position: relative;
+  top: 3px;
+}
+.winter .resultCenter .dijitContentPane {
+  padding: 2px 0;
+  overflow: hidden;
+}
+.winter .resultCenter .dijitDialogPaneContent {
+  padding-bottom: 2px;
+  padding-top: 0;
+}
+.winter .resultCenter .ctPager {
+  float: right;
+}
+.winter .resultCenter .ctPager .dijitSelectLabel {
+  color: black;
+}
+.winter .resultCenter .ctPager .dijitButtonDisabled {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.winter .resultCenter .toolbar {
+  display: inline-block;
+  padding-right: 6px;
+  border-right: 1px solid #bdc3c7;
+}
+.winter .resultCenter .toolbar .dijitButtonNode {
+  padding: 0;
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .resultCenter .toolbar .dijitButtonHover .dijitButtonNode,
+.winter .resultCenter .toolbar .dijitToggleButtonHover .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .resultCenter .toolbar .ctTool {
+  margin: 0;
+}
+.winter .resultCenter .toolbar .ctTool .dijitIcon {
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+}

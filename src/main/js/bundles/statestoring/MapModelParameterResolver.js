@@ -162,7 +162,7 @@ define([
                     return tmp;
                 },
 
-                decodeURLParameter: function (urlObject) {
+                decodeURLParameter: function (urlObject,basemapswitcher) {
                     Deferred.when(this._isEsriMapLoaded(), d_lang.hitch(this, function () {
                         var selectedOperationalNodes = urlObject && urlObject[this.decodeableProperty] && JSON.parse(urlObject[this.decodeableProperty]);
                         var fire = false;

@@ -1,0 +1,64 @@
+.winter .ctTool_locateme.ctTool .dijitButtonNode .ctToolIcon_locateme {
+  width: 15px;
+  height: 15px;
+}
+.winter .ctTool_locateme .ctToolIcon_locateme:before {
+  font-size: 22px;
+  content: "\e02e";
+  position: relative;
+  top: -3px;
+  left: -3px;
+}
+.winter .ctTool_locateme.dijitHover .dijitButtonNode,
+.winter .ctTool_locateme.dijitHover.dijitToggleButtonChecked .dijitButtonNode,
+.winter .ctTool_locateme.dijitChecked.dijitToggleButtonChecked .dijitButtonNode {
+  color: #3c3c3c;
+}
+.winter .ctTool_locateme.dijitToggleButtonChecked .ctToolIcon_locateme:before {
+  content: "\e03c";
+}
+.winter .ctTool_locateme.ctToolProcessing .ctToolIcon_locateme {
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .ctTool_locateme.ctToolProcessing .ctToolIcon_locateme:before {
+  content: '\e097';
+}
+.winter .ctToolWindow .ctTool_locateme .ctToolIcon_locateme {
+  padding: 15px;
+}
+.winter .ctToolWindow .ctTool_locateme .ctToolIcon_locateme:before {
+  top: -18px;
+}
+.winter .mainMapControls .ctTool_locateme .ctToolIcon_locateme {
+  padding: 12px;
+}
+.winter .mainMapControls .ctTool_locateme.ctToolProcessing .dijitButtonNode {
+  color: #3c3c3c;
+}
+.winter .ctTool_locateme .dijitButtonNode {
+  padding: 0;
+  background-color: #f4f8f9;
+  border: none;
+}
+.winter .muted.ctToolContainer .ctTool_locateme .dijitIcon {
+  padding: 0;
+}
+.winter .muted.ctToolContainer .ctTool_locateme .dijitIcon:before {
+  font-size: inherit;
+  top: 0;
+  left: 0;
+}
+.winter.ctEnv_IE_8 .ctToolWindow .ctTool.ctToolProcessing .ctToolIcon_locateme,
+.winter.ctEnv_IE_9 .ctToolWindow .ctTool.ctToolProcessing .ctToolIcon_locateme {
+  background-image: url('../images/ie_fallback_spinner.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.winter.ctEnv_IE_8 .ctToolWindow .ctTool.ctToolProcessing .ctToolIcon_locateme:before,
+.winter.ctEnv_IE_9 .ctToolWindow .ctTool.ctToolProcessing .ctToolIcon_locateme:before {
+  content: "" !important;
+}

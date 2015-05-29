@@ -1,0 +1,15 @@
+/* Contains shared css settings. */
+* {outline:none;}
+
+.fullwidthAndHeight {
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+/* disable logo text */
+.header .logo h1 span {
+    position: absolute;
+    left: -1000px;
+}

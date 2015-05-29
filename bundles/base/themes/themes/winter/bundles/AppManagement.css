@@ -1,0 +1,234 @@
+.winter {
+  /* define default image for apps and templates */
+}
+.winter .ctTool .templatesListTool:before {
+  content: "\e067";
+}
+.winter .ctTool .appsListTool:before {
+  content: "\e088";
+}
+.winter .ctTool .bundleListTool:before {
+  content: "\e618";
+}
+.winter .ctTool .reportListTool:before {
+  content: "\e044";
+}
+.winter .ctTool .dijitIcon[class*='ctToolIcon_remove']:before {
+  content: "\e018";
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_templatesListTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e067";
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_appsOverviewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e088";
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_appsOverviewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e088";
+}
+.winter.app_management.started,
+.winter.app_sampleAppsOverview {
+  background-color: #ebebeb;
+}
+.winter.app_management.started {
+  background-image: url("../../common/images/bg_manager.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.winter.app_management .dojoxWizardContainer .dijitTextBox.textbox,
+.winter.app_management .dojoxWizardContainer .dijitTextBox.textarea {
+  width: 300px;
+}
+.winter.app_management .dojoxWizardContainer .dijitTextBox.textbox {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.winter.app_management .dojoxWizardContainer .dijitTextBox.textbox.dijitError .dijitValidationContainer {
+  margin-right: -3px;
+}
+.winter.app_management .dojoxWizardContainer .dijitTextBox.textarea {
+  height: 50px;
+}
+.winter.app_management .ctTool_changeVersionRangeTool .dijitButtonNode,
+.winter.app_management .ctTool_loadBundlesToAppTool .dijitButtonNode {
+  font-size: 15px;
+  padding: 0px;
+  width: 22px;
+  height: 22px;
+}
+.winter.app_management .ctChangeBundleRangeWindow .ctOkCancelContent {
+  text-align: center;
+}
+.winter.app_management .ctAvailableBundlesWindow .ctOkCancelHeader {
+  padding: 0;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .noimage .dijitButtonContents,
+.winter .ctDataView.ctAppsDataView .ctIconView .noimage .dijitButtonContents,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .noimage .dijitButtonContents {
+  width: auto;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .noimage.dijitToggleButton .dijitButtonNode,
+.winter .ctDataView.ctAppsDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode {
+  width: auto;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitImageIcon,
+.winter .ctDataView.ctAppsDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitImageIcon,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitImageIcon {
+  display: inline-block;
+  background: url(../../common/images/defaultAppIcon.png) no-repeat center center;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitButtonText,
+.winter .ctDataView.ctAppsDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitButtonText,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitButtonText {
+  width: auto;
+  padding-left: 15px;
+  padding-top: 2px;
+  display: block;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon,
+.winter .ctDataView.ctAppsDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon {
+  margin-top: 2px;
+}
+.winter .ctDataView.ctAppOverview .ctIconView .nocheckbox.noimage.dijitToggleButton .dijitButtonNode .dijitButtonText,
+.winter .ctDataView.ctAppsDataView .ctIconView .nocheckbox.noimage.dijitToggleButton .dijitButtonNode .dijitButtonText,
+.winter .ctDataView.ctAppTemplatesDataView .ctIconView .nocheckbox.noimage.dijitToggleButton .dijitButtonNode .dijitButtonText {
+  padding-left: 0;
+}
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  color: #45474d;
+  padding: 5px 6px 4px 2px;
+}
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP,
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP span,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP span,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP span {
+  vertical-align: middle;
+  display: inline;
+}
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP .icon,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP .icon,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP .icon {
+  margin: 0 .3em;
+  width: auto;
+  height: auto;
+}
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP .icon:before,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP .icon:before,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP .icon:before {
+  content: "\e626";
+}
+.winter .ctDataView.ctAppOverview .dgrid-tool.LAUNCH_APP:hover,
+.winter .ctDataView.ctAppsDataView .dgrid-tool.LAUNCH_APP:hover,
+.winter .ctDataView.ctAppTemplatesDataView .dgrid-tool.LAUNCH_APP:hover {
+  background-color: #565656;
+  color: #ffffff;
+}
+.winter .ctDataView.ctAppOverview {
+  padding: 8px;
+  background-color: #dadada;
+  background-color: rgba(218, 218, 218, 0.5);
+}
+.winter .ctDataView.ctAppOverview .ctScopedFilter .ctShrinkingDropDown .dijitButtonText {
+  width: 35px;
+}
+.winter .applist {
+  padding: 10px;
+}
+.winter .dijitDialogFixed.appsView .dijitDialogPaneContent,
+.winter .dijitDialogFixed.templatesView .dijitDialogPaneContent,
+.winter .dijitDialogFixed.reportsView .dijitDialogPaneContent,
+.winter .dijitDialogFixed.bundlesView .dijitDialogPaneContent {
+  background-color: #dadada;
+  background-color: rgba(218, 218, 218, 0.5);
+}
+.winter .dijitDialogFixed.appsView .dgrid-content .dgrid-row,
+.winter .dijitDialogFixed.templatesView .dgrid-content .dgrid-row,
+.winter .dijitDialogFixed.reportsView .dgrid-content .dgrid-row,
+.winter .dijitDialogFixed.bundlesView .dgrid-content .dgrid-row {
+  cursor: pointer;
+}
+.winter .buildertoolsMenuBar {
+  border-bottom: none;
+}
+.winter .ctAppDetails .fullWidthCell {
+  text-align: center;
+}
+.winter .ctAppDetails .fullWidthCell .dijitButton {
+  display: block;
+}
+.winter .ctAppDetails .fullWidthCell .dijitButtonNode {
+  min-width: 130px;
+  width: 40%;
+  padding: 6px 4px;
+}
+.winter .ctAppDetails .fullWidthCell .row.first-row {
+  margin-bottom: 15px;
+}
+.winter .ctAppDetails .panel .ctFormControl.dropZoneUploader.uploader {
+  display: inline-block;
+  width: 35%;
+  vertical-align: top;
+}
+.winter .ctAppDetails .ctFormControl.thumbnailImage {
+  display: inline-block;
+  max-width: 60%;
+}
+.winter .ctAppDetails .allowAppSharingPanel .labelCell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.winter .ctAppDetails .allowAppSharingPanel .labelCell label {
+  white-space: nowrap;
+}
+.winter .ctAppFiles .manualConfigButtonContainer .dijitButton {
+  margin-top: 7px;
+}
+.winter .ctAppFiles .manualConfigButtonContainer .dijitButton:first-child {
+  margin-left: 0;
+}
+.winter .ctAppFiles .manualConfigButtonContainer .dijitButton:last-child {
+  margin-right: 0;
+}
+.winter .ctAppFiles .rightbutton {
+  display: inline-block;
+  float: right;
+}
+.winter .ctAppManagmentButton {
+  margin: 0;
+}
+.winter .ctAppManagmentButton .dijitButtonNode {
+  background-color: #dd0077;
+}
+.winter .ctAppManagmentButton.dijitButtonHover .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .ctAppManagmentButton .dijitButtonText {
+  display: inline-block;
+  padding-top: 4px;
+}
+.winter .ctAppManagmentButton .dijitIcon {
+  float: right;
+}
+.winter .ctAppManagmentButton .dijitButtonNode {
+  padding: 4px;
+}
+.winter .ctAppManagmentButton .ctAppManagmentIcon,
+.winter .ctAppManagmentButton.dijitHover .ctAppManagmentIcon {
+  font-size: 22px;
+}
+.winter .ctAppManagmentButton .ctAppManagmentIcon:before,
+.winter .ctAppManagmentButton.dijitHover .ctAppManagmentIcon:before {
+  content: "\e089";
+}

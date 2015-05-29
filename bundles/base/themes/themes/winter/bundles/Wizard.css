@@ -1,0 +1,32 @@
+.winter .ctConfigureButton {
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .ctConfigureButton .dijitButtonNode {
+  padding: 7px 12px;
+  font-size: 14px;
+  background-color: #dd0077;
+}
+.winter .ctConfigureButton .dijitButtonNode .dijitIcon {
+  float: right;
+}
+.winter .ctConfigureButton .dijitButtonNode .dijitIcon:before {
+  content: "\e039";
+}
+.winter .header .builderWizardBtn .ctConfigureButton {
+  margin: 0;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+}
+.winter .header .builderWizardBtn .ctConfigureButton .dijitButtonNode {
+  font-size: 11px;
+  padding: 6px 5px 9px;
+  height: 15px;
+}
+.winter .header .builderWizardBtn .ctConfigureButton .dijitIcon {
+  position: relative;
+  top: .3em;
+  float: right;
+}

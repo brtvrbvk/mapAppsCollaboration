@@ -1,0 +1,207 @@
+/* claro/form/Common.css */
+/*========================= common css =========================*/
+/* 'dijitTextBox' refers to 'dijit(TextBox|DateTextBox|CurrencyTextBox|...)' */
+.winter {
+  /* 'dijitTextBox' refers to 'dijit(TextBox|DateTextBox|CurrencyTextBox|...)' */
+  /* Padding for the input area of TextBox based widgets, and corresponding padding for the
+     * down arrow button and the placeholder.   placeholder is explicitly listed  because
+     * dijitPlaceHolder is absolutely positioned, so padding set on dijitInputField
+     * won't affect it
+     */
+  /* hover */
+  /* error state */
+  /* focused state */
+  /* disabled state */
+  /*========================= for special widgets =========================*/
+  /* Input boxes with an arrow (for a drop down) */
+  /* Add 1px vertical padding to the <input> where user types and the validation icon,
+       to match the 1px border on arrow button */
+  /* Arrow "hover" effect:
+     * The arrow button should change color whenever the mouse is in a position such that clicking it
+     * will toggle the drop down.   That's either (1) anywhere over the ComboBox or (2) over the arrow
+     * button, depending on the openOnClick setting for the widget.
+     */
+  /* Arrow Button change when drop down is open */
+  /* disabled state */
+}
+.winter .dijitTextBox,
+.winter .dijitInputInner,
+.winter input[type='text'] {
+  color: #000000;
+}
+.winter .dijitValidationTextBoxError .dijitValidationContainer {
+  background-color: #c0392b;
+  background-position: top center;
+  border: solid #c0392b 0;
+  width: 9px;
+}
+.winter .dijitTextBoxError .dijitValidationContainer {
+  border-left-width: 1px;
+}
+.winter .dijitValidationTextBoxError .dijitValidationIcon {
+  width: 0;
+  background-color: transparent !important;
+  /* so the INPUT doesn't obscure the border in rtl+a11y */
+}
+.winter .dijitTextArea,
+.winter .dijitInputField .dijitPlaceHolder {
+  padding: 3px;
+}
+.winter .dijitPlaceHolder {
+  font-style: normal;
+}
+.winter .dijitSelect .dijitInputField,
+.winter .dijitTextBox .dijitInputField {
+  padding: 2px 3px;
+}
+.winter .dijitSelect,
+.winter .dijitSelect .dijitButtonContents,
+.winter .dijitTextBox,
+.winter .dijitTextBox .dijitButtonNode {
+  /* color for (outer) border on *TextBox widgets, and border between input and buttons on ComboBox and Spinner */
+  border-color: #dadada;
+}
+.winter .dijitTextBox {
+  background-color: #ffffff;
+}
+.winter .dijitSelectHover,
+.winter .dijitSelectHover .dijitButtonContents,
+.winter .dijitTextBoxHover,
+.winter .dijitTextBoxHover .dijitButtonNode {
+  border-color: #3c3c3c;
+  transition-duration: 0.25s;
+  -ms-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+}
+.winter .dijitTextBoxHover {
+  background-color: #ffffff;
+}
+.winter .dijitTextBoxFocused {
+  background-color: #ffffff;
+}
+.winter .dijitSelectError,
+.winter .dijitSelectError .dijitButtonContents,
+.winter .dijitTextBoxError,
+.winter .dijitTextBoxError .dijitButtonNode {
+  border-color: #c0392b;
+}
+.winter .dijitSelectFocused,
+.winter .dijitSelectFocused .dijitButtonContents,
+.winter .dijitTextBoxFocused,
+.winter .dijitTextBoxFocused .dijitButtonNode {
+  border-color: #565656;
+  transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+}
+.winter .dijitTextBoxFocused .dijitInputContainer {
+  background: #ffffff;
+}
+.winter .dijitSelectErrorFocused,
+.winter .dijitSelectErrorFocused .dijitButtonContents,
+.winter .dijitTextBoxErrorFocused,
+.winter .dijitTextBoxErrorFocused .dijitButtonNode {
+  border-color: #ab3326;
+}
+.winter .dijitSelectDisabled,
+.winter .dijitSelectDisabled .dijitButtonContents,
+.winter .dijitTextBoxDisabled,
+.winter .dijitTextBoxDisabled .dijitButtonNode {
+  border-color: #c0c0c0;
+}
+.winter .dijitSelectDisabled,
+.winter .dijitTextBoxDisabled,
+.winter .dijitTextBoxDisabled .dijitInputContainer {
+  background-color: #ebebeb;
+  background-image: none;
+}
+.winter .dijitSelectDisabled,
+.winter .dijitTextBoxDisabled,
+.winter .dijitTextBoxDisabled .dijitInputInner {
+  color: #dadada;
+}
+.winter .dijitSelect .dijitArrowButtonInner,
+.winter .dijitComboBox .dijitArrowButtonInner {
+  background-repeat: no-repeat;
+  margin: 0;
+  width: 16px;
+}
+.winter .dijitComboBox .dijitArrowButtonInner {
+  border: 1px solid transparent;
+}
+.winter .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+  border: none;
+  padding: 4px;
+}
+.winter .dijitSelectLabel,
+.winter .dijitTextBox .dijitInputInner,
+.winter .dijitValidationTextBox .dijitValidationContainer {
+  padding: 1px 0;
+}
+.winter .dijitComboBox .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .dijitComboBoxOpenOnClickHover .dijitButtonNode,
+.winter .dijitComboBox .dijitDownArrowButtonHover {
+  background-color: #3c3c3c;
+}
+.winter .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
+.winter .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
+  background-position: -150px -194px;
+}
+.winter .dijitComboBox .dijitHasDropDownOpen {
+  background-color: #3c3c3c;
+  padding: 1px;
+}
+.winter .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner,
+.winter .dijitComboBox .dijitDownArrowButtonHover.dijitHasDropDownOpen .dijitArrowButtonInner {
+  background-position: -195px -194px;
+  border: 0 none;
+}
+.winter div.dijitComboBoxDisabled .dijitArrowButton {
+  /* specific selector set to override background-position setting from Button.js
+             * (.dijitComboBoxDisabled .dijitArrowButtonInner) */
+  background-position: -150px -239px;
+  background-color: #a7a7a7;
+}
+/*========================= hacks for browsers =========================*/
+.dj_webkit .winter .dijitDisabled input {
+  /* because WebKit lightens disabled input/textarea no matter what color you specify */
+  color: #cdcdcd;
+}
+.dj_webkit .winter textarea.dijitTextAreaDisabled {
+  /* because WebKit lightens disabled input/textarea no matter what color you specify */
+  color: #737373;
+}
+/* it seems the input[type="hidden"] has a height (16px) too... this may cause the widget's height calcuate error */
+.dj_ff3 .winter .dijitInputField input[type="hidden"] {
+  display: none;
+  height: 0;
+  width: 0;
+}
+/* ie6 doesn't support transparent background img */
+.dj_ie6 .winter .dijitTextBox,
+.dj_ie6 .winter .dijitComboBox .dijitButtonNode {
+  background-image: none;
+}
+.dj_ie6 .winter dijitTextBox,
+.dj_ie6 .winter .dijitInputInner {
+  color: #000;
+}
+/* In quirks mode strangely all browsers do border-box sizing for input nodes.
+ * Drop the 1px white border around ComboBox arrow to fix misalignment of icon, and to jump on focus.
+ * Note also that these rules are copying what is done on focus.
+ */
+.dj_quirks .winter .dijitComboBox .dijitArrowButtonInner {
+  border: 0px;
+}
+.dj_quirks .winter .dijitComboBox .dijitArrowButtonContainer {
+  padding: 1px;
+}
+.dj_quirks .winter .dijitComboBox .dijitHasDropDownOpen {
+  padding: 1px 0;
+}

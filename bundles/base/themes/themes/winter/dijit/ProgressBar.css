@@ -1,0 +1,57 @@
+/* ProgressBar
+ * 
+ * Styling of the ProgressBar consists of the following:
+ * 
+ * 1. the base progress bar
+ *		.dijitProgressBar -	sets margins for the progress bar
+ *
+ * 2. the empty bar
+ *		.dijitProgressBarEmpty  - sets background img and color for bar or parts of bar that are not finished yet
+ *		Also sets border color for whole bar
+ *
+ * 3. tile mode
+ * 		.dijitProgressBarTile
+ *		inner container for finished portion when in 'tile' (image) mode 
+ * 	
+ * 4. full bar mode
+ * 		.dijitProgressBarFull
+ *		adds border to right side of the filled portion of bar
+ *
+ * 5. text for label of  bar
+ *		.dijitProgressBarLabel - sets text color, which must contrast with both the "Empty" and "Full" parts. 
+ * 	
+ * 6. indeterminate mode
+ *		.dijitProgressBarIndeterminate .dijitProgressBarTile 
+ * 		sets animated gif for the progress bar in 'indeterminate' mode
+ */
+.winter .dijitProgressBar {
+  margin: 2px 0px 2px 0px;
+}
+.winter .dijitProgressBarEmpty {
+  /* outer container and background of the bar that's not finished yet*/
+  background-color: #f3f3f3;
+  border-color: #bdc3c7;
+}
+.winter .dijitProgressBarTile {
+  /* inner container for finished portion when in 'tile' (image) mode */
+  background-color: #3c3c3c;
+}
+.winter .dijitProgressBarFull {
+  border-right: 1px solid #bdc3c7;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  transition-property: width;
+  transition-duration: 0.25s;
+  -ms-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+}
+.winter .dijitProgressBarLabel {
+  /* Set to a color that contrasts with both the "Empty" and "Full" parts. */
+  color: #45474d;
+}
+.winter .dijitProgressBarIndeterminate .dijitProgressBarTile {
+  /* use an animated gif for the progress bar in 'indeterminate' mode */
+  background: #e6e6e6 url("images/progressBarAnim.gif") repeat-x top;
+}

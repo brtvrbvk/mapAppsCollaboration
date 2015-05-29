@@ -1,0 +1,86 @@
+.winter .ctMeasurement .esriMeasurementSeparator {
+  display: none;
+}
+.winter .ctMeasurement.esriMeasurement .dijitToggleButton .dijitIcon {
+  border-right: 1px solid #d3e3e7;
+}
+.winter .ctMeasurement .esriMeasurementButtonPane {
+  padding-top: 0;
+}
+.winter .ctMeasurement .esriMeasurementResultValue {
+  color: #3c3c3c;
+  margin: 10px 0 0 0;
+  padding: 0;
+  filter: progid:DXImageTransform.Microsoft.Shadow(enabled=false) !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(enabled=false)" !important;
+  filter: dropshadow(enabled=false) !important;
+}
+.winter .ctMeasurement .esriMeasurementTableHeader {
+  font-weight: bold;
+}
+.winter .ctMeasurement .esriMeasurementResultLabel {
+  display: none;
+}
+.winter .ctMeasurement .esriMeasurementTableContainer {
+  padding: 0;
+  width: 210px;
+}
+.winter .ctMeasurement .esriMeasurementTableRow {
+  height: auto;
+  color: #3c3c3c;
+}
+.winter .ctMeasurement .esriMeasurementTableRow img {
+  height: 12pt;
+}
+.winter .ctMeasurement .esriMeasurementTableContainer .esriMeasurementResultTable .esriMeasurementTableCell {
+  width: initial;
+}
+.winter .ctMeasurement .dijitToggleButton,
+.winter .ctMeasurement .dijitDropDownButton {
+  margin-bottom: 8px;
+}
+.winter .ctMeasurement .dijitToggleButton,
+.winter .ctMeasurement .dijitButtonNode {
+  margin: 0;
+}
+.winter .ctMeasurement .dijitDropDownButton .dijitButtonNode {
+  padding: 4px 1px;
+}
+.winter .ctMeasurement .dijitDropDownButton {
+  font-size: 11px;
+  margin-left: 5px;
+}
+.winter .ctMeasurement .dijitButtonNode {
+  padding: 0;
+  margin-left: -3px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: none;
+}
+.winter .ctTool .icon-ruler:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-ruler .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e050";
+}
+.winter .ctMeasurement .dijitToggleButton .dijitIcon {
+  background-image: none;
+  font-size: inherit;
+  line-height: 1.5;
+}
+.winter .ctMeasurement .dijitToggleButton .dijitButtonNode {
+  font-size: 30px;
+  color: #3c3c3c;
+}
+.winter .ctMeasurement .dijitToggleButton.dijitHover .dijitButtonNode,
+.winter .ctMeasurement .dijitToggleButton.dijitToggleButtonChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctMeasurement .dijitToggleButton .areaIcon:before {
+  content: '\e04f';
+}
+.winter .ctMeasurement .dijitToggleButton .distanceIcon:before {
+  content: '\e04d';
+}
+.winter .ctMeasurement .dijitToggleButton .locationIcon:before {
+  content: '\e04e';
+}

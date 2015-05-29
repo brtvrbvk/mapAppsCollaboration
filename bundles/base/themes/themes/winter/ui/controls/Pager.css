@@ -1,0 +1,90 @@
+.winter .ctPager {
+  float: right;
+}
+.winter .ctPager .dijitButtonDisabled {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.winter .ctPager a {
+  color: #45474d;
+  padding: 0 3px;
+  display: inline-block;
+  border-left: 1px solid #45474d;
+}
+.winter .ctPager a:first-child,
+.winter .ctPager a:only-child {
+  border: none;
+}
+.winter .ctPager a.selected,
+.winter .ctPager a.notselected:hover {
+  text-decoration: underline;
+  color: #3c3c3c;
+}
+.winter .ctPager .ctPagerSizeSelector,
+.winter .ctPager .ctPageSelector {
+  margin-left: 6px;
+}
+.winter .ctPager .ctPagerSizeSelector {
+  margin-right: 6px;
+}
+.winter .ctPager .dijitButton {
+  margin: 0;
+  line-height: 100%;
+}
+.winter .ctPager .dijitButtonNode,
+.winter .ctPager .dijitButton {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .ctPager .dijitButtonNode {
+  padding: 0;
+}
+.winter .ctPager .ctPagerPageSelector .dijitButtonText {
+  display: none;
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerStartBtn .dijitButtonNode,
+.winter .ctPager .ctPagerPageSelector .ctPagerPrevBtn .dijitButtonNode,
+.winter .ctPager .ctPagerPageSelector .ctPagerNextBtn .dijitButtonNode,
+.winter .ctPager .ctPagerPageSelector .ctPagerLastBtn .dijitButtonNode {
+  color: #45474d;
+  font-size: 15px;
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerStartBtn .dijitIcon,
+.winter .ctPager .ctPagerPageSelector .ctPagerPrevBtn .dijitIcon,
+.winter .ctPager .ctPagerPageSelector .ctPagerNextBtn .dijitIcon,
+.winter .ctPager .ctPagerPageSelector .ctPagerLastBtn .dijitIcon {
+  width: 16px;
+  height: 16px;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  position: relative;
+  top: 1px;
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerStartBtnIcon:before {
+  content: "\e00d";
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerPrevBtnIcon:before {
+  content: "\e00e";
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerNextBtnIcon:before {
+  content: "\e00f";
+}
+.winter .ctPager .ctPagerPageSelector .ctPagerLastBtnIcon:before {
+  content: "\e010";
+}
+.winter .ctPager .ctPagerPageSelector .dijitButton .dijitButtonNode {
+  padding: 0;
+}
+.winter .ctPager .ctPagerPageSelector .dijitButtonHover .dijitButtonNode {
+  background-color: #565656;
+  color: #ffffff;
+}
+.winter .ctPager .ctPagerPageSelector .dijitButtonDisabled .dijitButtonNode {
+  color: #e0e1e4;
+}

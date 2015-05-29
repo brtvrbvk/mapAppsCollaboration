@@ -1,0 +1,10 @@
+.winter .infoWindowPointer {
+  background-color: #cdcdcd;
+  background-color: rgba(205, 205, 205, 0.9);
+  width: 0;
+  /* This affects the stroke width of the pointer */
+  border-color: transparent;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+}

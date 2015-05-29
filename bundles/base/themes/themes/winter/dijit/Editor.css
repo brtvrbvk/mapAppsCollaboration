@@ -1,0 +1,48 @@
+/* Editor 
+ * 
+ * Styling Editor means styling the Editor inside iframe container (dijitEditorIFrameContainer)
+ * 
+ * 1. Editor iframe container (default styling): 
+ * 		.dijitEditorIFrameContainer - normal state styles: background-color, border, padding
+ *
+ * 2. hovered Editor iframe container (ie, mouse hover on editor)
+ * 		.dijitEditorHover .dijitEditorIFrameContainer/dijitEditorIFrame - styles when mouse hover on the container
+ * 
+ * 3. focused Editor iframe container (ie, mouse focus on the editor pane)
+ * 		.dijitEditorFocused .dijitEditorIFrameContainer/dijitEditorIFrame - styles when container focused
+ * 
+ * 3. disabled Editor iframe container 
+ * 		.dijitEditorDisabled - editor's inner iframe container disable status styles: background, border
+ */
+.winter {
+  /* Disabled */
+}
+.winter .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.winter .dijitEditor {
+  border: 1px solid #dadada;
+}
+.winter .dijitEditor .dijitEditorIFrameContainer {
+  background-color: #ffffff;
+  background-image: url('form/images/textBox_back.png');
+  background-repeat: repeat-x;
+}
+.winter .dijitEditorHover .dijitEditorIFrameContainer,
+.winter .dijitEditorHover .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.winter .dijitEditorFocused .dijitEditorIFrameContainer,
+.winter .dijitEditorFocused .dijitEditorIFrameContainer .dijitEditorIFrame {
+  /* TODO: contradicts rule above, which background-color do you want? */
+  background-color: #ffffff;
+}
+.winter .dijitEditorDisabled {
+  border: 1px solid #c0c0c0;
+  color: #dadada;
+}
+.winter .dijitDisabled .dijitEditorIFrame,
+.winter .dijitDisabled .dijitEditorIFrameContainer {
+  background-color: #ebebeb;
+  background-image: none;
+}

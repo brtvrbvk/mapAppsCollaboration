@@ -1,0 +1,81 @@
+/**
+ * Created on : 26.11.2014, 10:38:59
+ * Author     : juku
+ *
+ * Styling for the MessagePane
+ *
+ * There are five types of Messages available: info, loading, warning, error, success
+ * 
+ */
+.winter .ctMessagePane {
+  margin-bottom: 5px;
+}
+.winter .ctMessagePane .ctMessageItem {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  min-height: 1em;
+  font-weight: bold;
+}
+.winter .ctMessagePane .ctMessageItem.info {
+  font-weight: normal;
+  background: #ffffff;
+}
+.winter .ctMessagePane .ctMessageItem.loading {
+  font-weight: normal;
+  background: #ffffff;
+}
+.winter .ctMessagePane .ctMessageItem.warning {
+  background-color: #f39c12;
+  background-color: rgba(243, 156, 18, 0.9);
+}
+.winter .ctMessagePane .ctMessageItem.error {
+  background-color: #c0392b;
+  background-color: rgba(192, 57, 43, 0.9);
+}
+.winter .ctMessagePane .ctMessageItem.success {
+  background-color: #28ae6d;
+  background-color: rgba(40, 174, 109, 0.9);
+}
+.winter .ctMessagePane .desc {
+  display: block;
+  margin-left: 30px;
+}
+.winter .ctMessagePane .icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  float: left;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .ctMessagePane .icon.ctInfoIcon:before {
+  content: '\e625';
+}
+.winter .ctMessagePane .icon.ctWarningIcon:before {
+  content: '\e068';
+}
+.winter .ctMessagePane .icon.ctErrorIcon:before {
+  content: '\e08e';
+}
+.winter .ctMessagePane .icon.ctSuccessIcon:before {
+  content: '\e069';
+}
+.winter .ctMessagePane .icon.ctLoadingIcon {
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+  width: auto;
+  height: auto;
+}
+.winter .ctMessagePane .icon.ctLoadingIcon:before {
+  content: '\e097';
+}

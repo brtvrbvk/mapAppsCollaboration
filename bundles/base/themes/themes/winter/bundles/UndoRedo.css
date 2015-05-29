@@ -1,0 +1,15 @@
+/*
+*   1) ToolIcon Definitions
+*/
+.winter .ctTool .icon-undo:before {
+  content: '\e013';
+}
+.winter .ctTool .icon-redo:before {
+  content: '\e014';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-undo .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e013';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-redo .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e014';
+}

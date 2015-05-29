@@ -1,0 +1,61 @@
+.winter .ctTool .ctToolIcon_basemapgalleryToggleTool:before {
+  content: '\e047';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_basemapgalleryToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e047';
+}
+.winter .ctBasemapGallery {
+  overflow: auto;
+  width: 100%;
+  height: 95%;
+  position: relative;
+  overflow-y: hidden;
+}
+.winter .ctBasemapGallery .esriBasemapGalleryNode,
+.winter .ctBasemapGallery .esriBasemapGalleryThumbnail {
+  width: 200px;
+}
+.winter .ctBasemapGallery .esriBasemapGalleryThumbnail {
+  height: 134px;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+  border-width: 2px;
+}
+.winter .ctBasemapGalleryUnlock {
+  width: 100%;
+  height: 100%;
+}
+.winter .ctBasemapGalleryLock {
+  display: inherit;
+  position: absolute;
+}
+.winter .ctBasemapGalleryLoadDiv {
+  display: inherit;
+  position: fixed;
+  width: 20px;
+  height: 16px;
+  z-index: 99999;
+}
+.winter .ctBasemapGalleryLoad.ctLoading {
+  width: 1em;
+  height: 1em;
+  margin: 0 auto;
+}
+.winter .ctBasemapGalleryHide {
+  visibility: hidden;
+  display: none;
+}
+.winter .esriBasemapGallerySelectedNode .esriBasemapGalleryThumbnail {
+  border: 2px solid #3c3c3c;
+  margin: 0;
+}
+.winter .esriBasemapGallery .basemapTable,
+.winter .esriBasemapGallery .basemapRow {
+  display: table-row;
+}
+.winter .esriBasemapGallery .esriBasemapGalleryNode {
+  display: table-cell;
+  float: none;
+  padding: 14px 10px 0 0;
+}

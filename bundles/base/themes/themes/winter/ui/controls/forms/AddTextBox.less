@@ -1,0 +1,36 @@
+/**
+  AddTextBox adds a "add" button to a AutoResizeTextBox.
+*/
+@import "../../../themeSettings.less";
+
+.@{themeName}{
+    .ctAddTextBox.dijitTextBox .ctAddButton {
+        margin : 0px;
+        vertical-align: top;
+        height: 19px;
+        overflow: hidden;
+        .showWebFonts() when  (@ct-use-font-icons){
+            .ctAddIcon:before{
+                content: "\e017";
+            }
+        }
+        .showWebFonts();
+        .dijitButtonNode{
+            .standard-gradient-and-filter(@button-background-color);
+        }
+        &.dijitHover, 
+        &.dijitChecked{
+            .dijitButtonNode{
+                .standard-gradient-and-filter(@button-hovered-background-color);
+            }
+        }
+        &.dijitDisabled .dijitButtonNode{
+            .standard-gradient-and-filter(@disabled-background-color);
+        }
+    }
+
+    .ctDataView .toolbar .ctAddTextBox.dijitTextBox {
+        //matches Scoped Filter TextBox
+        height: 19px;
+    }
+}

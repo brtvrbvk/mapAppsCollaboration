@@ -60,3 +60,9 @@ http://krpano.com/ios/bugs/ios7-ipad-landscape/
     /*}*/
 
 }
+
+
+@media screen and (max-width:1024px){.ctTpl_light .timeslider {
+    left: 550px;
+    }
+}

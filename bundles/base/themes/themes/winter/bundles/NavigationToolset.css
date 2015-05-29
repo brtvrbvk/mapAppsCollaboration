@@ -1,0 +1,55 @@
+.winter .ctToolWindow.navigation_tools .ctCollapseOpposite .ctCollapseInnerHandle:before,
+.winter .ctTool .ctToolIcon_navigation_tools:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_navigation_tools .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e05c';
+}
+.winter .ctTool .icon-ruler:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-ruler .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e050";
+}
+.winter .ctTool .icon-zoom-in-extend:before {
+  content: '\e062';
+}
+.winter .ctTool .icon-zoom-out-extend:before {
+  content: '\e05f';
+}
+.winter .ctTool .icon-map-pan:before {
+  content: '\e075';
+}
+.winter .ctTool .icon-zoom-next:before {
+  content: '\e061';
+}
+.winter .ctTool .icon-zoom-previous:before {
+  content: '\e05e';
+}
+.winter .ctTool .icon-zoom-selection:before {
+  content: '\e05d';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-zoom-in-extend .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e062';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-zoom-out-extend .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e05f';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-map-pan .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e075';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-zoom-next .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e061';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-zoom-previous .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e05e';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-zoom-selection .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e05d';
+}
+.winter.ctActiveTool_panTool .ctMap .container,
+.winter .ctActiveTool_panTool .ctMap .container {
+  cursor: move !important;
+}
+.winter.ctActiveTool_zoomInTool .ctMap .container,
+.winter.ctActiveTool_zoomInTool .ctMap .container,
+.winter.ctActiveTool_zoomOutTool .ctMap .container,
+.winter.ctActiveTool_zoomOutTool .ctMap .container {
+  cursor: crosshair !important;
+}

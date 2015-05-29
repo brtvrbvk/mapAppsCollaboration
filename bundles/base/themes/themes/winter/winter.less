@@ -1,0 +1,83 @@
+//        night style extension of dijit.
+//        it references the oringinal pure style and imports some addional styles required by api widgets.
+
+/* FONT PATH
+ * -------------------------- */
+// Import Web Font
+@import url("../common/fonts/lato/lato-font.css");
+//@import url(http://fonts.googleapis.com/css?family=Lato);
+// Import global theme setting like colors variables
+// More Information about lesscss at http://lesscss.org/
+@import "themeSettings.less";
+//*-------------------------
+//    General dojo / dijit
+//    framework  Classes
+//-------------------------*/
+@import url("dijit/dijit.css");
+@import url("../common/common.css");
+@import url("dojox/image/ThumbnailPicker.css");
+
+//-------------------------
+//    General mapApps  UI Classes
+//-------------------------*/
+@import url("ui/ui.css");
+
+//-------------------------
+//    Bundle  Classes
+//-------------------------
+@import url("bundles/bundles.css");
+@import url("bundles/bundles_1.css");
+
+.@{themeName} {
+    background-color: @secondary-color;
+
+    font-family: @ct-font-family;
+    *:focus {
+        outline: none;
+    }
+
+    &.start .splashScreen .anim_bg .progress {
+        background-color: @ct-highlight-color;
+    }
+    // -------------------------
+    //     Generic Classes
+    //  -------------------------*/
+    a {
+        color: @ct-text-color;
+        cursor: pointer;
+    }
+
+    // ----------------------
+    //    Header Classes
+    // -----------------------
+    .header {
+        .standard-gradient (@ct-header-background-color);
+        .box-shadow (0px, 0px, 5px, 0.25);
+        .logo {
+            background-color: @ct-highlight-color;
+            color: @ct-dialog-title-text-color;
+        }
+        .appTitle {
+            color: @text-color;
+        }
+    }
+    // -----------------------
+    //    Footer Classes
+    // -----------------------
+    .footer {
+        .box-shadow (0px, 0px, 5px, 0.25);
+        .ctWindowDockingBar  .ctWindowTabButton .dijitButtonNode {
+
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+
+        }
+    }
+
+    .footer,
+    .dijitContentPane.sidebar {
+        .standard-gradient (@ct-footer-background-color);
+        border-bottom: 3px solid @ct-highlight-color;
+    }
+}

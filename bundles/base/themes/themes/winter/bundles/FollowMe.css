@@ -1,0 +1,145 @@
+.winter {
+  /*attendees list*/
+}
+.winter .ctTool .ctToolIcon_followmeToggleTool:before {
+  content: '\e042';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_followmeToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e042';
+}
+.winter .ctFollowMeAttendeesList li span {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+.winter .ctFollowMeAttendeesList li span:before {
+  font-size: 22px;
+  content: '\e022';
+  position: relative;
+  top: -2px;
+}
+.winter .ctFollowMeAttendeesList li.ctFollowMePresenter span:before {
+  color: #3c3c3c;
+}
+.winter .followMe .dijitTabContainerTop-tabs {
+  padding-left: 7px;
+}
+.winter .followMe .dijitTabContainerTop-dijitContentPane,
+.winter .followMe .dijitTabContainerLeft-dijitContentPane,
+.winter .followMe .dijitTabContainerBottom-dijitContentPane,
+.winter .dijitTabContainerRight-dijitContentPane,
+.winter .followMe .dijitAccordionContainer-dijitContentPane {
+  padding: 8px;
+}
+.winter .ctFollowMeSessionWrapper {
+  margin-bottom: 5px;
+}
+.winter .ctFollowMeSessionActive {
+  text-transform: none;
+  margin-bottom: 5pt;
+  font-size: 11px;
+  font-weight: bold;
+}
+.winter .ctFollowMeSessionActive {
+  color: #28ae6d;
+}
+.winter .ctFollowMe .dijitAccordionContainer .dijitAccordionContainer-child {
+  padding: 4px;
+  min-width: 94%;
+}
+.winter .ctFollowMe .dijitDialogPaneContent {
+  padding: 0;
+}
+.winter .ctFollowMe .col1 {
+  width: 350px;
+  float: left;
+}
+.winter .ctFollowMeAttendeesTitle {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 5pt;
+  padding: 4px;
+  background-color: #3c3c3c;
+}
+.winter .ctFollowMeAttendees {
+  margin-left: 355px;
+  border-left: 1px dotted #333333;
+  min-height: 180px;
+}
+.winter .followMeHint {
+  margin-bottom: 5pt;
+  font-size: 11px;
+  font-weight: bold;
+}
+.winter .ctFollowMeSeparator {
+  margin-bottom: 0;
+  margin-top: 5pt;
+  height: 0;
+  background-color: lightgray;
+}
+.winter .ctFollowMeSessionTimestamp {
+  margin-bottom: 5pt;
+  font-size: 11px;
+  font-weight: bold;
+}
+.winter .ctFollowMeMouseCursor {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: red;
+  z-index: 2000;
+}
+.winter .ctFollowMeInputGroup {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  /*Buttons with icons*/
+}
+.winter .ctFollowMeInputGroup .dijitTextBox {
+  margin-top: 2px;
+  max-width: 100%;
+}
+.winter .ctFollowMeInputGroup .dijitButtonText {
+  padding: 2px 0.3em 1px 0;
+  font-weight: bold;
+}
+.winter .ctFollowMeAttendeesList {
+  margin-left: 30px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.winter .ctFollowMeAttendeesList p {
+  margin: 5px;
+}
+.winter .ctFollowMeAttendeesList ul {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  list-style-position: inside!important;
+  list-style: square;
+  height: 160px;
+  overflow: auto;
+}
+.winter .ctFollowMeAttendeesList ul li {
+  line-height: 21px;
+  vertical-align: middle;
+  float: left;
+  width: 33%;
+  padding: 5px;
+  list-style: none;
+}
+.winter .ctFollowMeAttendeesList ul li span {
+  display: inline-block;
+  vertical-align: middle;
+  height: 21px;
+  width: 20px;
+  margin-right: 8px;
+  background-repeat: no-repeat;
+}
+.winter .ctFollowMeAttendeesList ul li:nth-child(2n) {
+  clear: both;
+}

@@ -1,0 +1,171 @@
+/* Button | DropDownButton | ComboButton | ToggleButton
+ * 
+ * Styling Buttons mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitButton
+ * 		.dijitDropDownButton
+ * 		.dijitComboButton
+ * 		.dijitButtonNode - common button/arrow wrapper shared across all three button types 
+ *
+ * 2. Button text
+ * 		.dijitButtonText
+ * 
+ * 3. Arrows - only for DropDownButton and ComboButton
+ * 	     There are total four diredtions arrows - down, left, right, up:
+ * 		.dijitArrowButtonInner - down arrow by default
+ *      .dijitLeftArrowButton .dijitArrowButtonInner - left arrow
+ *      .dijitRightArrowButton .dijitArrowButtonInner - right arrow
+ *      .dijitUpArrowButton .dijitArrowButtonInner - up arrow
+ * 
+ * 4. States - Hover, Active, Disabled, e.g.
+ * 		.dijitButtonHover .dijitButtonNode
+ * 		.dijitButtonActive .dijitButtonNode
+ * 		.dijitButtonDisabled .dijitButtonNode
+ *      
+ *      .dijitDisabled .dijitArrowButtonInner  - disabled arrow states 
+*/
+.winter {
+  /* TODO: still needed? */
+  /*arrow styles for down/up/left/right directions*/
+  /* disabled status */
+  /* for ComboButton */
+}
+.winter .dijitDropDownButton .dijitDownArrowButton .dijitArrowButtonInner {
+  width: 12px;
+  background-image: url('../../images/spriteGraphics.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: -150px -150px;
+  position: relative;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .winter .dijitDropDownButton .dijitDownArrowButton .dijitArrowButtonInner {
+    background-image: url('../../images/spriteGraphics@2x.png');
+    -webkit-background-size: 1980px auto;
+    -moz-background-size: 1980px auto;
+    -o-background-size: 1980px auto;
+    background-size: 1980px auto;
+  }
+}
+.winter .dijitDownArrowButtonHover .dijitArrowButtonInner,
+.winter .dijitDropDownButton.dijitHover .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: -150px -195px;
+}
+.winter .ctWindowToolbar .dijitButtonNode {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .dijitButtonNode {
+  font-weight: bold;
+  background-color: #3c3c3c;
+  color: #ffffff;
+}
+.winter .ctDropDownColorSelector .dijitButtonNode,
+.winter .numberspinner .dijitButtonNode,
+.winter .dijitSpinner .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #232323;
+}
+.winter .dijitButtonHover .dijitButtonNode,
+.winter .dijitToggleButtonHover .dijitButtonNode,
+.winter .dijitDropDownButtonHover .dijitButtonNode,
+.winter .dijitComboButtonHover .dijitButtonNodeHover,
+.winter .dijitComboButtonHover .dijitDownArrowButtonHover,
+.winter .ctSecondaryButton .dijitButtonHover .dijitButtonNode,
+.winter .ctSecondaryButtonNode .dijitButtonHover .dijitButtonNode {
+  background-color: #565656;
+  color: #ffffff;
+}
+.winter .ctSecondaryButton .dijitButtonNode,
+.winter .ctSecondaryButtonNode .dijitButtonNode {
+  background-color: #7c7c7c;
+}
+.winter .ctPrimaryInput .dijitButtonNode {
+  background-color: #3c3c3c;
+  color: #ffffff;
+}
+.winter .ctPrimaryInput.dijitHover .dijitButtonNode,
+.winter .ctPrimaryInput .dijitHover .dijitButtonNode {
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+.winter .dijitButton .dijitButtonNode,
+.winter .dijitDropDownButton .dijitButtonNode,
+.winter .dijitComboButton .dijitButtonNode,
+.winter .dijitToggleButton .dijitButtonNode {
+  border-width: 0;
+  padding: 2px 12px 4px;
+}
+.winter .dijitComboButton .dijitArrowButton {
+  border-left-width: 0px;
+  padding: 4px 2px 4px 2px;
+}
+.winter .dijitButtonNode .dijitArrowButtonInner {
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+  background-image: url('../../images/spriteGraphics.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: -150px -149px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .winter .dijitButtonNode .dijitArrowButtonInner {
+    background-image: url('../../images/spriteGraphics@2x.png');
+    -webkit-background-size: 1980px auto;
+    -moz-background-size: 1980px auto;
+    -o-background-size: 1980px auto;
+    background-size: 1980px auto;
+  }
+}
+.winter .dijitButtonNode.dijitDownArrowButtonHover .dijitArrowButtonInner {
+  background-position: -150px -194px;
+}
+.winter .dijitButtonNode .dijitLeftArrowButton .dijitArrowButtonInner {
+  background-position: -60px -149px;
+}
+.winter .dijitButtonNode .dijitRightArrowButton .dijitArrowButtonInner {
+  background-position: -105px -149px;
+}
+.winter .dijitButtonNode .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -195px -149px;
+}
+.winter .dijitButtonNode .dijitDisabled .dijitArrowButtonInner {
+  background-position: -150px -238px;
+}
+.winter .dijitButtonNode .dijitDisabled .dijitLeftArrowButton .dijitArrowButtonInner {
+  background-position: -60px -238px;
+}
+.winter .dijitButtonNode .dijitDisabled .dijitRightArrowButton .dijitArrowButtonInner {
+  background-position: -105px -238px;
+}
+.winter .dijitButtonNode .dijitDisabled .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -195px -238px;
+}
+.winter .dijitButtonText {
+  padding: 0 0.3em;
+  text-align: center;
+}
+.winter .dijitButtonDisabled .dijitButtonNode,
+.winter .dijitDropDownButtonDisabled .dijitButtonNode,
+.winter .dijitComboButtonDisabled .dijitButtonNode,
+.winter .dijitToggleButtonDisabled .dijitButtonNode {
+  background-image: none;
+  outline: none;
+  background-color: #a7a7a7;
+  color: #e0e1e4;
+}
+.winter .dijitComboButtonDisabled .dijitArrowButton {
+  border-left-width: 0px;
+}
+.winter table.dijitComboButton {
+  border-collapse: separate;
+  /* override dijit.css so that ComboBox rounded corners work */
+}
+.winter .dijitToggleButton.ctHighlightedDockingButton .dijitButtonNode {
+  background-image: none;
+}

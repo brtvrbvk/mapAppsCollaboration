@@ -1,0 +1,112 @@
+/* Tree 
+ * 
+ * Styling Tree mostly means styling the TreeRow (dijitTreeRow)
+ * There are 4 basic states to style:
+ * 
+ * Tree Row:
+ * 1. tree row (default styling): 
+ * 		.dijitTreeRow - styles for each row of the tree
+ *
+ * 2. hovered tree row (mouse hover on a tree row)
+ * 		.dijitTreeRowHover - styles when mouse over on one row
+ * 
+ * 3. active tree row (mouse down on a tree row)
+ * 		.dijitTreeRowActive - styles when mouse down on one row
+ * 
+ * 4. selected tree row
+ * 		dijitTreeRowSelected - style when the row has been selected
+ * 
+ * Tree Expando:
+ * 	    dijitTreeExpando - the expando at the left of the text of each tree row
+ * 
+ * Drag and Drop on TreeNodes: (insert line on dijitTreeContent node so it'll aligned w/ target element)
+ * 		.dijitTreeNode .dojoDndItemBefore/.dojoDndItemAfter - use border style simulate a separate line
+ */
+.winter {
+  /* Styling for basic tree node (unhovered, unselected)
+     * Also use this styling when dropping between items on the tree (in other words, don't
+     * use hover effect)
+     */
+  /* expando (open/closed) icon */
+  /* Drag and Drop on TreeNodes
+     * Put insert line on dijitTreeContent node so it's aligned w/
+     * (ie, indented equally with) target element, even
+     * though dijitTreeRowNode is the actual "drag object"
+     */
+}
+.winter .dijitTreeNode {
+  zoom: 1;
+  /* force layout on IE (TODO: may not be needed anymore) */
+}
+.winter .dijitTreeIsRoot {
+  background-image: none;
+}
+.winter .dijitTreeRow,
+.winter .dijitTreeNode .dojoDndItemBefore,
+.winter .dijitTreeNode .dojoDndItemAfter {
+  /* so insert line shows up on IE when dropping after a target element */
+  padding: 4px 0 2px 0;
+  background-color: none;
+  background-color: transparent;
+  background-color: rgba(171, 214, 255, 0);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  border: 1px 0;
+  border-color: transparent;
+  color: #45474d;
+}
+.winter .dijitTreeRowSelected {
+  background-color: #f3f3f3;
+  border-color: #f3f3f3;
+  border-width: 1px 0;
+  color: #ffffff;
+}
+.winter .dijitTreeRowHover {
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
+  border-width: 1px 0;
+  color: #ffffff;
+}
+.winter .dijitTreeRowActive {
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
+  border-width: 1px 0;
+  color: #ffffff;
+}
+.winter .dijitTreeRowFocused {
+  background-repeat: repeat;
+}
+.winter .dijitTreeExpando {
+  background-image: url("images/treeExpandImages.png");
+  width: 16px;
+  height: 16px;
+  background-position: -35px 0;
+  /* for dijitTreeExpandoOpened */
+}
+.winter .dijitTreeRowHover .dijitTreeExpandoOpened {
+  background-position: -53px 0;
+}
+.winter .dijitTreeExpandoClosed {
+  background-position: 1px 0;
+}
+.winter .dijitTreeRowHover .dijitTreeExpandoClosed {
+  background-position: -17px 0;
+}
+.winter .dijitTreeExpandoLeaf {
+  background-image: none;
+}
+.winter .dijitTreeExpandoLoading {
+  background-image: url("images/loadingAnimation.gif");
+}
+.winter .dijitTreeNode .dojoDndItemBefore {
+  border-top: 2px solid #336699;
+}
+.winter .dijitTreeNode .dojoDndItemAfter {
+  border-bottom: 2px solid #336699;
+}
+.dj_ie6 .winter .dijitTreeExpandoLeaf {
+  background-image: none;
+}
+.dj_ie6 .winter .dijitTreeExpando {
+  background-image: url("images/treeExpandImages8bit.png");
+}

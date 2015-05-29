@@ -1,0 +1,137 @@
+/* NumberSpinner - namespace "dijitSpinner"
+ * 
+ * Styling NumberSpinner mainly includes:
+ * 
+ * 1. Arrows
+ * 		Outer containers: .dijitSpinnerButtonContainer|.dijitSpinnerButtonInner  - for border, padding and position
+ * 		Arrows: .dijitArrowButton|.dijitUpArrowButton.|dijitDownArrowButton
+ * 		Inner container: .dijitArrowButtonInner - for border, padding, width|height and background image
+ * 
+ * 2. Hover state
+ * 		.dijitUpArrowButtonHover|.dijitDownArrowButtonHover .*  - for background color|image
+ * 
+ * 3. Active state
+ * 		.dijitUpArrowButtonActive|.dijitDownArrowButtonActive .*  - for border, padding, margin and background color|image
+ * 
+ * 4. Focused state
+ * 		.dijitSpinnerFocused .* - for background color|image
+ * 
+ * 5. Disabled state
+ * 		.dijitSpinnerDisabled .* - for background color|image
+ * 
+ * 6. Border Radius Setup
+ */
+.winter {
+  /* button */
+  /* up & down button icons */
+  /** hover & focused status **/
+  /* disabled */
+}
+.winter .dijitSpinnerButtonContainer {
+  overflow: hidden;
+  position: relative;
+  width: auto;
+  padding: 0;
+}
+.winter .dijitSpinnerButtonContainer .dijitSpinnerButtonInner {
+  border-width: 1px 0;
+  /* reserve space to match the pure combobox button border with border and not padding to make IE happier */
+  border-style: solid none;
+}
+.winter .dijitSpinner .dijitArrowButton {
+  width: auto;
+  background-color: transparent;
+  background-image: none;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  overflow: hidden;
+}
+.winter .dijitSpinner .dijitSpinnerButtonInner {
+  width: 17px;
+}
+.winter .dijitSpinner .dijitArrowButtonInner {
+  background-image: url('../../images/spriteGraphics.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 15px;
+  padding-left: 1px;
+  padding-right: 1px;
+  /* for up arrow */
+  background-position: -194px -153px;
+  /* override button.css (TODO: move to Common.css since ComboBox needs this too) */
+  display: block;
+  margin-top: 0;
+  /* since its bottom aligned */
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .winter .dijitSpinner .dijitArrowButtonInner {
+    background-image: url('../../images/spriteGraphics@2x.png');
+    -webkit-background-size: 1980px auto;
+    -moz-background-size: 1980px auto;
+    -o-background-size: 1980px auto;
+    background-size: 1980px auto;
+  }
+}
+.winter .dijitSpinner .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: -149px -153px;
+}
+.winter .dijitSpinner .dijitArrowButtonInner .dijitInputField {
+  padding: 0;
+}
+.winter .dijitSpinner .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -194px -153px;
+}
+.winter .dijitSpinner .dijitUpArrowButtonHover .dijitArrowButtonInner,
+.winter .dijitSpinner .dijitUpArrowButtonActive .dijitArrowButtonInner {
+  background-position: -194px -198px;
+}
+.winter .dijitSpinner .dijitUpArrowButtonActive,
+.winter .dijitSpinner .dijitDownArrowButtonActive {
+  background-color: #232323;
+}
+.winter .dijitSpinner .dijitUpArrowButtonHover,
+.winter .dijitSpinner .dijitDownArrowButtonHover {
+  background-color: #3c3c3c;
+}
+.winter .dijitSpinner .dijitDownArrowButtonHover .dijitArrowButtonInner,
+.winter .dijitSpinner .dijitDownArrowButtonActive .dijitArrowButtonInner {
+  background-position: -149px -198px;
+}
+.winter .dijitSpinnerFocused {
+  background-color: #ffffff;
+  background-image: none;
+}
+.winter .dijitSpinner .dijitUpArrowButtonActive .dijitArrowButtonInner,
+.winter .dijitSpinner .dijitDownArrowButtonActive .dijitArrowButtonInner {
+  /* hide inner border while button is depressed */
+  border: 0px;
+  padding: 1px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+}
+.winter .dijitSpinnerDisabled .dijitSpinnerButtonContainer {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  background: #a7a7a7;
+}
+.winter .dijitSpinnerDisabled .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -194px -243px;
+}
+.winter .dijitSpinnerDisabled .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: -149px -243px;
+}
+/** hacks for browsers **/
+.dj_iequirks .winter .dijitSpinner .dijitArrowButtonInner {
+  width: 19px;
+}
+.dj_iequirks .winter .dijitSpinner .dijitArrowButton {
+  overflow: visible;
+  /* 0 height w/o this */
+}
+/* for IE 7, when div is enlarged, 
+ * should be no empty space between dijitInputLayoutContainer and dijitSpinner*/
+.dj_ie7 .winter .dijitSpinner {
+  overflow: visible;
+}

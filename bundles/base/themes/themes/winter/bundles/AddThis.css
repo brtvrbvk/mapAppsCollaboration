@@ -1,0 +1,38 @@
+.winter .myAddThis {
+  vertical-align: middle;
+  color: #45474d;
+}
+.winter .myAddThis .compactShareButton a b {
+  cursor: default;
+}
+.winter .myAddThis p {
+  margin-left: 0;
+  font-weight: bold;
+}
+.winter .addthis_toolbox {
+  display: inline-block;
+  height: 20px;
+}
+.winter .addthis_toolbox.compactShareButton {
+  position: relative;
+  top: 7px;
+  width: 20px;
+}
+.winter .addthis_32x32_style .dummy .at300bs,
+.winter .addthis_32x32_style .at300bs,
+.winter .addthis_32x32_style .at15t {
+  height: 30px !important;
+  width: 32px !important;
+  line-height: 30px !important;
+}
+.winter .addthis_default_style .at300b,
+.winter .addthis_default_style .at300bo,
+.winter .addthis_default_style .at300m {
+  padding: 0;
+  width: 32px;
+  margin-right: 1px;
+}
+.winter .addthis_default_style .at15t_expanded,
+.winter .addthis_default_style .at15t_compact {
+  margin-right: 0;
+}

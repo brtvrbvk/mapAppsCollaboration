@@ -1,0 +1,574 @@
+.winter {
+  /*-------------------------
+        CONTENTFLOW.CCS
+    -------------------------*/
+  /* ========== ContentFlow ========== */
+  /*
+     * This is the basic CSS file needed for the correct functioning of ContentFlow.
+     * DON'T CHANGE IT.
+     *
+     * default style to look nice
+    */
+  /* only for IE <= 6 and a alphatransparent slider image */
+  /*-------------------------
+        MAPFLOW.CCS
+    -------------------------*/
+  /* Map Flow initial */
+}
+.winter .ctTransparencySliderDialogPopup .dijitTooltipContainer {
+  width: 170px;
+  height: 65px;
+}
+.winter .ctTransparencySliderDialogPopup .dijitTooltipContents .title {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+.winter .ctTransparencySliderDialogPopup .dijitTooltipContents .labelContainer {
+  margin-left: 24px;
+  margin-right: 25px;
+}
+.winter .ctTransparencySliderDialogPopup .dijitTooltipContents .labelContainer .dijitRuleContainerH {
+  height: 5px;
+}
+.winter .ctTransparencySliderDialogPopup .dijitTooltipContents .labelContainer .dijitRuleLabelsContainer {
+  color: #000000;
+}
+.winter .ctTool .ctToolIcon_mapflowToggleTool:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_mapflowToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e046';
+}
+.winter .ContentFlow {
+  position: relative;
+  /* needed so overlay dimensions are constrained to the ContentFlow */
+  overflow: hidden;
+  top: -40px;
+  /* ----- scrollbar ----- */
+  /* ----- global caption ----- */
+  /* ----- load indicator ----- */
+}
+.winter .ContentFlow * {
+  margin: 0px;
+  padding: 0px;
+  /*border: none;*/
+}
+.winter .ContentFlow img {
+  -ms-interpolation-mode: bicubic;
+}
+.winter .ContentFlow .mouseoverCheckElement {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: 0px;
+  /*display: none;*/
+  visibility: hidden;
+}
+.winter .ContentFlow:hover .mouseoverCheckElement {
+  left: 1px;
+}
+.winter .ContentFlow .flow {
+  position: relative;
+  /* needed  so that items can be positioned relative to flow*/
+  z-index: 0;
+  /* need so every item has a z-index relative to the flow-box */
+  visibility: hidden;
+  /* needed so that content is hidden while loading */
+  width: 100%;
+  /* needed for IE6 */
+  margin: 0 auto;
+}
+.winter .ContentFlow .flow.hidden {
+  visibility: hidden;
+}
+.winter .ContentFlow .flow .item {
+  position: absolute;
+  /* needed */
+  visibility: hidden;
+  top: 0px;
+  left: 0px;
+}
+.winter .ContentFlow .flow .item canvas.content {
+  width: 100%;
+  height: 100%;
+}
+.winter .ContentFlow .flow .item img.content {
+  width: 100%;
+}
+.winter .ContentFlow .flow .item img.reflection,
+.winter .ContentFlow .flow .item canvas.reflection {
+  width: 100%;
+}
+.winter .ContentFlow .flow .item.active {
+  cursor: pointer;
+}
+.winter .ContentFlow .flow .item .caption {
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  max-height: 30%;
+  bottom: 10%;
+  width: 100%;
+}
+.winter .ContentFlow .flow .item .caption a {
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+  font-size: 0.8em;
+}
+.winter .ContentFlow .flow .item .caption a:hover {
+  text-decoration: underline;
+}
+.winter .ContentFlow .flow .item.active .caption {
+  /*display: block;*/
+  /* uncomment to show caption inside item */
+}
+.winter .ContentFlow .flow .item .content {
+  display: block;
+}
+.winter .ContentFlow .flow .item div.content {
+  width: 100%;
+  height: 100%;
+}
+.winter .ContentFlow .flow .item .label {
+  display: none;
+}
+.winter .ContentFlow .flow .item .reflection {
+  display: block;
+}
+.winter .ContentFlow .flow .item canvas.reflection {
+  margin-top: -1px;
+  /* for FF */
+}
+.winter .ContentFlow .flow .item .caption {
+  position: absolute;
+  /* needed */
+  display: none;
+  /* needed to hide it on inactive items */
+}
+.winter .ContentFlow .flow .item.active .caption {
+  /*display: block;*/
+  /* uncomment to show caption inside item */
+}
+.winter .ContentFlow .flow span::-moz-selection,
+.winter .ContentFlow .flow div::-moz-selection {
+  background: none repeat scroll 0 0 transparent;
+}
+.winter .ContentFlow .scrollbar {
+  width: 50%;
+  margin: 0px auto;
+  height: 8px;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  /* set above flow */
+  visibility: hidden;
+}
+.winter .ContentFlow .scrollbar .slider {
+  top: 1px !important;
+  width: 80px;
+  height: 6px;
+  cursor: move;
+  position: absolute;
+  /* needed */
+}
+.winter .ContentFlow .scrollbar .slider .position {
+  top: 120%;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px white;
+  position: absolute;
+  /* needed */
+  text-align: center;
+  visibility: hidden;
+}
+.winter .ContentFlow .scrollbar {
+  background-color: #ffffff;
+}
+.winter .ContentFlow .scrollbar .slider {
+  background-color: #2f2f2f;
+}
+.winter .ContentFlow .globalCaption {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  height: 20px;
+  margin: 2em auto;
+  position: relative;
+  /* needed for z-index */
+  z-index: 1;
+  /* set above flow */
+}
+.winter .ContentFlow .globalCaption a {
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+  font-size: 0.8em;
+}
+.winter .ContentFlow .globalCaption a:hover {
+  text-decoration: underline;
+}
+.winter .ContentFlow .loadIndicator {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: black;
+  position: absolute;
+  /* needed */
+  z-index: 65000;
+  /* set above everything */
+}
+.winter .ContentFlow .loadIndicator .indicator {
+  background: url(../images/loader.gif) center center no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.winter * html .ContentFlow .flow .item .caption {
+  background-image: none;
+}
+.winter * html .ContentFlow .scrollbar .slider {
+  background-image: none;
+}
+.winter * html .ContentFlow .loadIndicator .indicator {
+  height: 100px;
+}
+.winter * html .ContentFlow .scrollbar .slider .virtualSlider {
+  height: 100%;
+}
+.winter .ctSpacer {
+  z-index: 2;
+  position: relative;
+}
+.winter .ctItemContent {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: relative;
+  top: -100%;
+  z-index: 1;
+}
+.winter .ctItemImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+.winter .ctMapCover {
+  border: 3px solid #ffffff;
+}
+.winter .ctSelectedTheme {
+  border: 3px solid #3c3c3c;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.winter .ctThemeInfoWindow {
+  max-width: 300px !important;
+  max-height: 400px !important;
+}
+.winter .ctThemeInfoPopup {
+  max-width: 267px;
+  max-height: 400px;
+  overflow: auto;
+}
+.winter .mapFlow {
+  left: 0 !important;
+}
+.winter .mapFlow.dijitDialogHover .dijitDialogTitleBar,
+.winter .mapFlow.dijitDialogActive .dijitDialogTitleBar,
+.winter .mapFlow.dijitDialog.ctAvatar .dijitDialogTitleBar {
+  border: none;
+}
+.winter .mapFlow.dijitDialog.ctAvatar {
+  border: 1px dashed grey;
+}
+.winter .mapFlow .ctMapCoverButton {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 250;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.winter .ctMapFlow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 270px;
+  margin: 0 auto;
+}
+.winter .ctMapCoverWrapper {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: transform 0.3s linear;
+  -moz-transition: transform 0.3s linear;
+  -o-transition: transform 0.3s linear;
+  -ms-transition: transform 0.3s linear;
+  transition: transform 0.3s linear;
+}
+.winter .ctMapCoverWrapper .ctMapCoverFront {
+  z-index: 150;
+}
+.winter .ctMapCoverWrapper .ctMapCoverBack {
+  z-index: 10;
+}
+.winter .ctMapCoverFront {
+  background-color: #3c3c3c;
+  /*important for non flickering smooth transitions*/
+}
+.winter .ctMapCoverBack {
+  background-color: #ffffff;
+  /*important for older browsers!*/
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.winter .ctMapCoverBack .ctMapCoverDetail {
+  color: #000000;
+  padding: 2pt;
+  overflow: auto;
+  height: 128px;
+  font-size: 1.1em;
+  cursor: default;
+}
+.winter .ctMapCoverBack .dijitTreeNode {
+  padding-left: 10px;
+}
+.winter .ctMapCoverBack .dijitTreeRow {
+  color: #000000;
+}
+.winter .ctMapCoverBack .dijitTreeRowHover {
+  color: #ffffff;
+}
+.winter .ctMapCoverBack .dijitTreeRowSelected {
+  background: none;
+  border: solid 0 transparent;
+}
+.winter .ctMapCoverBack .dijitTreeRowSelected.dijitTreeRowHover {
+  background-color: #3c3c3c;
+}
+.winter .ctMapCoverRotated {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.winter .ctMapCoverRotated .ctMapCoverBack {
+  z-index: 200;
+}
+.winter .ctMapCoverRotated .ctMapCoverFront {
+  z-index: 2 !important;
+}
+.winter .ctMapCoverRotated .ctMapCoverTrackList {
+  height: 128px;
+  width: 100%;
+  overflow: auto;
+  visibility: visible;
+}
+.winter .ctMapCoverRotated .ctCategoryInfoBack {
+  visibility: visible;
+  z-index: 251;
+}
+.winter .ctMapCoverSide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: visible;
+  -ms-backface-visibility: visible;
+  -o-backface-visibility: hidden;
+}
+.winter.ctEnv_IE_8 .ctMapCoverSide,
+.winter.ctEnv_IE_9 .ctMapCoverSide {
+  -ms-backface-visibility: hidden;
+}
+.winter .ctMapCoverLabel {
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+  top: 8px;
+  width: 100%;
+  position: relative;
+}
+.winter .ctMapCoverTrackList {
+  visibility: hidden;
+}
+.winter .ctTrack {
+  cursor: pointer;
+}
+.winter .ContentFlow {
+  width: 100%;
+}
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInScale,
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInExtent,
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInSpatialReference {
+  color: #dadada;
+}
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInScale.dijitTreeRowHover,
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInExtent.dijitTreeRowHover,
+.winter .ContentFlow .ctMapCoverTrackList .ctNotVisibleInSpatialReference.dijitTreeRowHover {
+  background-color: #c0c0c0;
+}
+.winter .ContentFlow .ctMapCover.ctNotVisibleInScale,
+.winter .ContentFlow .ctMapCover.ctNotVisibleInExtent,
+.winter .ContentFlow .ctMapCover.ctNotVisibleInSpatialReference {
+  border: 3px solid #c0c0c0;
+}
+.winter .ContentFlow .ctMapCover.ctNotVisibleInScale .ctMapCoverTrackListHeader,
+.winter .ContentFlow .ctMapCover.ctNotVisibleInExtent .ctMapCoverTrackListHeader,
+.winter .ContentFlow .ctMapCover.ctNotVisibleInSpatialReference .ctMapCoverTrackListHeader {
+  color: #dadada;
+}
+.winter .dijitTreeRow {
+  padding-top: 3px;
+}
+.winter .ctMapCoverTitle {
+  margin-left: -12px;
+  padding-left: 20px;
+  max-width: 154px;
+  max-height: 1.3em;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.winter .ctThemeCheckbox {
+  width: 13px;
+  height: 13px;
+  float: left;
+}
+.winter.ctEnv_IE .ctThemeCheckbox {
+  margin-top: 1px;
+}
+.winter.ctEnv_IE_8 .dijitDialog.mapFlow {
+  border: none;
+}
+.winter .ctMapCoverTrackListHeader {
+  color: #000000;
+  height: 19px;
+  padding-left: 5px;
+  padding-top: 8px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1.3em;
+  z-index: 2000;
+}
+.winter .ctMapCoverTrackListHeader .ctMapCoverTitle {
+  position: absolute;
+  left: 15px;
+  z-index: 2;
+  background-image: url(../../common/images/blank.png);
+}
+.winter .ctMapCoverTrackListHeader .ctThemeCheckbox {
+  position: absolute;
+  z-index: 1;
+}
+.winter .ctCategoryInfoBack {
+  right: auto;
+  right: 25px;
+  z-index: 0;
+}
+.winter .ctMapCoverRotator {
+  width: 20px;
+  height: 20px;
+}
+.winter .ctMapCoverRotatorBack {
+  z-index: 0;
+}
+.winter.ctEnv_FF .ctMapCoverRotatorBack,
+.winter.ctEnv_IE .ctMapCoverRotatorBack {
+  visibility: hidden;
+}
+.winter.ctEnv_FF .ctMapCoverRotated .ctMapCoverRotatorBack,
+.winter.ctEnv_IE .ctMapCoverRotated .ctMapCoverRotatorBack {
+  visibility: visible;
+  z-index: 255;
+}
+.winter .ctMapCoverButtonContainer {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: visible;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  visibility: visible;
+}
+.winter.ctEnv_FF_11 .ctMapCoverButtonContainer {
+  -moz-backface-visibility: hidden;
+}
+.winter .mapFlow .ctMapCoverButton {
+  text-align: center;
+  line-height: 22px;
+  color: inherit;
+  font-family: mapappsUiFont;
+}
+.winter .mapFlow .ctMapCoverButton:hover {
+  color: #111111;
+}
+.winter .mapFlow .ctMapCoverButton.zoomToIcon:before {
+  content: "\e03b";
+}
+.winter .mapFlow .ctMapCoverButton.deleteIcon:before {
+  content: "\e032";
+}
+.winter .mapFlow .ctMapCoverButton.ctCategoryInfo:before {
+  content: "\e02b";
+}
+.winter .mapFlow .ctMapCoverButton.ctMapCoverRotator:before {
+  content: "\e011";
+  position: relative;
+  top: 2px;
+}
+.winter .mapFlow .ctMapCoverButton.transparencySliderIcon:before {
+  top: 1px;
+  position: relative;
+  content: '\e020';
+}
+.winter .mapFlow .ctThemeCheckbox:before {
+  font-family: mapappsUiFont;
+  font-size: 15px;
+  font-weight: normal;
+}
+.winter .mapFlow .ctThemeCheckbox:before {
+  content: '\e003';
+}
+.winter .mapFlow .ctSelectedTheme .ctThemeCheckbox:before {
+  content: '\e004';
+}
+.winter .mapFlow .dijitFolderOpened,
+.winter .mapFlow .dijitFolderClosed,
+.winter .mapFlow .dijitTreeExpandoLeaf {
+  display: none;
+}
+.winter .ContentFlow .ctSelected .dijitLeaf,
+.winter .ContentFlow .ctUnselected .dijitLeaf {
+  display: none;
+}
+.winter .ContentFlow .dijitTreeContent:before {
+  font-family: mapappsUiFont;
+  font-size: 15px;
+  font-weight: normal;
+  color: inherit;
+  vertical-align: middle;
+}
+.winter .ContentFlow .ctUnselected .dijitTreeContent:before {
+  content: '\e003';
+}
+.winter .ContentFlow .ctSelected .dijitTreeContent:before {
+  content: '\e004';
+}
+.winter .ContentFlow .dijitTreeRowHover .dijitTreeContent:before {
+  color: #ffffff;
+}

@@ -1,0 +1,11 @@
+/**
+  AutoResizeTextBox auto extends the width during typing.
+*/
+/** root node of the button */
+.winter .ctAutoResizeTextBox.dijitTextBox {
+  width: auto;
+  overflow: hidden;
+}
+.winter .ctAutoResizeTextBox.dijitTextBox .dijitInputContainer {
+  display: inline-block;
+}

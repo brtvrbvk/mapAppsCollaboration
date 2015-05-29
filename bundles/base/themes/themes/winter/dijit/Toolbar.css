@@ -1,0 +1,142 @@
+/* Toolbar 
+ * 
+ * Styling Toolbar means styling the toolbar container and the widget inside toolbar  (dijitToolbar)
+ * 
+ * 1. toolbar (default styling): 
+ * 		.dijitToolbar - styles for outer container
+ *
+ * 2. widget inside toolbar
+ * 		.dijitToolbar .dijitButtonNode   - Button widget
+ * 					  .dijitComboButton  - ComboButton widget
+ * 					  .dijitDropDownButton  - DropDownButton widget
+ * 					  .dijitToggleButton  - ToggleButton widget
+ * 		
+ * 3. hovered widget inside toolbar (ie, mouse hover on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeHover  - styles for hovered Button widget
+ * 
+ * 4. actived widget inside toolbar (ie, mouse down on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeActive  - mouse down on Button widget
+ */
+.winter {
+  /** override pure/form/Button.css **/
+  /* hover status */
+  /* actve status */
+  /* toggle button checked status */
+  /* Toolbar inside of disabled Editor */
+}
+.winter .dijitToolbar {
+  border-bottom: 1px solid #dadada;
+  background-color: #e6e6e6;
+  background-image: url("images/commonHighlight.png");
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  padding: 2px 0px 2px 4px;
+  zoom: 1;
+}
+.winter .dijitToolbar label {
+  padding: 0px 3px 0 6px;
+}
+.winter .dijitToolbar .dijitButtonNode {
+  border: none;
+  padding: 2px;
+  background-image: url("images/commonHighlight.png");
+  background-position: 0 -30px;
+  background-repeat: repeat-x;
+  background-color: rgba(171, 214, 255, 0);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+}
+.winter .dijitToolbar .dijitComboButton .dijitButtonNode {
+  padding: 3px 2px 3px 2px;
+  /* make the ComboButton in toolbar more stable when mouse hovering */
+}
+.winter .dijitToolbar .dijitComboBox .dijitButtonNode {
+  padding: 0px;
+}
+.winter .dijitToolbar .dijitComboButton {
+  padding: 1px;
+}
+.winter .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.winter .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode,
+.winter .dijitToolbar .dijitToggleButtonHover .dijitButtonNode {
+  background-position: 0 0;
+  background-color: #3c3c3c;
+  padding: 1px;
+}
+.winter .dijitToolbar .dijitComboButtonHover {
+  background-color: #3c3c3c;
+  border: solid 1px #3c3c3c;
+  padding: 0px;
+}
+.winter .dijitToolbar .dijitComboButtonHover .dijitButtonNode,
+.winter .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+  background-position: 0 0;
+  padding: 2px;
+}
+.winter .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+  background-color: #d4f0e8;
+}
+.winter .dijitToolbar .dijitButtonActive .dijitButtonNode,
+.winter .dijitToolbar .dijitDropDownButtonActive .dijitButtonNode,
+.winter .dijitToolbar .dijitToggleButtonActive .dijitButtonNode {
+  border-width: 1px;
+  background-color: #3c3c3c;
+  background-position: 0px -177px;
+  padding: 1px;
+}
+.winter .dijitToolbar .dijitComboButtonActive {
+  transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  border-width: 1px;
+  padding: 0px;
+}
+.winter .dijitToolbar .dijitComboButtonActive .dijitButtonNode {
+  background-color: #d4f0e8;
+  background-position: 0px -177px;
+  padding: 2px;
+}
+.winter .dijitToolbar .dijitComboButton .dijitDownArrowButtonActive {
+  background-color: #3c3c3c;
+}
+.winter .dijitToolbar .dijitToggleButtonChecked .dijitButtonNode {
+  border-color: #f3f3f3;
+  background-color: #f3f3f3;
+  padding: 1px;
+}
+.winter .dijitToolbarSeparator {
+  /* separator icon in the editor sprite */
+  background: url('../images/editorIconsEnabled.png');
+}
+.winter .dijitDisabled .dijitToolbar {
+  background: none;
+  background-color: #a7a7a7;
+  border-bottom: 1px solid #c0c0c0;
+}
+/** hacks for browsers **/
+.dj_ie7 .winter .dijitToolbar .dijitButtonContents {
+  margin: -2px 0;
+  padding: 0;
+}
+.dj_ie .winter .dijitToolbar .dijitButtonNode {
+  background-color: transparent;
+  /* for IE, which doesn't understand rgba(...) */
+}
+.dj_ie6 .winter .dijitToolbar .dijitButtonNode {
+  background: none;
+  /* because background-color: transparent above doesn't work */
+}

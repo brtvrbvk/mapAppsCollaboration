@@ -1,0 +1,27 @@
+.winter .consoleContainer .ctTool_consoleStopBundleTool .dijitButtonNode,
+.winter .consoleContainer .ctTool_consoleStartBundleTool .dijitButtonNode,
+.winter .consoleContainer .ctTool_componentConfigureTool .dijitButtonNode {
+  padding: 1px 4px 4px;
+}
+.winter .ctTool_consoleStopBundleTool .dijitButtonNode,
+.winter .ctTool_consoleStartBundleTool .dijitButtonNode,
+.winter .ctTool_componentConfigureTool .dijitButtonNode {
+  font-size: 15px;
+}
+.winter .ctTool_consoleStopBundleTool.dijitHover .dijitButtonNode,
+.winter .ctTool_consoleStartBundleTool.dijitHover .dijitButtonNode,
+.winter .ctTool_componentConfigureTool.dijitHover .dijitButtonNode,
+.winter .ctTool_consoleStopBundleTool.dijitToggleButtonChecked .dijitButtonNode,
+.winter .ctTool_consoleStartBundleTool.dijitToggleButtonChecked .dijitButtonNode,
+.winter .ctTool_componentConfigureTool.dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .ctTool .ctToolIcon_consoleStartBundleTool:before {
+  content: "\e090";
+}
+.winter .ctTool .ctToolIcon_consoleStopBundleTool:before {
+  content: "\e08c";
+}
+.winter .ctTool .ctToolIcon_componentConfigureTool:before {
+  content: "\e051";
+}

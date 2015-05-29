@@ -1,0 +1,126 @@
+.winter .ctTool .ctToolIcon_bookmarkstool:before {
+  content: "\e076";
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_bookmarkstool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e076";
+}
+.winter .ctBookmarks .esriBookmarkRemoveImage,
+.winter .ctBookmarks .esriBookmarkEditImage {
+  background-image: none;
+  font-size: 15px;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  line-height: 20px;
+}
+.winter .ctBookmarks .esriBookmarkItem.esriBookmarkHighlight .esriBookmarkLabel,
+.winter .ctBookmarks .esriBookmarkItem.esriBookmarkHighlight .esriBookmarkRemoveImage,
+.winter .ctBookmarks .esriBookmarkItem.esriBookmarkHighlight .esriBookmarkEditImage,
+.winter .ctBookmarks .esriBookmarkItem.esriBookmarkHighlight div {
+  color: #ffffff;
+}
+.winter .ctBookmarks .esriBookmarkRemoveImage:before {
+  content: "\e05b";
+}
+.winter .ctBookmarks .esriBookmarkEditImage:before {
+  content: "\e059";
+}
+.winter .ctBookmarks .esriBookmarks,
+.winter .ctBookmarks .esriBookmarkTable,
+.winter .ctBookmarks .esriBookmarkItem {
+  width: 99%;
+}
+.winter .ctBookmarks .esriBookmarkItem.esriAddBookmark {
+  width: 96%;
+  margin-left: 0;
+}
+.winter .ctBookmarks .esriBookmarks {
+  border: none;
+}
+.winter .ctBookmarks .ctPredefinedBookmarks {
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  border: 1px solid #bdc3c7;
+  margin-bottom: 5px;
+}
+.winter .ctBookmarks .ctCustomBookmarks {
+  margin-bottom: 5px;
+  width: 100%;
+}
+.winter .ctBookmarks .esriBookmarkItem {
+  line-height: 21px;
+}
+.winter .ctBookmarks .esriBookmarkItem.esriBookmarkHighlight {
+  background-color: #565656;
+}
+.winter .ctBookmarks .esriBookmarkItem.esriAddBookmark {
+  background-color: #3c3c3c;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+.winter .ctBookmarks .esriBookmarkItem.esriAddBookmark:hover {
+  background-color: #565656;
+}
+.winter .ctBookmarks .esriBookmarkLabel {
+  color: #45474d;
+  font-family: Lato, sans-serif;
+  position: absolute;
+  left: 0px;
+  right: 60px;
+  width: auto;
+  text-overflow: ellipsis;
+}
+.winter .ctBookmarks .esriBookmarkRemoveImage,
+.winter .ctBookmarks .esriBookmarkEditImage {
+  width: 21px;
+  height: 21px;
+}
+.winter .ctBookmarks .ctBookmarsCenterContainer {
+  overflow: auto;
+}
+.winter .ctBookmarks .bottomButtonBar {
+  height: 25px;
+  padding-top: 5px;
+}
+.winter .ctBookmarks .esriBookmarkEditBox {
+  width: 100%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000000;
+  position: static;
+}
+.winter .ctBookmarksViewer {
+  display: inline-block;
+  padding: 10px 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.winter .ctBookmarksViewer:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.winter .ctBookmarksViewer .dijitButton {
+  margin: 0;
+}
+.winter .ctBookmarksViewer .dijitButton .dijitButtonNode,
+.winter .ctBookmarksViewer .dijitButton.dijitHover .dijitButtonNode {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: transparent none;
+}
+.winter .ctBookmarksViewer .dijitButton.prev .dijitButtonNode,
+.winter .ctBookmarksViewer .dijitButton.next .dijitButtonNode {
+  font-size: 18px;
+}

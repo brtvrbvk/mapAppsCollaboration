@@ -98,7 +98,7 @@ define([
                         this.deactivate();
                     }));
                     ct_when(ct_request.requestJSON({
-                        url: this.capakeyServiceUrl
+                        url: this.capakeyServiceUrl + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("municipality", false);
                         var municipalities = json.municipalities;
@@ -269,7 +269,7 @@ define([
                     });
                     var parcelId = this.parcelId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + this.sectionId + "/parcel/" + parcelId
+                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + this.sectionId + "/parcel/" + parcelId  + '?type=json'
                     }), function (json) {
                         var capakey = json.capakey;
                         var binding = this.binding;
@@ -304,7 +304,7 @@ define([
                     });
                     var sectionId = this.sectionId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + sectionId + "/parcel"
+                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + sectionId + "/parcel" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("parcel", false);
                         var parcels = json.parcels;
@@ -345,7 +345,7 @@ define([
                     var departmentId = this.departmentId = item[0].id;
 
                     ct_when(ct_request.requestJSON({
-                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + departmentId + "/section"
+                        url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + departmentId + "/section" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("section", false);
                         var sections = json.sections;
@@ -387,7 +387,7 @@ define([
                     var municipalityId = this.municipalityId = item[0].id;
 
                     ct_when(ct_request.requestJSON({
-                        url: this.capakeyServiceUrl + "/" + municipalityId + "/department"
+                        url: this.capakeyServiceUrl + "/" + municipalityId + "/department" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("department", false);
                         var departments = json.departments;

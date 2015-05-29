@@ -1,0 +1,98 @@
+.winter .ctLogin {
+  width: 235px;
+  height: 150px;
+}
+.winter .ctLogin .pw,
+.winter .ctLogin .username {
+  margin-bottom: 10px;
+}
+.winter .ctLogin .btnbar {
+  bottom: 0;
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100%;
+}
+.winter .ctLogin label {
+  font-weight: bold;
+}
+.winter .ctLogin .dijitTextBox {
+  display: block;
+  width: 99%;
+}
+.winter .ctLogin .infoWrapper {
+  height: 2.5em;
+  position: relative;
+}
+.winter .ctLogin .loadingMsg {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.winter .ctLoginWindow .dijitDialogTitle {
+  font-size: 16px;
+  font-weight: normal;
+}
+.winter .ctLoginBlocker {
+  padding: 2pt;
+}
+.winter .ctLoginBlocker .ctLoading {
+  position: absolute;
+  right: 5%;
+}
+.winter .ctUserName {
+  font-weight: bold;
+  text-align: right;
+  margin: 6px 0;
+  display: inline-block;
+}
+.winter .ctUserNameValue {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  padding: 3px 10px;
+}
+.winter .ctUserButton.dijitButton {
+  margin: 0;
+}
+.winter .ctUserButton.ctLogoutBtn,
+.winter .ctUserButton.ctLoginBtn {
+  vertical-align: top;
+}
+.winter .ctUserButton.ctLogoutBtn .dijitButtonNode,
+.winter .ctUserButton.ctLoginBtn .dijitButtonNode {
+  padding: 7px 5px;
+}
+.winter .ctUserButton.ctLoginBtn .dijitButtonText {
+  float: left;
+  padding-top: 2px;
+}
+.winter .ctUserButton .dijitIcon {
+  float: right;
+}
+.winter .ctUserButton.dijitButtonHover .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .ctUserButton .dijitIcon {
+  padding-top: 1px;
+}
+.winter .ctUserButton .dijitIcon,
+.winter .ctUserButton.dijitHover .dijitIcon {
+  font-size: 15px;
+}
+.winter .ctUserButton .logoutIcon:before {
+  content: "\e024";
+}
+.winter .ctUserButton .loginIcon:before {
+  content: "\e023";
+}
+.winter.ctEnv_FF .ctLoginBlockWindow {
+  max-width: 180px;
+}
+.winter.ctEnv_FF .logoutBtn {
+  vertical-align: top;
+}

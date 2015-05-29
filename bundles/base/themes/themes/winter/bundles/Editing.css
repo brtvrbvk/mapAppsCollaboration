@@ -1,0 +1,43 @@
+/*
+*
+*   1) ToolIcon Definitions
+*   2) Snapping UI
+*
+*/
+.winter {
+  /*   2) Snapping UI */
+}
+.winter .ctTool .icon-feature-add:before {
+  content: '\e07d';
+}
+.winter .ctTool .icon-edit-feature:before {
+  content: '\e0c0';
+}
+.winter .ctTool .icon-feature-delete:before {
+  content: '\e0c1';
+}
+.winter .ctTool .icon-feature-settings:before {
+  content: '\e096';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-feature-add .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e07d';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-edit-feature .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e0c0';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-feature-delete .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e0c1';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-feature-settings .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e096';
+}
+.winter .ctEditingSnappingDataform .ctSnapKeyValue {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.winter .ctEditingSnappingDataform .formBody {
+  padding: 5px;
+}
+.winter .ctEditingSnappingDataform .ctFormControl.gridpanel .labelCell {
+  width: 150px;
+}

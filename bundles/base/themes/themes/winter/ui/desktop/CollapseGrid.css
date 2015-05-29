@@ -1,0 +1,102 @@
+.winter {
+  /* ctCollapsing is added during the collapse animation */
+  /**
+     inner handles are the divs within the absolute positioned handles, see below.
+    */
+}
+.winter .ctCollapseGrid {
+  /* this is the root of the following helper divs, don't make it relative or absolute,
+        otherwise you will block any event to the collapse (window) content.*/
+  cursor: pointer;
+}
+.winter .ctCollapsing {
+  background-color: #bdc3c7;
+}
+.winter .ctCollapseInnerHandle {
+  position: relative;
+}
+.winter .ctCollapseGrid .ctCollapseHandleBottom,
+.winter .ctCollapseGrid .ctCollapseHandleTop {
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 13px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleBottom .ctCollapseInnerHandle,
+.winter .ctCollapseGrid .ctCollapseHandleTop .ctCollapseInnerHandle {
+  left: -42px;
+  width: 84px;
+  height: 13px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleTop {
+  top: -13px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleBottom {
+  bottom: -13px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleLeft,
+.winter .ctCollapseGrid .ctCollapseHandleRight {
+  position: absolute;
+  top: 50%;
+  width: 13px;
+  height: 0;
+}
+.winter .ctCollapseGrid .ctCollapseHandleLeft .ctCollapseInnerHandle,
+.winter .ctCollapseGrid .ctCollapseHandleRight .ctCollapseInnerHandle {
+  width: 13px;
+  height: 84px;
+  top: -42px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleLeft {
+  left: -13px;
+}
+.winter .ctCollapseGrid .ctCollapseHandleRight {
+  right: -13px;
+}
+.winter .ctCollapseInnerHandle {
+  background-color: #3c3c3c;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+.winter .ctCollapseInnerHandle:before {
+  display: block;
+  position: relative;
+}
+.winter .ctCollapseHandleLeft .ctCollapseInnerHandle:before,
+.winter .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+  top: 36px;
+}
+.winter .ctCollapseHandleTop .ctCollapseInnerHandle:before {
+  content: "\e007";
+  text-align: center;
+}
+.winter .ctCollapseHandleBottom .ctCollapseInnerHandle:before {
+  content: "\e005";
+  text-align: center;
+}
+.winter .ctCollapseHandleLeft .ctCollapseInnerHandle:before {
+  content: "\e006";
+}
+.winter .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+  content: "\e008";
+}
+.winter .ctCollapsed .ctCollapseHandleTop .ctCollapseInnerHandle:before {
+  content: "\e005";
+}
+.winter .ctCollapsed .ctCollapseHandleBottom .ctCollapseInnerHandle:before {
+  content: "\e007";
+}
+.winter .ctCollapsed .ctCollapseHandleLeft .ctCollapseInnerHandle:before {
+  content: "\e008";
+}
+.winter .ctCollapsed .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+  content: "\e006";
+}

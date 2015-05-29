@@ -1,0 +1,295 @@
+.winter .esriLargeSlider {
+  /*Delete Ruler Marker*/
+  /* ---- + /- Button ---- */
+}
+.winter .esriLargeSlider .dijitSliderImageHandleV {
+  background: transparent none;
+  left: 9px;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 18px;
+  color: #3c3c3c;
+  width: auto;
+  height: auto;
+}
+.winter .esriLargeSlider .dijitSliderImageHandleV.dijitSliderThumbHover,
+.winter .esriLargeSlider .dijitSliderImageHandleV.dojoMoveItem {
+  color: #565656;
+}
+.winter .esriLargeSlider .dijitSliderImageHandle:before {
+  text-shadow: none;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV,
+.winter .esriLargeSlider .dijitSliderIncrementIconV,
+.winter .esriLargeSlider .dijitSliderDecrementIconH,
+.winter .esriLargeSlider .dijitSliderIncrementIconH {
+  background-color: #f4f8f9;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #3c3c3c;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV:before,
+.winter .esriLargeSlider .dijitSliderIncrementIconV:before,
+.winter .esriLargeSlider .dijitSliderDecrementIconH:before,
+.winter .esriLargeSlider .dijitSliderIncrementIconH:before {
+  content: "";
+}
+.winter .esriLargeSlider .dijitSliderIncrementIconV:hover,
+.winter .esriLargeSlider .dijitSliderDecrementIconV:hover {
+  color: #3c3c3c;
+}
+.winter .esriLargeSlider .dijitSliderButtonInner {
+  visibility: visible;
+  position: relative;
+  top: 7px;
+}
+.winter .esriLargeSlider .esriLargeSliderTicks {
+  display: none;
+}
+.winter .esriLargeSlider .dijitSliderBumper,
+.winter .esriLargeSlider .dijitSliderLeftBumper,
+.winter .esriLargeSlider .dijitSliderRightBumper,
+.winter .esriLargeSlider .dijitSliderBar {
+  border: 0 solid transparent;
+  outline: 0 solid transparent;
+}
+.winter .esriLargeSlider .dijitSliderHover .dijitSliderTopBumper,
+.winter .esriLargeSlider .dijitSliderBumper,
+.winter .esriLargeSlider .dijitSliderProgressBar,
+.winter .esriLargeSlider .dijitSliderRemainingBar {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .esriLargeSlider .dijitSliderBarContainerV,
+.winter .esriLargeSlider center {
+  width: 100%;
+  background-image: none;
+  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, 0.9);
+}
+.winter .esriLargeSlider .dijitSliderBarContainerH {
+  height: 10px;
+  padding: 15px 0;
+  background-image: none;
+  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, 0.9);
+}
+.winter .esriLargeSlider .dijitSliderBumperV {
+  background-image: url("../images/zoomSliderbarBumperBG.png");
+  background-repeat: repeat-y;
+  width: 9px;
+}
+.winter .esriLargeSlider .dijitSliderBumperH {
+  background-image: url("../images/zoomSliderbarBumperHBG.png");
+  background-repeat: repeat-x;
+  background-position: 0 15px;
+  height: 10px;
+  padding: 15px 0;
+  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, 0.9);
+}
+.winter .esriLargeSlider .dijitSliderBarV {
+  background-image: none;
+  padding-top: 0;
+  width: 9px;
+}
+.winter .esriLargeSlider .dijitReset.dijitSliderBarContainerV {
+  background-image: url("../images/zoomSliderRuler.png");
+  background-position: 0 0;
+}
+.winter .esriLargeSlider .dijitReset.dijitSliderBarContainerH {
+  background-image: url("../images/zoomSliderRulerH.png");
+}
+.winter .esriLargeSlider .dijitSliderButtonContainer {
+  padding: 0;
+}
+.winter .esriLargeSlider .dijitSliderButtonContainerV {
+  width: 37px;
+  height: 34px;
+  background-color: #f4f8f9;
+}
+.winter .esriLargeSlider .dijitSliderButtonContainerH {
+  width: 34px;
+  height: 37px;
+  background-color: #f4f8f9;
+}
+.winter .esriLargeSlider td:first-child.dijitSliderButtonContainerH {
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+}
+.winter .esriLargeSlider td:last-child.dijitSliderButtonContainerH {
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV,
+.winter .esriLargeSlider .dijitSliderIncrementIconV {
+  width: 37px;
+  height: 35px;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconH,
+.winter .esriLargeSlider .dijitSliderIncrementIconH {
+  width: 35px;
+  height: 37px;
+}
+.winter .esriLargeSlider .dijitSliderIncrementIconV,
+.winter .esriLargeSlider .dijitSliderIncrementIconH {
+  background-position: -95px 49%;
+}
+.winter .esriLargeSlider .dijitSliderIncrementIconV:hover,
+.winter .esriLargeSlider .dijitSliderIncrementIconH:hover {
+  background-position: -130px 49%;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV,
+.winter .esriLargeSlider .dijitSliderDecrementIconH {
+  background-position: 11px 50%;
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV:hover,
+.winter .esriLargeSlider .dijitSliderDecrementIconH:hover {
+  background-position: -24px 50%;
+}
+.winter .esriLargeSlider .dijitRuleLabel {
+  color: #45474d;
+  font-size: 10px;
+  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, 0.8);
+  padding: 0;
+}
+.winter .esriLargeSlider .dijitRuleLabel.dijitRuleLabelV {
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+.winter .esriLargeSlider .dijitRuleLabel.dijitRuleLabelH {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+.winter .esriLargeSlider tr:first-child .dijitSliderButtonContainerV {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .esriLargeSlider tr:last-child .dijitSliderButtonContainerV {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .esriLargeSlider.esriLargeSliderVertical {
+  border: none;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+}
+.winter .esriLargeSlider.esriLargeSliderVertical tr:first-child td:last-child,
+.winter .esriLargeSlider.esriLargeSliderVertical tr:nth-child(2) td:last-child,
+.winter .esriLargeSlider.esriLargeSliderVertical tr:nth-child(3) td:last-child,
+.winter .esriLargeSlider.esriLargeSliderVertical tr:nth-child(4) td:last-child,
+.winter .esriLargeSlider.esriLargeSliderVertical tr:nth-child(5) td:last-child {
+  display: none;
+}
+.winter .esriLargeSlider .dijitSliderBarContainerV,
+.winter .esriLargeSlider center {
+  width: 100%;
+  background-image: none;
+  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, 0.9);
+}
+.winter .esriLargeSlider .dijitSliderDecrementIconV,
+.winter .esriLargeSlider .dijitSliderIncrementIconV,
+.winter .esriLargeSlider .dijitSliderDecrementIconH,
+.winter .esriLargeSlider .dijitSliderIncrementIconH {
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+.winter.ctEnv_IE_8 .esriLargeSlider .dijitSliderMoveable,
+.winter.ctEnv_IE_9 .esriLargeSlider .dijitSliderMoveable {
+  opacity: 1;
+}
+.winter.ctEnv_IE_8 .esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_IE_9 .esriLargeSliderVertical .dijitSliderBumper {
+  height: 8px !important;
+}
+.winter.ctEnv_IE_8 .esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_IE_9 .esriLargeSliderHorizontal .dijitSliderBumper {
+  width: 8px !important;
+}
+.winter.ctEnv_IE_8 .esriLargeSlider,
+.winter.ctEnv_IE_9 .esriLargeSlider,
+.winter.ctEnv_IE_8 .esriLargeSlider.dijitHover,
+.winter.ctEnv_IE_9 .esriLargeSlider.dijitHover,
+.winter.ctEnv_IE_8 .esriLargeSlider.dijitActive,
+.winter.ctEnv_IE_9 .esriLargeSlider.dijitActive {
+  height: 110px;
+}
+.winter.ctEnv_IE_10 .esriLargeSlider {
+  height: 0px;
+}
+.winter.ctEnv_IE_10 .esriLargeSlider.dijitHover,
+.winter.ctEnv_IE_10 .esriLargeSlider.dijitActive {
+  height: 70px;
+}
+.winter.ctEnv_IE .esriLargeSlider,
+.winter.ctEnv_FF .esriLargeSlider {
+  margin-right: 2px;
+}
+.winter.ctEnv_IE .esriLargeSlider .dijitReset.dijitSliderBarContainerV,
+.winter.ctEnv_FF .esriLargeSlider .dijitReset.dijitSliderBarContainerV {
+  background-position: -1px 0;
+}
+.winter .esriSimpleSlider {
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .esriSimpleSliderIncrementButton {
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+}
+.winter .esriSimpleSlider,
+.winter .esriSimpleSliderIncrementButton {
+  border: none;
+  background: transparent none;
+}
+.winter .esriSimpleSliderIncrementButton,
+.winter .esriSimpleSliderDecrementButton {
+  line-height: 35px;
+  height: 35px;
+  width: 39px;
+  color: #45474d;
+  background-color: #f4f8f9;
+}
+.winter .esriSimpleSliderIncrementButton:hover,
+.winter .esriSimpleSliderDecrementButton:hover {
+  color: #3c3c3c;
+}
+.winter .esriSimpleSliderIncrementButton {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  font-size: 17px;
+}
+.winter .esriSimpleSliderDecrementButton {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  font-size: 18px;
+}
+.winter .esriSimpleSliderHorizontal .esriSimpleSliderIncrementButton {
+  float: left;
+}
+.winter .esriSimpleSliderHorizontal .esriSimpleSliderDecrementButton {
+  border-right-width: 0;
+}

@@ -1,0 +1,17 @@
+/* InlineEditBox
+ * 
+ * Styling InlineEditBox mainly includes:
+ * 
+ * 1. Normal state
+ * 		.dijitInlineEditBoxDisplayMode  - for border
+ * 
+ * 2. Hover state
+ * 		.dijitInlineEditBoxDisplayModeHover - for border and background color
+ */
+.winter .dijitInlineEditBoxDisplayMode {
+  border: 1px solid transparent;
+}
+.winter .dijitInlineEditBoxDisplayModeHover {
+  background-color: #ffffff;
+  border: solid 1px #3c3c3c;
+}

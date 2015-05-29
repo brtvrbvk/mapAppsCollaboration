@@ -1,0 +1,388 @@
+.winter .ctOmniSearchUI {
+  /*.dijitTextBoxFocused {
+                outline: none;
+            }*/
+}
+.winter .ctOmniSearchUI .ctOmniSearchMagnify,
+.winter .ctOmniSearchUI .ctOmniSearchLoading,
+.winter .ctOmniSearchUI .ctOmniSearchReset,
+.winter .ctOmniSearchUI .ctOmniSearchSettings {
+  font-size: 22px;
+  font-family: mapappsUiFont;
+  color: #3c3c3c;
+}
+.winter .ctOmniSearchUI .ctOmniSearchMagnify {
+  top: 5px;
+}
+.winter .ctOmniSearchUI .ctOmniSearchMagnify:before {
+  content: "\e000";
+}
+.winter .ctOmniSearchUI .ctOmniSearchReset {
+  top: 5px;
+  right: 3px;
+}
+.winter .ctOmniSearchUI .ctOmniSearchReset:before {
+  content: '\e019';
+}
+.winter .ctOmniSearchUI .ctOmniSearchLoading {
+  float: right;
+  top: 6px;
+  right: 3px;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .ctOmniSearchUI .ctOmniSearchLoading:before {
+  content: '\e097';
+}
+.winter .ctOmniSearchUI .ctOmniSearchSettings .dijitIcon {
+  width: 32px;
+  height: 32px;
+  top: 5px;
+}
+.winter .ctOmniSearchUI .ctOmniSearchSettings .dijitIcon:before {
+  content: "\e039";
+}
+.winter .ctOmniSearchUI .ctOmniSearchSettings .dijitButtonNode {
+  color: #f4f8f9;
+}
+.winter .ctOmniSearchUI .ctOmniSearchSettings.dijitHover .dijitButtonNode,
+.winter .ctOmniSearchUI .ctOmniSearchSettings.ctSettingsVisible .dijitButtonNode {
+  color: #3c3c3c;
+}
+.winter .ctOmniSearchUI {
+  position: relative;
+}
+.winter .ctOmniSearchUI.ctOmniSearchDisabled {
+  display: none;
+}
+.winter .ctOmniSearchUI .dijitTextBoxFocused .dijitInputContainer {
+  background-color: transparent;
+}
+.winter .ctOmniSearchUI .dijitTextBoxError .dijitValidationContainer {
+  display: none;
+}
+.winter .ctOmniSearchUI.ctOmniSearchNoResultFound .ctOmniSearchInput .dijitTextBox {
+  background-color: #c0392b;
+}
+.winter .ctOmniSearchUI.ctOmniSearchNoResultFound .ctOmniSearchInput .dijitTextBox .dijitInputInner {
+  color: #f4f8f9;
+}
+.winter .ctOmniSearchUI.ctOmniSearchNoResultFound :before {
+  color: #fff;
+}
+.winter .ctOmniSearchUI.ctOmniSearchMultipleStores .dijitButton,
+.winter .ctOmniSearchUI.ctOmniSearchMultipleStores .ctOmniSearchInput {
+  display: table-cell;
+}
+.winter .ctOmniSearchUI.ctOmniSearchSingleStore .dijitButton {
+  display: inline;
+}
+.winter .ctOmniSearchUI.ctOmniSearchSingleStore .ctOmniSearchInput {
+  display: block;
+}
+.winter .ctOmniSearchInput {
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  border-right: 1px solid transparent;
+}
+.winter .ctOmniSearchInput .dijitTextBox {
+  border: none;
+  float: left;
+}
+.winter .ctOmniSearchInput .dijitTextBox .dijitPlaceHolder,
+.winter .ctOmniSearchInput .dijitTextBox .dijitInputInner {
+  font-size: 15px;
+}
+.winter .ctOmniSearchInput .dijitTextBoxFocused,
+.winter .ctOmniSearchInput .dijitTextBox * {
+  outline: none;
+}
+.winter .ctOmniSearchLoading,
+.winter .ctOmniSearchReset,
+.winter .ctOmniSearchMagnify {
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 5;
+  width: 20px;
+  height: 24px;
+}
+.winter .ctOmniSearchLoading,
+.winter .ctOmniSearchReset {
+  position: relative;
+  float: left;
+  margin-left: -20px;
+}
+.winter .ctOmniSearchNoResultFound .ctOmniSearchInput .dijitPlaceHolder.dijitInputField {
+  color: #45474d;
+}
+.winter .ctOmniSearchReset {
+  background-color: transparent;
+}
+.winter .ctOmniSearchMagnify {
+  position: absolute;
+  left: 4px;
+}
+.winter .ctOmniSearchSettings {
+  padding: 0;
+  position: relative;
+  top: -1px;
+}
+.winter .ctOmniSearchSettings .dijitIcon {
+  position: relative;
+}
+.winter .ctOmniSearchSettings .dijitButtonNode {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+  padding: 0;
+  border: none;
+}
+.winter .ctOmniSearchSettings.ctSettingsVisible .dijitButtonNode,
+.winter .ctOmniSearchSettings.dijitButtonHover .dijitButtonNode {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  background: #f4f8f9;
+}
+.winter .ctOmniSearchSettings.dijitButton {
+  border: 1px solid transparent;
+}
+.winter .ctOmniSearchSettings.ctSettingsVisible.dijitButton {
+  border-bottom-color: transparent;
+}
+.winter .ctOmniSearchSettings .dijitButtonText {
+  display: none;
+}
+.winter .ctOmniSearchSettings .dijitTooltipConnector {
+  border-left: 1px;
+  border-right: 1px;
+  background: #f4f8f9;
+  left: 0;
+  top: -4px;
+  right: 0px;
+  border-top: 0;
+  width: 32px;
+  height: 5px;
+}
+.winter .ctOmniSearchSettings.ctSettingsVisible.dijitButton,
+.winter .ctOmniSearchSettings .dijitTooltipConnector,
+.winter .ctOmniSearchSettings .dijitTooltipContainer {
+  border-style: solid;
+  border-color: #bdc3c7;
+}
+.winter .ctOmniSearchSettings .ctTitle,
+.winter .ctOmniSearchSettings .ctStoreDescription {
+  display: none;
+}
+.winter .ctOmniSearchSettings .ctStore {
+  margin: 10px 0;
+}
+.winter .ctOmniSearchSettings .ctStore * {
+  cursor: pointer;
+}
+.winter .ctOmniSearchSettings .ctStore .dijitRadio {
+  margin-right: 8px;
+}
+.winter .ctOmniSearchSettings.dijitDisplayNone {
+  visibility: hidden;
+  display: none !important;
+}
+.winter .ctOmniSearchDropDown {
+  border: 1px solid #f3f3f3;
+  border-top-style: dashed;
+}
+.winter .ctOmniSearchDropDown .dijitMenuItem {
+  padding-left: 19px;
+}
+.winter .ctOmniSearchDropDown .dijitComboBoxHighlightMatch {
+  background-color: #3c3c3c;
+  background-color: rgba(60, 60, 60, 0.5);
+}
+.winter .dijitComboBoxMenu.ctOmniSearchDropDown .dijitMenuItem {
+  padding: 2px 0px;
+}
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemSelected,
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemHover,
+.winter .dijitPopup.dijitComboBoxMenuPopup .dijitComboBoxMenuActive .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemSelected {
+  background-color: #3c3c3c;
+}
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown .dijitMenuItem {
+  font-size: 14px;
+  color: #000000;
+  background: #f4f8f9;
+  padding: 2px 8px;
+  border-bottom-width: 0;
+  border-top: 1px solid #f4f8f9;
+}
+.winter .ctOmniSearchUI.ctMobile {
+  font-size: 17px;
+  margin: 0;
+  padding: 0;
+  height: 1.8em;
+  overflow: hidden;
+}
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchInput {
+  background-color: #ffffff;
+}
+.winter .ctOmniSearchUI.ctMobile.ctOmniSearchNoResultFound .ctOmniSearchInput {
+  background-color: #c0392b;
+}
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchReset,
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchMagnify {
+  top: 4px;
+}
+.winter .ctOmniSearchUI.ctMobile .dijitButton {
+  vertical-align: top;
+}
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchInput {
+  font-size: 1em;
+  height: 1.8em;
+  margin: 0;
+  padding: 0;
+}
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchInput > div:first-child {
+  padding-left: 25px;
+  padding-right: 30px;
+}
+.winter .ctOmniSearchUI.ctMobile .mblTextBox {
+  width: 100%;
+  font-size: 0.9em;
+  padding-top: 0.3em;
+  padding-bottom: 0.29em;
+  height: 1.4em;
+  border: none;
+  background: transparent none;
+}
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchLoading,
+.winter .ctOmniSearchUI.ctMobile .ctOmniSearchReset {
+  float: none;
+  margin-left: 0;
+  position: absolute;
+  left: auto;
+  right: 40px;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown {
+  overflow-y: hidden !important;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  border: 1px solid #f3f3f3;
+  background: #f4f8f9;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown .mblReset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: normal;
+  font: inherit;
+  color: inherit;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown > div {
+  width: 100%;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown .mblComboBoxMenuItem {
+  color: #000000;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: .3em .2em;
+  border-width: 1px 0 1px 0;
+  border-color: #f4f8f9;
+  border-style: solid;
+  text-align: left;
+  font-size: 1.4em;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown .mblComboBoxMenuItemSelected {
+  background-color: #3c3c3c;
+  color: #ffffff;
+}
+.winter .mblComboBoxMenu.ctOmniSearchDropDown .mblComboBoxMenuPreviousButton,
+.winter .mblComboBoxMenu.ctOmniSearchDropDown .mblComboBoxMenuNextButton {
+  font-style: italic;
+  overflow: hidden;
+}
+.winter .mainMap .ctOmniSearchUI {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #f3f3f3;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+.winter .mainMap .ctOmniSearchUI:hover {
+  color: #666;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchInput .dijitInputField {
+  border-color: #ffffff;
+  padding: 7px 25px;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchInput .dijitTextBox {
+  width: 100%;
+  height: 34px;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchSettings {
+  position: relative;
+  top: 0px;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchSettings.dijitButton {
+  border-width: 0;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchSettings.dijitButton.ctSettingsVisible {
+  border-color: #bdc3c7;
+}
+.winter .mainMap .ctOmniSearchUI .ctOmniSearchSettings .dijitIcon {
+  width: 34px;
+  height: 34px;
+}
+.winter .dijitComboBoxMenuPopup,
+.winter .ctOmniSearchSettingsPopup {
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown {
+  border-width: 0px;
+}
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemSelected,
+.winter .dijitPopup.dijitComboBoxMenuPopup .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemHover,
+.winter .dijitPopup.dijitComboBoxMenuPopup .dijitComboBoxMenuActive .ctOmniSearchDropDown .dijitMenuItem.dijitMenuItemSelected {
+  color: #ffffff;
+}
+.winter .ctOmniSearchSettingsPopup .dijitTooltipContainer,
+.winter .ctOmniSearchSettingsPopup .dijitTooltipConnector {
+  border-color: #f3f3f3;
+}
+.winter .ctOmniSearchSettingsPopup .dijitTooltipConnector {
+  border-left: 0;
+  border-right: 1px solid transparent;
+  background: #f4f8f9;
+  left: 1px;
+  top: -4px;
+  right: 0px;
+  border-top: 0;
+  width: 32px;
+  height: 5px;
+}
+.winter.ctEnv_iOS .mblComboBoxMenuPopup {
+  width: 100%;
+  border: none;
+}

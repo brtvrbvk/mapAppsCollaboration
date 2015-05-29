@@ -1,0 +1,633 @@
+@import url("../../common/fonts/mapappsUiFont/mapappsUiFont.css");
+@import url("../../common/fonts/directionsUiFont/directionsUiFont.css");
+/*import different webFonts*/
+.winter .dijitIcon {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .dijitIconSave {
+  background-image: none;
+}
+.winter .dijitIconSave:before {
+  content: '\e040';
+}
+.winter .dijitIconDelete {
+  background-image: none;
+}
+.winter .dijitIconDelete:before {
+  content: '\e0a4';
+}
+.winter .dijitIconCut {
+  background-image: none;
+}
+.winter .dijitIconCut:before {
+  content: '\e0ba';
+}
+.winter .dijitIconCopy {
+  background-image: none;
+}
+.winter .dijitIconCopy:before {
+  content: '\e0a2';
+}
+.winter .dijitIconPaste {
+  background-image: none;
+}
+.winter .dijitIconPaste:before {
+  content: '\e0ac';
+}
+.winter .dijitIconUndo {
+  background-image: none;
+}
+.winter .dijitIconUndo:before {
+  content: '\e013';
+}
+.winter .dijitIconRedo {
+  background-image: none;
+}
+.winter .dijitIconRedo:before {
+  content: '\e014';
+}
+.winter .dijitRadioMenuItem .dijitIcon {
+  background-image: none;
+}
+.winter .dijitRadioMenuItem .dijitIcon:before {
+  content: '\e001';
+}
+.winter .dijitRadioMenuItemChecked .dijitIcon:before {
+  content: '\e002';
+}
+.winter .dijitCheckedMenuItem .dijitIcon {
+  background-image: none;
+  position: relative;
+  top: 2px;
+}
+.winter .dijitCheckedMenuItem .dijitIcon:before {
+  content: '\e003';
+}
+.winter .dijitCheckedMenuItemChecked .dijitIcon:before {
+  content: '\e004';
+}
+.winter .dijitMenuExpand {
+  background-image: none;
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+.winter .dijitMenuExpand:before {
+  content: '\e006';
+}
+.winter .dijitTreeExpando {
+  background-image: none;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .dijitTreeExpandoOpened,
+.winter .dijitTreeExpandoClosed {
+  transition: transform .25s;
+  -moz-transition: -moz-transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+}
+.winter .dijitTreeExpandoOpened:before,
+.winter .dijitTreeExpandoClosed:before {
+  content: '\e00a';
+}
+.winter dijitTreeExpandoClosed:before {
+  position: relative;
+  left: -1px;
+}
+.winter .dijitTreeExpandoOpened {
+  -webkit-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -moz-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -o-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -ms-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+}
+.winter .dijitFolderClosed {
+  background-image: none;
+}
+.winter .dijitFolderClosed:before {
+  content: '\e0c3';
+}
+.winter .dijitFolderOpened {
+  background-image: none;
+}
+.winter .dijitFolderOpened:before {
+  content: '\e0c2';
+}
+.winter .dijitLeaf {
+  background-image: none;
+}
+.winter .dijitLeaf:before {
+  content: '\e0b8';
+}
+.winter .dijitTitlePane .dijitArrowNode {
+  background-image: none;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  position: relative;
+  top: -4px;
+  left: -5px;
+  font-size: 15px;
+}
+.winter .dijitTitlePane .dijitArrowNode:before {
+  content: '\e00a';
+}
+.winter .dijitTitlePane .dijitOpen .dijitArrowNode:before {
+  content: '\e00b';
+}
+.winter .dijitButton .dijitIcon,
+.winter .dijitComboButton .dijitIcon,
+.winter .dijitDropDownButton .dijitIcon,
+.winter .dijitButton.dijitHover .dijitIcon,
+.winter .dijitComboButton.dijitHover .dijitIcon,
+.winter .dijitDropDownButton.dijitHover .dijitIcon,
+.winter .dijitButton.dijitDisabled .dijitIcon,
+.winter .dijitComboButton.dijitDisabled .dijitIcon,
+.winter .dijitDropDownButton.dijitDisabled .dijitIcon {
+  color: inherit;
+  font-size: inherit;
+  width: auto;
+  height: auto;
+}
+.winter .dijitDropDownButton .dijitDownArrowButton .dijitArrowButtonInner {
+  background-image: none;
+  width: auto;
+  height: auto;
+}
+.winter .dijitDropDownButton.dijitDropDownButtonOpened .dijitDownArrowButton .dijitArrowButtonInner:before,
+.winter .dijitComboButtonOpened .dijitDownArrowButton .dijitArrowButtonInner:before {
+  content: '\e005';
+}
+.winter .dijitButtonNode .dijitArrowButtonInner {
+  background-image: none;
+}
+.winter .dijitButtonNode .dijitArrowButtonInner:before {
+  content: "\e007";
+  font-size: inherit;
+}
+.winter .dijitArrowButtonInner:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: inherit;
+}
+.winter .dijitLeftArrowButton .dijitArrowButtonInner:before {
+  content: '\e008';
+}
+.winter .dijitRightArrowButton .dijitArrowButtonInner:before {
+  content: '\e006';
+}
+.winter .dijitUpArrowButton .dijitArrowButtonInner:before {
+  content: '\e005';
+}
+.winter .dijitDownArrowButton .dijitArrowButtonInner:before {
+  content: '\e007';
+}
+.winter .dijitArrowButtonHover .dijitArrowButtonInner,
+.winter .dijitUpArrowButtonHover .dijitArrowButtonInner,
+.winter .dijitDownArrowButtonHover .dijitArrowButtonInner {
+  color: #ffffff;
+}
+.winter .dijitDisabled .dijitArrowButtonInner {
+  color: #dadada;
+}
+.winter .dijitComboBox .dijitArrowButton {
+  position: relative;
+  color: #ffffff;
+  font-size: 15px;
+}
+.winter .dijitComboBox .dijitArrowButton:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  content: "\e007";
+  position: absolute;
+  right: 1px;
+  top: 3px;
+}
+.winter .dijitComboBox .dijitArrowButton.dijitHasDropDownOpen:before {
+  content: "\e005";
+}
+.winter .dijitComboBox .dijitArrowButton.dijitDownArrowButtonHover {
+  color: #ffffff;
+}
+.winter .dijitComboBox.dijitDisabled .dijitArrowButton {
+  color: #dadada;
+}
+.winter .dijitSelectDisabled.dijitSelect .dijitArrowButton {
+  color: #dadada;
+}
+.winter .dijitCheckBox,
+.winter .dijitCheckBoxIcon,
+.winter .dijitToggleButton .dijitCheckBoxIcon,
+.winter .dijitRadio,
+.winter .dijitRadioIcon {
+  background-image: none;
+}
+.winter .dijitCheckBox:before,
+.winter .dijitCheckBoxIcon:before,
+.winter .dijitToggleButton .dijitCheckBoxIcon:before,
+.winter .dijitRadio:before,
+.winter .dijitRadioIcon:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .dijitCheckBox,
+.winter .dijitCheckBoxIcon,
+.winter .dijitRadio,
+.winter .dijitRadioIcon {
+  position: relative;
+}
+.winter .dijitCheckBox:before,
+.winter .dijitToggleButton .dijitCheckBoxIcon:before,
+.winter .dijitRadio:before,
+.winter .dijitToggleButton .dijitRadioIcon:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.winter .dijitCheckBox:before,
+.winter .dijitToggleButton .dijitCheckBoxIcon:before {
+  content: '\e003';
+}
+.winter .dijitCheckBoxChecked:before,
+.winter .dijitToggleButtonChecked .dijitCheckBoxIcon:before {
+  content: '\e004';
+}
+.winter .dijitRadio:before {
+  content: '\e001';
+}
+.winter .dijitRadioChecked:before {
+  content: '\e002';
+}
+.winter .dijitCheckBoxHover,
+.winter .dijitRadioHover {
+  color: #3c3c3c;
+}
+.winter .dijitCheckBoxDisabled,
+.winter .dijitRadioDisabled {
+  color: #dadada;
+}
+.winter .dijitToggleButton .dijitCheckBoxIcon,
+.winter .dijitToggleButton .dijitRadioIcon {
+  color: #ffffff;
+}
+.winter .dijitToggleButtonHover .dijitCheckBoxIcon,
+.winter .dijitToggleButtonHover .dijitRadioIcon {
+  color: #ffffff;
+}
+.winter .dijitToggleButtonDisabled .dijitCheckBoxIcon,
+.winter .dijitToggleButtonDisabled .dijitRadioIcon {
+  color: #dadada;
+}
+.winter .dijitSpinner .dijitArrowButton .dijitArrowButtonInner:before {
+  position: relative;
+  top: -3px;
+}
+.winter .dijitSliderFocused .dijitSliderProgressBarH,
+.winter .dijitSliderHover .dijitSliderProgressBarH,
+.winter .dijitSlider .dijitSliderProgressBarH,
+.winter .dijitSliderFocused .dijitSliderLeftBumper,
+.winter .dijitSliderHover .dijitSliderLeftBumper,
+.winter .dijitSlider .dijitSliderLeftBumper,
+.winter .dijitSliderFocused .dijitSliderRemainingBarH,
+.winter .dijitSliderHover .dijitSliderRemainingBarH,
+.winter .dijitSlider .dijitSliderRemainingBarH,
+.winter .dijitSliderFocused .dijitSliderRightBumper,
+.winter .dijitSliderHover .dijitSliderRightBumper,
+.winter .dijitSlider .dijitSliderRightBumper,
+.winter .dijitSliderFocused .dijitSliderProgressBarV,
+.winter .dijitSliderHover .dijitSliderProgressBarV,
+.winter .dijitSlider .dijitSliderProgressBarV,
+.winter .dijitSliderFocused .dijitSliderBottomBumper,
+.winter .dijitSliderHover .dijitSliderBottomBumper,
+.winter .dijitSlider .dijitSliderBottomBumper,
+.winter .dijitSliderFocused .dijitSliderRemainingBarV,
+.winter .dijitSliderHover .dijitSliderRemainingBarV,
+.winter .dijitSlider .dijitSliderRemainingBarV,
+.winter .dijitSliderFocused .dijitSliderTopBumper,
+.winter .dijitSliderHover .dijitSliderTopBumper,
+.winter .dijitSlider .dijitSliderTopBumper {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.winter .dijitSliderDecrementIconH,
+.winter .dijitSliderIncrementIconH,
+.winter .dijitSliderDecrementIconV,
+.winter .dijitSliderIncrementIconV {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  background-color: #3c3c3c;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.winter .dijitSliderDecrementIconH {
+  width: 12px;
+  height: 10px;
+  -webkit-border-radius: 100% 0 0 100%;
+  -moz-border-radius: 100% 0 0 100%;
+  border-radius: 100% 0 0 100%;
+}
+.winter .dijitSliderDecrementIconH:before {
+  content: '\e00c';
+}
+.winter .dijitSliderIncrementIconH {
+  width: 12px;
+  height: 10px;
+  -webkit-border-radius: 0 100% 100% 0;
+  -moz-border-radius: 0 100% 100% 0;
+  border-radius: 0 100% 100% 0;
+}
+.winter .dijitSliderIncrementIconH:before {
+  content: '\e00a';
+}
+.winter .dijitSliderDecrementIconV {
+  width: 10px;
+  height: 12px;
+  -webkit-border-radius: 0 0 100% 100%;
+  -moz-border-radius: 0 0 100% 100%;
+  border-radius: 0 0 100% 100%;
+}
+.winter .dijitSliderDecrementIconV:before {
+  content: '\e00b';
+}
+.winter .dijitSliderIncrementIconV {
+  width: 10px;
+  height: 12px;
+  -webkit-border-radius: 100% 100% 0 0;
+  -moz-border-radius: 100% 100% 0 0;
+  border-radius: 100% 100% 0 0;
+}
+.winter .dijitSliderIncrementIconV:before {
+  content: '\e009';
+}
+.winter .dijitSliderButtonContainer {
+  position: relative;
+}
+.winter .dijitSliderDecrementIconH:before {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.winter .dijitSliderIncrementIconH:before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+.winter .dijitSliderDecrementIconV:before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+.winter .dijitSliderIncrementIconV:before {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+}
+.winter .dijitSliderImageHandleH,
+.winter .dijitSliderImageHandleV {
+  top: -4px;
+  background: transparent none;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  color: #3c3c3c;
+}
+.winter .dijitSliderImageHandleH:before,
+.winter .dijitSliderImageHandleV:before {
+  content: "\e60b";
+  text-shadow: 1px -1px #f3f3f3, -1px 1px #f3f3f3, -1px -1px #f3f3f3, 1px 1px #f3f3f3;
+}
+.winter .dijitTabCloseButton {
+  background-image: none;
+}
+.winter .dijitTabCloseButton:before {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+  content: '\e019';
+}
+.winter span.dijitIconError,
+.winter div.dijitIconError {
+  background-image: none;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+.winter span.dijitIconError:before,
+.winter div.dijitIconError:before {
+  content: '\e08e';
+  color: #c0392b;
+  font-size: 22px;
+  position: relative;
+  top: -5px;
+}
+.winter span.dijitContentPaneLoading,
+.winter .dijitIconLoading {
+  background-image: none;
+}
+.winter .dijitIconLoading {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  width: auto;
+  height: auto;
+  font-size: 22px;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .dijitIconLoading:before {
+  content: '\e097';
+}
+.winter.ctEnv_IE_8 .dijitIconLoading,
+.winter.ctEnv_IE_9 .dijitIconLoading {
+  background: url('../images/ie_fallback_spinner.gif') center center no-repeat;
+}
+.winter.ctEnv_IE_8 .dijitIconLoading:before,
+.winter.ctEnv_IE_9 .dijitIconLoading:before {
+  content: none;
+}
+.winter .dijitDialogCloseIcon {
+  background-image: none;
+  color: #ffffff;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .dijitDialogCloseIcon:before {
+  content: '\e019';
+}
+.winter .dijitDialogCloseIcon .dijitDialogCloseIconHover .dijitTabCloseButton {
+  color: #111111;
+}
+.winter .dijitTooltipContainer {
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .dijitTooltipConnector {
+  background-image: none;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid #bdc3c7;
+}
+.winter .dijitTooltipBelow .dijitTooltipConnector {
+  top: 5px;
+  left: 6px;
+  border-top: 8px solid #bdc3c7;
+  border-bottom-width: 0;
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -moz-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -o-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -ms-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+}
+.winter .dijitTooltipAbove .dijitTooltipConnector {
+  width: 0;
+  height: 0;
+  bottom: 6px;
+  -webkit-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -moz-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -o-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -ms-transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  transform: rotate(180deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+}
+.winter .dijitTooltipLeft .dijitTooltipConnector {
+  -webkit-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -moz-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -o-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -ms-transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  transform: rotate(90deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  width: 0;
+  height: 0;
+  right: 6px !important;
+}
+.winter .dijitTooltipRight .dijitTooltipConnector {
+  -webkit-transform: rotate(270deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -moz-transform: rotate(270deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -o-transform: rotate(270deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  -ms-transform: rotate(270deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  transform: rotate(270deg) scale(1, 1) translate(0px, 0px) skew(0deg, 0deg);
+  left: 6px !important;
+  width: 0;
+  height: 0;
+}
+.winter.ctEnv_IE_8 .dijitTooltipBelow .dijitTooltipConnector {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+.winter.ctEnv_IE_8 .dijitTooltipAbove .dijitTooltipConnector {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+.winter.ctEnv_IE_8 .dijitTooltipLeft .dijitTooltipConnector {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+.winter.ctEnv_IE_8 .dijitTooltipRight .dijitTooltipConnector {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.winter .dijitCalendarMonthContainer .dijitCalendarArrow {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  color: #ffffff;
+}
+.winter .dijitCalendarMonthContainer .dijitCalendarArrow img,
+.winter .dijitCalendarMonthContainer .dijitCalendarArrow span {
+  display: none;
+}
+.winter .dijitCalendarMonthContainer .dijitCalendarArrowHover {
+  color: #111111;
+}
+.winter .dijitCalendarMonthContainer .dijitCalendarArrow[data-dojo-attach-point~="decrementMonth"]:before {
+  content: "\e00e";
+}
+.winter .dijitCalendarMonthContainer .dijitCalendarArrow[data-dojo-attach-point~="incrementMonth"]:before {
+  content: "\e00f";
+}

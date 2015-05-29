@@ -1,0 +1,111 @@
+.winter {
+  /* Toolset Buttons */
+}
+.winter .ctToolWindow .ctTool .dijitIcon {
+  line-height: 1.5;
+  font-size: 30px;
+}
+.winter .ctTool .icon-default {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+.winter .ctTool .icon-default:before {
+  content: '\e043';
+}
+.winter .ctTool {
+  /* hide labels for all tool buttons */
+}
+.winter .ctTool .dijitButtonText {
+  display: none;
+}
+.winter .ctTool .dijitButtonNode {
+  color: #3c3c3c;
+}
+.winter .ctTool.dijitHover .dijitButtonNode,
+.winter .ctTool.dijitToggleButtonChecked .dijitButtonNode,
+.winter .ctTool.dijitChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctTool.dijitDisabled .dijitButtonNode {
+  color: #dadada;
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-default .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e043';
+}
+.winter .ctToolWindow .ctTool {
+  margin: 0;
+  /*first and last Tool have no left/right border*/
+  /* Disabled Buttons */
+}
+.winter .ctToolWindow .ctTool .dijitButtonNode {
+  padding: 0;
+}
+.winter .ctToolWindow .ctTool:first-child .dijitButtonNode .dijitIcon {
+  border-left: 1px solid transparent;
+}
+.winter .ctToolWindow .ctTool:last-child .dijitButtonNode .dijitIcon {
+  border-right: 1px solid transparent;
+}
+.winter .ctToolWindow .ctTool.dijitDisabled .dijitButtonNode {
+  background-color: #a7a7a7;
+}
+.winter .ctToolWindow .ctTool,
+.winter .ctToolPopup .dijitToggleButton {
+  /* Active ToolButtons Backgrounds */
+}
+.winter .ctToolWindow .ctTool .dijitButtonNode,
+.winter .ctToolPopup .dijitToggleButton .dijitButtonNode {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background-color: #f4f8f9;
+}
+.winter .ctToolWindow .ctTool.dijitHover .dijitButtonNode,
+.winter .ctToolPopup .dijitToggleButton.dijitHover .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .ctToolWindow .ctTool.dijitChecked .dijitButtonNode,
+.winter .ctToolPopup .dijitToggleButton.dijitChecked .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .ctToolWindow .ctTool .dijitIcon,
+.winter .ctToolPopup .dijitToggleButton .dijitIcon {
+  width: 45px;
+  height: 45px;
+  background-repeat: no-repeat;
+  border-left: 1px solid #d3e3e7;
+  border-right: 1px solid #ffffff;
+}
+.winter .ctWDYWBtn {
+  font-size: 1.1em;
+  font-weight: normal;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1) ;
+  margin: 0;
+}
+.winter .ctWDYWBtn .dijitButtonNode {
+  padding: 6px 0 6px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-bottom: 3px solid #232323;
+}
+.winter .ctWDYWBtn .dijitButtonNode,
+.winter .ctWDYWBtn .dijitButtonContent,
+.winter .ctWDYWBtn .dijitButtonText {
+  width: 100%;
+}
+.winter .ctWDYWBtn .dijitButtonText {
+  text-align: left;
+  padding-left: 8px;
+}
+.winter .ctWDYWBtn .dijitArrowButtonInner {
+  right: 30px;
+}

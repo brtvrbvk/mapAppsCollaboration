@@ -1,0 +1,24 @@
+.winter .ctTool .ctToolIcon_legend:before,
+.winter .ctTool .ctToolIcon_legendToggleTool:before {
+  content: '\e049';
+}
+.winter .ctLegend .esriLegendService {
+  padding: 0;
+}
+.winter .ctLegend .esriLegendServiceLabel {
+  font-size: 12px;
+  font-weight: bold;
+}
+.winter .ctLegend .esriLegendLayerLabel {
+  font-size: 11px;
+}
+.winter .ctLegend .esriLegendLayer td {
+  font-style: italic;
+  font-size: 11px;
+}
+.winter .ctLegend:first-child {
+  overflow: auto;
+}
+.winter .legend .ctLegend {
+  height: 100%;
+}

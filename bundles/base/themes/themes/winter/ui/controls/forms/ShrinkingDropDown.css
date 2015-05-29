@@ -1,0 +1,75 @@
+/**
+  ShrinkingDropDown uses dijitHidden to hide selected menu items in mode hideSelectedItem.
+*/
+/** root node of the button */
+.winter .ctShrinkingDropDown {
+  margin: 0;
+}
+.winter .ctShrinkingDropDown .dijitDownArrowButton .dijitArrowButtonInner:before {
+  color: #696c75;
+}
+.winter .ctShrinkingDropDown.dijitDownArrowButtonHover .dijitArrowButtonInner:before,
+.winter .ctShrinkingDropDown.dijitDropDownButton.dijitHover .dijitDownArrowButton .dijitArrowButtonInner:before {
+  color: #3c3c3c;
+}
+.winter .ctShrinkingDropDown .ctShrinkingDropDownTitleNode,
+.winter .ctShrinkingDropDown .dijitButtonText {
+  color: #45474d;
+}
+.winter .ctShrinkingDropDown .dijitButtonNode {
+  height: 100%;
+  font-size: 10px;
+  margin: 0;
+  border-width: 0;
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+  background-color: transparent;
+}
+.winter .ctShrinkingDropDown .dijitButtonText {
+  padding: 0;
+}
+.winter .ctShrinkingDropDown.dijitHover .ctShrinkingDropDownTitleNode,
+.winter .ctShrinkingDropDown.dijitHover .dijitButtonText {
+  color: #3c3c3c;
+}
+.winter .ctShrinkingDropDown.dijitHover .dijitDownArrowButton .dijitArrowButtonInner:before,
+.winter .ctShrinkingDropDown.dijitHover .dijitArrowButtonInner:before {
+  color: #3c3c3c;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu {
+  border: none;
+  background: transparent none;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuTable {
+  table-layout: fixed;
+  background-color: #ffffff;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem {
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitHover,
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitFocused,
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitSelected {
+  background-color: #3c3c3c;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitSelected,
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitMenuItemSelected {
+  color: #ffffff;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuArrowCell,
+.winter .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItemIconCell {
+  display: none;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .ctToggleCollapser {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 2px;
+}
+.winter .dijitMenu.ctShrinkingDropDownMenu .ctToggleCollapser .dijitArrowButtonInner {
+  display: none;
+}

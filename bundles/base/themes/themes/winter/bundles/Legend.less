@@ -1,0 +1,64 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .ctToolIcon_legend,
+            .ctToolIcon_legendToggleTool{
+                background-position: -540px 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .ctToolIcon_legend,
+                .ctToolIcon_legendToggleTool{
+                    background-position: -540px -45px;
+                }
+            }
+            &.dijitDisabled {
+                .ctToolIcon_legend,
+                .ctToolIcon_legendToggleTool{
+                    background-position: -540px -90px;
+                }
+
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctTool{
+            .ctToolIcon_legend:before,
+                .ctToolIcon_legendToggleTool:before{
+                content:'\e049';
+            }
+        }
+    }
+
+    .showWebFonts();
+
+    .ctLegend {
+        .esriLegendService {
+            padding: 0;
+        }
+        .esriLegendServiceLabel{
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .esriLegendLayerLabel{
+            font-size: 11px;
+        }
+        .esriLegendLayer td{
+            font-style: italic;
+            font-size: 11px;
+        }
+        &:first-child {
+            overflow: auto;
+        }
+    }
+    .legend .ctLegend {   
+        // needed to enable proper scrolling. ".legend" class is needed to ensure 
+        // style is not mixing into customInfo of type "legend" which has ctLegend 
+        //as base class too! --MAPAPPS-3025. 
+        //TODO: change baseClass of ctLegend Bundle or CustomInfo Tool of type legend.
+        height: 100%; 
+    }
+}

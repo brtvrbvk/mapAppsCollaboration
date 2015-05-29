@@ -1,0 +1,712 @@
+.winter {
+  /* no Animation for Mapdesk */
+  /* Animation for Locate Me Marker */
+  /*
+   #graphicsLayer3_layer {
+              -webkit-animation-duration: 3s;
+              -webkit-animation-iteration-count: infinite;
+              -webkit-animation-name: pulse;
+              -moz-animation-duration: 3s;
+              -moz-animation-iteration-count: infinite;
+              -moz-animation-name: pulse;
+            }
+  */
+  /*
+  //dropDownMenu FlyOut
+
+  @-webkit-keyframes menuFlyOut {
+      0% {
+          height:50px;
+      }
+      100%  {
+          height:100px;
+      }
+  }
+  .dijitMenuPopup .dijitMenuTable{
+      -webkit-animation: menuFlyOut 2s infinite;
+  }*/
+  /*ZoomSlider Animations only when @ct-zoomslider-is-animated is set to true*/
+  /*.esriLargeSliderHorizontal{  // <-- dequote if u want to try to animate the horizontal zoomSlider
+        .dijitSliderBumper{
+            width:0!important;
+            display: none;
+        }
+        .dijitSliderBarContainerH{
+           display: none;
+        }
+        &.dijitHover .dijitSliderBumper,
+        &.dijitActive .dijitSliderBumper{
+            width:8px!important;
+            display: block;
+        }
+        &.dijitHover .dijitSliderBarContainerH,
+        &.dijitActive .dijitSliderBarContainerH{
+            display: block;
+        }
+    }*/
+  /*expanded zoomSlider on Hover*/
+  /* Bubble Animation for StreetView Marker  */
+  /*
+  .map{
+    .container{
+      .layersDiv{
+        .layerTile{
+          .animation(FadeIn, 1.2s, 1, ease-in);
+        }
+      }
+    }
+  }
+  */
+  /*
+ .dijitPopup {
+    &.dijitMenuPopup,
+    &.ctOmniSearchSettingsPopup{
+      -webkit-animation-name: woosch;
+      -webkit-animation-duration: 100ms;
+      -moz-animation-name: woosch;
+      -moz-animation-duration: 100ms;
+      -ms-animation-name: woosch;
+      -ms-animation-duration: 100ms;
+      animation-name: woosch;
+      animation-duration: 100ms;
+    }
+  } */
+}
+.winter .magnifier,
+.winter .overviewMap,
+.winter .streetView,
+.winter .legend {
+  -webkit-animation: ani_bubble 0.3s 1 ease;
+  -moz-animation: ani_bubble 0.3s 1 ease;
+  -o-animation: ani_bubble 0.3s 1 ease;
+  -ms-animation: ani_bubble 0.3s 1 ease;
+  animation: ani_bubble 0.3s 1 ease;
+}
+.winter .mapDeskAnchor .ctInfoWindow,
+.winter .mapDesk .ctInfoWindow {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+}
+.winter .dockingBarBottomLeft .ctTool {
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+.winter .dockingBarBottomLeft .ctTool.flash {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: pulse;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-name: pulse;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive {
+  height: 70px!important;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderBarContainerV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderBarContainerV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical .dijitSliderBarContainerV,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBarContainerV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBarContainerV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderBarContainerV,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBarContainerV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBarContainerV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBarContainerV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderBarContainerV,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical .dijitSliderDecorationV,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderDecorationV,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationV,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationV,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationV,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderDecorationV {
+  height: 0!important;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical .dijitSliderMoveable,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderVertical.dijitActive .dijitSliderMoveable {
+  opacity: 0;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive {
+  width: 70px!important;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationC,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBarContainerH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBarContainerH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderBarContainerH,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBarContainerH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBarContainerH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderBarContainerH,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBarContainerH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBarContainerH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBarContainerH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderBarContainerH,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderDecorationH,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderDecorationH,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationH,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationH,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationH,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderDecorationH {
+  width: 0!important;
+}
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal .dijitSliderMoveable,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitHover .dijitSliderMoveable,
+.winter.ctEnv_Touch .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider.esriLargeSliderHorizontal.dijitActive .dijitSliderMoveable {
+  opacity: 0;
+}
+.winter.ctEnv_Touch .esriLargeSlider,
+.winter.ctEnv_iPad .esriLargeSlider,
+.winter.ctEnv_iPhone .esriLargeSlider,
+.winter.ctEnv_iPad .esriLargeSlider,
+.winter.ctEnv_Android .esriLargeSlider,
+.winter.ctEnv_Touch .esriLargeSlider .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider .dijitSliderBumper,
+.winter.ctEnv_iPhone .esriLargeSlider .dijitSliderBumper,
+.winter.ctEnv_iPad .esriLargeSlider .dijitSliderBumper,
+.winter.ctEnv_Android .esriLargeSlider .dijitSliderBumper,
+.winter.ctEnv_Touch .esriLargeSlider .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider .dijitSliderMoveable,
+.winter.ctEnv_iPhone .esriLargeSlider .dijitSliderMoveable,
+.winter.ctEnv_iPad .esriLargeSlider .dijitSliderMoveable,
+.winter.ctEnv_Android .esriLargeSlider .dijitSliderMoveable {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -webkit-transition-duration: 0s;
+  -o-transition-duration: 0s;
+}
+.winter .esriLargeSliderVertical,
+.winter .esriLargeSliderVertical .dijitSliderBumper,
+.winter .esriLargeSliderVertical.dijitHover,
+.winter .esriLargeSliderVertical.dijitActive,
+.winter .esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter .esriLargeSliderVertical.dijitActive .dijitSliderBumper,
+.winter .esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter .esriLargeSliderVertical.dijitActive .dijitSliderBumper {
+  -webkit-transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  -ms-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+}
+.winter .esriLargeSliderHorizontal,
+.winter .esriLargeSliderHorizontal .dijitSliderBumper,
+.winter .esriLargeSliderHorizontal.dijitHover,
+.winter .esriLargeSliderHorizontal.dijitActive,
+.winter .esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter .esriLargeSliderHorizontal.dijitActive .dijitSliderBumper,
+.winter .esriLargeSliderHorizontal.dijitHover .dijitSliderBumper,
+.winter .esriLargeSliderHorizontal.dijitActive .dijitSliderBumper {
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
+  -ms-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+}
+.winter .esriLargeSlider,
+.winter .esriLargeSlider .dijitSliderBumper,
+.winter .esriLargeSlider .dijitSliderMoveable {
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -ms-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
+}
+.winter .esriLargeSlider .dijitSliderMoveableV,
+.winter .esriLargeSlider .dijitSliderDecorationV {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s linear 1s;
+  -moz-transition: opacity 0.3s linear 1s;
+  -o-transition: opacity 0.3s linear 1s;
+  -ms-transition: opacity 0.3s linear 1s;
+  transition: opacity 0.3s linear 1s;
+}
+.winter .esriLargeSliderVertical .dijitSliderBumper {
+  height: 0!important;
+}
+.winter .esriLargeSliderVertical.dijitHover .dijitSliderBumper,
+.winter .esriLargeSliderVertical.dijitActive .dijitSliderBumper {
+  height: 8px!important;
+}
+.winter .esriLargeSliderVertical {
+  height: 70px;
+}
+.winter .esriLargeSliderHorizontal {
+  width: 200px;
+}
+.winter .esriLargeSliderVertical.dijitHover,
+.winter .esriLargeSliderVertical.dijitActive {
+  height: 150px;
+}
+.winter .esriLargeSliderHorizontal.dijitHover,
+.winter .esriLargeSliderHorizontal.dijitActive {
+  width: 200px;
+}
+.winter .esriLargeSlider.dijitHover .dijitSliderMoveable,
+.winter .esriLargeSlider.dijitActive .dijitSliderMoveable,
+.winter .esriLargeSlider.dijitHover .dijitSliderDecoration,
+.winter .esriLargeSlider.dijitActive .dijitSliderDecoration {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear 0.2s;
+  -moz-transition: opacity 0.3s linear 0.2s;
+  -o-transition: opacity 0.3s linear 0.2s;
+  -ms-transition: opacity 0.3s linear 0.2s;
+  transition: opacity 0.3s linear 0.2s;
+}
+.winter .ctStreetViewMarker.showMarker svg {
+  -webkit-animation: ani_markerbuble 0.4s 1 ease-in-out;
+  -moz-animation: ani_markerbuble 0.4s 1 ease-in-out;
+  -o-animation: ani_markerbuble 0.4s 1 ease-in-out;
+  -ms-animation: ani_markerbuble 0.4s 1 ease-in-out;
+  animation: ani_markerbuble 0.4s 1 ease-in-out;
+}
+.winter .DetailView .photo,
+.winter .thumbWrapper img,
+.winter .DetailView .mapPane {
+  -webkit-animation: FadeIn 1.2s 1 ease-in;
+  -moz-animation: FadeIn 1.2s 1 ease-in;
+  -o-animation: FadeIn 1.2s 1 ease-in;
+  -ms-animation: FadeIn 1.2s 1 ease-in;
+  animation: FadeIn 1.2s 1 ease-in;
+}
+.winter .ctDetailContentViewer,
+.winter .fadeIn {
+  -webkit-animation: FadeIn 0.3s 1 ease-in;
+  -moz-animation: FadeIn 0.3s 1 ease-in;
+  -o-animation: FadeIn 0.3s 1 ease-in;
+  -ms-animation: FadeIn 0.3s 1 ease-in;
+  animation: FadeIn 0.3s 1 ease-in;
+}
+.winter .ctGeneralConfigError,
+.winter .shake {
+  -webkit-animation: shake 0.6s 1 linear;
+  -moz-animation: shake 0.6s 1 linear;
+  -o-animation: shake 0.6s 1 linear;
+  -ms-animation: shake 0.6s 1 linear;
+  animation: shake 0.6s 1 linear;
+}
+@-webkit-keyframes woosch {
+  0% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+@-moz-keyframes woosch {
+  0% {
+    -moz-transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    -moz-transform: scale(1);
+    opacity: 1;
+  }
+}
+@-ms-keyframes woosch {
+  0% {
+    -ms-transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    -ms-transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes woosch {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Bubble Animation  */
+@-webkit-keyframes ani_bubble {
+  0%,
+  100% {
+    -webkit-transform: scale(1);
+    margin: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+  }
+}
+@-moz-keyframes ani_bubble {
+  0%,
+  100% {
+    -moz-transform: scale(1);
+    margin: 0;
+  }
+  50% {
+    -moz-transform: scale(1.05);
+  }
+}
+@-ms-keyframes ani_bubble {
+  0%,
+  100% {
+    scale: 1;
+    margin: 0;
+  }
+  50% {
+    scale: 1.05;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 1.0;
+  }
+  45% {
+    opacity: .20;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    opacity: 1.0;
+  }
+  45% {
+    opacity: .20;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-ms-keyframes pulse {
+  0% {
+    opacity: 1.0;
+  }
+  45% {
+    opacity: .20;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 1.0;
+  }
+  45% {
+    opacity: .20;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-webkit-keyframes ani_markerbuble {
+  0%,
+  100% {
+    -webkit-transform: scale(1);
+    margin: 0;
+  }
+  50% {
+    -webkit-transform: scale(3);
+    margin: -15px;
+  }
+}
+@-moz-keyframes ani_markerbuble {
+  0%,
+  100% {
+    -moz-transform: scale(1);
+    margin: 0;
+  }
+  50% {
+    -moz-transform: scale(3);
+    margin: -15px;
+  }
+}
+@-ms-keyframes ani_markerbuble {
+  0%,
+  100% {
+    scale: 1;
+    margin: 0;
+  }
+  50% {
+    scale: 3;
+    margin: -15px;
+  }
+}
+@keyframes ani_markerbuble {
+  0%,
+  100% {
+    scale: 1;
+    margin: 0;
+  }
+  50% {
+    scale: 3;
+    margin: -15px;
+  }
+}
+@-webkit-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+  }
+  20%,
+  60% {
+    -webkit-transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    -webkit-transform: translateX(5px);
+  }
+}
+@-moz-keyframes shake {
+  0%,
+  100% {
+    -moz-transform: translateX(0);
+  }
+  20%,
+  60% {
+    -moz-transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    -moz-transform: translateX(5px);
+  }
+}
+@-ms-keyframes shake {
+  0%,
+  100% {
+    -ms-transform: translateX(0);
+  }
+  20%,
+  60% {
+    -ms-transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    -ms-transform: translateX(5px);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

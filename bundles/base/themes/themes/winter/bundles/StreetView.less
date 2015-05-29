@@ -1,0 +1,56 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .ctToolIcon_streetViewToggleTool{
+                background-position: -585px 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .ctToolIcon_streetViewToggleTool{
+                    background-position: -585px -45px;
+                }
+            }
+            &.dijitDisabled .ctToolIcon_streetViewToggleTool{
+                background-position: -585px -90px;
+            }
+        }  
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_streetViewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: -585px -45px;
+        }  
+        /*Center Map on StreetView Poisiton Button*/
+        .ctWindowToolbar .dijitButton{
+            .ctToolIcon_streetViewCenterOnMarkerTool{
+                background-position: -465px -151px;
+            }
+            &.dijitHover .ctToolIcon_streetViewCenterOnMarkerTool{
+                background-position: -465px -196px;
+            }
+            &.dijitButtonDisabled .ctToolIcon_streetViewCenterOnMarkerTool{
+                background-position: -465px -241px;
+            }
+        }
+    }
+    
+    .showWebFonts() when (@ct-use-font-icons){   
+        /*Center Map on StreetView Poisiton Button*/
+        .ctWindowToolbar .dijitButton .ctToolIcon_streetViewCenterOnMarkerTool:before{
+            content:'\e031';
+        }
+        .ctTool .ctToolIcon_streetViewToggleTool:before,
+            .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_streetViewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e04a';
+        }
+    }  
+    
+    .showWebFonts();
+    
+    .ctStreetViewMarker{
+        cursor: move;
+        display: none;
+        &.showMarker{
+            display: inline;
+        }
+    }
+}

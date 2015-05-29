@@ -1,0 +1,130 @@
+/* Accordion
+ * 
+ * Styling AccordionContainer basically means styling the accordion pane (dijitAccordionInnerContainer)
+ * and the title inside of it (dijitAccordionTitle).   There are 4 basic states to style:
+ * 
+ * 1. accordion bounding container
+ * 		.dijitAccordionContainer - container for the whole accordion 
+ * 
+ * 2. closed pane (and default styling): 
+ * 		.dijitAccordionInnerContainer - container for each accordion child
+ * 		.dijitAccordionTitle - title for each accordion child
+ *
+ * 3. active closed pane (ie, mouse down on a title bar)
+ * 		.dijitAccordionInnerContainerActive - for background-color, border
+ * 		.dijitAccordionInnerContainerActive dijitAccordionTitle - for text color
+ * 
+ * 4. open pane (expanded child)
+ * 		These rules need to override the closed pane active:
+ *
+ * 		.dijitAccordionInnerContainerSelected - for background-color, border
+ * 		.dijitAccordionInnerContainerSelected .dijitAccordionTitle - for text color
+ * 
+ * 5. hovered pane, open or closed
+ * 		The selectors below affect hovering over both a closed pane (ie, hovering a title bar),
+ * 		and hovering over an open pane.   Also, treat mouse down on an open pane as a hover:
+ *
+ * 		.dijitAccordionInnerContainerHover, .dijitAccordionInnerContainerSelectedActive - for background-color, border
+ * 		.dijitAccordionInnerContainerHover .dijitAccordionTitle - for text color
+ */
+.winter {
+  /* Active state for closed pane */
+  /* Open (a.k.a. selected) pane */
+}
+.winter .dijitAccordionContainer {
+  border: none;
+}
+.winter .dijitAccordionInnerContainer {
+  background-color: #f3f3f3;
+  border: solid 1px #dadada;
+  margin-bottom: 1px;
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+.winter .dijitAccordionTitle {
+  padding: 5px 7px 2px 7px;
+  min-height: 17px;
+  -webkit-transition: background-color 0.35s linear;
+  -moz-transition: background-color 0.35s linear;
+  -o-transition: background-color 0.35s linear;
+  -ms-transition: background-color 0.35s linear;
+  transition: background-color 0.35s linear;
+  -webkit-transition: border 0.35s linear;
+  -moz-transition: border 0.35s linear;
+  -o-transition: border 0.35s linear;
+  -ms-transition: border 0.35s linear;
+  transition: border 0.35s linear;
+  color: #1a1d1f;
+}
+.winter .dijitAccordionInnerContainerHover {
+  /* both open and closed */
+  color: #45474d;
+}
+.winter .dijitAccordionContainer .dijitAccordionContainer-child {
+  background-color: transparent;
+  /*
+             * border style need to be !important to override the style "border:medium none !important"
+             * in class ".dijitTabPane, .dijitStackContainer-child, .dijitAccordionContainer-child"
+             */
+  /* border:1px solid #757575 !important; */
+  margin: 0px 2px 2px;
+  padding: 9px;
+}
+.winter .dijitAccordionInnerContainerActive {
+  border: 1px solid #f3f3f3;
+  background-color: #3c3c3c;
+  transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+}
+.winter .dijitAccordionInnerContainerActive .dijitAccordionTitle {
+  color: #ffffff;
+}
+.winter .dijitAccordionInnerContainerSelected {
+  border-color: #f3f3f3;
+  background-color: #f3f3f3;
+}
+.winter .dijitAccordionTitleHover,
+.winter .dijitAccordionTitleSelected {
+  background-color: #3c3c3c;
+  color: #ffffff;
+  -webkit-transition: background 0.2s linear;
+  -moz-transition: background 0.2s linear;
+  -o-transition: background 0.2s linear;
+  -ms-transition: background 0.2s linear;
+  transition: background 0.2s linear;
+}
+.winter .dijitAccordionTitleSelected {
+  font-weight: bold;
+  -webkit-transition: font-weight 1s linear;
+  -moz-transition: font-weight 1s linear;
+  -o-transition: font-weight 1s linear;
+  -ms-transition: font-weight 1s linear;
+  transition: font-weight 1s linear;
+}
+.winter .dijitAccordionInnerContainerHover,
+.winter .dijitAccordionInnerContainerSelectedActive {
+  border: 1px solid #3c3c3c;
+  background-color: #f3f3f3;
+  transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+}
+.winter .dijitAccordionInnerContainerSelectedHover .dijitAccordionContainer-child,
+.winter .dijitAccordionInnerContainerSelectedActive .dijitAccordionContainer-child {
+  background-color: transparent;
+  /* border:1px solid #757575 !important; */
+}

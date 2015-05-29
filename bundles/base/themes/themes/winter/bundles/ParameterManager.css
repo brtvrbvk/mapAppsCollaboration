@@ -1,0 +1,28 @@
+.winter .ctTool .ctToolIcon_urlEncoder:before,
+.winter .ctToolWindow.ctActiveToolIcon_ctToolIcon_urlEncoder .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e04c";
+}
+.winter .ctParameterWindow {
+  height: 100%;
+  overflow: auto;
+}
+.winter .ctParameterWindow .ctParameterTextbox {
+  resize: none;
+  margin-top: .3em;
+  box-sizing: border-box;
+  font-size: inherit;
+  width: 100%;
+  height: 65px;
+}
+.winter .ctParameterWindow .paramSizeTitle {
+  vertical-align: middle;
+}
+.winter .ctParameterWindow .ctParameterSizeBox {
+  width: 38px;
+}
+.winter .ctParameterWindow .select {
+  padding-right: 10px;
+}
+.winter .ctParameterWindow .ctQrCode.dijitContentPane {
+  padding: 2px;
+}

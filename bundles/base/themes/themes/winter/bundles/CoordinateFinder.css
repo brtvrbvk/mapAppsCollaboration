@@ -1,0 +1,24 @@
+.winter .ctTool .icon-coordinate-finder:before,
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-coordinate-finder .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: "\e087";
+}
+.winter .ctCoordFinder {
+  width: 273px;
+}
+.winter .ctCoordFinder .epsgSelect {
+  margin: 3px 0 3px 2px;
+}
+.winter .ctCoordFinder .epsgSelect .dijitSelectLabel {
+  width: 225.998px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+}
+.winter .ctCoordFinder .coordInput {
+  margin: 2px;
+}
+.winter .ctCoordFinder .epsgSelect .dijitSelect,
+.winter .ctCoordFinder .coordInput .dijitTextBox {
+  width: 100%;
+  margin: 0;
+}

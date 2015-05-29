@@ -1,0 +1,100 @@
+/* ========= Styling rules to affect widgets ========= */
+.winter {
+  /* The highlight is shown in the ComboBox menu. */
+  /* .dijitContentPaneError icon renders in a dialog box with the error messsage when  there is an error in a HREF url */
+  /* Drag and Drop */
+}
+.winter .dijitTooltipDialogPopup {
+  /* exception popups: do not use a shadow on these because they aren't rectangular */
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+.winter .dijitComboBoxHighlightMatch {
+  background-color: #3c3c3c;
+  background-color: rgba(60, 60, 60, 0.5);
+}
+.winter .dijitFocusedLabel {
+  /* for checkboxes or radio buttons, hatch border around the corresponding label, to indicate focus */
+  outline: 1px dotted #1a1d1f;
+}
+.winter .dijitContentPaneLoading {
+  background: url('images/loadingAnimation.gif') no-repeat left center;
+  padding-left: 25px;
+}
+.winter .dijitContentPaneError {
+  background: url('../../icons/images/commonIconsObjActEnabled.png') no-repeat left center;
+  background-position: -496px;
+  background-repeat: no-repeat;
+  padding-left: 25px;
+}
+.winter .dojoDndItem {
+  border-color: rgba(0, 0, 0, 0);
+  transition-duration: 0.25s;
+  -ms-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  -webkit-transition-property: background-color, border-color;
+  -moz-transition-property: background-color, border-color;
+  transition-property: background-color, border-color;
+  padding: 2px;
+}
+.winter .dojoDndItemOver {
+  background-color: #3c3c3c;
+  padding: 1px;
+  border: solid 1px #3c3c3c;
+  color: #ffffff;
+}
+.winter .dojoDndItemAnchor,
+.winter .dojoDndItemSelected {
+  background-color: #f3f3f3;
+  padding: 1px;
+  border: solid 1px #f3f3f3;
+  color: #ffffff;
+}
+.winter .dojoDndItemBefore,
+.winter .dojoDndItemAfter {
+  border-color: #336699;
+}
+.winter table.dojoDndAvatar {
+  border: 1px solid #dadada;
+  border-collapse: collapse;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.winter .dojoDndAvatarHeader td {
+  height: 20px;
+  padding-left: 21px;
+}
+.winter.dojoDndMove .dojoDndAvatarHeader,
+.winter.dojoDndCopy .dojoDndAvatarHeader {
+  background-image: url("images/dnd.png");
+  background-repeat: no-repeat;
+  background-position: 2px -122px;
+}
+.winter.dojoDndAvatarItem td {
+  padding: 5px;
+}
+.winter.dojoDndAvatarItem td,
+.winter.dojoDndAvatarItem td * {
+  background: transparent ;
+}
+.winter.dojoDndMove .dojoDndAvatarHeader {
+  background-color: #f58383;
+  background-position: 2px -103px;
+}
+.winter.dojoDndCopy .dojoDndAvatarHeader {
+  background-color: #f58383;
+  background-position: 2px -68px;
+}
+.winter.dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+  background-color: #97e68d;
+  background-position: 2px -33px;
+}
+.winter.dojoDndCopy .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+  background-color: #97e68d;
+  background-position: 2px 2px;
+}

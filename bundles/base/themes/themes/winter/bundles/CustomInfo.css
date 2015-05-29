@@ -1,0 +1,47 @@
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle .dijitButtonNode {
+  background-color: rgba(60, 60, 60, 0.3);
+  margin: 0 4px 0 0;
+}
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle .dijitIcon {
+  border: none;
+}
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle .dijitHover.ctTool .dijitButtonNode,
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle .dijitChecked.ctTool .dijitButtonNode {
+  background-color: rgba(60, 60, 60, 0.8);
+}
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle.alignBottomRight .dijitButtonNode,
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle.alignBottomLeft .dijitButtonNode {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle.alignTopRight .dijitButtonNode,
+.winter .CustomInfoToolbar.dijitDialogFixed.notitle.alignTopLeft .dijitButtonNode {
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.winter .CustomInfoToolbar .ctTool .dijitIcon:before {
+  content: "\e085";
+}
+.winter .ctTool.ctCopyright .dijitIcon:before {
+  content: "\e086";
+}
+.winter .ctTool.ctDisclaimer .dijitIcon:before {
+  content: "\e044";
+}
+.winter .ctTool.ctImprint .dijitIcon:before {
+  content: "\e044";
+}
+.winter .ctTool.ctLegend .dijitIcon:before {
+  content: "\e049";
+}
+.winter .ctTool.ctInfo .dijitIcon:before {
+  content: "\e02c";
+}
+.winter .ctTool.ctHelp .dijitIcon:before {
+  content: "\e015";
+}
+.winter .ctTool.ctLink .dijitIcon:before {
+  content: "\e04c";
+}

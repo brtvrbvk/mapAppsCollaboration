@@ -1,0 +1,128 @@
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ * 
+ * 5. Border Radius Setup
+ */
+.winter {
+  /* normal status */
+  /* hover status */
+  /* focused status */
+  /* disable status */
+  /* Dropdown menu style for select */
+}
+.winter .dijitSelect .dijitArrowButtonContainer {
+  border: none;
+}
+.winter .dijitSelect .dijitButtonContents {
+  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  font-weight: bold;
+}
+.winter .dijitSelect .dijitArrowButton {
+  padding: 0;
+  background-color: transparent;
+}
+.winter .dijitSelectHover {
+  background-color: #565656;
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -ms-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-repeat: repeat-x;
+}
+.winter .dijitSelectHover {
+  border-color: #3c3c3c;
+}
+.winter .dijitSelectHover .dijitButtonContents,
+.winter .dijitSelectHover .dijitArrowButton {
+  background-color: #3c3c3c;
+}
+.winter .dijitSelectHover .dijitButtonContents .dijitButtonText {
+  color: #ffffff;
+}
+.winter .dijitSelectHover .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -150px -194px;
+}
+.winter .dijitSelectFocused .dijitArrowButton {
+  border: none;
+}
+.winter .dijitSelectDisabled {
+  border-color: #c0c0c0;
+  background-color: #a7a7a7;
+  background-image: none;
+  color: #dadada;
+}
+.winter .dijitValidationTextBox.dijitSelect.dijitSelectDisabled .dijitArrowButton {
+  background-color: #a7a7a7;
+}
+.winter .dijitSelectDisabled .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -150px -239px;
+}
+.winter .dijitSelectMenu td.dijitMenuItemIconCell,
+.winter .dijitSelectMenu td.dijitMenuArrowCell {
+  /* so that arrow and icon cells from MenuItem are not displayed */
+  display: none;
+}
+.winter .dijitSelectMenu td.dijitMenuItemLabel {
+  /* line up menu text with text in select box (in LTR and RTL modes) */
+  padding: 3px;
+}
+.winter .dijitSelectMenu .dijitMenuSeparatorTop {
+  border-bottom: 1px solid #565656;
+}
+.winter .dijitValidationTextBox .dijitButtonText {
+  color: #000000;
+}
+.winter .dijitValidationTextBox.dijitSelect .dijitButtonContents,
+.winter .dijitValidationTextBox.dijitSelect .dijitArrowButton {
+  border: 1px solid transparent;
+}
+.winter .dijitValidationTextBox.dijitSelect .dijitButtonContents {
+  color: #000000;
+  background-color: #ffffff;
+}
+.winter .dijitValidationTextBox.dijitSelect .dijitArrowButton {
+  color: #ffffff;
+  background-color: #3c3c3c;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+  text-align: center;
+}
+.winter .dijitValidationTextBox.dijitSelect .dijitArrowButton:before {
+  content: '\e007';
+}
+.winter .dijitValidationTextBox.dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+  display: none;
+}
+.winter .dijitValidationTextBox.dijitSelectHover .dijitButtonContents,
+.winter .dijitValidationTextBox.dijitSelectHover .dijitArrowButton,
+.winter .dijitValidationTextBox.dijitSelectActive.dijitSelectFocused .dijitButtonContents,
+.winter .dijitValidationTextBox.dijitSelectActive.dijitSelectFocused .dijitArrowButton {
+  background-color: #565656;
+}
+.winter .dijitValidationTextBox.dijitSelectHover .dijitButtonContents .dijitButtonText,
+.winter .dijitValidationTextBox.dijitSelectActive .dijitButtonContents .dijitButtonText {
+  color: #ffffff;
+}

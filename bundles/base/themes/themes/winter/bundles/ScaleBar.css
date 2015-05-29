@@ -1,0 +1,57 @@
+.winter .ctScaleBar .esriScalebar {
+  position: static;
+  height: auto;
+  width: auto;
+}
+.winter .ctScaleBar .esriScalebar.line.dual,
+.winter .ctScaleBar .esriScalebar.ruler.dual {
+  top: 7px;
+}
+.winter .ctScaleBar .esriScalebar.line.dual div > div .esriScalebarLineLabel,
+.winter .ctScaleBar .esriScalebar.ruler.dual div > div .esriScalebarLineLabel {
+  position: relative;
+  top: 3px;
+}
+.winter .ctScaleBar .esriScalebar.line.dual div + div .esriScalebarLineLabel,
+.winter .ctScaleBar .esriScalebar.ruler.dual div + div .esriScalebarLineLabel {
+  position: relative;
+  top: -8px;
+}
+.winter .ctScaleBar .esriScalebar > div {
+  float: left;
+}
+.winter .ctScaleBar .esriScalebarLine {
+  border: 2px solid #5d6068;
+  border-top: none;
+}
+.winter .ctScaleBar .esriScalebarLine.esriScalebarEnglishLine {
+  border: 2px solid #5d6068;
+  border-bottom: none;
+  top: -2px;
+}
+.winter .ctScaleBar .esriScaleLabelDiv {
+  top: -3px;
+}
+.winter .ctScaleBar .esriScalebarLabel {
+  color: #45474d;
+  font-weight: normal;
+  font-size: 10px;
+}
+.winter .ctScaleBar .esriScalebarLineLabel.esriScalebarSecondNumber {
+  width: auto;
+  left: 0;
+}
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.line.dual,
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.ruler.dual {
+  top: 7px;
+}
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.line.dual div > div .esriScalebarLineLabel,
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.ruler.dual div > div .esriScalebarLineLabel {
+  position: relative;
+  top: 3px;
+}
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.line.dual div + div .esriScalebarLineLabel,
+.winter.ctEnv_FF .ctScaleBar .esriScalebar.ruler.dual div + div .esriScalebarLineLabel {
+  position: relative;
+  top: -8px;
+}

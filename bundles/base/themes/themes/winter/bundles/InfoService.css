@@ -1,0 +1,222 @@
+.winter {
+  /*------Detail View ------*/
+  /* -- ctImageContent -- */
+  /* Detail Infoviewer Widget */
+}
+.winter .ctInfoViewer .ctOwner.icon,
+.winter .ctInfoViewer .ctDate .icon {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  font-size: 15px;
+}
+.winter .ctInfoViewer .dijitButton .dijitIcon.print:before {
+  content: '\e05a';
+}
+.winter .ctInfoViewer .dijitButton .dijitIcon.csvExport:before {
+  content: '\e040';
+}
+.winter .ctInfoViewer .dijitButton .dijitIcon.mailTo:before {
+  content: '\e077';
+}
+.winter .ctInfoViewer .dijitButton .dijitIcon.goTo:before {
+  content: '\e071';
+}
+.winter .ctInfoViewer .ctLinkButton .dijitButtonNode {
+  font-size: 22px;
+}
+.winter .ctInfoViewer .ctPrevButton .ctPrevIcon,
+.winter .ctInfoViewer .ctNextButton .ctNextIcon {
+  font-size: 15px;
+}
+.winter .ctInfoViewer .ctPrevButton .ctPrevIcon:before {
+  content: '\e00f';
+}
+.winter .ctInfoViewer .ctNextButton .ctNextIcon:before {
+  content: '\e00e';
+}
+.winter .resultDetailView .resultPreview {
+  width: 50%;
+}
+.winter .resultDetailView .resultMetaData {
+  padding-left: 5px;
+  line-height: 2em;
+}
+.winter .resultPreview a {
+  outline: none!important;
+}
+.winter .ctLocationInfoMessageScreen div {
+  width: 100%;
+  height: 100%;
+}
+.winter .ctImageContent {
+  width: 98%;
+  height: 98%;
+  /* Standard InfoViewer */
+}
+.winter .ctImageContent.StandardView .ctPreview {
+  width: 55%;
+  height: 100%;
+  float: left;
+}
+.winter .ctImageContent.StandardView .ctSideBar {
+  width: 40%;
+  float: right;
+}
+.winter .ctImageContent .ctPreview .ctImage {
+  max-height: 94%;
+  overflow: hidden;
+  border: 1px solid #dadada;
+}
+.winter .ctImageContent .ctPreview a {
+  width: 100%;
+  height: 100%;
+}
+.winter .ctImageContent .ctPreview a img {
+  width: 100%;
+  border: none;
+}
+.winter .ctImageContent .ctImageSource {
+  width: 60px;
+  height: 11px;
+  background-image: url(../../../../../selection/infoservice/images/panoramio.png);
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .dijitButton {
+  width: 100%;
+  margin: .3em 0;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .dijitButton .dijitIcon {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  float: none;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .dijitButtonNode {
+  width: 100%;
+  padding: 9px 0;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .dijitButtonText {
+  font-size: 11px;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .dijitButtonContents {
+  text-align: left;
+  margin-left: 14px;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .ctServiceMetadata {
+  border-bottom: 1px solid #bdc3c7;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .ctServiceMetadata .topic {
+  font-size: 11px;
+  color: #45474d;
+  font-weight: bold;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-color: transparent;
+  margin-right: 10px;
+}
+.winter .ctInfoViewer.DetailView .ctSideBar .ctDescription,
+.winter .ctInfoViewer.DetailView .ctSideBar .ctMetaHeader {
+  font-size: 12px;
+}
+.winter .ctInfoViewer.DetailView .ctThumbnailPane {
+  height: 68px;
+}
+.winter .ctInfoViewer.DetailView .ctNextButton .dijitButtonNode,
+.winter .ctInfoViewer.DetailView .ctPrevButton .dijitButtonNode {
+  min-width: 90px;
+}
+.winter .ctInfoViewer .ctSideBar .ctOwner,
+.winter .ctInfoViewer .ctSideBar .ctDate {
+  margin: 10px 0;
+  font-style: italic;
+  font-size: 12px;
+  color: #45474d;
+}
+.winter .ctInfoViewer .ctSideBar .ctOwner .icon,
+.winter .ctInfoViewer .ctSideBar .ctDate .icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 1em;
+}
+.winter .ctWikipediaContent img {
+  float: left;
+  margin: 0 8px 6px 0;
+}
+.winter .DetailView .photolink {
+  text-decoration: none;
+  border-width: 0px;
+  position: relative;
+}
+.winter .DetailView .logo {
+  margin-top: 3px;
+  position: absolute;
+  left: 0;
+}
+.winter .DetailView .logo img {
+  width: 60px;
+}
+.winter .DetailView .photo {
+  max-width: 100%;
+  max-height: 95%;
+}
+.winter .DetailView .ctSideBar {
+  /* border-left: 1px solid @minor-border-color; */
+  width: 300px;
+  background-color: #e6e6e6;
+  margin-top: 18px;
+}
+.winter .DetailView .ctSideBar .trailingContainer {
+  height: 65%;
+}
+.winter .DetailView .mapPane {
+  height: 35%;
+  border-top: 1px solid #bdc3c7;
+}
+.winter .DetailView .ctButtonWrapper {
+  margin-top: 8px;
+}
+.winter .DetailView .ctDescription,
+.winter .DetailView .ctMetaHeader,
+.winter .DetailView .ctOwner,
+.winter .DetailView .ctUploadDate {
+  border-bottom: 1px solid #bdc3c7;
+  padding: 8px 0;
+}
+.winter .DetailView .ctOwnerName,
+.winter .DetailView .ctUploadDate,
+.winter .DetailView .ctDescription table {
+  color: #45474d;
+}
+.winter .DetailView .ctPrevButton .dijitIcon,
+.winter .DetailView .ctNextButton .dijitIcon {
+  width: 19px;
+  height: 19px;
+  text-align: center;
+}
+.winter .DetailView .ctNextButton .ctNextIcon {
+  float: right;
+}
+.winter .ctInfoContent.ctCustomTemplateContent .dijitButton {
+  margin-top: 12px;
+  margin-left: 0;
+}
+.winter .ctInfoContent.ctGridContent,
+.winter .ctInfoContent.ctCustomTemplateContent {
+  height: 100%;
+}
+.winter .ctInfoContent.ctGridContent .dijitContainer.dijitLayoutContainer {
+  top: 0!important;
+}
+.winter .ctInfoContent .dijitAlignBottom {
+  text-align: right;
+  margin-top: 2px;
+}

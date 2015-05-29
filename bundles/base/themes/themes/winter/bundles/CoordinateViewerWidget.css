@@ -1,0 +1,33 @@
+.winter {
+  /*hide coordinates for ipad*/
+}
+.winter .ctCoordinateViewer {
+  color: #45474d;
+  text-align: center;
+  display: table-row;
+}
+.winter .ctCoordinateViewer > .dijitVisible {
+  display: table-cell !important;
+  vertical-align: middle;
+}
+.winter .ctCoordinateViewerCoords {
+  /*make the table-rows look like they were just one single row.*/
+}
+.winter .ctCoordinateViewerCoords table,
+.winter .ctCoordinateViewerCoords tbody {
+  display: block;
+}
+.winter .ctCoordinateViewerCoords tr {
+  float: left;
+  padding: 0 5px;
+  vertical-align: bottom;
+}
+.winter .ctCoordinateViewerCoords td {
+  display: inline;
+}
+.winter .ctCoordinateViewerScale {
+  padding-left: 5px;
+}
+.winter.ctEnv_iPhone .ctCoordinateViewerCoords {
+  display: none!important;
+}

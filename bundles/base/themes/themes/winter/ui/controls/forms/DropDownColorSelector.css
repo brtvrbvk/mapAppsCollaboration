@@ -1,0 +1,15 @@
+/**
+ * Created on : 26.11.2014, 13:13:50
+ * Author     : juku
+ *
+ * Styling for ctDropDownColorSelector
+ *
+ */
+.winter .ctDropDownColorSelector .dijitButtonNode {
+  padding: 2px 4px;
+}
+.winter .ctDropDownColorSelector .dijitIcon {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #dadada;
+}

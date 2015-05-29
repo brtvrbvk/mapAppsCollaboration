@@ -1,0 +1,58 @@
+/*
+    Document   : PopUpWindow
+    Created on : 21.09.2011, 11:09:38
+    Author     : guest-jk
+    Description:
+        Styling for popUpWindows like ctLocationInfo, ctFeatureInfoWindow, ctInfoWindow.
+        BaseClass: .ctInfoPopupWindow
+*/
+/*
+ * 1. General
+ * 2. Tittlebar
+ *  2a. Tittlebar Tools
+ * 3. ContentPane
+*/
+.winter {
+  /*
+     * 1. General
+    */
+  /* Description */
+  /* Photo */
+  /*AGOL View*/
+}
+.winter .ctInfoPopupWindow,
+.winter .esriPopup {
+  font-size: 11px;
+}
+.winter .ctInfoPopupWindow .dijitContentPane,
+.winter .esriPopup .dijitContentPane {
+  padding: 0;
+}
+.winter .esriPopup {
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+}
+.winter .ctInfoPopupWindow a {
+  text-decoration: none;
+  font-style: italic;
+}
+.winter .ctInfoPopupWindow a:hover {
+  text-decoration: underline;
+}
+.winter .ctInfoPopupWindow .ctDescription {
+  margin-bottom: 5px;
+}
+.winter .ctInfoPopupWindow .ctImage img {
+  border: 1px solid #f3f3f3;
+}
+.winter .ctInfoPopupWindow .esriViewPopup {
+  padding-top: 5px;
+  /* Reset header settings for shadow and height */
+}
+.winter .ctInfoPopupWindow .esriViewPopup .header {
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+  height: initial;
+}

@@ -1,0 +1,246 @@
+/*
+    Document   : BasemapGallery
+    Created on : 03.09.2012, 08:45:32
+    Author     : guest-jk
+    Description: Styling for the DataView Widget
+*
+*
+*    1. Buttons for View Mode switching
+*    2. Styling for Icon View Mode
+*/
+.winter .ctDataView {
+  /*
+        * 1. Buttons for View switching
+        */
+  /*
+        *    2. Styling for Icon View Mode
+        */
+}
+.winter .ctDataView .ctDataViewToolBar {
+  padding: 4px 0;
+  overflow: hidden;
+}
+.winter .ctDataView .ctDataViewViewPane {
+  padding: 0;
+  overflow: hidden;
+}
+.winter .ctDataView .toolbar {
+  display: inline-block;
+  border-right: 1px solid #bdc3c7;
+}
+.winter .ctDataView .toolbar .dijitButtonNode {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .ctDataView .ctToggleButtonGroup .dijitToggleButton {
+  margin: 0;
+}
+.winter .ctDataView .ctToggleButtonGroup .dijitToggleButton .dijitButtonNode {
+  padding: 0;
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .ctDataView .ctToggleButtonGroup .dijitToggleButtonHover .dijitButtonNode {
+  background-color: #565656;
+}
+.winter .ctDataView .ctToggleButtonGroup .dijitToggleButton .dijitIcon {
+  width: 22px;
+  height: 22px;
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+.winter .ctDataView .dijitToggleButton .dijitButtonNode {
+  color: #3c3c3c;
+}
+.winter .ctDataView .dijitToggleButton .dijitIcon:before {
+  position: relative;
+  top: 2px;
+}
+.winter .ctDataView .dijitToggleButton .dijitIcon.gridView:before {
+  content: "\e02d";
+}
+.winter .ctDataView .dijitToggleButton .dijitIcon.iconView:before {
+  content: "\e02f";
+}
+.winter .ctDataView .dijitToggleButton .dijitIcon.detailView:before {
+  content: "\e030";
+}
+.winter .ctDataView .dijitToggleButton.dijitHover .dijitButtonNode,
+.winter .ctDataView .dijitToggleButton.dijitHover.dijitChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctDataView .dijitToggleButton.dijitHover .dijitIcon.gridView,
+.winter .ctDataView .dijitToggleButton.dijitHover.dijitChecked .dijitIcon.gridView,
+.winter .ctDataView .dijitToggleButton.dijitHover .dijitIcon.iconView,
+.winter .ctDataView .dijitToggleButton.dijitHover.dijitChecked .dijitIcon.iconView,
+.winter .ctDataView .dijitToggleButton.dijitHover .dijitIcon.detailView,
+.winter .ctDataView .dijitToggleButton.dijitHover.dijitChecked .dijitIcon.detailView {
+  background-color: #565656;
+}
+.winter .ctDataView .dijitToggleButton.dijitChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctDataView .dijitToggleButton.dijitChecked .dijitIcon.gridView,
+.winter .ctDataView .dijitToggleButton.dijitChecked .dijitIcon.iconView,
+.winter .ctDataView .dijitToggleButton.dijitChecked .dijitIcon.detailView {
+  background-color: #3c3c3c;
+}
+.winter .ctDataView .dijitToggleButton.dijitDisabled .dijitButtonNode {
+  color: #e0e1e4;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton .dijitButtonNode {
+  color: #45474d;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitHover .dijitButtonNode,
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitChecked .dijitButtonNode {
+  color: #ffffff;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitDisabled .dijitButtonNode {
+  color: #e0e1e4;
+}
+.winter .ctDataView .ctIconView {
+  overflow: auto;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton {
+  margin: 1em;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton .dijitButtonNode {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  padding: 4px;
+  max-width: 117px;
+  -webkit-transition: border-color 0.1s linear;
+  -moz-transition: border-color 0.1s linear;
+  -o-transition: border-color 0.1s linear;
+  -ms-transition: border-color 0.1s linear;
+  transition: border-color 0.1s linear;
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  -ms-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton .dijitButtonText {
+  color: #45474d;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitHover .dijitButtonText,
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitChecked .dijitButtonText {
+  color: #ffffff;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.nofocus .dijitButtonNode {
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.focus .dijitButtonNode {
+  border: 1px solid #f3f3f3;
+  background-color: #3c3c3c;
+}
+.winter .ctDataView .ctIconView .dijitToggleButton.dijitChecked .dijitButtonNode {
+  border: 1px solid #3c3c3c;
+  background-color: #3c3c3c;
+}
+.winter .ctDataView .ctIconView .dijitButtonNode .dijitIcon.dijitCheckBoxIcon {
+  vertical-align: bottom;
+}
+.winter .ctDataView .ctIconView .nocheckbox .dijitButtonText {
+  padding-left: 0px;
+}
+.winter .ctDataView .ctIconView .dijitButtonText {
+  clear: left;
+  display: block;
+  padding-left: 15px;
+  padding-top: 2px;
+  white-space: nowrap;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  text-transform: none;
+}
+.winter .ctDataView .ctIconView .dijitChecked .dijitButtonText {
+  color: #ffffff;
+}
+.winter .ctDataView .ctIconView .Wikipedia.dijitToggleButton .dijitImageIcon:before,
+.winter .ctDataView .ctIconView .Image.dijitToggleButton .dijitImageIcon:before,
+.winter .ctDataView .ctIconView .Video.dijitToggleButton .dijitImageIcon:before {
+  position: relative;
+  top: 18px;
+  left: -5px;
+  font-size: 44px;
+}
+.winter .ctDataView .ctIconView .Wikipedia.dijitToggleButton .dijitImageIcon:before {
+  content: "\e03d";
+}
+.winter .ctDataView .ctIconView .Image.dijitToggleButton .dijitImageIcon:before {
+  content: "\e041";
+}
+.winter .ctDataView .ctIconView .Video.dijitToggleButton .dijitImageIcon:before {
+  content: "\e03e";
+}
+.winter .ctDataView .ctIconView .dijitImageIcon {
+  width: 100px;
+  height: 75px;
+  overflow: hidden;
+}
+.winter .ctDataView .ctIconView .dijitImageIcon img {
+  max-width: 100%;
+  overflow: hidden;
+  height: auto;
+}
+.winter .ctDataView .ctIconView .noimage .dijitButtonContents,
+.winter .ctDataView .ctIconView .noimage.dijitToggleButton .dijitButtonNode {
+  max-width: 160px;
+  width: 160px;
+}
+.winter .ctDataView .ctIconView .noimage .dijitButtonNode .dijitImageIcon {
+  display: none;
+}
+.winter .ctDataView .ctIconView .noimage .dijitButtonNode .dijitButtonText {
+  width: 83%;
+  display: inline-block;
+  padding-left: 0;
+  padding-top: 0;
+}
+.winter .ctDataView .ctIconView .noimage .dijitButtonNode .dijitIcon.dijitCheckBoxIcon {
+  margin-top: 0;
+}
+.winter .ctDataView .ctIconView .ctNoDataMessage {
+  text-align: center;
+}
+.winter .ctDataView .ctDataViewToolBar .ctTool {
+  /*&.dijitActive,
+                &.dijitFocused{
+                    .dijitIcon{
+                        color: @ct-icon-color;
+                    }
+                }
+                &.dijitFocused.dijitHover{
+                    .dijitIcon{
+                        color: @ct-icon-on-primary-color
+                    }
+                }
+                */
+}
+.winter .ctDataView .ctDataViewToolBar .ctTool.dijitHover .dijitButtonNode,
+.winter .ctDataView .ctDataViewToolBar .ctTool.dijitSelected .dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .ctDataView .ctAdditionalWidgetsNode {
+  display: inline-block;
+  border-left: 1px solid #bdc3c7;
+}
+.winter .ctDataView .ctAdditionalWidget {
+  margin: 3px 5px 2px;
+}
+.winter .ctDataView .ctPager {
+  margin-right: 10px;
+}

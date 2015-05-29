@@ -1,0 +1,315 @@
+.winter .ctToolWindow,
+.winter .ctCollapsing {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.winter .ctToolWindow {
+  /*Background during animation*/
+}
+.winter .ctToolWindow .dijitDialogPaneContent {
+  /** prevent scrollbars in tool windows */
+  overflow: hidden;
+}
+.winter .ctToolWindow .ctCollapseHandleLeft .ctCollapseInnerHandle:before,
+.winter .ctToolWindow .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+  top: 18.5px;
+  font-size: 8px;
+}
+.winter .ctToolWindow .ctCollapseHandleTop .ctCollapseInnerHandle:before,
+.winter .ctToolWindow .ctCollapseHandleBottom .ctCollapseInnerHandle:before {
+  top: 0;
+  font-size: 8px;
+  text-align: center;
+}
+.winter .ctToolWindow.ctWindow.dijitDialogFixed {
+  border: none;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .ctToolWindow .ctWindowPadding .ctWindowTitelBarPadding,
+.winter .ctToolWindow .ctWindowPadding .ctWindowContentPadding {
+  background-color: #f4f8f9;
+}
+.winter .ctToolWindow.ctCollapsable .ctWindowPadding .dijitDialogTitleBar,
+.winter .ctToolWindow.notitle .ctWindowPadding .dijitDialogTitleBar {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+.winter .ctToolWindow.alignBottomRight {
+  right: 0;
+  bottom: 0;
+}
+.winter .ctToolWindow.alignBottomLeft {
+  left: 0;
+  bottom: 0;
+}
+.winter .ctToolWindow.alignTopRight {
+  right: 0;
+  top: 0;
+}
+.winter .ctToolWindow.alignTopLeft {
+  left: 0;
+  top: 0;
+}
+.winter .ctToolWindow .dijitDialogTitleBar .dijitDialogTitle {
+  margin-right: 15px;
+  font-size: 14px;
+}
+.winter .ctToolWindow .dijitDialogPaneContent {
+  padding: 0;
+  margin: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background: none;
+  border: none;
+}
+.winter .ctToolWindow.ctContainerItem {
+  background: none;
+}
+.winter .ctToolWindow.ctContainerItem.ctCollapsing {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+  background-color: #f4f8f9;
+}
+.winter .ctToolWindow.dijitDialogHover .dojoxResizeHandle,
+.winter .ctToolWindow.dijitDialogActive .dojoxResizeHandle {
+  background-image: url("../../../../../../../js/dojox/layout/resources/icons/resize.png");
+}
+.winter .ctToolWindow .ctWindowPadding {
+  background-position: bottom left;
+}
+.winter .ctToolWindow.ctCollapsed .ctWindowPadding {
+  background-position: top left;
+}
+.winter .ctToolWindow .ctTool.ctToolProcessing .dijitIcon,
+.winter .ctToolWindow.ctCollapsed.ctToolProcessing .ctCollapseOpposite .ctCollapseInnerHandle {
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+  border-color: transparent;
+}
+.winter .ctToolWindow .ctTool.ctToolProcessing .dijitIcon:before,
+.winter .ctToolWindow.ctCollapsed.ctToolProcessing .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  font-family: mapappsUiFont!important;
+  content: '\e097' !important;
+}
+.winter .ctToolWindow .ctCollapseNoOpposite {
+  background-color: #3c3c3c;
+}
+.winter .ctToolWindow .ctCollapseOpposite .ctCollapseInnerHandle {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .ctToolWindow .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  line-height: .4;
+  content: '\e051';
+  font-size: 30px;
+  color: #696c75;
+  text-align: center;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 16px;
+}
+.winter .ctToolWindow .ctToolAvatar:before {
+  content: '\e051';
+  font-size: 30px;
+  color: #696c75;
+}
+.winter .ctToolWindow .ctCollapseHandleRight {
+  width: 7px;
+  height: 45px;
+  right: -7px;
+  margin-top: -23px;
+  top: 23px;
+}
+.winter .ctToolWindow .ctCollapseHandleRight .ctCollapseInnerHandle {
+  width: 7px;
+  height: 45px;
+  top: 0px;
+}
+.winter .ctToolWindow .ctCollapseHandleLeft {
+  left: -7px;
+  width: 7px;
+  height: 45px;
+  margin-top: -23px;
+  top: 23px;
+}
+.winter .ctToolWindow .ctCollapseHandleLeft .ctCollapseInnerHandle {
+  width: 7px;
+  height: 45px;
+  top: 0px;
+}
+.winter .ctToolWindow .ctCollapseHandleBottom {
+  bottom: -7px;
+  width: 45px;
+  height: 7px;
+  margin-left: -23px;
+}
+.winter .ctToolWindow .ctCollapseHandleBottom .ctCollapseInnerHandle {
+  width: 45px;
+  height: 7px;
+  left: 0px;
+}
+.winter .ctToolWindow .ctCollapseHandleTop {
+  top: -7px;
+  width: 45px;
+  height: 7px;
+  margin-left: -23px;
+}
+.winter .ctToolWindow .ctCollapseHandleTop .ctCollapseInnerHandle {
+  width: 45px;
+  height: 7px;
+  left: 0px;
+}
+.winter .ctToolWindow .ctCollapseOpposite {
+  background-color: #f4f8f9;
+  width: 45px;
+  height: 45px;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.winter .ctToolWindow .ctCollapseOpposite .ctCollapseInnerHandle {
+  width: 45px;
+  height: 45px;
+}
+.winter .ctToolWindow .ctCollapseOpposite.ctCollapseHandleRight {
+  right: -45px;
+}
+.winter .ctToolWindow .ctCollapseOpposite.ctCollapseHandleLeft {
+  left: -45px;
+}
+.winter .ctToolWindow .ctCollapseOpposite.ctCollapseHandleTop {
+  top: -45px;
+}
+.winter .ctToolWindow .ctCollapseOpposite.ctCollapseHandleBottom {
+  bottom: -45px;
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveTool .ctCollapseOpposite {
+  background-color: #3c3c3c;
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  color: #ffffff;
+}
+.winter .ctToolWindow.muted.dijitDialogFixed.ctWindow {
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none ;
+  box-shadow: none ;
+}
+.winter .ctToolWindow.muted .dijitDialogPaneContent {
+  overflow: visible;
+}
+.winter .ctToolWindow.muted .ctWindowTitelBarPadding,
+.winter .ctToolWindow.muted .ctWindowContentPadding {
+  background: transparent none;
+}
+.winter .ctToolWindow.muted .ctTool {
+  padding: 6px 0 0;
+  display: block;
+}
+.winter .ctToolWindow.muted .ctTool .dijitButtonNode {
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 11px 13px;
+  background-color: #f4f8f9;
+  color: #696c75;
+  font-size: 15px;
+}
+.winter .ctToolWindow.muted .ctTool .dijitIcon {
+  border: none;
+  line-height: 0.9em;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+}
+.winter .ctToolWindow.muted .ctTool.dijitHover .dijitButtonNode,
+.winter .ctToolWindow.muted .ctTool.dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #f4f8f9;
+  color: #3c3c3c;
+}
+.winter .ctToolWindow.muted .ctTool:last-child .dijitButtonNode .dijitIcon {
+  border-right: none;
+}
+.winter .ctToolWindow.muted .ctTool:first-child .dijitButtonNode .dijitIcon {
+  border-left: none;
+}
+.winter .ctTooltipDialogDropDownButton .dijitButtonNode {
+  padding: 5px 12px 12px;
+  font-size: 30px;
+}
+.winter .ctTooltipDialogDropDownButton .dijitArrowButtonInner {
+  display: none;
+}
+.winter .ctTooltipDialogDropDownButton .dijitButtonText {
+  display: none;
+}
+.winter .ctTooltipDialogDropDownButton .dijitIcon {
+  display: initial;
+}
+.winter .ctTooltipDialogDropDownButton .dijitIcon:before {
+  content: '\e02d';
+}
+.winter .dijitTooltipDialogPopup .ctTool .dijitButtonNode {
+  font-size: 22px;
+  padding: 6px 12px 8px;
+}
+.winter .ctToolAvatar {
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+}
+.winter .ctToolAvatar .ctAvatarDropNotAllowed {
+  background-color: #c0392b;
+}
+.winter .ctToolWindow.ctAvatar {
+  border-color: #dadada;
+  border-width: 1px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25) ;
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25) ;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25) ;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  -ms-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+  -webkit-transition: box-shadow 0.5s ease-out;
+  -moz-transition: box-shadow 0.5s ease-out;
+  -o-transition: box-shadow 0.5s ease-out;
+  -ms-transition: box-shadow 0.5s ease-out;
+  transition: box-shadow 0.5s ease-out;
+}
+.winter .ctTool.dijitMenuItemChecked {
+  background-color: #3c3c3c;
+  color: #ffffff;
+}
+.winter .ctTool.dijitMenuItem .dijitIcon {
+  margin-right: 2px;
+}
+.winter .ctTool.ctToolProcessing .dijitIcon {
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+  animation: spin 1.5s infinite linear;
+}
+.winter .ctTool.ctToolProcessing .dijitIcon:before {
+  content: '\e097';
+}

@@ -1,0 +1,9 @@
+.winter .ctTool .ctToolIcon_agolmapfinderToggleTool:before {
+  content: '\e064';
+}
+.winter .ctToolWindow.ctCollapsed.ctActiveToolIcon_ctToolIcon_agolmapfinderToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+  content: '\e064';
+}
+.winter .ctAgolmapFinder .ctScopedFilter .ctShrinkingDropDownLabelNode {
+  min-width: 30px;
+}

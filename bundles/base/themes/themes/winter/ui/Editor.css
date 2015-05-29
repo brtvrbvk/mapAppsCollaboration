@@ -1,0 +1,311 @@
+.winter .dijitToolbar {
+  color: #45474d;
+  background: #e6e6e6 none;
+}
+.winter .dijitToolbar .dijitButtonNode {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding: 2px;
+  background: transparent none;
+}
+.winter .dijitToolbar .dijitHover .dijitButtonNode,
+.winter .dijitToolbar .dijitChecked .dijitButtonNode,
+.winter .dijitToolbar .dijitActive .dijitButtonNode {
+  border: none;
+  padding: 2px;
+  background-color: #3c3c3c;
+}
+.winter .dijitToolbar .dijitArrowButton.dijitButtonNode {
+  background-color: #3c3c3c;
+}
+.winter .dijitToolbar .dijitHover .dijitArrowButton.dijitButtonNode,
+.winter .dijitToolbar .dijitActive .dijitArrowButton.dijitButtonNode {
+  padding: 0;
+  background-color: #3c3c3c;
+}
+.winter .dijitToolbar .dijitDisabled .dijitButtonNode,
+.winter .dijitToolbar .dijitButtonDisabled,
+.winter .dijitToolbar .dijitDropDownButtonDisabled,
+.winter .dijitToolbar .dijitComboButtonDisabled,
+.winter .dijitToolbar .dijitToggleButtonDisabled {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+.winter .dijitEditorIcon {
+  font-family: mapappsUiFont;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  background-image: none;
+  font-size: 15px;
+  color: #ffffff;
+}
+.winter .dijitEditorIcon:before {
+  line-height: 18px;
+}
+.winter .dijitButtonHover,
+.winter .dijitToggleButtonHover,
+.winter .dijitToggleButtonChecked .dijitEditorIcon {
+  color: #ffffff;
+}
+.winter .dijitDisabled .dijitEditorIcon {
+  color: #dadada;
+}
+.winter .dijitIconTask {
+  background-image: none;
+}
+.winter .dijitIconTask:before {
+  content: '\e0af';
+}
+.winter .dijitEditorIconSep {
+  background-image: none;
+}
+.winter .dijitEditorIconSep:before {
+  content: '\e0a8';
+}
+.winter .dijitIconEdit {
+  background-image: none;
+}
+.winter .dijitIconEdit:before {
+  content: '\e059';
+  /*line-height:@ct-icon-small+3px; */
+}
+.winter .dijitEditorIconSave,
+.winter .dijitIconSave {
+  background-image: none;
+}
+.winter .dijitEditorIconSave:before,
+.winter .dijitIconSave:before {
+  content: '\e040';
+  /*line-height:@ct-icon-small+3px;*/
+}
+.winter .dijitEditorIconPrint {
+  background-image: none;
+}
+.winter .dijitEditorIconPrint:before {
+  content: '\e05a';
+}
+.winter .dijitEditorIconCut {
+  background-image: none;
+}
+.winter .dijitEditorIconCut:before {
+  content: '\e0ba';
+}
+.winter .dijitEditorIconCopy {
+  background-image: none;
+}
+.winter .dijitEditorIconCopy:before {
+  content: '\e0a2';
+}
+.winter .dijitEditorIconPaste {
+  background-image: none;
+}
+.winter .dijitEditorIconPaste:before {
+  content: '\e0ac';
+}
+.winter .dijitEditorIconDelete {
+  background-image: none;
+}
+.winter .dijitEditorIconDelete:before {
+  content: '\e05b';
+}
+.winter .dijitEditorIconCancel {
+  background-image: none;
+}
+.winter .dijitEditorIconCancel:before {
+  content: '\e0a4';
+}
+.winter .dijitEditorIconUndo {
+  background-image: none;
+}
+.winter .dijitEditorIconUndo:before {
+  content: '\e013';
+}
+.winter .dijitEditorIconRedo {
+  background-image: none;
+}
+.winter .dijitEditorIconRedo:before {
+  content: '\e014';
+}
+.winter .dijitEditorIconSelectAll {
+  background-image: none;
+}
+.winter .dijitEditorIconSelectAll:before {
+  content: '\e036';
+}
+.winter .dijitEditorIconBold {
+  background-image: none;
+}
+.winter .dijitEditorIconBold:before {
+  content: '\e0a5';
+}
+.winter .dijitEditorIconItalic {
+  background-image: none;
+}
+.winter .dijitEditorIconItalic:before {
+  content: '\e0b2';
+}
+.winter .dijitEditorIconUnderline {
+  background-image: none;
+}
+.winter .dijitEditorIconUnderline:before {
+  content: '\e099';
+}
+.winter .dijitEditorIconStrikethrough {
+  background-image: none;
+}
+.winter .dijitEditorIconStrikethrough:before {
+  content: '\e0a7';
+}
+.winter .dijitEditorIconSuperscript {
+  background-image: none;
+}
+.winter .dijitEditorIconSuperscript:before {
+  content: '\e09a';
+}
+.winter .dijitEditorIconSubscript {
+  background-image: none;
+}
+.winter .dijitEditorIconSubscript:before {
+  content: '\e09b';
+}
+.winter .dijitEditorIconJustifyCenter {
+  background-image: none;
+}
+.winter .dijitEditorIconJustifyCenter:before {
+  content: '\e0a1';
+}
+.winter .dijitEditorIconJustifyFull {
+  background-image: none;
+}
+.winter .dijitEditorIconJustifyFull:before {
+  content: '\e0b1';
+}
+.winter .dijitEditorIconJustifyLeft {
+  background-image: none;
+}
+.winter .dijitEditorIconJustifyLeft:before {
+  content: '\e0a0';
+}
+.winter .dijitEditorIconJustifyRight {
+  background-image: none;
+}
+.winter .dijitEditorIconJustifyRight:before {
+  content: '\e09f';
+}
+.winter .dijitEditorIconIndent {
+  background-image: none;
+}
+.winter .dijitEditorIconIndent:before {
+  content: '\e0b4';
+}
+.winter .dijitEditorIconOutdent {
+  background-image: none;
+}
+.winter .dijitEditorIconOutdent:before {
+  content: '\e0ad';
+}
+.winter .dijitEditorIconForeColor {
+  background-image: none;
+}
+.winter .dijitEditorIconForeColor:before {
+  content: '\e0b5';
+}
+.winter .dijitEditorIconHiliteColor {
+  background-image: none;
+}
+.winter .dijitEditorIconHiliteColor:before {
+  content: '\e0a6';
+}
+.winter .dijitEditorIconBackColor {
+  background-image: none;
+}
+.winter .dijitEditorIconForeColor {
+  background-image: none;
+}
+.winter .dijitEditorIconHiliteColor {
+  background-image: none;
+}
+.winter .dijitEditorIconNewPage {
+  background-image: none;
+}
+.winter .dijitEditorIconNewPage:before {
+  content: '\e0b8';
+}
+.winter .dijitEditorIconInsertImage {
+  background-image: none;
+}
+.winter .dijitEditorIconInsertImage:before {
+  content: '\e0b3';
+}
+.winter .dijitEditorIconInsertTable {
+  background-image: none;
+}
+.winter .dijitEditorIconInsertTable:before {
+  content: '\e09c';
+}
+.winter .dijitEditorIconSpace {
+  background-image: none;
+}
+.winter .dijitEditorIconSpace:before {
+  content: '\e0a8';
+}
+.winter .dijitEditorIconInsertHorizontalRule {
+  background-image: none;
+}
+.winter .dijitEditorIconInsertHorizontalRule:before {
+  content: '\e0a9';
+}
+.winter .dijitEditorIconInsertOrderedList {
+  background-image: none;
+}
+.winter .dijitEditorIconInsertOrderedList:before {
+  content: '\e0ae';
+}
+.winter .dijitEditorIconInsertUnorderedList {
+  background-image: none;
+}
+.winter .dijitEditorIconInsertUnorderedList:before {
+  content: '\e098';
+}
+.winter .dijitEditorIconCreateLink {
+  background-image: none;
+}
+.winter .dijitEditorIconCreateLink:before {
+  content: '\e09e';
+}
+.winter .dijitEditorIconUnlink {
+  background-image: none;
+}
+.winter .dijitEditorIconUnlink:before {
+  content: '\e09d';
+}
+.winter .dijitEditorIconViewSource {
+  background-image: none;
+}
+.winter .dijitEditorIconViewSource:before {
+  content: '\e0a3';
+}
+.winter .dijitEditorIconRemoveFormat {
+  background-image: none;
+}
+.winter .dijitEditorIconRemoveFormat:before {
+  content: '\e0b9';
+}
+.winter .dijitEditorIconFullScreen {
+  background-image: none;
+}
+.winter .dijitEditorIconFullScreen:before {
+  content: '\e0b0';
+}
+.winter .dijitEditorIconsFindReplaceClose {
+  width: 18px;
+  height: 18px;
+}

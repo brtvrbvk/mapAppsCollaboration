@@ -1,0 +1,24 @@
+/**
+ * Created on : 26.11.2014, 12:30:08
+ * Author     : juku
+ *
+ * Styling for scopedFilter Search
+ *
+ */
+
+@import "../../../themeSettings.less";
+
+.@{themeName}{   
+    .ctScopedFilter{
+        float: right;
+        .dijitTextBox {
+            height: 20px;
+            max-width: 100px;
+            float: left;
+        }
+        //hasNoButton is added if the Scoped Filter has no DropDownButton
+        &.hasNoButton .dijitTextBox{
+            height: 19px;
+        }
+    }
+}
