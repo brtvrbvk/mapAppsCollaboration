@@ -25,7 +25,12 @@ define([
         distance
         ) {
         return {
-
+            
+            getOriScale: function (
+                mapState
+                ) {
+                return mapState.getViewPort().getScale();
+            },
 
             getScale: function (
                 viewport

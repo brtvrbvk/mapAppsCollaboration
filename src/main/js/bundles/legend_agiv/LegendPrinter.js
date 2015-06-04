@@ -148,7 +148,8 @@ define([
                         });
                         var esriLayer = esriMap.getLayer(esriLayerId[0]);
                         layer.layerObject = esriLayer;
-                        var symbol = esriLayer.renderer.getSymbol();
+                        //var symbol = esriLayer.renderer.getSymbol();
+                        var symbol = esriLayer.graphics[0].symbol;
                         rgba = symbol.color.toRgba();
                         response.push({
                             type: "directkml",
@@ -452,7 +453,8 @@ define([
                             });
                         } else if (graphicItem.service && graphicItem.service.serviceType === ServiceTypes.DirectKML) {
                             gotALegend = true;
-                            symbol = graphicItem.layerObject.renderer.getSymbol();
+                            //symbol = graphicItem.layerObject.renderer.getSymbol();
+                            var symbol = graphicItem.layerObject.graphics[0].symbol;
                             var rgba = symbol.color.toRgba();
                             if (rgba[3] === 0) {
                                 rgba = symbol.outline.color.toRgba();
