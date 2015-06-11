@@ -111,10 +111,10 @@ define([
 
                     if (contact.street) {
                         info["address"] = d_string.substitute(this.i18n.address, {
-                            street: contact.street + " " + contact.number,
-                            postalCode: contact.postalCode,
-                            city: contact.city,
-                            country: contact.country
+                            street: contact.street + " " + (contact.number || ""),
+                            postalCode: contact.postalCode || "",
+                            city: contact.city || "",
+                            country: contact.country || ""
                         });
                     }
 

@@ -34,7 +34,7 @@
                         },
                         "windowSize": {
                             "w": 375,
-                            "h": 125
+                            "h": 138
                         },
                         "window": {
                             "windowName": "agivGenericIdentify",
@@ -50,7 +50,7 @@
                         },
                         "windowSize": {
                             "w": 375,
-                            "h": 125
+                            "h": 138
                         },
                         "window": {
                             "windowName": "agivGenericIdentify"

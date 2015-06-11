@@ -42,7 +42,10 @@ define([
 //                    point = this.coordinateTransformer.transform(point, "EPSG:4326");
                     var currentDistance = Number.POSITIVE_INFINITY;
                     if (geom.rings) {
-                        currentDistance = this._calcDistArrayBasedGeometry(geom.rings, geom, point);
+                        if(this._isPointInPolygon(geom.rings, geom, point))
+                            currentDistance=0.00001;
+                        else
+                            currentDistance = this._calcDistArrayBasedGeometry(geom.rings, geom, point);
                     } else if (geom.paths) {
                         currentDistance = this._calcDistArrayBasedGeometry(geom.paths, geom, point);
                     } else if (geom.x) {
@@ -50,6 +53,45 @@ define([
                     }
 
                     return currentDistance;
+
+                },
+
+                 _isPointInPolygon: function (
+                    array,
+                    geom,
+                    point
+                    ) {
+                   var isInside=false;
+                    d_array.forEach(array, function (e) {
+                        for(var c = false, i = -1, l = e.length, j = l - 1; ++i < l; j = i){
+        
+                            var pi = e_jsonUtils.fromJson({
+                                x: e[i][0],
+                                y: e[i][1],
+                                spatialReference: geom.spatialReference
+                            });
+                            var pj = e_jsonUtils.fromJson({
+                                x: e[j][0],
+                                y: e[j][1],
+                                spatialReference: geom.spatialReference
+                            });
+                            
+                            
+                            ((pi.y <= point.y && point.y < pj.y) || (pj.y <= point.y && point.y < pi.y))
+        && (point.x < (pj.x - pi.x) * (point.y - pi.y) / (pj.y - pi.y) + pi.x)
+        && (c = !c);
+                       
+                        
+                        
+                        }
+                        isInside = c;
+                        
+                        
+                        
+                        
+                        
+                    }, this);
+                    return isInside;
 
                 },
 

@@ -477,16 +477,37 @@ define([
                     return value;
                 },
 
-                _formatHyperlinkedItem: function (value) {
+                _formatHyperlinkedItemOld: function (value) {
                     if (value && value.match) {
                         // simple test for email address
+                        
                         if (value.match(/\S*@\S*/)) {
                             value = "<a href='mailto:" + value + "'>" + value + "</a>";
                         } else
                         // simple test for website
                         if (value.match(/www/)) {
                             value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
+                        } else
+                            if (value.match(/http/)) {
+                                value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
                         }
+                    
+                    }
+                    return value;
+                },
+                
+                _formatHyperlinkedItem: function (value) {
+                    if (value && value.match) {
+                        // simple test for email address
+                        
+                        if (value.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/)) {
+                            value = "<a href='mailto:" + value + "'>" + value + "</a>";
+                        } else
+                        // simple test for website
+                        if (value.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+                            value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
+                        } 
+                    
                     }
                     return value;
                 },

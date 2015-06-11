@@ -57,7 +57,6 @@ define([
                 if (this.graphic.attributes && this.graphic.attributes.comment) {
                     this.inputText.set("value", this.graphic.attributes.comment);
                 }
-
                 if (this.graphic.symbol && this.graphic.symbol.text) {
                     this.inputText.set("value", this.graphic.symbol.text);
                 }
@@ -126,6 +125,10 @@ define([
                     var attr = this.graphic.attributes || {};
                     attr.comment = text;
                     this.graphic.attributes = attr;
+                    if(this.graphic.symbol && this.graphic.symbol.text){
+                        this.graphic.symbol.setText(text);
+                        this.graphic._graphicsLayer.redraw();
+                    }
                     this.mapModel.fireModelStructureChanged({
                         source: this
                     });
