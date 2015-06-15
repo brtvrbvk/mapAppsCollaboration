@@ -125,6 +125,7 @@ define([
                     var attr = this.graphic.attributes || {};
                     attr.comment = text;
                     this.graphic.attributes = attr;
+//BartVerbeeck Bug31562                    
                     if(this.graphic.symbol && this.graphic.symbol.text){
                         this.graphic.symbol.setText(text);
                         this.graphic._graphicsLayer.redraw();

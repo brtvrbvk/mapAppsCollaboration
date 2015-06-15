@@ -103,6 +103,7 @@ define([
                         },
                         baseClass: "layerManagerGraphics ctLayerManager",
                         eventService: this.eventService,
+//BartVerbeeck Bug32154                        
                         mapState:this._mapState,
                         mapModel:this._mapModel
                     });
@@ -120,6 +121,7 @@ define([
                         },
                         baseClass: "layerManagerOverlay ctLayerManager",
                         eventService: this.eventService,
+//BartVerbeeck Bug32154                        
                          mapState:this._mapState,
                         mapModel:this._mapModel
                     });

@@ -158,6 +158,7 @@ define([
                         eventCategory: AnalyticsConstants.CATEGORIES.PRINT,
                         eventValue: printSelectionNames.join(", ")
                     });
+//BartVerbeeck31436                    
                     if(data.routing && data.routing[0] && data.routing[0].routes && data.routing[0].routes[0] && data.routing[0].routes[0].instructions){
                         d_array.forEach(data.routing[0].routes[0].instructions, function (instruction) {
                             var div = document.createElement("div");

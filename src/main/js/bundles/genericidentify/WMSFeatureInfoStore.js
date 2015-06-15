@@ -476,7 +476,7 @@ define([
                     }
                     return value;
                 },
-
+//BartVerbeeck Bug32722 
                 _formatHyperlinkedItemOld: function (value) {
                     if (value && value.match) {
                         // simple test for email address
@@ -495,7 +495,7 @@ define([
                     }
                     return value;
                 },
-                
+ //BartVerbeeck Bug32722               
                 _formatHyperlinkedItem: function (value) {
                     if (value && value.match) {
                         // simple test for email address

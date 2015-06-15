@@ -81,6 +81,7 @@ define([
                         generateText: false,
                         simpleSelection: true,
                         singular: true,
+//BartVerbeeck Bug32154                        
                         accept: this.itemProperties.layerType,
                         mapState:this.mapState,
                         mapModel:this.mapModel
@@ -99,6 +100,7 @@ define([
 //                        sliderVisible: this._sliderVisible,
                         eventService: this.eventService,
                         enablePOIHighlighting: this.enablePOIHighlighting,
+//BartVerbeeck Bug32154                        
                         mapState:this.mapState,
                         mapModel:this.mapModel
                     }, this.itemProperties);

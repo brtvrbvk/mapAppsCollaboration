@@ -81,7 +81,7 @@ define([
 
                     this._broadCast(SearchTopics.HANDLER_COMPLETE);
                 },
-
+//BartVerbeeck Bug31990
                 selectItem: function (item) {
                     this._onSelectItem(item);
                 },

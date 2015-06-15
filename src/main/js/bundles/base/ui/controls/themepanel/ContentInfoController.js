@@ -308,6 +308,7 @@ define([
                                     urlString.length));
                                 if (urlParams["id"] || urlParams["ID"] || urlParams["uuid"] || urlParams["UUID"]) {
                                     var id = urlParams["id"] || urlParams["ID"] || urlParams["uuid"] || urlParams["UUID"];
+//BartVerbeeck Bug31120                                    
                                     id=id.replace("{","");
                                     id=id.replace("}","");
                                     newUrlString = this.metadataBaseUrl + id;

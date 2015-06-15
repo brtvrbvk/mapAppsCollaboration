@@ -49,7 +49,7 @@ define([
                 },
 
                 _handleViewPortChange: function (evt) {
-                    var s=scaleHelper.getOriScale(this.mapState);
+                    //var s=scaleHelper.getOriScale(this.mapState);
                     this._updateScale({
                         scale: scaleHelper.getScale(this.mapState.getViewPort())
                     });

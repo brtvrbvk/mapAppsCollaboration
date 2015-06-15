@@ -148,6 +148,7 @@ define([
                         });
                         var esriLayer = esriMap.getLayer(esriLayerId[0]);
                         layer.layerObject = esriLayer;
+//BartVerbeeck Bug29972                        
                         //var symbol = esriLayer.renderer.getSymbol();
                         var symbol = esriLayer.graphics[0].symbol;
                         rgba = symbol.color.toRgba();
@@ -453,6 +454,7 @@ define([
                             });
                         } else if (graphicItem.service && graphicItem.service.serviceType === ServiceTypes.DirectKML) {
                             gotALegend = true;
+//BartVerbeeck Bug29972                            
                             //symbol = graphicItem.layerObject.renderer.getSymbol();
                             var symbol = graphicItem.layerObject.graphics[0].symbol;
                             var rgba = symbol.color.toRgba();

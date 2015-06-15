@@ -113,6 +113,8 @@ define([
                     if (this.addressNode) {
                         this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
                     }
+                    if(item.address && item.address.municipality)
+                        item.municipality=item.address.municipality;
                     if (this.i18n.moreInformation && item.municipality) {
                         var name = d_string.substitute(this.i18n.moreInformation, {
                             name: item.municipality

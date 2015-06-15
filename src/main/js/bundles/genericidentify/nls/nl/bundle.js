@@ -14,6 +14,7 @@ define(
             graphicsLayerTitle: "Graphics",
             loadingGeneralInfo: "Bezig met laden",
             cityLevel: "De aangeklikte locatie ligt in ",
+//BartVerbeeck Bug32193            
             addressLevel: "Dichtstbijzijnde adres",
             activeLayers: "Actieve lagen:",
             serviceErrorMsg: "An error occured",

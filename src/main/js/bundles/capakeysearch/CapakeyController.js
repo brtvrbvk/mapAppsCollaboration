@@ -98,6 +98,7 @@ define([
                         this.deactivate();
                     }));
                     ct_when(ct_request.requestJSON({
+//BartVerbeeck Bugxxxxx                        
                         url: this.capakeyServiceUrl + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("municipality", false);
@@ -269,6 +270,7 @@ define([
                     });
                     var parcelId = this.parcelId = item[0].id;
                     ct_when(ct_request.requestJSON({
+//BartVerbeeck Bugxxxxx                        
                         url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + this.sectionId + "/parcel/" + parcelId  + '?type=json'
                     }), function (json) {
                         var capakey = json.capakey;
@@ -304,6 +306,7 @@ define([
                     });
                     var sectionId = this.sectionId = item[0].id;
                     ct_when(ct_request.requestJSON({
+//BartVerbeeck Bugxxxxx                        
                         url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + this.departmentId + "/section/" + sectionId + "/parcel" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("parcel", false);
@@ -345,6 +348,7 @@ define([
                     var departmentId = this.departmentId = item[0].id;
 
                     ct_when(ct_request.requestJSON({
+//BartVerbeeck Bugxxxxx                        
                         url: this.capakeyServiceUrl + "/" + this.municipalityId + "/department/" + departmentId + "/section" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("section", false);
@@ -387,6 +391,7 @@ define([
                     var municipalityId = this.municipalityId = item[0].id;
 
                     ct_when(ct_request.requestJSON({
+//BartVerbeeck Bugxxxxx                        
                         url: this.capakeyServiceUrl + "/" + municipalityId + "/department" + '?type=json'
                     }), function (json) {
                         this._toggleWidgetDisabledStatus("department", false);

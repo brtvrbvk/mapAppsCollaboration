@@ -41,6 +41,7 @@ define([
                     ) {
 //                    point = this.coordinateTransformer.transform(point, "EPSG:4326");
                     var currentDistance = Number.POSITIVE_INFINITY;
+//BartVerbeeck Bug29974                    
                     if (geom.rings) {
                         if(this._isPointInPolygon(geom.rings, geom, point))
                             currentDistance=0.00001;
@@ -55,7 +56,7 @@ define([
                     return currentDistance;
 
                 },
-
+//BartVerbeeck Bug29974 
                  _isPointInPolygon: function (
                     array,
                     geom,

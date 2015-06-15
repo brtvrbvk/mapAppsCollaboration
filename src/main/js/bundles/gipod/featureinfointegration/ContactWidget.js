@@ -110,6 +110,7 @@ define([
                     }
 
                     if (contact.street) {
+//BartVerbeeck Bug31789                        
                         info["address"] = d_string.substitute(this.i18n.address, {
                             street: contact.street + " " + (contact.number || ""),
                             postalCode: contact.postalCode || "",

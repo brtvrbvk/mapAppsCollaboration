@@ -182,7 +182,7 @@ define([
                                 d_domstyle.set(menuItem.containerNode, "backgroundImage",
                                         "url('" + url + "')");
                             }
-
+//BartVerbeeck Bug31986
                             //if (model.isSelected(model.getIdentity(item)) || (this.currentApp && this.currentApp.id === model.getIdentity(item))) {
                             if ((!this.currentApp && item.enabled) ||  (this.currentApp && this.currentApp.id === model.getIdentity(item))) {
                                 this.set("selected", menuItem);

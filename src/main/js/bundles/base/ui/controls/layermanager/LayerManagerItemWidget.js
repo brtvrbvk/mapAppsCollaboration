@@ -126,6 +126,7 @@ define([
                     }
 
                     this.titleLabelNode.innerHTML = title;
+//BartVerbeeck Bug29973
                     layer.title = title;
                     ct_css.toggleClass(this.domNode, type, true);
 
@@ -203,6 +204,7 @@ define([
                         newValue
                         ) {
                         this.titleLabelNode.innerHTML = newValue;
+//BartVerbeeck Bug29973                        
                         this.layer.title = newValue;
                     });
                     this._showLayerVisibility(layer);
@@ -328,6 +330,7 @@ define([
                         }
                     } else {
                         this._visibilityTooltip.set("label", this.i18n.notVisible);
+//BartVerbeeck Bug32154                        
                         var Currentscale = this.mapState.getViewPort().getScale();
                         if(Currentscale > this.layer.minScale)
                                 this.visibleScaleNode.innerHTML = this.i18n.visibleMinScale;
