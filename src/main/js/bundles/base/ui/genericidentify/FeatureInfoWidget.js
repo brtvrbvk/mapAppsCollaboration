@@ -119,8 +119,9 @@ define([
                         var name = d_string.substitute(this.i18n.moreInformation, {
                             name: item.municipality
                         });
+//BartVerbeeck Bug32867                        
                         var href = d_string.substitute(this.content.municipalityLink, {
-                            municipality: item.municipality
+                            municipality: item.municipality.replace(" ","")
                         });
                         domConstruct.create("div", {
                             "class": "icon-arrow-rounded-right featureinfoIcon"

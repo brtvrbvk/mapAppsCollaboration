@@ -10,19 +10,5 @@
     "Bundle-Layer": "module",
     "Bundle-AutoStartPolicy": "yes",
 
-    "Bundle-StartLevel": 1,
-
-"Components": [{
-        "name": "MeasurementFactory",
-       "provides": [
-                "patches_measurement.MeasurementFactory",
-                "dijit.Widget"
-            ],
-            "propertiesConstructor": true,
-        "properties": {
-            "defaultAreaUnit": "METERS",
-            "defaultLengthUnit": "METERS"
-        }
-    }
-]
+    "Bundle-StartLevel": 1
 }

@@ -79,10 +79,13 @@ define([
                             if (!item.id) {
                                 item.id = idx;
                             }
-
-                            var splitIdx = item.title.lastIndexOf(" ");
-                            item.address = item.title.substring(0, splitIdx - 1);
-                            item.municipality = item.title.substring(splitIdx + 1);
+//BartVerbeeck Bug32867
+                            //var splitIdx = item.title.lastIndexOf(" ");
+                            var splitIdx = item.title.lastIndexOf(",");
+                            //item.address = item.title.substring(0, splitIdx - 1);
+                            item.address = item.title.substring(0, splitIdx);
+                            //item.municipality = item.title.substring(splitIdx + 1);
+                            item.municipality = item.title.substring(splitIdx+2);
 
                             // add geometry
                             // get Geometry from Location Attribute
