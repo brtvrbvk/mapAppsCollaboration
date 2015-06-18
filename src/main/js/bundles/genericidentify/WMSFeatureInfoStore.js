@@ -219,13 +219,41 @@ define([
                             var splitIds = item.id.split("/");
                             var layerList = splitIds.splice(1, 1);
                             var serviceUrl = "";
+                            var infoformat=null;
+//BartVerbeeck Bug32185                             
+                            var serviceQuerystring = ";"
                             d_array.some(this.configuredServices,
                                 function (service) {
                                     if (service.item.getLocalId() === splitIds[0]) {
                                         serviceUrl = service.serviceUrl;
+                                        serviceQuerystring = service.serviceQuerystring;
+//BartVerbeeck Bug32185 
+if(serviceQuerystring){
+    var pairs = serviceQuerystring.slice(0).split('&');
+    var result = {};
+    pairs.forEach(function(pair) {
+            pair = pair.split('=');
+            result[pair[0]] = decodeURIComponent(pair[1] || '');
+    });
+    infoformat = JSON.parse(JSON.stringify(result));
+}else
+    infoformat=null;
                                         return true;
                                     }
                                 });
+//BartVerbeeck Bug32185                                
+                            if(infoformat && infoformat.info_format){
+                                this.format=infoformat.info_format;
+                                if (this.format == "application/json") {
+                                    this.resultType = "json";
+                                }
+                                if (this.format == "text/html") {
+                                    this.resultType = "text";
+                                }
+                                if (this.format == "text/plain") {
+                                    this.resultType = "text";
+                                }
+                            }
                             var props = this._props;
                             var url = this.getFeatureInfoUrl(props.screenPoint,
                                 props.geoExtent,
@@ -233,7 +261,8 @@ define([
                                 props.height,
                                 layerList,
                                 this.format,
-                                serviceUrl);
+                                serviceUrl
+                                );
                             ct_when(this._getResult(url, item),
                                 function (result) {
                                     if (result.error) {
@@ -822,6 +851,8 @@ define([
                             HEIGHT: height,
                             INFO_FORMAT: format,
                             QUERY_LAYERS: layerIds.join(','),
+//BartVerbeeck Bug                            
+                            LAYERS: layerIds.join(','),
                             FEATURE_COUNT: featureCount
                         },
                         xParam = 'X',

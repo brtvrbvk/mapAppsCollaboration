@@ -88,6 +88,8 @@ define([
                     this._configuredServices = d_array.map(this._configuredServices, function (item) {
                         return {
                             serviceUrl: item.serviceUrl.toLowerCase().split("?")[0],
+//BartVerbeeck Bug32185                            
+                            serviceQuerystring: item.serviceUrl.toLowerCase().split("?")[1],
                             item: item
                         };
                     });
