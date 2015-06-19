@@ -92,6 +92,12 @@ define([
                     state,
                     persistable
                     ) {
+//BartVerbeeck Bug29990                
+                    if(persistable.decodeableProperty && persistable.decodeableProperty == "son")
+                    if(persistable._mapModel && persistable._mapModel._layerTree){
+                        persistable._mapModel._layerTree.children[1].removeChildren();
+                        
+                    }
                     if (persistable.read) {
                         try {
                             persistable.read(state);
