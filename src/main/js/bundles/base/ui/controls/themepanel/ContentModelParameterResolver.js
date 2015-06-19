@@ -43,7 +43,12 @@ define([
                         } else {
                             searchObj = [searchObj];
                         }
-                        d_array.forEach(searchObj, function(item) {
+
+   //BartVerbeeck Bug32105                     
+                        //d_array.forEach(searchObj, function(item) {
+                            this.help_async(searchObj,0,searchObj.length);
+                            
+                            /*
                             ct_when(this._handler.triggerSearch(item), function(result) {
                                 if (result.length === 0) {
                                     this._showNotificationWindow(d_string.substitute(this._i18n.notFoundMessage, {
@@ -53,8 +58,32 @@ define([
                                 }
                                 console.log("Search parameter " + this.searchTerm + ":" + item + " are decoded.")
                             }, this);
-                        }, this);
+                        */    
+                        //}, this);
+                        
+                       
                     }
+                }
+                ,
+                help_async:function(searchObj,nrun,nAll){
+                    
+
+                    d_array.forEach([searchObj[nrun]], function(item) {
+                            ct_when(this._handler.triggerSearch(item), function(result) {
+                                if (result.length === 0) {
+                                    this._showNotificationWindow(d_string.substitute(this._i18n.notFoundMessage, {
+                                        title: item
+                                    }));
+                                    return;
+                                }
+                                console.log("Search parameter " + this.searchTerm + ":" + item + " are decoded.");
+                                nrun++;
+                                if(nrun<nAll)
+                                    this.help_async(searchObj,nrun,nAll);
+                            }, this);
+                            
+                        }, this);
+                    
                 }
             }
         );
