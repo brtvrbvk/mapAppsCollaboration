@@ -533,7 +533,8 @@ if(serviceQuerystring){
                             value = "<a href='mailto:" + value + "'>" + value + "</a>";
                         } else
                         // simple test for website
-                        if (value.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+//BartVerbeeck Bug32722 split toegevoegd                            
+                        if (value.split('?')[0].match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
                             value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
                         } 
                     
