@@ -114,6 +114,11 @@ define([
                             this._tools.push(tool);
                     }, this);
                 }
+//BartVerbeeck Bug31646 RVV identify vuilbak weg                
+                else{
+                   if(this._tools[1])
+                       document.getElementById(this._tools[1].id).style.visibility = "hidden";
+                }
                 return this._tools;
             },
 
