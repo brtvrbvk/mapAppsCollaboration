@@ -534,8 +534,10 @@ define([
                                 ctx.skipChildren = true;
                                 return false;
                             }
+                            //BartVerbeeck Bug31440
                             if (n.graphics && n.graphics.length > 0 &&
-                                n.id !== "chartGeometryPane" && n.id !== "highlighterPane" && n.id !== "elevationNode" && n.id !== "pointer") {
+                                n.id !== "chartGeometryPane" && n.id.substring(0, "highlighterPane".length) !== "highlighterPane" && n.id !== "elevationNode" && n.id !== "pointer") {
+                                    //n.id !== "chartGeometryPane" && n.id !== "highlighterPane" && n.id !== "elevationNode" && n.id !== "pointer") {
                                 return true;
                             }
                             return false;
