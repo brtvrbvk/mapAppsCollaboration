@@ -549,8 +549,8 @@ define([
 
                             geocodeDef.resolve(resp);
                             this.eventService.postEvent("agiv/genericidentify/loading/END");
-
-                            content.title = resp.FormattedAddress || resp.title;
+//BartVerbeeck Bug32960
+                            //content.title = resp.FormattedAddress || resp.title;
                             content.type = "RESULT_IDENTIFY";
 
                             var eventValue = "random point, " + resp.FormattedAddress || resp.title,
