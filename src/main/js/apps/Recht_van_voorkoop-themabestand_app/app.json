@@ -1782,7 +1782,7 @@
             }
         },
         "RemoveAllTool": {
-            "componentEnabled": true
+            "componentEnabled": false
         },
         "RemoveSelectedTool": {
             "componentEnabled": false
