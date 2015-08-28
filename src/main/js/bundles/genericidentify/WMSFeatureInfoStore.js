@@ -498,7 +498,8 @@ if(serviceQuerystring){
                     ) {
                     if (ct_array.arrayFirstIndexOf(this.areaAndLengthAttrNames,
                         field) > -1) {
-                        value = value.replace(",", ".");
+//BartVerbeeck Bug35988                            
+                        value = value.toString().replace(",", ".");
                         return d_number.format(Number(value), {
                             places: 2
                         }).replace(/\./g, " ");
