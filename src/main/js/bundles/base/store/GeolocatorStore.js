@@ -79,14 +79,19 @@ define([
                             if (!item.id) {
                                 item.id = idx;
                             }
-//BartVerbeeck Bug32867
+//BartVerbeeck Bug32867 new issue Bug35740
                             //var splitIdx = item.title.lastIndexOf(" ");
                             var splitIdx = item.title.lastIndexOf(",");
                             //item.address = item.title.substring(0, splitIdx - 1);
-                            item.address = item.title.substring(0, splitIdx);
-                            //item.municipality = item.title.substring(splitIdx + 1);
-                            item.municipality = item.title.substring(splitIdx+2);
-
+                            if(splitIdx > (-1)){
+                                item.address = item.title.substring(0, splitIdx);
+                                //item.municipality = item.title.substring(splitIdx + 1);
+                                item.municipality = item.title.substring(splitIdx+2);
+                            }else{
+                                item.address = "";
+                                item.municipality = item.title;
+                                
+                            }
                             // add geometry
                             // get Geometry from Location Attribute
                             item.geometry = e_geometryUtils.fromJson({
