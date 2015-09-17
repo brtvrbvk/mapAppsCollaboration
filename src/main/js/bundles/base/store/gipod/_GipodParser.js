@@ -110,10 +110,10 @@ define([
                     if (res.coordinate) {
                         item.geometry = this._parseGeometry(res.coordinate);
                     }
-
+//BartVerbeeck Bug 29855 geen wordt neen
                     if (res.hindrance) {
                         item.hindrance = res.hindrance;
-                        item.hindrance.importantString = item.hindrance.important ? "ja" : "geen";
+                        item.hindrance.importantString = item.hindrance.important ? "ja" : "neen";
                     }
 
                     if (res.periods && res.periods.length && res.periods.length > 0) {
