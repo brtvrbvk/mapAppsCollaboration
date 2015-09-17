@@ -235,11 +235,16 @@ define([
                     var scaleText;
                     minScale = minScale || layer.minScale;
                     maxScale = maxScale || layer.maxScale;
+//BartVerbeeck Bug45593 rara dinges met zoomin en zoomuit
+                    var Currentscale = this.mapState.getViewPort().getScale();
                     if (minScale && minScale > 0) {
+                        if(Currentscale > minScale)
                         scaleText = d_string.substitute(this.i18n.visibleMinScale, {
                             scale: minScale
                         });
-                    } else if (maxScale && maxScale > 0) {
+                    }
+                    if (maxScale && maxScale > 0) {
+                        if(Currentscale < maxScale)
                         scaleText = d_string.substitute(this.i18n.visibleMaxScale, {
                             scale: maxScale
                         });
