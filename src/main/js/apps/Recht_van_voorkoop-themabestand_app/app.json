@@ -571,7 +571,7 @@
             "locationUrl": "https://rvv.agiv.be/RVVGeolocation/Geolocation/Location"
         },
         "ParcelUrlProvider": {
-            "parcelUrl": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/2/Query"
+            "parcelUrl": "http://geo.beta.agiv.be/ArcGIS/rest/services/RVV/MapServer/2/Query"
         },
         "enabled": true
     },
@@ -609,12 +609,12 @@
     "legend_agiv": {
         "LegendUI": {
             "replacements": {
-                "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer": {
+                "http://geo.beta.agiv.be/ArcGIS/rest/services/RVV/MapServer": {
                     "1": "<div style='height:35px;color:#B83A00;font-size:100%;font-style:normal;margin-top:10px;margin-bottom:-10px;'>259A</div>"
                 }
             },
             "mappings": {
-                "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer": {
+                "http://geo.beta.agiv.be/ArcGIS/rest/services/RVV/MapServer": {
                     "3": 4,
                     "14": 15
                 },
@@ -1127,7 +1127,7 @@
                             }
                         ],
                         "type": "AGS_DYNAMIC",
-                        "url": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer",
+                        "url": "http://geo.beta.agiv.be/ArcGIS/rest/services/RVV/MapServer",
                         "serviceType": "AGS_DYNAMIC",
                         "resourceType": 1
                     },

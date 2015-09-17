@@ -120,7 +120,7 @@ define([
                 ) {
                 a = this._levelToLevelValue[a];
                 a = this.UrlTemplate.replace(/\{level\}/gi, a).replace(/\{row\}/gi, b).replace(/\{col\}/gi, e);
-                return a = this.addTimestampToURL(a)
+                return a = this.addTimestampToURL(a);
             }
         });
         //PATCHED to not flip axis for 900913
