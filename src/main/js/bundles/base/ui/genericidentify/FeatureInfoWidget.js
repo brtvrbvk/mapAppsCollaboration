@@ -116,13 +116,26 @@ define([
                     if(item.address && item.address.municipality)
                         item.municipality=item.address.municipality;
                     if (this.i18n.moreInformation && item.municipality) {
-                        var name = d_string.substitute(this.i18n.moreInformation, {
+                        if(!item.municipalityPdf)
+                            name = d_string.substitute(this.i18n.moreInformation, {
                             name: item.municipality
                         });
-//BartVerbeeck Bug32867                        
-                        var href = d_string.substitute(this.content.municipalityLink, {
-                            municipality: item.municipality.replace(" ","")
+                        else
+                            name = d_string.substitute(this.i18n.moreInformation, {
+                            name: item.municipalityPdf
                         });
+                        
+//BartVerbeeck Bug32867  en
+//BartVerbeeck Bug33004 Postcode van geolocation
+                        var href;
+                        if(!item.municipalityPdf)
+                            href = d_string.substitute(this.content.municipalityLink, {
+                                municipality: item.municipality.replace(" ","")
+                            });
+                        else
+                            var href = d_string.substitute(this.content.municipalityLink, {
+                                municipality: item.municipalityPdf.replace(" ","")
+                            });
                         domConstruct.create("div", {
                             "class": "icon-arrow-rounded-right featureinfoIcon"
                         }, this.moreInformation);

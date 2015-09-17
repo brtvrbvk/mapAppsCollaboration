@@ -185,7 +185,8 @@
     ],
     "require": ["${app}.app"],
     "styles": ["${app}:rvv.css"]
-}, "properties": {
+}, 
+"properties": {
     "title": "Recht van voorkoop",
     "thumbnailFile": "thumbnail.png",
     "optimized": true,
@@ -198,7 +199,8 @@
     "modifiedAt": 1416572129252,
     "templateFile": "ct-agiv-mapviewer-4.0.0-Recht_van_voorkoop-themabestand_app.zip",
     "templateId": "14909B330DA1EA5"
-}, "bundles": {
+}, 
+"bundles": {
     "analytics": {
         "GoogleAnalyticsTracker": {
             "account": "UA-36710880-7",

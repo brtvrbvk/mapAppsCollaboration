@@ -90,8 +90,21 @@ define([
                             }else{
                                 item.address = "";
                                 item.municipality = item.title;
-                                
                             }
+//BartVerbeeck Bug33004 Postcode van geolocation
+//
+                            var cnt=true;
+                            var m2pdf=item.municipality;
+                            var c;
+                            while(cnt){
+                                c=m2pdf.substr(0,1);
+                                if ((c >= '0' && c <= '9') || c==' ') {
+                                    m2pdf=m2pdf.substr(1);
+                                } else {
+                                       cnt=false;
+                                }
+                            }
+                            item.municipalityPdf=m2pdf;
                             // add geometry
                             // get Geometry from Location Attribute
                             item.geometry = e_geometryUtils.fromJson({
