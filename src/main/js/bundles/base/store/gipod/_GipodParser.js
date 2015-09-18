@@ -114,6 +114,15 @@ define([
                     if (res.hindrance) {
                         item.hindrance = res.hindrance;
                         item.hindrance.importantString = item.hindrance.important ? "ja" : "neen";
+//BartVerbeeck Bug 29853 sort en linebreaks                        
+                        if (item.hindrance.effects){
+                            item.hindrance.effects.sort();
+                            item.hindrance.effects=item.hindrance.effects.join("<br/>");
+                        }
+                        if (item.hindrance.locations){
+                            item.hindrance.locations.sort();
+                            item.hindrance.locations=item.hindrance.locations.join("<br/>");
+                        }
                     }
 
                     if (res.periods && res.periods.length && res.periods.length > 0) {
@@ -124,7 +133,7 @@ define([
                         item.contact = res.contactDetails;
                         if (item.contact.email) {
                             item.contact.emailPlain = item.contact.email;
-                            item.contact.email = "<a href='mailto:" + item.contact.email + "'>" + item.contact.email + "</a>";
+                            item.contact.email = "<a hrhindrance='mailto:" + item.contact.email + "'>" + item.contact.email + "</a>";
                         }
                     }
 
