@@ -152,7 +152,10 @@ define([
                     if (res.contractor) {
                         item.contractor = res.contractor;
                     }
-
+                    //BartVerbeeck Bug29852
+                    if (res.mainContractor) {
+                        item.maincontractorfirstnamelastname = res.mainContractor.firstName + " " + res.mainContractor.lastName;
+                    }
                     if (res.location) {
 
                         if (res.location.cities) {

@@ -1027,6 +1027,11 @@
                                 "name": "contractor",
                                 "title": "Aannemer"
                             },
+                            //BartVerbeeck Bug29852
+                            {
+                                "name": "maincontractorfirstnamelastname",
+                                "title": "Contactpersoon aannemer"
+                            },
                             {
                                 "name": "url",
                                 "title": "URL"
