@@ -986,7 +986,6 @@
                     },
                     "metadata": {
                         "fields": [
-                            //BartVerbeeck Bug29856 volgorde
                             {
                                 "name": "activePeriod",
                                 "title": "Periode"
@@ -999,27 +998,31 @@
                                 "name": "comment",
                                 "title": "Opmerking"
                             },
-                             {
-                                "name": "hindrance.description",
-                                "title": "Hinder omschrijving"
+                            {
+                                "name": "latestUpdate",
+                                "title": "Laatste wijziging"
                             },
                             {
-                                "name": "hindrance.direction",
-                                "title": "Hinder richting"
+                                "name": "hindrance.description",
+                                "title": "Hinder omschrijving"
                             },
                             {
                                 "name": "hindrance.locations",
                                 "title": "Hinder locaties"
                             },
                             {
+                                "name": "hindrance.direction",
+                                "title": "Hinder richting"
+                            },
+                            {
                                 "name": "hindrance.effects",
                                 "title": "Hinder gevolgen"
                             },
-                             {
+                            {
                                 "name": "hindrance.importantString",
                                 "title": "Hinder ernstig?"
                             },
-                             {
+                            {
                                 "name": "owner",
                                 "title": "Beheerder"
                             },
@@ -1034,10 +1037,6 @@
                             {
                                 "name": "gipodId",
                                 "title": "GIPOD ID"
-                            },
-                            {
-                                "name": "latestUpdate",
-                                "title": "Laatste wijziging"
                             }
                         ]
                     }
