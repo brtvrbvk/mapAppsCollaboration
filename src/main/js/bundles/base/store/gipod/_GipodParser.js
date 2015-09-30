@@ -163,7 +163,9 @@ define([
                     }
                     //BartVerbeeck Bug29852
                     if (res.mainContractor) {
-                        item.maincontractorfirstnamelastname = res.mainContractor.firstName + " " + res.mainContractor.lastName;
+                        if(res.mainContractor.firstName || res.mainContractor.lastName){
+                            item.maincontractorfirstnamelastname = (res.mainContractor.firstName?res.mainContractor.firstName:"") + " " + (res.mainContractor.lastName?res.mainContractor.lastName:"");
+                        }
                     }
                     if (res.location) {
 

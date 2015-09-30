@@ -124,7 +124,11 @@ define([
                     if (item.eventType) {
                         iconUrl = this.gipodController.gipodBaseUrl + "/icon/" + gipodType + "?size=32&eventtype=" + d_string.trim(item.eventType);
                     } else {
-                        iconUrl = this.gipodController.gipodBaseUrl + "/icon/" + gipodType + "?size=32&important=" + item.hindrance.important;
+//Bug32948 HIK: zoeken met parameter GIPOD-ID werkt niet altijd (mogelijks enkel als er hinder is)                        
+                        if(item.hindrance)
+                            iconUrl = this.gipodController.gipodBaseUrl + "/icon/" + gipodType + "?size=32&important=" + (item.hindrance.important?item.hindrance.important:false);
+                        else
+                            iconUrl = this.gipodController.gipodBaseUrl + "/icon/" + gipodType + "?size=32&important=false";
                     }
                     var content = {
                         graphic: {
