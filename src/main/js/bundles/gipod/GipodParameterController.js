@@ -395,10 +395,16 @@ define([
                     };
 
                     d_array.forEach(this._eventtypes, function (e) {
+//Bug45588 HIK - Iconen ook bij Verfijnd zoeken TODO eventueel url niet hard coderen                        
+                        //table.children.push({
+                        //    "type": "label",
+                        //    "value": " ",
+                        //    "cssClass": "ctEmptyLabel"
+                        //});
                         table.children.push({
                             "type": "label",
-                            "value": " ",
-                            "cssClass": "ctEmptyLabel"
+                            "value": "<img src=\"http://gipod.api.agiv.be/ws/v1/icon/manifestation?size=32&eventtype="+e+"\" width=24 height=24>"
+
                         });
                         table.children.push({
                             "type": "checkbox",
