@@ -97,9 +97,9 @@
                 "widgetRole": "gipodParameterControls",
                 "queryOptions": {
                     "period": {
-                        "today": true,
+                        "today": false,
                         "tomorrow": false,
-                        "nextmonth": false,
+                        "nextmonth": true,
                         "specifieddate": false
                     },
                     "workassignment": true,

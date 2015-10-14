@@ -94,6 +94,16 @@ define([
                                 {
                                     "type": "radiobutton",
                                     "groupId": "period",
+                                    "field": "period.nextmonth"
+                                },
+                                {
+                                    "type": "label",
+                                    "value": "Vandaag + 1 maand verder",
+                                    "colspan": 2
+                                },
+                                {
+                                    "type": "radiobutton",
+                                    "groupId": "period",
                                     "field": "period.today"
                                 },
                                 {
@@ -111,16 +121,7 @@ define([
                                     "value": "Morgen",
                                     "colspan": 2
                                 },
-                                {
-                                    "type": "radiobutton",
-                                    "groupId": "period",
-                                    "field": "period.nextmonth"
-                                },
-                                {
-                                    "type": "label",
-                                    "value": "Vandaag + 1 maand verder",
-                                    "colspan": 2
-                                },
+                                
                                 {
                                     "type": "radiobutton",
                                     "groupId": "period",
@@ -403,7 +404,7 @@ define([
                         //});
                         table.children.push({
                             "type": "label",
-                            "value": "<img src=\"http://gipod.api.agiv.be/ws/v1/icon/manifestation?size=32&eventtype="+e+"\" width=24 height=24>"
+                            "value": "<img src=\"http://gipod.api.agiv.be/ws/v1/icon/manifestation?size=16&eventtype="+e+"\" >"
 
                         });
                         table.children.push({
