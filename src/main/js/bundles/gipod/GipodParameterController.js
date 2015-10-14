@@ -94,16 +94,6 @@ define([
                                 {
                                     "type": "radiobutton",
                                     "groupId": "period",
-                                    "field": "period.nextmonth"
-                                },
-                                {
-                                    "type": "label",
-                                    "value": "Vandaag + 1 maand verder",
-                                    "colspan": 2
-                                },
-                                {
-                                    "type": "radiobutton",
-                                    "groupId": "period",
                                     "field": "period.today"
                                 },
                                 {
@@ -121,7 +111,16 @@ define([
                                     "value": "Morgen",
                                     "colspan": 2
                                 },
-                                
+                                {
+                                    "type": "radiobutton",
+                                    "groupId": "period",
+                                    "field": "period.nextmonth"
+                                },
+                                {
+                                    "type": "label",
+                                    "value": "Vandaag + 1 maand verder",
+                                    "colspan": 2
+                                },
                                 {
                                     "type": "radiobutton",
                                     "groupId": "period",
