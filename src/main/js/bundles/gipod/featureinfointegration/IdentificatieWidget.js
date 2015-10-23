@@ -93,8 +93,9 @@ define([
                     this.mapContentPane.set("content", map);
 
                     this.title = this.i18n.title;
-
-                    this.labelNode.innerHTML = this.content.description;
+//BartVerbeeck Bug45587
+                    //this.labelNode.innerHTML = this.content.description;
+                    this.labelNode.innerHTML = "";
                     this.eventService.postEvent("agiv/identificatie/UPDATE_PRINT_INFO", {hasIdentificatie: true});
                 },
 

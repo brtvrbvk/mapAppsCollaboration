@@ -114,6 +114,13 @@ define([
                                 if (selectorRule.toLowerCase() === selector.toLowerCase()) {
                                     styleSheet.cssRules[i].style.cssText = style;
                                     return;
+                                }else{
+      //BartVerbeeck Bug31013
+                                 if (selectorRule.toLowerCase() === ".hik.agivgenericidentify .dijitdialogtitle::before") {
+                                    styleSheet.cssRules[i].style.cssText = style;
+                                    return;
+                                 }   
+                                    
                                 }
                             }
                         }

@@ -52,7 +52,9 @@ define([
                             city: item.cities && item.cities[0],
                             eventType: item.eventType || this.i18n.workEventType
                         });
-                        this.title = title;
+                        //BartVerbeeck Bug45587
+                        //this.title = title;
+                        this.title = item.description;
 
                         var icon = g.symbol;
                         agiv_css.createSelector("." + this.windowName.split(" ").join(".") + " .dijitDialogTitle:before",
