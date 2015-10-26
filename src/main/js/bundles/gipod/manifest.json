@@ -1033,6 +1033,10 @@
                                 "title": "Contactpersoon aannemer"
                             },
                             {
+                                "name": "initiatorfirstnamelastname",
+                                "title": "Contactpersoon initiatiefnemer"
+                            },
+                            {
                                 "name": "url",
                                 "title": "URL"
                             },

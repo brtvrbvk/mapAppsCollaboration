@@ -167,6 +167,11 @@ define([
                             item.maincontractorfirstnamelastname = (res.mainContractor.firstName?res.mainContractor.firstName:"") + " " + (res.mainContractor.lastName?res.mainContractor.lastName:"");
                         }
                     }
+                    if (res.initiator) {
+                        if(res.initiator.firstName || res.initiator.lastName){
+                            item.initiatorfirstnamelastname = (res.initiator.firstName?res.initiator.firstName:"") + " " + (res.initiator.lastName?res.initiator.lastName:"");
+                        }
+                    }
                     if (res.location) {
 
                         if (res.location.cities) {
