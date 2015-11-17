@@ -312,9 +312,7 @@ define([
                             if (!selformat) {
                                 selformat = ct_array.arraySearchFirst(supportedFormats, "application/vnd.ogc.wms_xml");
                             }
-                            if (!selformat) {
-                                selformat = ct_array.arraySearchFirst(supportedFormats, "text/xml");
-                            }
+                            
                             if (!selformat) {
                                 selformat = ct_array.arraySearchFirst(supportedFormats, "application/json");
                                 resultType = "json";
@@ -326,6 +324,9 @@ define([
                             if (!selformat) {
                                 selformat = "text/plain";
                                 resultType = "text";
+                            }
+                            if (!selformat) {
+                                selformat = ct_array.arraySearchFirst(supportedFormats, "text/xml");
                             }
                             var storeId = "temporaryFeatureInfoStore_" + layerNode.get("id");
                             var serviceId = service.getLocalId();
