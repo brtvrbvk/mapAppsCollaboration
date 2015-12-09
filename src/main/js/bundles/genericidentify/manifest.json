@@ -215,7 +215,8 @@
                 //clickTolerance in px, an extent is calculated based on screenPoint and clickTolerance arround the point
                 "clickTolerance": 5,
                 "alwaysEnableFeatureInfo": true,
-                "year": "2014",
+                //BartVerbeeck Link Naar Statistieken
+                "year": "2015",
                 "municipalityLink": "http://aps.vlaanderen.be/lokaal/pdf/gemeente-${year}/${municipality}.pdf",
                 "Event-Topics": [
                     {
