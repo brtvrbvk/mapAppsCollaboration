@@ -125,11 +125,13 @@ define([
                             //we just need the first graphic for the symbology
                             var symbol = graphics[0].symbol,
                                 rgba = symbol.color.toRgba();
+                        //BartVerbeeck Print POI = add http
+                        var addHttp = (this.applicationUrl.substring(0,4)==="http")?"":"http:";
                             response.push({
                                 type: "poi",
                                 id: mainLayer.id,
                                 title: mainLayer.title,
-                                url: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255
+                                url: addHttp + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255
                             });
                         }
 
@@ -152,11 +154,13 @@ define([
                         //var symbol = esriLayer.renderer.getSymbol();
                         var symbol = esriLayer.graphics[0].symbol;
                         rgba = symbol.color.toRgba();
+                        //BartVerbeeck Print POI = add http
+                        var addHttp = (this.applicationUrl.substring(0,4)==="http")?"":"http:";
                         response.push({
                             type: "directkml",
                             id: mainLayer.id,
                             title: mainLayer.title,
-                            url: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255
+                            url: addHttp + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255
                         });
 
                     } else if (mainLayer.service.serviceType === ServiceTypes.AGS_DYNAMIC) {
@@ -447,9 +451,11 @@ define([
                                 symbol = graphicItem.layerObject.graphicResolver.getDefault();
                             }
                             var rgba = symbol.color.toRgba();
+                            //BartVerbeeck Print POI = add http
+                        var addHttp = (this.applicationUrl.substring(0,4)==="http")?"":"http:";
                             legendItems.graphicsLegend.push({
                                 legendTitle: graphicItem.title,
-                                legendImageUrl: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
+                                legendImageUrl: addHttp + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
                                 legendUrl: null
                             });
                         } else if (graphicItem.service && graphicItem.service.serviceType === ServiceTypes.DirectKML) {
@@ -461,9 +467,11 @@ define([
                             if (rgba[3] === 0) {
                                 rgba = symbol.outline.color.toRgba();
                             }
+                            //BartVerbeeck Print POI = add http
+                        var addHttp = (this.applicationUrl.substring(0,4)==="http")?"":"http:";
                             legendItems.graphicsLegend.push({
                                 legendTitle: graphicItem.title,
-                                legendImageUrl: this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
+                                legendImageUrl: addHttp + this.applicationUrl + "/resources/icons/generate/circle/20/20/5/" + rgba[0] + "/" + rgba[1] + "/" + rgba[2] + "/" + rgba[3] * 255,
                                 legendUrl: null
                             });
                         }
