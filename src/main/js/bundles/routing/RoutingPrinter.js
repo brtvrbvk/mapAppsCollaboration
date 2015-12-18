@@ -82,15 +82,26 @@ define([
                         routingItems.distance = d_string.substitute(this.i18n.distance, {
                             distance: d_number.format(rr.distance / 1000, {})
                         });
-
+                        //BartVerbeeck Bug29968 60 minuten is een uur
                         var min = rr.time / 60;
+                        var hour = Math.floor(min / 60);
+                        min = Math.round(min % 60);
+                        if(min == 60){
+                            min = 0;
+                            hour = hour + 1;
+                        }
+                        //routingItems.duration = d_string.substitute(this.i18n.duration, {
+                        //    hour: Math.floor(min / 60),
+                        //    min: d_number.format(Math.round(min % 60), {
+                        //        pattern: "00"
+                        //    })
+                        //});
                         routingItems.duration = d_string.substitute(this.i18n.duration, {
-                            hour: Math.floor(min / 60),
-                            min: d_number.format(Math.round(min % 60), {
+                            hour: hour,
+                            min: d_number.format(min, {
                                 pattern: "00"
                             })
                         });
-
                         var stopover = rr.stopovers;
                         var totalDistance = 0;
                         var stopoverInstruction = function (stopover) {
