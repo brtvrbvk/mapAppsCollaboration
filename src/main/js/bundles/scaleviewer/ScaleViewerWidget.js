@@ -47,12 +47,18 @@ define([
                     this._listeners.connect("mapstate", this.mapState, "onViewPortChange",
                         this._handleViewPortChange);
                 },
+//BartVerbeeck aanpassingen scale voor toekomstige lambert app
+               _handleViewPortChange: function (evt) {
+                    if (this.mapState.getSpatialReference().isWebMercator()) {
+                        this._updateScale({
+                            scale: scaleHelper.getScale(this.mapState.getViewPort())
+                        });
+                    } else {
+                        this._updateScale({
+                            scale: this.mapState.getViewPort().getScale()
+                        });
+                    }
 
-                _handleViewPortChange: function (evt) {
-                    //var s=scaleHelper.getOriScale(this.mapState);
-                    this._updateScale({
-                        scale: scaleHelper.getScale(this.mapState.getViewPort())
-                    });
                 },
 
                 _updateScale: function (evt) {
