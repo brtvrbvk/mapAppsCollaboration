@@ -111,9 +111,9 @@ define([
                     css.switchHidden(this.hintCheckLayersNode, collapsed);
 
                 },
-
+//BartVerbeeck Bug29971 in de buurt - checkbox not cleared
                 _handleModelUpdate: function (args) {
-                    //we don´t need updates
+                    this._buildCurrentView(this._currentNode);
                 },
 
                 _onNodeClick: function (evt) {

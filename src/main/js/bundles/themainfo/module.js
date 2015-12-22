@@ -12,13 +12,9 @@ define([
     "base/ui/controls/themepanel/DrillDownTreeFactory",
 //    "./searchintegration/ContentModelHandler",
 //    "./searchintegration/ContentModelLayerSelectionHandler",
-
-
     "base/ui/controls/layermanager/LayerManagerController",
     "base/ui/controls/layermanager/LayerManagerWidget",
     "base/ui/controls/layermanager/LayerManagerItemWidget",
-    
-    
 //    "base/util/ParametrizedRedirect",
     "base/ui/controls/info/NodeInfoWidget",
     "base/search/SearchParametrizable",

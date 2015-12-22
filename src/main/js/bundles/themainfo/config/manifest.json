@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "themainfo-config",
-    "Bundle-Version": "5.0.4",
+    "Bundle-Version": "5.0.4-SNAPSHOT",
 
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",

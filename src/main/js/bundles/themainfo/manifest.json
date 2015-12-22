@@ -1,743 +1,738 @@
 {
-    "Bundle-SymbolicName": "themainfo",
-    "Bundle-Version": "5.0.4",
-
-    "Bundle-Name": "themainfo",
-    "Bundle-Description": "",
-    "Bundle-Vendor": "con terra GmbH",
-    "Bundle-Category": [""],
-    "Config-Bundle-Location": "/config",
-
-    //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
-    "Bundle-Icon": {},
-    "Bundle-License": {},
-
-    //"Config-Bundle-Location": "/config",
-    "Bundle-AutoStartPolicy": "yes",
-    "Require-Bundle": [
-
-    ],
-    "Components": [
-
-        /*
-         * Content INFO CLICK
-         */
+  "Bundle-SymbolicName": "themainfo",
+  "Bundle-Version": "5.0.4",
+  "Bundle-Name": "themainfo",
+  "Bundle-Description": "",
+  "Bundle-Vendor": "con terra GmbH",
+  "Bundle-Category": [
+    ""
+  ],
+  "Config-Bundle-Location": "/config",
+  //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+  "Bundle-Icon": {},
+  "Bundle-License": {},
+  //"Config-Bundle-Location": "/config",
+  "Bundle-AutoStartPolicy": "yes",
+  "Require-Bundle": [
+  ],
+  "Components": [
+    /*
+     * Content INFO CLICK
+     */
+    {
+      "name": "ContentInfoController",
+      "impl": "base/ui/controls/themepanel/ContentInfoController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/contentmanager/INFO_CLICK",
+            "method": "_handleInfoClick"
+          }
+        ],
+        "pro": false,
+        "metadataBaseUrl": "http://www.geopunt.be/catalogus/datasetfolder/"
+      },
+      "references": [
         {
-            "name": "ContentInfoController",
-            "impl": "base/ui/controls/themepanel/ContentInfoController",
-            "provides": ["ct.framework.api.EventHandler"],
-            "propertiesConstructor": true,
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/contentmanager/INFO_CLICK",
-                        "method": "_handleInfoClick"
-                    }
-                ],
-                "pro": false,
-                "metadataBaseUrl": "http://www.geopunt.be/catalogus/datasetfolder/"
-            },
-            "references": [
-                {
-                    "name": "_contentViewer",
-                    "providing": "ct.contentviewer.ContentViewer"
-                }
-            ]
-        },
-
-        {
-            "name": "ContentRegistrationNodeInfo",
-            "impl": "ct/Stateful",
-            "provides": ["ct.contentviewer.ContentRule"],
-            "propertiesConstructor": true,
-            "properties": {
-                "contentWidgetClasses": {
-                    "NodeInfoWidget": "themainfo.ContentWidgetFactory"
-                },
-                "contentRules": [
-                    {
-                        "matches": {
-                            "context": {
-                                "type": "NODE_INFO"
-                            }
-                        },
-                        "type": "NodeInfoWidget",
-                        "windowTitle": "Info",
-                        "window": {
-                            "closable": true,
-                            "marginBox": {
-                                "w": 350,
-                                "h": 200
-                            },
-                            "baseClass": "ctNodeInfo"
-                        },
-                        "noInfoWindow": true
-                    }
-                ]
-            }
-        },
-
-        {
-            "name": "ContentWidgetFactory",
-            "provides": "themainfo.ContentWidgetFactory",
-            "impl": "contentviewer/_ContentWidgetFactory",
-            "propertiesConstructor": true,
-            "properties": {
-                "typeMapping": {
-                    "NodeInfoWidget": {
-                        "info": "base/ui/controls/info/NodeInfoWidget"
-                    }
-                },
-                "NodeInfoWidget": {
-                    "i18n": {
-                        "ui": {
-                            "linkToMetadata": "${ui.linkToMetadata}",
-                            "scale": "${ui.scale}",
-                            "loadingMetadata": "${ui.loadingMetadata}",
-                            "noMetadata": "${ui.noMetadata}"
-                        }
-                    }
-                }
-            }
-        },
-
-        {
-            "name": "ContentManagerUI",
-            "impl": "base/ui/controls/themepanel/ContentManagerUI",
-            "provides": ["dijit.Widget"],
-            "propertiesConstructor": true,
-            "properties": {
-                "widgetRole": "themainfo"
-            },
-            "references": [
-                {
-                    "name": "rightMapControls",
-                    "providing": "themainfo.ContentPanel"
-                }
-            ]
-        },
-
-        {
-            "name": "ContentTreeView",
-            "impl": "base/ui/controls/themepanel/ContentPanelUIFactory",
-            "provides": ["themainfo.ContentPanel"],
-            "instanceFactory": true,
-            "properties": {
-                "enablePOIHighlighting": false,
-                "treeOpts": {
-                    "showRoot": false
-                },
-                "showDescription": false,
-                "description": "${ui.description.content}",
-                "expandTreePanel": true
-            },
-            "references": [
-                {
-                    "name": "_contentModel",
-                    "providing": "themainfo.ContentModel"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "_contentModelController",
-                    "providing": "themainfo.ContentModelController"
-                },
-                {
-                    "name": "_mrr",
-                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
-                },
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "overlayToolbar",
-                    "providing": "overlay.Toolbar"
-                },
-                {
-                    "name": "combicontentmanagerTool",
-                    "providing": "ct.tools.Tool",
-                    "filter": "(id=themainfodocktool)"
-                },
-                {
-                    "name": "treeContent",
-                    "providing": "themainfo.InfoTree"
-                },
-                {
-                    "name": "nearbyPlacesWidget",
-                    "providing": "themainfo.NearbyPlacesWidget"
-                }
-            ]
-        },
-
-        {
-            "name": "InfoTree",
-            "impl": "./InfoTreeFactory",
-            "provides": [
-                "themainfo.InfoTree",
-                "ct.framework.api.EventHandler"
-            ],
-            "instanceFactory": true,
-            "propertiesConstructor": true,
-            "properties": {
-                "collapsed": false,
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/themainfo/UPDATE_QUERY",
-                        "method": "_showCategories"
-                    },
-                    {
-                        "topic": "agiv/themainfo/UPDATE_QUERY_FROM_IDENTIFY",
-                        "method": "_showCategories"
-                    },
-                    {
-                        "topic": "agiv/search/result/CLEAR",
-                        "method": "_hideCategories"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
-                        "method": "_hideCategories"
-                    },
-                    {
-                        "topic": "ct/contentmanager/CLEAR_ALL",
-                        "method": "_hideCategories"
-                    }
-                ]
-            },
-            "references": [
-                {
-                    "name": "model",
-                    "providing": "themainfo.ContentModel"
-                },
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "eventService",
-                    "providing": "ct.framework.api.EventService"
-                }
-            ]
-        },
-
-        {
-            "name": "OverlayToolbar",
-            "impl": "ct/tools/ToolContainer",
-            "provides": ["overlay.Toolbar"],
-            "propertiesConstructor": true,
-            "references": [
-                {
-                    "name": "tool",
-                    "providing": "ct.tools.Tool",
-                    "cardinality": "0..n",
-                    "filter": "(|(toolRole=overlayLayermanager))"
-                }
-            ]
-        },
-
-        {
-            "name": "OverlayToolbarWithAddServiceTool",
-            "impl": "ct/tools/ToolContainer",
-            "enabled": false,
-            "provides": ["overlay.Toolbar"],
-            "propertiesConstructor": true,
-            "references": [
-                {
-                    "name": "tool",
-                    "providing": "ct.tools.Tool",
-                    "cardinality": "0..n",
-                    "filter": "(|(toolRole=overlayLayermanager)(id=addDynamicServiceTool))"
-                }
-            ]
-        },
-
-        {
-            "name": "ContentModel",
-            "impl": "base/ui/controls/themepanel/ContentModelFactory",
-            "provides": ["themainfo.ContentModel"],
-            "instanceFactory": true,
-            "properties": {
-                "mapModelId": "agivMapModel",
-                "serviceDefinitions": {
-                    "operationalLayer": []
-                }
-            },
-            "references": [
-                {
-                    "name": "_mrr",
-                    "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
-                }
-            ]
-        },
-        {
-            "name": "ContentModelController",
-            "impl": "base/ui/controls/themepanel/ContentModelController",
-            "provides": [
-                "themainfo.ContentModelController",
-                "ct.framework.api.EventHandler"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "pointZoomScale": 2500,
-                "Event-Topics": [
-                    {
-                        "topic": "ct/contentmanager/ON_CONTENTMANAGER_SHOW",
-                        "method": "activateContentManager"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_CONTENTMANAGER_HIDE",
-                        "method": "deactivateContentManager"
-                    },
-                    {
-                        "topic": "ct/poi/builder/REMOVE_ALL_LAYERS",
-                        "method": "removeAllLayers"
-                    }
-                ]
-            },
-            "references": [
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "_contentModel",
-                    "providing": "themainfo.ContentModel"
-                },
-                {
-                    "name": "eventService",
-                    "providing": "ct.framework.api.EventService"
-                }
-            ]
-        },
-
-        {
-            "name": "ParametrizedURLResolver",
-            "impl": "base/ui/controls/themepanel/ParametrizedURLResolver",
-            "immediate": true,
-            "provides": [
-                "ct.api.parametermanager.Parametrizable",
-                "agiv.api.Persistable"
-            ],
-            "references": [
-                {
-                    "name": "_contentModel",
-                    "providing": "themainfo.ContentModel"
-                },
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "_contentModelController",
-                    "providing": "themainfo.ContentModelController"
-                }
-            ]
-        },
-
-        {
-            "name": "ToolSetter",
-            "impl": "base/ui/controls/themepanel/ToolSetter",
-            "immediate": true,
-            "properties": {
-                "openPanelOnStartup": true
-            },
-            "references": [
-                {
-                    "name": "combicontentmanagerTool",
-                    "providing": "ct.tools.Tool",
-                    "filter": "(id=themainfodocktool)"
-                }
-            ]
-        },
-
-        {
-            "name": "ThemaInfoDockTool",
-            "impl": "ct/tools/Tool",
-            "provides": ["ct.tools.Tool"],
-            "propertiesConstructor": true,
-            "properties": {
-                "toolRole": "toolset",
-                "id": "themainfodocktool",
-                "iconClass": "icon-location-information-bubble",
-                "title": "${ui.docktool.title}",
-                "tooltip": "${ui.docktool.tooltip}",
-                "togglable": true,
-                "rules": {
-                    "groups": "dockTools"
-                }
-            }
-        },
-
-        {
-            "name": "LocationInfoController",
-            "provides": [
-                "themeinfo.LocationInfoController",
-                "ct.framework.api.EventHandler"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/themainfo/UPDATE_QUERY",
-                        "method": "handleQueryUpdate"
-                    },
-                    {
-                        "topic": "agiv/themainfo/UPDATE_QUERY_FROM_IDENTIFY",
-                        "method": "handleQueryUpdate"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
-                        "method": "clearResults"
-                    }
-                ],
-                "locationSymbol": {
-                    "url": "resource('agivthemes:neat/images/marker/search/searchMarker_00.png')",
-                    "width": 21,
-                    "height": 30,
-                    "xoffset": 0,
-                    "yoffset": 15,
-                    "type": "esriPMS"
-                },
-                "highlightpolygon": {
-                    "type": "esriSFS",
-                    "color": [
-                        255,
-                        0,
-                        0,
-                        100
-                    ],
-                    "size": 5,
-                    "outline": {
-                        "color": [
-                            255,
-                            0,
-                            0,
-                            255
-                        ],
-                        "style": "esriSLSSolid",
-                        "type": "esriSLS",
-                        "width": 3
-                    },
-                    "style": "esriSFSNull",
-                    "xoffset": 0,
-                    "yoffset": 0
-                },
-                "highlightpoint": {
-                    "color": [
-                        255,
-                        0,
-                        0,
-                        100
-                    ],
-                    "size": 5,
-                    "outline": {
-                        "color": [
-                            255,
-                            0,
-                            0,
-                            255
-                        ],
-                        "style": "esriSLSSolid",
-                        "type": "esriSLS",
-                        "width": 3
-                    },
-                    "type": "esriSMS",
-                    "style": "esriSMSCircle",
-                    "xoffset": 0,
-                    "yoffset": 0
-                }
-            },
-            "references": [
-                {
-                    "name": "_contentModel",
-                    "providing": "themainfo.ContentModel",
-                    "connect": {
-                        "onModelNodeStateChanged": "renderResults"
-                    }
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_ct",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "_workerPOI",
-                    "providing": "themainfo.InfoWorkerPOI"
-                },
-                {
-                    "name": "_workerWMS",
-                    "providing": "themainfo.InfoWorkerWMS"
-                },
-                {
-                    "name": "_workerWMTS",
-                    "providing": "themainfo.InfoWorkerWMTS"
-                },
-                {
-                    "name": "_appCtx",
-                    "providing": "ct.framework.api.ApplicationContext"
-                }
-            ]
-        },
-
-        {
-            "name": "NearbyPlaces",
-            "impl": "./NearbyPlacesFactory",
-            "provides": [
-                "themainfo.NearbyPlacesWidget",
-                "ct.framework.api.EventHandler"
-            ],
-            "instanceFactory": true,
-            "propertiesConstructor": true,
-            "properties": {
-                "radiusOpts": [
-                    {
-                        "id": "1",
-                        "label": "1 km"
-                    },
-                    {
-                        "id": "5",
-                        "label": "5 km"
-                    },
-                    {
-                        "id": "10",
-                        "label": "10 km"
-                    }
-                ],
-                "comboBoxOpts": {
-
-                },
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/search/RESULT_RENDERED",
-                        "method": "_handleResultSelection"
-                    },
-                    {
-                        "topic": "agiv/search/result/CLEAR",
-                        "method": "_handleResultClear"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
-                        "method": "_handleResultClear"
-                    },
-                    {
-                        "topic": "ct/contentmanager/CLEAR_ALL",
-                        "method": "_handleResultClear"
-                    }
-                ]
-            }
-        },
-
-        {
-            "name": "NearbyPlacesController",
-            "provides": [
-                "ct.framework.api.EventHandler",
-                "jasperprinting.api.ExtentProvider"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/search/RESULT_RENDERED",
-                        "method": "_handleResultSelection"
-                    },
-                    {
-                        "topic": "agiv/search/result/CLEAR",
-                        "method": "_clearRadius"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
-                        "method": "_clearRadius"
-                    },
-                    {
-                        "topic": "ct/contentmanager/ON_WIDGET_REMOVE",
-                        "method": "_clearPosition"
-                    },
-                    {
-                        "topic": "ct/contentmanager/CLEAR_ALL",
-                        "method": "_clearRadius"
-                    },
-                    {
-                        "topic": "ct/contentmanager/CLEAR_ALL",
-                        "method": "_clearPosition"
-                    }
-                ],
-                "symbolTable": {
-                    "circle": {
-                        "color": [
-                            150,
-                            150,
-                            150,
-                            0
-                        ],
-                        "type": "esriSFS",
-                        "style": "esriSFSNull",
-                        "outline": {
-                            "color": [
-                                162,
-                                139,
-                                14,
-                                255
-                            ],
-                            "width": 2,
-                            "type": "esriSLS",
-                            "style": "esriSLSSolid"
-                        }
-                    },
-                    "text": {
-                        "font": {
-                            "size": "9pt",
-                            "align": "middle",
-                            "style": "normal",
-                            "variant": "normal",
-                            "weight": "bold",
-                            "family": "sans-serif"
-                        },
-                        "xoffset": 0,
-                        "yoffset": 3
-                    }
-                }
-            },
-            "references": [
-                {
-                    "name": "nearbyPlacesWidget",
-                    "providing": "themainfo.NearbyPlacesWidget"
-                },
-                {
-                    "name": "eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "_coordinateTransformer",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
-                }
-            ]
-        },
-
-        {
-            "name": "InfoWorkerPOI",
-            "provides": [
-                "ct.framework.api.EventHandler",
-                "themainfo.InfoWorkerPOI"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-//                "Event-Topics": [
-//                    {
-//                        "topic": "agiv/identify/POI",
-//                        "method": "identify"
-//                    }
-//                ]
-            },
-            "references": [
-                {
-                    "name": "mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "_contentViewer",
-                    "providing": "ct.contentviewer.ContentViewer"
-                }
-            ]
-        },
-        {
-            "name": "InfoWorkerMapServer",
-            "provides": [
-                "ct.framework.api.EventHandler",
-                "themainfo.InfoWorkerWMS"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/identify/WMS",
-                        "method": "identify"
-                    }
-                ]
-            },
-            "references": [
-                {
-                    "name": "coordinateTransformer",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
-                }
-            ]
-        },
-        {
-            "name": "InfoWorkerWMTS",
-            "impl": "InfoWorkerMapServer",
-            "provides": [
-                "ct.framework.api.EventHandler",
-                "themainfo.InfoWorkerWMTS"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-            },
-            "references": [
-                {
-                    "name": "coordinateTransformer",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
-                }
-            ]
-        },
-
-        {
-            "name": "ThemaInfoPrinter",
-            "provides": [
-                "ct.framework.api.EventHandler",
-                "jasperprinting.api.PrintDataProvider"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "agiv/themainfo/NEW_RESULT",
-                        "method": "_updatePrintInfo"
-                    },
-                    {
-                        "topic": "agiv/search/RESULT_RENDERED",
-                        "method": "_saveResult"
-                    }
-                ]
-            },
-            "references": [
-                {
-                    "name": "locationInfoController",
-                    "providing": "themeinfo.LocationInfoController"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                }
-            ]
+          "name": "_contentViewer",
+          "providing": "ct.contentviewer.ContentViewer"
         }
-
-    ]
+      ]
+    },
+    {
+      "name": "ContentRegistrationNodeInfo",
+      "impl": "ct/Stateful",
+      "provides": [
+        "ct.contentviewer.ContentRule"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "contentWidgetClasses": {
+          "NodeInfoWidget": "themainfo.ContentWidgetFactory"
+        },
+        "contentRules": [
+          {
+            "matches": {
+              "context": {
+                "type": "NODE_INFO"
+              }
+            },
+            "type": "NodeInfoWidget",
+            "windowTitle": "Info",
+            "window": {
+              "closable": true,
+              "marginBox": {
+                "w": 350,
+                "h": 200
+              },
+              "baseClass": "ctNodeInfo"
+            },
+            "noInfoWindow": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContentWidgetFactory",
+      "provides": "themainfo.ContentWidgetFactory",
+      "impl": "contentviewer/_ContentWidgetFactory",
+      "propertiesConstructor": true,
+      "properties": {
+        "typeMapping": {
+          "NodeInfoWidget": {
+            "info": "base/ui/controls/info/NodeInfoWidget"
+          }
+        },
+        "NodeInfoWidget": {
+          "i18n": {
+            "ui": {
+              "linkToMetadata": "${ui.linkToMetadata}",
+              "scale": "${ui.scale}",
+              "loadingMetadata": "${ui.loadingMetadata}",
+              "noMetadata": "${ui.noMetadata}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "ContentManagerUI",
+      "impl": "base/ui/controls/themepanel/ContentManagerUI",
+      "provides": [
+        "dijit.Widget"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "widgetRole": "themainfo"
+      },
+      "references": [
+        {
+          "name": "rightMapControls",
+          "providing": "themainfo.ContentPanel"
+        }
+      ]
+    },
+    {
+      "name": "ContentTreeView",
+      "impl": "base/ui/controls/themepanel/ContentPanelUIFactory",
+      "provides": [
+        "themainfo.ContentPanel"
+      ],
+      "instanceFactory": true,
+      "properties": {
+        "enablePOIHighlighting": false,
+        "treeOpts": {
+          "showRoot": false
+        },
+        "showDescription": false,
+        "description": "${ui.description.content}",
+        "expandTreePanel": true
+      },
+      "references": [
+        {
+          "name": "_contentModel",
+          "providing": "themainfo.ContentModel"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_contentModelController",
+          "providing": "themainfo.ContentModelController"
+        },
+        {
+          "name": "_mrr",
+          "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+        },
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "overlayToolbar",
+          "providing": "overlay.Toolbar"
+        },
+        {
+          "name": "combicontentmanagerTool",
+          "providing": "ct.tools.Tool",
+          "filter": "(id=themainfodocktool)"
+        },
+        {
+          "name": "treeContent",
+          "providing": "themainfo.InfoTree"
+        },
+        {
+          "name": "nearbyPlacesWidget",
+          "providing": "themainfo.NearbyPlacesWidget"
+        }
+      ]
+    },
+    {
+      "name": "InfoTree",
+      "impl": "./InfoTreeFactory",
+      "provides": [
+        "themainfo.InfoTree",
+        "ct.framework.api.EventHandler"
+      ],
+      "instanceFactory": true,
+      "propertiesConstructor": true,
+      "properties": {
+        "collapsed": false,
+        "Event-Topics": [
+          {
+            "topic": "agiv/themainfo/UPDATE_QUERY",
+            "method": "_showCategories"
+          },
+          {
+            "topic": "agiv/themainfo/UPDATE_QUERY_FROM_IDENTIFY",
+            "method": "_showCategories"
+          },
+          {
+            "topic": "agiv/search/result/CLEAR",
+            "method": "_hideCategories"
+          },
+          {
+            "topic": "ct/contentmanager/ON_GRAPHIC_REMOVE",
+            "method": "_hideCategories"
+          },
+          {
+            "topic": "ct/contentmanager/CLEAR_ALL",
+            "method": "_hideCategories"
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "model",
+          "providing": "themainfo.ContentModel"
+        },
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "OverlayToolbar",
+      "impl": "ct/tools/ToolContainer",
+      "provides": [
+        "overlay.Toolbar"
+      ],
+      "propertiesConstructor": true,
+      "references": [
+        {
+          "name": "tool",
+          "providing": "ct.tools.Tool",
+          "cardinality": "0..n",
+          "filter": "(|(toolRole=overlayLayermanager))"
+        }
+      ]
+    },
+    {
+      "name": "OverlayToolbarWithAddServiceTool",
+      "impl": "ct/tools/ToolContainer",
+      "enabled": false,
+      "provides": [
+        "overlay.Toolbar"
+      ],
+      "propertiesConstructor": true,
+      "references": [
+        {
+          "name": "tool",
+          "providing": "ct.tools.Tool",
+          "cardinality": "0..n",
+          "filter": "(|(toolRole=overlayLayermanager)(id=addDynamicServiceTool))"
+        }
+      ]
+    },
+    {
+      "name": "ContentModel",
+      "impl": "base/ui/controls/themepanel/ContentModelFactory",
+      "provides": [
+        "themainfo.ContentModel"
+      ],
+      "instanceFactory": true,
+      "properties": {
+        "mapModelId": "agivMapModel",
+        "serviceDefinitions": {
+          "operationalLayer": []
+        }
+      },
+      "references": [
+        {
+          "name": "_mrr",
+          "providing": "ct.mapping.mapcontent.MappingResourceRegistry"
+        }
+      ]
+    },
+    {
+      "name": "ContentModelController",
+      "impl": "base/ui/controls/themepanel/ContentModelController",
+      "provides": [
+        "themainfo.ContentModelController",
+        "ct.framework.api.EventHandler"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "pointZoomScale": 2500,
+        "Event-Topics": [
+          {
+            "topic": "ct/contentmanager/ON_CONTENTMANAGER_SHOW",
+            "method": "activateContentManager"
+          },
+          {
+            "topic": "ct/contentmanager/ON_CONTENTMANAGER_HIDE",
+            "method": "deactivateContentManager"
+          },
+          {
+            "topic": "ct/poi/builder/REMOVE_ALL_LAYERS",
+            "method": "removeAllLayers"
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_contentModel",
+          "providing": "themainfo.ContentModel"
+        },
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "ParametrizedURLResolver",
+      "impl": "base/ui/controls/themepanel/ParametrizedURLResolver",
+      "immediate": true,
+      "provides": [
+        "ct.api.parametermanager.Parametrizable",
+        "agiv.api.Persistable"
+      ],
+      "references": [
+        {
+          "name": "_contentModel",
+          "providing": "themainfo.ContentModel"
+        },
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "_contentModelController",
+          "providing": "themainfo.ContentModelController"
+        }
+      ]
+    },
+    {
+      "name": "ToolSetter",
+      "impl": "base/ui/controls/themepanel/ToolSetter",
+      "immediate": true,
+      "properties": {
+        "openPanelOnStartup": true
+      },
+      "references": [
+        {
+          "name": "combicontentmanagerTool",
+          "providing": "ct.tools.Tool",
+          "filter": "(id=themainfodocktool)"
+        }
+      ]
+    },
+    {
+      "name": "ThemaInfoDockTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "toolRole": "toolset",
+        "id": "themainfodocktool",
+        "iconClass": "icon-location-information-bubble",
+        "title": "${ui.docktool.title}",
+        "tooltip": "${ui.docktool.tooltip}",
+        "togglable": true,
+        "rules": {
+          "groups": "dockTools"
+        }
+      }
+    },
+    {
+      "name": "LocationInfoController",
+      "provides": [
+        "themeinfo.LocationInfoController",
+        "ct.framework.api.EventHandler"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "agiv/themainfo/UPDATE_QUERY",
+            "method": "handleQueryUpdate"
+          },
+          {
+            "topic": "agiv/themainfo/UPDATE_QUERY_FROM_IDENTIFY",
+            "method": "handleQueryUpdate"
+          },
+          {
+            "topic": "ct/contentmanager/ON_GRAPHIC_REMOVE",
+            "method": "clearResults"
+          }
+        ],
+        "locationSymbol": {
+          "url": "resource('agivthemes:neat/images/marker/search/searchMarker_00.png')",
+          "width": 21,
+          "height": 30,
+          "xoffset": 0,
+          "yoffset": 15,
+          "type": "esriPMS"
+        },
+        "highlightpolygon": {
+          "type": "esriSFS",
+          "color": [
+            255,
+            0,
+            0,
+            100
+          ],
+          "size": 5,
+          "outline": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "style": "esriSLSSolid",
+            "type": "esriSLS",
+            "width": 3
+          },
+          "style": "esriSFSNull",
+          "xoffset": 0,
+          "yoffset": 0
+        },
+        "highlightpoint": {
+          "color": [
+            255,
+            0,
+            0,
+            100
+          ],
+          "size": 5,
+          "outline": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "style": "esriSLSSolid",
+            "type": "esriSLS",
+            "width": 3
+          },
+          "type": "esriSMS",
+          "style": "esriSMSCircle",
+          "xoffset": 0,
+          "yoffset": 0
+        }
+      },
+      "references": [
+        {
+          "name": "_contentModel",
+          "providing": "themainfo.ContentModel",
+          "connect": {
+            "onModelNodeStateChanged": "renderResults"
+          }
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_ct",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "_workerPOI",
+          "providing": "themainfo.InfoWorkerPOI"
+        },
+        {
+          "name": "_workerWMS",
+          "providing": "themainfo.InfoWorkerWMS"
+        },
+        {
+          "name": "_workerWMTS",
+          "providing": "themainfo.InfoWorkerWMTS"
+        },
+        {
+          "name": "_appCtx",
+          "providing": "ct.framework.api.ApplicationContext"
+        }
+      ]
+    },
+    {
+      "name": "NearbyPlaces",
+      "impl": "./NearbyPlacesFactory",
+      "provides": [
+        "themainfo.NearbyPlacesWidget",
+        "ct.framework.api.EventHandler"
+      ],
+      "instanceFactory": true,
+      "propertiesConstructor": true,
+      "properties": {
+        "radiusOpts": [
+          {
+            "id": "1",
+            "label": "1 km"
+          },
+          {
+            "id": "5",
+            "label": "5 km"
+          },
+          {
+            "id": "10",
+            "label": "10 km"
+          }
+        ],
+        "comboBoxOpts": {
+        },
+        "Event-Topics": [
+          {
+            "topic": "agiv/search/RESULT_RENDERED",
+            "method": "_handleResultSelection"
+          },
+          {
+            "topic": "agiv/search/result/CLEAR",
+            "method": "_handleResultClear"
+          },
+          {
+            "topic": "ct/contentmanager/ON_GRAPHIC_REMOVE",
+            "method": "_handleResultClear"
+          },
+          {
+            "topic": "ct/contentmanager/CLEAR_ALL",
+            "method": "_handleResultClear"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NearbyPlacesController",
+      "provides": [
+        "ct.framework.api.EventHandler",
+        "jasperprinting.api.ExtentProvider"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "agiv/search/RESULT_RENDERED",
+            "method": "_handleResultSelection"
+          },
+          {
+            "topic": "agiv/search/result/CLEAR",
+            "method": "_clearRadius"
+          },
+          {
+            "topic": "ct/contentmanager/ON_GRAPHIC_REMOVE",
+            "method": "_clearRadius"
+          },
+          {
+            "topic": "ct/contentmanager/ON_GRAPHIC_REMOVE",
+            "method": "_clearPosition"
+          },
+          {
+            "topic": "ct/contentmanager/CLEAR_ALL",
+            "method": "_clearRadius"
+          },
+          {
+            "topic": "ct/contentmanager/CLEAR_ALL",
+            "method": "_clearPosition"
+          }
+        ],
+        "symbolTable": {
+          "circle": {
+            "color": [
+              150,
+              150,
+              150,
+              0
+            ],
+            "type": "esriSFS",
+            "style": "esriSFSNull",
+            "outline": {
+              "color": [
+                162,
+                139,
+                14,
+                255
+              ],
+              "width": 2,
+              "type": "esriSLS",
+              "style": "esriSLSSolid"
+            }
+          },
+          "text": {
+            "font": {
+              "size": "9pt",
+              "align": "middle",
+              "style": "normal",
+              "variant": "normal",
+              "weight": "bold",
+              "family": "sans-serif"
+            },
+            "xoffset": 0,
+            "yoffset": 3
+          }
+        }
+      },
+      "references": [
+        {
+          "name": "nearbyPlacesWidget",
+          "providing": "themainfo.NearbyPlacesWidget"
+        },
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_coordinateTransformer",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        }
+      ]
+    },
+    {
+      "name": "InfoWorkerPOI",
+      "provides": [
+        "ct.framework.api.EventHandler",
+        "themainfo.InfoWorkerPOI"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        //                "Event-Topics": [
+        //                    {
+        //                        "topic": "agiv/identify/POI",
+        //                        "method": "identify"
+        //                    }
+        //                ]
+      },
+      "references": [
+        {
+          "name": "mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_contentViewer",
+          "providing": "ct.contentviewer.ContentViewer"
+        }
+      ]
+    },
+    {
+      "name": "InfoWorkerMapServer",
+      "provides": [
+        "ct.framework.api.EventHandler",
+        "themainfo.InfoWorkerWMS"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "agiv/identify/WMS",
+            "method": "identify"
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "coordinateTransformer",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        }
+      ]
+    },
+    {
+      "name": "InfoWorkerWMTS",
+      "impl": "InfoWorkerMapServer",
+      "provides": [
+        "ct.framework.api.EventHandler",
+        "themainfo.InfoWorkerWMTS"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+      },
+      "references": [
+        {
+          "name": "coordinateTransformer",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        }
+      ]
+    },
+    {
+      "name": "ThemaInfoPrinter",
+      "provides": [
+        "ct.framework.api.EventHandler",
+        "jasperprinting.api.PrintDataProvider"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "agiv/themainfo/NEW_RESULT",
+            "method": "_updatePrintInfo"
+          },
+          {
+            "topic": "agiv/search/RESULT_RENDERED",
+            "method": "_saveResult"
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "locationInfoController",
+          "providing": "themeinfo.LocationInfoController"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    }
+  ]
 }

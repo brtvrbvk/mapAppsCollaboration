@@ -95,7 +95,6 @@ define([
                     return isInside;
 
                 },
-
                 _calcDistArrayBasedGeometry: function (
                     array,
                     geom,

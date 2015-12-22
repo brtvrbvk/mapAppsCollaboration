@@ -16,19 +16,17 @@ define([
         "base/util/units",
         "base/util/GraphicsRenderer"
     ],
-    function (
-        declare,
-        d_array,
-        d_lang,
-        ct_css,
-        Stateful,
-        _Connect,
-        ct_when,
-        ct_array,
-        distance,
-        units,
-        GraphicsRenderer
-        ) {
+    function (declare,
+              d_array,
+              d_lang,
+              ct_css,
+              Stateful,
+              _Connect,
+              ct_when,
+              ct_array,
+              distance,
+              units,
+              GraphicsRenderer) {
         return declare([
                 Stateful,
                 _Connect
@@ -106,7 +104,7 @@ define([
                         var service = node.service || (node.parent && node.parent.service);
                         if (service) {
                             if (this["_worker" + service.serviceType] && this["_worker" + service.serviceType].canHandleRequest(node,
-                                service)) {
+                                    service)) {
                                 this._handleRefresh(this["_worker" + service.serviceType], node, service, position,
                                     radius);
                             }
@@ -135,13 +133,11 @@ define([
                     }
                 },
 
-                _handleRefresh: function (
-                    worker,
-                    node,
-                    service,
-                    position,
-                    radius
-                    ) {
+                _handleRefresh: function (worker,
+                                          node,
+                                          service,
+                                          position,
+                                          radius) {
 
                     this._updateNode(node, this.i18n.tree.loading);
                     this._increaseWorkers();
@@ -170,11 +166,9 @@ define([
                     this.lastResults = [];
                 },
 
-                _updateNode: function (
-                    node,
-                    result,
-                    error
-                    ) {
+                _updateNode: function (node,
+                                       result,
+                                       error) {
 
                     if (d_lang.isString(result)) {
                         this._contentModel.getNodeById(node.id).set("highlightFeatures", []);
