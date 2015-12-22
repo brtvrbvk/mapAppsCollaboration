@@ -304,7 +304,7 @@
             "propertiesConstructor": true,
             "properties": {
                 "encodeCompleteURL": false,
-                "infoURL": "http://www.beta.geopunt.be/over-geopunt/hoe-geopunt-gebruiken/disclaimer",
+                "infoURL": "http://www.geopunt.be/over-geopunt/disclaimer",
                 "shareUrl": "http://maps.geopunt.be/resources/apps/Minimaps_interface/index.html?id="
             },
             "references": [

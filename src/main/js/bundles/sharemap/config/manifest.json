@@ -106,7 +106,7 @@
                 "bid": "sharemap",
                 "id": "minimapBuilderNode",
                 "defaultProperties": {
-                    "infoURL": "http://www.beta.geopunt.be/over-geopunt/hoe-geopunt-gebruiken/disclaimer"
+                    "infoURL": "http://www.geopunt.be/over-geopunt/disclaimer"
                 }
             },
             "references": [
