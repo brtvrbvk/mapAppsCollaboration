@@ -256,6 +256,16 @@ define([
                 ]);
             },
             getFeatureInfoUrl: function (pixPoint, extent, width, height, layerIds, format) {
+                //BartVerbeeck BugKarinePraet
+                //WE GAAN ERVAN UIT DAT ER ALTIJD EERST GEPAND WORDT ZODAT DE GEKLIKTE COORDINAAT IN HET CENTRUM VAN DE KAART STAAT
+                if(width>this.maxWidth){
+                        //pixPoint.x = Math.round(this.maxWidth/2);
+                        pixPoint.x = Math.round( pixPoint.x * this.maxWidth / width);
+                }
+                if(height>this.maxHeight){
+                        //pixPoint.y = Math.round(this.maxHeight/2);
+                        pixPoint.y = Math.round(pixPoint.y * this.maxHeight / height);
+                }
                 var infoLayers = this.infoLayers && this.infoLayers.length > 0 ? this.infoLayers : this.visibleLayers;
                 // check if all queryable
                 infoLayers = d_array.filter(infoLayers, function (name) {
