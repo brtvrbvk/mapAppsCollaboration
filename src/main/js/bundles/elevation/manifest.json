@@ -397,7 +397,7 @@
                 "target": "http://dhm.beta.agiv.be/api/elevation/v1",
                 "inputSrs": "4326",
                 "targetSrs": "4326",
-                "datasetName": "DHMV1",
+                "datasetName": "DHMVMixed",
                 "usedServiceVersion": "new"  // "old" or "new"
                 //"target": "http://@@ws.agiv.be@@/elevation/dhmv1"
             },

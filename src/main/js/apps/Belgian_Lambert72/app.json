@@ -2,7 +2,7 @@
   "properties": {
     "templateId": "",
     "id": "Geopunt-kaart_app",
-    "title": "Geopunt-kaart",
+    "title": "Lambert72-kaart",
     "editorState": "PUBLISHED",
     "modifiedAt": 1427885155979,
     "createdBy": "admin",
@@ -7479,7 +7479,7 @@
               "operationalLayer": [],
               "baseLayer": [
                 {
-                  "id": "grb",
+                  "id": "grbLambert",
                   "enabled": true,
                   "category": {
                     "imgUrl": "http://solutions.conterra.de/ct-agiv-mapviewer-RELEASE/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
@@ -7488,7 +7488,7 @@
                   },
                   "title": "Basiskaart - GRB",
                   "description": "Selecteer basiskaart - GRB als achtergrondlaag",
-                  "service": "grb",
+                  "service": "grbLambert",
                   "children": []
                 },
                 {
@@ -7579,81 +7579,82 @@
       },
       "MapState": {
         "initialExtent": {
-          "xmin": -32619.501820690333,
-          "xmax": 272822.8632067933,
-          "ymin": 63183.83056554079,
-          "ymax": 280876.48712166527,
+          "xmin": -40000,
+          "xmax": 320000,
+          "ymin": 120000,
+          "ymax": 275000,
           "wkid": 31370
         }
       },
-      //      "lods": [
-      //        {
-      //          "scale": 2311162.217155,
-      //          "level": 8,
-      //          "resolution": 611.49622628138
-      //        },
-      //        {
-      //          "scale": 1155581.108577,
-      //          "level": 9,
-      //          "resolution": 305.748113140558
-      //        },
-      //        {
-      //          "scale": 577790.554289,
-      //          "level": 10,
-      //          "resolution": 152.874056570411
-      //        },
-      //        {
-      //          "scale": 288895.277144,
-      //          "level": 11,
-      //          "resolution": 76.4370282850732
-      //        },
-      //        {
-      //          "scale": 144447.638572,
-      //          "level": 12,
-      //          "resolution": 38.2185141425366
-      //        },
-      //        {
-      //          "scale": 72223.819286,
-      //          "level": 13,
-      //          "resolution": 19.1092570712683
-      //        },
-      //        {
-      //          "scale": 36111.909643,
-      //          "level": 14,
-      //          "resolution": 9.55462853563415
-      //        },
-      //        {
-      //          "scale": 18055.954822,
-      //          "level": 15,
-      //          "resolution": 4.77731426794937
-      //        },
-      //        {
-      //          "scale": 9027.977411,
-      //          "level": 16,
-      //          "resolution": 2.38865713397468
-      //        },
-      //        {
-      //          "scale": 4513.988705,
-      //          "level": 17,
-      //          "resolution": 1.19432856685505
-      //        },
-      //        {
-      //          "scale": 2256.994353,
-      //          "level": 18,
-      //          "resolution": 0.597164283559817
-      //        },
-      //        {
-      //          "scale": 1128.4971765,
-      //          "level": 19,
-      //          "resolution": 0.2985821417389698
-      //        },
-      //        {
-      //          "scale": 564.24858825,
-      //          "level": 20,
-      //          "resolution": 0.1492910708694849
-      //        }
-      //      ]
-      //    },
+     
+            "lods": [
+              {
+                "scale": 914285,
+                "level": 2,
+                "resolution": 241
+              },
+              {
+                "scale": 457142,
+                "level": 3,
+                "resolution": 120
+              },
+              {
+                "scale": 228571,
+                "level": 4,
+                "resolution": 60
+              },
+              {
+                "scale": 114285,
+                "level": 5,
+                "resolution": 30.23
+              },
+              {
+                "scale": 57142,
+                "level": 6,
+                "resolution": 15.119
+              },
+              {
+                "scale": 28571,
+                "level": 7,
+                "resolution": 7.5595
+              },
+              {
+                "scale": 14285,
+                "level": 8,
+                "resolution": 3.779761905
+              },
+              {
+                "scale": 7142,
+                "level": 9,
+                "resolution": 1.889880952
+              },
+              {
+                "scale": 3571,
+                "level": 10,
+                "resolution": 0.944940476
+              },
+              {
+                "scale": 1785,
+                "level": 11,
+                "resolution": 0.472470238
+              },
+              {
+                "scale": 892,
+                "level": 12,
+                "resolution": 0.236235119
+              },
+              {
+                "scale": 446,
+                "level": 13,
+                "resolution": 0.11811756
+              },
+              {
+                "scale": 223,
+                "level": 14,
+                "resolution": 0.05905878
+              }
+            ]
+          ,
       "MapStateParameterResolver": {
         "componentEnabled": true
       },
