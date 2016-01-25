@@ -144,6 +144,7 @@ define([
                             target: "_blank",
                             innerHTML: name
                         }, this.moreInformation);
+                        this.moreInformation.clientTop="-15px";
                     } else {
                         css.switchHidden(this.moreInformation, true);
                     }

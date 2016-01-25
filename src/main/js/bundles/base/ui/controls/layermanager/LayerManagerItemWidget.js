@@ -120,6 +120,15 @@ define([
                     if (layer.graphics && layer.graphics.length > 0) {
                         var g = layer.graphics[0];
                         title = g.attributes && g.attributes.comment || title;
+                        //BartVerbeeck 35990
+                        if(title == ""){
+                            if(g.attributes && g.attributes.geocodeDeferred && g.attributes.geocodeDeferred.results && g.attributes && g.attributes.geocodeDeferred && g.attributes.geocodeDeferred.results[0] && g.attributes && g.attributes.geocodeDeferred && g.attributes.geocodeDeferred.results && g.attributes && g.attributes.geocodeDeferred && g.attributes.geocodeDeferred.results[0].FormattedAddress)
+                                title = g.attributes.geocodeDeferred.results[0].FormattedAddress;
+                            
+                            
+                        }
+                        
+                        
                         if (g.attributes && g.attributes.resultNumber) {
                             ct_css.toggleClass(this.domNode, "result" + g.attributes.resultNumber, true);
                         }

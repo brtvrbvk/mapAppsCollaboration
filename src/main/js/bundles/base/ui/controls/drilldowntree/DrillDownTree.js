@@ -71,7 +71,8 @@ define([
                         this._currentNode = args.layer.get("parent");
                         this._buildCurrentBreadCrumb(this._currentNode);
                     }
-                    this._buildCurrentView(this._currentNode);
+                    // BartVerbeeck Bug50562
+                    //this._buildCurrentView(this._currentNode);
                 },
 
                 _buildCurrentBreadCrumb: function (node) {
@@ -126,6 +127,7 @@ define([
                 },
 
                 _buildCurrentView: function (node) {
+                    
                     var children = node.get("children");
                     if (this.treenodes && this.treenodes.length > 0) {
                         this._listeners.disconnect("nodes");
@@ -142,6 +144,7 @@ define([
                             return treenode;
                         }, this);
                     }
+                    
                 },
 
                 _createNode: function (modelNode) {

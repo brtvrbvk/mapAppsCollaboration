@@ -538,6 +538,12 @@ if(serviceQuerystring){
                         if (value.split('?')[0].match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
                             value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
                         } 
+//BartVerbeeck Bug51733 split toegevoegd                          
+                        else {
+                            if (value.split('?')[0].match(/^(https?):\/\/([A-Z\d\.-]{2,})\.([A-Z]{2,})(:\d{2,4})?/)) {
+                                value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
+                            }
+                        }
                     
                     }
                     return value;

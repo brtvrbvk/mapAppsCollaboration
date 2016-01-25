@@ -119,7 +119,9 @@ define([
                     });
 
                     this._store.setData([]);
-
+                    //BartVerbeeck 31923
+                    if(!this.widget.textBox.value)
+                        this.widget.textBox.textbox.value=url;
                     this.load(url, this._store, this._fromCatalogue);
 
                 },

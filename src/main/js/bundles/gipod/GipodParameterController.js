@@ -74,8 +74,10 @@ define([
                                 {
                                     "type": "button",
                                     "title": "Terug naar beginwaarden",
+                                    //BartVerbeeck 29851
+                                    "tooltip": "Terug naar beginwaarden",
                                     "class": "gipodResetButton",
-                                    "iconClass": "icon-reset",
+                                    "iconClass": "icon-swap",
                                     "topic": "button/reset/CLICK",
                                     "buttonID": "reset"
                                 }

@@ -84,16 +84,23 @@ define([
                         period,
                         index
                         ) {
-                        var num = index + 1;
-                        if (num > this.maxAllowed) {
-                            return true;
+                        //BartVerbeeck bug gipod startdate enddate
+                        //var startdate=this.context.__proto__.store.queryOptions.startdate;
+                        var enddate=this.context.__proto__.store.queryOptions.enddate;
+                        if(enddate < period.enddateObject){
+                            var num = index + 1;
+                            if (num > this.maxAllowed) {
+                                return true;
+                            }
+                           
+                            fields.push({
+                                name: num,
+                                title: period.startdate
+                            });
+                            
+                            recurrenceObj[num] = period.enddate;
+                            return false;
                         }
-                        fields.push({
-                            name: num,
-                            title: period.startdate
-                        });
-                        recurrenceObj[num] = period.enddate;
-                        return false;
                     }, this);
 
                     this.metadata = {
