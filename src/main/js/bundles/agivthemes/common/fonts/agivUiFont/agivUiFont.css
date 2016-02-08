@@ -60,6 +60,7 @@
     content: "i";
     font-style: italic;
     font-weight: bold;
+    padding: 10px;
 }
 .icon-help:before {
     content: "\e609";

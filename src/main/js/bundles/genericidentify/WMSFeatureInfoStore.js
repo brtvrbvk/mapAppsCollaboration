@@ -456,7 +456,8 @@ if(serviceQuerystring){
                 },
 
                 _isValueBlank: function (fieldValue) {
-                    return fieldValue === null || fieldValue === undefined || d_lang.trim(fieldValue) === "";
+                    // BartVerbeeck : let null be null or not
+                    return fieldValue === null || fieldValue === undefined || d_lang.trim(fieldValue) === "" || fieldValue.toLowerCase() === "Null";
                 },
 
                 _processItemJSON: function (
