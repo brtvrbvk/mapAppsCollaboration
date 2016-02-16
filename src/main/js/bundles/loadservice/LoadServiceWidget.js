@@ -176,6 +176,7 @@ define([
 
                 _setUrlAttr: function (val) {
                     this.textBox.set("value", val);
+                    
                 },
 
 //                _onTextBoxKeyUp: function (evt) {

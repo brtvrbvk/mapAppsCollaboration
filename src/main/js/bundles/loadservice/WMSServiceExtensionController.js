@@ -110,6 +110,8 @@ define([
                 _onSubmit: function (evt) {
 
                     var url = evt.url;
+                    this.widget.textBox.textbox.setAttribute("spellcheck",false);
+                    this.widget.textBox.textbox.setAttribute("autofocus",true);
 //                        typeBinding = this._binding;
 
                     this.eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
@@ -120,7 +122,7 @@ define([
 
                     this._store.setData([]);
                     //BartVerbeeck 31923
-                    if(!this.widget.textBox.value)
+                    //if(!this.widget.textBox.value)
                         this.widget.textBox.textbox.value=url;
                     this.load(url, this._store, this._fromCatalogue);
 

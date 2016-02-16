@@ -72,7 +72,7 @@ define([
                         this._buildCurrentBreadCrumb(this._currentNode);
                     }
                     // BartVerbeeck Bug50562
-                    //this._buildCurrentView(this._currentNode);
+                    this._buildCurrentView(this._currentNode);
                 },
 
                 _buildCurrentBreadCrumb: function (node) {

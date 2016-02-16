@@ -79,7 +79,9 @@ define([
                     var fields = [];
                     var recurrenceObj = {};
 
-                    var periods = this.content.periods;
+                    var periods = this.content.periods
+                    //
+                    var num = 0;
                     d_array.some(periods, function (
                         period,
                         index
@@ -88,7 +90,8 @@ define([
                         //var startdate=this.context.__proto__.store.queryOptions.startdate;
                         var enddate=this.context.__proto__.store.queryOptions.enddate;
                         if(enddate < period.enddateObject){
-                            var num = index + 1;
+                            //var num = index + 1
+                            num++;
                             if (num > this.maxAllowed) {
                                 return true;
                             }
