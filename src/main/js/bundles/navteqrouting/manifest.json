@@ -16,8 +16,10 @@
             "name": "NavteqRouter",
             "provides": ["ct.api.Router"],
             "propertiesConstructor": true,
+            
             "properties": {
-                "routingService": "http://route.st.nlp.nokia.com/routing/7.2/calculateroute.json",
+                //Bart Cosyn US 52634 - wijziging URL NOKIA Routeringservice
+                "routingService": "http://route.api.here.com/routing/7.2/calculateroute.json",
                 "appid": "@@navteq.appid@@",
                 "token": "@@navteq.token@@"
             },

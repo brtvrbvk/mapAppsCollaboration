@@ -17,9 +17,10 @@
             "provides": ["agiv.appinsights.AppInsights"],
             "instanceFactory": true,
             "properties": {
-                "versionToUse": "v00", // "v00" or "v07"
+                "versionToUse": "v00",
                 "v00": {
-                    "iKey": "b5d40913-97f4-46df-ab81-2f5613ce01e7",
+                    //BartCosyn default iKey gewijzigd voor nieuwe appinsights
+                    "iKey": "d125e8e7-8bf6-4d1d-ad50-a823afc1f4bd",
                     "scriptUrl": "//az416426.vo.msecnd.net/scripts/a/ai.0.js"
                 },
                 "v07": {
