@@ -30,6 +30,8 @@
     ],
 
     "Components": [
+           
+        
         {
             "name": "SearchHandler",
             "provides": ["routing.SearchStore"],
@@ -226,6 +228,10 @@
                 "geometry": "resource('polygon/vlaanderen_gen10.json')"
             },
             "references": [
+               {
+          "name": "_fileSaver",
+          "providing": "filesaver.FileSaver"
+        },
                 {
                     "name": "routingwidget",
                     "providing": "routing.RoutingWidget",

@@ -457,7 +457,7 @@ if(serviceQuerystring){
 
                 _isValueBlank: function (fieldValue) {
                     // BartVerbeeck : let null be null or not
-                    return fieldValue === null || fieldValue === undefined || d_lang.trim(fieldValue) === "" || fieldValue.toLowerCase() === "null";
+                    return fieldValue === null || fieldValue === undefined || d_lang.trim(fieldValue) === "" || fieldValue.toLowerCase() === "Null";
                 },
 
                 _processItemJSON: function (
@@ -536,12 +536,12 @@ if(serviceQuerystring){
                         } else
                         // simple test for website
 //BartVerbeeck Bug32722 split toegevoegd                            
-                        if (value.split('?')[0].split('#')[0].match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+                        if (value.split('?')[0].match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
                             value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
                         } 
 //BartVerbeeck Bug51733 split toegevoegd                          
                         else {
-                            if (value.split('?')[0].split('#')[0].match(/^(https?):\/\/([A-Z\d\.-]{2,})\.([A-Z]{2,})(:\d{2,4})?/)) {
+                            if (value.split('?')[0].match(/^(https?):\/\/([A-Z\d\.-]{2,})\.([A-Z]{2,})(:\d{2,4})?/)) {
                                 value = "<a href='" + value + "' target='_blank'>" + value + "</a>";
                             }
                         }

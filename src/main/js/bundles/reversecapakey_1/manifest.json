@@ -1,0 +1,90 @@
+{
+    "Bundle-SymbolicName": "reversecapakey",
+    "Bundle-Version": "5.0.4",
+    "Bundle-Name": "${bundleName}",
+    "Bundle-Description": "${bundleDescription}",
+
+    "Bundle-AutoStartPolicy": "yes",
+    "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+        {
+            "name": "windowmanager",
+            "version": "[3.0,4.0)"
+        }
+    ],
+    "Components": [
+        {
+            "name": "ReversecapakeyController",
+            "provides": ["reversecapakey.ReversecapakeyController"],
+            "immediate": true,
+            "propertiesConstructor": true,
+            "properties": {
+                "alwaysShowOnStartup": false,
+                "windowBox": {
+                    "w": 450,
+                    "h": 320
+                }
+            },
+            "references": [
+                {
+                    "name": "_wm",
+                    "providing": "ct.framework.api.WindowManager"
+                },
+                {
+                    "name": "map",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+            ]
+
+        },
+        {
+            "name": "ReversecapakeyTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "toolRole": "toolset",
+                "id": "disclaimerTool",
+                "title": "${ui.title}",
+                "tooltip": "${ui.title}",
+                "clickHandler": "showReversecapakeyInformation",
+                "togglable": false
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "disclaimer.DisclaimerController"
+                }
+            ]
+        }
+        ,
+        {
+            "name": "ReversecapakeyBtnFactory",
+            "impl": "ct/tools/ToolButtonFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "reversecapakeyinfo"
+            },
+            "references": [
+                {
+                    "name": "tool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=reversecapakeyTool)"
+                }
+            ]
+        }
+    ]
+}

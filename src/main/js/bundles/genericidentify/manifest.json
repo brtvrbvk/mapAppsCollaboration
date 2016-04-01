@@ -395,7 +395,7 @@
                         "windowTitle": "${ui.contentInfoWindowTitle}",
                         "windowSize": {
                             "w": 375,
-                            "h": 125
+                            "h": 150
                         },
                         "window": {
                             "windowName": "agivGenericIdentify",
@@ -418,7 +418,7 @@
                         "windowTitle": "${ui.contentInfoWindowTitle}",
                         "windowSize": {
                             "w": 375,
-                            "h": 125
+                            "h": 150
                         },
                         "window": {
                             "windowName": "agivGenericIdentify",
@@ -471,7 +471,7 @@
                         "type": "WMSFeatureInfoWidget",
                         "windowSize": {
                             "w": 375,
-                            "h": 150
+                            "h": 175
                         },
                         "window": {
                             "windowName": "agivGenericIdentify",

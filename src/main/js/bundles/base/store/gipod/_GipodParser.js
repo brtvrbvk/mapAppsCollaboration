@@ -168,6 +168,9 @@ define([
                         }
                     }
                     if (res.initiator) {
+                        if(res.initiator.organisation){
+                            item.initiator = res.initiator.organisation;
+                        }
                         if(res.initiator.firstName || res.initiator.lastName){
                             item.initiatorfirstnamelastname = (res.initiator.firstName?res.initiator.firstName:"") + " " + (res.initiator.lastName?res.initiator.lastName:"");
                         }

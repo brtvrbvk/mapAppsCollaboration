@@ -33,6 +33,7 @@ define([
          * @fileOverview This file provides the means to perform feature info requests.
          */
         return declare([
+                //registry,
                 Stateful,
                 _Connect
             ],
@@ -110,9 +111,19 @@ define([
                     try {
                         console.debug("FEATUREINFO ", params);
                         var geo = params.mapPoint;
+                        if(document.getElementsByClassName("capakeyWindow") && document.getElementsByClassName("capakeyWindow")[0] && document.getElementsByClassName("capakeyWindow")[0].style.opacity=== "1"){
+                            if(document.bart_reversecapakey){
+                                document.bart_reversecapakey.showReversecapakey(geo);
+                                return;
+                            }
+                        }
                         var graphic = params.graphic;
                         var attributes = graphic && graphic.attributes;
-
+                        /*var CapakeyController=document.CapakeyController;
+                        CapakeyController.municipalityId = "44021";
+                        CapakeyController._processMunicipal("44021");
+                        CapakeyController.departmentId = "44017";
+                        CapakeyController._processDepartment("44017");*/
                         if ((graphic && attributes && attributes.isCluster) ||
                             (graphic && attributes && attributes.clusterCount > 1)) {
                             //we need to zoom in for clustered POIs

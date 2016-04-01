@@ -208,7 +208,129 @@ define([
                 return this.routingwidget.getRoutingInfo();
             },
 
+
+            exportwkt: function (stopovers) {
+                    var mimetype = this.mimetype || "text/plain";
+                    var charset = this.charset || document.characterSet;
+                    var filename = this.filename || "graphicsRout.wkt";
+                    var object = {
+                        graphics: []
+                    };
+                    var gmlMembers ="";
+                    gmlMembers += 'GEOMETRYCOLLECTION(LINESTRING(';
+                                var isfirst=true;
+                    d_array.forEach(stopovers, function (stopover) {
+                        d_array.forEach(stopover.parts, function (part) {
+                            var paths = this.transformer.transform(part.geometry,"EPSG:31370");
+                            d_array.forEach(paths.paths, function (path) {
+                                d_array.forEach(path, function (point) {
+                                    if(isfirst)isfirst=false;
+                                    else gmlMembers += ',';
+                                    gmlMembers += point[0] + " " + point[1];
+                        
+                    }, this);
+                    }, this);
+                    }, this);
+                    }, this);
+                    gmlMembers += '))';
+                    this._fileSaver.save(gmlMembers, filename, mimetype, charset);
+                },
+
+            exportGML: function (stopovers) {
+                    var mimetype = this.mimetype || "text/plain";
+                    var charset = this.charset || document.characterSet;
+                    var filename = this.filename || "graphicsRout.gml";
+                    var object = {
+                        graphics: []
+                    };
+                    var minx=99999999;
+                    var miny=99999999;
+                    var maxx=-99999999;
+                    var maxy=-99999999;
+                    var gmlMembers ="";
+                    var projCode="31370"
+                    gmlMembers += '<gml:featureMember>';
+                    gmlMembers += '<agiv:GV_Feature>';
+                    //gmlMembers += '<agiv:NAAM>'+graphicsNode.title+'</agiv:NAAM>';
+                    gmlMembers += '<gml:multiCurveProperty>';
+                    gmlMembers += '<gml:MultiCurve srsName="' + projCode + '">';
+                                
+                    d_array.forEach(stopovers, function (stopover) {
+                        d_array.forEach(stopover.parts, function (part) {
+                            var paths = this.transformer.transform(part.geometry,"EPSG:31370");
+                            gmlMembers += '<gml:curveMember>';
+                                gmlMembers += '<gml:LineString>';
+                                gmlMembers += '<gml:posList>';
+                                var isfirst=true;
+                            d_array.forEach(paths.paths, function (path) {
+                                d_array.forEach(path, function (point) {
+                                    if (minx > point[0]) minx = point[0];
+                                    if (maxx < point[0]) maxx = point[0];
+                                    if (miny > point[1]) miny = point[1];
+                                    if (maxy < point[1]) maxy = point[1];
+                                    if(isfirst)isfirst=false;
+                                    else gmlMembers += ' ';
+                                    gmlMembers += point[0] + " " + point[1];
+                    }, this);
+                    }, this);
+                      gmlMembers += '</gml:posList>';
+                    gmlMembers += '</gml:LineString>';
+                    gmlMembers += '</gml:curveMember>';
+                    }, this);
+                    }, this);
+                  
+                                gmlMembers += '</gml:MultiCurve>';
+                                gmlMembers += '</gml:multiCurveProperty>';
+                                gmlMembers += '</agiv:GV_Feature>';
+                                gmlMembers += '</gml:featureMember>';
+                    var gmlTxt = '';
+                    gmlTxt += '<agiv:FeatureCollection xmlns:gml="http://www.opengis.net/gml"';
+                    gmlTxt += ' xmlns:agiv="http://www.agiv.be/agiv"';
+                    gmlTxt += ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"';
+                    gmlTxt += ' xsi:schemaLocation="http://www.agiv.be/agiv http://geoservices.informatievlaanderen.be/xsd/GeopuntRouteExport.xsd">';
+                    gmlTxt += '<gml:boundedBy>';
+                    gmlTxt += '<gml:Envelope srsName="' + projCode + '">';
+                    gmlTxt += '<gml:coordinates>' + minx + ',' + miny + ' ' + maxx + ',' + maxy + '</gml:coordinates>';
+                    gmlTxt += '</gml:Envelope>';
+                    gmlTxt += '</gml:boundedBy>';
+                    gmlTxt = gmlTxt + gmlMembers + '</agiv:FeatureCollection>';
+                    this._fileSaver.save(gmlTxt, filename, mimetype, charset);
+                },
+
+
+            export: function (stopovers) {
+                    var mimetype = this.mimetype || "text/plain";
+                    var charset = this.charset || document.characterSet;
+                    var filename = this.filename || "graphicsRout.gpx";
+                    var object = {
+                        graphics: []
+                    };
+                    var gmlMembers ="";
+                                                   
+                    d_array.forEach(stopovers, function (stopover) {
+                        d_array.forEach(stopover.parts, function (part) {
+                            var paths = this.transformer.transform(part.geometry,"EPSG:4326");
+                            d_array.forEach(paths.paths, function (path) {
+                                d_array.forEach(path, function (point) {
+                                    gmlMembers += '<rtept lon="'+point[0]+'" lat="'+point[1]+'" />';
+                    }, this);
+                    }, this);
+                    }, this);
+                    }, this);
+                  
+                    var gmlTxt = '<gpx version="1.1"  creator="Geopunt"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://www.topografix.com/GPX/1/1"  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"> <rte>';
+                    gmlTxt += gmlMembers;
+                    gmlTxt += '</rte></gpx>';
+                    this._fileSaver.save(gmlTxt, filename, mimetype, charset);
+                },
+
+
+
+
+
+
             _onCalculateRoute: function (evt) {
+                
                 if (!evt.targets) {
                     throw illegalArgumentError("No targets found!");
                 }
@@ -216,6 +338,7 @@ define([
                 if (evt.targets.length > 1) {
                     var d = this.router.route(evt);
                     ct_when(d, function (resp) {
+                        this.export(resp.routes[0].stopovers);
                         this._broadCast("agiv/routing/loading/END", {});
                         if (resp && resp.routes) {
                             this.routingwidget.set("routingresult", resp);

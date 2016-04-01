@@ -63,13 +63,35 @@ define([
 
                         }, this);
                     }
-
+//BartVerbeeck balloonstart
+               /*     new Button({
+                                "class": "convertButtonToLink",
+                                iconClass: "icon-marker",
+                                label: "show balloon",
+                                onClick: d_lang.hitch(this, this.showBalloon)
+                    }).placeAt(this.layerInfoList, "last");*/
+//balloonend
                     // Only show routing button when routing bundle is active
                     if (!this.routingTool) {
                         this.buttonContainer.removeChild(this.btnStartRouting);
                     }
-
                 },
+//balloonstart
+                showBalloon: function () {
+
+                            //debugger;
+
+                            this.eventService.postEvent("agiv/search/result/SELECTED_RESULT", 
+                            {result: {
+                                    geometry: this.geometry, 
+                                    title: "randomclickedpoint" + new Date(), 
+                                    type: "SEARCH_RESULT_COORDINATE"
+                                    
+                                }});
+
+
+                        },
+//balloonend
 
                 _resizeWindow: function (
                     h,

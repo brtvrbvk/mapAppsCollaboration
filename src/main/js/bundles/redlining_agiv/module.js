@@ -3,5 +3,6 @@ define([".",
     "./featureinfointegration/DrawingInfoWidget",
     "./CommentAttributeTableLookupStrategy",
     "./GeometryRendererModifier",
+    "./ExportController",
     "ct/tools/Tool"
 ], {});

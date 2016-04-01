@@ -47,6 +47,7 @@
          "contentviewer@3.1.x",
          "dataform@3.1.x",
          "devicecheck@5.0.x",
+         "reversecapakey@5.0.x",
          "elevation@5.0.x",
          "extrainfo@5.0.x",
          "genericidentify@5.0.x",
@@ -786,22 +787,6 @@
                                        "keywords": ""
                                     },
                                     {
-                                       "id": "omwrgb013vl/omwrgb13vl_61950016912",
-                                       "title": "Luchtfoto Vlaanderen, winter 2013 - kleur",
-                                       "enabled": false,
-                                       "service": "omwrgb013vl",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMW13_vdc",
-                                       "props": {
-                                          "description": "Dit product is een compilatie van de orthofotomozaïeken (winteropnamen) die voor ieder deel van Vlaanderen in 2013 beschikbaar zijn. De compilatie heeft een grondresolutie van 25cm.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/7511d678-1a1b-465c-b880-6414b26689cb",
-                                          "imgUrl": "http://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f5304d6d-0dd4-43fd-a726-427af31e8d61&fname=OMWRGBMRVL_2013.01.jpg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
                                        "id": "ortho012/orthoklm_437423183844",
                                        "title": "Luchtfoto Vlaanderen, winter 2012 - kleur",
                                        "enabled": false,
@@ -814,208 +799,6 @@
                                           "description": "Middenschalige kleurenorthofotobedekking Vlaanderen 2012",
                                           "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/e2a4923f-3547-4e0a-8016-38c489f106f3",
                                           "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho0_11_winter_rgb/omwrgb08_11vl_791968667200",
-                                       "title": "Luchtfoto Vlaanderen, winter 2008-2011 - kleur",
-                                       "enabled": false,
-                                       "service": "ortho0_11_winter_rgb",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMW08_11_vdc",
-                                       "props": {
-                                          "description": "Deze rasterlaag is een compilatie van de orthofotomozaïeken (winteropnamen) die voor Vlaanderen in de periode 2008-2011 werden aangemaakt. De compilatie heeft een grondresolutie van 25cm.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/68e01569-5d34-42c5-9212-350b45283fa2",
-                                          "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=68e01569-5d34-42c5-9212-350b45283fa2&fname=OMWRGB08_11VL_1424342259975.jpg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho0_07_winter_rgb/omwrgb05_07vl_891801237641",
-                                       "title": "Luchtfoto Vlaanderen, winter 2005-2007 - kleur",
-                                       "enabled": false,
-                                       "service": "ortho0_07_winter_rgb",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMW05_07_vdc",
-                                       "props": {
-                                          "description": "Deze rasterlaag is een compilatie van de orthofotomozaïeken (winteropnamen) die voor Vlaanderen in de periode 2005-2007 werden aangemaakt. De compilatie heeft een grondresolutie van 25cm.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/dbf9ede8-97ce-4dd9-93e6-8a5baeba1fa7",
-                                          "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=dbf9ede8-97ce-4dd9-93e6-8a5baeba1fa7&fname=OMWRGB05_07VL_1449509935517.jpg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho0003_winter_rgb/omwrgb00_03vl_1331716868834",
-                                       "title": "Luchtfoto Vlaanderen, winter 2000-2003 - kleur",
-                                       "enabled": false,
-                                       "service": "ortho0003_winter_rgb",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMW00_03_vdc",
-                                       "props": {
-                                          "description": "Deze rasterlaag is een compilatie van de orthofotomozaïeken (winteropnamen) die voor Vlaanderen in de periode 2000-2003 werden aangemaakt. De compilatie heeft een grondresolutie van 25cm.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/ded85fcf-bf6e-497c-8a89-4896762e04ad",
-                                          "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=ded85fcf-bf6e-497c-8a89-4896762e04ad&fname=OMWRGB00_03VL_1449510593558.jpg"
-                                       },
-                                       "keywords": ""
-                                    }
-                                 ],
-                                 "__isDirty": true
-                              },
-                              {
-                                 "id": "1427884901528",
-                                 "title": "Middenschalig, zomeropnamen",
-                                 "category": {
-                                    "description": "",
-                                    "imgUrl": "",
-                                    "isHeader": false
-                                 },
-                                 "enabled": true,
-                                 "children": [
-                                    {
-                                       "id": "ortho012_zomer_rgb/omzrgb12vl_602139715384",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2012 - kleur",
-                                       "enabled": false,
-                                       "service": "ortho012_zomer_rgb",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ12_vdc",
-                                       "props": {
-                                          "description": "Orthofoto met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/3a36de06-42f9-4960-abd2-4559fdbe0652",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho012_zomer_nir/omznir12vl_1118347888060",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2012 - infrarood",
-                                       "enabled": false,
-                                       "service": "ortho012_zomer_nir",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ12_vdc",
-                                       "props": {
-                                          "description": "Orthofoto met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/3a36de06-42f9-4960-abd2-4559fdbe0652",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho012_zomer_pan/omzpan12vl_968175779817",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2012 - zwart-wit",
-                                       "enabled": false,
-                                       "service": "ortho012_zomer_pan",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ12_vdc",
-                                       "props": {
-                                          "description": "Orthofoto met als met pixelwaarden de reflectantie (8 bit-waarden) van één brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 µm en 0,7 µm), een zg. panchromatisch beeld.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/3a36de06-42f9-4960-abd2-4559fdbe0652",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho009_zomer_rgb/omzrgb09vl_25045036749",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2009 - kleur",
-                                       "enabled": false,
-                                       "service": "ortho009_zomer_rgb",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ09_vdc",
-                                       "props": {
-                                          "description": "Orthofotomozaïek met als pixelwaarden de reflectanties (8bit-waarden) van de drie banden van het zichbaar deel van het electromagnetische spectrum (rood, groen en blauw).",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/b7f7047a-987a-450c-ac5d-2464a56d257d",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho009_zomer_nir/omznir09vl_1388484039452",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2009 - infrarood",
-                                       "enabled": false,
-                                       "service": "ortho009_zomer_nir",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ09_vdc",
-                                       "props": {
-                                          "description": "Orthofotomozaïek met als pixelwaarden de reflectanties (8-bit-waarden) van drie banden van het electromagnetische spectrum (nabij-infarood, groen en blauw). Ten behoeve van visualisatie worden deze banden respectievelijk voorgesteld in het rode, groene en blauwe kleurenkanaal.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/b7f7047a-987a-450c-ac5d-2464a56d257d",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho009_zomer_pan/omzpan09vl_320926894341",
-                                       "title": "Luchtfoto Vlaanderen, zomer 2009 - zwart-wit",
-                                       "enabled": false,
-                                       "service": "ortho009_zomer_pan",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OMZ09_vdc",
-                                       "props": {
-                                          "description": "Orthofotomozaïek met als met pixelwaarden de reflectantie (8 bit-waarden) van één brede band in het optische/zichtbare deel van het electromagnetische spectrum (tussen 0,4 µm en 0,7 µm), een zg. panchromatisch beeld.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/b7f7047a-987a-450c-ac5d-2464a56d257d",
-                                          "imgUrl": "http://metadata.agiv.be/metadata_thumbs/423.jpeg"
-                                       },
-                                       "keywords": ""
-                                    }
-                                 ],
-                                 "__isDirty": true
-                              },
-                              {
-                                 "id": "1427884903245",
-                                 "title": "Kleinschalig",
-                                 "category": {
-                                    "description": "",
-                                    "imgUrl": "",
-                                    "isHeader": false
-                                 },
-                                 "enabled": true,
-                                 "children": [
-                                    {
-                                       "id": "agivortho88 91 wmts/ortho88-91_1370204369749",
-                                       "enabled": false,
-                                       "title": "Luchtfoto Vlaanderen, zomer 1979-1990 - kleur",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "service": "agivortho88 91 wmts",
-                                       "props": {
-                                          "imgUrl": "http://metadata.agiv.be:80/zoekdienst/srv/eng/resources.get?uuid=d4f733e5-fa8f-4a83-8c58-3c0328027e4e&fname=OKZRGB79_90VL.jpg",
-                                          "description": "De orthofotomozaïek is samengesteld uit luchtopnamen die, tijdens de zomerseizoenen, ingewonnen werden over een periode van 1979 tot en met 1990. Ze toont een gebiedsdekkende orthofotobedekking van het Vlaamse Gewest, inclusief het Brussels Hoofdstedelijk Gewest met een grondresolutie van 1 m. ",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/d4f733e5-fa8f-4a83-8c58-3c0328027e4e"
-                                       },
-                                       "identifyConfigId": "OKZ79_90_vdc",
-                                       "keywords": ""
-                                    },
-                                    {
-                                       "id": "ortho1_zomer_pan/omzpan71vl_536262158402",
-                                       "title": "Luchtfoto Vlaanderen, zomer 1971 - zwart-wit",
-                                       "enabled": false,
-                                       "service": "ortho1_zomer_pan",
-                                       "layers": [
-                                          "*"
-                                       ],
-                                       "identifyConfigId": "OKZ71_vdc",
-                                       "props": {
-                                          "description": "Orthofotomozaïek (zomeropnamen) die voor Vlaanderen in 1971 werden aangemaakt. De orthofotomozaïek heeft een grondresolutie van 1 m.",
-                                          "metadataUrl": "http://www.geopunt.be/catalogus/datasetfolder/0038bab3-d375-4000-9ee5-8f973385e462",
-                                          "imgUrl": "https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=0038bab3-d375-4000-9ee5-8f973385e462&fname=OKZPAN71VL_1424341033371.jpg"
                                        },
                                        "keywords": ""
                                     }
@@ -8054,37 +7837,6 @@
                                  "keywords": ""
                               }
                            ]
-                        },
-                        {
-                           "id": "1452588066901",
-                           "title": "Percelen (eigendom Vlaamse overheid)",
-                           "category": {
-                              "description": "",
-                              "imgUrl": "",
-                              "isHeader": false
-                           },
-                           "enabled": true,
-                           "children": [
-                              {
-                                 "id": "vastgoedpercelen vlaamse overheid/Percelen_Vlaamse_overheid_2014_bron_GRB_530867205747",
-                                 "title": "Percelen Vlaamse overheid 2014 (bron: GRB)",
-                                 "enabled": false,
-                                 "service": "vastgoedpercelen vlaamse overheid",
-                                 "layers": [
-                                    "Percelen_Vlaamse_overheid_2014_bron_GRB"
-                                 ],
-                                 "identifyConfigId": "Vastgoed_percelen_2014_GRB",
-                                 "props": {
-                                    "description": "Percelen Vlaamse overheid 2014 (bron: GRB)",
-                                    "metadataUrl": "",
-                                    "imgUrl": ""
-                                 },
-                                 "keywords": "",
-                                 "__isDirty": true,
-                                 "minScale": 94494
-                              }
-                           ],
-                           "__isDirty": true
                         }
                      ]
                   },
@@ -8725,6 +8477,17 @@
       },
       "dataform": {
          "enabled": true
+      },
+      "reversecapakey":{
+         "ReversecapakeyController":{
+            "alwaysShowOnStartup":false,
+            "i18n":{
+               "ui":{
+                  //"reversecapakey":"<p>BROOOOOOOOOT</p>"
+               }
+            }
+         },
+         "enabled":true
       },
       "elevation": {
          "ElevationStore": {
@@ -9487,6 +9250,7 @@
          "enabled": true
       },
       "redlining": {
+          
          "DeleteGraphicTool": {
             "rules": {
                "groups": [
@@ -9828,6 +9592,7 @@
                      "moveScaleRotateEditTool",
                      "verticesEditTool",
                      "drawerasealltool",
+                     "graphicExportTool",
                      "closeWindowTool"
                   ],
                   "container": "map",

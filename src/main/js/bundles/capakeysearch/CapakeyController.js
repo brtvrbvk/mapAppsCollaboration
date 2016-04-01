@@ -44,9 +44,11 @@ define([
                 _currentSearchAttr: "title",
 
                 constructor: function () {
+                    
                 },
 
                 activate: function () {
+                    document.bart_capakey=this;
                     var d = ct_request({
                         url: this._properties.dataformJson,
                         timeout: this.timeout
@@ -57,7 +59,7 @@ define([
                         this.effectiveWidgetDefinition = this._substitute(result, i18n);
                         this.activateCapakeySearch();
                     }, this);
-
+                    //document.CapakeyController = this;
                     this._cp = new ContentPane({"class": "noPadding"});
 
                 },
@@ -187,9 +189,9 @@ define([
                             break;
                         case "nis":
                             this._processNis(newVal);
+                        
                     }
                 },
-
                 _processNis: function (newVal) {
                     this._nisProcessing = true;
                     this._isNis = newVal;

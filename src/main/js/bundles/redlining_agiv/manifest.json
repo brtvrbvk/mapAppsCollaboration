@@ -14,9 +14,57 @@
 //            "version": "[3.0,)"
 //        }
     ],
-    "Components": [
+"Components": [
+    {
+      "name": "ExportTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "graphicExportTool",
+        "toolRole": "toolset",
+        "title": "Graphic Export",
+        "tooltip": "Graphic Export",
+        "iconClass": "icon-floppy",
+        "togglable": false,
+        "clickHandler": "export"
+      },
+      "references": [
         {
-            "name": "ContentRegistrationDrawing",
+          "name": "handlerScope",
+          "providing": "redlining_agiv.ExportController"
+        }
+      ]
+    },
+    {
+      "name": "ExportController",
+      "provides": [
+        "redlining_agiv.ExportController"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "mimetype": "text/plain",
+        "filename": "graphics.gml"
+      },
+      "references": [
+        {
+          "name": "_fileSaver",
+          "providing": "filesaver.FileSaver"
+        },
+        {
+          "name": "geometryRenderer",
+          "providing": "redlining_agiv.GeometryRenderer"
+        },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+      ]
+    },
+    {
+      "name": "ContentRegistrationDrawing",
             "impl": "ct/Stateful",
             "provides": ["ct.contentviewer.ContentRule"],
             "propertiesConstructor": true,
