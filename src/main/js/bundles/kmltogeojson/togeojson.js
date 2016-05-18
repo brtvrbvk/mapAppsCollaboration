@@ -403,7 +403,7 @@ define([], function () {
             return gj;
         }
     };
-
+    document.bart_togeojson={parse: t};
     return {
         parse: t
     };

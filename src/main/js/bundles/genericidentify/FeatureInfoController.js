@@ -142,6 +142,51 @@ define([
                         ct_when(this._mapModelStoreHelper.getStoreInfos(), function (infos) {
 
                             var storeQueries = this._createStoreQueries(infos, query);
+                            /*********************************************************/
+                            _isorisnot = function(infos,name){
+                                    var queryable;
+                                    for(var j=0;infos && j<infos.length;j++){
+                                        var layerinfo=infos[j];
+                                        if(layerinfo.subLayers.length>0){
+                                            queryable=_isorisnot(layerinfo.subLayers,name);
+                                            if(typeof queryable != 'undefined')
+                                                return queryable;
+                                        }
+                                        if(layerinfo.name===name){
+                                            queryable = layerinfo.queryable;
+                                            return queryable;
+                                        }
+                                    }
+                                    return queryable;
+                            };
+                            for(var i=(storeQueries.length-1);i>=0;i--){
+                                var info=storeQueries[i];
+                                var queryable;
+                                if(info.serviceType=="WMS"){
+                                    var layerinfos=info.store.esriLayer.layerInfos;
+                                    queryable = _isorisnot(layerinfos,info.layerId);
+                                    /*for(var j=0;layerinfos && j<layerinfos.length;j++){
+                                        var layerinfo=layerinfos[j];
+                                        if(info.layerId===layerinfo.name){
+                                            queryable=layerinfo.queryable; 
+                                            break;
+                                        }
+                                    }*/
+                                }
+                                
+                                if(info.serviceType=="WMTS"){
+                                    if(!info.store.identifyConfigUrl)
+                                        queryable=false;
+                                }
+                                if(queryable==false){
+                                    storeQueries.splice(i,1);
+                                }
+                                
+                            }
+                            
+                            
+                            
+                            /*********************************************************/
                             var content = {
                                 storeQueries: storeQueries,
                                 geometry: geo,

@@ -151,6 +151,7 @@ define([
                 },
 
                 _onShowRoute: function () {
+                    
                     this.eventService.postEvent(this.topics.ADD_ROUTE_DIRECT,
                         d_lang.clone((this.content && this.content.geometry) || this.geometry));
                 },

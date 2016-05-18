@@ -208,6 +208,23 @@ define([
                 return this.routingwidget.getRoutingInfo();
             },
 
+            export2graphic: function (stopovers) {
+                    var graph={geometry:{type:'polyline',paths:[],spatialReference:{wkid:3857}}};
+                    graph.geometry.paths[0]=[];
+                    d_array.forEach(stopovers, function (stopover) {
+                        d_array.forEach(stopover.parts, function (part) {
+                            d_array.forEach(part.geometry.paths[0], function (pnt) {
+                                if(graph.geometry.paths[0].length == 0 || !(pnt[0]==graph.geometry.paths[0][graph.geometry.paths[0].length-1][0] && pnt[1]==graph.geometry.paths[0][graph.geometry.paths[0].length-1][1]))
+                                    graph.geometry.paths[0].push(pnt);
+                                else
+                                    var a=0;
+                    }, this);        
+                    }, this);
+                    }, this);
+                    var title={title:"route"};
+                    var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
+                    document.bart_geometryrenderermodifier.renderGeometry(graph,title,nodeid);
+                },
 
             exportwkt: function (stopovers) {
                     var mimetype = this.mimetype || "text/plain";
@@ -338,7 +355,8 @@ define([
                 if (evt.targets.length > 1) {
                     var d = this.router.route(evt);
                     ct_when(d, function (resp) {
-                        this.export(resp.routes[0].stopovers);
+                        /*if(document.location.href.indexOf("bartverbeeck")>5)
+                            this.export2graphic(resp.routes[0].stopovers);*/
                         this._broadCast("agiv/routing/loading/END", {});
                         if (resp && resp.routes) {
                             this.routingwidget.set("routingresult", resp);

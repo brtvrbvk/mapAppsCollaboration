@@ -202,7 +202,7 @@ define([
                     if (!this._oldMB) {
                         this._oldMB = d_lang.mixin({}, mb);
                     }
-                    mb.h = 70 + poiLinks.h + phone.h + address.h + buttonsHeight.h +
+                    mb.h = 82 + poiLinks.h + phone.h + address.h + buttonsHeight.h +
                         (this._aliasVisible ? alias.h : 0) + desc.h + label.h +
                         table.h + email.h + (this._addressHintVisible ? addressHint.h : 0);
                     this._window.resize(mb);

@@ -44,6 +44,7 @@ define([
             this.geometryRenderer.clearGraphics = d_lang.hitch(this, this.clearGraphics);
 
             this.connect(this.editStateController, "onDeleteGraphic", this, this._deleteGraphic);
+            document.bart_geometryrenderermodifier=this;
 
         },
 
@@ -156,7 +157,10 @@ define([
             var geometry = thingWithGeometry.geometry;
 
             nodeid = nodeid || this.grapicLayerId + new Date().getTime();
-            var title = this.i18n.ui.types[geometry.type] || geometry.type;
+            if(attr)
+                var title = attr.title || this.i18n.ui.types[geometry.type] || geometry.type;
+            else
+                var title = this.i18n.ui.types[geometry.type] || geometry.type;
             var type = geometry.type && geometry.type.toUpperCase();
             attr = attr || {};
             attr.type = "DRAWING";
@@ -191,7 +195,8 @@ define([
                 console.debug("skipping non filled item ");
                 return;
             }
-
+            if(attr && attr.title)
+                title=attr.title;
             var renderer = GraphicsRenderer.createForGraphicsNode(nodeid, this._mapModel, title ? title : "geometry",
                     "DRAWING_" + type ? type : "");
 

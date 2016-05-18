@@ -15,6 +15,60 @@
 //        }
     ],
 "Components": [
+    
+    {
+      "name": "ImportTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "graphicImportTool",
+        "toolRole": "toolset",
+        "title": "Importeer tekeningen",
+        "tooltip": "Importeer tekeningen van GML v2.1.2",
+        "iconClass": "icon-doc-file-add",
+        "togglable": false,
+        "clickHandler": "import"
+      },
+      "references": [
+        {
+          "name": "handlerScope",
+          "providing": "redlining_agiv.ImportController"
+        }
+      ]
+    },
+    {
+      "name": "ImportController",
+      "provides": [
+        "redlining_agiv.ImportController"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "mimetype": "text/plain",
+        "filename": "graphics.gml"
+      },
+      "references": [
+        {
+          "name": "_fileSaver",
+          "providing": "filesaver.FileSaver"
+        },
+        {
+          "name": "geometryRenderer",
+          "providing": "redlining_agiv.GeometryRenderer"
+        },
+                {
+                    "name": "ct",
+                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                }
+      ]
+    },
+    
+    
+    
+    
+    
     {
       "name": "ExportTool",
       "impl": "ct/tools/Tool",
@@ -25,9 +79,9 @@
       "properties": {
         "id": "graphicExportTool",
         "toolRole": "toolset",
-        "title": "Graphic Export",
-        "tooltip": "Graphic Export",
-        "iconClass": "icon-floppy",
+        "title": "Exporteer tekeningen",
+        "tooltip": "Exporteer tekeningen naar GML v2.1.2",
+        "iconClass": "icon-doc-export",
         "togglable": false,
         "clickHandler": "export"
       },

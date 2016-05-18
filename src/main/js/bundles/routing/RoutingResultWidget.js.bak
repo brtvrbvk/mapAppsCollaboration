@@ -132,6 +132,10 @@ define([
                     this._getElevationInfo();
                 }
                 
+                //if(!(this.routeExportButton.domNode.baseURI.indexOf("bartverbeeck")>5)){
+                if(!(this.routeExportButton){
+                            css.switchHidden(this.routeExportButton.domNode, true);
+                }
             },
 
             _getElevationInfo: function () {

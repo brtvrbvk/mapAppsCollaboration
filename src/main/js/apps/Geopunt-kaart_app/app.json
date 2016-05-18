@@ -9593,6 +9593,7 @@
                      "verticesEditTool",
                      "drawerasealltool",
                      "graphicExportTool",
+                     "graphicImportTool",
                      "closeWindowTool"
                   ],
                   "container": "map",
