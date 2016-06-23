@@ -144,9 +144,9 @@
          "enabled": true
       },
       "capakeysearch": {
-         "CapakeyController": {
-            "capakeyServiceUrl": "http://geo.agiv.be/capakey/api/v0/municipality"
-         },
+         //"CapakeyController": {
+         //   "capakeyServiceData":"cadmap"
+         //},
          "enabled": true
       },
       "combicontentmanager": {

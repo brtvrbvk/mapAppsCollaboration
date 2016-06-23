@@ -67,6 +67,7 @@
          "navteqrouting@5.0.x",
          "parametermanager@3.1.x",
          "patches_main@5.0.x",
+         "redlining_agiv@5.0.x",
          "redlining@3.1.x",
          "routing@5.0.x",
          "scaleviewer@5.0.x",
@@ -955,6 +956,9 @@
          },
          "enabled":true
       },
+      "redlining_agiv": {
+         "enabled": true
+      },
       "routing":{
          "RoutingMenuTool":{
             "rules":{
@@ -1105,6 +1109,7 @@
                   "id":"toolset_0",
                   "windowType":"dropdown",
                   "tools":[
+                      "redlining_tools",
                      "elevationToggleTool"
                   ],
                   "title":"Tools",
@@ -1128,6 +1133,51 @@
                   "registerTool":{
                      "groups":[
                         "share_tools"
+                     ]
+                  }
+               },
+               {
+                  "id": "redlining_tools",
+                  "title": "Tekenen",
+                  "tooltip": "Tekenen",
+                  "deactivateToolsOnHide": true,
+                  "window": {
+                     "closable": true,
+                     "minimizeOnClose": true
+                  },
+                  "tools": [
+                     "drawpointtool",
+                     "drawlinetool",
+                     "drawpolylinetool",
+                     "drawfreehandpolylinetool",
+                     "drawrectangletool",
+                     "drawpolygontool",
+                     "drawfreehandpolygontool",
+                     "drawcircletool",
+                     "drawellipsetool",
+                     "drawtriangletool",
+                     "drawTextTool",
+                     "drawSymbolTool",
+                     "redliningSymbolPropertiesTool",
+                     "stylePropertiesTool",
+                     "deleteGraphicEditTool",
+                     "moveScaleRotateEditTool",
+                     "verticesEditTool",
+                     "drawerasealltool",
+                     "graphicExportTool",
+                     
+                     "closeWindowTool"
+                  ],
+                  "container": "map",
+                  "position": {
+                     "rel_t": 40,
+                     "rel_l": 40
+                  },
+                  "max_horizontal": 10,
+                  "registerTool": {
+                     "groups": [
+                        "redlining_tools",
+                        "bottom_windows"
                      ]
                   }
                }

@@ -11,6 +11,10 @@
       "skipBundles":[
          "splitviewmap"
       ],
+      "bundleLocations": [
+        "localbundles",
+        "bundles"
+    ],
       "allowedBundles":[
          "agivthemes@5.0.x",
          "agivtemplates@5.0.x",
@@ -127,7 +131,7 @@
       },
       "capakeysearch":{
          "CapakeyController":{
-            "capakeyServiceUrl":"http://geo.agiv.be/capakey/api/v0.001/rvv/municipality"
+            "capakeyServiceData":"rvv"
          },
          "enabled":true
       },

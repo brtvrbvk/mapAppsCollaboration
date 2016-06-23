@@ -32,7 +32,8 @@
             "properties": {
                 "widgetRole": "capakeyDialog",
                 "dataformJson": "resource('resources/dataform.json')",
-                "capakeyServiceUrl": "http://ws.beta.agiv.be/capakey/api/v0/municipality"
+                "capakeyServiceUrl": "http://geo.agiv.be/capakey/api/v0.002/municipality",
+                "capakeyServiceData":"cadmap"
             },
             "references": [
                 {

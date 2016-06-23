@@ -458,8 +458,8 @@ define([
                                     }
                                     eventType = AnalyticsConstants.EVENT_TYPES.IDENTIFY_POI;
                                     this._createPOIInfo(content, context);
-                                    preventRecenter = false;
-
+                                    preventRecenter = true;
+                                    //BartVerbeeckPreventRecenter preventRecenter = false;
                                     break;
 
                                 case "SEARCH_RESULT_POI":
@@ -507,7 +507,8 @@ define([
                                     });
                                     context.store = store;
                                     this._createDefaultInfo(content, context);
-                                    preventRecenter = false;
+                                    preventRecenter = true;
+                                    //BartVerbeeckPreventRecenter preventRecenter = false;
                                     break;
 
                                 case "SEARCH_RESULT_PARCEL":
@@ -619,7 +620,8 @@ define([
                         }, this);
                     }
                     this._placeWidget(content, context);
-                    return false;
+                    //BartVerbeeckPreventRecenter return false;
+                    return true;
                 },
 
                 showPreviousFeatureInfo: function () {
