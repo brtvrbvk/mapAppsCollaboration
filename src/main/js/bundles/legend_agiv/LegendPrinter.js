@@ -209,53 +209,65 @@ define([
                         }
                     }
                     else if (mainLayer.service.serviceType === ServiceTypes.WMS) {
+                        //BartCosyn bug 55962 starts here
+                    var mapping = this._getLegendMapping(mainLayer);
+                    if (mapping) {
+                            mapping.type = "wms";
+                            response.push(mapping);
+                        }
+
+                    else
+                    {
                         var wmsLayers = layer.get("children").slice();
                         if (wmsLayers.length < 1) {
-                            wmsLayers.push(layer);
-                        }
-                        for (var j = 0; j < wmsLayers.length; j++) {
-                            var actWmsLayer = wmsLayers[j];
-                            var legendURL = "";
-                            if (!actWmsLayer.enabled) {
-                                continue;
+                                wmsLayers.push(layer);
                             }
-                            var styles, title, name, layerId;
-                            var actLayer = actWmsLayer.layer || actWmsLayer.children[0].layer;
-                            if (actLayer) {
-                                title = layer.title;
-                                name = actLayer.name;
-                                layerId = actLayer.layerId;
-                            }
-                            if (actWmsLayer.parent.get("styles") && actWmsLayer.get("actualStyle")) {
-                                var actStyle = ct_array.arraySearchFirst(actWmsLayer.parent.get("styles"), {
-                                    NAME: actWmsLayer.get("actualStyle")
-                                });
-                                legendURL = actStyle.URL;
-                            }
-                            else {
-                                var actualStyle = actWmsLayer.get("actualStyle");
-                                var el = this.map.esriLayerManager.getEsriLayer(mainLayer);
-                                var li = el.getLayerInfo(name) || el.getLayerInfo(layerId);
-                                if (title && li) {
-                                    styles = li.styles;
+                         for (var j = 0; j < wmsLayers.length; j++) {
+                                var actWmsLayer = wmsLayers[j];
+                                var legendURL = "";
+                                if (!actWmsLayer.enabled) {
+                                    continue;
                                 }
-                                if (styles) {
-                                    legendURL = this._findCorrectURL(styles, actualStyle);
-                                    if (!legendURL) {
-                                        if (title) {
-                                            legendURL = li.legendURL;
+                                var styles, title, name, layerId;
+                                var actLayer = actWmsLayer.layer || actWmsLayer.children[0].layer;
+                                if (actLayer) {
+                                    title = layer.title;
+                                    name = actLayer.name;
+                                    layerId = actLayer.layerId;
+                                }
+                                if (actWmsLayer.parent.get("styles") && actWmsLayer.get("actualStyle")) {
+                                    var actStyle = ct_array.arraySearchFirst(actWmsLayer.parent.get("styles"), {
+                                        NAME: actWmsLayer.get("actualStyle")
+                                    });
+                                    legendURL = actStyle.URL;
+                                }
+                                else {
+                                    var actualStyle = actWmsLayer.get("actualStyle");
+                                    var el = this.map.esriLayerManager.getEsriLayer(mainLayer);
+                                    var li = el.getLayerInfo(name) || el.getLayerInfo(layerId);
+                                    if (title && li) {
+                                        styles = li.styles;
+                                    }
+                                    if (styles) {
+                                        legendURL = this._findCorrectURL(styles, actualStyle);
+                                        if (!legendURL) {
+                                            if (title) {
+                                                legendURL = li.legendURL;
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            response.push({
-                                type: "wms",
-                                id: actWmsLayer.id,
-                                title: title,
-                                url: legendURL
-                            });
+                         }
+                         //BartCosyn bug 55962 end here
+                                response.push({
+                                    type: "wms",
+                                    id: actWmsLayer.id,
+                                    title: title,
+                                    url: legendURL
+                                });
+                                
                         }
-                    }
+                        }
                     return response;
                 },
 
