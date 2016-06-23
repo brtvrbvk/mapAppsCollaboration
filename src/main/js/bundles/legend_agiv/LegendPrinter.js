@@ -209,7 +209,7 @@ define([
                         }
                     }
                     else if (mainLayer.service.serviceType === ServiceTypes.WMS) {
-                        //BartCosyn bug 55962 starts here
+                        //BartCosyn  bug 55962 starts here
                     var mapping = this._getLegendMapping(mainLayer);
                     if (mapping) {
                             mapping.type = "wms";
