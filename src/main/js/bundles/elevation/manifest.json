@@ -394,10 +394,11 @@
             "propertiesConstructor": true,
             "immediate": true,
             "properties": {
-                "target": "http://dhm.beta.agiv.be/api/elevation/v1",
+                "target": "http://dhm.agiv.be/api/elevation/v1",
                 "inputSrs": "4326",
                 "targetSrs": "4326",
-                "datasetName": "DHMVMixed",
+                //BartCosyn 56366 aanpassing datasetname na volledige release DHM2
+                "datasetName": "DHMV2",
                 "usedServiceVersion": "new"  // "old" or "new"
                 //"target": "http://@@ws.agiv.be@@/elevation/dhmv1"
             },
