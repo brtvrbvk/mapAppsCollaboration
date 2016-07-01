@@ -235,6 +235,7 @@ define([
                                     name = actLayer.name;
                                     layerId = actLayer.layerId;
                                 }
+                                //BartCosyn bug56088
                                 if (actWmsLayer.parent.get("styles") && actWmsLayer.get("actualStyle")) {
                                     var actStyle = ct_array.arraySearchFirst(actWmsLayer.parent.get("styles"), {
                                         NAME: actWmsLayer.get("actualStyle")
@@ -242,9 +243,10 @@ define([
                                     legendURL = actStyle.URL;
                                 }
                                 else {
-                                    var actualStyle = actWmsLayer.get("actualStyle");
+                                    //BartCosyn  bug 56088
+                                    var actualStyle = actWmsLayer.parent.options.styles;
                                     var el = this.map.esriLayerManager.getEsriLayer(mainLayer);
-                                    var li = el.getLayerInfo(name) || el.getLayerInfo(layerId);
+                                    var li = el.getLayerInfo(layerId) || el.getLayerInfo(name) ;
                                     if (title && li) {
                                         styles = li.styles;
                                     }
@@ -380,13 +382,17 @@ define([
                 },
 
                 _findCorrectURL: function (styles, actualStyle) {
+                    if (!actualStyle){
+                    return styles[0].legendURL;    
+                    }
                     for (var i = 0; i < styles.length; i++) {
                         if (styles[i].name == actualStyle) {
                             return styles[i].legendURL;
-
                         }
+                        
                     }
-                    return styles[0].legendURL;
+//BartCosyn bug 56088 deleted following line. Always returns the first style URL
+                    //                    return styles[0].legendURL;
                 },
 
                 getGraphicLegendNodes: function () {
