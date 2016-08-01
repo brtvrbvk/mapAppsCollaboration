@@ -530,16 +530,19 @@ define([
                             _20 = this._buildLegendItems(_1f, _22, 0);
                         } else if (_1f.legendURL) {
                             if (_1f.legendType === "image") {
-                                _20 = d_domConstruct.create("img", {
-                                    "src": _1f.legendURL,
-                                    "class": "ctLegendServiceImage"
-                                }, d_dom.byId(this.id + "_" + _1f.id));
-                            } else if (_1f.legendType === "pdf") {
-                                //BartVerbeeck voorlopig Loes titel image legende
+                                 //BartVerbeeck voorlopig Loes titel image legende
                                 var d = d_domConstruct.create("span", {
                                 innerHTML: _1f.title,
                                 "class": "esriLegendServiceLabel"
                                 });
+                                
+                                _20 = d_domConstruct.create("img", {
+                                    "src": _1f.legendURL,
+                                    "class": "ctLegendServiceImage"
+                                }, d_dom.byId(this.id + "_" + _1f.id));
+                                 //BartVerbeeck voorlopig Loes titel image legende
+                                d_domConstruct.place(d, this.id + "_" + _1f.id,"first");
+                            } else if (_1f.legendType === "pdf") {
                                 
                                 _20 = d_domConstruct.create("a", {
                                     "href": _1f.legendURL,
@@ -549,12 +552,6 @@ define([
                                     }),
                                     "class": "ctLegendServiceURL"
                                 }, d_dom.byId(this.id + "_" + _1f.id));
-                                
-                                //BartVerbeeck voorlopig Loes titel image legende
-                                d_domConstruct.place(d, this.id + "_" + _1f.id,"first");
-                                
-                                
-                                
                             }
                         }
                         if (_20) {
