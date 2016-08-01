@@ -529,8 +529,9 @@ define([
                             };
                             _20 = this._buildLegendItems(_1f, _22, 0);
                         } else if (_1f.legendURL) {
-                            if (_1f.legendType === "image") {
+                            if (_1f.legendType === "image" ) {
                                  //BartVerbeeck voorlopig Loes titel image legende
+                                if(_1f.service && _1f.service.serviceType ==="WMTS")
                                 var d = d_domConstruct.create("span", {
                                 innerHTML: _1f.title,
                                 "class": "esriLegendServiceLabel"
@@ -541,6 +542,7 @@ define([
                                     "class": "ctLegendServiceImage"
                                 }, d_dom.byId(this.id + "_" + _1f.id));
                                  //BartVerbeeck voorlopig Loes titel image legende
+                                 if(_1f.service && _1f.service.serviceType ==="WMTS")
                                 d_domConstruct.place(d, this.id + "_" + _1f.id,"first");
                             } else if (_1f.legendType === "pdf") {
                                 
