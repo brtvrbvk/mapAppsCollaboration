@@ -64,6 +64,16 @@
                 }
             ]
         },
+        
+        {
+            "name": "NotifierHandler",
+            "impl": "NotifierHandler",
+            "propertiesConstructor": true,
+            "properties": {
+            },
+            "references": [
+            ]
+        },
         {
             "name": "MaximizeViewerHandler",
             "provides": [

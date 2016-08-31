@@ -67,8 +67,9 @@
                 "togglable": true,
                 "rules": {
                     "noGroup": true
+                    
                 }
-//                "activateHandler": "activateCapakeySearch"
+                //"activateHandler": "activateCapakeySearch"
             }
         },
         {

@@ -103,10 +103,19 @@ define([
                     });
                     this.set("name", content.primaryLabel);
                     ct_css.switchHidden(this.nameNode, true);
-
-                    var address = this._getAddressAsString(content.address);
-                    this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div> <div>" + address + "</div></div>";
-
+                    if(content.address && content.address.street && content.address.municipality){
+                        //var address = this._getAddressAsString(content.address);
+                        //this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div> <div>" + address + "</div></div>";
+                        this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + content.address.street + " " + content.address.streetnumber + "</div>" + "<div>" + content.address.postalcode + " </div></div>";
+                        d_domConstruct.create("a", {
+                                href: "http://www.vlaanderen.be/" + content.address.municipality,
+                                target: "_blank",
+                                innerHTML: content.address.municipality
+                            }, this.addressNode.childNodes[0].childNodes[2]);
+                    }
+                    
+                    
+                    
                     if (content.phone) {
                         this.phoneNode.innerHTML = "<div class='ctFeatureInfoContact'><div class='icon icon-phone'></div><div>" + content.phone + "</div></div>";
                     }
@@ -167,6 +176,9 @@ define([
                         this._window = ct_desktopUtil.findEnclosingWindow(this.domNode);
                     }
                     ct_async.hitch(this, this._resizeWindow, 150)();
+                    
+                    
+                   
 
                 },
 

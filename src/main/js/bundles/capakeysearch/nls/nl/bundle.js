@@ -11,7 +11,7 @@ define(
         bundleDescription: "CapakeySearch",
         ui: {
             dataform: {
-                title: "Zoeken via perceelnummer",
+                title: "Informatie over perceelnummer (Selecteer in formulier of klik op kaart)",
                 municipality: "Gemeente",
                 setMunicipality: "Kies een gemeente...",
                 department: "Afdeling",
@@ -28,8 +28,8 @@ define(
                 noResultMessage: "Er is voor dit perceel geen adres gekend in het Centraal Referentieadressenbestand (CRAB)."
             },
             tool: {
-                "title": "Zoeken via perceelnummer",
-                "tooltip": "Zoeken via perceelnummer"
+                "title": "Informatie over perceelnummer",
+                "tooltip": "Informatie over perceelnummer"
             }
         }
     })

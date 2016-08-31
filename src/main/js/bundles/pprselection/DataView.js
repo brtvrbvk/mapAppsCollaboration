@@ -131,7 +131,8 @@ define([
                         if (res.length > 0 && res[0].ppr_type) {
                             this.address.innerHTML = d_lang.replace(addressText, {
                                 date: this.getFullDate("/", "{dd}{splitter}{mm}{splitter}{yyyy}"),
-                                parcelnumber: res[0].parcelID,
+                                //parcelnumber: res[0].parcelID,
+                                parcelnumber: '<a href=javascript:document.bart_reversecapakey.callReverse();>' +res[0].parcelID + '</a>',
                                 address: model.store.address
                             });
                             this._showTable();
@@ -139,7 +140,7 @@ define([
                         } else {
                             this.address.innerHTML = d_lang.replace(addressText, {
                                 date: this.getFullDate("/", "{dd}{splitter}{mm}{splitter}{yyyy}"),
-                                parcelnumber: (res && res.length && res[0].parcelID) ? res[0].parcelID : "-",
+                                parcelnumber: (res && res.length && res[0].parcelID) ? '<a href=javascript:document.bart_reversecapakey.callReverse();>' +res[0].parcelID + '</a>' : "-",
                                 address: (model && model.store && model.store.address) ? model.store.address : "-"
                             });
                             this._hideTable();

@@ -110,11 +110,29 @@ define([
                     if (!item.title && item.FormattedAddress) {
                         item.title = item.FormattedAddress;
                     }
-                    if (this.addressNode) {
-                        this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
+                    if(!item.municipalityPdf && item.address){
+                        item.municipalityPdf=item.address.municipality;
+                        item.postalcodePdf=item.address.postalcode;
                     }
+                    
+                    if (this.addressNode) {
+                        //this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
+                        this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.postalcodePdf + " </div></div>";
+                    }
+                    var tooltiptxt = "Website van "+item.municipalityPdf;
+                    domConstruct.create("a", {
+                            href: "http://www.vlaanderen.be/" + item.municipalityPdf,
+                            target: "_blank",
+                            innerHTML: item.municipalityPdf
+                            //,title:tooltiptxt,
+                            //style:"display: inline;position: relative;"
+                        }, this.addressNode.childNodes[0].childNodes[2]);
+                    
+                    
                     if(item.address && item.address.municipality)
                         item.municipality=item.address.municipality;
+                    if(item.address && item.address.postalcode)
+                        item.postalcode=item.address.postalcode;
                     if (this.i18n.moreInformation && item.municipality) {
                         if(!item.municipalityPdf)
                             name = d_string.substitute(this.i18n.moreInformation, {
@@ -137,19 +155,34 @@ define([
                                 municipality: item.municipalityPdf.replace(" ","")
                             });
                         domConstruct.create("div", {
-                            "class": "icon-arrow-rounded-right featureinfoIcon"
+                            "class": "icon-bookmarkings featureinfoIcon"
                         }, this.moreInformation);
                         domConstruct.create("a", {
                             href: href,
                             target: "_blank",
                             innerHTML: name
                         }, this.moreInformation);
-                        this.moreInformation.clientTop="-15px";
+                        //this.moreInformation.clientTop="+15px";
+                        
+                        //if(document.getElementsByClassName("capakeyWindow") && document.getElementsByClassName("capakeyWindow")[0] && document.getElementsByClassName("capakeyWindow")[0].style.opacity=== "1"){
+                        if(document.bart_reversecapakey){
+                            document.bart_reversecapakey.geo=this.content.geometry;
+                            domConstruct.create("div", {
+                            "class": "icon-parcell featureinfoIcon"
+                            }, this.parcelInformation);
+                            domConstruct.create("a", {
+                            href: "javascript:document.bart_reversecapakey.callReverse();",
+                            //target: "_blank",
+                            innerHTML: document.bart_reversecapakey.identifyMessage
+                            }, this.parcelInformation);
+                            //this.parcelInformation.clientTop="-15px";
+                        }
+                    //}
                     } else {
                         css.switchHidden(this.moreInformation, true);
                     }
                 },
-
+               
                 _onShowRoute: function () {
                     
                     this.eventService.postEvent(this.topics.ADD_ROUTE_DIRECT,

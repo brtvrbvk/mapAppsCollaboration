@@ -45,6 +45,16 @@ define([
                     this.autoDeactivateTool = props.autoDeactivateTool;
                 },
                 performSelection: function (geometry) {
+                        if(document.bart_reversecapakey)
+                                document.bart_reversecapakey.geo=geometry;
+                        if(document.getElementsByClassName("capakeyWindow") && document.getElementsByClassName("capakeyWindow")[0] && document.getElementsByClassName("capakeyWindow")[0].style.opacity=== "1"){
+                            if(document.bart_reversecapakey){
+                                //document.bart_reversecapakey.showReversecapakey(geometry);
+                                //return;
+                            }
+                        }
+                    
+                    
                     this.geometry = geometry;
                     if (this._clearHandler) {
                         this._clearHandler.clear(true);

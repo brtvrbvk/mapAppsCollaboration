@@ -148,8 +148,11 @@ define([
                     }, function (error) {
                         this._showMessage("warning", error);
                     }, this);
-
-                    this._resizeWindow(this.storeQueries.length * 16, evt);
+                    if(this.title != "Dichtstbijzijnde adres")
+                        this._resizeWindow( 30, evt);
+                    if(this.title == "Perceel")
+                        this._resizeWindow( 25, evt);
+                    this._resizeWindow(this.storeQueries.length * 16 , evt);
 
                 },
 

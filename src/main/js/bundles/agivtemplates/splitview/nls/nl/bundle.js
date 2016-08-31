@@ -25,7 +25,7 @@ define(
         redliningStyleProperties: {title: "Eigenschappen"},
         loadservice: {title: "Laad service"},
         capakey: {
-            title: "Zoeken via perceelnummer"
+            title: "Informatie over perceelnummer"
         },
         printing: {
             title: "Printen"

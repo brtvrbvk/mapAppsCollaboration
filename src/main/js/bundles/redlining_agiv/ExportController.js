@@ -16,6 +16,9 @@ define([
                 },
 
                 export: function () {
+                    
+                    //document.bart_notifier.info("Export start","info",{xClose:true,isLink:"http://www.humo.be",newId:"paard"});
+                    //document.bart_notifier.remove("paard");
                     var mimetype = this.mimetype || "text/plain";
                     var charset = this.charset || document.characterSet;
                     var filename = this.filename || "graphics.txt";
@@ -28,7 +31,8 @@ define([
                     var maxx=-99999999;
                     var maxy=-99999999;
                     var gmlMembers ="";
-                    var projCode="EPSG:31370"
+                    var projCode="EPSG:31370";
+                    var aantal=this.geometryRenderer._renderers.length;
                     d_array.forEach(this.geometryRenderer._renderers, function (renderer) {
                         var graphicsNode = renderer.graphicsNode;
                         if (graphicsNode  && graphicsNode.parent) {
@@ -219,6 +223,7 @@ define([
                     gmlTxt += '</gml:boundedBy>';
                     gmlTxt = gmlTxt + gmlMembers + '</agiv:FeatureCollection>';
                     this._fileSaver.save(gmlTxt, filename, mimetype, charset);
+//                    document.bart_notifier.info("Export klaar: "+aantal+" objecten geexporteerd","info");
                 },
                 _isMultiLineString:function(paths){
                     if(paths.length==1)return false;

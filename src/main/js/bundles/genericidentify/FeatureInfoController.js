@@ -107,14 +107,18 @@ define([
                 /**
                  * Performs the feature info on the given geometry (must be a Point)
                  */
+                
+               
                 executeFeatureInfo: function (params) {
                     try {
                         console.debug("FEATUREINFO ", params);
                         var geo = params.mapPoint;
+                        if(document.bart_reversecapakey)
+                                document.bart_reversecapakey.geo=geo;
                         if(document.getElementsByClassName("capakeyWindow") && document.getElementsByClassName("capakeyWindow")[0] && document.getElementsByClassName("capakeyWindow")[0].style.opacity=== "1"){
                             if(document.bart_reversecapakey){
-                                document.bart_reversecapakey.showReversecapakey(geo);
-                                return;
+                                //document.bart_reversecapakey.showReversecapakey(geo);
+                                //return;
                             }
                         }
                         var graphic = params.graphic;

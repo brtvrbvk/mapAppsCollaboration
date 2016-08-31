@@ -28,7 +28,7 @@ define(
             infoAbout: "Volgende informatie is van toepassing op de aangeklikte locatie:",
             windowTitle: "Een probleem melden",
             moreInformationPOI: "meer info",
-            moreInformation: "meer info over ${name}",
+            moreInformation: "Lokale statistieken ${name}",
             descriptionLabel: "Beschrijving",
             noteLabel: "Note",
             more: "meer",

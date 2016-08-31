@@ -1,4 +1,19 @@
-{   "load":{
+{
+   "properties":{
+      "modifiedAt":1416572129252,
+      "thumbnailFile":"thumbnail.png",
+      "optimized":true,
+      "modifiedBy":"admin",
+      "createdAt":1413207744883,
+      "createdBy":"admin",
+      "templateFile":"ct-agiv-mapviewer-4.0.0-Recht_van_voorkoop-themabestand_app.zip",
+      "templateId":"14909B330DA1EA5",
+      "editorState":"PUBLISHED",
+      "title":"Recht van voorkoop",
+      "description":"Zoek voor een specifiek adres of perceel het recht van voorkoop\n                                        op.",
+      "id":"Recht_van_voorkoop-themabestand_app"
+   },
+   "load":{
       "styles":[
          "${app}:rvv.css"
       ],
@@ -26,6 +41,7 @@
          "basemapswitcher@5.0.x",
          "browsercheck@5.0.x",
          "capakeysearch@5.0.x",
+         "reversecapakey@5.0.x",
          "combicontentmanager@5.0.x",
          "coordinateparser@5.0.x",
          "coordinateviewer_agiv@5.0.x",
@@ -83,20 +99,6 @@
          "version@5.0.x"
       ]
    },
-   "properties":{
-      "modifiedAt":1416572129252,
-      "thumbnailFile":"thumbnail.png",
-      "optimized":true,
-      "modifiedBy":"admin",
-      "createdAt":1413207744883,
-      "createdBy":"admin",
-      "templateFile":"ct-agiv-mapviewer-4.0.0-Recht_van_voorkoop-themabestand_app.zip",
-      "templateId":"14909B330DA1EA5",
-      "editorState":"PUBLISHED",
-      "title":"Recht van voorkoop",
-      "description":"Zoek voor een specifiek adres of perceel het recht van voorkoop\n                                        op.",
-      "id":"Recht_van_voorkoop-themabestand_app"
-   },
    "bundles":{
       "analytics":{
          "GoogleAnalyticsTracker":{
@@ -132,6 +134,18 @@
       "capakeysearch":{
          "CapakeyController":{
             "capakeyServiceData":"rvv"
+         },
+         "enabled":true
+      },
+      "reversecapakey":{
+         "ReversecapakeyController":{
+            "capakeyServiceData":"rvv",
+            "alwaysShowOnStartup":false,
+            "i18n":{
+               "ui":{
+
+               }
+            }
          },
          "enabled":true
       },
@@ -202,7 +216,7 @@
                         }
                      ],
                      "props":{
-                        "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/74941e03-747f-4922-bb9d-b517b5d7f697"
+                        "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/69081c7d-c26b-44d1-b26a-78f2c7e9c2b6"
                      },
                      "category":{
                         "description":"CADMAP behelst de ongeveer 30.000 digitale offici\u00EBle kadastrale perceelsplans, gebiedsdekkend voor Belgi\u00EB, in beheer van de AAPD, en die jaarlijks worden bijgewerkt tot een bepaalde kadastrale toestand. AGIV heeft het recht verworven om CADMAP van Vlaanderen te distribueren naar deelnemers aan GIS-Vlaanderen (uitgezonderd de gemeenten) en aan netbeheerders van fysieke leidingnetten volgens het GRB-decreet. ",
@@ -431,8 +445,8 @@
             "useNavteqFallback":false
          },
          "GeolocatorUrlProvider":{
-            "suggestUrl":"http://loc.geopunt.be/geolocation/suggestion",
-            "locationUrl":"http://loc.geopunt.be/geolocation/location"
+            "suggestUrl":"http://loc.geopunt.be/v2/suggestion",
+            "locationUrl":"http://loc.geopunt.be/v2/location"
          },
          "ParcelUrlProvider":{
             "parcelUrl":""
@@ -480,7 +494,7 @@
             "Tooltip":"Help"
          },
          "HelpHandler":{
-            "helpUrl":"http://www.geopunt.be/over-geopunt/hoe-geopunt-gebruiken"
+            "helpUrl":"http://www.geopunt.be/over-geopunt"
          },
          "HelpTool":{
             "title":"Bronnen, disclaimer, handleiding, contact",
@@ -513,7 +527,7 @@
                   "3":4,
                   "14":15
                },
-               "http://geo.beta.agiv.be/inspire/wms/RVV":{
+               "http://geo.agiv.be/inspire/wms/RVV":{
                   "4":4,
                   "6":6,
                   "17":17,
@@ -599,7 +613,7 @@
                            "id":"agivPerceelen",
                            "enabled":true,
                            "props":{
-                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/74941e03-747f-4922-bb9d-b517b5d7f697"
+                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/69081c7d-c26b-44d1-b26a-78f2c7e9c2b6"
                            },
                            "category":{
                               "description":"CADMAP behelst de ongeveer 30.000 digitale offici\u00EBle kadastrale perceelsplans, gebiedsdekkend voor Belgi\u00EB, in beheer van de AAPD, en die jaarlijks worden bijgewerkt tot een bepaalde kadastrale toestand. AGIV heeft het recht verworven om CADMAP van Vlaanderen te distrubueren naar deelnemers aan GIS-Vlaanderen (uitgezonderd de gemeenten) en aan netbeheerders van fysieke leidingnetten volgens het GRB-decreet. ",
@@ -653,7 +667,7 @@
                            "layers":[
                               "*"
                            ],
-                           "service":"ortho014"
+                           "service":"ortho"
                         },
                         {
                            "id":"straten",
@@ -760,7 +774,8 @@
          "MapWidgetFactory":{
             "esriMapOpts":{
                "sliderPosition":"top-left",
-               "keyboardNavigation":false
+               "keyboardNavigation":false,
+               "navigationMode":"classic"
             }
          },
          "MappingResourceRegistryFactory":{

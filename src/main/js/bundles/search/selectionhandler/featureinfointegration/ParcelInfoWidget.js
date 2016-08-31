@@ -44,14 +44,18 @@ define([
                     var attr = this.content && this.content.graphic && this.content.graphic.attributes;
                     if (attr) {
                         if (attr.FormattedAddress) {
-                            this.set("title", "Perceel " + attr.FormattedAddress);
+                            //this.set("title", "Perceel " + attr.FormattedAddress);
+                            this.set("title", "Perceel");
                         }
                     }
                 },
 
                 _showGeocodeResult: function (item) {
                     this.inherited(arguments);
+                    var attr = this.content && this.content.graphic && this.content.graphic.attributes;
                     this.labelNode.innerHTML = this.i18n.addressLevel + ":";
+                    this.parcelNode.innerHTML = "<div class='ctFeatureInfoAddress' style='padding-bottom:10px;'><div class='icon-parcell featureinfoIcon'></div><div>" +  attr.FormattedAddress + "</div></div>";
+                    
                 }
             }
         );

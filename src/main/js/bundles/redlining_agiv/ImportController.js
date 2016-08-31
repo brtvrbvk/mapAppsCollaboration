@@ -9,6 +9,7 @@ define([
         "ct/_Connect"
     ],
     function (declare, d_array, Stateful, _Connect) {
+        
         return declare([Stateful, _Connect],
             {
                 constructor: function () {
@@ -97,7 +98,7 @@ define([
                             };
                         }
                     } else {
-                        alert('The File APIs are not fully supported by your browser.');
+//                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error");
                     }
                     if (window.File && window.FileReader && window.FileList && window.Blob) {
                         var x = document.createElement("INPUT");
@@ -111,9 +112,15 @@ define([
                         x.onchange = function(evt) {
                             var files = evt.target.files,
                             reader = new FileReader();
+                            if(files && files[0] && files[0].size)
                             reader.onload = function(e) {
                                 var text = reader.result;
-                                document.bart_importController._doTheCompleteInput(text);
+                                if(files && files[0] && files[0].size && files && files[0] && files[0].size>2222222){
+//                                    document.bart_notifier.error(files[0].name + " is te groot","error");
+                                }else{
+                                    document.bart_importController._doTheCompleteInput(text);
+                                }
+                                text=null;
                             };
                             reader.readAsText(files[0]);
                         };
@@ -122,46 +129,51 @@ define([
                         };
                         y.click(); 
                     } else {
-                        alert('The File APIs are not fully supported by your browser.');
+//                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error");
                     }
                 },
            
                 _doTheCompleteInput:function(gmlstring){
+                    //document.bart_notifier.info("Import start","info");
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(gmlstring,"text/xml");
-                    this.parseGML(xmlDoc);
+                    var aantal=this.parseGML(xmlDoc);
+//                    document.bart_notifier.info("Import klaar: "+aantal+" objecten geimporteerd","info");
                     //var output = document.bart_togeojson.parse.kml(xmlDoc)
                 },
                 parseGML: function(gml){
                     
                     //var fc=document.bart_importController.bartfeaturecollection();
                     var i=0;
-                    var ftrmmbrs = gml.getElementsByTagName("featureMember");
-
+                    var ftrmmbrs = gml.getElementsByTagNameNS("*","featureMember");
+                    var aantal = ftrmmbrs.length;
                     for(i=0;i<ftrmmbrs.length;i++){
                     //d_array.forEach(ftrmmbrs, function (ftrmmbr) {
                         var ftrmmbr=ftrmmbrs[i];
                         
 
-                            var naam=ftrmmbr.getElementsByTagName("NAAM");
+                            var naam=ftrmmbr.getElementsByTagNameNS("*","NAAM");
                             var title={};
                             if(naam.length===1)
                                  title={title:naam[0].textContent};
 
-                            //if(!this._addPoints(ftrmmbr.getElementsByTagName("MultiPoint"),title))
-                                this._addPoints(ftrmmbr.getElementsByTagName("Point"),title);
+                            //if(!this._addPoints(ftrmmbr.getElementsByTagNameNS("*","MultiPoint"),title))
+                                this._addPoints(ftrmmbr.getElementsByTagNameNS("*","Point"),title);
                             
-                            if(!this._addMultiLineStrings(ftrmmbr.getElementsByTagName("MultiLineString"),title))
-                                this._addLineStrings(ftrmmbr.getElementsByTagName("LineString"),title);
+                            if(!this._addMultiLineStrings(ftrmmbr.getElementsByTagNameNS("*","MultiLineString"),title))
+                                this._addLineStrings(ftrmmbr.getElementsByTagNameNS("*","LineString"),title);
 
-                            if(!this._addMultiPolygons(ftrmmbr.getElementsByTagName("MultiPolygon"),title))
-                                this._addPolygons(ftrmmbr.getElementsByTagName("Polygon"),title);
+                            if(!this._addMultiPolygons(ftrmmbr.getElementsByTagNameNS("*","MultiPolygon"),title))
+                                this._addPolygons(ftrmmbr.getElementsByTagNameNS("*","Polygon"),title);
 
                             if(i> 30){
+//                                document.bart_notifier.warning("Meer dan 30 objecten is teveel","warning");
+                                aantal = 30;
                                 break;
                             }
 
-                    }  
+                    } 
+                    return aantal;
                     //},this);
                     //document.bart_geometryrenderermodifier.renderGeometry(fc);
                 },
@@ -170,8 +182,8 @@ define([
                     var paths=[];
                     var newln=null;
                     d_array.forEach(lns, function (ln) {
-                    d_array.forEach(ln.getElementsByTagName("lineStringMember"), function (lineMember) {
-                        var ln=this._addLineStrings(lineMember.getElementsByTagName("LineString"),title,true);
+                    d_array.forEach(ln.getElementsByTagNameNS("*","lineStringMember"), function (lineMember) {
+                        var ln=this._addLineStrings(lineMember.getElementsByTagNameNS("*","LineString"),title,true);
                         if(newln==null)
                                newln=ln;
                         else
@@ -181,6 +193,7 @@ define([
                     if(newln && newln.geometry){
                         var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
                         document.bart_geometryrenderermodifier.renderGeometry(newln.geometry,title,nodeid);
+                        newln=null;
                         return true;
                     }else{
                         return false;
@@ -191,7 +204,7 @@ define([
                         var paths=[];
                         var newline=this.bartline();
                         d_array.forEach(lns, function (ln) {
-                            var crdnts = ln.getElementsByTagName("coordinates");
+                            var crdnts = ln.getElementsByTagNameNS("*","coordinates");
                             d_array.forEach(crdnts,function(crdnt){
                                var srsName=this._getSrsName(crdnt);
                                newline.geometry.spatialReference.wkid=srsName;
@@ -205,6 +218,7 @@ define([
                             if(newline.geometry.paths && newline.geometry.paths.length>0){
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
                                 document.bart_geometryrenderermodifier.renderGeometry(newline.geometry,title,nodeid);
+                                newline=null;
                             }
                         }else
                                 return newline;
@@ -215,7 +229,7 @@ define([
 
                 _addPoints:function(pnts,title){
                         d_array.forEach(pnts, function (pnt) {
-                            var crdnts = pnt.getElementsByTagName("coordinates");
+                            var crdnts = pnt.getElementsByTagNameNS("*","coordinates");
                             var newpnt=this.bartpoint();
                             d_array.forEach(crdnts, function (crdnt) {
                                 var srsName=this._getSrsName(crdnt);
@@ -232,6 +246,7 @@ define([
                                 //var nodeid="ImportPoint"  + new Date().getTime();
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
                                 document.bart_geometryrenderermodifier.renderGeometry(newpnt.geometry,title,nodeid);
+                                newpnt=null;
                             },this);
                         },this);
                 },
@@ -239,8 +254,8 @@ define([
                     var rings=[];
                     var newplgn=null;
                     d_array.forEach(plgns, function (plgn) {
-                    d_array.forEach(plgn.getElementsByTagName("polygonMember"), function (polygonMember) {
-                        var plgn=this._addPolygons(polygonMember.getElementsByTagName("Polygon"),title,true);
+                    d_array.forEach(plgn.getElementsByTagNameNS("*","polygonMember"), function (polygonMember) {
+                        var plgn=this._addPolygons(polygonMember.getElementsByTagNameNS("*","Polygon"),title,true);
                         if(newplgn==null)
                                newplgn=plgn;
                         else
@@ -253,6 +268,7 @@ define([
                         //var nodeid="ImportMultiPolygon"  + new Date().getTime();
                         var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
                         document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid);
+                        newplgn=null;
                         return true;
                     }else{
                         return false;
@@ -262,14 +278,15 @@ define([
                         var rings=[];
                         var newplgn=this.bartpolygon();
                         d_array.forEach(plgns, function (plgn) {
-                            d_array.forEach(plgn.getElementsByTagName("LinearRing"), function (LinearRing) {
-                            var crdnts = LinearRing.getElementsByTagName("coordinates");
+                            d_array.forEach(plgn.getElementsByTagNameNS("*","LinearRing"), function (LinearRing) {
+                            var crdnts = LinearRing.getElementsByTagNameNS("*","coordinates");
                             d_array.forEach(crdnts,function(crdnt){
                                var srsName=this._getSrsName(crdnt);
                                newplgn.geometry.spatialReference.wkid=srsName;
                                //rings[rings.length]=this._coordinates2ring(crdnt);
                                rings.push(this._coordinates2ring(crdnt,srsName));
                             },this);
+                            crdnts=null;
                             newplgn.geometry.rings=rings;
                             newplgn.geometry = this.ct.transform(newplgn.geometry,"EPSG:3857");
                             
@@ -281,6 +298,7 @@ define([
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
                                 document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid);
                             }
+                            newplgn=null;
                         }else
                                 return newplgn;
                 },
@@ -302,7 +320,9 @@ define([
                 
                 
                 _getSrsName:function(x){
-                    var srs=x.getAttribute('srsName');
+                    var srs=x.getAttributeNS("*",'srsName');
+                    if(srs==null)
+                        srs=x.getAttribute('srsName');
                     if(srs!=null){
                         if(srs.split("EPSG:").length==2)
                             return parseInt(srs.split("EPSG:")[1]);
@@ -327,14 +347,15 @@ define([
 
                 deactivate: function () {
 
-                }
+                },
                 
                 
                 
                 
                 
                 
-                
+
+
                 
                 
                 

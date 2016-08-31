@@ -26,28 +26,16 @@ define([
         _Connect,
         ReversecapakeyWidget
         ) {
-        /*
-         * COPYRIGHT 2011-2012 con terra GmbH Germany
-         */
-        /**
-         * @fileOverview
-         * @author fba
-         */
+       
 
         return declare(
             [
                 Stateful,
                 _Connect
             ],
-            /**
-             * @lends .prototype
-             */
             {
                 
 
-                /**
-                 * @constructor
-                 */
                 constructor: function () {
                        
                 },
@@ -108,9 +96,18 @@ define([
                     }
                     this._window.show();
                 },
+                
+                callReverseFromPpr:function(parcel){
+                    this._eventService.postEvent("ct/tool/set/ACTIVATE", {toolId: "capakeyTool"});
+                },
+                callReverse:function(){
+                    //if(document.getElementsByClassName("capakeyWindow") && document.getElementsByClassName("capakeyWindow")[0] && document.getElementsByClassName("capakeyWindow")[0].style.opacity=== "0")
+                        this._eventService.postEvent("ct/tool/set/ACTIVATE", {toolId: "capakeyTool"});
+                    document.bart_reversecapakey.showReversecapakey(document.bart_reversecapakey.geo);
+                },
                 showReversecapakey: function(geo){
                     var geo = this.ct.transform(geo,"EPSG:31370");
-                    var url = 'http://geo.agiv.be/capakey/api/v0.002/parcel?x=' + geo.x + '&y=' + geo.y ;
+                    var url = this.capakeyServiceUrl1 +'parcel?type=json&x=' + geo.x + '&y=' + geo.y + '&data=' + this.capakeyServiceData ;
                     ct_when(ct_request.requestJSON({
                         url: url
                     }), function (json) {
@@ -133,7 +130,7 @@ define([
                         }
                         var newValSection = json.sectionCode;
                         var newValParcel = json.perceelnummer;
-/*******************************************************************************/                        
+                    
                         
                     if (document.bart_capakey.departmentId) {
                         document.bart_capakey.departmentId = undefined;
@@ -148,7 +145,7 @@ define([
                     document.bart_capakey.binding.set("municipality", newValMunicipality);
                     var municipalityId = document.bart_capakey.municipalityId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: document.bart_capakey.capakeyServiceUrl + "/" + municipalityId + "/department" + '?type=json'
+                        url: this.capakeyServiceUrl + "/" + municipalityId + "/department" + '?type=json' + '&data=' + this.capakeyServiceData
                     }), function (json) {
                         document.bart_capakey._toggleWidgetDisabledStatus("department", false);
                         var departments = json.departments;
@@ -167,7 +164,6 @@ define([
                         var store = document.bart_capakey.departmentStore = new ComplexMemory(storeData);
                         document.bart_capakey.dataformService.addStore(store, {id: "departmentStore"});
                         document.bart_capakey._refreshBindings();
-						/**/
 						                    if (document.bart_capakey.sectionId) {
                         document.bart_capakey.sectionId = undefined;
                         document.bart_capakey.binding.set("section", null);
@@ -180,7 +176,7 @@ define([
                     document.bart_capakey.binding.set("department", newValDepartment);
                     var departmentId = document.bart_capakey.departmentId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: document.bart_capakey.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + departmentId + "/section" + '?type=json'
+                        url: this.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + departmentId + "/section" + '?type=json' + '&data=' + this.capakeyServiceData
                     }), function (json) {
                         document.bart_capakey._toggleWidgetDisabledStatus("section", false);
                         var sections = json.sections;
@@ -199,7 +195,6 @@ define([
                         var store = document.bart_capakey.sectionStore = new ComplexMemory(storeData);
                         document.bart_capakey.dataformService.addStore(store, {id: "sectionStore"});
                         document.bart_capakey._refreshBindings();
-						/**/
 						                    if (document.bart_capakey.parcelId) {
                         document.bart_capakey.binding.set("parcel", null);
                         document.bart_capakey.binding.set("address", null);
@@ -213,7 +208,7 @@ define([
                     document.bart_capakey.binding.set("section", newValSection);
                     var sectionId = document.bart_capakey.sectionId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: document.bart_capakey.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + document.bart_capakey.departmentId + "/section/" + sectionId + "/parcel" + '?type=json'
+                        url: this.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + document.bart_capakey.departmentId + "/section/" + sectionId + "/parcel" + '?type=json' + '&data=' + this.capakeyServiceData
                     }), function (json) {
                         document.bart_capakey._toggleWidgetDisabledStatus("parcel", false);
                         var parcels = json.parcels;
@@ -231,15 +226,20 @@ define([
                         };
                         var store = document.bart_capakey.parcelStore = new ComplexMemory(storeData);
                         document.bart_capakey.dataformService.addStore(store, {id: "parcelStore"});
+                        if(!newValParcel){
+                            document.bart_capakey.binding.set("capakey", "Geen perceel gevonden op deze locatie");
+                            return;
+                        }
+                        
+                        
                         document.bart_capakey._refreshBindings();
-						/**/
 						 var item = document.bart_capakey.parcelStore.query({
                         "title": newValParcel
                     });
                     document.bart_capakey.binding.set("parcel", newValParcel);
                     var parcelId = document.bart_capakey.parcelId = item[0].id;
                     ct_when(ct_request.requestJSON({
-                        url: document.bart_capakey.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + document.bart_capakey.departmentId + "/section/" + document.bart_capakey.sectionId + "/parcel/" + parcelId  + '?type=json'
+                        url: this.capakeyServiceUrl + "/" + document.bart_capakey.municipalityId + "/department/" + document.bart_capakey.departmentId + "/section/" + document.bart_capakey.sectionId + "/parcel/" + parcelId  + '?type=json'  + '&data=' + this.capakeyServiceData
                     }), function (json) {
                         var capakey = json.capakey;
                         var binding = document.bart_capakey.binding;
@@ -255,18 +255,15 @@ define([
                         binding.set("address", addresses);
                         document.bart_capakey._refreshBindings();
                     }, document.bart_capakey);
-						/**/
+
                     }, document.bart_capakey);
 
-						/**/
+
                     }, document.bart_capakey);
 
-						/**/
+
                     }, document.bart_capakey);
-                        
-                        
-                        
-/*******************************************************************************/                        
+
                         return;
                             if(nischecked)
                                 document.bart_capakey._processMunicipal(json.municipalityCode);

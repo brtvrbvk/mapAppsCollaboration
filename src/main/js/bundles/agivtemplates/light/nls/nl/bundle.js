@@ -28,7 +28,7 @@ define(
             title: "Hoogteprofiel"
         },
         capakey: {
-            title: "Zoeken via perceelnummer"
+            title: "Informatie over perceelnummer"
         },
         printing: {
             title: "Afdrukken"

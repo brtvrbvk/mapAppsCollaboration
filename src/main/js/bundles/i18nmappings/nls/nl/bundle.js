@@ -86,7 +86,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
             capakeysearch: {
                 ui: {
                     dataform: {
-                        title: "Zoeken via perceelnummer",
+                        title: "Informatie over perceelnummer (Selecteer in formulier of klik op kaart)",
                         municipality: "Gemeente",
                         setMunicipality: "Kies een gemeente...",
                         department: "Afdeling",
@@ -101,8 +101,8 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                         nis: "NIS-codes"
                     },
                     tool: {
-                        "title": "Zoeken via perceelnummer",
-                        "tooltip": "Zoeken via perceelnummer"
+                        "title": "Informatie over perceelnummer",
+                        "tooltip": "Informatie over perceelnummer"
                     }
                 }
             },
@@ -992,7 +992,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                     infoAbout: "Volgende informatie is van toepassing op de aangeklikte locatie:",
                     windowTitle: "Een probleem melden",
                     moreInformationPOI: "meer info",
-                    moreInformation: "meer info over ${name}",
+                    moreInformation: "Lokale statistieken ${name}",
                     descriptionLabel: "Beschrijving",
                     noteLabel: "Note",
                     more: "meer",
@@ -1077,7 +1077,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                     placeHolder: "Adres, interessante plaats, perceelnummer, trefwoord, co\u00F6rdinaat",
                     noValue: "Geen waarde",
                     noResult: "Niet gevonden. Probeer opnieuw.",
-                    moreInformation: "meer info over ${name}",
+                    moreInformation: "Lokale statistieken ${name}",
                     title: "Waarschuwing",
                     errorMessage: "Coordinaten als parameter kan slechts éénmaal gebruikt worden.",
                     invalidMessage: "Coordinaten ${coordinate} als parameter niet gevonden."
@@ -1550,7 +1550,7 @@ define(["dojo/i18n!esri/nls/jsapi"], function (esri_bundle) {
                     },
                     featureinfointegration: {
                         moreInformationPOI: "meer info",
-                        moreInformationMunicipality: "meer info over ${name}",
+                        moreInformationMunicipality: "Lokale statistieken ${name}",
                         descriptionLabel: "Beschrijving",
                         noteLabel: "Note",
                         more: "meer",

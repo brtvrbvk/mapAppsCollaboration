@@ -8,9 +8,12 @@
                  data-dojo-type="ct/ui/controls/MessagePane"
                  data-dojo-props=""></div>
         </div>
-
+ 
         <div data-dojo-type="dijit/layout/ContentPane"
              data-dojo-props="region:'center'">
+            <div class="value"
+                 data-dojo-attach-point="parcelNode">
+            </div>
             <div class="label"
                  data-dojo-attach-point="labelNode"></div>
             <div class="value"
@@ -24,6 +27,9 @@
                  data-dojo-attach-point="infoNode"></div>
             <div class="ctMoreInfo"
                  data-dojo-attach-point="moreInformation">
+            </div>
+            <div class="ctMoreInfo"
+                 data-dojo-attach-point="parcelInformation">
             </div>
             <!-- BartVerbeeck Bug50038-->
             <div class="ctMoreInfo">

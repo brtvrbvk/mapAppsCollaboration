@@ -63,8 +63,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "PPR",
-                "target": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/25",
-                "municipalityUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/27",
+                "target": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/25",
+                "municipalityUrl": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/27",
                 "title": "PPR",
                 "useIn": ["selection"],
                 "dateOutFields": [
@@ -107,8 +107,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "noPPR",
-                "target": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/2",
-                "municipalityUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/27",
+                "target": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/2",
+                "municipalityUrl": "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/27",
                 "title": "noPPR",
                 "useIn": ["selection"],
                 "dateOutFields": [

@@ -23,7 +23,11 @@
                 "windowBox": {
                     "w": 400,
                     "h": 250
-                }
+                },
+                "capakeyServiceUrl1": "http://geo.agiv.be/capakey/api/v0.002/",
+                "capakeyServiceUrl": "http://geo.agiv.be/capakey/api/v0.002/municipality",
+                "capakeyServiceData":"cadmap",
+                "identifyMessage":"Kadastrale informatie over deze (aangeklikte) locatie"
             },
             "references": [
                 {
@@ -41,7 +45,12 @@
                 {
                     "name": "ct",
                     "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+                {
+                    "name": "_eventService",
+                    "providing": "ct.framework.api.EventService"
                 }
+
             ]
 
         },
