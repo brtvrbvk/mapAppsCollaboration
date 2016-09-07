@@ -76,8 +76,7 @@ define([
                     if (this.content && this.content.title) {
                         this.set("title", this.content.title);
                     } else {
-                        //this.set("title", this.i18n.addressLevel);
-                        this.set("title", "Aangeklikte locatie");
+                        this.set("title", this.i18n.addressLevel);
                     }
                     this._switchButtonNode(true);
 //                    this._showMessage("loading", this.i18n.loadingGeneralInfo);
@@ -115,8 +114,7 @@ define([
                         item.municipalityPdf=item.address.municipality;
                         item.postalcodePdf=item.address.postalcode;
                     }
-                    if(item.type != "SEARCH_RESULT_ADDRESS")
-                        this.labelNode.innerHTML = this.i18n.addressLevel + ":";
+                    this.labelNode.innerHTML = this.i18n.addressLevel + ":";
                     if (this.addressNode) {
                         //this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
                         this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.postalcodePdf + " </div></div>";

@@ -27,7 +27,7 @@
                 "capakeyServiceUrl1": "http://geo.agiv.be/capakey/api/v0.002/",
                 "capakeyServiceUrl": "http://geo.agiv.be/capakey/api/v0.002/municipality",
                 "capakeyServiceData":"cadmap",
-                "identifyMessage":"Kadastrale informatie over de aangeklikte locatie"
+                "identifyMessage":"Kadastrale informatie over deze (aangeklikte) locatie"
             },
             "references": [
                 {

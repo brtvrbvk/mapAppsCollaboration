@@ -49,13 +49,11 @@ define([
                     var parsedResults = [];
 
                     if (results && results.length > 0) {
-
                         d_array.forEach(results, function (res) {
-
                             parsedResults.push(this._parseSingleItem(res));
 
                         }, this);
-
+                       
                     } else if (results && d_lang.isObject(results) && results.length == undefined) {
 
                         parsedResults.push(this._parseSingleItem(results));
@@ -68,6 +66,8 @@ define([
 
                 _parseSingleItem: function (res) {
 
+                    var start=Date.now();
+                    var i=0;
                     var item = {
                         detail: res.detail,
                         description: res.description,
@@ -81,6 +81,7 @@ define([
                     };
 
                     //"2013-09-25T06:00:00"
+                    
                     var startDateTime;
                     if (res.startDateTime) {
                         startDateTime = res.startDateTime;
@@ -88,7 +89,6 @@ define([
                         startDateTime = res.periods[0].startDateTime;
                     }
                     item.startdate = d_stamp.fromISOString(startDateTime);
-
                     var endDateTime;
                     if (res.endDateTime) {
                         endDateTime = res.endDateTime;
@@ -96,17 +96,24 @@ define([
                         var lastNum = res.periods.length - 1;
                         endDateTime = res.periods[lastNum].endDateTime;
                     }
+                    
                     item.enddate = d_stamp.fromISOString(endDateTime);
-
                     if (item.startdate && item.enddate) {
-                        item.activePeriod = this._getFormattedDate(item.startdate) + " - " + this._getFormattedDate(item.enddate);
+                        //item.activePeriod = this._getFormattedDate(item.startdate) + " - " + this._getFormattedDate(item.enddate);
+                        item.activePeriod=this.putextrazero(item.startdate.getDate())  + "/" + 
+                                this.putextrazero(item.startdate.getMonth()+1) + "/" + 
+                                item.startdate.getFullYear() + " " +
+                                this.putextrazero(item.startdate.getHours()) + ":" + this.putextrazero(item.startdate.getMinutes())
+                                + " - " +
+                                this.putextrazero(item.enddate.getDate())  + "/" + 
+                                this.putextrazero(item.enddate.getMonth()+1) + "/" + 
+                                item.enddate.getFullYear() + " " +
+                                this.putextrazero(item.enddate.getHours()) + ":" + this.putextrazero(item.enddate.getMinutes());
                     }
-
                     if (res.recurrencePattern) {
                         item.recurrencePattern = res.recurrencePattern;
                         item.activePeriod = res.recurrencePattern
                     }
-
                     if (res.coordinate) {
                         item.geometry = this._parseGeometry(res.coordinate);
                     }
@@ -124,7 +131,6 @@ define([
                             item.hindrance.locations=item.hindrance.locations.join("<br/>");
                         }
                     }
-
                     if (res.periods && res.periods.length && res.periods.length > 0) {
                         item.periods = this._formatPeriods(res.periods);
                     }
@@ -203,7 +209,6 @@ define([
                         }
                         item.geometriesExtent = this._createExtentForGeometries(item.geometries);
                     }
-
                     if (res.diversions) {
 
                         item.diversions = d_array.map(res.diversions, function (d) {
@@ -218,11 +223,12 @@ define([
                         item.diversionTypes = res.diversionTypes;
                         item.streets = res.streets;
                     }
-
                     return item;
 
                 },
-
+                putextrazero:function(s){
+                    return s>9?s:"0"+s;
+                },
                 _formatPeriods: function (periods) {
                     var calendarDatePattern = "EEE dd/MM/yyyy";
                     var p = d_array.map(periods, function (period) {

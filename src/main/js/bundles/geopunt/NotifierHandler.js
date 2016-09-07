@@ -36,7 +36,7 @@ define([
                         }
                         setTimeout(function() {
                             document.bart_notifier.fade_out.apply(this, [element]);
-                        }, 1000 / 300);
+                        }, 1000 / 30);
                     };
                     this.config = { /* How long the notification stays visible */
                         default_timeout: 5000,
@@ -51,11 +51,12 @@ define([
                         },
                         /* individual notification box styles */
                         box_styles: {
+                            position: "relative",
                             cursor: "pointer",
                             padding: "12px 18px",
                             margin: "0 0 6px 0",
-                            backgroundColor: "#555",
-                            opacity: 0.75,
+                            backgroundColor: "#222",
+                            opacity: 0.9,
                             color: "#fff",
                             font: "normal 13px 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif",
                             borderRadius: "3px",
@@ -87,13 +88,11 @@ define([
                         },
                         icon2_styles: {
                             cursor: "pointer",
+                            height:"24px",
+                            width: "24px",
                             position: "absolute",
                             right: "5px",
                             top: "5px",
-                            display: "inline-block",
-                            zIndex: 100000,
-                            height: "18px",
-                            width: "18px"
                         }
                     };
                     this.apply_styles(this.config.container, this.config.container_styles);
@@ -115,18 +114,7 @@ define([
                             
                         }
                         this.apply_styles(notification, this.config.box_styles);
-                        if(options.xClose){
-                            this.apply_styles(notification, {cursor: "default"});
-                            var icon2 = document.createElement('img');
-                            icon2.src = "data:image/png;base64,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";
-                            this.apply_styles(icon2, this.config.icon2_styles);
-                            icon2.notification=notification;
-                            icon2.onclick = function() {
-                                this.notification.style.display = 'none';
-                            };
-                            notification.appendChild(icon2);
-
-                        }
+                        
 
                         notification.onmouseover = function() {
                             document.bart_notifier.apply_styles(this, document.bart_notifier.config.box_styles_hover);
@@ -181,7 +169,19 @@ define([
                         }
 
                         this.config.container.insertBefore(notification, this.config.container.firstChild);
-                        
+                        if(options.xClose){
+                            this.apply_styles(notification, {cursor: "default"});
+                            var icon2 = document.createElement('img');
+                            icon2.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAvVBMVEUAAABEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREBEREDnUTnnSzvUSzzVSjznSzrmTDvWSjzUSzzmTDzSSzzmTDvnTD3lSzvjTDvVSz3nSzzTSz3VSjzTSjznSjvVSTzTSTznTDvVSzzSTD3VSzzbSzzUTzbWSzznSzznTDzdTDzmTDzeTDy0e0VKAAAAO3RSTlMAAQIDAwEEBQEFBgEHCAEICQIKCwILDA4MAg8OAhZigI7VdI17iHyJdYp1fHZ9fX53fn94f2mP0xWOi64YaEMAAAORSURBVHja7ZvbkppAEEBXRVEURVAQdTfJxPWSJRuM2Vwc9P8/K14pBYVpepjxgXmy+sHTVWp7upl+enq0UyqXyyUJsfOpKIpSkRA7nWpNVdVaVXjsfOoNTdMadeGx82m2dF1vNYXHzqfdMQyj0xYeO5+uaVmW2RUeO59e37btfk94LMyt7zjOwL2KuYP8Y+FnY9rOcDS+io1Hw2HesadTPWp2LNuRwK9WysffZsuw7IF4fr2mHBKoNnTD6rvC+c2GekygpumG2RPOb7c0Vdl/Byqqpne6wvndjq6p+/+kkqJqrbZwfs80dK22f1VW1EZTON/tW4beqB4TqNWF88cD2zJaR265UhXPHzm21Wle1SKx/KFjm7f/EwXxh06/K5U/HPTk8keuZP644N84rmR+byCXv3NCqfzCCdOd8PkFwvr0mbcTPn+hBMAPgq98nXDHp5sJgL/dvPJ0wgN/G0wBfEpf+TnhiR8EEwCf0hkvJwz5280cwA8zwDrhBZ/SOYBP6YKHE17xLzJg4B8ywDphhB9mwMTfZYB2wpcI/5QBI59+wzvhPMI/ZIDlg5zwLYi+r4fmw5zwe/R9N+9YPtDJ3iL8bfBDKH80nkf4QfDOn5/ohF6Ev914vPkpTuhF+LtvIl9+qhN6ET6lPk8+gxN6EX6YAYoPcUIvVhN9LB84J/RiNdHH8cFzwmWsJvoYfoY54c9YTVxm52eaEy5jNTEzP+Oc0OfFzzwn9PnwEXNCnwcfNSdcceDj5oQrPB85J1yh+dg54QrLR88JfyH56DlhvP6x98485nQ3+My9c258xt6Zx5zwDn+7IWLmhHf5lBIRc8IE/kUG+c0JE/lhBvnNCVP4pwzye3acyj9kkN+z4xv+NYnVRJLfs+Ob/jfNWhPhTnjHPyfZaiLcCe/6L8lSE+FOmODfBF4T4U6Y6P8EXBPBTpjSfxBoTYQ6YWr/Q4A1EeiEDP0XgdVEmBMy9X8EVBNBTsjYf4Jqosufj6iJnPiZayI3/q2a+IF2wt8g/4/WxD9/8U74D9R/kKz8BCecgfofko2f6IQzUP9FQHw2J1yA+j/Czmd2wgWo/ySsfIATrkH974SND3LCNaj/nrLwgU64BvX/H+n84j5hcZ+wuE9Y3CeUyy/uE+LmhMV9wuI+YbFjwitW7JgUTvioTihix24Xu+uEwvYOzcfcu5S9dyp771b23rHsvWvZe+eS9u7/A38fX5wB/JcgAAAAAElFTkSuQmCC";
+                            this.apply_styles(icon2, this.config.icon2_styles);
+                            icon2.notification=notification;
+                            icon2.onclick = function() {
+                                this.notification.style.display = 'none';
+                            };
+                            notification.insertBefore(icon2, null);
+                            //notification.appendChild(icon2);
+
+                        }
                         if(options.autoClose){
                             var timeout = (options.timeout)?options.timeout:this.config.default_timeout;
                             setTimeout(function() {

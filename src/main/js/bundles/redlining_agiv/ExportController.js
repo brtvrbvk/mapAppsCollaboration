@@ -16,8 +16,17 @@ define([
                 },
 
                 export: function () {
-                    
-                    //document.bart_notifier.info("Export start","info",{xClose:true,isLink:"http://www.humo.be",newId:"paard"});
+                    /*
+                    document.bart_notifier.info("Export start","info",{
+            timeout:5000,
+            autoClose:false,
+            clickClose:true,
+            xClose:true});
+                    document.bart_notifier.info("Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2","info",{
+            timeout:5000,
+            autoClose:true,
+            clickClose:true,
+            xClose:true});*/
                     //document.bart_notifier.remove("paard");
                     var mimetype = this.mimetype || "text/plain";
                     var charset = this.charset || document.characterSet;

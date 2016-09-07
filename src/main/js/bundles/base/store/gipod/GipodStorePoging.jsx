@@ -9,7 +9,6 @@ define([
         "dojo/_base/declare",
         "dojo/_base/array",
         "dojo/_base/lang",
-        "ct/util/css",
         "dojo/date/locale",
         "dojo/store/util/QueryResults",
         "dojo/_base/Deferred",
@@ -25,7 +24,7 @@ define([
         "../StoreDuplicateFilterPlugin",
         "../StoreResultClusterPlugin"
     ],
-    function (declare, d_array, d_lang, ct_css,d_date, QueryResults, Deferred, ct_lang, ct_array, ct_when, ct_request, ct_geometry, SpatialQuery, Connect, GipodParser, StoreResultFilterPlugin, StoreDuplicateFilterPlugin, StoreResultClusterPlugin) {
+    function (declare, d_array, d_lang, d_date, QueryResults, Deferred, ct_lang, ct_array, ct_when, ct_request, ct_geometry, SpatialQuery, Connect, GipodParser, StoreResultFilterPlugin, StoreDuplicateFilterPlugin, StoreResultClusterPlugin) {
         return declare([
                 Connect,
                 GipodParser
@@ -34,7 +33,7 @@ define([
 
                 _dateFormat: "yyyy-MM-dd",
                 _plugins: null,
-                
+
                 constructor: function (args) {
 
                     this.id = args.id;
@@ -86,15 +85,23 @@ define([
 
                 _parseResults: function (results, targetQuery, options) {
                     //arguments[0] = arguments[0].slice(0,);
-                    var res = this.inherited(arguments);
-
+                    //var res = this.inherited(arguments);
+                    var res=arguments[0];
                     d_array.forEach(this._plugins, function (p) {
 
                         res = p.process(res, targetQuery, options);
 
                     });
-
-                    return res;
+                    arguments[0]=res;
+                    var res2 = this.inherited(arguments);
+                    for(var i=0;i< res.length;i++){
+                        res2[i].clusterCount=res[i].clusterCount;
+                        res2[i].clusterId=res[i].clusterId;
+                        res2[i].extent=res[i].extent;
+                        res2[i].isCluster=res[i].isCluster;
+                        res2[i].items=res[i].items;
+                    }
+                    return res2;
 
                 },
 
@@ -198,39 +205,11 @@ define([
                 },
 
                 onUpdateStart: function (evt) {
-                    if(document.bart_gipodParameterWidget){
-                        document.bart_gipodParameterWidget._workers++;
-                        if (document.bart_gipodParameterWidget._workers > 0) {
-                            //document.bart_gipodParameterWidget.showMessage("loading","ik verwerk nog "+ document.bart_gipodParameterWidget._workers + " verzoek(en)");
-                            document.bart_gipodParameterWidget.showMessage("loading","zoekresultaten ophalen");
-                        }
-                        
-                        
-                    }
-                    //document.bart_notifier.warning("updating " + this.gipodType,"info",{timeout:900000,autoClose:false,newId:this.gipodType+"xyz",clickClose:true});
-                    /*this._workers++;
-                    if (this._workers > 0) {
-                        ct_css.toggleClass(this._rootNode, "ctLoadingThemaInfo", true);
-                    }*/
+                    document.bart_notifier.warning("updating " + this.gipodType,"info",{timeout:900000,autoClose:false,newId:this.gipodType+"xyz",clickClose:true});
                 },
                 onUpdateEnd: function (evt) {
-                    if(document.bart_gipodParameterWidget){
-                        document.bart_gipodParameterWidget._workers--;
-                        if (document.bart_gipodParameterWidget._workers > 0) {
-                            //document.bart_gipodParameterWidget.showMessage("loading","ik verwerk nog "+ document.bart_gipodParameterWidget._workers + " verzoek(en)");
-                            document.bart_gipodParameterWidget.showMessage("loading","zoekresultaten ophalen");
-                        }else
-                            if(document.bart_gipodParameterWidget._workers <= 0)
-                                document.bart_gipodParameterWidget.hideMessage();
-                        if (document.bart_gipodParameterWidget._workers < 0)
-                            document.bart_gipodParameterWidget._workers = 0
-                    }
-                    //document.bart_notifier.remove(this.gipodType+"xyz");
-                    //document.bart_notifier.success("done updating " + this.gipodType,"info",{autoClose:true,timeout:2000});
-                    /*this._workers--;
-                    if (this._workers <= 0) {
-                        ct_css.toggleClass(this._rootNode, "ctLoadingThemaInfo", false);
-                    }*/
+                    document.bart_notifier.remove(this.gipodType+"xyz");
+                    document.bart_notifier.success("done updating " + this.gipodType,"info",{autoClose:true});
                 },
 
                 _convertOptions: function (options) {

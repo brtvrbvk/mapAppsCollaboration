@@ -31,11 +31,9 @@ define([
 
                 templateString: templateString,
                 baseClass: "gipodParameterWidget",
-                _workers:0,
+
                 constructor: function () {
-                    document.bart_gipodParameterWidget=this;
-                    
-                    
+
                 },
 
                 postCreate: function () {

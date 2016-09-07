@@ -952,16 +952,13 @@ define([
 
                 _updateNodes: function () {
 
-                    
                     var qo = d_lang.clone(this.queryOptions);
                     this._cp.set("opts", this._formatDates(qo));
                     qo = this._prepareForLayerUpdate(qo);
-                    if(this.lastQueryOptions && JSON.stringify(this.queryOptions.eventType) == JSON.stringify(this.lastQueryOptions.eventType))
-                    if(this.lastQueryOptions && this.lastQueryOptions.workassignment == this.queryOptions.workassignment && this.lastQueryOptions.manifestation == this.queryOptions.manifestation)
                     if(this.lastparameters && this.lastparameters.startdate == qo.startdate && this.lastparameters.enddate == qo.enddate)
                            return;
                     this.lastparameters = qo;
-                    this.lastQueryOptions=d_lang.clone(this.queryOptions);
+
                     d_array.forEach(this.nodes, function (n) {
 
                         var node = commonID.findIdInModel(this.mapModel, n.id);
