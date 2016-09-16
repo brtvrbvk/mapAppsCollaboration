@@ -671,7 +671,7 @@ define([
 
                     if (this._isValidState(fieldname, oldval, newval)) {
 
-                        this._widget.hideMessage();
+                        //this._widget.hideMessage();
                         this._updateNodes();
 
                         if (this._periodDateSelection && (fieldname === "enddate" || fieldname === "startdate")) {

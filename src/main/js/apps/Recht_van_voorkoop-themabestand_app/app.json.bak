@@ -1,33 +1,40 @@
 {
    "properties":{
-      "createdAt":1424121026859,
-      "createdBy":"admin",
-      "templateFile":"ct-agiv-mapviewer-js-5.0.0-RC1-Hoogtekaart_app.zip",
-      "templateId":"",
-      "editorState":"PUBLISHED",
-      "id":"Hoogtekaart_app",
-      "modifiedAt":1469009326974,
+      "modifiedAt":1416572129252,
       "thumbnailFile":"thumbnail.png",
       "optimized":true,
       "modifiedBy":"admin",
-      "title":"Hoogtekaart",
-      "description":"Bekijk het Digitale Hoogtemodel Vlaanderen en vraag</br>het hoogteprofiel op van een traject."
+      "createdAt":1413207744883,
+      "createdBy":"admin",
+      "templateFile":"ct-agiv-mapviewer-4.0.0-Recht_van_voorkoop-themabestand_app.zip",
+      "templateId":"14909B330DA1EA5",
+      "editorState":"PUBLISHED",
+      "title":"Recht van voorkoop",
+      "description":"Zoek voor een specifiek adres of perceel het recht van voorkoop\n                                        op.",
+      "id":"Recht_van_voorkoop-themabestand_app"
    },
    "load":{
+      "styles":[
+         "${app}:rvv.css"
+      ],
       "i18n":[
          "bundle"
+      ],
+      "require":[
+         "${app}.app"
       ],
       "skipBundles":[
          "splitviewmap"
       ],
+      "bundleLocations": [
+        "localbundles",
+        "bundles"
+    ],
       "allowedBundles":[
-         "measurement@3.1.x",
-         "mapservicesconfig@5.0.x",
-         "typeformat@5.0.x",
          "agivthemes@5.0.x",
          "agivtemplates@5.0.x",
          "analytics@5.0.x",
-         "appinsights@5.0.x",
+         "appinsight@5.0.x",
          "appswitcher@5.0.x",
          "appsstore@3.1.x",
          "base@5.0.x",
@@ -44,34 +51,31 @@
          "contentviewer@3.1.x",
          "dataform@3.1.x",
          "devicecheck@5.0.x",
+         "disclaimer@5.0.x",
          "elevation@5.0.x",
          "extrainfo@5.0.x",
          "genericidentify@5.0.x",
          "geolocator@5.0.x",
          "geolocatorparcels@5.0.x",
          "geopunt@5.0.x",
-         "geojson@3.1.x",
          "help@5.0.x",
          "infoviewer@3.1.x",
          "i18nmappings@5.0.x",
          "jasperprinting@5.0.x",
          "jstorage@5.0.x",
-         "kml@5.0.x",
-         "kmltogeojson@5.0.x",
          "legend_agiv@5.0.x",
-         "loadservice@5.0.x",
          "map@3.1.x",
          "navteq@5.0.x",
-         "navteqrouting@5.0.x",
          "overviewmap@3.1.x",
          "overviewmap_agiv@5.0.x",
-         "poi@5.0.x",
          "parametermanager@3.1.x",
          "patches_main@5.0.x",
          "patches_measurement@5.0.x",
+         "parcelselection@5.0.x",
+         "pprselection@5.0.x",
          "redlining_agiv@5.0.x",
          "redlining@3.1.x",
-         "routing@5.0.x",
+         "resultcenter@3.1.x",
          "scaleviewer@5.0.x",
          "search@5.0.x",
          "sharemap@5.0.x",
@@ -81,9 +85,11 @@
          "startup@5.0.x",
          "startupmessagebox@5.0.x",
          "statestoring@5.0.x",
+         "selection@3.1.x",
          "toolwrapper@5.0.x",
          "toextent@5.0.x",
          "toolruleprocessors@5.0.x",
+         "typeformat@5.0.x",
          "templates@3.1.x",
          "templatelayout@3.1.x",
          "themes@3.1.x",
@@ -91,21 +97,12 @@
          "toolset@3.1.x",
          "undoredo_agiv@5.0.x",
          "version@5.0.x"
-      ],
-      "require":[
-         "${app}.app"
       ]
    },
    "bundles":{
-      "agivtemplates":{
-         "enabled":true
-      },
-      "agivthemes":{
-         "enabled":true
-      },
       "analytics":{
          "GoogleAnalyticsTracker":{
-            "account":"UA-36710880-9",
+            "account":"UA-36710880-7",
             "anonymizeIPs":true
          },
          "enabled":true
@@ -114,6 +111,9 @@
          "enabled":true
       },
       "appsstore":{
+         "enabled":true
+      },
+      "appstoggler_agiv":{
          "enabled":true
       },
       "appswitcher":{
@@ -126,13 +126,20 @@
          "enabled":true
       },
       "browsercheck":{
+         "ZoomCheck":{
+            "componentEnabled":true
+         },
          "enabled":true
       },
       "capakeysearch":{
+         "CapakeyController":{
+            "capakeyServiceData":"rvv"
+         },
          "enabled":true
       },
       "reversecapakey":{
          "ReversecapakeyController":{
+            "capakeyServiceData":"rvv",
             "alwaysShowOnStartup":false,
             "i18n":{
                "ui":{
@@ -142,157 +149,225 @@
          },
          "enabled":true
       },
+      "clearselection":{
+         "enabled":true
+      },
       "combicontentmanager":{
          "ContentModel":{
             "serviceDefinitions":{
                "operationalLayer":[
                   {
-                     "id":"dhmv/DHMVII_DTM_1m_261255508399",
-                     "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal terreinmodel 1m",
+                     "id":"agivRvvPerceelen",
                      "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVII_DTM_1m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVII",
-                     "props":{
-                        "description":"Digitaal terreinmodel (DTM) van het maaiveld in rasterformaat met een grondresolutie van 1 m. Dit DTM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II)werden ingewonnen.",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f52b1a13-86bc-4b64-8256-88cc0d1a8735&fname=DHMVII_DTM_sintpieters_1414140053900.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"dhmv/DHMVII_DSM_1m_443696273710",
-                     "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal oppervlaktemodel 1m",
-                     "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVII_DSM_1m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVII",
-                     "props":{
-                        "description":"Digitaal oppervlaktemodel (DSM, 'digital surface model') van het maaiveld inclusief objecten in rasterformaat met een grondresolutie van 1m. Dit DSM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II) werden ingewonnen",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=0da2e5e4-6886-426b-bb82-c0ffe6faeff6&fname=DHMVII_DSM_sintpieters_1414149877516.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"dhmv/DHMVI_DTM_5m_1125493831119",
-                     "title":"Digitaal Hoogtemodel Vlaanderen I, digitaal terreinmodel 5 m",
-                     "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVI_DTM_5m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVI",
-                     "props":{
-                        "description":"Digitaal hoogtemodel van Vlaanderen in rastervorm met resolutie van 5m x 5m. De hoogtewaarden betreffen de hoogte van het maaiveld en zijn uitgedrukt in meter TAW (Tweede Algemene Waterpassing, NGI). De hoogtewaarde per pixel is berekend door interpolatie van hoogtemetingen, in hoofdzaak ingewonnen via laseraltimetrie (LIDAR) met een dichtheid van ca 1 punt per 4m\u00B2, in de periode 2001 - 2004.",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=B5C62D89-A0C4-4228-B359-6FCAB7020C50&fname=DHMV-I_1398757974313.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"1384331993829_551164132139",
-                     "enabled":true,
-                     "category":{
-                        "imgUrl":"",
-                        "description":"",
-                        "isHeader":false
-                     },
-                     "title":"Basiskaarten en luchtfoto's",
-                     "__isDirty":true,
+                     "title":"${rvv.map.operational.agiv.RVVPercelen.title}",
+                     "minScale":15000,
+                     "service":"agivService_wms",
+                     "opacity":0.85,
                      "children":[
                         {
-                           "id":"grbbsk/grb_bsk_1377909453625",
-                           "enabled":false,
-                           "title":"GRB Basiskaart",
-                           "layers":[
-                              "*"
-                           ],
-                           "service":"grb",
-                           "opacity":0,
+                           "id":"4",
+                           "title":"${rvv.map.operational.agiv.RVVPercelen.description}",
+                           "layer":"4",
                            "props":{
-                              "imgUrl":"http://metadata.agiv.be:80/zoekdienst/srv/eng/resources.get?uuid=7C823055-7BBF-4D62-B55E-F85C30D53162&fname=figuur_metadata_GRB_2.jpg",
                               "description":"",
-                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/7c823055-7bbf-4d62-b55e-f85c30d53162"
+                              "imgUrl":"",
+                              "metadataUrl":""
                            },
-                           "identifyConfigId":"",
+                           "keywords":""
+                        }
+                     ],
+                     "props":{
+                        "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/52ed7cdd-df78-46ae-912a-e8234e1cffd1"
+                     },
+                     "category":{
+                        "description":"Bestand dat geselecteerde geografische informatie bevat over de Vlaamse voorkooprechten, zoals bedoeld in het decreet van 25 mei 2007 houdende de harmonisering van de procedures van voorkooprechten (B.S., 24 juli 2007), en dat wordt ontwikkeld, aangemaakt, beheerd, bijgehouden en bekendgemaakt door het Agentschap voor Geografische Informatie Vlaanderen. \nHet bestand bestaat uit RVV-records aangeleverd door begunstigden van Vlaamse voorkooprechten. Het bevat perceelgewijs welk(e) voorkooprecht(en) voor (een) bepaalde begunstige(n) gedurende een bepaalde periode op een onroerend goed rust(en). ",
+                        "imgUrl":"",
+                        "isHeader":false
+                     }
+                  },
+                  {
+                     "id":"agivPerceelen",
+                     "enabled":false,
+                     "title":"${rvv.map.operational.agiv.parcels.title}",
+                     "minScale":15000,
+                     "service":"agivService_wms",
+                     "children":[
+                        {
+                           "id":"29",
+                           "title":"${rvv.map.operational.agiv.parcelnumbers.title}",
+                           "layer":"29",
+                           "props":{
+                              "description":"",
+                              "imgUrl":"",
+                              "metadataUrl":""
+                           },
                            "keywords":""
                         },
                         {
-                           "id":"orthoogw/OGWRGB13_15VL_703275079094",
-                           "title":"Luchtfoto Vlaanderen,  winter 2013-2015 - kleur",
-                           "enabled":false,
-                           "service":"orthoogw",
-                           "layers":[
-                              "*"
-                           ],
-                           "identifyConfigId":"ogw_ortho",
+                           "id":"28",
+                           "title":"${rvv.map.operational.agiv.cadmap.title}",
+                           "layer":"28",
                            "props":{
-                              "description":"Deze rasterlaag is een compilatie van de grootschalige orthofotomoza\u00EFeken (winteropnamen) die voor Vlaanderen in de periode 2013-2015 werden aangemaakt. De compilatie heeft een grondresolutie van 10cm.",
-                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/dbbeddd4-0452-4413-9f2a-fa47a4f98e55",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=dbbeddd4-0452-4413-9f2a-fa47a4f98e55&fname=OGWRGB13_15VL_1452262139921.jpg"
+                              "description":"",
+                              "imgUrl":"",
+                              "metadataUrl":""
                            },
-                           "keywords":"",
-                           "__isDirty":true
-                        }
-                     ]
-                  },
-                  {
-                     "id":"1457622473526",
-                     "title":"3D GRB",
-                     "category":{
-                        "description":"",
-                        "imgUrl":"",
-                        "isHeader":false
-                     },
-                     "enabled":true,
-                     "children":[
-                        {
-                           "id":"d grb/GRBGEBL1D2_1187007343924",
-                           "title":"3D GRB Gebouw LOD1 DHMV II",
-                           "enabled":false,
-                           "service":"d grb",
-                           "layers":[
-                              "GRBGEBL1D2"
-                           ],
-                           "identifyConfigId":"3DGRB_GRBGEBL1D2",
-                           "props":{
-                              "description":"Het 3D GRB - Gebouw LOD1 DHMV II is een blokkenmodel (LOD1) van beschikbare GRB gebouwobjecten dat toelaat om deze gebouwobjecten in 3D te visualiseren en om effici\u00EBnt hoogte-informatie per gebouwobject te bevragen. De hoogte-informatie wordt gehaald uit de brondata van het Digitaal Hoogtemodel Vlaanderen II (DHMV II). Het resultaat is een blokkenmodel van gebouwen dat overeenkomt met een Level of Detail 1 of LOD1. De referentiehoogte van het Gebouw LOD1 DHMV II is de benadering van de nokhoogte. De geometrie wordt overgenomen van de bestaande GRB-polygonen van de entiteit Gebouw aan de grond (Gbg), Kunstwerk (Knw) type 7,8,9,11 of Gebouwaanhorigheid (Gba) type 1,2,7. De Z waarde (hoogtewaarde van gebouwobject) is gedefinieerd als de benaderende verticale afstand tussen nok en maaiveld van het gebouwobject en is bijgevolg een relatieve hoogtewaarde",
-                              "metadataUrl":"",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=42ac31a7-afe6-44c4-a534-243814fe5b58&fname=3DGRB_update_1458650336197.JPG"
-                           },
-                           "keywords":"",
-                           "__isDirty":true,
-                           "minScale":14174
+                           "keywords":""
                         }
                      ],
-                     "__isDirty":true
+                     "props":{
+                        "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/69081c7d-c26b-44d1-b26a-78f2c7e9c2b6"
+                     },
+                     "category":{
+                        "description":"CADMAP behelst de ongeveer 30.000 digitale offici\u00EBle kadastrale perceelsplans, gebiedsdekkend voor Belgi\u00EB, in beheer van de AAPD, en die jaarlijks worden bijgewerkt tot een bepaalde kadastrale toestand. AGIV heeft het recht verworven om CADMAP van Vlaanderen te distribueren naar deelnemers aan GIS-Vlaanderen (uitgezonderd de gemeenten) en aan netbeheerders van fysieke leidingnetten volgens het GRB-decreet. ",
+                        "imgUrl":"",
+                        "isHeader":false
+                     }
+                  },
+                  {
+                     "id":"agivPerceelenGrootschalig",
+                     "enabled":false,
+                     "title":"RVV-afbakeningen (grote schalen)",
+                     "minScale":15000,
+                     "service":"agivService_wms",
+                     "opacity":0.75,
+                     "children":[
+                        {
+                           "id":"6",
+                           "layer":"6"
+                        },
+                        {
+                           "id":"7",
+                           "layer":"7"
+                        },
+                        {
+                           "id":"8",
+                           "layer":"8"
+                        },
+                        {
+                           "id":"9",
+                           "layer":"9"
+                        },
+                        {
+                           "id":"10",
+                           "layer":"10"
+                        },
+                        {
+                           "id":"11",
+                           "layer":"11"
+                        },
+                        {
+                           "id":"12",
+                           "layer":"12"
+                        },
+                        {
+                           "id":"13",
+                           "layer":"13"
+                        },
+                        {
+                           "id":"14",
+                           "layer":"14"
+                        },
+                        {
+                           "id":"15",
+                           "layer":"15"
+                        },
+                        {
+                           "id":"0",
+                           "layer":"0"
+                        }
+                     ],
+                     "props":{
+                        "metadataUrl":"http://www.agiv.be/producten/rvv/meer-over/ondersteuning/veelgestelde-vragen#vraag28"
+                     },
+                     "category":{
+                        "description":"Voorkooprechten kunnen ontstaan in verschillende wetten en decreten. De zones die daaruit voortvloeien, worden RVV-afbakeningen genoemd.",
+                        "imgUrl":""
+                     }
+                  },
+                  {
+                     "id":"agivPerceelenKleinschalig",
+                     "enabled":false,
+                     "title":"RVV-afbakeningen (kleine schalen)",
+                     "service":"agivService_wms",
+                     "opacity":0.75,
+                     "children":[
+                        {
+                           "id":"17",
+                           "layer":"17",
+                           "title":"RVV-afbakeningen (grote schalen)"
+                        },
+                        {
+                           "id":"18",
+                           "layer":"18"
+                        },
+                        {
+                           "id":"19",
+                           "layer":"19"
+                        },
+                        {
+                           "id":"20",
+                           "layer":"20"
+                        },
+                        {
+                           "id":"21",
+                           "layer":"21"
+                        },
+                        {
+                           "id":"22",
+                           "layer":"22"
+                        },
+                        {
+                           "id":"23",
+                           "layer":"23"
+                        },
+                        {
+                           "id":"24",
+                           "layer":"24"
+                        },
+                        {
+                           "id":"25",
+                           "layer":"25"
+                        },
+                        {
+                           "id":"26",
+                           "layer":"26"
+                        },
+                        {
+                           "id":"1",
+                           "layer":"1"
+                        }
+                     ],
+                     "props":{
+                        "metadataUrl":"http://www.agiv.be/producten/rvv/meer-over/ondersteuning/veelgestelde-vragen#vraag28"
+                     },
+                     "minScale":2000000,
+                     "maxScale":15000,
+                     "category":{
+                        "description":"Voorkooprechten kunnen ontstaan in verschillende wetten en decreten. De zones die daaruit voortvloeien, worden RVV-afbakeningen genoemd.",
+                        "imgUrl":""
+                     }
                   }
                ]
             }
          },
-         "OverlayToolbar":{
+         "ContentModelHandler":{
             "componentEnabled":false
          },
-         "OverlayToolbarWithAddServiceTool":{
-            "componentEnabled":true
+         "ContentTreeView":{
+            "showDescription":true,
+            "expandTreePanel":true,
+            "openWindowOnNewData":false
          },
          "ToolSetter":{
             "openPanelOnStartup":true
          },
          "enabled":true
       },
-      "console":{
-         "enabled":true
-      },
       "contentviewer":{
+         "GraphicInfoTool":{
+            "componentEnabled":false
+         },
          "enabled":true
       },
       "coordinatetransformer":{
@@ -320,63 +395,21 @@
             "targetSrs":"EPSG:4326",
             "degreeFormat":true,
             "decimalPlaces":3,
-            "showScale":false,
-            "showLambertCoordinates":false,
-            "lambertSrs":"EPSG:31370",
-            "lambertDecimalPlaces":2
-         },
-         "enabled":true
-      },
-      "copyright":{
-         "Copyright":{
-            "position":"lowerleft",
-            "images":[
-               {
-                  "enabled":{
-                     "serviceurl":[
-                        "http://tile.api.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts"
-                     ],
-                     "serviceid":"agivfricx wmts"
-                  },
-                  "text":"De ontsluiting van deze historische kaart kwam tot stand door een samenwerking tussen het AGIV en de KBR.",
-                  "link":"http://www.agiv.be",
-                  "img":"logo_kbr_agiv.png",
-                  "copyright":"KBR"
-               },
-               {
-                  "enabled":{
-                     "serviceurl":[
-                        "http://tile.api.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts"
-                     ],
-                     "serviceid":"agivvandermaelen wmts"
-                  },
-                  "text":"De ontsluiting van deze historische kaart kwam tot stand door een samenwerking tussen het AGIV en de KBR.",
-                  "link":"http://www.agiv.be",
-                  "img":"logo_kbr_agiv.png",
-                  "copyright":"KBR"
-               },
-               {
-                  "enabled":{
-                     "serviceurl":[
-                        "http://tile.api.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts"
-                     ],
-                     "serviceid":"agivferraris wmts"
-                  },
-                  "text":"De ontsluiting van deze historische kaart kwam tot stand door een samenwerking tussen het AGIV en de KBR.",
-                  "link":"http://www.agiv.be",
-                  "img":"logo_kbr_agiv.png",
-                  "copyright":"KBR"
-               }
-            ]
+            "showScale":false
          },
          "enabled":true
       },
       "dataform":{
          "enabled":true
       },
-      "elevation":{
-         "ElevationStore":{
-            "datasetName":"DHMVMixed"
+      "disclaimer":{
+         "DisclaimerController":{
+            "alwaysShowOnStartup":true,
+            "i18n":{
+               "ui":{
+                  "disclaimer":"<p>De toegang tot de informatie op deze kaarttoepassing is publiek en kosteloos.</p>\n<p>De informatie kan uitsluitend gebruikt worden binnen het kader van het Harmoniseringsdecreet Rechten van Voorkoop, in het bijzonder de bekendmaking van het Geografisch themabestand \u2018Vlaamse voorkooprechten\u2019.</p>\n<p>U kan alleen kennis nemen van de medegedeelde informatie.</p>\n<p>Noch het AGIV, noch de bronhouders van de informatie, kan(kunnen) aansprakelijk gesteld worden voor onjuistheden of onvolledigheden in de verstrekte informatie, het gebruik en de werking van deze kaarttoepassing of de gevolgen daarvan.</p>"
+               }
+            }
          },
          "enabled":true
       },
@@ -387,20 +420,6 @@
          },
          "enabled":true
       },
-      "genericidentify":{
-         "StaticFeatureInfoContentModel":{
-            "mapModelId":"agivMapModel"
-         },
-         "StaticFeatureInfoModelStoreHelper":{
-            "ignoreVisibility":true,
-            "useAllOperationalNodes":true,
-            "pointGeometryTolerance":10
-         },
-         "enabled":true
-      },
-      "geojson":{
-         "enabled":true
-      },
       "geolocator":{
          "GeolocatorHandler":{
             "componentEnabled":true,
@@ -408,20 +427,20 @@
                "count":5
             },
             "geolocatorSuggestStoreParameters":{
+               "timeout":15000,
+               "minQueryLength":2,
+               "wkid":4326,
                "response":{
                   "resultArrayName":"SuggestionResult"
-               },
-               "minQueryLength":2,
-               "wkid":4326,
-               "timeout":15000
+               }
             },
             "geolocatorStoreParameters":{
-               "response":{
-                  "resultArrayName":"LocationResult"
-               },
+               "timeout":15000,
                "minQueryLength":2,
                "wkid":4326,
-               "timeout":15000
+               "response":{
+                  "resultArrayName":"LocationResult"
+               }
             },
             "useNavteqFallback":false
          },
@@ -459,12 +478,11 @@
             "useNavteqFallback":false
          },
          "GeolocatorUrlProvider":{
-            "suggestUrl":"http://perc.geopunt.be/perceel/suggestion",
-            "locationUrl":"http://perc.geopunt.be/perceel/location"
+            "suggestUrl":"https://rvv.agiv.be/RVVGeolocation/Geolocation/Suggestion",
+            "locationUrl":"https://rvv.agiv.be/RVVGeolocation/Geolocation/Location"
          },
          "ParcelUrlProvider":{
-            "parcelUrl":"http://geo.agiv.be/ArcGIS/rest/services/grbwfs/MapServer/0/query",
-            "parcelIDFieldName":"CAPAKEY"
+            "parcelUrl":"http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer/2/Query"
          },
          "enabled":true
       },
@@ -472,8 +490,16 @@
          "enabled":true
       },
       "help":{
+         "HelpBtnFactory":{
+            "Tooltip":"Help"
+         },
          "HelpHandler":{
             "helpUrl":"http://www.geopunt.be/over-geopunt"
+         },
+         "HelpTool":{
+            "title":"Bronnen, disclaimer, handleiding, contact",
+            "description":"Bronnen, disclaimer, handleiding, contact",
+            "tooltip":"Bronnen, disclaimer, handleiding, contact"
          },
          "enabled":true
       },
@@ -489,33 +515,34 @@
       "jstorage":{
          "enabled":true
       },
-      "kml":{
-         "enabled":true
-      },
-      "kmltogeojson":{
-         "enabled":true
-      },
       "legend_agiv":{
          "LegendUI":{
-            "legendMapping":[
-               {
-                  "id":"grb_bsk",
-                  "legendURL":"http://www.geopunt.be/~/media/Geopunt/Over%20Geopunt/documenten/Legende_GRB.pdf",
-                  "type":"pdf"
+            "replacements":{
+               "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer":{
+                  "1":"<div style='height:35px;color:#B83A00;font-size:100%;font-style:normal;margin-top:10px;margin-bottom:-10px;'>259A</div>"
                }
-            ]
-         },
-         "enabled":true
-      },
-      "loadservice":{
-         "LoadServiceWidgetFactory":{
-            "dataLink":"http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/vereisten%20voor%20het%20laden%20en%20een%20correcte%20weergave%20van%20je%20data.pdf"
+            },
+            "mappings":{
+               "http://geo.agiv.be/ArcGIS/rest/services/RVV/MapServer":{
+                  "3":4,
+                  "14":15
+               },
+               "http://geo.agiv.be/inspire/wms/RVV":{
+                  "4":4,
+                  "6":6,
+                  "17":17,
+                  "28":28,
+                  "29":29
+               }
+            },
+            "printTargetTemplate":"print"
          },
          "enabled":true
       },
       "map":{
          "DrawStateController":{
             "drawToolbarOpts":{
+               "showTooltips":true,
                "finishWithButton":true,
                "drawTime":25,
                "tolerance":1
@@ -537,14 +564,6 @@
                },
                {
                   "topic":"ct/resultcenter/datamodel/UPDATE_END",
-                  "method":"hideLoading"
-               },
-               {
-                  "topic":"ct/startup/UPDATE_START",
-                  "method":"showLoading"
-               },
-               {
-                  "topic":"ct/startup/UPDATE_END",
                   "method":"hideLoading"
                },
                {
@@ -578,14 +597,6 @@
                {
                   "topic":"ct/agivmetadata/UPDATE_END",
                   "method":"hideLoading"
-               },
-               {
-                  "topic":"ct/agivrouting/CALC_ROUTE_START",
-                  "method":"showLoading"
-               },
-               {
-                  "topic":"ct/agivrouting/CALC_ROUTE_END",
-                  "method":"hideLoading"
                }
             ]
          },
@@ -599,117 +610,74 @@
                      ],
                      "operationalLayer":[
                         {
-                           "id":"dhmv/DHMVII_DTM_1m_261255508399",
-                           "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal terreinmodel 1m",
+                           "id":"agivPerceelen",
                            "enabled":true,
-                           "service":"dhmv",
-                           "layers":[
-                              "DHMVII_DTM_1m"
-                           ],
-                           "identifyConfigId":"DHMV_DHMVII",
                            "props":{
-                              "description":"Digitaal terreinmodel (DTM) van het maaiveld in rasterformaat met een grondresolutie van 1 m. Dit DTM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II)werden ingewonnen.",
-                              "metadataUrl":"",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f52b1a13-86bc-4b64-8256-88cc0d1a8735&fname=DHMVII_DTM_sintpieters_1414140053900.jpg"
+                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/69081c7d-c26b-44d1-b26a-78f2c7e9c2b6"
                            },
-                           "keywords":"",
-                           "__isDirty":true
+                           "category":{
+                              "description":"CADMAP behelst de ongeveer 30.000 digitale offici\u00EBle kadastrale perceelsplans, gebiedsdekkend voor Belgi\u00EB, in beheer van de AAPD, en die jaarlijks worden bijgewerkt tot een bepaalde kadastrale toestand. AGIV heeft het recht verworven om CADMAP van Vlaanderen te distrubueren naar deelnemers aan GIS-Vlaanderen (uitgezonderd de gemeenten) en aan netbeheerders van fysieke leidingnetten volgens het GRB-decreet. ",
+                              "imgUrl":""
+                           },
+                           "title":"${rvv.map.operational.agiv.parcels.title}",
+                           "minScale":15000,
+                           "service":"agivService_wms",
+                           "children":[
+                              {
+                                 "id":"29",
+                                 "title":"${rvv.map.operational.agiv.parcelnumbers.title}",
+                                 "layer":"29"
+                              },
+                              {
+                                 "id":"28",
+                                 "title":"${rvv.map.operational.agiv.cadmap.title}",
+                                 "layer":"28"
+                              }
+                           ]
+                        },
+                        {
+                           "id":"agivRvvPerceelen",
+                           "enabled":true,
+                           "props":{
+                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/52ed7cdd-df78-46ae-912a-e8234e1cffd1"
+                           },
+                           "category":{
+                              "description":"Bestand dat geselecteerde geografische informatie bevat over de Vlaamse voorkooprechten, zoals bedoeld in het decreet van 25 mei 2007 houdende de harmonisering van de procedures van voorkooprechten (B.S., 24 juli 2007), en dat wordt ontwikkeld, aangemaakt, beheerd, bijgehouden en bekendgemaakt door het Agentschap voor Geografische Informatie Vlaanderen. \nHet bestand bestaat uit RVV-records aangeleverd door begunstigden van Vlaamse voorkooprechten. Het bevat perceelgewijs welk(e) voorkooprecht(en) voor (een) bepaalde begunstige(n) gedurende een bepaalde periode op een onroerend goed rust(en). ",
+                              "imgUrl":""
+                           },
+                           "title":"${rvv.map.operational.agiv.RVVPercelen.title}",
+                           "minScale":15000,
+                           "service":"agivService_wms",
+                           "opacity":0.85,
+                           "children":[
+                              {
+                                 "id":"4",
+                                 "title":"${rvv.map.operational.agiv.RVVPercelen.description}",
+                                 "layer":"4"
+                              }
+                           ]
                         }
                      ],
                      "baseLayer":[
                         {
-                           "id":"grb",
-                           "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-RELEASE/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"grb",
-                              "description":""
-                           },
-                           "title":"Basiskaart - GRB",
-                           "description":"Selecteer basiskaart - GRB als achtergrondlaag",
-                           "service":"grb",
-                           "children":[
-
-                           ]
-                        },
-                        {
-                           "id":"grb_grijs",
-                           "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-RELEASE/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"AGIV GRB Grijs WMTS",
-                              "description":""
-                           },
-                           "title":"Basiskaart - GRB grijs",
-                           "description":"Selecteer basiskaart - GRB grijs als achtergrondlaag",
-                           "service":"grijs",
-                           "children":[
-
-                           ]
-                        },
-                        {
                            "id":"luchtfoto",
                            "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-SNAPSHOT/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"ortho",
-                              "description":""
-                           },
                            "title":"Luchtfoto",
                            "description":"Selecteer luchtfoto als achtergrondlaag",
-                           "service":"ortho",
-                           "children":[
-
-                           ]
-                        },
-                        {
-                           "id":"hybride",
-                           "enabled":false,
-                           "category":"",
-                           "title":"Hybride",
-                           "description":"Selecteer een combinatie van luchtfoto en basiskaart als achtergrondlaag",
-                           "children":[
-                              {
-                                 "id":"basemap2_2",
-                                 "layers":[
-                                    "*"
-                                 ],
-                                 "service":"agiv_wmts_sel",
-                                 "opacity":0.7
-                              },
-                              {
-                                 "id":"basemap2_1",
-                                 "layers":[
-                                    "*"
-                                 ],
-                                 "service":"ortho"
-                              }
-                           ]
+                           "layers":[
+                              "*"
+                           ],
+                           "service":"ortho"
                         },
                         {
                            "id":"straten",
                            "enabled":true,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-SNAPSHOT/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"Navteq",
-                              "description":""
-                           },
                            "title":"Stratenplan",
                            "description":"Selecteer stratenplan als achtergrondlaag",
-                           "service":"navteq",
-                           "children":[
-                              {
-                                 "enabled":true,
-                                 "layer":"normal.day.grey"
-                              }
-                           ]
-                        },
-                        {
-                           "id":"nobasemap",
-                           "enabled":false,
-                           "category":"",
-                           "title":"Blanco",
-                           "description":"Selecteer blanco als achtergrondlaag"
+                           "layers":[
+                              "normal.day.grey"
+                           ],
+                           "service":"navteq"
                         }
                      ]
                   }
@@ -800,9 +768,6 @@
                }
             ]
          },
-         "MapStateParameterResolver":{
-            "componentEnabled":true
-         },
          "MapStateSyncableResolver":{
             "componentEnabled":false
          },
@@ -850,34 +815,16 @@
                "NAUTICAL_MILES"
             ]
          },
-         "MeasurementTool":{
-            "rules":{
-               "groups":[
-                  "maptools",
-                  "bottom_windows"
-               ]
-            }
-         },
          "enabled":true
       },
       "navigationtoolset":{
-         "enabled":{
-
-         }
+         "enabled":false
       },
       "navteq":{
          "enabled":true
       },
-      "navteqrouting":{
-         "enabled":true
-      },
       "overviewmap":{
          "OverviewMap":{
-            "overviewMapOpts":{
-               "scopeRectangleOpacity":"0.4",
-               "expandFactor":4,
-               "scopeRectangleColor":"#000000"
-            },
             "serviceDefinition":{
                "layers":[
                   "normal.day.grey"
@@ -893,236 +840,139 @@
       "parametermanager":{
          "enabled":true
       },
+      "parcelselection":{
+         "enabled":true
+      },
       "patches_main":{
          "enabled":true
       },
       "patches_measurement":{
          "enabled":true
       },
-      "poi":{
-         "POIServerStoreLayerRegistration":{
-            "maxcount":32,
-            "clusterLookupTable":{
-               "point-cluster":{
-                  "text":"TEXT",
-                  "font":{
-                     "weight":"normal",
-                     "style":"normal",
-                     "family":"sans-serif",
-                     "align":"middle",
-                     "variant":"normal",
-                     "size":"8pt"
-                  },
-                  "yoffset":-4,
-                  "type":"esriTS"
-               }
-            },
-            "symbolFactoryOpts":{
-               "doGeneralization":false,
-               "generalizationThreshold":500,
-               "lookupTable":{
-                  "point-selected":{
-                     "style":"esriSMSCircle",
-                     "color":[
-                        0,
-                        0,
-                        255,
-                        255
-                     ],
-                     "outline":{
-                        "style":"esriSLSSolid",
-                        "color":[
-                           0,
-                           0,
-                           0,
-                           255
-                        ],
-                        "width":1,
-                        "type":"esriSLS"
+      "pprselection":{
+         "DataView":{
+            "printResultList":true,
+            "enableIconView":false,
+            "initialText":"${rvv.dataView.initialText}",
+            "showFilter":false,
+            "addressTextPPR":"${rvv.dataView.addressTextPPR}",
+            "DGRID":{
+               "checkboxSelection":true,
+               "selectionMode":"multiple",
+               "clientSort":false,
+               "autoHeight":false,
+               "autoRender":false,
+               "rowSelector":false,
+               "columns":[
+                  {
+                     "matches":{
+                        "name":"parcelID"
                      },
-                     "type":"esriSMS",
-                     "size":5
+                     "title":"${rvv.resultcenter.fields.parcelID}",
+                     "skip":true
                   },
-                  "point":{
-                     "style":"esriSMSCircle",
-                     "color":"colorPlaceholder",
-                     "outline":{
-                        "style":"esriSLSSolid",
-                        "color":[
-                           0,
-                           0,
-                           0,
-                           160
-                        ],
-                        "width":1,
-                        "type":"esriSLS"
+                  {
+                     "matches":{
+                        "name":"ppr_type"
                      },
-                     "type":"esriSMS",
-                     "size":5
+                     "title":"${rvv.resultcenter.fields.type}"
                   },
-                  "point-selected-cluster":{
-                     "style":"esriSMSCircle",
-                     "color":[
-                        0,
-                        0,
-                        255,
-                        255
-                     ],
-                     "outline":{
-                        "style":"esriSLSSolid",
-                        "color":[
-                           0,
-                           0,
-                           0,
-                           255
-                        ],
-                        "width":1,
-                        "type":"esriSLS"
+                  {
+                     "matches":{
+                        "name":"beneficiary"
                      },
-                     "type":"esriSMS",
-                     "size":11
+                     "title":"${rvv.resultcenter.fields.beneficiary}"
                   },
-                  "point-cluster":{
-                     "style":"esriSMSCircle",
-                     "color":"colorPlaceholder",
-                     "outline":{
-                        "style":"esriSLSSolid",
-                        "color":[
-                           0,
-                           0,
-                           0,
-                           160
-                        ],
-                        "width":1,
-                        "type":"esriSLS"
+                  {
+                     "matches":{
+                        "name":"order"
                      },
-                     "type":"esriSMS",
-                     "size":11
+                     "title":"${rvv.resultcenter.fields.order}"
+                  },
+                  {
+                     "matches":{
+                        "name":{
+                           "$exists":true
+                        }
+                     },
+                     "skip":true
                   }
-               },
-               "colorArray":[
-                  [
-                     255,
-                     0,
-                     0,
-                     255
-                  ],
-                  [
-                     255,
-                     153,
-                     0,
-                     255
-                  ],
-                  [
-                     255,
-                     255,
-                     0,
-                     255
-                  ],
-                  [
-                     0,
-                     255,
-                     0,
-                     255
-                  ],
-                  [
-                     0,
-                     255,
-                     255,
-                     255
-                  ],
-                  [
-                     204,
-                     0,
-                     255,
-                     255
-                  ],
-                  [
-                     255,
-                     97,
-                     97,
-                     255
-                  ],
-                  [
-                     255,
-                     189,
-                     91,
-                     255
-                  ],
-                  [
-                     255,
-                     255,
-                     153,
-                     255
-                  ],
-                  [
-                     204,
-                     255,
-                     153,
-                     255
-                  ],
-                  [
-                     102,
-                     204,
-                     255,
-                     255
-                  ],
-                  [
-                     204,
-                     153,
-                     255,
-                     255
-                  ],
-                  [
-                     200,
-                     0,
-                     0,
-                     255
-                  ],
-                  [
-                     210,
-                     125,
-                     0,
-                     255
-                  ],
-                  [
-                     229,
-                     229,
-                     0,
-                     255
-                  ],
-                  [
-                     0,
-                     153,
-                     0,
-                     255
-                  ],
-                  [
-                     0,
-                     0,
-                     255,
-                     255
-                  ],
-                  [
-                     102,
-                     0,
-                     204,
-                     255
-                  ]
-               ],
-               "generalizationScale":1000000
+               ]
             },
-            "showClusterLabels":true
+            "showPager":true,
+            "rvvSpecificTitle":true,
+            "addressTextNoPPR":"${rvv.dataView.addressTextNoPPR}",
+            "showViewButtons":false,
+            "itemsPerPage":25
          },
-         "POISuggestHandler":{
-            "componentEnabled":true,
-            "storeQueryOptions":{
-               "count":5,
-               "maxmodel":true
+         "ExportRVVResultsCommand":{
+            "ignoreFields":{
+               "PPR":[
+                  "edrvv",
+                  "idx",
+                  "infoTemplate",
+                  "symbol",
+                  "totalCount",
+                  "startDate",
+                  "municipality",
+                  "OBJECTID"
+               ]
             },
-            "storeParameters":{
-               "minQueryLength":2,
-               "target":"http://poi.api.geopunt.be/v1/core"
+            "includeFields":[
+               "parcelID",
+               "ppr_type",
+               "beneficiary",
+               "order"
+            ],
+            "charset":"UTF-8"
+         },
+         "MapServerLayerStore":{
+            "dateFormatter":"dd/MM/yyyy",
+            "fieldMappings":{
+               "id":"id",
+               "edrvv":"endDate",
+               "bdrvv":"startDate",
+               "orde":"order",
+               "NAAM":"municipality",
+               "soortType":"ppr_type",
+               "begunstigde":"beneficiary",
+               "perceelNr":"parcelID"
+            },
+            "_metadata":{
+               "fields":[
+                  {
+                     "title":"${rvv.resultcenter.fields.type}",
+                     "name":"ppr_type",
+                     "type":"string"
+                  },
+                  {
+                     "title":"${rvv.resultcenter.fields.parcelID}",
+                     "name":"parcelID",
+                     "type":"string"
+                  },
+                  {
+                     "title":"${rvv.resultcenter.fields.beneficiary}",
+                     "name":"beneficiary",
+                     "type":"string"
+                  },
+                  {
+                     "title":"${rvv.resultcenter.fields.order}",
+                     "name":"order",
+                     "type":"number"
+                  }
+               ]
+            },
+            "muniFields":{
+               "NAAM":true
+            },
+            "outFields":{
+               "edrvv":true,
+               "bdrvv":true,
+               "orde":true,
+               "soortType":true,
+               "begunstigde":true,
+               "perceelNr":true,
+               "geometry":true
             }
          },
          "enabled":true
@@ -1252,31 +1102,152 @@
       "redlining_agiv":{
          "enabled":true
       },
-      "routing":{
-         "SearchHandler":{
-            "componentEnabled":true,
-            "geolocatorSuggestQueryOptions":{
-               "count":5
+      "resultcenter":{
+         "ActionController":{
+            "zoomToFeatures":true,
+            "zoomToSelected":false,
+            "centerSelected":true,
+            "zoomAfterDeletion":false
+         },
+         "DataView":{
+            "componentEnabled":false
+         },
+         "DataViewToolbar":{
+            "componentEnabled":true
+         },
+         "ExportResultsCommand":{
+            "ignoreFields":{
+               "PPR":[
+                  "edrvv",
+                  "idx",
+                  "infoTemplate",
+                  "symbol",
+                  "totalCount",
+                  "startDate",
+                  "municipality",
+                  "OBJECTID"
+               ]
             },
-            "geolocatorSuggestStoreParameters":{
-               "response":{
-                  "resultArrayName":"SuggestionResult"
-               },
-               "minQueryLength":2,
-               "wkid":4326,
-               "searchType":"suggestUrl",
-               "timeout":15000
-            },
-            "geolocatorStoreParameters":{
-               "response":{
-                  "resultArrayName":"LocationResult"
-               },
-               "minQueryLength":2,
-               "wkid":4326,
-               "searchType":"locationUrl",
-               "timeout":15000
-            },
-            "useNavteqFallback":true
+            "charset":"UTF-8"
+         },
+         "FeatureMapVisualizer":{
+            "componentEnabled":false
+         },
+         "GraphicResolverFactory":{
+            "componentEnabled":false,
+            "_defaultSymbolLookup":{
+               "_defaultLookupAttributeName":"type",
+               "_defaultLookupTable":{
+                  "polygon-selected-highlighted":{
+                     "style":"esriSFSSolid",
+                     "xoffset":0,
+                     "color":[
+                        255,
+                        255,
+                        255,
+                        0
+                     ],
+                     "yoffset":0,
+                     "type":"esriSFS",
+                     "outline":{
+                        "style":"esriSLSSolid",
+                        "color":[
+                           65,
+                           115,
+                           255,
+                           255
+                        ],
+                        "width":4,
+                        "type":"esriSLS"
+                     },
+                     "size":16
+                  },
+                  "polygon":{
+                     "style":"esriSFSSolid",
+                     "xoffset":0,
+                     "color":[
+                        255,
+                        255,
+                        255,
+                        0
+                     ],
+                     "yoffset":0,
+                     "type":"esriSFS",
+                     "outline":{
+                        "style":"esriSLSSolid",
+                        "color":[
+                           65,
+                           115,
+                           255,
+                           255
+                        ],
+                        "width":4,
+                        "type":"esriSLS"
+                     },
+                     "size":16
+                  },
+                  "polygon-highlighted":{
+                     "style":"esriSFSSolid",
+                     "xoffset":0,
+                     "color":[
+                        255,
+                        255,
+                        255,
+                        0
+                     ],
+                     "yoffset":0,
+                     "type":"esriSFS",
+                     "outline":{
+                        "style":"esriSLSSolid",
+                        "color":[
+                           65,
+                           115,
+                           255,
+                           255
+                        ],
+                        "width":4,
+                        "type":"esriSLS"
+                     },
+                     "size":16
+                  },
+                  "polygon-selected":{
+                     "style":"esriSFSSolid",
+                     "xoffset":0,
+                     "color":[
+                        255,
+                        255,
+                        255,
+                        0
+                     ],
+                     "yoffset":0,
+                     "type":"esriSFS",
+                     "outline":{
+                        "style":"esriSLSSolid",
+                        "color":[
+                           65,
+                           115,
+                           255,
+                           255
+                        ],
+                        "width":4,
+                        "type":"esriSLS"
+                     },
+                     "size":16
+                  }
+               }
+            }
+         },
+         "RemoveAllTool":{
+            "componentEnabled":false
+         },
+         "RemoveSelectedTool":{
+            "componentEnabled":false
+         },
+         "SelectExtentTool":{
+            "componentEnabled":false
+         },
+         "TriggerShowResultCenterCommand":{
+            "componentEnabled":false
          },
          "enabled":true
       },
@@ -1289,9 +1260,31 @@
       "search":{
          "enabled":true
       },
+      "selection":{
+         "SelectionAction":{
+            "componentEnabled":false
+         },
+         "SelectionTool":[
+            {
+               "id":"selectPPR",
+               "title":"${rvv.tool.ppr}",
+               "iconClass":"icon-location-information-bubble",
+               "tooltip":"${rvv.tool.tooltip}",
+               "geoType":"Point",
+               "storeId":"PPR",
+               "rules":{
+                  "scaleRange":{
+                     "min":15000,
+                     "max":1
+                  }
+               }
+            }
+         ],
+         "enabled":true
+      },
       "sharemap":{
          "MinimapSharer":{
-            "shareUrl":"http://maps.geopunt.be/resources/apps/Minimaps_interface/index.html?id="
+            "shareUrl":"http://maps1.geopunt.be/resources/apps/Minimaps_interface/index.html?id="
          },
          "ParameterUIFactory":{
             "baseURL":"http://www.geopunt.be/kaart?viewer="
@@ -1339,6 +1332,11 @@
          "enabled":true
       },
       "themes":{
+         "ApplicationStyleWriter":{
+            "styles":[
+               "${app}:rvv.css"
+            ]
+         },
          "ThemeModel":{
             "_selectedTheme":"neat"
          },
@@ -1351,18 +1349,24 @@
          "enabled":true
       },
       "toextent":{
-         "enabled":true
-      },
-      "toolruleprocessors":{
+         "ToExtentHandler":{
+            "extent":{
+               "ymin":6550000,
+               "ymax":6725000,
+               "xmin":280000,
+               "xmax":660000,
+               "spatialReference":{
+                  "wkid":3857
+               }
+            }
+         },
          "enabled":true
       },
       "toolrules":{
          "ToolActiveStateManager":{
-            "activateOnStartToolIds":[
-               "genericFeatureInfoTool"
-            ],
             "defaultActiveToolIds":{
-               "maptools":"genericFeatureInfoTool"
+               "default":"selectPPR",
+               "maptools":"selectPPR"
             }
          },
          "enabled":true
@@ -1411,10 +1415,10 @@
                   "windowType":"dropdown",
                   "tools":[
                      "measurementtool",
-                     "redlining_tools",
-                     "elevationToggleTool"
+                     "redlining_tools"
                   ],
                   "title":"Tools",
+                  "__isDirty":true,
                   "container":"toolWrapperFooterLeft",
                   "cssClass":"ctToolBubblePopUp roundToolDropDownButton"
                },
@@ -1426,13 +1430,11 @@
                      "shareFacebookTool",
                      "shareGooglePlusTool",
                      "shareTwitterTool",
-                     "shareUrlTool",
-                     "shareMinimapTool"
+                     "shareUrlTool"
                   ],
                   "container":"ignore",
                   "windowType":"dropdown",
                   "cssClass":"ctToolBubblePopUp",
-                  "iconClass":"icon-share",
                   "registerTool":{
                      "groups":[
                         "share_tools"
@@ -1477,8 +1479,7 @@
                   "max_horizontal":10,
                   "registerTool":{
                      "groups":[
-                        "redlining_tools",
-                        "bottom_windows"
+                        "toolset_0"
                      ]
                   }
                }
@@ -1487,9 +1488,6 @@
          "enabled":true
       },
       "toolwrapper":{
-         "enabled":true
-      },
-      "undoredo_agiv":{
          "enabled":true
       },
       "version":{

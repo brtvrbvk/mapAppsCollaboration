@@ -150,7 +150,7 @@ define([
                     }, this);
                     if(this.title != "Aangeklikte locatie")
                         this._resizeWindow( 30, evt);
-                    if(this.title == "Perceel")
+                    if(this.title == "Perceel" || this.title == "Co&#xF6rdinaat")
                         this._resizeWindow( 25, evt);
                     this._resizeWindow(this.storeQueries.length * 16 , evt);
 

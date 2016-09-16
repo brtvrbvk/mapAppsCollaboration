@@ -122,8 +122,19 @@ define([
                         this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.postalcodePdf + " </div></div>";
                     }
                     var tooltiptxt = "Website van "+item.municipalityPdf;
+                    var municipalityPdfns=item.municipalityPdf;
+                    while(municipalityPdfns != municipalityPdfns.replace(" ",""))
+                    	municipalityPdfns=municipalityPdfns.replace(" ","");
+                    var theLink;
+                    if(municipalityPdfns.toLowerCase()=="mol")
+                        theLink="http://www.gemeentemol.be";
+                    else if(municipalityPdfns.toLowerCase()=="herstappe")
+                        theLink="http://www.vlaanderen.be/nl/gemeenten-en-provincies/provincie-limburg/herstappe";
+                    else
+                        theLink="http://www." + municipalityPdfns + ".be";
                     domConstruct.create("a", {
-                            href: "http://www.vlaanderen.be/" + item.municipalityPdf,
+                            //href: "http://www.vlaanderen.be/" + item.municipalityPdf,
+                            href: theLink,
                             target: "_blank",
                             innerHTML: item.municipalityPdf
                             //,title:tooltiptxt,

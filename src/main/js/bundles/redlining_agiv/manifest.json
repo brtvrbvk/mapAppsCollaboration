@@ -111,9 +111,13 @@
           "name": "geometryRenderer",
           "providing": "redlining_agiv.GeometryRenderer"
         },
-                {
-                    "name": "ct",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        {
+          "name": "ct",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        },
+        {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
                 }
       ]
     },

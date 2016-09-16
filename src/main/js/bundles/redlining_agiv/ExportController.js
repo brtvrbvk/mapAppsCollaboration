@@ -6,9 +6,10 @@ define([
         "dojo/_base/declare",
         "dojo/_base/array",
         "ct/Stateful",
-        "ct/_Connect"
+        "ct/_Connect",
+        "base/analytics/AnalyticsConstants"
     ],
-    function (declare, d_array, Stateful, _Connect) {
+    function (declare, d_array, Stateful, _Connect,AnalyticsConstants) {
         return declare([Stateful, _Connect],
             {
                 constructor: function () {
@@ -16,12 +17,28 @@ define([
                 },
 
                 export: function () {
-                    /*
+                    
+                   this.eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
+                        eventType: AnalyticsConstants.EVENT_TYPES.REDLINING_EXPORT,
+                        eventCategory: AnalyticsConstants.CATEGORIES.REDLINING,
+                        eventValue: this.geometryRenderer._renderers.length + " items"
+                    }); 
+                    
+                    
+                    
+                    
+/*                    
                     document.bart_notifier.info("Export start","info",{
             timeout:5000,
             autoClose:false,
             clickClose:true,
-            xClose:true});
+            xClose:true,container_styles: {
+            
+                            right: "300px",
+                            bottom: "300px"
+             }});
+                    */
+        /*
                     document.bart_notifier.info("Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2","info",{
             timeout:5000,
             autoClose:true,

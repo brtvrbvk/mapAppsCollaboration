@@ -25,7 +25,6 @@ define([
                         //this.infoNode.innerHTML = this.i18n[attr.type] + ": " + attr.title;
                         this.set("title", "Co&#xF6rdinaat");
                         //this.infoNode.innerHTML = "Co&#xF6rdinaat" + ": " + attr.title;
-                        this.infoNode.innerHTML = "<div class='ctFeatureInfoAddress' style='padding-bottom:10px;font-weight:bold;'><div class='icon-coordinateviewer featureinfoIcon'></div><div>" +  attr.title + "</div></div>";
                         
                     }
                 },
@@ -33,7 +32,7 @@ define([
                 _showGeocodeResult: function (item) {
                     this.inherited(arguments);
                     this.labelNode.innerHTML = this.i18n.addressLevel + ":";
-                    
+                    this.parcelNode.innerHTML = "<div class='ctFeatureInfoAddress' style='padding-bottom:10px;'><div class='icon-coordinateviewer featureinfoIcon'></div><div>" +  attr.title + "</div></div>";
                 }
             }
         );

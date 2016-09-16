@@ -1,28 +1,36 @@
 {
    "properties":{
-      "createdAt":1424121026859,
-      "createdBy":"admin",
-      "templateFile":"ct-agiv-mapviewer-js-5.0.0-RC1-Hoogtekaart_app.zip",
-      "templateId":"",
-      "editorState":"PUBLISHED",
-      "id":"Hoogtekaart_app",
-      "modifiedAt":1469009326974,
+      "modifiedAt":1426837891676,
       "thumbnailFile":"thumbnail.png",
       "optimized":true,
       "modifiedBy":"admin",
-      "title":"Hoogtekaart",
-      "description":"Bekijk het Digitale Hoogtemodel Vlaanderen en vraag</br>het hoogteprofiel op van een traject."
+      "createdAt":1424120860545,
+      "createdBy":"admin",
+      "templateFile":"ct-agiv-mapviewer-js-5.0.0-RC1-Gewestplan_app.zip",
+      "editorState":"PUBLISHED",
+      "templateId":"",
+      "title":"Gewestplan",
+      "description":"Bekijk hier het Gewestplan.",
+      "id":"Gewestplan_app"
    },
    "load":{
+      "styles":[
+         "${app}:gwp.css"
+      ],
       "i18n":[
          "bundle"
+      ],
+      "require":[
+         "${app}.app"
       ],
       "skipBundles":[
          "splitviewmap"
       ],
+      "bundleLocations": [
+        "localbundles",
+        "bundles"
+    ],
       "allowedBundles":[
-         "measurement@3.1.x",
-         "mapservicesconfig@5.0.x",
          "typeformat@5.0.x",
          "agivthemes@5.0.x",
          "agivtemplates@5.0.x",
@@ -33,8 +41,6 @@
          "base@5.0.x",
          "basemapswitcher@5.0.x",
          "browsercheck@5.0.x",
-         "capakeysearch@5.0.x",
-         "reversecapakey@5.0.x",
          "combicontentmanager@5.0.x",
          "coordinateparser@5.0.x",
          "coordinateviewer_agiv@5.0.x",
@@ -91,9 +97,6 @@
          "toolset@3.1.x",
          "undoredo_agiv@5.0.x",
          "version@5.0.x"
-      ],
-      "require":[
-         "${app}.app"
       ]
    },
    "bundles":{
@@ -105,7 +108,7 @@
       },
       "analytics":{
          "GoogleAnalyticsTracker":{
-            "account":"UA-36710880-9",
+            "account":"UA-36710880-11",
             "anonymizeIPs":true
          },
          "enabled":true
@@ -128,154 +131,38 @@
       "browsercheck":{
          "enabled":true
       },
-      "capakeysearch":{
-         "enabled":true
-      },
-      "reversecapakey":{
-         "ReversecapakeyController":{
-            "alwaysShowOnStartup":false,
-            "i18n":{
-               "ui":{
-
-               }
-            }
-         },
-         "enabled":true
-      },
       "combicontentmanager":{
          "ContentModel":{
             "serviceDefinitions":{
                "operationalLayer":[
                   {
-                     "id":"dhmv/DHMVII_DTM_1m_261255508399",
-                     "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal terreinmodel 1m",
-                     "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVII_DTM_1m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVII",
-                     "props":{
-                        "description":"Digitaal terreinmodel (DTM) van het maaiveld in rasterformaat met een grondresolutie van 1 m. Dit DTM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II)werden ingewonnen.",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f52b1a13-86bc-4b64-8256-88cc0d1a8735&fname=DHMVII_DTM_sintpieters_1414140053900.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"dhmv/DHMVII_DSM_1m_443696273710",
-                     "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal oppervlaktemodel 1m",
-                     "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVII_DSM_1m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVII",
-                     "props":{
-                        "description":"Digitaal oppervlaktemodel (DSM, 'digital surface model') van het maaiveld inclusief objecten in rasterformaat met een grondresolutie van 1m. Dit DSM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II) werden ingewonnen",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=0da2e5e4-6886-426b-bb82-c0ffe6faeff6&fname=DHMVII_DSM_sintpieters_1414149877516.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"dhmv/DHMVI_DTM_5m_1125493831119",
-                     "title":"Digitaal Hoogtemodel Vlaanderen I, digitaal terreinmodel 5 m",
-                     "enabled":false,
-                     "service":"dhmv",
-                     "layers":[
-                        "DHMVI_DTM_5m"
-                     ],
-                     "identifyConfigId":"DHMV_DHMVI",
-                     "props":{
-                        "description":"Digitaal hoogtemodel van Vlaanderen in rastervorm met resolutie van 5m x 5m. De hoogtewaarden betreffen de hoogte van het maaiveld en zijn uitgedrukt in meter TAW (Tweede Algemene Waterpassing, NGI). De hoogtewaarde per pixel is berekend door interpolatie van hoogtemetingen, in hoofdzaak ingewonnen via laseraltimetrie (LIDAR) met een dichtheid van ca 1 punt per 4m\u00B2, in de periode 2001 - 2004.",
-                        "metadataUrl":"",
-                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=B5C62D89-A0C4-4228-B359-6FCAB7020C50&fname=DHMV-I_1398757974313.jpg"
-                     },
-                     "keywords":"",
-                     "__isDirty":true
-                  },
-                  {
-                     "id":"1384331993829_551164132139",
+                     "id":"gewestplan2014 wmts/Gewestplan_946915820805",
+                     "title":"Gewestplan",
                      "enabled":true,
-                     "category":{
-                        "imgUrl":"",
-                        "description":"",
-                        "isHeader":false
-                     },
-                     "title":"Basiskaarten en luchtfoto's",
                      "__isDirty":true,
-                     "children":[
-                        {
-                           "id":"grbbsk/grb_bsk_1377909453625",
-                           "enabled":false,
-                           "title":"GRB Basiskaart",
-                           "layers":[
-                              "*"
-                           ],
-                           "service":"grb",
-                           "opacity":0,
-                           "props":{
-                              "imgUrl":"http://metadata.agiv.be:80/zoekdienst/srv/eng/resources.get?uuid=7C823055-7BBF-4D62-B55E-F85C30D53162&fname=figuur_metadata_GRB_2.jpg",
-                              "description":"",
-                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/7c823055-7bbf-4d62-b55e-f85c30d53162"
-                           },
-                           "identifyConfigId":"",
-                           "keywords":""
-                        },
-                        {
-                           "id":"orthoogw/OGWRGB13_15VL_703275079094",
-                           "title":"Luchtfoto Vlaanderen,  winter 2013-2015 - kleur",
-                           "enabled":false,
-                           "service":"orthoogw",
-                           "layers":[
-                              "*"
-                           ],
-                           "identifyConfigId":"ogw_ortho",
-                           "props":{
-                              "description":"Deze rasterlaag is een compilatie van de grootschalige orthofotomoza\u00EFeken (winteropnamen) die voor Vlaanderen in de periode 2013-2015 werden aangemaakt. De compilatie heeft een grondresolutie van 10cm.",
-                              "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/dbbeddd4-0452-4413-9f2a-fa47a4f98e55",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=dbbeddd4-0452-4413-9f2a-fa47a4f98e55&fname=OGWRGB13_15VL_1452262139921.jpg"
-                           },
-                           "keywords":"",
-                           "__isDirty":true
-                        }
-                     ]
-                  },
-                  {
-                     "id":"1457622473526",
-                     "title":"3D GRB",
-                     "category":{
-                        "description":"",
-                        "imgUrl":"",
-                        "isHeader":false
-                     },
-                     "enabled":true,
-                     "children":[
-                        {
-                           "id":"d grb/GRBGEBL1D2_1187007343924",
-                           "title":"3D GRB Gebouw LOD1 DHMV II",
-                           "enabled":false,
-                           "service":"d grb",
-                           "layers":[
-                              "GRBGEBL1D2"
-                           ],
-                           "identifyConfigId":"3DGRB_GRBGEBL1D2",
-                           "props":{
-                              "description":"Het 3D GRB - Gebouw LOD1 DHMV II is een blokkenmodel (LOD1) van beschikbare GRB gebouwobjecten dat toelaat om deze gebouwobjecten in 3D te visualiseren en om effici\u00EBnt hoogte-informatie per gebouwobject te bevragen. De hoogte-informatie wordt gehaald uit de brondata van het Digitaal Hoogtemodel Vlaanderen II (DHMV II). Het resultaat is een blokkenmodel van gebouwen dat overeenkomt met een Level of Detail 1 of LOD1. De referentiehoogte van het Gebouw LOD1 DHMV II is de benadering van de nokhoogte. De geometrie wordt overgenomen van de bestaande GRB-polygonen van de entiteit Gebouw aan de grond (Gbg), Kunstwerk (Knw) type 7,8,9,11 of Gebouwaanhorigheid (Gba) type 1,2,7. De Z waarde (hoogtewaarde van gebouwobject) is gedefinieerd als de benaderende verticale afstand tussen nok en maaiveld van het gebouwobject en is bijgevolg een relatieve hoogtewaarde",
-                              "metadataUrl":"",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=42ac31a7-afe6-44c4-a534-243814fe5b58&fname=3DGRB_update_1458650336197.JPG"
-                           },
-                           "keywords":"",
-                           "__isDirty":true,
-                           "minScale":14174
-                        }
+                     "service":"gewestplan2014 wmts",
+                     "layers":[
+                        "*"
                      ],
-                     "__isDirty":true
+                     "identifyConfigId":"Gewestplan_2014",
+                     "props":{
+                        "description":"Bodembestemmingen in Vlaanderen volgens de gewestplannen, cartografisch weergegeven aan de hand van de offici\u00EBle gewestplan-legende. \nDe bodembestemming verwijst naar algemene en aanvullende (bijzondere) stedenbouwkundige voorschriften zoals ze voor de gewestplannen in het algemeen, of per goedgekeurd gewestplan, zijn vastgesteld. \nDit digitaal gewestplan kan niet gehanteerd worden als juridisch document.",
+                        "metadataUrl":"http://www.geopunt.be/catalogus/datasetfolder/6adebf0d-87c0-4ee3-a3c8-4537f38c7199",
+                        "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=6adebf0d-87c0-4ee3-a3c8-4537f38c7199&fname=Gewestplan_1407405830728.jpg"
+                     },
+                     "keywords":"",
+                     "minScale":75000
                   }
                ]
+            }
+         },
+         "ContentModelHandler":{
+            "componentEnabled":false,
+            "storeQueryOptions":{
+               "count":5
+            },
+            "storeParameters":{
+               "minQueryLength":2
             }
          },
          "OverlayToolbar":{
@@ -320,10 +207,7 @@
             "targetSrs":"EPSG:4326",
             "degreeFormat":true,
             "decimalPlaces":3,
-            "showScale":false,
-            "showLambertCoordinates":false,
-            "lambertSrs":"EPSG:31370",
-            "lambertDecimalPlaces":2
+            "showScale":false
          },
          "enabled":true
       },
@@ -375,10 +259,9 @@
          "enabled":true
       },
       "elevation":{
-         "ElevationStore":{
-            "datasetName":"DHMVMixed"
-         },
-         "enabled":true
+         "enabled":{
+
+         }
       },
       "extrainfo":{
          "ExtraInfoHandler":{
@@ -426,8 +309,8 @@
             "useNavteqFallback":false
          },
          "GeolocatorUrlProvider":{
-            "suggestUrl":"http://loc.geopunt.be/v2/suggestion",
-            "locationUrl":"http://loc.geopunt.be/v2/location"
+            "suggestUrl":"http://loc.geopunt.be/geolocation/suggestion",
+            "locationUrl":"http://loc.geopunt.be/geolocation/location"
          },
          "ParcelUrlProvider":{
             "parcelUrl":""
@@ -436,7 +319,7 @@
       },
       "geolocatorparcels":{
          "GeolocatorHandler":{
-            "componentEnabled":true,
+            "componentEnabled":false,
             "geolocatorSuggestQueryOptions":{
                "count":5
             },
@@ -459,12 +342,11 @@
             "useNavteqFallback":false
          },
          "GeolocatorUrlProvider":{
-            "suggestUrl":"http://perc.geopunt.be/perceel/suggestion",
-            "locationUrl":"http://perc.geopunt.be/perceel/location"
+            "suggestUrl":"",
+            "locationUrl":""
          },
          "ParcelUrlProvider":{
-            "parcelUrl":"http://geo.agiv.be/ArcGIS/rest/services/grbwfs/MapServer/0/query",
-            "parcelIDFieldName":"CAPAKEY"
+            "parcelUrl":""
          },
          "enabled":true
       },
@@ -473,7 +355,7 @@
       },
       "help":{
          "HelpHandler":{
-            "helpUrl":"http://www.geopunt.be/over-geopunt"
+            "helpUrl":"http://www.geopunt.be/over-geopunt/hoe-geopunt-gebruiken"
          },
          "enabled":true
       },
@@ -499,8 +381,8 @@
          "LegendUI":{
             "legendMapping":[
                {
-                  "id":"grb_bsk",
-                  "legendURL":"http://www.geopunt.be/~/media/Geopunt/Over%20Geopunt/documenten/Legende_GRB.pdf",
+                  "id":"Gewestplan",
+                  "legendURL":"http://www.geopunt.be/~/media/Geopunt/Over%20Geopunt/documenten/Legende_Gewestplan_Raster.pdf",
                   "type":"pdf"
                }
             ]
@@ -508,8 +390,8 @@
          "enabled":true
       },
       "loadservice":{
-         "LoadServiceWidgetFactory":{
-            "dataLink":"http://www.geopunt.be/~/media/geopunt/over%20geopunt/documenten/vereisten%20voor%20het%20laden%20en%20een%20correcte%20weergave%20van%20je%20data.pdf"
+         "AddServiceTool":{
+            "componentEnabled":false
          },
          "enabled":true
       },
@@ -599,93 +481,25 @@
                      ],
                      "operationalLayer":[
                         {
-                           "id":"dhmv/DHMVII_DTM_1m_261255508399",
-                           "title":"Digitaal Hoogtemodel Vlaanderen II, digitaal terreinmodel 1m",
+                           "id":"gewestplan2014 wmts/Gewestplan_946915820805",
+                           "title":"Gewestplan",
                            "enabled":true,
-                           "service":"dhmv",
+                           "__isDirty":true,
+                           "service":"gewestplan2014 wmts",
                            "layers":[
-                              "DHMVII_DTM_1m"
+                              "*"
                            ],
-                           "identifyConfigId":"DHMV_DHMVII",
+                           "identifyConfigId":"Gewestplan_2014",
                            "props":{
-                              "description":"Digitaal terreinmodel (DTM) van het maaiveld in rasterformaat met een grondresolutie van 1 m. Dit DTM werd afgeleid van LiDAR-hoogtegegevens die in het kader van het Digitaal Hoogtemodel Vlaanderen II (DHMV-II)werden ingewonnen.",
+                              "description":"",
                               "metadataUrl":"",
-                              "imgUrl":"https://metadata.agiv.be/zoekdienst/srv/eng/resources.get?uuid=f52b1a13-86bc-4b64-8256-88cc0d1a8735&fname=DHMVII_DTM_sintpieters_1414140053900.jpg"
+                              "imgUrl":""
                            },
                            "keywords":"",
-                           "__isDirty":true
+                           "minScale":75000
                         }
                      ],
                      "baseLayer":[
-                        {
-                           "id":"grb",
-                           "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-RELEASE/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"grb",
-                              "description":""
-                           },
-                           "title":"Basiskaart - GRB",
-                           "description":"Selecteer basiskaart - GRB als achtergrondlaag",
-                           "service":"grb",
-                           "children":[
-
-                           ]
-                        },
-                        {
-                           "id":"grb_grijs",
-                           "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-RELEASE/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"AGIV GRB Grijs WMTS",
-                              "description":""
-                           },
-                           "title":"Basiskaart - GRB grijs",
-                           "description":"Selecteer basiskaart - GRB grijs als achtergrondlaag",
-                           "service":"grijs",
-                           "children":[
-
-                           ]
-                        },
-                        {
-                           "id":"luchtfoto",
-                           "enabled":false,
-                           "category":{
-                              "imgUrl":"http://solutions.conterra.de/ct-agiv-mapviewer-SNAPSHOT/js/bundles/mapcore/map/config/styles/images/defaultCover.png",
-                              "title":"ortho",
-                              "description":""
-                           },
-                           "title":"Luchtfoto",
-                           "description":"Selecteer luchtfoto als achtergrondlaag",
-                           "service":"ortho",
-                           "children":[
-
-                           ]
-                        },
-                        {
-                           "id":"hybride",
-                           "enabled":false,
-                           "category":"",
-                           "title":"Hybride",
-                           "description":"Selecteer een combinatie van luchtfoto en basiskaart als achtergrondlaag",
-                           "children":[
-                              {
-                                 "id":"basemap2_2",
-                                 "layers":[
-                                    "*"
-                                 ],
-                                 "service":"agiv_wmts_sel",
-                                 "opacity":0.7
-                              },
-                              {
-                                 "id":"basemap2_1",
-                                 "layers":[
-                                    "*"
-                                 ],
-                                 "service":"ortho"
-                              }
-                           ]
-                        },
                         {
                            "id":"straten",
                            "enabled":true,
@@ -697,6 +511,7 @@
                            "title":"Stratenplan",
                            "description":"Selecteer stratenplan als achtergrondlaag",
                            "service":"navteq",
+                           "maxScale":75000,
                            "children":[
                               {
                                  "enabled":true,
@@ -707,7 +522,9 @@
                         {
                            "id":"nobasemap",
                            "enabled":false,
-                           "category":"",
+                           "category":{
+
+                           },
                            "title":"Blanco",
                            "description":"Selecteer blanco als achtergrondlaag"
                         }
@@ -809,61 +626,13 @@
          "MapWidgetFactory":{
             "esriMapOpts":{
                "sliderPosition":"top-left",
-               "keyboardNavigation":false,
-               "navigationMode":"classic"
+               "keyboardNavigation":false
             }
          },
          "MappingResourceRegistryFactory":{
             "_knownServicesLocation":"../../../../../ct-agiv-services-webapp/resources/services/Services10maart2014.json"
          },
          "enabled":true
-      },
-      "map-config":{
-         "MapModelBuilderController":{
-            "componentEnabled":true
-         }
-      },
-      "mapquest":{
-         "enabled":{
-
-         }
-      },
-      "mapservicesconfig":{
-         "enabled":true
-      },
-      "measurement":{
-         "MeasurementFactory":{
-            "showTools":[
-               "area",
-               "distance"
-            ],
-            "skipAreaUnits":[
-               "ACRES",
-               "SQUARE_FEET",
-               "SQUARE_MILES",
-               "SQUARE_YARDS"
-            ],
-            "skipLengthUnits":[
-               "MILES",
-               "FEET",
-               "YARDS",
-               "NAUTICAL_MILES"
-            ]
-         },
-         "MeasurementTool":{
-            "rules":{
-               "groups":[
-                  "maptools",
-                  "bottom_windows"
-               ]
-            }
-         },
-         "enabled":true
-      },
-      "navigationtoolset":{
-         "enabled":{
-
-         }
       },
       "navteq":{
          "enabled":true
@@ -897,7 +666,12 @@
          "enabled":true
       },
       "patches_measurement":{
-         "enabled":true
+         "componentEnabled":{
+
+         },
+         "enabled":{
+
+         }
       },
       "poi":{
          "POIServerStoreLayerRegistration":{
@@ -1115,146 +889,31 @@
             "showClusterLabels":true
          },
          "POISuggestHandler":{
-            "componentEnabled":true,
+            "componentEnabled":false,
             "storeQueryOptions":{
                "count":5,
                "maxmodel":true
             },
             "storeParameters":{
                "minQueryLength":2,
-               "target":"http://poi.api.geopunt.be/v1/core"
+               "target":""
             }
          },
          "enabled":true
       },
       "redlining":{
-         "DeleteGraphicTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawCircleTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawEllipseTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawExtentTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawFreehandPolygonTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawFreehandPolylineTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawLineTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawPointTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawPolygonTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawPolylineTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawRectangleTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawSymbolTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawTextTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "DrawTriangleTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "EditVerticesTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "MoveScaleRotateTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "MoveScaleRotateVerticesTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
-         "enabled":true
+         "enabled":{
+
+         }
       },
       "redlining_agiv":{
-         "enabled":true
+         "enabled":{
+
+         }
       },
       "routing":{
          "SearchHandler":{
-            "componentEnabled":true,
+            "useNavteqFallback":false,
             "geolocatorSuggestQueryOptions":{
                "count":5
             },
@@ -1276,9 +935,11 @@
                "searchType":"locationUrl",
                "timeout":15000
             },
-            "useNavteqFallback":true
+            "componentEnabled":false
          },
-         "enabled":true
+         "enabled":{
+
+         }
       },
       "scalebar":{
          "enabled":true
@@ -1290,9 +951,6 @@
          "enabled":true
       },
       "sharemap":{
-         "MinimapSharer":{
-            "shareUrl":"http://maps.geopunt.be/resources/apps/Minimaps_interface/index.html?id="
-         },
          "ParameterUIFactory":{
             "baseURL":"http://www.geopunt.be/kaart?viewer="
          },
@@ -1339,6 +997,11 @@
          "enabled":true
       },
       "themes":{
+         "ApplicationStyleWriter":{
+            "styles":[
+               "${app}:gwp.css"
+            ]
+         },
          "ThemeModel":{
             "_selectedTheme":"neat"
          },
@@ -1395,28 +1058,12 @@
                   "id":"fixedNoTitleGenericIdentify",
                   "windowType":"fixed",
                   "tools":[
-
+                     "genericFeatureInfoTool"
                   ],
                   "title":"Toolbar_Bottom_Mid",
                   "__isDirty":true,
                   "container":"toolWrapperFooterRight",
                   "cssClass":"fixedNoTitle notitle bottom"
-               },
-               {
-                  "position":{
-                     "rel_l":0,
-                     "rel_b":11
-                  },
-                  "id":"toolset_0",
-                  "windowType":"dropdown",
-                  "tools":[
-                     "measurementtool",
-                     "redlining_tools",
-                     "elevationToggleTool"
-                  ],
-                  "title":"Tools",
-                  "container":"toolWrapperFooterLeft",
-                  "cssClass":"ctToolBubblePopUp roundToolDropDownButton"
                },
                {
                   "id":"share_tools",
@@ -1426,8 +1073,7 @@
                      "shareFacebookTool",
                      "shareGooglePlusTool",
                      "shareTwitterTool",
-                     "shareUrlTool",
-                     "shareMinimapTool"
+                     "shareUrlTool"
                   ],
                   "container":"ignore",
                   "windowType":"dropdown",
@@ -1444,21 +1090,14 @@
                   "title":"Tekenen",
                   "tooltip":"Tekenen",
                   "deactivateToolsOnHide":true,
-                  "window":{
-                     "closable":true,
-                     "minimizeOnClose":true
-                  },
                   "tools":[
                      "drawpointtool",
                      "drawlinetool",
                      "drawpolylinetool",
                      "drawfreehandpolylinetool",
-                     "drawrectangletool",
                      "drawpolygontool",
                      "drawfreehandpolygontool",
-                     "drawcircletool",
                      "drawellipsetool",
-                     "drawtriangletool",
                      "drawTextTool",
                      "drawSymbolTool",
                      "redliningSymbolPropertiesTool",
@@ -1466,8 +1105,7 @@
                      "deleteGraphicEditTool",
                      "moveScaleRotateEditTool",
                      "verticesEditTool",
-                     "drawerasealltool",
-                     "closeWindowTool"
+                     "drawerasealltool"
                   ],
                   "container":"map",
                   "position":{
@@ -1477,8 +1115,7 @@
                   "max_horizontal":10,
                   "registerTool":{
                      "groups":[
-                        "redlining_tools",
-                        "bottom_windows"
+                        "redlining_tools"
                      ]
                   }
                }

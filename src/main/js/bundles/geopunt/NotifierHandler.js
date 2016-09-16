@@ -188,6 +188,9 @@ define([
                                 document.bart_notifier.fade_out(notification);
                             }, timeout);
                         }
+                        if(options.container_styles){
+                            this.apply_styles(this.config.container, options.container_styles);
+                        }
                 },
 /*
  options:{
@@ -195,7 +198,12 @@ define([
             autoClose:true,
             clickClose:true,
             xClose:true,
-            isLink:""
+            isLink:"",
+            container_styles: {
+            
+                            right: "120px",
+                            bottom: "120px"
+             }
  } 
  */
 

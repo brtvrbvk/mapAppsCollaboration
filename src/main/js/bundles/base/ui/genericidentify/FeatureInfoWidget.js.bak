@@ -76,7 +76,8 @@ define([
                     if (this.content && this.content.title) {
                         this.set("title", this.content.title);
                     } else {
-                        this.set("title", this.i18n.addressLevel);
+                        //this.set("title", this.i18n.addressLevel);
+                        this.set("title", "Aangeklikte locatie");
                     }
                     this._switchButtonNode(true);
 //                    this._showMessage("loading", this.i18n.loadingGeneralInfo);
@@ -114,14 +115,19 @@ define([
                         item.municipalityPdf=item.address.municipality;
                         item.postalcodePdf=item.address.postalcode;
                     }
-                    this.labelNode.innerHTML = this.i18n.addressLevel + ":";
+                    if(item.type != "SEARCH_RESULT_ADDRESS")
+                        this.labelNode.innerHTML = this.i18n.addressLevel + ":";
                     if (this.addressNode) {
                         //this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.municipality + "</div></div>";
                         this.addressNode.innerHTML = "<div class='ctFeatureInfoAddress'><div class='icon-marker featureinfoIcon'></div><div>" + item.address + "</div>" + "<div>" + item.postalcodePdf + " </div></div>";
                     }
                     var tooltiptxt = "Website van "+item.municipalityPdf;
+                    var municipalityPdfns=item.municipalityPdf;
+                    while(municipalityPdfns != municipalityPdfns.replace(" ",""))
+                    	municipalityPdfns=municipalityPdfns.replace(" ","");
                     domConstruct.create("a", {
-                            href: "http://www.vlaanderen.be/" + item.municipalityPdf,
+                            //href: "http://www.vlaanderen.be/" + item.municipalityPdf,
+                            href: "http://www." + item.municipalityPdfns + ".be",
                             target: "_blank",
                             innerHTML: item.municipalityPdf
                             //,title:tooltiptxt,

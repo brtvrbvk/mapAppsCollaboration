@@ -26,9 +26,13 @@
       "skipBundles":[
          "splitviewmap"
       ],
+      
+    "bundleLocations": [
+        "localbundles",
+        "bundles"
+    ],
       "allowedBundles":[
-         "measurement@3.1.x",
-         "patches_measurement@5.0.x",
+         "typeformat@5.0.x",
          "agivthemes@5.0.x",
          "agivtemplates@5.0.x",
          "analytics@5.0.x",
@@ -42,11 +46,14 @@
          "coordinateviewer_agiv@5.0.x",
          "copyright@5.0.x",
          "coordinatetransformer@3.1.x",
+         "contentviewer@3.1.x",
          "dataform@3.1.x",
          "devicecheck@5.0.x",
          "elevation@5.0.x",
+         "extrainfo@5.0.x",
          "genericidentify@5.0.x",
          "geolocator@5.0.x",
+         "geolocatorparcels@5.0.x",
          "geopunt@5.0.x",
          "gipod@5.0.x",
          "help@5.0.x",
@@ -60,8 +67,8 @@
          "navteqrouting@5.0.x",
          "parametermanager@3.1.x",
          "patches_main@5.0.x",
-         "redlining@3.1.x",
          "redlining_agiv@5.0.x",
+         "redlining@3.1.x",
          "routing@5.0.x",
          "scaleviewer@5.0.x",
          "search@5.0.x",
@@ -80,44 +87,11 @@
          "themes@3.1.x",
          "toolrules@3.1.x",
          "toolset@3.1.x",
-         "typeformat@5.0.x",
          "undoredo_agiv@5.0.x",
          "version@5.0.x"
       ]
    },
    "bundles":{
-      "measurement":{
-         "MeasurementFactory":{
-            "showTools":[
-               "area",
-               "distance"
-            ],
-            "skipAreaUnits":[
-               "ACRES",
-               "SQUARE_FEET",
-               "SQUARE_MILES",
-               "SQUARE_YARDS"
-            ],
-            "skipLengthUnits":[
-               "MILES",
-               "FEET",
-               "YARDS",
-               "NAUTICAL_MILES"
-            ]
-         },
-         "MeasurementTool":{
-            "rules":{
-               "groups":[
-                  "maptools",
-                  "bottom_windows"
-               ]
-            }
-         },
-         "enabled":true
-      },
-      "patches_measurement":{
-         "enabled":true
-      },
       "agivtemplates":{
          "enabled":true
       },
@@ -147,6 +121,9 @@
          "enabled":true
       },
       "browsercheck":{
+         "enabled":true
+      },
+      "contentviewer":{
          "enabled":true
       },
       "coordinatetransformer":{
@@ -186,8 +163,11 @@
       },
       "elevation":{
          "ElevationStore":{
-            "datasetName":"DHMVMixed"
+            "target":"http://dhm.agiv.be/api/elevation/v1"
          },
+         "enabled":true
+      },
+      "extrainfo":{
          "enabled":true
       },
       "genericidentify":{
@@ -249,8 +229,8 @@
             "useNavteqFallback":false
          },
          "GeolocatorUrlProvider":{
-            "suggestUrl":"http://loc.geopunt.be/v2/suggestion",
-            "locationUrl":"http://loc.geopunt.be/v2/location"
+            "suggestUrl":"http://loc.geopunt.be/geolocation/suggestion",
+            "locationUrl":"http://loc.geopunt.be/geolocation/location"
          },
          "ParcelUrlProvider":{
             "parcelUrl":""
@@ -498,7 +478,7 @@
       },
       "help":{
          "HelpHandler":{
-            "helpUrl":"http://www.geopunt.be/over-geopunt"
+            "helpUrl":"http://www.geopunt.be/over-geopunt/hoe-geopunt-gebruiken"
          },
          "enabled":true
       },
@@ -685,7 +665,7 @@
                            "enabled":false,
                            "title":"Luchtfoto",
                            "description":"Selecteer luchtfoto als achtergrondlaag",
-                           "service":"ortho",
+                           "service":"ortho014",
                            "category":{
                               "title":"AGIV Ortho WMTS",
                               "description":"",
@@ -715,7 +695,7 @@
                                  "layers":[
                                     "*"
                                  ],
-                                 "service":"ortho"
+                                 "service":"ortho014"
                               }
                            ],
                            "category":{
@@ -841,8 +821,7 @@
          "MapWidgetFactory":{
             "esriMapOpts":{
                "sliderPosition":"top-left",
-               "keyboardNavigation":false,
-               "navigationMode":"classic"
+               "keyboardNavigation":false
             }
          },
          "MappingResourceRegistryFactory":{
@@ -954,13 +933,6 @@
                ]
             }
          },
-         "DrawTriangleTool":{
-            "rules":{
-               "groups":[
-                  "maptools"
-               ]
-            }
-         },
          "EditVerticesTool":{
             "rules":{
                "groups":[
@@ -984,8 +956,8 @@
          },
          "enabled":true
       },
-      "redlining_agiv":{
-         "enabled":true
+      "redlining_agiv": {
+         "enabled": true
       },
       "routing":{
          "RoutingMenuTool":{
@@ -1137,8 +1109,7 @@
                   "id":"toolset_0",
                   "windowType":"dropdown",
                   "tools":[
-                     "measurementtool",
-                     "redlining_tools",
+                      "redlining_tools",
                      "elevationToggleTool"
                   ],
                   "title":"Tools",
@@ -1166,15 +1137,15 @@
                   }
                },
                {
-                  "id":"redlining_tools",
-                  "title":"Tekenen",
-                  "tooltip":"Tekenen",
-                  "deactivateToolsOnHide":true,
-                  "window":{
-                     "closable":true,
-                     "minimizeOnClose":true
+                  "id": "redlining_tools",
+                  "title": "Tekenen",
+                  "tooltip": "Tekenen",
+                  "deactivateToolsOnHide": true,
+                  "window": {
+                     "closable": true,
+                     "minimizeOnClose": true
                   },
-                  "tools":[
+                  "tools": [
                      "drawpointtool",
                      "drawlinetool",
                      "drawpolylinetool",
@@ -1194,16 +1165,17 @@
                      "verticesEditTool",
                      "drawerasealltool",
                      "graphicExportTool",
+                     
                      "closeWindowTool"
                   ],
-                  "container":"map",
-                  "position":{
-                     "rel_t":40,
-                     "rel_l":40
+                  "container": "map",
+                  "position": {
+                     "rel_t": 40,
+                     "rel_l": 40
                   },
-                  "max_horizontal":10,
-                  "registerTool":{
-                     "groups":[
+                  "max_horizontal": 10,
+                  "registerTool": {
+                     "groups": [
                         "redlining_tools",
                         "bottom_windows"
                      ]

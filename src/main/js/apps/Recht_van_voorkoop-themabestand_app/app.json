@@ -26,10 +26,6 @@
       "skipBundles":[
          "splitviewmap"
       ],
-      "bundleLocations": [
-        "localbundles",
-        "bundles"
-    ],
       "allowedBundles":[
          "agivthemes@5.0.x",
          "agivtemplates@5.0.x",
@@ -160,7 +156,6 @@
                      "id":"agivRvvPerceelen",
                      "enabled":false,
                      "title":"${rvv.map.operational.agiv.RVVPercelen.title}",
-                     "minScale":15000,
                      "service":"agivService_wms",
                      "opacity":0.85,
                      "children":[
@@ -189,13 +184,12 @@
                      "id":"agivPerceelen",
                      "enabled":false,
                      "title":"${rvv.map.operational.agiv.parcels.title}",
-                     "minScale":15000,
                      "service":"agivService_wms",
                      "children":[
                         {
-                           "id":"29",
-                           "title":"${rvv.map.operational.agiv.parcelnumbers.title}",
-                           "layer":"29",
+                           "id":"28",
+                           "title":"${rvv.map.operational.agiv.cadmap.title}",
+                           "layer":"28",
                            "props":{
                               "description":"",
                               "imgUrl":"",
@@ -204,9 +198,9 @@
                            "keywords":""
                         },
                         {
-                           "id":"28",
-                           "title":"${rvv.map.operational.agiv.cadmap.title}",
-                           "layer":"28",
+                           "id":"29",
+                           "title":"${rvv.map.operational.agiv.parcelnumbers.title}",
+                           "layer":"29",
                            "props":{
                               "description":"",
                               "imgUrl":"",
@@ -278,7 +272,7 @@
                         }
                      ],
                      "props":{
-                        "metadataUrl":"http://www.agiv.be/producten/rvv/meer-over/ondersteuning/veelgestelde-vragen#vraag28"
+                        "metadataUrl":"http://www.geopunt.be/catalogus/webservicefolder/6a94922d-8a72-dfc8-9302-45e1-9e04-3503-c076ada2"
                      },
                      "category":{
                         "description":"Voorkooprechten kunnen ontstaan in verschillende wetten en decreten. De zones die daaruit voortvloeien, worden RVV-afbakeningen genoemd.",
@@ -339,7 +333,7 @@
                         }
                      ],
                      "props":{
-                        "metadataUrl":"http://www.agiv.be/producten/rvv/meer-over/ondersteuning/veelgestelde-vragen#vraag28"
+                        "metadataUrl":"http://www.geopunt.be/catalogus/webservicefolder/6a94922d-8a72-dfc8-9302-45e1-9e04-3503-c076ada2"
                      },
                      "minScale":2000000,
                      "maxScale":15000,
