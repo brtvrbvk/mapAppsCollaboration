@@ -6,9 +6,10 @@ define([
         "dojo/_base/declare",
         "dojo/_base/array",
         "ct/Stateful",
-        "ct/_Connect"
+        "ct/_Connect",
+        "base/analytics/AnalyticsConstants"
     ],
-    function (declare, d_array, Stateful, _Connect) {
+    function (declare, d_array, Stateful, _Connect,AnalyticsConstants) {
         
         return declare([Stateful, _Connect],
             {
@@ -98,7 +99,11 @@ define([
                             };
                         }
                     } else {
-//                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error");
+                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error",{
+                                        timeout:3000,
+                                        autoClose:true,
+                                        clickClose:true
+                                     });
                     }
                     if (window.File && window.FileReader && window.FileList && window.Blob) {
                         var x = document.createElement("INPUT");
@@ -115,8 +120,12 @@ define([
                             if(files && files[0] && files[0].size)
                             reader.onload = function(e) {
                                 var text = reader.result;
-                                if(files && files[0] && files[0].size && files && files[0] && files[0].size>2222222){
-//                                    document.bart_notifier.error(files[0].name + " is te groot","error");
+                                if(files && files[0] && files[0].size && files && files[0] && files[0].size>22222222){
+                                    document.bart_notifier.error(files[0].name + " is te groot","error",{
+                                        timeout:3000,
+                                        autoClose:true,
+                                        clickClose:true
+                                     });
                                 }else{
                                     document.bart_importController._doTheCompleteInput(text);
                                 }
@@ -129,17 +138,34 @@ define([
                         };
                         y.click(); 
                     } else {
-//                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error");
+                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error",{
+                            timeout:3000,
+                            autoClose:true,
+                            clickClose:true
+                         });
                     }
                 },
            
                 _doTheCompleteInput:function(gmlstring){
-                    //document.bart_notifier.info("Import start","info");
+                    document.bart_notifier.info("Import start","info",{
+                                        timeout:3000,
+                                        autoClose:true,
+                                        clickClose:true
+                                     });
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(gmlstring,"text/xml");
                     var aantal=this.parseGML(xmlDoc);
-//                    document.bart_notifier.info("Import klaar: "+aantal+" objecten geimporteerd","info");
-                    //var output = document.bart_togeojson.parse.kml(xmlDoc)
+                    document.bart_geometryrenderermodifier.fireManual();
+                    this.eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
+                        eventType: AnalyticsConstants.EVENT_TYPES.REDLINING_IMPORT,
+                        eventCategory: AnalyticsConstants.CATEGORIES.REDLINING,
+                        eventValue: aantal + " items"
+                    }); 
+                    document.bart_notifier.info("Import klaar: "+aantal+" objecten geimporteerd","info",{
+                        timeout:3000,
+                        autoClose:true,
+                        clickClose:true
+                    });
                 },
                 parseGML: function(gml){
                     
@@ -166,9 +192,13 @@ define([
                             if(!this._addMultiPolygons(ftrmmbr.getElementsByTagNameNS("*","MultiPolygon"),title))
                                 this._addPolygons(ftrmmbr.getElementsByTagNameNS("*","Polygon"),title);
 
-                            if(i> 30){
-//                                document.bart_notifier.warning("Meer dan 30 objecten is teveel","warning");
-                                aantal = 30;
+                            if(i> 300){
+                                document.bart_notifier.warning("Meer dan 300 objecten is teveel","warning",{
+                                    timeout:3000,
+                                    autoClose:true,
+                                    clickClose:true
+                                });
+                                aantal = 300;
                                 break;
                             }
 
@@ -192,7 +222,7 @@ define([
                     },this);},this);
                     if(newln && newln.geometry){
                         var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                        document.bart_geometryrenderermodifier.renderGeometry(newln.geometry,title,nodeid);
+                        document.bart_geometryrenderermodifier.renderGeometry(newln.geometry,title,nodeid,true);
                         newln=null;
                         return true;
                     }else{
@@ -217,7 +247,7 @@ define([
                         if(!callfromMulti){
                             if(newline.geometry.paths && newline.geometry.paths.length>0){
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                                document.bart_geometryrenderermodifier.renderGeometry(newline.geometry,title,nodeid);
+                                document.bart_geometryrenderermodifier.renderGeometry(newline.geometry,title,nodeid,true);
                                 newline=null;
                             }
                         }else
@@ -245,7 +275,7 @@ define([
                                 newpnt.geometry = this.ct.transform(newpnt.geometry,"EPSG:3857");
                                 //var nodeid="ImportPoint"  + new Date().getTime();
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                                document.bart_geometryrenderermodifier.renderGeometry(newpnt.geometry,title,nodeid);
+                                document.bart_geometryrenderermodifier.renderGeometry(newpnt.geometry,title,nodeid,true);
                                 newpnt=null;
                             },this);
                         },this);
@@ -267,7 +297,7 @@ define([
                     if(newplgn && newplgn.geometry){
                         //var nodeid="ImportMultiPolygon"  + new Date().getTime();
                         var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                        document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid);
+                        document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid,true);
                         newplgn=null;
                         return true;
                     }else{
@@ -277,6 +307,7 @@ define([
                 _addPolygons:function(plgns,title,callfromMulti){
                         var rings=[];
                         var newplgn=this.bartpolygon();
+                        var isMulti=callfromMulti
                         d_array.forEach(plgns, function (plgn) {
                             d_array.forEach(plgn.getElementsByTagNameNS("*","LinearRing"), function (LinearRing) {
                             var crdnts = LinearRing.getElementsByTagNameNS("*","coordinates");
@@ -288,7 +319,10 @@ define([
                             },this);
                             crdnts=null;
                             newplgn.geometry.rings=rings;
-                            newplgn.geometry = this.ct.transform(newplgn.geometry,"EPSG:3857");
+                            if(isMulti)
+                                newplgn.geometry = this.ct.transform(newplgn.geometry,"EPSG:3857");
+                            else
+                                newplgn.geometry = this.ct.transform(newplgn.geometry,"EPSG:3857");
                             
                             },this);
                         },this);
@@ -296,7 +330,7 @@ define([
                             if(newplgn.geometry.rings && newplgn.geometry.rings.length>0){
                                 //var nodeid="ImportPolygon"  + new Date().getTime();
                                 var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                                document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid);
+                                document.bart_geometryrenderermodifier.renderGeometry(newplgn.geometry,title,nodeid,true);
                             }
                             newplgn=null;
                         }else

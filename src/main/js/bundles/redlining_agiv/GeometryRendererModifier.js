@@ -147,7 +147,8 @@ define([
         renderGeometry: function (
             thingWithGeometry,
             attr,
-            nodeid
+            nodeid,
+            auto
             ) {
 
             thingWithGeometry = thingWithGeometry instanceof Geometry ? {
@@ -211,13 +212,16 @@ define([
 
             var graphic = this._renderUndoable(thingWithGeometry, renderer);
 
-            //need to be async otherwise we have duplicates
+            //BartVerbeeck need to be async otherwise we have duplicates
+            //Voor import, dan niet dit hier doen
+            if(!auto)
             ct_async(function () {
                 this._mapModel.fireModelStructureChanged({
                     graphicLayerId: nodeid,
                     source: this,
                     action: this.CONTENT_MODEL_LAYER_REFRESH
                 });
+                
                 if (this._eventService) {
                     if (graphic.symbol.type === "picturemarkersymbol") {
                         type = "SYMBOL";
@@ -228,6 +232,7 @@ define([
                         eventValue: ""
                     });
                 }
+
             }, this);
 
             this.geometryRenderer.onAfterRenderGeometry({
@@ -238,7 +243,26 @@ define([
             return graphic;
 
         },
-
+        fireManual:function(){
+            var nodeid = this.grapicLayerId + new Date().getTime();
+            ct_async(function () {
+                this._mapModel.fireModelStructureChanged({
+                    graphicLayerId: nodeid,
+                    source: this,
+                    action: this.CONTENT_MODEL_LAYER_REFRESH
+                });
+                /*
+                if (this._eventService) {
+                    this._eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
+                        eventType: AnalyticsConstants.EVENT_TYPES["REDLINING_Import"],
+                        eventCategory: AnalyticsConstants.CATEGORIES.REDLINING,
+                        eventValue: ""
+                    });
+                }
+*/
+            }, this);
+            
+        },
         _renderUndoable: function (
             thingWithGeometry,
             renderer

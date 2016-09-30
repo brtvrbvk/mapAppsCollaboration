@@ -528,6 +528,10 @@ if(serviceQuerystring){
                 },
  //BartVerbeeck Bug32722               
                 _formatHyperlinkedItem: function (value) {
+                    if(value.replace){
+                        value=value.replace(":443","");
+                        value=value.replace(":80","");
+                    }
                     if (value && value.match) {
                         // simple test for email address
                         

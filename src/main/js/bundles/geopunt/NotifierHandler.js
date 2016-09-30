@@ -27,15 +27,17 @@ define([
                     this.fade_out = function(element) {
                         if (element.style.opacity && element.style.opacity > 0.05) {
                             element.style.opacity = element.style.opacity - 0.05;
-                        } else if (element.style.opacity && element.style.opacity <= 0.1) {
-                            if (element.parentNode) {
-                                element.parentNode.removeChild(element);
-                            }
+                        } else if (element.style.opacity && element.style.opacity <= 0.5) {
+                                if (element.parentNode) {
+                                    element.parentNode.removeChild(element);
+                                    element.style.opacity=0;
+                                }
                         } else {
                             element.style.opacity = 0.9;
                         }
                         setTimeout(function() {
-                            document.bart_notifier.fade_out.apply(this, [element]);
+                            if (element.style.opacity && element.style.opacity >= 0.05)
+                                document.bart_notifier.fade_out.apply(this, [element]);
                         }, 1000 / 30);
                     };
                     this.config = { /* How long the notification stays visible */
@@ -105,7 +107,7 @@ define([
 
 
                 notify: function (message, title, options, image) {
-                    
+                        
                         var notification = document.createElement('div');
                         if(options.newId)
                             notification.setAttribute('id', options.newId);

@@ -37,6 +37,7 @@
          "extrainfo@5.0.x",
          "genericidentify@5.0.x",
          "geolocator@5.0.x",
+         "geolocatorparcels@5.0.x",
          "geopunt@5.0.x",
          "geojson@3.1.x",
          "gipod@5.0.x",
@@ -695,7 +696,44 @@
          "GeolocatorUrlProvider":{
             "suggestUrl":"http://loc.geopunt.be/v2/Suggestion",
             "locationUrl":"http://loc.geopunt.be/v2/Location"
+         },
+         "ParcelUrlProvider":{
+            "parcelUrl":""
          }
+      },
+      "geolocatorparcels":{
+         "GeolocatorHandler":{
+            "componentEnabled":true,
+            "geolocatorSuggestQueryOptions":{
+               "count":5
+            },
+            "geolocatorSuggestStoreParameters":{
+               "timeout":15000,
+               "minQueryLength":4,
+               "wkid":4326,
+               "response":{
+                  "resultArrayName":"SuggestionResult"
+               }
+            },
+            "geolocatorStoreParameters":{
+               "timeout":15000,
+               "minQueryLength":2,
+               "wkid":4326,
+               "response":{
+                  "resultArrayName":"LocationResult"
+               }
+            },
+            "useNavteqFallback":false
+         },
+         "GeolocatorUrlProvider":{
+            "suggestUrl":"http://perc.geopunt.be/perceel/suggestion",
+            "locationUrl":"http://perc.geopunt.be/perceel/location"
+         },
+         "ParcelUrlProvider":{
+            "parcelIDFieldName":"CAPAKEY",
+            "parcelUrl":"http://geo.agiv.be/ArcGIS/rest/services/grbwfs/MapServer/0/query"
+         },
+         "enabled":true
       },
       "browsercheck":{
          "enabled":true

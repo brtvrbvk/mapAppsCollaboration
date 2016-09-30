@@ -27,24 +27,20 @@ define([
                     
                     
                     
-/*                    
+                    
                     document.bart_notifier.info("Export start","info",{
-            timeout:5000,
-            autoClose:false,
-            clickClose:true,
+            timeout:3000,
+            autoClose:true,
+            clickClose:true
+        /*    ,
             xClose:true,container_styles: {
             
                             right: "300px",
                             bottom: "300px"
-             }});
-                    */
-        /*
-                    document.bart_notifier.info("Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2 Export start2","info",{
-            timeout:5000,
-            autoClose:true,
-            clickClose:true,
-            xClose:true});*/
-                    //document.bart_notifier.remove("paard");
+            }*/
+        });
+                    
+
                     var mimetype = this.mimetype || "text/plain";
                     var charset = this.charset || document.characterSet;
                     var filename = this.filename || "graphics.txt";
@@ -249,7 +245,12 @@ define([
                     gmlTxt += '</gml:boundedBy>';
                     gmlTxt = gmlTxt + gmlMembers + '</agiv:FeatureCollection>';
                     this._fileSaver.save(gmlTxt, filename, mimetype, charset);
-//                    document.bart_notifier.info("Export klaar: "+aantal+" objecten geexporteerd","info");
+                    document.bart_notifier.info("Export klaar: "+aantal+" objecten geexporteerd","info",{
+            timeout:3000,
+            autoClose:true,
+            clickClose:true
+        });
+
                 },
                 _isMultiLineString:function(paths){
                     if(paths.length==1)return false;

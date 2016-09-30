@@ -61,6 +61,10 @@
                 {
                     "name": "ct",
                     "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+                },
+        {
+                    "name": "eventService",
+                    "providing": "ct.framework.api.EventService"
                 }
       ]
     },
