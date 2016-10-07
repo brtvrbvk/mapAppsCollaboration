@@ -1,6 +1,6 @@
 define({ root: ({
-    bundleName: "Browser Check",
-    bundleDescription: "Displays a note via the notifier if a user uses a too old browser for the application.",
+    bundleName: "patches_measurement",
+    bundleDescription: "patches_measurement",
     notifier: {
         title: "Warning",
         warning: "Not supported browser version detected: ${userAgent}!",

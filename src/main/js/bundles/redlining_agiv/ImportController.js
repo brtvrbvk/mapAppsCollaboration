@@ -69,6 +69,18 @@ define([
                 },
                 /**/
                 import: function () {
+                    try{
+                        this.doimport();
+                    }
+                    catch(e){
+                        document.bart_notifier.error({messages:[{text:"Import ging fout"}]},"",{ timeout:3000,
+                                                                        autoClose:true,
+                                                                        clickClose:true});
+                    }
+                },
+                
+                
+                doimport: function () {
                     document.bart_importController=this;
                     if (window.File && window.FileReader && window.FileList && window.Blob) {    
                         var deTool=document.getElementsByClassName("redlining_tools")[0];
@@ -99,7 +111,7 @@ define([
                             };
                         }
                     } else {
-                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error",{
+                        document.bart_notifier.error({messages:[{text:"The File APIs wordt niet ondersteund door uw browser."}]},"",{
                                         timeout:3000,
                                         autoClose:true,
                                         clickClose:true
@@ -121,7 +133,7 @@ define([
                             reader.onload = function(e) {
                                 var text = reader.result;
                                 if(files && files[0] && files[0].size && files && files[0] && files[0].size>22222222){
-                                    document.bart_notifier.error(files[0].name + " is te groot","error",{
+                                    document.bart_notifier.error({messages:[{text:files[0].name + " is te groot"}]},"",{
                                         timeout:3000,
                                         autoClose:true,
                                         clickClose:true
@@ -138,7 +150,7 @@ define([
                         };
                         y.click(); 
                     } else {
-                        document.bart_notifier.error("The File APIs are not fully supported by your browser.","error",{
+                        document.bart_notifier.error({messages:[{text:"The File APIs wordt niet ondersteund door uw browser."}]},"",{
                             timeout:3000,
                             autoClose:true,
                             clickClose:true
@@ -147,7 +159,7 @@ define([
                 },
            
                 _doTheCompleteInput:function(gmlstring){
-                    document.bart_notifier.info("Import start","info",{
+                    document.bart_notifier.info({messages:[{text:"Import start"}]},"",{
                                         timeout:3000,
                                         autoClose:true,
                                         clickClose:true
@@ -161,9 +173,16 @@ define([
                         eventCategory: AnalyticsConstants.CATEGORIES.REDLINING,
                         eventValue: aantal + " items"
                     }); 
-                    document.bart_notifier.info("Import klaar: "+aantal+" objecten geimporteerd","info",{
+                    if(aantal>0)
+                    document.bart_notifier.success({messages:[{text:"Import klaar: "+aantal+" object(en) geimporteerd"}]},"",{
                         timeout:3000,
                         autoClose:true,
+                        clickClose:true
+                    });
+                    else
+                        document.bart_notifier.info({messages:[{text:"Import klaar: "},{text:"tralala",link:"http://www.agiv.be"},{text:" geen objecten geimporteerd"}]},"",{
+                        timeout:3000,
+                        autoClose:false,
                         clickClose:true
                     });
                 },
@@ -193,7 +212,7 @@ define([
                                 this._addPolygons(ftrmmbr.getElementsByTagNameNS("*","Polygon"),title);
 
                             if(i> 300){
-                                document.bart_notifier.warning("Meer dan 300 objecten is teveel","warning",{
+                                document.bart_notifier.warning({messages:[{text:"Meer dan 300 objecten is teveel"}]},"",{
                                     timeout:3000,
                                     autoClose:true,
                                     clickClose:true

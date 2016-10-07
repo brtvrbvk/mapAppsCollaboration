@@ -16,30 +16,24 @@ define([
 
                 },
 
+                
                 export: function () {
+                    try{
+                        this.doexport();
+                    }
+                    catch(e){
+                        document.bart_notifier.error({messages:[{text:"Export ging fout"}]},"",{ timeout:3000,
+                                                                        autoClose:true,
+                                                                        clickClose:true});
+                    }
+                },
+                doexport: function () {
                     
                    this.eventService.postEvent(AnalyticsConstants.TOPICS.TRACK_EVENT, {
                         eventType: AnalyticsConstants.EVENT_TYPES.REDLINING_EXPORT,
                         eventCategory: AnalyticsConstants.CATEGORIES.REDLINING,
                         eventValue: this.geometryRenderer._renderers.length + " items"
                     }); 
-                    
-                    
-                    
-                    
-                    
-                    document.bart_notifier.info("Export start","info",{
-            timeout:3000,
-            autoClose:true,
-            clickClose:true
-        /*    ,
-            xClose:true,container_styles: {
-            
-                            right: "300px",
-                            bottom: "300px"
-            }*/
-        });
-                    
 
                     var mimetype = this.mimetype || "text/plain";
                     var charset = this.charset || document.characterSet;
@@ -245,9 +239,16 @@ define([
                     gmlTxt += '</gml:boundedBy>';
                     gmlTxt = gmlTxt + gmlMembers + '</agiv:FeatureCollection>';
                     this._fileSaver.save(gmlTxt, filename, mimetype, charset);
-                    document.bart_notifier.info("Export klaar: "+aantal+" objecten geexporteerd","info",{
+                    if(aantal>0)
+                    document.bart_notifier.success({messages:[{text:"Export klaar: "+aantal+" object(en) geëxporteerd"}]},"",{
             timeout:3000,
             autoClose:true,
+            clickClose:true
+        });
+                    else
+                        document.bart_notifier.info({messages:[{text:"Geen objecten om te exporteren"}]},"",{
+            timeout:3000,
+            autoClose:false,
             clickClose:true
         });
 
