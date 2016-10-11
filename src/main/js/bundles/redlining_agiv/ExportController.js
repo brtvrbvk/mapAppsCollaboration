@@ -22,9 +22,9 @@ define([
                         this.doexport();
                     }
                     catch(e){
-                        document.bart_notifier.error({messages:[{text:"Export ging fout"}]},"",{ timeout:3000,
+                        /*document.bart_notifier.error({messages:[{text:"Export ging fout"}]},"",{ timeout:3000,
                                                                         autoClose:true,
-                                                                        clickClose:true});
+                                                                        clickClose:true});*/
                     }
                 },
                 doexport: function () {
@@ -239,6 +239,7 @@ define([
                     gmlTxt += '</gml:boundedBy>';
                     gmlTxt = gmlTxt + gmlMembers + '</agiv:FeatureCollection>';
                     this._fileSaver.save(gmlTxt, filename, mimetype, charset);
+                    /*
                     if(aantal>0)
                     document.bart_notifier.success({messages:[{text:"Export klaar: "+aantal+" object(en) geëxporteerd"}]},"",{
             timeout:3000,
@@ -251,7 +252,7 @@ define([
             autoClose:false,
             clickClose:true
         });
-
+*/
                 },
                 _isMultiLineString:function(paths){
                     if(paths.length==1)return false;

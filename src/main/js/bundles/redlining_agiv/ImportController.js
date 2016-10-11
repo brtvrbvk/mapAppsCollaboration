@@ -358,7 +358,7 @@ define([
                 
                 _coordinates2ring:function(crdnt,srs){
                     var ring=[];
-                    crdnt=crdnt.textContent.split(' ');
+                    crdnt=crdnt.textContent.trim().split(' ');
                     d_array.forEach(crdnt,function(xy){
                                     xy=xy.split(',');
                                     if(srs==4326 || srs == 4258)

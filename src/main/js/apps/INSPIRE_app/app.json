@@ -14,6 +14,10 @@
       "id":"INSPIRE_app"
    },
    "load":{
+        "bundleLocations": [
+      "localbundles",
+      "bundles"
+    ],
       "i18n":[
          "bundle"
       ],
