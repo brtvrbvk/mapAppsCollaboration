@@ -528,7 +528,7 @@ if(serviceQuerystring){
                 },
  //BartVerbeeck Bug32722               
                 _formatHyperlinkedItem: function (value) {
-                    if(value.replace){
+                    if(value && value.replace){
                         value=value.replace(":443","");
                         value=value.replace(":80","");
                     }

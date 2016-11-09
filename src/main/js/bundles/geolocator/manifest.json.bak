@@ -87,8 +87,7 @@
                     }
                 },
                 "navteqStoreParameters": {
-                    //"url": "http://geo.nlp.nokia.com/search/6.2/search.json",
-                    "url": "http://geocoder.api.here.com/search/6.2/search.json",
+                    "url": "http://geo.nlp.nokia.com/search/6.2/search.json",
                     "appid": "@@navteq.appid@@",
                     "token": "@@navteq.token@@",
                     "minQueryLength": 2,

@@ -11,10 +11,10 @@
         "url":"NAVTEQ",
         "options":{
             "tileServers":[
-            "http://1.base.maps.cit.api.here.com/maptiler/v2/maptile/newest",
-            "http://2.base.maps.cit.api.here.com/maptiler/v2/maptile/newest",
-            "http://3.base.maps.cit.api.here.com/maptiler/v2/maptile/newest",
-            "http://4.base.maps.cit.api.here.com/maptiler/v2/maptile/newest"
+            "http://1.maps.nlp.nokia.com/maptiler/v2/maptile/newest",
+            "http://2.maps.nlp.nokia.com/maptiler/v2/maptile/newest",
+            "http://3.maps.nlp.nokia.com/maptiler/v2/maptile/newest",
+            "http://4.maps.nlp.nokia.com/maptiler/v2/maptile/newest"
             ],
             "appID":"APPID",
             "token":"TOKEN"

@@ -1,0 +1,77 @@
+ Volume in drive D is DATAPART1
+ Volume Serial Number is D04E-EF5D
+
+ Directory of D:\GitMapapps\2012018 - Map.Apps KaartViewer-1\src\main\js\bundles
+
+20/10/2016  09:58    <DIR>          .
+20/10/2016  09:58    <DIR>          ..
+11/10/2016  09:10    <DIR>          agivtemplates
+09/12/2015  10:39    <DIR>          agivthemes
+09/12/2015  10:39    <DIR>          analytics
+01/04/2016  08:53    <DIR>          appinsights
+09/12/2015  10:39    <DIR>          appswitcher
+05/10/2016  12:30    <DIR>          base
+09/12/2015  10:39    <DIR>          basemapswitcher
+09/12/2015  10:39    <DIR>          browsercheck
+09/12/2015  10:39    <DIR>          capakeysearch
+09/12/2015  10:39    <DIR>          clearselection
+09/12/2015  10:39    <DIR>          combicontentmanager
+09/12/2015  10:39    <DIR>          coordinateparser
+09/12/2015  10:39    <DIR>          coordinateviewer_agiv
+09/12/2015  10:39    <DIR>          copyright
+09/12/2015  10:39    <DIR>          devicecheck
+09/12/2015  10:39    <DIR>          disclaimer
+22/07/2016  09:03    <DIR>          elevation
+09/12/2015  10:39    <DIR>          extrainfo
+31/08/2016  15:13    <DIR>          genericidentify
+09/12/2015  10:39    <DIR>          geojsonservicetype
+09/12/2015  10:39    <DIR>          geolocator
+09/12/2015  10:39    <DIR>          geolocatorparcels
+25/08/2016  15:39    <DIR>          geopunt
+09/09/2016  09:00    <DIR>          gipod
+09/12/2015  10:39    <DIR>          help
+09/12/2015  10:39    <DIR>          i18nmappings
+09/12/2015  10:39    <DIR>          identifymanagement
+31/08/2016  15:13    <DIR>          jasperprinting
+09/12/2015  10:39    <DIR>          json2
+09/12/2015  10:39    <DIR>          jstorage
+09/12/2015  10:39    <DIR>          kml
+09/12/2015  10:39    <DIR>          kmltogeojson
+22/07/2016  09:03    <DIR>          legend_agiv
+09/12/2015  10:39    <DIR>          loadservice
+09/12/2015  10:39    <DIR>          mapservicesconfig
+09/12/2015  10:39    <DIR>          minimaps
+09/12/2015  10:39    <DIR>          mobileview_agiv
+09/12/2015  10:39    <DIR>          navteq
+01/04/2016  08:53    <DIR>          navteqrouting
+09/12/2015  10:39    <DIR>          overviewmap_agiv
+09/12/2015  10:39    <DIR>          parcelselection
+05/10/2016  12:31    <DIR>          patches_main
+09/12/2015  10:39    <DIR>          patches_measurement
+09/12/2015  10:39    <DIR>          patches_resultcenter
+31/08/2016  15:13    <DIR>          poi
+31/08/2016  15:13    <DIR>          pprselection
+31/08/2016  15:13    <DIR>          redlining_agiv
+09/12/2015  10:39    <DIR>          resultcenterintegration
+09/09/2016  09:00    <DIR>          reversecapakey
+31/08/2016  15:13    <DIR>          routing
+20/10/2016  09:58                 0 s
+09/12/2015  10:39    <DIR>          scaleviewer
+09/12/2015  10:39    <DIR>          search
+09/12/2015  10:39    <DIR>          servicemanagement
+09/12/2015  11:15    <DIR>          sharemap
+09/12/2015  10:39    <DIR>          splitviewmap
+09/12/2015  10:39    <DIR>          startup
+09/12/2015  10:39    <DIR>          startupmessagebox
+09/12/2015  10:39    <DIR>          statestoring
+09/12/2015  10:39    <DIR>          synonymmanagement
+18/12/2015  17:21    <DIR>          themainfo
+09/12/2015  10:39    <DIR>          timeslider
+09/12/2015  10:39    <DIR>          toextent
+09/12/2015  10:39    <DIR>          toolruleprocessors
+09/12/2015  10:39    <DIR>          toolwrapper
+05/10/2016  12:32    <DIR>          typeformat
+09/12/2015  10:39    <DIR>          undoredo_agiv
+09/12/2015  10:39    <DIR>          version
+               1 File(s)              0 bytes
+              69 Dir(s)  63ÿ443ÿ300ÿ352 bytes free

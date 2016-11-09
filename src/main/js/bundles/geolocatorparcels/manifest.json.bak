@@ -1,28 +1,34 @@
 {
-    "Bundle-SymbolicName": "geolocator",
+    "Bundle-SymbolicName": "geolocatorparcels",
     "Bundle-Version": "5.0.4",
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
 
     "Bundle-AutoStartPolicy": "yes",
     "Config-Bundle-Location": "/config",
+    "Require-Bundle": [
+        {
+            "name": "parcelselection",
+            "version": "[4.0,)"
+        }
+    ],
     "Components": [
 
         {
             "name": "GeolocatorUrlProvider",
             "impl": "ct/Stateful",
-            "provides": ["agiv.geolocator.GeolocatorUrlProvider"],
+            "provides": ["agiv.geolocatorparcels.GeolocatorUrlProvider"],
             "propertiesConstructor": true,
             "properties": {
-                "suggestUrl": "http://loc.api.geopunt.be/geolocation/Suggestion",
-                "locationUrl": "http://loc.api.geopunt.be/geolocation/Location"
+                "suggestUrl": "http://perc.geopunt.be/perceel/suggestion",
+                "locationUrl": "http://perc.geopunt.be/perceel/location"
             }
         },
 
         {
             "name": "ParcelUrlProvider",
             "impl": "ct/Stateful",
-            "provides": ["agiv.geolocator.ParcelUrlProvider"],
+            "provides": ["agiv.geolocatorparcels.ParcelUrlProvider"],
             "propertiesConstructor": true,
             "properties": {
                 "parcelUrl": "http://@@ws.agiv.be@@/ArcGIS/rest/services/RVV/MapServer/2/query",
@@ -39,7 +45,7 @@
             "impl": "base/search/geolocator/GeolocatorHandler",
             "provides": [
                 "ct.framework.api.EventHandler",
-                "geolocator.GeolocatorHandler"
+                "geolocatorparcels.GeolocatorHandler"
             ],
             "propertiesConstructor": true,
             "properties": {
@@ -57,6 +63,8 @@
                         "method": "_rehandleResult"
                     }
                 ],
+                "type": "GEOLOCATOR_PARCELS",
+                "priority": 10,
                 "extentTypes": [
                     "gemeente",
                     "straat",
@@ -87,8 +95,7 @@
                     }
                 },
                 "navteqStoreParameters": {
-                    //"url": "http://geo.nlp.nokia.com/search/6.2/search.json",
-                    "url": "http://geocoder.api.here.com/search/6.2/search.json",
+                    "url": "http://geo.nlp.nokia.com/search/6.2/search.json",
                     "appid": "@@navteq.appid@@",
                     "token": "@@navteq.token@@",
                     "minQueryLength": 2,
@@ -111,13 +118,13 @@
                 },
                 {
                     "name": "geolocatorUrlProvider",
-                    "providing": "agiv.geolocator.GeolocatorUrlProvider",
+                    "providing": "agiv.geolocatorparcels.GeolocatorUrlProvider",
                     "cardinality": "0..1",
                     "policy": "dynamic"
                 },
                 {
                     "name": "parcelUrlProvider",
-                    "providing": "agiv.geolocator.ParcelUrlProvider",
+                    "providing": "agiv.geolocatorparcels.ParcelUrlProvider",
                     "cardinality": "0..1",
                     "policy": "dynamic"
                 }
@@ -125,17 +132,17 @@
         },
 
         {
-            "name": "GeolocatorAddressParameterResolver",
+            "name": "GeolocatorParcelParameterResolver",
             "impl": "base/search/SearchParametrizable",
             "provides": ["ct.api.parametermanager.Parametrizable"],
             "propertiesConstructor": true,
             "properties": {
-                "searchTerm": "adres"
+                "searchTerm": "perceel"
             },
             "references": [
                 {
                     "name": "_handler",
-                    "providing": "geolocator.GeolocatorHandler"
+                    "providing": "geolocatorparcels.GeolocatorHandler"
                 },
                 {
                     "name": "startupMessageBox",

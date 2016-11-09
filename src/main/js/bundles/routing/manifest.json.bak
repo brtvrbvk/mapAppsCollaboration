@@ -115,7 +115,7 @@
                     "appid": "@@navteq.appid@@",
                     "token": "@@navteq.token@@",
                     //"url": "http://geo.nlp.nokia.com/search/6.2/reversegeocode.json",
-                    "url": "http://reverse.geocoder.api.here.com/6.2/reversegeocode.json",
+                    "url": "http://geocoder.api.here.com/search/6.2/reversegeocode.json",
                     "parameters": {
                         "mode": "retrieveAddresses"
                     },
