@@ -1,0 +1,261 @@
+@import "themeSettings.less";
+@import "../../../bundles/agivthemes/neat/themeSettings.less";
+
+.@{themeName} {
+
+  &.ctEnv_Chrome, &.ctEnv_IE_11{
+    .problem_reporting{
+        height: 500px !important;
+    }
+    .problem_reporting.extended{
+        height: 530px !important;
+    }
+  }
+
+
+  .header{
+    //tools in header are slightly smaller
+
+    .help_tools.dijitDropDownButton{
+      margin: 0 4px;
+      padding: 0 5px;
+      .dijitIcon{
+        .size(35px);
+        font-size: 18px;
+        line-height: 2;
+      }
+    }
+  }
+
+  .ProblemReporting {
+    .row {
+      display: inline-flex;
+      padding: 3px;
+      .textArea {
+        height: 40px !important;
+        overflow-y: auto !important;
+        width: 253px;
+      }
+    }
+    .column-1 {
+      width: 110px;
+    }
+    .column-2, .textField {
+      width: 263px;
+    }
+    .urlTextField {
+      width: 338px;
+    }
+    .alignRight {
+      float: right;
+    }
+    .buttonSpacing {
+      margin-top: 10px;
+    }
+    .buttonRow {
+      padding: 7px;
+    }
+    h3 {
+      margin-top: 0.5em;
+      font-weight: bold;
+    }
+
+    .copyPasteButton{
+      position: relative;
+      position: relative;
+      top: 4px;
+      width: 30px;
+      left: 2px;
+      &.dijitHover{
+        .dijitButtonNode{
+          color: @text-color;
+        }
+      }
+      .dijitButtonNode{
+        background-color: transparent;
+        font-size: 25px;
+        padding: 0 9px 0 0;
+        .dijitIcon{
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
+    .dijitValidationTextBox {
+      &.dijitComboBox{
+        .dijitValidationContainer{
+          padding: 1px 0;
+        }
+      }
+      .dijitValidationContainer{
+        padding: 0;
+      }
+    }
+  }
+  .ProblemResponse {
+    h1{
+      font-size: 27px;
+      margin: 12px 0 5px 0;
+    }
+    h2{
+      font-size: 17px;
+      margin: 0 0 15px;
+    }
+
+    .report_response{
+      .dijitDialogPaneContent{
+        background-color: #f2f2f2;
+      }
+    }
+
+    .backToMapButton{
+      clear: both;
+      float: left;
+      .dijitButtonNode{
+        padding: 10px 65px 10px 15px;
+        font-size: 17px;
+        font-weight: normal;
+        .dijitButtonContents{
+          position: relative;
+        }
+        .dijitIcon{
+          font-family: agivUiFont;
+          background-color: white;
+          padding: 6px;
+          border-radius: 50%;
+          position: absolute;
+          right: -55px;
+          top: -4px;
+          color: @text-color !important;
+        }
+      }
+    }
+
+    .text{
+      float: left;
+    }
+    .loader .icon-spinner {
+      width: 1em;
+      font-size: 3em;
+      margin-left: auto;
+      margin-top: 1em;
+      margin-right: auto;
+    }
+    .success, .error {
+      margin: 10px;
+      .row {
+        height: 75px;
+      }
+    }
+    .success .icon {
+      background-image: url('./thanks-succes.png');
+
+    }
+    .error .icon {
+      background-image: url('./thanks-error.png');
+    }
+    .icon {
+      background-repeat: no-repeat;
+      width: 65px;
+      height: 66px;
+      margin: 5px;
+      float: left;
+      background-size: 60px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .problem_reporting{
+    .dijitTextBox .dijitInputInner,
+    .dijitValidationTextBox .dijitValidationContaine,
+    .dijitSelect .dijitInputField,
+    .dijitTextBox .dijitInputField{
+      height: 14px !important;
+    }
+
+  }
+
+  @tool-radius: 26px;
+  .help_tools{
+
+    .ctTool {
+      .dijitIcon {
+        color: @agiv-color-white;
+        padding: 3px;
+        margin: 0px;
+      }
+      &.ctTool_help {
+        .icon-help {
+          background-color: @agiv-color-dark-yellow;
+        }
+        .icon-help:before {
+          content: '\e602';
+        }
+        .dijitMenuItemLabel{
+          width: 200px;
+          white-space: normal;
+        }
+      }
+      &.ctTool_problem_reporting_toggletool .icon-location-information-bubble {
+        background-color: @agiv-color-purple;
+      }
+    }
+    .dijitButtonNode{
+      padding: 0;
+      color: @ct-icon-color;
+      border: 3px solid @primary-color;
+      .transition(all, .2s, ease-out);
+      background-color: white;
+      .border-radius(@tool-radius);
+    }
+    .dijitButtonText,
+    .dijitArrowButtonInner{
+      display: none;
+    }
+    .dijitIcon.dijitNoIcon{
+      display: inline-block;
+      font-family: agivUiFont;
+      &:before{
+        content: "\e609";
+      }
+    }
+
+    &.dijitHover,
+    &.dijitOpened{
+      .dijitButtonNode{
+        color:@ct-button-text-color;
+        .transition(all, .2s, cubic-bezier(.17,.67,.74,1.53));
+        border-color: @text-color;
+      }
+    }
+
+    //Styling for the Menu that opens
+    &.dijitMenuTable {
+      margin-top: 10px;
+      &:before{
+        content:'\e009';
+        color: @agiv-light-grey;
+        .setWebFont();
+        font-size: @ct-icon-large;
+        position: absolute;
+        left: 38px;
+        top: -9px;
+        margin-left: -28px;
+      }
+      .dijitMenuItemIconCell .dijitIcon{
+        .size(25px);
+        padding: 0;
+        .border-radius(2px);
+        &:before{
+          position: relative;
+          top: 5px;
+        }
+
+      }
+      .ctTool_shareTwitterTool .dijitMenuItemIconCell .dijitIcon{
+        background-position: 0 0;
+      }
+
+    }
+  }
+}

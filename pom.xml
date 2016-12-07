@@ -517,6 +517,7 @@
         
 <mapapps.build.outputPath>${project.build.directory}/unpacked</mapapps.build.outputPath>
 <agiv.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-services-webapp</agiv.services.baseurl>
+<agiv.mandrill.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-rest-mandrill</agiv.mandrill.baseurl>
 <sdi.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-sdi-extension-webapp</sdi.services.baseurl>
 
 <applicationURL.maps.geopunt>${applicationURL.noscheme}</applicationURL.maps.geopunt>

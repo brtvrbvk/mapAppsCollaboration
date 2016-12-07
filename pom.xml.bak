@@ -305,7 +305,7 @@
                     <!-- add here properties which are used in plugin configuration resolution -->
                     <properties>
                         <!-- deployment of map.apps installation -->
-                        <mapapps.remote.base>http://dmapappsremotev36agiv.azurewebsites.net</mapapps.remote.base>
+                        <mapapps.remote.base>http://dmapappsremoteagiv.azurewebsites.net</mapapps.remote.base>
                         <applicationURL.geopunt>http://www.beta.geopunt.be</applicationURL.geopunt>
                         <jetty.port>9090</jetty.port>
                     </properties>
@@ -516,8 +516,8 @@
         <proxy.allowedSSLDNs>*</proxy.allowedSSLDNs>
         
 <mapapps.build.outputPath>${project.build.directory}/unpacked</mapapps.build.outputPath>
-<agiv.services.baseurl>http://dmapappsremotev36agiv.azurewebsites.net/ct-agiv-services-webapp</agiv.services.baseurl>
-<sdi.services.baseurl>http://dmapappsremotev36agiv.azurewebsites.net/ct-agiv-sdi-extension-webapp</sdi.services.baseurl>
+<agiv.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-services-webapp</agiv.services.baseurl>
+<sdi.services.baseurl>http://dmapappsremoteagiv.azurewebsites.net/ct-agiv-sdi-extension-webapp</sdi.services.baseurl>
 
 <applicationURL.maps.geopunt>${applicationURL.noscheme}</applicationURL.maps.geopunt>
         

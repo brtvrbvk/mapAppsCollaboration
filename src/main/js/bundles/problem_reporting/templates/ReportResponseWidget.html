@@ -1,0 +1,32 @@
+<div>
+    <div class="loader" data-dojo-attach-point="loaderNode">
+        <h2>${i18n.ui.loading}</h2>
+        <div class="icon-spinner"></div>
+    </div>
+    <div class="success dijitHidden" data-dojo-attach-point="successNode">
+        <h2>${i18n.ui.confirmation}</h2>
+        <div class="row">
+            <div class="icon"></div>
+            <div class="text">
+                <h1>${i18n.ui.thankyou}</h1>
+                <div>${i18n.ui.confirmationSentence}</div>
+            </div>
+        </div>
+        <div class="backToMapButton" data-dojo-type="dijit/form/Button"
+             data-dojo-props="label:'${i18n.ui.backToMap}', iconClass:'icon-arrow-rounded-right'"
+             data-dojo-attach-event="onClick:_back"></div>
+    </div>
+    <div class="error dijitHidden" data-dojo-attach-point="errorNode">
+        <h2>${i18n.ui.confirmation}</h2>
+        <div class="row">
+            <div class="icon"></div>
+            <div class="text">
+                <h1>${i18n.ui.error}</h1>
+                <div>${i18n.ui.errorSentence}</div>
+            </div>
+        </div>
+        <div class="backToMapButton" data-dojo-type="dijit/form/Button"
+             data-dojo-props="label:'${i18n.ui.backToMap}', iconClass:'icon-arrow-rounded-right'"
+             data-dojo-attach-event="onClick:_back"></div>
+    </div>
+</div>

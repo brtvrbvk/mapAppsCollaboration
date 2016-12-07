@@ -14,6 +14,10 @@
       "id":"Hinder_in_kaart_app"
    },
    "load":{
+       "bundleLocations": [
+      "localbundles",
+      "bundles"
+    ],
       "styles":[
          "${app}:app.css"
       ],
@@ -613,7 +617,7 @@
                         {
                            "id":"manifestations",
                            "enabled":true,
-                           "title":"Evenementen",
+                           "title":"Snuitkevers",
                            "service":"testgipod",
                            "renderPriority":1,
                            "category":{

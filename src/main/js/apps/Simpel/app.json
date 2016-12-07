@@ -1118,7 +1118,8 @@
          "MeasurementFactory":{
             "showTools":[
                "area",
-               "distance"
+               "distance",
+               "location"
             ],
             "skipAreaUnits":[
                "ACRES",
@@ -1131,7 +1132,8 @@
                "FEET",
                "YARDS",
                "NAUTICAL_MILES"
-            ]
+            ],
+            "pointSymbol": ""
          },
          "MeasurementTool":{
             "rules":{

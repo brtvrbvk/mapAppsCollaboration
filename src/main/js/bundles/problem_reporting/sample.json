@@ -1,0 +1,31 @@
+{
+  "user": {
+    "email": "f.bache@conterra.de",
+    "phone": "1236985",
+    "name": "Felix",
+    "surname": "Bache",
+    "organisation": "con terra"
+  },
+  "url": "http://geopunt.be",
+  "datalayer": "GRB",
+  "reportType": "Niet duidelijk",
+  "dataType": "Straatnaam",
+  "description": "the street takes a wrong turn",
+  "browserInfo": {
+    "userAgent": "chrome",
+    "widht": "100",
+    "height": "200",
+    "orientation": "portrait"
+  }
+}
+if(!data.user_agent){
+data.user_agent = navigator.userAgent;
+}
+if(!data.viewport){
+var viewport = d_window.getBox();
+data.viewport = {
+width: viewport.w,
+height: viewport.h,
+orientation: viewport.w <= viewport.h ? "portrait" : "landscape"
+};
+}

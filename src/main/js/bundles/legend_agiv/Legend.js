@@ -59,8 +59,17 @@ define([
                     if (layer._getCapabilitiesURL && layer._getCapabilitiesURL != "") {
                         layer.isWMSLayer = true;
                     }
+                    if(!this._showLayerInLegend(layer))
+                        return false;
                     return (this.inherited(arguments) || layer.isWMSLayer) && (this.showBaseLayer || !this._isBaseLayer(layer));
                 },
+                
+                _showLayerInLegend : function(layer){
+                    var node = this.mapModel.getNodeById(layer.__managed);
+                    var showInLegend = node && node.get("showInLegend");
+                    return  (showInLegend || showInLegend===undefined) && (this.showBaseLayer || (!this._isBaseLayer(layer) && !node.get("isBaseLayerReference")) )
+                },
+                
                 _isBaseLayer: function (esriLayer) {
                     var mapModel = this.mapModel;
                     // Note: here we access the __managed flag of the esriLayer, which is added by the EsriLayerManager Property
@@ -402,32 +411,37 @@ define([
 
                     var operationalLayers = this.mapModel.getOperationalLayer().children;
                     var enabledLayers = d_array.filter(operationalLayers, function (layer) {
-                        return layer.get("enabled") === true;
+                        return layer.get("enabled") === true ;
                     });
                     if (this.legendMapping && enabledLayers.length > 0) {
                         d_array.forEach(enabledLayers, function (layer) {
-                            var id = layer.id.split("/")[layer.id.split("/").length - 1];
-                            id = CommonID.to(id);
-                            d_array.forEach(this.legendMapping, function (item) {
-                                if (id === item.id) {
-                                    var push = true;
-                                    d_array.forEach(this.layers, function (legendlayer) {
-                                        //find managed esri layer
-                                        if (legendlayer.__managed === layer.id) {
-                                            push = false;
-                                            legendlayer.legendURL = item.legendURL;
-                                            legendlayer.legendType = item.type;
+                            var showInLegend = layer.showInLegend;
+                            if(layer.showInLegend+"" != "false")
+                                layer.showInLegend=true;
+                            if(showInLegend){
+                                var id = layer.id.split("/")[layer.id.split("/").length - 1];
+                                id = CommonID.to(id);
+                                d_array.forEach(this.legendMapping, function (item) {
+                                    if (id === item.id) {
+                                        var push = true;
+                                        d_array.forEach(this.layers, function (legendlayer) {
+                                            //find managed esri layer
+                                            if (legendlayer.__managed === layer.id) {
+                                                push = false;
+                                                legendlayer.legendURL = item.legendURL;
+                                                legendlayer.legendType = item.type;
+                                            }
+
+                                        }, this);
+
+                                        if (push) {
+                                            layer.set("legendURL", item.legendURL);
+                                            layer.set("legendType", item.type);
+                                            this.layers.push(layer);
                                         }
-
-                                    }, this);
-
-                                    if (push) {
-                                        layer.set("legendURL", item.legendURL);
-                                        layer.set("legendType", item.type);
-                                        this.layers.push(layer);
                                     }
-                                }
-                            }, this);
+                                }, this);
+                            }
                         }, this);
                     }
 

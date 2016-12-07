@@ -1,0 +1,1 @@
+define([".", "./ProblemReportingWidget", "./ProblemReportingWidgetFactory", "./ReportResponseWidget", "./ReportResponseWidgetFactory", "./ProblemReportingController", "./ValidationTextArea"], {});

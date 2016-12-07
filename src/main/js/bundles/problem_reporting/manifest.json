@@ -1,0 +1,269 @@
+{
+  "Bundle-SymbolicName": "problem_reporting",
+  "Bundle-Version": "5.0.6",
+  "Bundle-Name": "problem_reporting",
+  "Bundle-Description": "",
+  "Bundle-Vendor": "con terra GmbH",
+  "Bundle-Category": [
+    ""
+  ],
+  //"Bundle-ExcludedExecutionEnvironment" : ["iPhone","iPad","Android"],
+  "Bundle-Icon": {},
+  "Bundle-License": {},
+  //"Config-Bundle-Location": "/config",
+  "Bundle-AutoStartPolicy": "yes",
+  "Require-Bundle": [
+  ],
+  "CSS-Themes-Extension": [
+    {
+      "name": "neat"
+    }
+  ],
+  "layout-widgets": [
+    {
+      "widgetRole": "problem_reporting",
+      "priority": 2,
+      "nomerge": true,
+      "window": {
+        "title": "${ui.windowTitle}",
+        "windowName": "problem_reporting",
+        "marginBox": {
+          "w": 400,
+          "h": 520
+        },
+        //                "fixEdgesInViewPort": {
+        //                    "r": true
+        //                },
+        "closable": true,
+        "closeOnEscape": true,
+        "minimizeOnClose": true,
+        "resizable": true,
+        "resizeAxis": {
+          "r": true
+        },
+        "draggable": false,
+        "modal": true,
+        "minimizable": false,
+        "maximizable": false,
+        "windowClass": "",
+        "dockTool": "problem_reporting_toggletool",
+        /*  "dockable": true,
+          "dockingBar": "${id}-dockingBarBottomRight",*/
+        "tools": []
+      },
+      "windowevents": {
+        "onShow": "_onShow"
+      }
+    },
+    {
+      "widgetRole": "report_response",
+      "priority": 2,
+      "nomerge": true,
+      "window": {
+        "title": "${ui.windowTitle}",
+        "marginBox": {
+          "w": 440,
+          "h": 230
+        },
+        //                "fixEdgesInViewPort": {
+        //                    "r": true
+        //                },
+        "closable": true,
+        "closeOnEscape": true,
+        "minimizeOnClose": true,
+        "resizable": true,
+        "resizeAxis": {
+          "r": true
+        },
+        "draggable": false,
+        "modal": true,
+        "minimizable": false,
+        "maximizable": false,
+        "windowClass": "",
+        "dockTool": "report_response_toggletool",
+        /*  "dockable": true,
+          "dockingBar": "${id}-dockingBarBottomRight",*/
+        "tools": []
+      }
+      //      "windowevents": {
+      //        "onShow": "_onShow"
+      //      }
+    }
+  ],
+  "Components": [
+    {
+      "name": "ProblemReportingController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "reportingUrl": "@@agiv.mandrill.baseurl@@",
+        "Event-Topics": [
+          {
+            "topic": "agiv/problemreport/SEND",
+            "method": "_sendReport"
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "responseWidget",
+          "providing": "problem_reporting.ResponseWidget"
+        }
+      ]
+    },
+    {
+      "name": "ReportResponseWidgetFactory",
+      "provides": [
+        "dijit.Widget",
+        "problem_reporting.ResponseWidget"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetRole": "report_response"
+      },
+      "references": [
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "ProblemReportingWidgetFactory",
+      "provides": [
+        "dijit.Widget"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetRole": "problem_reporting",
+        "copyTooltipTimeout": 3500,
+        "valueForDataLayerSelection": "Andere zichtbare datalaag",
+        "reportTypes": [
+          {
+            "label": "Fout in geografische ligging",
+            "id": 0
+          },
+          {
+            "label": "Fout in info kaartlaag",
+            "id": 1
+          },
+          {
+            "label": "Ontbrekend gegeven",
+            "id": 2
+          },
+          {
+            "label": "Niet duidelijk",
+            "id": 3
+          },
+          {
+            "label": "Verouderd gegeven",
+            "id": 4
+          },
+          {
+            "label": "Andere",
+            "id": 5
+          }
+        ],
+        "dataTypes": [
+          {
+            "label": "Adres",
+            "id": 0
+          },
+          {
+            "label": "Perceel",
+            "id": 1
+          },
+          {
+            "label": "Gebouw",
+            "id": 2
+          },
+          {
+            "label": "Straatnaam",
+            "id": 3
+          },
+          {
+            "label": "Water",
+            "id": 4
+          },
+          {
+            "label": "Weg",
+            "id": 5
+          },
+          {
+            "label": "Luchtfoto",
+            "id": 6
+          },
+          {
+            "label": "Andere zichtbare datalaag",
+            "id": 7
+          }
+        ]
+      },
+      "references": [
+        {
+          "name": "mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "windowManager",
+          "providing": "ct.framework.api.WindowManager"
+        },
+        {
+          "name": "shareUrlProvider",
+          "providing": "sharemap.ShareUrlProvider"
+        },
+        {
+          "name": "stateStorer",
+          "providing": "statestoring.DBStateStorer"
+        }
+      ]
+    },
+    {
+      "name": "ProblemReportingToggleTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "problem_reporting_toggletool",
+        "toolRole": "toolset",
+        "title": "${ui.toggletool.title}",
+        "tooltip": "${ui.toggletool.tooltip}",
+        "iconClass": "icon-location-information-bubble",
+        "togglable": true,
+        "noGroup": true
+      }
+    },
+    {
+      "name": "ReportResponseToggleTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "report_response_toggletool",
+        "toolRole": "toolset",
+        "title": "${ui.toggletool.title}",
+        "tooltip": "${ui.toggletool.tooltip}",
+        "iconClass": "icon-problem",
+        "togglable": true,
+        "noGroup": true
+      }
+    }
+  ]
+}

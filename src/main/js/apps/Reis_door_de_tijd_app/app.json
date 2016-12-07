@@ -14,6 +14,10 @@
       "id":"Reis_door_de_tijd_app"
    },
    "load":{
+       "bundleLocations": [
+      "localbundles",
+      "bundles"
+    ],
       "styles":[
          "${app}:timeslider.css"
       ],
@@ -211,7 +215,7 @@
                   "windowTitle":"${ui.contentInfoWindowTitle}",
                   "windowSize":{
                      "w":375,
-                     "h":120
+                     "h":150
                   },
                   "window":{
                      "windowName":"agivGenericIdentify",

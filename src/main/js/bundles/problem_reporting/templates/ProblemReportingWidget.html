@@ -1,0 +1,123 @@
+<div>
+    <div data-dojo-type="ct/ui/controls/MessagePane" data-dojo-attach-point="messagePane"></div>
+    <div>
+        <h3>${i18n.ui.personalInfo}</h3>
+        <div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.surname}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
+                         data-dojo-props="regExp:'.{2,80}',intermediateChanges:true,required:true,invalidMessage:'${i18n.ui.tooLong80}'"
+                         data-dojo-attach-point="surnameTextBox" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.name}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
+                         data-dojo-props="regExp:'.{2,40}',intermediateChanges:true,required:true,invalidMessage:'${i18n.ui.tooLong40}'"
+                         data-dojo-attach-point="nameTextBox" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.email}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
+                         data-dojo-props="required:true,intermediateChanges:true, invalidMessage:'${i18n.ui.emailNotValid}', validator:this._isEmailAddress"
+                         data-dojo-attach-point="emailTextBox" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.phone}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
+                         data-dojo-props="regExp:'\\d{0,15}',intermediateChanges:true,invalidMessage:'${i18n.ui.illegalPhoneNumber}'"
+                         data-dojo-attach-point="phoneTextBox"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.organisation}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
+                         data-dojo-props="regExp:'.{0,80}',intermediateChanges:true,invalidMessage:'${i18n.ui.tooLong80}'"
+                         data-dojo-attach-point="organisationTextBox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>${i18n.ui.report}</h3>
+        <div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.reportType}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/FilteringSelect"
+                         data-dojo-props="store:this.reportTypeStore, required:true, labelAttr: 'label',searchAttr:'label',placeHolder:this.i18n.ui.labels.selectPlaceHolder"
+                         data-dojo-attach-point="reportTypeSelect" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.dataType}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/FilteringSelect"
+                         data-dojo-props="store:this.dataTypeStore, required:true, labelAttr: 'label',searchAttr:'label',placeHolder:this.i18n.ui.labels.selectPlaceHolder"
+                         data-dojo-attach-point="dataTypeSelect"
+                         data-dojo-attach-event="onChange:_onDataTypeChange"></div>
+                </div>
+            </div>
+            <div class="row dijitHidden" data-dojo-attach-point="dataLayerRow">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.dataLayer}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textField" data-dojo-type="dijit/form/FilteringSelect"
+                         data-dojo-props="required:true, autoWidth:true, labelAttr: 'title',searchAttr:'title',placeHolder:this.i18n.ui.labels.selectPlaceHolder"
+                         data-dojo-attach-point="dataLayerSelect" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-1">
+                    <div>${i18n.ui.labels.description}</div>
+                </div>
+                <div class="column-2">
+                    <div class="textArea" data-dojo-type="problem_reporting/ValidationTextArea"
+                         data-dojo-props="rows:4, maxLength: 250, intermediateChanges:true,required:true,placeholder:this.i18n.ui.labels.textAreaPlaceHolder"
+                         data-dojo-attach-point="descriptionTextArea" data-dojo-attach-event="onChange:_validate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>${i18n.ui.urlInfo}</h3>
+        <div class="">
+            <div class="urlTextField" data-dojo-type="dijit/form/TextBox"
+                 data-dojo-attach-point="urlTextBox" data-dojo-props="readOnly:true,value:'http://geopunt.be'"></div>
+            <div data-dojo-type="dijit/form/Button" class="copyPasteButton"
+                 data-dojo-props="iconClass:'icon-editor-paste'"
+                 data-dojo-attach-event="onClick:_copy" data-dojo-attach-point="copyButton"></div>
+        </div>
+    </div>
+    <div style="clear: both">
+        <div data-dojo-type="dijit/form/Button" class="alignRight  buttonSpacing" data-dojo-attach-point="sendButton"
+             data-dojo-attach-event="onClick:_send"
+             data-dojo-props="label:this.i18n.ui.labels.send, disabled:true"></div>
+        <div data-dojo-type="dijit/form/Button" class="alignRight buttonSpacing" data-dojo-attach-point="cancelButton"
+             data-dojo-attach-event="onClick:_cancel"
+             data-dojo-props="label:this.i18n.ui.labels.cancel"></div>
+
+    </div>
+</div>
