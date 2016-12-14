@@ -155,7 +155,9 @@ define([
                         if (!d_webValidation.isEmailAddress(user.email)) {
                             valid = false;
                         }
-                        valid = this.nameTextBox.isValid() && this.surnameTexBox.isValid() && this.phoneTextBox.isValid() && this.organisationTextBox.isValid();
+                        if(valid)
+                            valid = this.nameTextBox.isValid() && this.surnameTextBox.isValid() && this.phoneTextBox.isValid() && this.organisationTextBox.isValid() && this.descriptionTextArea.isValid();
+                        //valid= this.descriptionTextArea.isValid()?valid:false;
                     } catch (e) {
 
                     }
@@ -178,7 +180,7 @@ define([
                     var layer = this.dataLayerSelect.store.get(this.dataLayerSelect.get("value"));
                     var layerValue = "-";
                     if (layer) {
-                        layerValue = layer.title + " (ID: " + layer.id + ")";
+                        layerValue = layer.title;// + " (ID: " + layer.title + ")";
                     }
                     return {
                         user: {

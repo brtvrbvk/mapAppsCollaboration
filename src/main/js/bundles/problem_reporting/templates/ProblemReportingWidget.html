@@ -40,7 +40,7 @@
                 <div class="column-2">
                     <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
                          data-dojo-props="regExp:'\\d{0,15}',intermediateChanges:true,invalidMessage:'${i18n.ui.illegalPhoneNumber}'"
-                         data-dojo-attach-point="phoneTextBox"></div>
+                         data-dojo-attach-point="phoneTextBox" data-dojo-attach-event="onChange:_validate"></div>
                 </div>
             </div>
             <div class="row">
@@ -49,8 +49,8 @@
                 </div>
                 <div class="column-2">
                     <div class="textField" data-dojo-type="dijit/form/ValidationTextBox"
-                         data-dojo-props="regExp:'.{0,80}',intermediateChanges:true,invalidMessage:'${i18n.ui.tooLong80}'"
-                         data-dojo-attach-point="organisationTextBox"></div>
+                         data-dojo-props="regExp:'.{0,80}',intermediateChanges:true,invalidMessage:'${i18n.ui.organisationInvalid}'"
+                         data-dojo-attach-point="organisationTextBox" data-dojo-attach-event="onChange:_validate"></div>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="column-2">
                     <div class="textArea" data-dojo-type="problem_reporting/ValidationTextArea"
-                         data-dojo-props="rows:4, maxLength: 250, intermediateChanges:true,required:true,placeholder:this.i18n.ui.labels.textAreaPlaceHolder"
+                         data-dojo-props="regExp:'.{2,250}',rows:4, maxLength: 250, intermediateChanges:true,required:true,placeholder:this.i18n.ui.labels.textAreaPlaceHolder"
                          data-dojo-attach-point="descriptionTextArea" data-dojo-attach-event="onChange:_validate"></div>
                 </div>
             </div>
