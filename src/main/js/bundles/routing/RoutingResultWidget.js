@@ -80,8 +80,6 @@ define([
                         this._onClick);
                     listeners.connect(this.elevationButton, "onClick", this,
                         this._getElevationInfo);
-                    listeners.connect(this.routeExportButton, "onClick", this,
-                        this._doExport);
                 }
                 this.inherited(arguments);
                 this.set("title",
@@ -156,32 +154,7 @@ define([
                     }
                 });
             },
-            _doExport: function () {
-                var mergedPoints = [];
-                var stopovers = this.route.stopovers;
-                d_array.forEach(stopovers, function (stopover) {
-                    var parts = stopover.parts;
-                    d_array.forEach(parts, function (part) {
-                        mergedPoints = mergedPoints.concat(part.geometry.paths[0]);
-                    });
-                }, this);
-                var graphic = {
-                    geometry: {
-                        spatialReference: this.route.stopovers[0].parts[0].geometry.spatialReference,
-                        paths: [mergedPoints],
-                        type: "polyline"
-                    }
-                };
-                /*
-                this.eventService.postEvent(this.topics.GET_ELEVATION_INFO, {
-                    geometry: {
-                        graphic: graphic
-                    }
-                });*/
-                var title={title:"route"};
-                var nodeid="drawingtoolsetNode"  + new Date().getTime() +  Math.round(Math.random()*1000);
-                document.bart_geometryrenderermodifier.renderGeometry(graphic,title,nodeid);
-            },
+
 
             _onClick: function () {
                 this.onClick();

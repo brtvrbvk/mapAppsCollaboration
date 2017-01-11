@@ -715,7 +715,7 @@ if(serviceQuerystring){
                     if (mapping && mapping.mapping && mapping.mapping.length) {
                         d_array.some(mapping.mapping,
                             function (item) {
-                                if (item.attributeName === field && item.attributeValue === value && item.displayValue !== "") {
+                                if (item.attributeName === field && (item.attributeValue === value || item.attributeValue === value.toString()) && item.displayValue !== "") {
                                     result = item.displayValue;
                                     return true;
                                 }

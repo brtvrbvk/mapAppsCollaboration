@@ -110,9 +110,7 @@
                 "id": "featureInfoControllerWidget",
                 "defaultProperties": {
                     "year": "2014",
-                    "municipalityLink": "http://regionalestatistieken.vlaanderen.be/sites/default/files/docs/GPS-${municipality}.pdf"
-                    //"municipalityLink": "http://aps.vlaanderen.be/lokaal/pdf/gemeente-${year}/${municipality}.pdf"
-                    
+                    "municipalityLink": "http://aps.vlaanderen.be/lokaal/pdf/gemeente-${year}/${municipality}.pdf"
                 }
             },
             "references": [

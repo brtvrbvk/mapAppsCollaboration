@@ -3,7 +3,7 @@ define([".",
     "./MaximizeViewerHandler",
     "./MaximizeParametrizable",
     "./searchintegration/GeopuntHandler",
-    "./NotifierHandler",
+    //"./NotifierHandler",
     "ct/tools/Tool",
     "ct/tools/ToolButtonFactory"
 ], {});

@@ -207,11 +207,6 @@ define([
                         
                         
                     }
-                    //document.bart_notifier.warning("updating " + this.gipodType,"info",{timeout:900000,autoClose:false,newId:this.gipodType+"xyz",clickClose:true});
-                    /*this._workers++;
-                    if (this._workers > 0) {
-                        ct_css.toggleClass(this._rootNode, "ctLoadingThemaInfo", true);
-                    }*/
                 },
                 onUpdateEnd: function (evt) {
                     if(document.bart_gipodParameterWidget){
@@ -225,12 +220,6 @@ define([
                         if (document.bart_gipodParameterWidget._workers < 0)
                             document.bart_gipodParameterWidget._workers = 0
                     }
-                    //document.bart_notifier.remove(this.gipodType+"xyz");
-                    //document.bart_notifier.success("done updating " + this.gipodType,"info",{autoClose:true,timeout:2000});
-                    /*this._workers--;
-                    if (this._workers <= 0) {
-                        ct_css.toggleClass(this._rootNode, "ctLoadingThemaInfo", false);
-                    }*/
                 },
 
                 _convertOptions: function (options) {

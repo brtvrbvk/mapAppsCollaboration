@@ -4,6 +4,6 @@ define([".",
     "./CommentAttributeTableLookupStrategy",
     "./GeometryRendererModifier",
     "./ExportController",
-    "./ImportController",
+    //"./ImportController",
     "ct/tools/Tool"
 ], {});

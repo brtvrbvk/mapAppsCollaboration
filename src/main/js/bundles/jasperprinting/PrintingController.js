@@ -66,7 +66,6 @@ define([
                 },
 
                 print: function (data) {
-//                    document.bart_notifier.info("Print opdracht start","info");
                     var templates = data.print && data.print.template;
                     var selectedTemplate = this._getSelectedKey(templates);
 
@@ -180,7 +179,6 @@ define([
                     }), function (resp) {
 
                         ct_async.hitch(this, function () {
-//                            document.bart_notifier.info("Print opdracht klaar","info");
                             window.open(this.url + "fetch/" + resp.printout, "_blank");
                         }, 150)();
 

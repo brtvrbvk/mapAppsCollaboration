@@ -44,7 +44,6 @@ define([
             this.geometryRenderer.clearGraphics = d_lang.hitch(this, this.clearGraphics);
 
             this.connect(this.editStateController, "onDeleteGraphic", this, this._deleteGraphic);
-            document.bart_geometryrenderermodifier=this;
 
         },
 
